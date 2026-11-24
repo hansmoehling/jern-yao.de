@@ -1,0 +1,18 @@
+name = "jy-anfrage"
+main = "worker.js"
+compatibility_date = "2026-11-01"
+
+[[kv_namespaces]]
+binding = "SPEICHER"
+id = "HIER_DIE_ID_AUS_wrangler_kv_namespace_create"
+
+[vars]
+EMPFAENGER = "info@jernyao.de"
+ABSENDER = "Hans Möhling <info@jernyao.de>"
+MODELL = "claude-sonnet-5-5"
+BASIS = "https://jy-anfrage.KONTO.workers.dev"
+
+# Geheimnisse, nie in diese Datei:
+#   wrangler secret put ANTHROPIC_API_KEY
+#   wrangler secret put RESEND_API_KEY
+#   wrangler secret put FREIGABE_SCHLUESSEL

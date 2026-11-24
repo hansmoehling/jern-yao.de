@@ -377,4 +377,4 @@
 
   const API = { WERKSTOFFE, GRENZEN, REGELN, FAMILIEN, auslegen, pruefe, waehle, kf, G };
   if (typeof module !== 'undefined' && module.exports) module.exports = API; else root.JYK = API;
-})(typeof window !== 'undefined' ? window : this);
+})(typeof globalThis !== 'undefined' ? globalThis : this);
