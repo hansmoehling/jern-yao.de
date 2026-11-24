@@ -1,0 +1,13 @@
+"""Baut index.html aus vorlage.html, engine.js, ui.js und maschinen.json. Aufruf: python3 quelle/bauen.py"""
+import json, pathlib
+Q = pathlib.Path(__file__).resolve().parent
+UMAMI = 'b50ac41f-f69c-4005-b9da-eae7ef84e8e9'
+v = (Q / 'vorlage.html').read_text()
+daten = json.dumps(json.loads((Q / 'maschinen.json').read_text()), ensure_ascii=False, separators=(',', ':'))
+assert '</script' not in daten
+v = v.replace('data-website-id="b50ac41f-for-jernyao"', 'data-website-id="%s"' % UMAMI)
+for ph, val in (('/*DATEN*/', daten), ('/*ENGINE*/', (Q / 'engine.js').read_text()), ('/*UI*/', (Q / 'ui.js').read_text())):
+    assert ph in v, ph
+    v = v.replace(ph, val)
+(Q.parent / 'index.html').write_text(v)
+print('index.html', len(v) // 1024, 'KB')
