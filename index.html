@@ -84,6 +84,7 @@
   th{ text-align:left; font-weight:500; color:var(--mid); font-size:12px; border-bottom:1px solid var(--hair); padding:6px 8px; }
   td{ border-bottom:1px solid var(--hair); padding:6px 8px; vertical-align:top; }
   td.z{ text-align:right; white-space:nowrap; }
+  td.z small{ color:var(--mid); font-size:11.5px; }
   .hinweise{ margin:10px 0 0; padding-left:18px; font-size:13.5px; color:var(--knapp); }
   .karte{ border:1px solid var(--hair); border-radius:8px; padding:14px 16px; margin-bottom:12px; }
   .karte.beste{ border-color:var(--navy-soft); box-shadow:0 0 0 1px var(--navy-soft) inset; }
@@ -250,7 +251,7 @@
         <dl class="kenn" id="kenn"></dl>
         <ul class="hinweise" id="hinweise"></ul>
         <h3>Stadienfolge</h3>
-        <table id="stufen"><thead><tr><th>Station</th><th>Vorgang</th><th style="text-align:right">Kraft</th><th style="text-align:right">Matrize Ø min</th></tr></thead><tbody></tbody></table>
+        <table id="stufen"><thead><tr><th>Station</th><th>Vorgang</th><th style="text-align:right">Kraft</th><th style="text-align:right">Druck N/mm²</th><th style="text-align:right">Matrize Ø min</th></tr></thead><tbody></tbody></table>
         <div class="gruppe">
           <h2>Passende Maschinen</h2>
           <p class="klein" id="preisnote">Richtpreis 2026 in EUR, FOB Kaohsiung, Grundausstattung 2026, unverbindlich. Die Spanne zeigt die Unsicherheit der Ableitung.</p>
@@ -322,13 +323,13 @@
 
   // Fließpressgrenzen je Hub, jeweils der vorsichtigere von zwei Richtwerttafeln (Fundstellen in regeln.md)
   const GRENZEN = {
-    gut:      { vor: 0.70, napfMin: 0.20, napfMax: 0.65, tiefe: 3,   q: 'R-FP1' },
-    schwerer: { vor: 0.60, napfMin: 0.25, napfMax: 0.65, tiefe: 2,   q: 'R-FP1' },
-    schwer:   { vor: 0.55, napfMin: 0.35, napfMax: 0.60, tiefe: 1.5, q: 'R-FP1' },
-    rostfrei: { vor: 0.45, napfMin: 0.35, napfMax: 0.50, tiefe: 1.5, q: 'R-FP1' },
-    messing:  { vor: 0.70, napfMin: 0.20, napfMax: 0.65, tiefe: 3,   q: 'R-FP1' },
-    kupfer:   { vor: 0.80, napfMin: 0.30, napfMax: 0.75, tiefe: 4,   q: 'R-FP1' },
-    alu:      { vor: 0.95, napfMin: 0.10, napfMax: 0.95, tiefe: 6,   q: 'R-FP1' }
+    gut:      { vor: 0.70, napfMin: 0.30, napfMax: 0.65, tiefe: 3,   l0d0: 10 },
+    schwerer: { vor: 0.60, napfMin: 0.40, napfMax: 0.65, tiefe: 2,   l0d0: 6 },
+    schwer:   { vor: 0.55, napfMin: 0.40, napfMax: 0.60, tiefe: 1.5, l0d0: 4 },
+    rostfrei: { vor: 0.45, napfMin: 0.40, napfMax: 0.50, tiefe: 1.5, l0d0: 4 },
+    messing:  { vor: 0.70, napfMin: 0.20, napfMax: 0.65, tiefe: 3,   l0d0: null },
+    kupfer:   { vor: 0.80, napfMin: 0.30, napfMax: 0.75, tiefe: 4,   l0d0: null },
+    alu:      { vor: 0.95, napfMin: 0.10, napfMax: 0.95, tiefe: 6,   l0d0: null }
   };
 
   // Regelwerk: Kennung, Aussage, Art. Öffentliche Kurzform; Fundstellen in regeln.md im Projektordner.
@@ -344,7 +345,7 @@
     'R-LO1': { t: 'Lochbutzen T = 0,5 · Loch-Ø (normal), bis 1,0 · Loch-Ø', art: 'Erfahrungsregel' },
     'R-KF':  { t: 'Fließkurve k_f = C · φⁿ, Anfangswert bei φ = 0,025', art: 'Näherungsmodell (Fließkurve nach Ludwik)' },
     'R-F1':  { t: 'Stauchkraft F = A₁ · k_f1 / η_F; η_F 0,6 im Fertigschlag, 0,8 im Vorstauchen', art: 'Näherungsmodell, η_F aus dem Bereich 0,6 bis 0,9' },
-    'R-F2':  { t: 'Fließpresskraft F = A₀ · k_fm · φ / η_F mit η_F = 0,6', art: 'Näherungsmodell, η_F aus dem Bereich 0,4 bis 0,8' },
+    'R-F2':  { t: 'Fließpresskraft F = [A₀ · k_fm · (⅔α + (1 + 2μ/sin 2α) · φ) + π · d₀ · l · μ · k_f0] / 0,6; 2α = 30° beim Reduzieren, 90° beim Fließpressen, μ = 0,1', art: 'Näherungsmodell' },
     'R-F3':  { t: 'Napf- und Innenantriebsstempel: p = k_f · (1 + φ + 2μ·h/d), μ = 0,1, k_f bei aufsummiertem Umformgrad', art: 'Näherungsmodell' },
     'R-F4':  { t: 'Abgraten und Lochen: F = Schnittlänge · Dicke · 0,8 · k_f', art: 'Näherungsmodell' },
     'R-PK':  { t: 'Presskraft: höchste Stationskraft bis 80 % der Nennkraft (muss), bis 65 % (wünschenswert)', art: 'Auslegungsvorgabe' },
@@ -355,13 +356,16 @@
     'R-SB':  { t: 'Schneidbüchse: Bohrung 1,01 · d₀, Außen-Ø rund 3,3 · d₀', art: 'Werknorm, durch Katalogproportionen bestätigt' },
     'R-SP':  { t: 'Stempelaufnahme rund 2,3 · Kopf-Ø', art: 'Katalogproportion Jern Yao' },
     'R-OU':  { t: 'Kopf-Ø höchstens Stauch-Ø der Maschine', art: 'Katalogwert' },
-    'R-PI':  { t: 'Pitch mindestens Matrizen-Außen-Ø', art: 'Geometrie' }
+    'R-PI':  { t: 'Pitch mindestens Matrizen-Außen-Ø', art: 'Geometrie' },
+    'R-PS':  { t: 'Werkzeugdruck je Station: bis 2200 N/mm² für gehärtete Kaltarbeitsstähle, darüber nur mit Sonderwerkstoff und kurzem Stempel', art: 'Richtwert' },
+    'R-AR':  { t: 'Armierung nach Werkzeugdruck: bis 1000 N/mm² ohne Ring, bis 1600 ein Ring, bis 2160 zwei Ringe, darüber Sonderarmierung', art: 'Richtwert' },
+    'R-L0':  { t: 'Vorwärtsfließpressen: Rohteil nicht schlanker als l₀/d₀ = 10, 6 oder 4 je Werkstoffgruppe, sonst zu viel Wandreibung', art: 'Richtwert' }
   };
 
   // Schlüsselweite → Gewinde nach ISO 4032 (Regelgewinde), nur als Vorbelegung
   const SW_M = [[5.5, 3], [7, 4], [8, 5], [10, 6], [13, 8], [16, 10], [18, 12], [21, 14], [24, 16], [27, 18], [30, 20], [34, 22], [36, 24], [41, 27], [46, 30], [50, 33], [55, 36], [60, 39], [65, 42]];
   const mAusSW = sw => { let b = SW_M[0]; for (const x of SW_M) if (Math.abs(x[0] - sw) < Math.abs(b[0] - sw)) b = x; return b[1]; };
-  const ETA_FERTIG = 0.6, ETA_VOR = 0.8, ETA_FP = 0.6, MU = 0.1;
+  const ETA_FERTIG = 0.6, ETA_VOR = 0.8, MU = 0.1;
   const kf = (m, phi) => m.C * Math.pow(Math.max(phi, 0.025), m.n);
   const kfm = (m, a, b) => (kf(m, a + 0.025) + kf(m, b + 0.025)) / 2; // Mittel aus Anfangs- und Endwert der Fließspannung
   const kreis = d => Math.PI * d * d / 4;
@@ -369,6 +373,14 @@
   const pos = x => typeof x === 'number' && isFinite(x) && x > 0;
   const r1 = x => Math.round(x * 10) / 10;
   const z = x => String(r1(x)).replace('.', ',');
+
+  // Fließpresskraft nach Lange (Fließpressen, Kap. 10.8.2): mittlere Kraft mit Schiebung an der Schulter und Wandreibung,
+  // größte Kraft = mittlere / 0,6. 2α = 30° beim offenen Reduzieren, 90° beim geschlossenen Fließpressen.
+  function fpKraft(m, A, a, b, offen, l, d) {
+    const al = offen ? Math.PI / 12 : Math.PI / 4;
+    const F = A * kfm(m, a, b) * (2 / 3 * al + (1 + 2 * MU / Math.sin(2 * al)) * (b - a)) + (offen ? 0 : Math.PI * d * l * MU * kf(m, a + 0.025));
+    return F / 0.6;
+  }
 
   function napfDruck(m, phiVor, eps, h, d) {
     // eps: Flächenverhältnis Stempel/Matrize; phi der Wand
@@ -424,12 +436,12 @@
       const eps = Math.min(0.9, kreis(dl) / Ahex);
       const p4 = napfDruck(m, phiHex, Math.min(eps, 0.75), 0.35 * e.mH, dl);
       const phiEnd = phiHex + 0.5;
-      out.stufen.push({ v: 'Planstauchen', F: A1 * kf(m, phi1) / ETA_VOR, bohr: d0, r: 'R-F1' });
-      out.stufen.push({ v: 'Vorstauchen rund', F: A2 * kf(m, phi2) / ETA_VOR, bohr: 0.95 * eck, r: 'R-F1' });
-      out.stufen.push({ v: 'Sechskant formen, beidseitig vorlochen', F: Ahex * kf(m, phiHex) / ETA_FERTIG, bohr: eck, r: 'R-F1' });
-      out.stufen.push({ v: 'Napf vertiefen bis Butzen', F: kreis(dl) * p4, bohr: eck, r: 'R-F3' });
-      if (flansch) out.stufen.push({ v: 'Flansch fertigformen', F: kreis(flansch) * kf(m, phiEnd) / ETA_FERTIG, bohr: flansch, r: 'R-F1' });
-      out.stufen.push({ v: 'Lochen', F: Math.PI * dl * T * 0.8 * kf(m, phiEnd), bohr: eck, r: 'R-F4' });
+      out.stufen.push({ v: 'Planstauchen', F: A1 * kf(m, phi1) / ETA_VOR, A: A1, bohr: d0, r: 'R-F1' });
+      out.stufen.push({ v: 'Vorstauchen rund', F: A2 * kf(m, phi2) / ETA_VOR, A: A2, bohr: 0.95 * eck, r: 'R-F1' });
+      out.stufen.push({ v: 'Sechskant formen, beidseitig vorlochen', F: Ahex * kf(m, phiHex) / ETA_FERTIG, A: Ahex, bohr: eck, r: 'R-F1' });
+      out.stufen.push({ v: 'Napf vertiefen bis Butzen', F: kreis(dl) * p4, A: kreis(dl), bohr: eck, r: 'R-F3' });
+      if (flansch) out.stufen.push({ v: 'Flansch fertigformen', F: kreis(flansch) * kf(m, phiEnd) / ETA_FERTIG, A: kreis(flansch), bohr: flansch, r: 'R-F1' });
+      out.stufen.push({ v: 'Lochen', F: Math.PI * dl * T * 0.8 * kf(m, phiEnd), A: kreis(dl), bohr: eck, r: 'R-F4' });
       ['R-F1', 'R-F3', 'R-F4', 'R-KF'].forEach(R);
       out.werte.loch = dl;
     } else {
@@ -465,13 +477,15 @@
         R('R-RE1'); R('R-FP1'); R('R-F2');
         const nFP = eps <= 0.30 ? 0 : Math.ceil(Math.log(1 / (1 - eps)) / Math.log(1 / (1 - gr.vor)) - 1e-9);
         if (eps <= 0.30) {
-          out.stufen.push({ v: 'Reduzieren ' + z(d0) + ' → ' + z(sD) + ' (' + Math.round(eps * 100) + ' %), mit Vorstauchen', F: A0 * kfm(m, 0, phiSchaft) * phiSchaft / ETA_FP, bohr: d0, r: 'R-F2', mit: true });
+          out.stufen.push({ v: 'Reduzieren ' + z(d0) + ' → ' + z(sD) + ' (' + Math.round(eps * 100) + ' %), mit Vorstauchen', F: fpKraft(m, A0, 0, phiSchaft, true, 0, d0), A: A0, bohr: d0, r: 'R-F2', mit: true });
         } else {
           for (let i = 1; i <= nFP; i++) {
             const a = phiSchaft * (i - 1) / nFP, b = phiSchaft * i / nFP;
             const dA = Math.sqrt(4 * A0 * Math.exp(-a) / Math.PI), dB = Math.sqrt(4 * A0 * Math.exp(-b) / Math.PI);
-            out.stufen.push({ v: 'Vorwärtsfließpressen Schaft ' + z(dA) + ' → ' + z(dB) + ' (' + Math.round((1 - Math.exp(a - b)) * 100) + ' %)', F: kreis(dA) * kfm(m, a, b) * (b - a) / ETA_FP, bohr: dA, r: 'R-F2' });
+            out.stufen.push({ v: 'Vorwärtsfließpressen Schaft ' + z(dA) + ' → ' + z(dB) + ' (' + Math.round((1 - Math.exp(a - b)) * 100) + ' %)', F: fpKraft(m, kreis(dA), a, b, false, (V + Vab) / A0, dA), A: kreis(dA), bohr: dA, r: 'R-F2' });
           }
+          R('R-L0');
+          if (gr.l0d0 && ((V + Vab) / A0) / d0 > gr.l0d0) out.hinweise.push('Rohteil schlanker als l₀/d₀ = ' + gr.l0d0 + ' beim Vorwärtsfließpressen: hohe Wandreibung, Schaft in der Matrize abstützen oder Abschnitt kürzen');
           if (nFP > 1) out.hinweise.push('Querschnittsabnahme ' + Math.round(eps * 100) + ' % über der Grenze je Hub für ' + m.id + ' (' + Math.round(gr.vor * 100) + ' %): auf ' + nFP + ' Hübe verteilt');
         }
       } else if (sL && sD > d0 * 1.005) {
@@ -494,13 +508,14 @@
           const fertig = i === n;
           let F = A * kf(m, ph) / (fertig ? ETA_FERTIG : ETA_VOR);
           let txt = fertig ? (e.kopfForm === 'sechskant' ? 'Sechskantkopf fertigstauchen' : 'Kopf fertigstauchen') : (i === 1 ? 'Vorstauchen' : 'Zwischenstauchen');
+          let pStempel = null;
           if (fertig && Vi) {
             const epsI = sechskant(e.iSW) / Akopf;
             const p = napfDruck(m, phiKopf, Math.min(Math.max(epsI, 0.05), 0.9), e.iT, e.iSW);
-            F += sechskant(e.iSW) * p; txt += ' mit Innenantrieb'; R('R-F3');
+            F += sechskant(e.iSW) * p; txt += ' mit Innenantrieb'; R('R-F3'); pStempel = p;
             if (e.iT > 2 * e.iSW) out.hinweise.push('Innenantrieb tiefer als 2 × SW: Vorformen im vorigen Schlag nötig');
           }
-          out.stufen.push({ v: txt, F, bohr: matBohrung, kopf: Math.sqrt(4 * A / Math.PI), r: 'R-F1' });
+          out.stufen.push({ v: txt, F, A, bohr: matBohrung, kopf: Math.sqrt(4 * A / Math.PI), r: 'R-F1', pStempel });
         }
         if (kopfAbgr) {
           const U = 6 * e.kSW / Math.sqrt(3);
@@ -518,14 +533,14 @@
         const nN = Math.max(1, Math.ceil(e.nT / tiefeJeHub - 1e-9));
         for (let i = 1; i <= nN; i++) {
           const p = napfDruck(m, phiKopf || phiSchaft, Math.min(Math.max(eps, 0.05), 0.9), e.nT * i / nN, e.nD);
-          out.stufen.push({ v: 'Napf rückwärts fließpressen' + (nN > 1 ? ' (' + i + '/' + nN + ')' : '') + ' Ø' + z(e.nD) + ' × ' + z(e.nT * i / nN), F: kreis(e.nD) * p, bohr: Dw, r: 'R-F3' });
+          out.stufen.push({ v: 'Napf rückwärts fließpressen' + (nN > 1 ? ' (' + i + '/' + nN + ')' : '') + ' Ø' + z(e.nD) + ' × ' + z(e.nT * i / nN), F: kreis(e.nD) * p, A: kreis(e.nD), bohr: Dw, r: 'R-F3' });
         }
         if (e.nDurch) {
-          out.stufen.push({ v: 'Lochen Ø' + z(e.nD), F: Math.PI * e.nD * butzen * 0.8 * kf(m, Math.max(phiKopf, phiSchaft) + 0.7), bohr: Dw, r: 'R-F4' }); R('R-F4');
+          out.stufen.push({ v: 'Lochen Ø' + z(e.nD), F: Math.PI * e.nD * butzen * 0.8 * kf(m, Math.max(phiKopf, phiSchaft) + 0.7), A: kreis(e.nD), bohr: Dw, r: 'R-F4' }); R('R-F4');
         }
         matBohrung = Math.max(matBohrung, Dw);
       }
-      if (e.typ === 'formteil') out.stufen.unshift({ v: 'Planstauchen, Abschnitt richten', F: A0 * Math.exp(0.1) * kf(m, 0.1) / ETA_VOR, bohr: d0, r: 'R-F1' });
+      if (e.typ === 'formteil') out.stufen.unshift({ v: 'Planstauchen, Abschnitt richten', F: A0 * Math.exp(0.1) * kf(m, 0.1) / ETA_VOR, A: A0 * Math.exp(0.1), bohr: d0, r: 'R-F1' });
     }
 
     // Abschnitt
@@ -571,6 +586,17 @@
     out.werte.wenden = !!e.wenden;
     out.werte.vorgaben = v;
     out.stufen.forEach(s => { s.matD = 4.5 * (s.bohr || matBohrung); });
+    // Werkzeugdruck und Armierung je Station
+    R('R-PS'); R('R-AR');
+    out.stufen.forEach((s, i) => {
+      if (s.A) {
+        s.p = s.F / s.A;
+        s.arm = s.p <= 1000 ? 'ohne Ring' : s.p <= 1600 ? '1 Ring' : s.p <= 2160 ? '2 Ringe' : 'Sonderarmierung';
+        if (s.pStempel > 2200) out.hinweise.push('Station ' + (i + 1) + ': Innenantriebsstempel ' + Math.round(s.pStempel) + ' N/mm²' + (s.pStempel > 2500 ? ', über 2500 N/mm²: Antrieb im vorigen Schlag vorformen' : ', über 2200 N/mm²: Stempel aus Schnellarbeitsstahl, kurz geführt'));
+        if (s.p > 2500) out.hinweise.push('Station ' + (i + 1) + ': Werkzeugdruck ' + Math.round(s.p) + ' N/mm² über 2500 N/mm²; Stufe teilen oder Werkzeugkonzept im Fachgespräch');
+        else if (s.p > 2200) out.hinweise.push('Station ' + (i + 1) + ': Werkzeugdruck ' + Math.round(s.p) + ' N/mm² über 2200 N/mm²; kurzer Stempel aus Schnellarbeitsstahl oder Hartmetall');
+      }
+    });
     out.regelListe = [...out.regeln];
     return out;
   }
@@ -768,7 +794,7 @@
     if (e.typ !== 'mutter') kenn.splice(3, 0, ['Stauchverhältnis Kopf', w.sKopf ? fmt(w.sKopf, 2) : '·']);
     $('kenn').innerHTML = kenn.map(([k, v]) => '<div><dt>' + k + '</dt><dd>' + v + '</dd></div>').join('');
     $('hinweise').innerHTML = aus.hinweise.map(h => '<li>' + esc(h) + '</li>').join('');
-    $('stufen').tBodies[0].innerHTML = aus.stufen.map((s, i) => '<tr><td>' + (i + 1) + '</td><td>' + esc(s.v) + '</td><td class="z">' + fmt(s.t) + ' t</td><td class="z">Ø' + Math.round(s.matD) + '</td></tr>').join('');
+    $('stufen').tBodies[0].innerHTML = aus.stufen.map((s, i) => '<tr><td>' + (i + 1) + '</td><td>' + esc(s.v) + '</td><td class="z">' + fmt(s.t) + ' t</td><td class="z">' + (s.p ? fmt(s.p, 0) : '·') + '</td><td class="z">Ø' + Math.round(s.matD) + (s.arm ? '<br><small>' + s.arm + '</small>' : '') + '</td></tr>').join('');
     // Karten
     const k = [];
     const karte = (r, beste) => {

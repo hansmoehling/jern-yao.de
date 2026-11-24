@@ -92,7 +92,7 @@
     if (e.typ !== 'mutter') kenn.splice(3, 0, ['Stauchverhältnis Kopf', w.sKopf ? fmt(w.sKopf, 2) : '·']);
     $('kenn').innerHTML = kenn.map(([k, v]) => '<div><dt>' + k + '</dt><dd>' + v + '</dd></div>').join('');
     $('hinweise').innerHTML = aus.hinweise.map(h => '<li>' + esc(h) + '</li>').join('');
-    $('stufen').tBodies[0].innerHTML = aus.stufen.map((s, i) => '<tr><td>' + (i + 1) + '</td><td>' + esc(s.v) + '</td><td class="z">' + fmt(s.t) + ' t</td><td class="z">Ø' + Math.round(s.matD) + '</td></tr>').join('');
+    $('stufen').tBodies[0].innerHTML = aus.stufen.map((s, i) => '<tr><td>' + (i + 1) + '</td><td>' + esc(s.v) + '</td><td class="z">' + fmt(s.t) + ' t</td><td class="z">' + (s.p ? fmt(s.p, 0) : '·') + '</td><td class="z">Ø' + Math.round(s.matD) + (s.arm ? '<br><small>' + s.arm + '</small>' : '') + '</td></tr>').join('');
     // Karten
     const k = [];
     const karte = (r, beste) => {
