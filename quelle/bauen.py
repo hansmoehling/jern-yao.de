@@ -6,7 +6,8 @@ v = (Q / 'vorlage.html').read_text()
 daten = json.dumps(json.loads((Q / 'maschinen.json').read_text()), ensure_ascii=False, separators=(',', ':'))
 assert '</script' not in daten
 v = v.replace('data-website-id="b50ac41f-for-jernyao"', 'data-website-id="%s"' % UMAMI)
-for ph, val in (('/*DATEN*/', daten), ('/*ENGINE*/', (Q / 'engine.js').read_text()), ('/*UI*/', (Q / 'ui.js').read_text())):
+praxis = json.dumps(json.loads((Q / 'praxis.json').read_text()), ensure_ascii=False, separators=(',', ':'))
+for ph, val in (('/*PRAXIS*/', praxis), ('/*DATEN*/', daten), ('/*ENGINE*/', (Q / 'engine.js').read_text()), ('/*UI*/', (Q / 'ui.js').read_text())):
     assert ph in v, ph
     v = v.replace(ph, val)
 (Q.parent / 'index.html').write_text(v)

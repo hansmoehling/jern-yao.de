@@ -63,7 +63,9 @@
     'R-PI':  { t: 'Pitch mindestens Matrizen-Außen-Ø', art: 'Geometrie' },
     'R-PS':  { t: 'Werkzeugdruck je Station: bis 2200 N/mm² für gehärtete Kaltarbeitsstähle, darüber nur mit Sonderwerkstoff und kurzem Stempel', art: 'Richtwert' },
     'R-AR':  { t: 'Armierung nach Werkzeugdruck: bis 1000 N/mm² ohne Ring, bis 1600 ein Ring, bis 2160 zwei Ringe, darüber Sonderarmierung', art: 'Richtwert' },
-    'R-L0':  { t: 'Vorwärtsfließpressen: Rohteil nicht schlanker als l₀/d₀ = 10, 6 oder 4 je Werkstoffgruppe, sonst zu viel Wandreibung', art: 'Richtwert' }
+    'R-L0':  { t: 'Vorwärtsfließpressen: Rohteil nicht schlanker als l₀/d₀ = 10, 6 oder 4 je Werkstoffgruppe, sonst zu viel Wandreibung', art: 'Richtwert' },
+    'R-AU':  { t: 'Planungsausbringung: Erfahrungswert je Modell aus Serienteilen, sonst rund ein Drittel der Katalogausbringung (25 bis 47 %); Nutzungsgrad 0,6', art: 'Erfahrungswert aus dem Betrieb' },
+    'R-GW':  { t: 'Teilegewicht je Baugröße: Bereich der Serienteile, die darauf liefen', art: 'Erfahrungswert aus dem Betrieb' }
   };
 
   // Schlüsselweite → Gewinde nach ISO 4032 (Regelgewinde), nur als Vorbelegung
@@ -312,7 +314,16 @@
     mutter: ['JNF', 'JNFR', 'JNFP', 'JPF']
   };
 
-  function pruefe(o, a, e) {
+  const PRAXIS_STANDARD = { quote: 0.35, quoteMin: 0.25, quoteMax: 0.47, nutzung: 0.6, modelle: {}, groessen: {} };
+  function planung(o, P) {
+    P = P || PRAXIS_STANDARD;
+    if (P.modelle && P.modelle[o.m]) return { aus: P.modelle[o.m], quelle: 'Modell' };
+    if (o.out) return { aus: Math.round(o.out * P.quote / 5) * 5, quelle: 'Faktor' };
+    return null;
+  }
+
+  function pruefe(o, a, e, P) {
+    P = P || PRAXIS_STANDARD;
     const w = a.werte, k = [];
     const add = (krit, status, soll, ist, r) => k.push({ krit, status, soll, ist, r });
     const Rm = a.werkstoff.Rm;
@@ -376,20 +387,28 @@
     }
     // Schaftlänge bei Bolzenpressen
     if (e.typ === 'bolzen' && pos(o.ml) && pos(e.sL)) add('Teillänge unter Kopf', e.sL <= o.ml ? 'ok' : 'nein', z(e.sL) + ' mm', 'bis ' + o.ml + ' mm', 'Katalog');
-    // Ausbringung
-    if (e.soll && pos(e.soll.ausbringung) && pos(o.out)) add('Ausbringung', e.soll.ausbringung <= o.out ? 'ok' : 'nein', e.soll.ausbringung + ' /min', 'bis ' + o.out + ' /min', 'Katalog');
+    // Ausbringung: Planungswert aus der Praxis, Katalog als Obergrenze
+    const plan = planung(o, P);
+    if (e.soll && pos(e.soll.ausbringung) && pos(o.out)) {
+      const st = plan && e.soll.ausbringung <= plan.aus ? 'ok' : e.soll.ausbringung <= o.out ? 'knapp' : 'nein';
+      add('Ausbringung', st, e.soll.ausbringung + ' /min', (plan ? 'Planung ' + plan.aus + ' /min, ' : '') + 'Katalog bis ' + o.out + ' /min', 'R-AU');
+    }
+    // Teilegewicht gegen Erfahrung der Baugröße (Nebenwert)
+    const gk = /^(J[A-Z]+)-(\d+)B/.exec(o.m);
+    const gw = gk && P.groessen ? P.groessen[gk[1] + '-' + gk[2]] : null;
+    if (gw && w.masse) add('Teilegewicht (Erfahrung)', w.masse >= gw[0] / 1.5 && w.masse <= gw[2] * 1.5 ? 'ok' : 'knapp', z(w.masse) + ' g', z(gw[0]) + ' bis ' + z(gw[2]) + ' g', 'R-GW', true);
     // Schneidbüchse (Nebenwert)
     if (o.q) add('Schneidbüchse', o.q[0] >= w.buechse.aussen ? 'ok' : 'knapp', 'Ø' + z(w.buechse.aussen), 'Ø' + o.q[0] + ' × ' + o.q[1], 'R-SB', true);
     if (pos(o.pi) && e.typ !== 'mutter') add('Pitch', o.pi >= w.pitch ? 'ok' : 'knapp', 'ab ' + Math.round(w.pitch) + ' mm', o.pi + ' mm', 'R-PI', true);
     const rang = { nein: 3, offen: 2, knapp: 1, ok: 0 };
-    const haupt = k.filter(x => !['Schneidbüchse', 'Pitch'].includes(x.krit));
+    const haupt = k.filter(x => !['Schneidbüchse', 'Pitch', 'Teilegewicht (Erfahrung)'].includes(x.krit));
     const schlecht = Math.max(...haupt.map(x => rang[x.status]));
-    return { k, gesamt: ['ok', 'knapp', 'offen', 'nein'][schlecht], ausl };
+    return { k, gesamt: ['ok', 'knapp', 'offen', 'nein'][schlecht], ausl, plan, stundeProStk: plan ? Math.round(plan.aus * 60 * P.nutzung / 10) * 10 : null };
   }
 
-  function waehle(maschinen, a, e) {
+  function waehle(maschinen, a, e, P) {
     const fam = FAMILIEN[e.typ] || FAMILIEN.bolzen;
-    const res = maschinen.filter(o => fam.includes(o.f)).map(o => Object.assign({ o }, pruefe(o, a, e)));
+    const res = maschinen.filter(o => fam.includes(o.f)).map(o => Object.assign({ o }, pruefe(o, a, e, P)));
     const ord = { ok: 0, knapp: 1, offen: 2, nein: 3 };
     const preis = r => r.o.rp || 9e9;
     res.sort((x, y) => (ord[x.gesamt] - ord[y.gesamt]) || (preis(x) - preis(y)));
@@ -400,6 +419,6 @@
     return { passend, bedingt, fast, alle: res };
   }
 
-  const API = { WERKSTOFFE, GRENZEN, REGELN, FAMILIEN, auslegen, pruefe, waehle, kf, G };
+  const API = { WERKSTOFFE, GRENZEN, REGELN, FAMILIEN, PRAXIS_STANDARD, auslegen, pruefe, waehle, planung, kf, G };
   if (typeof module !== 'undefined' && module.exports) module.exports = API; else root.JYK = API;
 })(typeof globalThis !== 'undefined' ? globalThis : this);

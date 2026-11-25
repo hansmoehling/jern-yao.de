@@ -6,6 +6,7 @@
    Wissen und Regeln liegen im KV-Speicher (Schlüssel «wissenskarten», «regeln»), nicht im Code. */
 import ENGINE from '../engine.js';
 import MASCHINEN from '../maschinen.json';
+import PRAXIS from '../praxis.json';
 
 const E = ENGINE || globalThis.JYK;
 const HERKUNFT = ['https://jern-yao.de', 'https://jernyao.de', 'https://www.jernyao.de'];
@@ -118,8 +119,8 @@ async function gutachter(anf, env) {
 function rechnen(e) {
   const a = E.auslegen(e);
   if (a.fehlt.length) return { fehlt: a.fehlt };
-  const w = E.waehle(MASCHINEN, a, e);
-  const kurz = r => ({ modell: r.o.m, gesamt: r.gesamt, richtpreis_eur: r.o.rp, spanne_eur: [r.o.lo, r.o.hi], auslastung: Math.round(r.ausl * 100), kriterien: r.k.map(k => k.krit + ': ' + k.status + ' (' + k.soll + ' / ' + k.ist + ')') });
+  const w = E.waehle(MASCHINEN, a, e, PRAXIS);
+  const kurz = r => ({ modell: r.o.m, gesamt: r.gesamt, richtpreis_eur: r.o.rp, spanne_eur: [r.o.lo, r.o.hi], auslastung: Math.round(r.ausl * 100), planung_stk_min: r.plan ? r.plan.aus : null, kriterien: r.k.map(k => k.krit + ': ' + k.status + ' (' + k.soll + ' / ' + k.ist + ')') });
   return { stufen: a.stufen.map(s => ({ vorgang: s.v, kraft_t: +s.t.toFixed(1), matrize_min: Math.round(s.matD) })), werte: a.werte, hinweise: a.hinweise, passend: w.passend.slice(0, 3).map(kurz), bedingt: w.bedingt.slice(0, 3).map(kurz), knapp_daneben: w.fast.slice(0, 2).map(kurz) };
 }
 

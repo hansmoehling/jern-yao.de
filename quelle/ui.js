@@ -2,6 +2,7 @@
   'use strict';
   const E = window.JYK;
   const MASCHINEN = JSON.parse(document.getElementById('daten').textContent);
+  const PRAXIS = JSON.parse(document.getElementById('praxis').textContent);
   const ENDPOINT = ''; // später: Empfangsdienst für Upload und KI-Gutachten, z. B. https://api.jernyao.de/anfrage
   const MAIL = 'info@jernyao.de';
   const FAMNAME = { JBF: 'Bolzenpresse', JBP: 'Teilepresse, Langhub', JNP: 'Teilepresse, Kurzhub', JPF: 'Teilepresse für Mutternteile', JNF: 'Mutternpresse', JNFR: 'Mutternpresse, Buchsenabschnitt', JNFP: 'Mutternpresse' };
@@ -62,7 +63,7 @@
     const e = lesen();
     const aus = E.auslegen(e);
     if (aus.fehlt.length || !aus.stufen.length) { $('leer').hidden = false; $('aus').hidden = true; $('leer').textContent = aus.fehlt.length ? 'Es fehlen noch: ' + aus.fehlt.join(', ') + '.' : 'Mit Draht-Ø und den Hüllmaßen des Teils erscheinen hier Stadienfolge, Werkzeuggröße und die passenden Modelle.'; letzte = null; knoepfe(); return; }
-    const wahl = E.waehle(MASCHINEN, aus, e);
+    const wahl = E.waehle(MASCHINEN, aus, e, PRAXIS);
     letzte = { e, aus, wahl };
     zeigen(e, aus, wahl);
     knoepfe();
@@ -104,7 +105,7 @@
       return '<div class="karte' + (beste ? ' beste' : '') + '"><div class="kopfzeile"><div><span class="modell">' + o.m + '</span><span class="marke m-' + r.gesamt + '">' + marke + '</span><div class="fam">' + (FAMNAME[o.f] || o.f) + ' · ' + o.st + ' Stationen · ' + o.pw + ' t' + (o.sz ? ' · bis ' + o.sz : '') + '</div></div>' +
         '<div class="preis"><b>' + eur(o.rp) + '</b><small>' + sp + '</small></div></div>' +
         '<div class="balken" title="Auslastung der Nennkraft, Strich bei 65 %"><i style="width:' + Math.min(100, Math.round(r.ausl * 100)) + '%;background:' + farbe + '"></i></div>' +
-        '<div class="kurz"><span>Auslastung ' + Math.round(r.ausl * 100) + ' %</span><span>Abschnitt bis Ø' + o.cd + '</span><span>KO ' + (o.ko || '·') + (o.kor ? ' (' + o.kor + ')' : '') + '</span><span>PKO ' + (o.pko || '·') + '</span><span>Matrize Ø' + (o.die ? o.die[0] + ' × ' + o.die[1] : '·') + '</span>' + (o.out ? '<span>bis ' + o.out + ' /min</span>' : '') + '</div>' +
+        '<div class="kurz"><span>Auslastung ' + Math.round(r.ausl * 100) + ' %</span><span>Abschnitt bis Ø' + o.cd + '</span><span>KO ' + (o.ko || '·') + (o.kor ? ' (' + o.kor + ')' : '') + '</span><span>PKO ' + (o.pko || '·') + '</span><span>Matrize Ø' + (o.die ? o.die[0] + ' × ' + o.die[1] : '·') + '</span>' + (r.plan ? '<span title="Erfahrungswert aus der Serienfertigung; der Katalog nennt die Höchstdrehzahl">Planung ≈ ' + r.plan.aus + ' /min, rund ' + r.stundeProStk.toLocaleString('de-DE') + ' Stück/h (Katalog bis ' + o.out + ')</span>' : (o.out ? '<span>bis ' + o.out + ' /min</span>' : '')) + '</div>' +
         '<details><summary>Prüfung im Einzelnen</summary><table class="krit"><thead><tr><th>Kriterium</th><th>Bedarf</th><th>Maschine</th><th></th></tr></thead><tbody>' + zeilen + '</tbody></table><p class="klein">' + kat + '</p></details></div>';
     };
     if (wahl.passend.length) { k.push(...wahl.passend.slice(0, 3).map((r, i) => karte(r, i === 0))); }
@@ -139,7 +140,7 @@
     zeilen.push('');
     const top = [...wahl.passend.slice(0, 3), ...(wahl.passend.length ? [] : wahl.bedingt.slice(0, 3))];
     zeilen.push('Vorauswahl:');
-    top.forEach(r => zeilen.push('  ' + r.o.m + ' (' + r.gesamt + '), Richtpreis 2026 ' + eur(r.o.rp) + ', Auslastung ' + Math.round(r.ausl * 100) + ' %'));
+    top.forEach(r => zeilen.push('  ' + r.o.m + ' (' + r.gesamt + '), Richtpreis 2026 ' + eur(r.o.rp) + ', Auslastung ' + Math.round(r.ausl * 100) + ' %' + (r.plan ? ', Planung rund ' + r.plan.aus + ' /min' : '')));
     return zeilen.join('\n');
   }
 
