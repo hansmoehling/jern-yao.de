@@ -280,7 +280,8 @@
         }
         matBohrung = Math.max(matBohrung, Dw);
       }
-      if (e.typ === 'formteil') out.stufen.unshift({ v: 'Planstauchen, Abschnitt richten', F: A0 * Math.exp(0.1) * kf(m, 0.1) / ETA_VOR, A: A0 * Math.exp(0.1), bohr: d0, r: 'R-F1' });
+      // Formteile: zuerst Planstauchen, außer der erste Schritt ist Vorwärtsfließpressen oder Reduzieren (Spindelfolge)
+      if (e.typ === 'formteil' && !(out.stufen.length && /^(Vorwärtsfließpressen|Reduzieren)/.test(out.stufen[0].v))) out.stufen.unshift({ v: 'Planstauchen, Abschnitt richten', F: A0 * Math.exp(0.1) * kf(m, 0.1) / ETA_VOR, A: A0 * Math.exp(0.1), bohr: d0, r: 'R-F1' });
       phiEnde = Math.max(phiEnde, phiKopf, phiSchaft);
     }
 
