@@ -9,7 +9,7 @@ const F=[
  {name:'Hülse mit Bund, gelocht', e:{typ:'formteil',wst:W('C15C'),d0:16,kopfForm:'rund',kD:24,kH:5,sD:16,sL:30,nD:10,nT:20,nDurch:true}},
  {name:'Langer Bolzen M12x150', e:{typ:'bolzen',wst:W('23MnB4'),d0:11,kopfForm:'rund',kD:19,kH:8,sD:10.8,sL:150}},
  // Prüffälle aus Stadienplänen (Sammlung «Literatur», Bericht vom 25.11.2026); plan = Stufen laut Plan
- {name:'Plan Exzenter 3,5 Roto C10C (5 Stufen, Abschnitt 13,4)', plan:5, e:{typ:'bolzen',wst:W('C10C'),d0:4.64,kopfForm:'rund',kD:9,kH:1.45,sD:4.9,sL:7.65,iSW:4,iT:2.5,vorgaben:{zusatz:2}}},
+ {name:'Plan Exzenter 3,5 C10C (5 Stufen, Abschnitt 13,4)', plan:5, e:{typ:'bolzen',wst:W('C10C'),d0:4.64,kopfForm:'rund',kD:9,kH:1.45,sD:4.9,sL:7.65,iSW:4,iT:2.5,vorgaben:{zusatz:2}}},
  {name:'Plan Spindel mit Paddelkopf (4 Stufen, Abschnitt 64,7)', plan:4, e:{typ:'bolzen',wst:W('C10C'),d0:9.65,kopfForm:'rund',kD:26.2,kH:4.67,sD:6.82,sL:60.8,vorgaben:{zusatz:1}}},
  {name:'Plan Hülse 9 mm CuZn (6 Stufen + 1 frei, Abschnitt 10,2)', plan:6, e:{typ:'formteil',wst:W('CuZn37'),d0:8.3,kopfForm:'rund',sD:9.85,sL:20,nD:8.4,nT:15.75,masse:4.62,vorgaben:{zusatz:2}}},
  {name:'Plan Bundhülse 26002 (5 Stufen + 1 Reserve, Abschnitt 15,8)', plan:5, e:{typ:'formteil',wst:W('C15C'),d0:12,kopfForm:'rund',kD:20.4,kH:2.1,sD:17.15,sL:6.1,nD:7.9,nT:6.1,masse:13.99}},

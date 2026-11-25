@@ -118,6 +118,12 @@
   */
   function auslegen(e) {
     const out = { stufen: [], hinweise: [], fehlt: [], regeln: new Set(), werte: {} };
+    const invalid = text => { out.stufen = []; out.werte = {}; out.fehlt.push(text); return out; };
+    if (!e || typeof e !== 'object') return invalid('Teilbeschreibung fehlt');
+    if (!Number.isInteger(e.wst) || !WERKSTOFFE[e.wst]) return invalid('Werkstoff aus der Werkstoffliste bestimmen');
+    for (const [key, value] of Object.entries(e)) {
+      if (typeof value === 'number' && (!Number.isFinite(value) || value < 0)) return invalid('Ungültiger Zahlenwert: ' + key);
+    }
     const m = WERKSTOFFE[e.wst] || WERKSTOFFE[0];
     const Rm = pos(e.rm) ? e.rm : m.Rm;
     const gr = GRENZEN[m.grp];
@@ -135,9 +141,11 @@
       const M = pos(e.mM) ? e.mM : mAusSW(e.mSW);
       out.werte.mM = M;
       const dl = pos(e.mLoch) ? e.mLoch : 0.84 * M;
+      if (dl >= e.mSW) return invalid('Loch-Ø muss kleiner als die Schlüsselweite sein');
       if (!pos(e.mLoch)) out.hinweise.push('Loch-Ø nicht angegeben: angenommen 0,84 × M = ' + z(dl) + ' mm');
       const Ahex = sechskant(e.mSW), eck = e.mSW / Math.cos(Math.PI / 6);
       const flansch = pos(e.mFlansch) ? e.mFlansch : 0, fH = pos(e.mFlanschH) ? e.mFlanschH : 0;
+      if (fH > e.mH) return invalid('Flanschhöhe übersteigt die Mutterhöhe');
       V = Ahex * (e.mH - fH) + (flansch ? kreis(flansch) * fH : 0) - kreis(dl) * e.mH;
       const T = 0.5 * dl; R('R-LO1');
       Vab = kreis(dl) * T;
@@ -178,6 +186,8 @@
       const Vn = (pos(e.nD) && pos(e.nT)) ? kreis(e.nD) * e.nT : 0;
       const Vs = kreis(sD) * sL;
       V = Vkopf - kopfAbgr + Vs - Vi - Vn; // Fertigteil
+      if (!pos(V)) return invalid('Geometrie ergibt kein positives Restvolumen; Maße und Einheiten prüfen');
+      if (Vn && (e.nT > kopfH + sL || (!e.nDurch && e.nT >= kopfH + sL))) return invalid('Napftiefe und Restboden widersprechen der Teillänge');
       Vab = kopfAbgr;
       let butzen = 0;
       if (Vn && e.nDurch) { butzen = 0.5 * e.nD; Vab += kreis(e.nD) * butzen; R('R-LO1'); }
@@ -190,6 +200,7 @@
         const eps = 1 - (sD / d0) ** 2; phiSchaft = Math.log(1 / (1 - eps));
         R('R-RE1'); R('R-FP1'); R('R-F2');
         const nFP = eps <= 0.30 ? 0 : Math.ceil(Math.log(1 / (1 - eps)) / Math.log(1 / (1 - gr.vor)) - 1e-9);
+        if (!Number.isFinite(nFP) || nFP > 100) return invalid('Reduktion außerhalb des numerischen Rechenbereichs; Geometrie und Einheiten prüfen');
         if (eps <= 0.30) {
           out.stufen.push({ v: 'Reduzieren ' + z(d0) + ' → ' + z(sD) + ' (' + Math.round(eps * 100) + ' %), mit Vorstauchen', F: fpKraft(m, A0, 0, phiSchaft, true, 0, d0), A: A0, bohr: d0, r: 'R-F2', mit: true });
         } else {
@@ -252,6 +263,7 @@
       if (Vn) {
         R('R-FP1'); R('R-F3');
         const Dw = hatKopf && e.nT <= kopfH ? kopfD : Math.max(sD, d0);
+        if (e.nD >= Dw) return invalid('Napf-Ø muss kleiner als der wirksame Außen-Ø sein; positive Restwand erforderlich');
         const eps = kreis(e.nD) / kreis(Dw);
         if (eps < gr.napfMin) out.hinweise.push('Napf: Querschnittsabnahme ' + Math.round(eps * 100) + ' % unter ' + Math.round(gr.napfMin * 100) + ' %: Stempel stark belastet');
         // Über der Napfgrenze: Napf bis zur Grenze mit kleinerem Stempel, dann abstrecken (R-FP2); Außen-Ø bleibt
@@ -265,6 +277,7 @@
         const dN = Dw * Math.sqrt(epsN), tN = e.nT * (1 - eps) / (1 - epsN);
         const tiefeJeHub = gr.tiefe * dN;
         const nN = Math.max(1, Math.ceil(tN / tiefeJeHub - 1e-9));
+        if (!Number.isFinite(nN) || !Number.isFinite(nAb) || nN + nAb > 100) return invalid('Napfgeometrie außerhalb des numerischen Rechenbereichs; Maße und Einheiten prüfen');
         for (let i = 1; i <= nN; i++) {
           const p = napfDruck(m, phiKopf || phiSchaft, Math.min(Math.max(epsN, 0.05), 0.9), tN * i / nN, dN);
           out.stufen.push({ v: 'Napf rückwärts fließpressen' + (nN > 1 ? ' (' + i + '/' + nN + ')' : '') + ' Ø' + z(dN) + ' × ' + z(tN * i / nN), F: kreis(dN) * p, A: kreis(dN), bohr: Dw, r: 'R-F3' });
@@ -303,6 +316,7 @@
     R('R-VOL');
     let Vab0 = V + Vab;
     if (pos(e.masse)) { Vab0 = e.masse / m.rho * 1000 + Vab; out.hinweise.push('Abschnitt aus der angegebenen Masse gerechnet'); }
+    if (!pos(Vab0) || !pos(V)) return invalid('Abschnitt- und Teilvolumen müssen positiv und endlich sein');
     const L0 = Vab0 / A0;
     out.werte.V = V; out.werte.Vabgang = Vab; out.werte.L0 = L0; out.werte.masse = V * m.rho / 1000; out.werte.d0 = d0;
     out.werte.sKopf = sKopf; out.werte.phiKopf = phiKopf; out.werte.kopfD = kopfD; out.werte.Lteil = Lteil;
@@ -310,8 +324,11 @@
     // Stationen: Reduzieren bis 30 % läuft im Vorstauchschlag mit
     const stufenZaehlend = out.stufen.filter(s => !s.mit);
     const nStufen = stufenZaehlend.length;
+    if (!nStufen) return invalid('Keine vollständige Umformoperation beschrieben; Halbzeug und Fertiggeometrie unterscheiden');
     R('R-STN'); R('R-GR');
-    out.werte.stationen = pos(e.vorgaben && e.vorgaben.stationen) ? e.vorgaben.stationen : nStufen;
+    const stationsVorgabe = e.vorgaben && e.vorgaben.stationen;
+    if (pos(stationsVorgabe) && stationsVorgabe < nStufen) out.hinweise.push('Stationsvorgabe kleiner als die berechnete Folge: verwendet werden ' + nStufen + ' Stationen');
+    out.werte.stationen = pos(stationsVorgabe) ? Math.max(nStufen, Math.ceil(stationsVorgabe)) : nStufen;
     out.werte.stationenReserve = out.werte.stationen + 1;
     // Kräfte
     out.stufen.forEach(s => { s.t = s.F / 1000 / G; });
@@ -321,6 +338,7 @@
     }
     const Fmax = Math.max(...out.stufen.map(s => s.F));
     const Fsum = out.stufen.reduce((a, s) => a + s.F, 0);
+    if (!pos(Fmax) || !pos(Fsum) || !pos(L0)) return invalid('Rechnung ergibt keine endlichen positiven Kräfte oder Abschnittlänge');
     R('R-PK');
     out.werte.Fmax_t = Fmax / 1000 / G; out.werte.Fsum_t = Fsum / 1000 / G;
     out.werte.FN_muss_t = out.werte.Fmax_t / 0.80; out.werte.FN_wunsch_t = out.werte.Fmax_t / 0.65;

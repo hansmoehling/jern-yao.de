@@ -3,297 +3,51 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Maschinenwahl und Richtpreis · Jern Yao</title>
+<title>Vom Teil zum Fertigungskonzept · Jern Yao</title>
 <meta name="robots" content="noindex, nofollow">
-<meta name="description" content="Grobe Stadienfolge, Werkzeuggröße und passende Jern-Yao-Mehrstufenpressen mit Richtpreis 2026.">
+<meta name="description" content="Zeichnung hochladen, Maße beschreiben oder eine Frage stellen. Gemeinsam mit Hans Möhling zum Fertigungskonzept und zur passenden Jern-Yao-Presse.">
 <link rel="stylesheet" href="https://jernyao.de/assets/fonts.css">
 <link rel="icon" href="https://jernyao.de/assets/logo.png">
 <style>
-  :root{
-    --paper:#ffffff; --ink:#171b24; --mid:#555b68; --navy:#0b3390; --navy-soft:#3a5cb0;
-    --hair:#dcdfe7; --band:#f5f6f9; --accent:#e05c00;
-    --ok:#1f7a4d; --ok-bg:#e8f4ee; --knapp:#9a6400; --knapp-bg:#fbf3e2; --nein:#a3262a; --nein-bg:#f9e9e9; --offen:#555b68; --offen-bg:#eef0f4;
-  }
-  @media (prefers-color-scheme: dark){
-    :root{
-      --paper:#10141f; --ink:#e7e9f0; --mid:#9aa1b0; --navy:#9db4ea; --navy-soft:#7e97d4; --hair:#2a3040; --band:#161b28; --accent:#f0863d;
-      --ok:#6fd3a0; --ok-bg:#16291f; --knapp:#f0c060; --knapp-bg:#2c2412; --nein:#f08a8d; --nein-bg:#2e1718; --offen:#9aa1b0; --offen-bg:#1c2130;
-      color-scheme: dark;
-    }
-    .mast img{ background:#fff; padding:3px 8px; border-radius:3px; }
-  }
-  *{ box-sizing:border-box; }
-  body{ margin:0; background:var(--paper); color:var(--ink); font-family:'Inter',system-ui,sans-serif; line-height:1.55;
-    padding-left:max(16px, env(safe-area-inset-left, 0px)); padding-right:max(16px, env(safe-area-inset-right, 0px)); }
-  .wrap{ max-width:1080px; margin:0 auto; }
-  a{ color:var(--navy); text-decoration:none; } a:hover{ text-decoration:underline; }
-  header{ border-bottom:1px solid var(--hair); }
-  .mast{ display:flex; justify-content:space-between; align-items:center; gap:16px; padding-block:18px; flex-wrap:wrap; }
-  .mast img{ height:30px; display:block; }
-  nav{ display:flex; gap:24px; flex-wrap:wrap; }
-  nav a{ font-size:12px; letter-spacing:.14em; text-transform:uppercase; color:var(--mid); font-weight:500; }
-  .testband{ background:var(--band); border-bottom:1px solid var(--hair); font-size:12.5px; color:var(--mid); padding:8px 0; }
-  h1{ font-family:'EB Garamond',Georgia,serif; font-weight:560; font-size:clamp(30px,4.4vw,44px); line-height:1.1; color:var(--navy); margin:0; text-wrap:balance; }
-  h2{ font-family:'EB Garamond',Georgia,serif; font-weight:560; font-size:clamp(22px,2.6vw,28px); color:var(--navy); margin:0; }
-  h3{ font-size:13px; letter-spacing:.12em; text-transform:uppercase; color:var(--mid); font-weight:500; margin:26px 0 10px; }
-  .hero{ padding-block:44px 26px; }
-  .subline{ font-family:'EB Garamond',Georgia,serif; font-style:italic; font-size:clamp(16px,2vw,19px); color:var(--mid); margin-top:10px; }
-  .lede{ max-width:68ch; margin-top:18px; font-size:15px; }
-  .rule{ width:44px; height:2px; background:var(--accent); margin-top:14px; }
-  .beispiele{ display:flex; gap:8px; flex-wrap:wrap; margin-top:18px; font-size:13px; align-items:center; color:var(--mid); }
-  .chip{ border:1px solid var(--hair); background:var(--paper); color:var(--navy); border-radius:16px; padding:4px 12px; font:inherit; cursor:pointer; }
-  .chip:hover{ border-color:var(--navy-soft); }
-
-  .grid{ display:grid; grid-template-columns: minmax(0,1fr) minmax(0,1.25fr); gap:36px; align-items:start; padding-bottom:40px; }
-  @media (max-width:900px){ .grid{ grid-template-columns:1fr; } }
-  form fieldset{ border:0; border-top:1px solid var(--hair); margin:0; padding:18px 0 6px; }
-  legend{ font-size:12px; letter-spacing:.14em; text-transform:uppercase; color:var(--mid); font-weight:500; padding:0 8px 0 0; }
-  .typen{ display:flex; gap:0; border:1px solid var(--hair); border-radius:6px; overflow:hidden; margin:6px 0 14px; }
-  .typen label{ flex:1; text-align:center; padding:8px 6px; font-size:14px; cursor:pointer; border-right:1px solid var(--hair); }
-  .typen label:last-child{ border-right:0; }
-  .typen input{ position:absolute; opacity:0; pointer-events:none; }
-  .typen label:has(input:checked){ background:var(--navy); color:#fff; }
-  @media (prefers-color-scheme: dark){ .typen label:has(input:checked){ color:#10141f; } }
-  .felder{ display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:10px 14px; }
-  .felder .voll{ grid-column:1 / -1; }
-  .feld{ display:flex; flex-direction:column; gap:3px; min-width:0; }
-  .feld span{ font-size:12.5px; color:var(--mid); }
-  .feld span b{ font-weight:500; color:var(--ink); }
-  input[type=text], input[type=number], input[type=email], input[type=tel], select, textarea{
-    font:inherit; font-size:15px; color:var(--ink); background:var(--paper); border:1px solid var(--hair); border-radius:5px; padding:7px 9px; width:100%; min-width:0;
-  }
-  input:focus, select:focus, textarea:focus{ outline:2px solid var(--navy-soft); outline-offset:0; border-color:transparent; }
-  input::placeholder{ color:#9aa1b0; }
-  .paar{ display:grid; grid-template-columns:1fr auto 1fr; gap:6px; align-items:center; }
-  .paar i{ font-style:normal; color:var(--mid); font-size:13px; }
-  .check{ display:flex; gap:8px; align-items:flex-start; font-size:14px; }
-  .check input{ margin-top:4px; }
-  .klein{ font-size:12.5px; color:var(--mid); }
-  [hidden]{ display:none !important; }
-
-  .ergebnis{ position:sticky; top:12px; }
-  @media (max-width:900px){ .ergebnis{ position:static; } }
-  .leer{ border:1px dashed var(--hair); border-radius:8px; padding:22px; color:var(--mid); font-size:14.5px; }
-  .kenn{ display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); border-top:1px solid var(--hair); border-left:1px solid var(--hair); margin:14px 0 0; }
-  @media (max-width:560px){ .kenn{ grid-template-columns:repeat(2,minmax(0,1fr)); } }
-  .kenn div{ background:var(--paper); padding:10px 12px; border-right:1px solid var(--hair); border-bottom:1px solid var(--hair); }
-  .kenn dt{ font-size:11.5px; color:var(--mid); letter-spacing:.04em; }
-  .kenn dd{ margin:2px 0 0; font-size:16px; font-variant-numeric:tabular-nums; }
-  .kenn dd small{ font-size:12px; color:var(--mid); }
-  table{ border-collapse:collapse; width:100%; font-size:13.5px; font-variant-numeric:tabular-nums; }
-  th{ text-align:left; font-weight:500; color:var(--mid); font-size:12px; border-bottom:1px solid var(--hair); padding:6px 8px; }
-  td{ border-bottom:1px solid var(--hair); padding:6px 8px; vertical-align:top; }
-  td.z{ text-align:right; white-space:nowrap; }
-  td.z small{ color:var(--mid); font-size:11.5px; }
-  .hinweise{ margin:10px 0 0; padding-left:18px; font-size:13.5px; color:var(--knapp); }
-  .karte{ border:1px solid var(--hair); border-radius:8px; padding:14px 16px; margin-bottom:12px; }
-  .karte.beste{ border-color:var(--navy-soft); box-shadow:0 0 0 1px var(--navy-soft) inset; }
-  .kopfzeile{ display:flex; justify-content:space-between; gap:12px; align-items:baseline; flex-wrap:wrap; }
-  .modell{ font-family:'EB Garamond',Georgia,serif; font-size:24px; font-weight:560; color:var(--navy); }
-  .fam{ font-size:12.5px; color:var(--mid); }
-  .preis{ text-align:right; }
-  .preis b{ font-size:21px; font-weight:500; font-variant-numeric:tabular-nums; }
-  .preis small{ display:block; font-size:12px; color:var(--mid); }
-  .marke{ display:inline-block; font-size:11px; letter-spacing:.08em; text-transform:uppercase; padding:2px 8px; border-radius:10px; margin-left:8px; vertical-align:middle; }
-  .m-ok{ background:var(--ok-bg); color:var(--ok); } .m-knapp{ background:var(--knapp-bg); color:var(--knapp); }
-  .m-nein{ background:var(--nein-bg); color:var(--nein); } .m-offen{ background:var(--offen-bg); color:var(--offen); }
-  .balken{ height:6px; background:var(--band); border-radius:3px; margin:10px 0 4px; position:relative; overflow:hidden; }
-  .balken i{ position:absolute; left:0; top:0; bottom:0; border-radius:3px; }
-  .balken::after{ content:''; position:absolute; left:65%; top:-2px; bottom:-2px; width:1px; background:var(--mid); opacity:.6; }
-  .kurz{ display:flex; gap:14px; flex-wrap:wrap; font-size:12.5px; color:var(--mid); }
-  details{ margin-top:8px; }
-  summary{ cursor:pointer; font-size:13px; color:var(--navy); }
-  .krit td:first-child{ white-space:nowrap; }
-  .st{ font-size:11px; padding:1px 7px; border-radius:9px; white-space:nowrap; }
-  .gruppe{ margin-top:20px; }
-  .knoepfe{ display:flex; gap:10px; flex-wrap:wrap; margin-top:14px; }
-  .knopf{ font:inherit; font-size:14.5px; border:1px solid var(--navy); background:var(--navy); color:#fff; border-radius:6px; padding:9px 16px; cursor:pointer; }
-  @media (prefers-color-scheme: dark){ .knopf{ color:#10141f; } }
-  .knopf.zwei{ background:transparent; color:var(--navy); }
-  .knopf:disabled{ opacity:.45; cursor:not-allowed; }
-  section.anfrage{ border-top:1px solid var(--hair); padding-block:36px 48px; }
-  .anfrage .felder{ max-width:720px; }
-  footer{ border-top:1px solid var(--hair); padding-block:22px 40px; font-size:12.5px; color:var(--mid); }
-  footer details{ margin-top:8px; } footer p{ max-width:80ch; }
-  #blatt{ display:none; }
-  @media print{
-    header, .testband, .hero, form, .ergebnis, section.anfrage, footer{ display:none !important; }
-    #blatt{ display:block; font-size:11pt; color:#000; }
-    #blatt h1{ font-size:20pt; color:#000; }
-    #blatt table{ font-size:9.5pt; }
-    body{ padding:0; }
-  }
+:root{--navy:#102d66;--ink:#172641;--muted:#526176;--line:#d9e0e8;--paper:#fff;--pale:#f2f5f9;--orange:#c74716;--error:#9f2727;--success:#256145;color-scheme:light;font-family:Inter,Arial,sans-serif;font-size:16px}
+*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:30px}body{margin:0;background:var(--paper);color:var(--ink);line-height:1.6}button,input,textarea{font:inherit}button,a,input,textarea{touch-action:manipulation}button{cursor:pointer}a{color:var(--navy);text-underline-offset:4px}a:hover{text-decoration-thickness:2px}button:focus-visible,a:focus-visible,input:focus-visible,textarea:focus-visible,summary:focus-visible{outline:3px solid #de7c35;outline-offset:4px}[hidden]{display:none!important}.wrap{max-width:1200px;padding-inline:32px;margin-inline:auto}.skip{position:absolute;left:20px;top:-80px;padding:10px;background:#fff;z-index:10}.skip:focus{top:10px}header{border-bottom:1px solid var(--line)}.mast{display:flex;justify-content:space-between;align-items:center;gap:24px;min-height:92px}.brand{display:flex;align-items:center;gap:20px;text-decoration:none}.brand img{width:144px;height:auto;max-height:40px;object-fit:contain}.brand span{border-left:1px solid var(--line);padding-left:20px;font-size:.875rem;line-height:1.35;color:var(--muted)}nav{display:flex;gap:26px;align-items:center}nav a{font-size:.875rem;text-decoration:none}.hero{display:grid;grid-template-columns:1.6fr 1fr;gap:60px;padding-block:68px 52px;align-items:center}.eyebrow{font-size:.875rem;letter-spacing:.12em;text-transform:uppercase;color:var(--orange);font-weight:600;margin:0 0 20px}h1,h2,h3,p{margin-top:0}h1{font-family:'EB Garamond',Georgia,serif;font-size:clamp(3.1rem,6vw,5rem);line-height:1.02;font-weight:500;letter-spacing:-.035em;margin-bottom:24px;max-width:10ch}h1 em{font-style:normal;color:var(--navy)}.intro{font-size:1.125rem;line-height:1.65;max-width:48ch;margin-bottom:0;color:var(--muted)}.hero-aside{padding-top:30px}.technical-art{display:block;width:100%;max-width:350px;margin:0 auto 18px}.art-caption{font-size:.875rem;color:var(--muted);text-align:center;margin:0}.entry{border-top:2px solid var(--navy);scroll-margin-top:24px}.entry-top{display:flex;align-items:baseline;gap:24px;justify-content:space-between;padding:27px 0 23px}.entry-top h2{font-size:1.5rem;font-weight:600;letter-spacing:-.025em;margin:0}.entry-top p{font-size:.875rem;color:var(--muted);margin:0}.workspace{display:grid;grid-template-columns:minmax(0,1.65fr) minmax(250px,1fr);gap:44px;padding-bottom:64px}.tabs{display:flex;gap:6px;border-bottom:1px solid var(--line);margin-bottom:26px}.tab{border:0;border-bottom:3px solid transparent;padding:13px 12px;background:none;color:var(--muted);font-size:.9375rem;font-weight:500;margin-bottom:-1px}.tab[aria-selected=true]{color:var(--navy);border-bottom-color:var(--orange)}.tab:hover{color:var(--navy);background:var(--pale)}.drop{display:flex;flex-direction:column;align-items:center;text-align:center;border:1px dashed #8497b2;background:#f7f9fc;padding:32px 20px;position:relative;transition:border-color .15s,background .15s}.drop.dragover{border:2px solid var(--navy);background:#eaf0fa}.drop svg{width:34px;height:34px;color:var(--navy);margin-bottom:12px}.drop strong{font-weight:600}.drop p{font-size:.875rem;color:var(--muted);margin:4px 0 18px}.file-picker{display:block;max-width:100%;font-size:.875rem;color:var(--muted)}.file-picker::file-selector-button{border:1px solid var(--navy);background:#fff;padding:9px 13px;color:var(--navy);font:inherit;font-weight:600;cursor:pointer;margin-right:12px}.file-summary{display:flex;gap:12px;align-items:center;padding:14px 0;border-bottom:1px solid var(--line);margin-bottom:20px;font-size:.875rem}.file-summary span{flex:1;overflow-wrap:anywhere}.text-button{background:none;border:0;text-decoration:underline;color:var(--navy);padding:5px 0;font-size:.875rem}.field{display:flex;flex-direction:column;gap:6px;margin-bottom:20px}.field label{font-size:.875rem;font-weight:600}.optional{font-weight:400;color:var(--muted)}input,textarea{width:100%;background:#fff;border:1px solid #a7b3c3;border-radius:2px;color:var(--ink);padding:11px 12px;line-height:1.5;font-size:1rem}textarea{resize:vertical;min-height:112px}input::placeholder,textarea::placeholder{color:#6b7586}.helper{font-size:.875rem;color:var(--muted);margin:8px 0 22px}.contact-fields{display:grid;grid-template-columns:1fr 1fr;gap:0 18px}.contact-fields .wide{grid-column:1/-1}.contact-title{font-size:1.125rem;font-weight:600;margin:29px 0 18px}.consent{display:flex;align-items:flex-start;gap:10px;font-size:.875rem;color:var(--muted);margin-bottom:24px}.consent input{width:18px;height:18px;flex-shrink:0;margin-top:4px;accent-color:var(--navy)}.primary{border:1px solid var(--navy);background:var(--navy);color:#fff;padding:13px 24px;font-weight:600;border-radius:2px;min-height:50px}.primary:hover{background:#1b407f}.primary:disabled{opacity:.55;cursor:default}.secondary{border:1px solid var(--line);background:#fff;color:var(--navy);padding:10px 16px;min-height:44px;border-radius:2px}.actions{display:flex;align-items:center;gap:14px;flex-wrap:wrap}.small{font-size:.875rem;color:var(--muted)}.availability{border-left:3px solid var(--orange);padding:12px 16px;background:var(--pale);font-size:.875rem;margin-bottom:24px}.availability strong{display:block;color:var(--ink);margin-bottom:3px}.availability p{margin:0}.form-message{margin:16px 0 0;font-size:.9375rem;white-space:pre-wrap;overflow-wrap:anywhere}.form-message.error{color:var(--error)}.form-message.success{color:var(--success)}.approach{background:var(--navy);color:#fff;padding:32px 30px;align-self:start;margin-top:0}.approach .eyebrow{color:#ffb27b;font-size:.8125rem}.approach h2{font-family:'EB Garamond',Georgia,serif;font-size:2rem;font-weight:500;line-height:1.15;margin-bottom:20px}.approach p{color:#d8e1f1;line-height:1.7}.approach dl{margin:26px 0 0}.approach dl>div{border-top:1px solid #47608b;padding:17px 0}.approach dt{font-weight:600;margin-bottom:3px}.approach dd{margin:0;color:#d8e1f1;font-size:.9375rem}.approach-note{font-size:.875rem;border-top:1px solid #47608b;padding-top:20px;margin:0}.chat-intro{margin:0 0 18px;color:var(--muted)}.examples{display:flex;flex-direction:column;align-items:flex-start;gap:8px;margin:0 0 24px}.example{border:1px solid var(--line);padding:9px 12px;color:var(--navy);background:#fff;font-size:.875rem;text-align:left;border-radius:2px}.example:hover{background:var(--pale)}.messages{display:flex;flex-direction:column;gap:18px;margin-bottom:24px;max-height:640px;overflow:auto;scrollbar-gutter:stable}.message{background:var(--pale);padding:18px 20px;max-width:100%;overflow-wrap:anywhere}.message.user{background:#e9eff8;margin-left:30px}.speaker{font-size:.8125rem;letter-spacing:.06em;text-transform:uppercase;font-weight:600;color:var(--navy);margin-bottom:9px}.message-text,.answer-text{white-space:pre-wrap}.message-text p{margin-bottom:0}.response{border-top:1px solid var(--line);padding:28px 0 0;margin-top:28px;overflow-wrap:anywhere}.response h2{font-size:1.4rem;margin-bottom:8px}.response h3,.message h3{font-size:1rem;margin:24px 0 9px}.result-status{font-size:.875rem;color:var(--muted);margin:0 0 18px}.request-id{font-variant-numeric:tabular-nums}.response ul,.message ul{padding-left:21px}.response li,.message li{margin-bottom:7px}.source-list{font-size:.875rem;color:var(--muted)}.proposal-grid{margin:16px 0}.proposal-grid div{padding:9px 0;border-bottom:1px solid var(--line)}.proposal-grid dt{font-size:.875rem;font-weight:600}.proposal-grid dd{margin:3px 0 0}.stage-list{list-style:none;padding:0!important}.stage-list li{border-left:2px solid var(--orange);padding:8px 0 8px 14px;margin:9px 0}.notification{font-size:.875rem;color:var(--muted);margin-top:20px}.personal{border-top:1px solid var(--line);padding:40px 0 48px;display:grid;grid-template-columns:1fr 1.4fr;gap:50px}.personal h2{font-family:'EB Garamond',Georgia,serif;font-size:2rem;font-weight:500;line-height:1.2;margin-bottom:12px}.personal p{color:var(--muted);margin-bottom:12px}.contact-link{display:inline-block;margin-right:25px;margin-bottom:8px;font-size:.9375rem}footer{background:var(--pale);border-top:1px solid var(--line);padding:28px 0 36px;font-size:.875rem;color:var(--muted)}.footer-row{display:flex;gap:24px;flex-wrap:wrap;align-items:baseline;justify-content:space-between}.footer-links{display:flex;gap:24px}footer details{margin-top:16px;max-width:80ch}footer summary{cursor:pointer;color:var(--navy)}footer details p{margin:12px 0 0}noscript p{padding:20px;background:var(--pale)}
+@media(max-width:900px){.hero{gap:25px;padding-top:48px;grid-template-columns:1.5fr 1fr}.workspace{gap:28px;grid-template-columns:minmax(0,1.5fr) minmax(230px,1fr)}.approach{padding:26px 24px}.tab{padding-inline:9px}.brand span{display:none}}
+@media(max-width:720px){.wrap{padding-inline:22px}.mast{min-height:78px;gap:12px}.brand img{width:124px}nav{gap:16px}nav a{font-size:.8125rem}nav a:first-child{display:none}.hero{grid-template-columns:1fr;padding:40px 0 34px;gap:26px}h1{max-width:13ch;font-size:3.5rem;margin-bottom:20px}.hero-aside{display:none}.intro{font-size:1rem}.eyebrow{margin-bottom:17px}.entry-top{display:block;padding-block:23px 12px}.entry-top h2{font-size:1.35rem;margin-bottom:6px}.workspace{grid-template-columns:1fr;padding-bottom:40px;gap:32px}.tabs{gap:0}.tab{font-size:.875rem;padding:12px 9px;flex:1;line-height:1.4}.contact-fields{gap:0 14px}.approach{margin:0}.approach dl{display:block}.approach h2{max-width:20ch}.personal{grid-template-columns:1fr;gap:13px;padding-block:32px}.footer-row{display:block}.footer-links{margin-top:12px;flex-wrap:wrap;gap:14px}.drop{padding:27px 14px}.primary{width:100%}.actions{align-items:stretch}.message.user{margin-left:16px}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
 </style>
-<script defer src="https://cloud.umami.is/script.js" data-website-id="b50ac41f-for-jernyao" data-domains="jernyao.de"></script>
 </head>
 <body>
-<header>
-  <div class="wrap mast">
-    <a href="https://jernyao.de/"><img src="https://jernyao.de/assets/logo.png" alt="Jern Yao"></a>
-    <nav>
-      <a href="#teil">Teil</a>
-      <a href="#ergebnis">Maschinen</a>
-      <a href="#anfrage">Anfrage</a>
-      <a href="https://jernyao.de/">jernyao.de</a>
-    </nav>
-  </div>
-</header>
-<div class="testband"><div class="wrap">Testfeld. Grobe Vorauslegung aus Katalogdaten und Erfahrungsregeln, unverbindlich. Verbindlich sind das Datenblatt des Modells und die Prüfung durch Hans Möhling.</div></div>
-
+<a class="skip" href="#einstieg">Direkt zur Anfrage</a>
+<header><div class="wrap mast"><a class="brand" href="https://jernyao.de/"><img src="https://jernyao.de/assets/logo.png" alt="Jern Yao"><span>Mehrstufenpressen<br>Hans Möhling</span></a><nav aria-label="Hauptnavigation"><a href="#ansatz">Unser Ansatz</a><a href="#kontakt">Persönlicher Kontakt</a></nav></div></header>
 <main class="wrap">
-  <div class="hero">
-    <h1>Vom Teil zur Maschine</h1>
-    <div class="subline">Stadienfolge, Presskraft, Werkzeuggröße und Auswerferwege grob ausgelegt, dazu die passenden Jern-Yao-Modelle mit Richtpreis 2026.</div>
-    <div class="rule"></div>
-    <p class="lede">Hüllmaße des Teils eintragen, gerechnet wird sofort im Browser. Gespeichert wird nichts. Wer seine Werkzeuge schon kennt, gibt Matrize, Stempel und Auswerferwege vor; sonst schätzt die Rechnung sie aus dem Teil.</p>
-    <div class="beispiele">Beispiele:
-      <button type="button" class="chip" data-bsp="m8">M8-Flanschschraube 8.8</button>
-      <button type="button" class="chip" data-bsp="m6">M6-Zylinderschraube mit Innensechskant</button>
-      <button type="button" class="chip" data-bsp="mu">M10-Mutter</button>
-      <button type="button" class="chip" data-bsp="hu">Bundhülse, gelocht</button>
-    </div>
-  </div>
-
-  <div class="grid">
-    <form id="f" autocomplete="off" novalidate>
-      <fieldset id="teil">
-        <legend>1 · Teil</legend>
-        <div class="typen" role="radiogroup" aria-label="Teileart">
-          <label><input type="radio" name="typ" value="bolzen" checked>Schraube, Bolzen</label>
-          <label><input type="radio" name="typ" value="formteil">Formteil, Hülse</label>
-          <label><input type="radio" name="typ" value="mutter">Mutter</label>
-        </div>
-        <div class="felder">
-          <label class="feld"><span>Werkstoff</span><select name="wst"></select></label>
-          <label class="feld"><span>Draht geglüht, R<sub>m</sub> in N/mm²</span><input type="text" inputmode="decimal" name="rm"></label>
-          <label class="feld voll"><span><b>Draht-Ø d₀</b> in mm</span><input type="text" inputmode="decimal" name="d0" placeholder="z. B. 7,6"></label>
-        </div>
-
-        <div data-fuer="bolzen formteil">
-          <h3>Kopf oder Bund</h3>
-          <div class="felder">
-            <label class="feld voll"><span>Form</span>
-              <select name="kopfForm">
-                <option value="rund">rund, Zylinder- oder Flanschkopf</option>
-                <option value="sechskant">Sechskant, gestaucht</option>
-                <option value="abgratet">Sechskant, rund gestaucht und abgegratet</option>
-              </select></label>
-            <label class="feld"><span>Größter Ø in mm</span><input type="text" inputmode="decimal" name="kD"></label>
-            <label class="feld" data-kopf="sechskant abgratet"><span>Schlüsselweite in mm</span><input type="text" inputmode="decimal" name="kSW"></label>
-            <label class="feld"><span>Höhe in mm</span><input type="text" inputmode="decimal" name="kH"></label>
-          </div>
-          <h3>Schaft</h3>
-          <div class="felder">
-            <label class="feld"><span>Ø in mm (leer: wie Draht)</span><input type="text" inputmode="decimal" name="sD"></label>
-            <label class="feld"><span>Länge unter Kopf in mm</span><input type="text" inputmode="decimal" name="sL"></label>
-          </div>
-          <div data-fuer="bolzen">
-            <h3>Innenantrieb im Kopf</h3>
-            <div class="felder">
-              <label class="feld"><span>Schlüsselweite in mm</span><input type="text" inputmode="decimal" name="iSW"></label>
-              <label class="feld"><span>Tiefe in mm</span><input type="text" inputmode="decimal" name="iT"></label>
-            </div>
-          </div>
-          <div data-fuer="formteil">
-            <h3>Napf oder Bohrung</h3>
-            <div class="felder">
-              <label class="feld"><span>Ø in mm</span><input type="text" inputmode="decimal" name="nD"></label>
-              <label class="feld"><span>Tiefe in mm</span><input type="text" inputmode="decimal" name="nT"></label>
-              <label class="check voll"><input type="checkbox" name="nDurch"> durchgehend, gelocht</label>
-            </div>
-          </div>
-        </div>
-
-        <div data-fuer="mutter" hidden>
-          <h3>Mutter</h3>
-          <div class="felder">
-            <label class="feld"><span>Gewinde M (Nenn-Ø) in mm</span><input type="text" inputmode="decimal" name="mM"></label>
-            <label class="feld"><span>Schlüsselweite in mm</span><input type="text" inputmode="decimal" name="mSW"></label>
-            <label class="feld"><span>Höhe in mm</span><input type="text" inputmode="decimal" name="mH"></label>
-            <label class="feld"><span>Loch-Ø in mm (leer: 0,84 × M)</span><input type="text" inputmode="decimal" name="mLoch"></label>
-            <label class="feld"><span>Flansch-Ø in mm</span><input type="text" inputmode="decimal" name="mFlansch"></label>
-            <label class="feld"><span>Flanschhöhe in mm</span><input type="text" inputmode="decimal" name="mFlanschH"></label>
-          </div>
-        </div>
-        <div class="felder" style="margin-top:12px">
-          <label class="feld voll"><span>Masse in g (optional, ersetzt das Volumen aus den Maßen)</span><input type="text" inputmode="decimal" name="masse"></label>
-        </div>
-      </fieldset>
-
-      <fieldset>
-        <legend>2 · Werkzeug und Auswerfer</legend>
-        <div class="felder">
-          <label class="feld voll"><span><b>Werkzeugtrennkante</b>: Teillänge im Stempel in mm</span><input type="text" inputmode="decimal" name="lStempel"></label>
-          <label class="feld"><span><b>Auswerferweg Matrize</b> (KO) in mm</span><input type="text" inputmode="decimal" name="ko"></label>
-          <label class="feld"><span><b>Auswerferweg Stempel</b> (PKO) in mm</span><input type="text" inputmode="decimal" name="pko"></label>
-          <label class="check voll"><input type="checkbox" name="wenden"> Teil wird im Transfer um 180° gewendet</label>
-        </div>
-        <h3>Vorhandene Werkzeuge (optional)</h3>
-        <div class="felder">
-          <div class="feld"><span>Matrize Ø × Länge in mm</span><div class="paar"><input type="text" inputmode="decimal" name="matD" aria-label="Matrize Ø"><i>×</i><input type="text" inputmode="decimal" name="matL" aria-label="Matrize Länge"></div></div>
-          <div class="feld"><span>Stempel Ø × Länge in mm</span><div class="paar"><input type="text" inputmode="decimal" name="stD" aria-label="Stempel Ø"><i>×</i><input type="text" inputmode="decimal" name="stL" aria-label="Stempel Länge"></div></div>
-          <label class="feld"><span>Zusatzstufen: Kalibrieren, Kerben, Prägen, Beschneiden, unrunder Kopf</span><input type="text" inputmode="numeric" name="zusatz"></label>
-          <label class="feld"><span>Stationen (leer: aus der Stadienfolge)</span><input type="text" inputmode="numeric" name="stationen"></label>
-          <label class="feld"><span>Ausbringung in Stück/min</span><input type="text" inputmode="numeric" name="ausbringung"></label>
-        </div>
-      </fieldset>
-
-      <fieldset>
-        <legend>3 · Zeichnung (optional)</legend>
-        <label class="feld"><span>PDF, Bild, DXF oder STEP</span><input type="file" name="zeichnung" accept=".pdf,.png,.jpg,.jpeg,.tif,.tiff,.dxf,.dwg,.step,.stp,.igs,.iges"></label>
-        <p class="klein">Die Zeichnung bleibt auf Ihrem Rechner, bis Sie die Anfrage absenden. Sie geht dann als Anhang an Hans Möhling.</p>
-      </fieldset>
-    </form>
-
-    <div class="ergebnis" id="ergebnis" aria-live="polite">
-      <div class="leer" id="leer">Mit Draht-Ø und den Hüllmaßen des Teils erscheinen hier Stadienfolge, Werkzeuggröße und die passenden Modelle. Ein Beispiel oben zeigt den Ablauf.</div>
-      <div id="aus" hidden>
-        <h2>Grobauslegung</h2>
-        <dl class="kenn" id="kenn"></dl>
-        <ul class="hinweise" id="hinweise"></ul>
-        <h3>Stadienfolge</h3>
-        <table id="stufen"><thead><tr><th>Station</th><th>Vorgang</th><th style="text-align:right">Kraft</th><th style="text-align:right">Druck N/mm²</th><th style="text-align:right">Matrize Ø min</th></tr></thead><tbody></tbody></table>
-        <div class="gruppe">
-          <h2>Passende Maschinen</h2>
-          <p class="klein" id="preisnote">Richtpreis 2026 in EUR, FOB Kaohsiung, Grundausstattung 2026, unverbindlich. Die Spanne zeigt die Unsicherheit der Ableitung. Die Planungsausbringung ist ein Erfahrungswert aus der Serienfertigung; der Katalog nennt die Höchstdrehzahl der Maschine.</p>
-          <div id="karten"></div>
-        </div>
-        <details id="regelbox"><summary>Rechenweg und Regeln</summary><table><tbody id="regeln"></tbody></table></details>
-      </div>
-    </div>
-  </div>
-
-  <section class="anfrage" id="anfrage">
-    <h2>Richtpreisangebot anfragen</h2>
-    <p class="lede" style="margin-top:10px">Die Anfrage geht mit allen Eingaben und dem Ergebnis an Hans Möhling. Die Antwort kommt persönlich, in der Regel am nächsten Werktag.</p>
-    <form id="a" autocomplete="on">
-      <div class="felder">
-        <label class="feld"><span>Name</span><input type="text" name="name" autocomplete="name"></label>
-        <label class="feld"><span>Firma</span><input type="text" name="firma" autocomplete="organization"></label>
-        <label class="feld"><span>E-Mail</span><input type="email" name="email" autocomplete="email"></label>
-        <label class="feld"><span>Telefon</span><input type="tel" name="tel" autocomplete="tel"></label>
-        <label class="feld voll"><span>Stückzahl im Jahr, Termin, Besonderheiten</span><textarea name="nachricht" rows="3"></textarea></label>
-        <label class="check voll"><input type="checkbox" name="ok"> Meine Angaben dürfen zur Bearbeitung der Anfrage verwendet werden.</label>
-      </div>
-      <div class="knoepfe">
-        <button type="button" class="knopf" id="senden" disabled>Anfrage senden</button>
-        <button type="button" class="knopf zwei" id="drucken" disabled>Anforderungsblatt drucken</button>
-      </div>
-      <p class="klein" id="sendehinweis">Ohne Server öffnet sich Ihr E-Mail-Programm mit dem fertigen Text an info@jernyao.de. Eine gewählte Zeichnung hängen Sie dort bitte an.</p>
-    </form>
-  </section>
+<section class="hero" aria-labelledby="hero-title">
+<div><p class="eyebrow">Kaltumformung · Konzept & Maschine</p><h1 id="hero-title">Am Anfang steht <em>Ihr Teil.</em></h1><p class="intro">Zeigen Sie uns, was Sie herstellen möchten. Aus Ihrer Zeichnung, einer Skizze oder wenigen Maßen entwickeln wir den Weg zur passenden Fertigung.</p></div>
+<div class="hero-aside" aria-hidden="true"><svg class="technical-art" viewBox="0 0 360 240" fill="none" xmlns="http://www.w3.org/2000/svg"><defs><pattern id="hatch" width="7" height="7" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><path d="M0 0V7" stroke="#d6dfeb" stroke-width="2"/></pattern></defs><path d="M25 124H335" stroke="#9badc7" stroke-dasharray="9 5 2 5"/><path d="M80 50H147V90H288V158H147V198H80Z" fill="url(#hatch)" stroke="#102d66" stroke-width="2.5"/><path d="M80 108H248V140H80" fill="white" stroke="#102d66" stroke-width="2"/><path d="M147 50V198M288 81V169M80 39V29M288 39V29M80 34H288M69 50H48M69 198H48M55 50V198" stroke="#9badc7"/><path d="M76 38L84 30M284 38L292 30M51 54L59 46M51 202L59 194" stroke="#102d66"/><path d="M237 108L248 119V129L237 140" stroke="#c74716" stroke-width="2"/><circle cx="248" cy="124" r="31" stroke="#c74716" stroke-dasharray="3 5"/><path d="M271 147L313 189H336" stroke="#c74716"/><text x="158" y="25" fill="#526176" font-family="Arial,sans-serif" font-size="12">FERTIGTEIL</text><text x="227" y="214" fill="#526176" font-family="Arial,sans-serif" font-size="12">Der Ausgangspunkt.</text></svg><p class="art-caption">Vom Fertigteil zum Umformkonzept.</p></div>
+</section>
+<section class="entry" id="einstieg" aria-labelledby="entry-title">
+<div class="entry-top"><h2 id="entry-title">Womit möchten Sie beginnen?</h2><p>Ihre Idee reicht für den ersten Schritt.</p></div>
+<div class="workspace"><div>
+<div class="tabs" role="tablist" aria-label="Einstieg wählen"><button class="tab" id="tab-upload" type="button" role="tab" aria-controls="panel-anfrage" aria-selected="true" data-mode="upload">Zeichnung hochladen</button><button class="tab" id="tab-description" type="button" role="tab" aria-controls="panel-anfrage" aria-selected="false" tabindex="-1" data-mode="description">Maße beschreiben</button><button class="tab" id="tab-chat" type="button" role="tab" aria-controls="panel-chat" aria-selected="false" tabindex="-1" data-mode="chat">Frage stellen</button></div>
+<div class="availability" id="availability" hidden><strong>Technischer Dialog wird eingerichtet.</strong><p>Hans Möhling ist direkt erreichbar: <a href="mailto:info@jernyao.de">info@jernyao.de</a>. Eine Zeichnung können Sie Ihrer E-Mail beifügen.</p></div>
+<div role="tabpanel" id="panel-anfrage" aria-labelledby="tab-upload">
+<form id="request-form">
+<div id="upload-area"><div class="drop" id="drop-zone"><svg viewBox="0 0 32 32" fill="none" aria-hidden="true"><path d="M7 3H20L26 9V29H7Z" stroke="currentColor" stroke-width="1.5"/><path d="M20 3V10H26M16 23V13M12 17L16 13L20 17" stroke="currentColor" stroke-width="1.5"/></svg><strong>Ihre Zeichnung oder Skizze</strong><p id="file-help">PDF oder Bild · bis 15 MB. STEP, DXF und DWG als CAD-Anhang.</p><input class="file-picker" id="file" name="datei" type="file" accept=".pdf,.png,.jpg,.jpeg,.webp,.step,.stp,.dxf,.dwg" aria-label="Zeichnung oder Skizze auswählen" aria-describedby="file-help file-error"></div><p class="form-message error" id="file-error" role="alert" hidden></p><p class="helper">Datei auswählen oder hier ablegen. Eine Beschreibung ist genauso willkommen.</p></div>
+<div class="file-summary" id="file-summary" hidden><span id="file-name"></span><button type="button" class="text-button" id="remove-file">Entfernen</button></div>
+<div class="field"><label for="description" id="description-label">Was möchten Sie uns mitgeben? <span class="optional">Optional zur Zeichnung</span></label><textarea id="description" name="notiz" rows="4" maxlength="12000" placeholder="Zum Beispiel Stückzahl, Werkstoff, gewünschter Termin oder eine Frage zum Teil." aria-describedby="description-help"></textarea><p class="helper" id="description-help" hidden>Beschreiben Sie Form, Maße und Aufgabe so, wie Sie sie kennen. Die technische Auslegung übernehmen wir.</p></div>
+<h3 class="contact-title">Wie erreichen wir Sie?</h3><div class="contact-fields"><div class="field wide"><label for="email">E-Mail-Adresse</label><input id="email" name="email" type="email" autocomplete="email" required maxlength="254" placeholder="name@firma.de"></div><div class="field"><label for="name">Ihr Name <span class="optional">Optional</span></label><input id="name" name="name" autocomplete="name" maxlength="120"></div><div class="field"><label for="company">Firma <span class="optional">Optional</span></label><input id="company" name="firma" autocomplete="organization" maxlength="160"></div></div>
+<label class="consent"><input id="consent" type="checkbox" required><span>Ich stimme der Verarbeitung meiner Anfrage und Unterlagen einschließlich KI-Auswertung zu. <a href="#datenschutz">Datenschutz</a></span></label>
+<div class="actions"><button class="primary" id="request-submit" type="submit">Anfrage senden</button><a class="small" id="email-fallback" href="mailto:info@jernyao.de" hidden>Per E-Mail anfragen</a></div><p class="form-message" id="request-message" role="status" aria-live="polite" hidden></p>
+</form>
+<section class="response" id="response" aria-labelledby="response-title" hidden><h2 id="response-title">Ihre Anfrage</h2><p class="result-status" id="result-status"></p><div id="result-content"></div><p class="notification" id="notification"></p><div class="actions"><button type="button" class="secondary" id="refresh-status">Stand aktualisieren</button><button type="button" class="text-button" id="continue-chat">Im Dialog vertiefen</button></div></section>
+</div>
+<div role="tabpanel" id="panel-chat" aria-labelledby="tab-chat" hidden><p class="chat-intro">Eine Frage zur Stadienfolge, zum Werkzeug oder zu einem ganzen Fertigungskonzept? Beginnen Sie hier.</p><div class="examples" id="chat-examples"><button type="button" class="example" data-question="Wie entwickelt man eine Stadienfolge vom Fertigteil rückwärts?">Wie entsteht eine sinnvolle Stadienfolge?</button><button type="button" class="example" data-question="Ich möchte eine Bundhülse kalt umformen. Welche Maße und Anforderungen brauchen wir für ein Fertigungskonzept?">Ein Fertigungskonzept für eine Bundhülse</button><button type="button" class="example" data-question="Wann ist Wenden im Transfer sinnvoll, und was muss an der Maschine dafür geprüft werden?">Wann muss das Teil im Transfer gewendet werden?</button></div><div class="messages" id="messages" role="log" aria-label="Technischer Dialog" aria-live="polite" aria-relevant="additions"></div><form id="chat-form"><div class="field"><label for="chat-input">Ihre Frage oder Idee</label><textarea id="chat-input" rows="4" maxlength="8000" required placeholder="Beschreiben Sie, worüber Sie nachdenken …"></textarea></div><div class="actions"><button class="primary" id="chat-submit" type="submit">Frage senden</button><button class="text-button" type="button" id="chat-to-request">Daraus eine Anfrage machen</button></div><p class="helper">Der technische Dialog nutzt KI. Hinweise zur Verarbeitung finden Sie im <a href="#datenschutz">Datenschutz</a>.</p><p class="form-message" id="chat-message" role="status" aria-live="polite" hidden></p></form></div>
+</div><aside class="approach" id="ansatz"><p class="eyebrow">Wissen aus der Praxis</p><h2>Erst das Konzept.<br>Dann die Maschine.</h2><p>Eine gute Stadienfolge beginnt am fertigen Teil. Von dort denken wir zurück: Wie wird der Werkstoff verteilt, geformt und sicher weitergegeben?</p><dl><div><dt>Das Teil verstehen</dt><dd>Geometrie, Funktion, Werkstoff und Anforderungen zusammenbringen.</dd></div><div><dt>Den Fertigungsweg entwickeln</dt><dd>Zwischenformen, Werkzeuge und Transfer als Ganzes betrachten.</dd></div><div><dt>Die Maschine zuordnen</dt><dd>Stadien und Werkzeugraum mit den Daten der Jern-Yao-Pressen abgleichen.</dd></div></dl><p class="approach-note">Wenn eine Angabe fehlt, fragen wir gezielt nach. Sie müssen die Auslegung nicht vorwegnehmen.</p></aside></div>
+</section>
+<section class="personal" id="kontakt"><div><p class="eyebrow">Ihr Ansprechpartner</p><h2>Hans Möhling</h2><p>Jern Yao im deutschsprachigen Raum.</p></div><div><p>Von der ersten Idee bis zur konkreten Maschinenanfrage bleiben Teil, Werkzeug und Fertigung zusammen im Blick. Für Ihr Projekt erreichen Sie mich auch direkt.</p><a class="contact-link" href="mailto:info@jernyao.de">info@jernyao.de</a><a class="contact-link" href="tel:+491711070010">+49 171 10 700 10</a></div></section>
+<noscript><p>Für Upload und Dialog benötigen Sie JavaScript. Sie erreichen Hans Möhling per <a href="mailto:info@jernyao.de">info@jernyao.de</a>.</p></noscript>
 </main>
-
-<div id="blatt"></div>
-
-<footer>
-  <div class="wrap">
-    <div>Jern Yao Vertretung für den deutschen Sprachraum · Hans Möhling · <a href="mailto:info@jernyao.de">info@jernyao.de</a> · +49 171 10 700 10</div>
-    <details><summary>Impressum</summary><p>Hans Möhling · Exklusivvertretung Jern Yao Enterprises Co., Ltd. für Deutschland, Österreich und die Schweiz. E-Mail: jernyao@techno.parts · Telefon: +49 171 10 700 10</p></details>
-    <details><summary>Datenschutz</summary><p>Diese Seite setzt keine Cookies und speichert keine Eingaben. Die Rechnung läuft vollständig im Browser. Eine Anfrage öffnet Ihr E-Mail-Programm; die Angaben dienen allein ihrer Bearbeitung. Beim Abruf fallen beim Hostinganbieter technisch bedingte Zugriffsprotokolle an (IP-Adresse, Zeitpunkt, abgerufene Seite).</p></details>
-  </div>
-</footer>
-
+<footer><div class="wrap"><div class="footer-row"><span>Jern Yao · Hans Möhling</span><div class="footer-links"><a href="https://jernyao.de/">Zur Jern-Yao-Website</a><a href="/archiv/konfigurator-v1.html">Technische Auslegung</a></div></div><details id="impressum"><summary>Impressum</summary><p>Hans Möhling · Exklusivvertretung Jern Yao Enterprises Co., Ltd. für Deutschland, Österreich und die Schweiz. E-Mail: <a href="mailto:jernyao@techno.parts">jernyao@techno.parts</a> · Telefon: +49 171 10 700 10.</p></details><details id="datenschutz"><summary>Datenschutz</summary><p>Ihre Angaben und Dateien werden beim Absenden zur Bearbeitung an unseren Anfragedienst übertragen. Anfragen, Originaldateien, Ergebnisse und zugehörige Dialoge werden dort 30 Tage in einem privaten Cloudflare-Speicher vorgehalten. Für die technische KI-Auswertung werden Text sowie PDF- und Bilddateien an Anthropic übermittelt. CAD-Dateien werden nicht automatisch gelesen; sie bleiben Originalanhänge für Hans Möhling.</p><p>Die Eingangsbenachrichtigung an Hans Möhling wird über Resend versandt und enthält Ihre Kontaktdaten, Nachricht und die hochgeladene Originaldatei als Anhang. Die 30 Tage beziehen sich auf den Anfragedienst, nicht auf die zur persönlichen Bearbeitung versandte E-Mail. Ein Dialog ohne Anfrage wird mit seinem bisherigen Gesprächsverlauf an Anthropic übermittelt.</p><p>Fragen zu Ihren Angaben oder zur Löschung richten Sie an <a href="mailto:info@jernyao.de">info@jernyao.de</a>. Beim Hosting fallen technisch bedingte Zugriffsprotokolle an. Schriftarten und Logo werden von jernyao.de geladen.</p></details></div></footer>
+<script src="/site-config.js"></script>
 <script id="daten" type="application/json">/*DATEN*/</script>
 <script id="praxis" type="application/json">/*PRAXIS*/</script>
 <script>/*ENGINE*/</script>

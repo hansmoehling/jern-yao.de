@@ -1,18 +1,46 @@
 name = "jy-anfrage"
+account_id = "97bdf6ed3d328cac44e2dda1f88c65f0"
 main = "worker.js"
 compatibility_date = "2026-11-01"
 
 [[kv_namespaces]]
 binding = "SPEICHER"
-id = "HIER_DIE_ID_AUS_wrangler_kv_namespace_create"
+id = "4c36a14cda35436ba1fc0387f8bfc25e"
+# Bestehender Namespace jy-anfrage-speicher, EU-Jurisdiction bei Erstellung gesetzt.
+
+[[r2_buckets]]
+binding = "DATEIEN"
+bucket_name = "jy-anfragen"
+jurisdiction = "eu"
+
+[[queues.producers]]
+binding = "ANFRAGEN"
+queue = "jy-anfragen"
+# Beide bestehenden Queues haben EU-Jurisdiction; Bindings referenzieren den Namen.
+
+[[queues.consumers]]
+queue = "jy-anfragen"
+max_batch_size = 1
+max_batch_timeout = 1
+max_retries = 3
+max_concurrency = 4
+dead_letter_queue = "jy-anfragen-dlq"
 
 [vars]
 EMPFAENGER = "info@jernyao.de"
 ABSENDER = "Hans Möhling <info@jernyao.de>"
-MODELL = "claude-sonnet-5-5"
-BASIS = "https://jy-anfrage.KONTO.workers.dev"
+MODELL = "claude-opus-5-5"
+ALLOW_WEB_SEARCH = "true"
+RESEARCH_DOMAINS = "jernyao.com,saarstahl.com,lucefin.com"
+# Weitere eigene Frontend-Herkünfte bei Bedarf, kommasepariert:
+ALLOWED_ORIGINS = ""
 
-# Geheimnisse, nie in diese Datei:
-#   wrangler secret put ANTHROPIC_API_KEY
-#   wrangler secret put RESEND_API_KEY
-#   wrangler secret put FREIGABE_SCHLUESSEL
+# Keine Request-URLs mit Status-Token protokollieren.
+[observability]
+enabled = false
+
+# Secrets ausschließlich über wrangler secret put:
+# ANTHROPIC_API_KEY, RESEND_API_KEY, ZUGRIFF_SCHLUESSEL (mindestens 32 Zeichen)
+# Bestehender FREIGABE_SCHLUESSEL bleibt als Übergangs-Secret lesbar.
+# R2-Lifecycle für anfragen/: nach 30 Tagen löschen, siehe LIESMICH.md.
+# Die Ressource/Domain wurde durch diese Datei noch nicht angelegt oder aktiviert.

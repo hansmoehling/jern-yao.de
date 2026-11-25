@@ -1,0 +1,10 @@
+.dev.vars*
+.env*
+.wrangler/
+node_modules/
+konzept-cache*.json
+lernen-export*.json
+*.private.json
+site-config.local.js
+__pycache__/
+*.pyc
