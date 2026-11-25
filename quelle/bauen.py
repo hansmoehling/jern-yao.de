@@ -53,6 +53,8 @@ def build():
     for source,target,ui,token in [('vorlage.html','index.html','ui.js','/*UI*/'),('archiv-vorlage.html','manual/konfigurator-v1.html','archiv-ui.js','/*ARCHIVE_UI*/')]:
         text=(Q/source).read_text(encoding='utf-8-sig')
         values={**replacements,token:(Q/ui).read_text(encoding='utf-8-sig')}
+        if source == 'archiv-vorlage.html':
+            values['/*DRAWING_PREVIEW*/']=(Q/'drawing-preview.js').read_text(encoding='utf-8-sig')
         for key,value in values.items():
             assert key in text,(source,key)
             text=text.replace(key,value)

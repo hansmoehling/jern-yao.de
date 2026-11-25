@@ -30,18 +30,174 @@ function harness(base='https://api.example.test',language='de',showPrices) {
   Object.defineProperty(nodes.get('file'),'value',{get(){return this._value||''},set(value){this._value=value;if(value==='')this.files=[]}});
   const tabs=['upload','description','chat'].map(mode=>{const el=nodes.get('tab-'+mode);el.dataset.mode=mode;return el});
   const questions=[new Element()];questions[0].dataset.question='Wie entsteht die Stadienfolge?';
-  const requests=[]; const answers=[]; const events={};
+  const requests=[]; const answers=[]; const events={}; const timers=new Map();let timerId=0;
   const document={getElementById(id){assert(nodes.has(id),'unknown id '+id);return nodes.get(id)},createElement(tag){return new Element(tag)},querySelectorAll(selector){return selector==='[data-mode]'?tabs:selector==='[data-question]'?questions:[]}};
   const locale={language,t:text=>I18N.t(text,locale.language),apply(){},autonyms:{de:'Deutsch',it:'Italiano',sl:'Slovenščina',en:'English',zh:'简体中文'}};
-  const context={document,window:{JYI18N:I18N,JYLocale:locale,JYConcept:{html:()=>'<section>concept</section>'},JY_API_BASE:base,location:{href:'https://jern-yao.de/'},setTimeout(){return 1},clearTimeout(){},addEventListener(name,fn){(events[name] ||= []).push(fn)}},URL,URLSearchParams,FormData,AbortController,TextEncoder,crypto,TypeError,fetch:async(url,options)=>{requests.push({url,options});const answer=answers.shift();if(answer instanceof Error)throw answer;if(!answer)throw new Error('Unmocked API call');return {ok:answer.ok!==false,status:answer.status||200,json:async()=>answer.data}}};
+  const context={document,window:{JYI18N:I18N,JYLocale:locale,JYConcept:{html:()=>'<section>concept</section>'},JY_API_BASE:base,location:{href:'https://jern-yao.de/'},setTimeout(fn,delay){timers.set(++timerId,{fn,delay});return timerId},clearTimeout(id){timers.delete(id)},addEventListener(name,fn){(events[name] ||= []).push(fn)}},URL,URLSearchParams,FormData,AbortController,TextEncoder,crypto,TypeError,fetch:async(url,options)=>{requests.push({url,options});const answer=await answers.shift();if(answer instanceof Error)throw answer;if(!answer)throw new Error('Unmocked API call');return {ok:answer.ok!==false,status:answer.status||200,json:async()=>answer.data}}};
   if(showPrices!==undefined)context.window.JY_SHOW_PRICES=showPrices;
   vm.runInNewContext(source,context);
-  return {nodes,tabs,questions,requests,answers,locale,events,get:id=>nodes.get(id)};
+  return {nodes,tabs,questions,requests,answers,locale,events,timers,get:id=>nodes.get(id),async runTimer(delay=4000){const timer=[...timers].find(([,value])=>value.delay===delay);assert(timer,'expected scheduled timer '+delay);timers.delete(timer[0]);await timer[1].fn();await new Promise(setImmediate)}};
 }
 const flattened = node => node.textContent+' '+node.children.map(flattened).join(' ');
 const descendants = node => [node,...node.children.flatMap(descendants)];
 const quoteButtons = node => descendants(node).filter(item=>item.tagName==='button'&&item.className==='quote-button');
 (async()=>{
+  const waitForRequests=async(p,count)=>{for(let attempt=0;attempt<100&&p.requests.length<count;attempt++)await new Promise(resolve=>setTimeout(resolve,1));assert.equal(p.requests.length,count,'expected pending request');};
+  {
+    const p=harness();const a=new File(['A'],'same.pdf'),b=new File(['B'],'same.pdf');
+    let finishA,finishB;
+    p.get('file').files=[a];await p.get('file').emit('change');
+    p.answers.push(new Promise(resolve=>{finishA=resolve}));const pendingA=p.get('preview-start').emit('click');await waitForRequests(p,1);
+    p.get('file').files=[b];await p.get('file').emit('change');
+    assert.equal(p.get('response').hidden,true);assert.equal(p.get('preview-progress').hidden,true);assert.equal(p.get('preview-start').disabled,false);
+    p.answers.push(new Promise(resolve=>{finishB=resolve}));const pendingB=p.get('preview-start').emit('click');await waitForRequests(p,2);
+    finishA({data:{id:'DRAWING-A',token:'token-a',kind:'preview',status:'queued'}});await pendingA;
+    assert.equal(p.get('response').hidden,true,'late A receipt cannot appear for selected B');
+    assert.equal(p.get('preview-start').disabled,true,'late A cleanup cannot unlock active B transfer');
+    assert.equal(p.get('preview-progress').hidden,false);
+    finishB({data:{id:'DRAWING-B',token:'token-b',kind:'preview',status:'ready',answer:'Result B'}});await pendingB;
+    assert(flattened(p.get('result-content')).includes('Result B'));assert.match(p.get('result-status').textContent,/DRAWING-B/);
+    p.get('file').files=[a];await p.get('file').emit('change');await p.get('preview-start').emit('click');
+    assert.equal(p.requests.length,2,'detached A receipt is reusable from content cache');assert.match(p.get('result-status').textContent,/DRAWING-A/);
+  }
+  {
+    const p=harness();p.get('file').files=[new File(['A'],'part.pdf')];await p.get('file').emit('change');
+    p.answers.push({data:{id:'OLD-A',token:'old-token',kind:'preview',status:'queued'}});await p.get('preview-start').emit('click');
+    let finishStatus;p.answers.push(new Promise(resolve=>{finishStatus=resolve}));const pending=p.get('refresh-status').emit('click');await waitForRequests(p,2);
+    p.get('file').files=[new File(['A'],'part.pdf')];await p.get('file').emit('change');
+    finishStatus({data:{kind:'preview',status:'ready',answer:'Old drawing result'}});await pending;
+    assert.equal(p.get('response').hidden,true,'a reselected file object detaches in-flight status even with identical metadata');
+    assert(!flattened(p.get('result-content')).includes('Old drawing result'));
+    p.get('chat-input').value='Current drawing?';p.answers.push({data:{answer:'Please start the new analysis.'}});await p.get('chat-form').emit('submit');
+    assert.equal(JSON.parse(p.requests.at(-1).options.body).requestId,undefined,'detached status cannot restore an old chat token');
+  }
+  {
+    const p=harness();const a=new File(['A'],'part.pdf');p.get('file').files=[a];await p.get('file').emit('change');
+    p.answers.push({data:{id:'A-CONTEXT',token:'a-token',kind:'preview',status:'ready',answer:'Drawing A',proposal:{machines:[{model:'JBF-10B2S',status:'offen'}]}}});await p.get('preview-start').emit('click');
+    await quoteButtons(p.get('result-content'))[0].emit('click');assert.equal(p.get('selected-machine').hidden,false);
+    p.locale.language='en';for(const fn of p.events['jy-languagechange']||[])fn();
+    p.get('email').value='test@example.invalid';await p.get('request-form').emit('input');
+    assert.equal(p.get('response').hidden,false,'language or contact-only changes retain analysis');
+    p.get('chat-input').value='Tell me about A';let finishChat;p.answers.push(new Promise(resolve=>{finishChat=resolve}));const pending=p.get('chat-form').emit('submit');await waitForRequests(p,2);
+    p.get('description').value='Changed dimensions for B';await p.get('request-form').emit('input');
+    assert.equal(p.get('selected-machine').hidden,true);assert.equal(p.get('response').hidden,true);assert.equal(p.get('preview-progress').hidden,true);
+    finishChat({data:{answer:'Old A chat answer'}});await pending;
+    assert(!flattened(p.get('messages')).includes('Old A chat answer'));
+    p.get('chat-input').value='Question about B';p.answers.push({data:{answer:'New context'}});await p.get('chat-form').emit('submit');
+    const next=JSON.parse(p.requests.at(-1).options.body);assert.equal(next.requestId,undefined);assert.deepEqual(next.history,[],'changed geometry clears the previous analysis chat context');
+    p.answers.push({data:{id:'B-CONTEXT',token:'b-token',kind:'preview',status:'ready',answer:'Drawing B'}});await p.get('preview-start').emit('click');
+    await p.get('remove-file').emit('click');assert.equal(p.get('response').hidden,true);assert.equal(p.get('preview-progress').hidden,true);
+  }
+  {
+    const p=harness();p.get('file').files=[new File(['A'],'part.pdf')];await p.get('file').emit('change');
+    let finish;p.answers.push(new Promise(resolve=>{finish=resolve}));const pending=p.get('preview-start').emit('click');await waitForRequests(p,1);
+    p.get('description').value='New dimensions';await p.get('request-form').emit('input');
+    finish({data:{id:'OLD-NOTE',token:'old-token',kind:'preview',status:'ready',answer:'Old note result'}});await pending;
+    assert.equal(p.get('response').hidden,true,'late receipt for a changed note is detached');assert.equal(p.get('preview-progress').hidden,true);
+  }
+  {
+    const p=harness();p.get('file').files=[new File(['A'],'part.pdf')];await p.get('file').emit('change');
+    p.answers.push({data:{id:'LONG-RUN',token:'long-token',kind:'preview',status:'queued'}});await p.get('preview-start').emit('click');
+    for(let poll=0;poll<75;poll++){p.answers.push({data:{kind:'preview',status:'processing'}});await p.runTimer();}
+    assert.equal([...p.timers.values()].filter(timer=>timer.delay===4000).length,0,'automatic polling has a finite five-minute budget');
+    assert.equal(p.get('preview-progress').hidden,true,'no endless spinner after polling stops');
+    assert.match(p.get('preview-message').textContent,/Aktualisierung pausiert/);assert.equal(p.get('refresh-status').disabled,false);
+    p.locale.language='en';for(const fn of p.events['jy-languagechange']||[])fn();assert.equal(p.get('preview-progress').hidden,true,'translation cannot restart paused spinner');
+    p.answers.push({data:{kind:'preview',status:'ready',answer:'Completed later'}});await p.get('refresh-status').emit('click');
+    assert(flattened(p.get('result-content')).includes('Completed later'));assert.equal(p.get('preview-progress').hidden,true);
+  }
+  for(const language of I18N.supported){
+    const p=harness('https://api.example.test',language,false);
+    const drawing=new File(['drawing-a'],'part.pdf',{type:'application/pdf',lastModified:1});
+    p.get('consent').checked=false;p.get('description').value='Hülse Ø 12 × 25 mm';
+    p.get('file').files=[drawing];await p.get('file').emit('change');
+    assert.equal(p.get('preview-actions').hidden,false);assert.equal(p.get('preview-start').disabled,false);
+    assert.equal(p.get('preview-start').textContent,I18N.t('Zeichnung mit KI auswerten',language));
+    assert.equal(p.requests.length,0,'selection never starts analysis');
+    p.answers.push({data:{id:'PREVIEW-'+language,token:'preview-private',kind:'preview',status:'queued',notificationStatus:'not_requested'}});
+    const firstClick=p.get('preview-start').emit('click');
+    assert.equal(p.get('preview-start').disabled,true,'double-click is blocked while upload starts');
+    assert.equal(p.get('preview-progress').hidden,false);
+    assert.equal(p.get('preview-progress-title').textContent,I18N.t('Zeichnung wird übertragen …',language));
+    await p.get('preview-start').emit('click');await firstClick;
+    assert.equal(p.requests.length,1,'one deliberate start creates one preview');
+    assert.match(p.requests[0].url,/\/preview\?/);
+    const body=p.requests[0].options.body,key=body.get('idempotency_key');
+    assert.equal(body.get('datei').name,'part.pdf');assert.equal(body.get('notiz'),'Hülse Ø 12 × 25 mm');
+    assert.equal(body.get('language'),language);assert.equal(body.get('pricePolicy'),'technical-only');assert(key);
+    for(const field of ['email','name','firma','consent'])assert.equal(body.has(field),false,'preview excludes contact data and does not need enquiry consent');
+    assert.equal(p.get('notification').hidden,true);assert.equal(p.get('notification').textContent,'');
+    assert.equal(p.get('preview-progress-title').textContent,I18N.t('Zeichnung wird ausgewertet …',language));
+    p.answers.push({data:{kind:'preview',status:'ready',notificationStatus:'not_requested',answer:'Drawing concept',proposal:{machines:[{model:'JBF-10B2S',status:'offen',priceEUR:123456}],stages:[{number:1,operation:'Vorstauchen',force_t:null}]}}});
+    await p.get('refresh-status').emit('click');
+    assert.match(p.requests.at(-1).url,/\/status\?/);assert.match(p.requests.at(-1).url,/token=preview-private/);
+    assert.equal(p.get('preview-progress').hidden,true,'terminal analysis stops animation');
+    assert(flattened(p.get('result-content')).includes('Drawing concept'));
+    assert.equal(quoteButtons(p.get('result-content')).length,1,'preview retains catalogue-bound quote action');
+    assert(!/EUR|€/.test(flattened(p.get('result-content'))),'preview obeys technical-only policy');
+    const count=p.requests.length;
+    await p.get('preview-start').emit('click');assert.equal(p.requests.length,count,'ready result reused without a second analysis');
+    p.get('file').files=[new File(['drawing-a'],'part.pdf',{type:'application/pdf',lastModified:999})];
+    await p.get('file').emit('change');await p.get('preview-start').emit('click');
+    assert.equal(p.requests.length,count,'reselecting identical bytes reuses result despite changed modification time');
+
+    p.get('email').value='customer@example.invalid';p.get('consent').checked=true;
+    p.answers.push({data:{id:'MAIL-'+language,token:'mail-private',kind:'enquiry',status:'received',analysisStatus:'not_requested',notificationStatus:'pending'}});
+    await p.get('request-form').emit('submit');
+    assert.match(p.requests.at(-1).url,/\/anfrage\?/);assert.equal(p.requests.at(-1).options.body.get('consent'),'true');
+    assert.equal(p.requests.at(-1).options.body.get('datei').name,'part.pdf');
+    assert(flattened(p.get('result-content')).includes('Drawing concept'),'sending mail preserves existing analysis');
+    assert.equal(p.get('preview-progress').hidden,true,'sending mail does not restart analysis');
+    assert.equal(p.get('request-mail-status').textContent,I18N.t('Die Benachrichtigung an Hans Möhling ist noch in Bearbeitung.',language));
+    p.answers.push({data:{kind:'enquiry',status:'received',analysisStatus:'not_requested',notificationStatus:'sent'}});
+    await p.get('request-refresh').emit('click');
+    assert.match(p.requests.at(-1).url,/token=mail-private/);
+    assert.equal(p.get('request-mail-status').textContent,I18N.t('Hans Möhling wurde per E-Mail über Ihre Anfrage informiert.',language));
+    assert.equal(p.get('request-refresh').hidden,true);
+    p.get('chat-input').value='Welche Umformschritte?';p.answers.push({data:{answer:'Zum Konzept.'}});
+    await p.get('chat-form').emit('submit');
+    assert.equal(JSON.parse(p.requests.at(-1).options.body).requestId,'PREVIEW-'+language,'technical follow-up retains analysis identity after email');
+  }
+  {
+    const p=harness();const file=bytes=>new File([bytes],'same.pdf',{type:'application/pdf',lastModified:1});
+    p.get('file').files=[file('AA')];await p.get('file').emit('change');
+    p.answers.push(new TypeError('Offline'));await p.get('preview-start').emit('click');
+    const key=p.requests.at(-1).options.body.get('idempotency_key');
+    assert.equal(p.get('preview-progress').hidden,true);assert.equal(p.get('preview-start').disabled,false);
+    assert.match(p.get('preview-message').className,/error/);
+    p.answers.push({data:{id:'P1',token:'private',kind:'preview',status:'needs_info',questions:['Werkstoff?']}});
+    await p.get('preview-start').emit('click');assert.equal(p.requests.at(-1).options.body.get('idempotency_key'),key,'uncertain retry reuses key');
+    assert.equal(p.get('preview-progress').hidden,true,'clarification ends active animation');
+    p.get('file').files=[file('BB')];await p.get('file').emit('change');
+    p.answers.push({data:{id:'P2',token:'private',kind:'preview',status:'failed'}});
+    await p.get('preview-start').emit('click');assert.notEqual(p.requests.at(-1).options.body.get('idempotency_key'),key,'same metadata with different bytes is a new analysis');
+    assert.equal(p.get('preview-progress').hidden,true);assert(!flattened(p.get('result-content')).includes('Hans Möhling'),'failed preview does not claim a mail request');
+    const secondKey=p.requests.at(-1).options.body.get('idempotency_key');
+    p.get('description').value='Changed dimensions';
+    p.answers.push({data:{id:'P3',token:'private',kind:'preview',status:'ready'}});
+    await p.get('preview-start').emit('click');assert.notEqual(p.requests.at(-1).options.body.get('idempotency_key'),secondKey,'changed description creates a new preview');
+    const count=p.requests.length;
+    for(const bad of [new File(['CAD'],'part.step'),new File([],'empty.pdf'),new File(['X'],'part.exe')]){
+      p.get('file').files=[bad];await p.get('file').emit('change');
+      assert.equal(p.get('preview-actions').hidden,true);assert.equal(p.get('preview-start').disabled,true);
+      await p.get('preview-start').emit('click');assert.equal(p.requests.length,count,'CAD/invalid files cannot call preview');
+      if(bad.name.endsWith('.step'))assert.equal(p.get('preview-cad-help').hidden,false);
+    }
+    await p.get('remove-file').emit('click');assert.equal(p.get('preview-actions').hidden,true);assert.equal(p.get('preview-cad-help').hidden,true);
+  }
+  {
+    const p=harness();p.get('email').value='customer@example.invalid';p.get('description').value='Mail only';
+    p.answers.push({data:{id:'ONLY-MAIL',token:'mail-private',kind:'enquiry',status:'received',analysisStatus:'not_requested',notificationStatus:'pending'}});
+    await p.get('request-form').emit('submit');assert.equal(p.requests.length,1);assert.match(p.requests[0].url,/\/anfrage\?/);
+    assert.equal(flattened(p.get('result-content')).trim(),'','mail-only request never renders an analysis promise');
+    p.answers.push({data:{kind:'enquiry',status:'received',notificationStatus:'failed'}});await p.get('request-refresh').emit('click');
+    assert.match(p.get('request-mail-status').textContent,/noch nicht zugestellt/);assert.match(p.get('request-mail-status').className,/error/);
+    assert.equal(p.get('request-refresh').hidden,false,'failed mail can be checked without re-sending or analyzing');
+  }
+  assert.match(template,/<button type="button"[^>]*id="preview-start"/,'analysis is a deliberate non-submit button');
+  assert.match(template,/@media\(prefers-reduced-motion:reduce\)\{\.preview-cloud\{animation:none\}\}/);
+  assert.equal((template.match(/<div class="preview-cloud" aria-hidden="true">([\s\S]*?)<\/div>/)[1].match(/<span>/g)||[]).length,8);
+  assert(template.indexOf('id="response"')<template.indexOf('class="contact-title"'),'analysis appears before contact details');
   for(const language of I18N.supported){
     const p=harness('https://api.example.test',language);
     const file=new File([new Uint8Array(2048)],'Zeichnung Anfrage senden.pdf',{type:'application/pdf'});

@@ -12,7 +12,7 @@ const storedPricePolicy=record=>record?.pricePolicy===WITH_PRICES&&pricedOrigin(
 // Client values may only restrict. A linked request also keeps its original
 // policy when revisited from another origin or processed without HTTP headers.
 const requestPricePolicy=(req,requested,record)=>originPricePolicy(req)===TECHNICAL_ONLY||requested===TECHNICAL_ONLY||record&&storedPricePolicy(record)===TECHNICAL_ONLY?TECHNICAL_ONLY:WITH_PRICES;
-const EXT = { pdf: 'application/pdf', png: 'image/png', jpg: 'image/jpeg', jpeg: 'image/jpeg', webp: 'image/webp', step: 'application/step', stp: 'application/step', dxf: 'image/vnd.dxf', dwg: 'image/vnd.dwg' };
+const EXT = { pdf: 'application/pdf', png: 'image/png', jpg: 'image/jpeg', jpeg: 'image/jpeg', webp: 'image/webp', tif:'image/tiff',tiff:'image/tiff',igs:'model/iges',iges:'model/iges',step: 'application/step', stp: 'application/step', dxf: 'image/vnd.dxf', dwg: 'image/vnd.dwg' };
 const enc = new TextEncoder();
 const json = (value, status = 200, cors = {}) => new Response(JSON.stringify(value), { status, headers: { ...cors, 'Content-Type': 'application/json; charset=utf-8', 'Cache-Control': 'no-store', 'Referrer-Policy': 'no-referrer', 'X-Content-Type-Options': 'nosniff' } });
 export class HttpError extends Error { constructor(status, message) { super(message); this.status = status; } }
@@ -34,7 +34,11 @@ async function readiness(env) {
   checks.knowledge = ['versioned', 'legacy'].includes(knowledgeStatus);
   return { ready: Object.values(checks).every(Boolean), checks, knowledgeStatus, credentialsVerified: false, model: env.MODELL || MODEL };
 }
-async function requireReady(env) { if (!(await readiness(env)).ready) throw new HttpError(503, 'Der Anfragedienst wird noch eingerichtet. Bitte wenden Sie sich direkt an Hans.'); }
+async function requireReady(env) { if (!Object.entries(configured(env)).filter(([name])=>name!=='model').every(([,ready])=>ready)) throw new HttpError(503, 'Der Anfragedienst wird noch eingerichtet. Bitte wenden Sie sich direkt an Hans.'); }
+async function requirePreviewReady(env) {
+  const {checks}=await readiness(env);
+  if (!Object.entries(checks).filter(([name])=>name!=='mail').every(([,ready])=>ready)) throw new HttpError(503, 'Die Zeichnungsanalyse wird noch eingerichtet. Bitte versuchen Sie es später erneut.');
+}
 async function readBounded(req, max) {
   if (Number(req.headers.get('content-length')) > max) throw new HttpError(413, 'Die Anfrage ist zu groß.');
   if (!req.body) return new Uint8Array();
@@ -55,8 +59,9 @@ async function authorised(env, id, token) {
   if (!intake || Date.parse(intake.createdAt) + TTL * 1000 < Date.now()) throw new HttpError(404, 'Diese Anfrage ist nicht mehr abrufbar.');
   return intake;
 }
-async function snapshot(env, id, pricePolicy) {
+async function snapshot(env, id, pricePolicy,kind) {
   const [a, n] = await Promise.all([get(env, 'analyse:' + id), get(env, 'nachricht:' + id)]);
+  if(kind==='enquiry')return {status:'received',kind,analysisStatus:'not_requested',...publicResult(null,{pricePolicy}),notificationStatus:n?.status||'pending'};
   return { status: a?.status || 'queued', ...publicResult(a?.result,{pricePolicy}), notificationStatus: n?.status || 'pending' };
 }
 function signatureOK(bytes, ext) {
@@ -65,11 +70,57 @@ function signatureOK(bytes, ext) {
   if (ext === 'png') return b.slice(0, 8).join() === '137,80,78,71,13,10,26,10';
   if (['jpg', 'jpeg'].includes(ext)) return b[0] === 255 && b[1] === 216 && b[2] === 255;
   if (ext === 'webp') return ascii.startsWith('RIFF') && ascii.slice(8, 12) === 'WEBP';
+  if(['tif','tiff'].includes(ext))return b[0]===73&&b[1]===73&&[42,43].includes(b[2])&&b[3]===0||b[0]===77&&b[1]===77&&b[2]===0&&[42,43].includes(b[3]);
   return true; // CAD is not parsed or executed.
 }
 async function enqueue(env, id) {
-  await env.ANFRAGEN.sendBatch([{ body: { kind: 'intake_mail', id } }, { body: { kind: 'analysis', id } }]);
+  await env.ANFRAGEN.sendBatch([{ body: { kind: 'intake_mail', id } }]);
   await put(env, 'versandauftrag:' + id, { queuedAt: new Date().toISOString() });
+}
+async function enqueuePreview(env,id) {
+  await env.ANFRAGEN.sendBatch([{body:{kind:'preview_analysis',id}}]);
+  await put(env,'vorschauauftrag:'+id,{queuedAt:new Date().toISOString()});
+}
+async function preview(req,env,cors,locale) {
+  const bytes=await readBounded(req,MAX_FILE+128*1024);
+  let form;try{form=await new Request(req.url,{method:'POST',headers:req.headers,body:bytes}).formData();}catch{throw new HttpError(400,'Das Formular konnte nicht gelesen werden.');}
+  const language=normalizeLanguage(form.get('language')||locale.value);
+  locale.value=language;
+  await requirePreviewReady(env);
+  const upload=form.get('datei')||form.get('zeichnung');
+  if(!upload||typeof upload!=='object'||!upload.size)throw new HttpError(400,'Bitte wählen Sie eine PDF-Zeichnung oder ein Bild für die KI-Auswertung aus.');
+  if(upload.size>MAX_FILE)throw new HttpError(413,'Die Datei darf höchstens 15 MB groß sein.');
+  const filename=String(upload.name).split(/[\\/]/).pop().replace(/[\x00-\x1f\x7f]/g,'').slice(0,160),ext=filename.split('.').pop().toLowerCase();
+  if(!['pdf','png','jpg','jpeg','webp'].includes(ext))throw new HttpError(415,'Für die KI-Auswertung benötigen wir eine PDF-Ansicht oder ein Bild. CAD-Dateien können Sie mit Ihrer Anfrage als Original versenden.');
+  const fileBytes=new Uint8Array(await upload.arrayBuffer());
+  if(!signatureOK(fileBytes,ext))throw new HttpError(415,'Dateiendung und Dateiinhalt passen nicht zusammen.');
+  const idem=txt(form.get('idempotency_key'),160);
+  if(!/^[\w-]{16,160}$/.test(idem))throw new HttpError(400,'Die Anfragekennung ist ungültig.');
+  const siteOrigin=req.headers.get('Origin')||null,pricePolicy=requestPricePolicy(req,form.get('pricePolicy'));
+  const note=txt(form.get('notiz')||form.get('text'),20000),file={name:filename,type:EXT[ext],size:fileBytes.length,hash:await digest(fileBytes),readable:true};
+  const fingerprint=await digest(JSON.stringify({note,file,language,siteOrigin,pricePolicy}));
+  // The opaque client key belongs only to this preview. Contact submissions use
+  // their existing, separate namespace and are never triggered by this route.
+  const idemKey='vorschau-idempotenz:'+await digest(siteOrigin+':'+idem),old=await get(env,idemKey);
+  if(old){
+    if(old.fingerprint!==fingerprint)throw new HttpError(409,'Diese Anfragekennung gehört bereits zu anderen Angaben. Bitte senden Sie eine neue Anfrage.');
+    const saved=await get(env,'anfrage:'+old.id);
+    if(saved?.kind!=='preview')throw new HttpError(503,'Die Vorschau konnte gerade nicht geladen werden. Bitte versuchen Sie es erneut.');
+    if(!await get(env,'vorschauauftrag:'+old.id))await enqueuePreview(env,old.id);
+    const state=await snapshot(env,old.id,requestPricePolicy(req,pricePolicy,saved));
+    if(!state.answer)state.language=language;
+    return json({id:old.id,token:await tokenFor(env,old.id),...state,kind:'preview',notificationStatus:'not_requested'},200,cors);
+  }
+  await throttle(req,env,'preview',10);
+  const id=crypto.randomUUID(),createdAt=new Date().toISOString();
+  file.key='anfragen/'+id+'/original';
+  await env.DATEIEN.put(file.key,fileBytes,{httpMetadata:{contentType:file.type},customMetadata:{expiresAt:String(Date.now()+TTL*1000)}});
+  await put(env,'anfrage:'+id,{id,kind:'preview',createdAt,note,file,language,siteOrigin,pricePolicy});
+  await put(env,'analyse:'+id,{status:'queued',updatedAt:createdAt});
+  await put(env,'nachricht:'+id,{status:'not_requested',updatedAt:createdAt});
+  await put(env,idemKey,{id,fingerprint});
+  try{await enqueuePreview(env,id);}catch{throw new HttpError(503,'Die Übertragung wurde unterbrochen. Bitte senden Sie dieselbe Anfrage erneut.');}
+  return json({id,token:await tokenFor(env,id),kind:'preview',status:'queued',notificationStatus:'not_requested',language,pricePolicy},202,cors);
 }
 async function intake(req, env, cors, locale) {
   const bytes = await readBounded(req, MAX_FILE + 128 * 1024);
@@ -80,7 +131,10 @@ async function intake(req, env, cors, locale) {
   await requireReady(env);
   const email = txt(form.get('email'), 254);
   if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) throw new HttpError(400, 'Bitte geben Sie Ihre E-Mail-Adresse an.');
+  // Published older forms enforce the checkbox locally but omit this field.
+  if(form.has('consent')&&form.get('consent')!=='true')throw new HttpError(400,'Bitte stimmen Sie der Verarbeitung Ihrer Anfrage zu.');
   const note = txt(form.get('notiz') || form.get('text'), 20000), name = txt(form.get('name'), 120), company = txt(form.get('firma'), 160);
+  const subject=txt(form.get('betreff'),500).replace(/[\x00-\x1f\x7f-\x9f\u2028\u2029]/g,' ').replace(/\s+/g,' ').trim().slice(0,160);
   const upload = form.get('datei') || form.get('zeichnung'); let file = null, fileBytes;
   if (upload && typeof upload === 'object' && upload.size) {
     if (upload.size > MAX_FILE) throw new HttpError(413, 'Die Datei darf höchstens 15 MB groß sein.');
@@ -93,7 +147,7 @@ async function intake(req, env, cors, locale) {
   if (!note && !file) throw new HttpError(400, 'Bitte laden Sie eine Zeichnung hoch oder beschreiben Sie Ihr Teil.');
   const idem = txt(form.get('idempotency_key'), 160);
   if (idem && !/^[\w-]{8,160}$/.test(idem)) throw new HttpError(400, 'Die Anfragekennung ist ungültig.');
-  const fingerprint = await digest(JSON.stringify({ email, note, name, company, file, language,siteOrigin,pricePolicy }));
+  const fingerprint = await digest(JSON.stringify({ email, note, name, company, file, language,siteOrigin,pricePolicy,...(subject?{subject}:{}) }));
   const idemKey = idem ? 'idempotenz:' + await digest(email.toLowerCase() + ':' + siteOrigin + ':' + idem) : null;
   if (idemKey) {
     const old = await get(env, idemKey);
@@ -101,7 +155,7 @@ async function intake(req, env, cors, locale) {
       if (old.fingerprint !== fingerprint) throw new HttpError(409, 'Diese Anfragekennung gehört bereits zu anderen Angaben. Bitte senden Sie eine neue Anfrage.');
       if (!await get(env, 'versandauftrag:' + old.id)) await enqueue(env, old.id);
       const saved=await get(env,'anfrage:'+old.id);
-      const state = await snapshot(env, old.id,requestPricePolicy(req,pricePolicy,saved));
+      const state = await snapshot(env, old.id,requestPricePolicy(req,pricePolicy,saved),saved?.kind);
       if (!state.answer) state.language = language;
       return json({ id: old.id, token: await tokenFor(env, old.id), ...state }, 200, cors);
     }
@@ -109,12 +163,11 @@ async function intake(req, env, cors, locale) {
   await throttle(req, env, 'intake', 10);
   const id = crypto.randomUUID(), createdAt = new Date().toISOString();
   if (file) { file.key = 'anfragen/' + id + '/original'; await env.DATEIEN.put(file.key, fileBytes, { httpMetadata: { contentType: file.type }, customMetadata: { expiresAt: String(Date.now() + TTL * 1000) } }); }
-  await put(env, 'anfrage:' + id, { id, createdAt, email, name, company, note, file, language,siteOrigin,pricePolicy });
-  await put(env, 'analyse:' + id, { status: 'queued', updatedAt: createdAt });
+  await put(env, 'anfrage:' + id, { id, kind:'enquiry',createdAt, email, name, company, note, file, language,siteOrigin,pricePolicy,...(subject?{subject}:{}),consent:form.get('consent')==='true',consentSource:form.has('consent')?'submitted':'legacy-ui' });
   await put(env, 'nachricht:' + id, { status: 'pending', updatedAt: createdAt });
   if (idemKey) await put(env, idemKey, { id, fingerprint });
   try { await enqueue(env, id); } catch { throw new HttpError(503, 'Die Übertragung wurde unterbrochen. Bitte senden Sie dieselbe Anfrage erneut.'); }
-  return json({ id, token: await tokenFor(env, id), status: 'queued', notificationStatus: 'pending', language,pricePolicy }, 202, cors);
+  return json({ id, token: await tokenFor(env, id), kind:'enquiry',status: 'received',analysisStatus:'not_requested', notificationStatus: 'pending', language,pricePolicy }, 202, cors);
 }
 async function chat(req, env, cors, locale) {
   let body; try { body = JSON.parse(new TextDecoder().decode(await readBounded(req, 64000))); } catch (e) { if (e instanceof HttpError) throw e; throw new HttpError(400, 'Die Nachricht konnte nicht gelesen werden.'); }
@@ -141,13 +194,14 @@ async function chat(req, env, cors, locale) {
 async function readFile(env, file) { const object = await env.DATEIEN.get(file.key); if (!object) throw new Error('original_missing'); return { type: file.type, bytes: new Uint8Array(await object.arrayBuffer()) }; }
 function b64(bytes) { let s = ''; for (let i = 0; i < bytes.length; i += 0x8000) s += String.fromCharCode(...bytes.subarray(i, i + 0x8000)); return btoa(s); }
 async function notifyHans(env, record) {
+  if(record.kind==='preview')return;
   const current = await get(env, 'nachricht:' + record.id); if (current?.status === 'sent') return;
   const attachment = record.file ? await readFile(env, record.file) : null;
   const language = normalizeLanguage(record.language);
   const response = await fetch('https://api.resend.com/emails', {
     method: 'POST', signal: AbortSignal.timeout(25000), headers: { Authorization: 'Bearer ' + env.RESEND_API_KEY, 'Content-Type': 'application/json', 'Idempotency-Key': 'jy-intake-' + record.id },
-    body: JSON.stringify({ from: env.ABSENDER, to: [env.EMPFAENGER], reply_to: record.email, subject: t('Neue Umformanfrage', language) + ' · ' + record.id,
-      text: [t('Neue Anfrage eingegangen.', language), t('Kontakt:', language) + ' ' + record.email, record.name, record.company, '', record.note, '', t(record.file && !record.file.readable ? 'CAD-Datei im Anhang. Automatische Bildanalyse liest dieses Format nicht.' : 'Die technische Analyse läuft unabhängig von dieser Eingangsmitteilung.', language)].join('\n'),
+    body: JSON.stringify({ from: env.ABSENDER, to: [env.EMPFAENGER], reply_to: record.email, subject: (record.subject||t('Neue Umformanfrage', language)) + ' · ' + record.id,
+      text: [t('Neue Anfrage eingegangen.', language), t('Kontakt:', language) + ' ' + record.email, record.name, record.company, '', record.note, '', ...(record.kind==='enquiry'?[]:[t(record.file && !record.file.readable ? 'CAD-Datei im Anhang. Automatische Bildanalyse liest dieses Format nicht.' : 'Die technische Analyse läuft unabhängig von dieser Eingangsmitteilung.', language)])].join('\n'),
       attachments: attachment ? [{ filename: record.file.name, content: b64(attachment.bytes) }] : undefined })
   });
   if (!response.ok) throw await providerFailure(response, 'resend');
@@ -156,17 +210,20 @@ async function notifyHans(env, record) {
 }
 async function queued(message, env) {
   const { id, kind } = message.body || {};
-  if (!/^[a-f0-9-]{36}$/.test(id || '') || !['analysis', 'intake_mail'].includes(kind)) { message.ack(); return; }
-  const key = (kind === 'analysis' ? 'analyse:' : 'nachricht:') + id;
+  if (!/^[a-f0-9-]{36}$/.test(id || '') || !['analysis', 'preview_analysis', 'intake_mail'].includes(kind)) { message.ack(); return; }
+  const isPreview=kind==='preview_analysis',isAnalysis=kind!=='intake_mail';
+  const key = (isAnalysis ? 'analyse:' : 'nachricht:') + id;
   let record;
   try {
     record = await get(env, 'anfrage:' + id);
     if (!record) throw new Error('intake_not_yet_visible');
+    if((record.kind==='preview')!==isPreview){message.ack();return;}
+    if(record.kind==='enquiry'&&isAnalysis){message.ack();return;}
     if (Date.parse(record.createdAt) + TTL * 1000 < Date.now()) { message.ack(); return; }
     if (kind === 'intake_mail') await notifyHans(env, record);
     else {
       const old = await get(env, key);
-      if (['ready', 'needs_info'].includes(old?.status)) { message.ack(); return; }
+      if (['ready', 'needs_info'].includes(old?.status)||isPreview&&old?.status==='failed') { message.ack(); return; }
       await put(env, key, { status: 'processing', updatedAt: new Date().toISOString() });
       const file = record.file?.readable ? await readFile(env, record.file) : null;
       const result = await analyse({ note: record.note, file, filename: record.file?.name, unreadableFile: !!record.file && !record.file.readable, language: normalizeLanguage(record.language),pricePolicy:storedPricePolicy(record) }, env, { timeoutMs: 240000, maxRounds: 7 });
@@ -176,11 +233,12 @@ async function queued(message, env) {
     message.ack();
   } catch (error) {
     await recordServiceDiagnostic(env, error, 'queue');
-    const final = (message.attempts || 1) >= 4;
+    const final = (message.attempts || 1) >= (isPreview?2:4);
     const latest = await get(env, key);
-    if (kind === 'analysis' && ['ready', 'needs_info'].includes(latest?.status) || kind === 'intake_mail' && latest?.status === 'sent') { message.ack(); return; }
+    if (isAnalysis && ['ready', 'needs_info'].includes(latest?.status) || kind === 'intake_mail' && latest?.status === 'sent') { message.ack(); return; }
     const language = normalizeLanguage(record?.language);
-    await put(env, key, { status: final ? 'failed' : kind === 'analysis' ? 'queued' : 'pending', updatedAt: new Date().toISOString(), ...(kind === 'analysis' && final ? { result: { answer: t('Die automatische Ausarbeitung konnte nicht abgeschlossen werden. Ihre Anfrage ist gespeichert.', language), questions: [], proposal: null, sources: [], language } } : {}) });
+    await put(env, key, { status: final ? 'failed' : isAnalysis ? 'queued' : 'pending', updatedAt: new Date().toISOString(), ...(isAnalysis && final ? { result: { answer: t(isPreview?'Die Zeichnung konnte nicht vollständig ausgewertet werden. Bitte prüfen Sie die Datei oder ergänzen Sie eine lesbare PDF-/Bildansicht.':'Die automatische Ausarbeitung konnte nicht abgeschlossen werden. Ihre Anfrage ist gespeichert.', language), questions: [], proposal: null, sources: [], language } } : {}) });
+    if(isPreview&&final){message.ack();return;}
     message.retry({ delaySeconds: 60 }); // Exhausted jobs reach the configured dead-letter queue.
   }
 }
@@ -195,8 +253,9 @@ export default {
     try {
       if (url.pathname === '/health' && req.method === 'GET') return json(await readiness(env), 200, cors);
       if (url.pathname === '/anfrage' && req.method === 'POST') return await intake(req, env, cors, locale);
+      if (url.pathname === '/preview' && req.method === 'POST') return await preview(req, env, cors, locale);
       if (url.pathname === '/chat' && req.method === 'POST') return await chat(req, env, cors, locale);
-      if (url.pathname === '/status' && req.method === 'GET') { const a = await authorised(env, url.searchParams.get('id'), url.searchParams.get('token')); const state = await snapshot(env, a.id,requestPricePolicy(req,url.searchParams.get('pricePolicy'),a)); if (!state.answer) state.language = normalizeLanguage(a.language); return json(state, 200, cors); }
+      if (url.pathname === '/status' && req.method === 'GET') { const a = await authorised(env, url.searchParams.get('id'), url.searchParams.get('token')); const state = await snapshot(env, a.id,requestPricePolicy(req,url.searchParams.get('pricePolicy'),a),a.kind); if (!state.answer) state.language = normalizeLanguage(a.language); return json({...state,...(a.kind==='preview'?{kind:'preview',notificationStatus:'not_requested'}:{})}, 200, cors); }
       return json({ error: t('Nicht gefunden.', locale.value), language: locale.value }, 404, cors);
     } catch (e) { if (!(e instanceof HttpError)) await recordServiceDiagnostic(env, e, url.pathname === '/chat' ? 'chat' : 'request'); return json({ error: t(e instanceof HttpError ? e.message : 'Der Dienst konnte die Anfrage gerade nicht abschließen.', locale.value), language: locale.value }, e.status || 503, cors); }
   },

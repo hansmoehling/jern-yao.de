@@ -17,9 +17,19 @@
   let mode = 'upload';
   let current = null;
   let requestBusy = false;
+  let previewBusy = false;
+  let previewRevision = 0;
+  let previewInputFile = $('file').files[0] || null;
+  let previewInputNote = $('description').value.trim();
+  const previews = new Map();
+  const fileDigests = new WeakMap();
   let chatBusy = false;
   let pollTimer = null;
-  let polling = false;
+  let enquiry = null;
+  let enquiryTimer = null;
+  let enquiryPolling = false;
+  let enquiryPolls = 0;
+  let polling = null;
   let polls = 0;
   let idempotencyKey = '';
   let payloadSignature = '';
@@ -108,6 +118,23 @@
 
   function selectedFile() { return $('file').files[0] || null; }
 
+  function syncPreviewInput() {
+    const file = selectedFile(), note = $('description').value.trim();
+    if (file === previewInputFile && note === previewInputNote) return;
+    previewInputFile = file; previewInputNote = note; previewRevision += 1;
+    const hadAnalysis = previewBusy || !!current;
+    previewBusy = false;
+    window.clearTimeout(pollTimer); pollTimer = null; polling = null; polls = 0;
+    current = null; latestStatus = null;
+    selectedMachine = ''; renderSelectedMachine();
+    $('response').hidden = true; $('result-content').replaceChildren();
+    $('refresh-status').disabled = false; setPreviewProgress(false, false);
+    if (hadAnalysis) {
+      history.length = 0; $('messages').replaceChildren(); $('chat-examples').hidden = false;
+      message('preview-message', 'Datei oder Beschreibung geändert. Bitte starten Sie die KI-Auswertung erneut.');
+    }
+  }
+
   function machineEnquiry() {
     return selectedMachine ? tr('Anfrage für {model}').replace('{model}', selectedMachine) : '';
   }
@@ -130,6 +157,7 @@
     if (!$('description').value.trim()) {
       $('description').value = history.filter(item => item.role === 'user').map(item => item.content).join('\n\n').slice(0, 12000);
     }
+    previewInputFile = selectedFile(); previewInputNote = $('description').value.trim();
     renderSelectedMachine();
     selectMode(selectedFile() ? 'upload' : 'description', false);
     updateSubmit();
@@ -153,13 +181,20 @@
   }
 
   function updateSubmit() {
-    $('request-submit').disabled = !apiBase || requestBusy || !!fileError() || (sentSignature !== '' && sentSignature === signature());
+    $('request-submit').disabled = !apiBase || requestBusy || previewBusy || !!fileError() || (sentSignature !== '' && sentSignature === signature());
     $('request-submit').textContent = requestBusy ? 'Anfrage wird übertragen …' : sentSignature && sentSignature === signature() ? 'Anfrage eingegangen' : 'Anfrage senden';
     $('chat-submit').disabled = !apiBase || chatBusy;
     $('chat-submit').textContent = chatBusy ? 'Antwort wird vorbereitet …' : 'Frage senden';
+    const file = selectedFile(), valid = !!file && !fileError();
+    $('preview-actions').hidden = !valid || CAD.test(file.name);
+    $('preview-cad-help').hidden = !valid || !CAD.test(file.name);
+    $('preview-start').disabled = !apiBase || requestBusy || previewBusy || !valid || CAD.test(file.name);
+    const previewLabel = previewBusy ? 'KI-Auswertung läuft …' : 'Zeichnung mit KI auswerten';
+    $('preview-start').textContent = tr(previewLabel); $('preview-start').dataset.jySource = previewLabel;
   }
 
   function updateFile() {
+    syncPreviewInput();
     const file = selectedFile();
     const error = fileError();
     $('file-summary').hidden = !file;
@@ -196,7 +231,7 @@
     try { $('file').files = event.dataTransfer.files; updateFile(); }
     catch (_) { message('file-error', 'Bitte wählen Sie die Datei über die Schaltfläche aus.', 'error'); }
   });
-  requestForm.addEventListener('input',()=>{$('email').setCustomValidity('');$('consent').setCustomValidity('');updateSubmit();});
+  requestForm.addEventListener('input',()=>{syncPreviewInput();$('email').setCustomValidity('');$('consent').setCustomValidity('');updateSubmit();});
   function validRequest(){
     const email=$('email').value.trim();
     $('email').setCustomValidity(tr(!email?'Bitte geben Sie Ihre E-Mail-Adresse ein.':!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)?'Bitte geben Sie eine gültige E-Mail-Adresse ein.':''));
@@ -385,50 +420,95 @@
 
   function renderStatus(data) {
     latestStatus=data;
+    const preview = current.kind === 'preview';
+    if (preview) setPreviewProgress(!current.pollPaused && ['queued', 'processing'].includes(data.status), false);
     $('response').hidden = false;
     const labels = { queued: 'Anfrage eingegangen', processing: 'Ihr Konzept wird vorbereitet', needs_info: 'Eine Rückfrage zu Ihrem Teil', ready: 'Ihr erster Konzeptvorschlag', failed: 'Die technische Auswertung ist noch offen' };
-    $('response-title').textContent = labels[data.status] || 'Ihre Anfrage';
-    $('result-status').textContent = 'Anfrage ' + current.id;
+    if (preview && ['ready', 'needs_info', 'failed'].includes(data.status)) message('preview-message', data.status === 'failed' ? 'Die KI-Auswertung konnte nicht abgeschlossen werden.' : labels[data.status], data.status === 'failed' ? 'error' : 'success');
+    $('response-title').textContent = tr(preview && data.status === 'queued' ? 'Ihre KI-Auswertung' : labels[data.status] || 'Ihre Anfrage');
+    $('result-status').textContent = tr(preview ? 'Auswertung' : 'Anfrage') + ' ' + current.id + (preview && current.fileName ? ' · ' + current.fileName : '');
+    $('result-status').dataset.originalText = '';
     const content = $('result-content'); content.replaceChildren();
     if(data.language && window.JYI18N.normalizeLanguage(data.language)!==L.language)content.appendChild(element('p',tr('Antwortsprache:')+' '+L.autonyms[window.JYI18N.normalizeLanguage(data.language)],'original-language'));
     if (typeof data.answer === 'string' && data.answer.trim()) content.appendChild(element('div', data.answer, 'answer-text'));
-    else if (data.status === 'queued' || data.status === 'processing') content.appendChild(element('p', 'Ihre Unterlagen sind eingegangen. Die technische Auswertung folgt hier.'));
-    else if (data.status === 'failed') content.appendChild(element('p', 'Die Anfrage bleibt erhalten. Sie können Hans Möhling unter Angabe der Anfragenummer direkt kontaktieren.'));
+    else if (data.status === 'queued' || data.status === 'processing') content.appendChild(element('p', preview ? 'Die Zeichnung wird ausgewertet. Das Ergebnis erscheint hier.' : 'Ihre Unterlagen sind eingegangen. Die technische Auswertung folgt hier.'));
+    else if (data.status === 'failed') content.appendChild(element('p', preview ? 'Die KI-Auswertung konnte nicht abgeschlossen werden.' : 'Die Anfrage bleibt erhalten. Sie können Hans Möhling unter Angabe der Anfragenummer direkt kontaktieren.'));
     renderProposal(content, data.proposal);
     listSection(content, 'Das möchten wir noch wissen', data.questions);
     sourcesSection(content, data.sources);
     const notification = { sent: 'Hans Möhling wurde per E-Mail über Ihre Anfrage informiert.', pending: 'Die Benachrichtigung an Hans Möhling ist noch in Bearbeitung.', failed: 'Ihre Anfrage ist gespeichert. Die E-Mail an Hans Möhling konnte noch nicht zugestellt werden.' };
-    $('notification').textContent = notification[data.notificationStatus] || 'Die Anfrage ist gespeichert. Der Stand der persönlichen Benachrichtigung liegt noch nicht vor.';
+    $('notification').hidden = preview;
+    $('notification').textContent = preview ? '' : notification[data.notificationStatus] || 'Die Anfrage ist gespeichert. Der Stand der persönlichen Benachrichtigung liegt noch nicht vor.';
+    if (preview && current.previewRecord) current.previewRecord.result = data;
   }
 
   function schedulePoll() {
-    window.clearTimeout(pollTimer);
-    if (current && polls < 30) pollTimer = window.setTimeout(() => refreshStatus(false), 4000);
+    window.clearTimeout(pollTimer); pollTimer = null;
+    if (current && polls < 75) pollTimer = window.setTimeout(() => refreshStatus(false), 4000);
+    else if (current && current.kind === 'preview') {
+      current.pollPaused = true; setPreviewProgress(false, false);
+      message('preview-message', 'Die automatische Aktualisierung pausiert. Über „Stand aktualisieren“ können Sie das Ergebnis weiter abrufen.');
+    }
+  }
+
+  function setPreviewProgress(active, uploading) {
+    $('preview-progress').hidden = !active;
+    const label = uploading ? 'Zeichnung wird übertragen …' : 'Zeichnung wird ausgewertet …';
+    $('preview-progress-title').textContent = tr(label); $('preview-progress-title').dataset.jySource = label;
+  }
+
+  function renderEnquiry(data) {
+    const notices = { sent: 'Hans Möhling wurde per E-Mail über Ihre Anfrage informiert.', pending: 'Die Benachrichtigung an Hans Möhling ist noch in Bearbeitung.', failed: 'Ihre Anfrage ist gespeichert. Die E-Mail an Hans Möhling konnte noch nicht zugestellt werden.' };
+    message('request-mail-status', notices[data.notificationStatus] || notices.pending, data.notificationStatus === 'failed' ? 'error' : data.notificationStatus === 'sent' ? 'success' : '');
+    $('request-refresh').hidden = data.notificationStatus === 'sent';
+  }
+
+  function scheduleEnquiryPoll() {
+    window.clearTimeout(enquiryTimer);
+    if (enquiry && enquiryPolls < 30) enquiryTimer = window.setTimeout(() => refreshEnquiry(false), 4000);
+  }
+
+  async function refreshEnquiry(manual) {
+    if (!enquiry || enquiryPolling) return;
+    enquiryPolling = true; $('request-refresh').disabled = true;
+    const identity = enquiry;
+    try {
+      const data = await api('/status?' + new URLSearchParams({ id: identity.id, token: identity.token }).toString());
+      if (enquiry !== identity) return;
+      renderEnquiry(data); enquiryPolls += 1;
+      if (!['sent', 'failed'].includes(data.notificationStatus)) scheduleEnquiryPoll();
+    } catch (error) {
+      if (enquiry !== identity) return;
+      enquiryPolls += 1;
+      if (manual) message('request-mail-status', error.message, 'error');
+      if (![401, 403, 404].includes(error.status)) scheduleEnquiryPoll();
+    } finally { enquiryPolling = false; $('request-refresh').disabled = false; }
   }
 
   async function refreshStatus(manual) {
     if (!current || polling) return;
-    polling = true;
-    $('refresh-status').disabled = true;
     const identity = current;
+    polling = identity;
+    $('refresh-status').disabled = true;
     try {
       const data = await api('/status?' + new URLSearchParams({ id: identity.id, token: identity.token }).toString());
       if (current !== identity) return;
       renderStatus(data);
       polls += 1;
       if (!['ready', 'needs_info', 'failed'].includes(data.status)) schedulePoll();
-      if (manual) message('request-message', 'Stand aktualisiert.');
+      if (manual) message(identity.kind === 'preview' ? 'preview-message' : 'request-message', 'Stand aktualisiert.');
     } catch (error) {
       if (current !== identity) return;
       polls += 1;
-      if (manual) message('request-message', error.message + ' Ihre bereits empfangene Anfrage bleibt bestehen.', 'error');
+      if (manual) message(identity.kind === 'preview' ? 'preview-message' : 'request-message', error.message + (identity.kind === 'preview' ? '' : ' Ihre bereits empfangene Anfrage bleibt bestehen.'), 'error');
+      if (identity.kind === 'preview' && [401, 403, 404].includes(error.status)) { setPreviewProgress(false, false); message('preview-message', error.message, 'error'); }
       if (error.status !== 401 && error.status !== 403 && error.status !== 404) schedulePoll();
-    } finally { polling = false; $('refresh-status').disabled = false; }
+    } finally { if (polling === identity) { polling = null; $('refresh-status').disabled = false; } }
   }
 
   requestForm.addEventListener('submit', async event => {
     event.preventDefault();
-    if (!apiBase || requestBusy || !validRequest()) return;
+    if (!apiBase || requestBusy || previewBusy || !validRequest()) return;
     const file = selectedFile();
     const note = requestNote();
     if (!file && !note) {
@@ -443,6 +523,7 @@
     }
     const data = new FormData();
     data.append('language',L.language);
+    data.append('consent', 'true');
     if (!showPrices) data.append('pricePolicy', 'technical-only');
     data.append('email', $('email').value.trim()); data.append('name', $('name').value.trim()); data.append('firma', $('company').value.trim()); data.append('notiz', note); data.append('idempotency_key', idempotencyKey);
     if (file) data.append('datei', file, file.name);
@@ -450,16 +531,66 @@
     try {
       const result = await api('/anfrage', { method: 'POST', body: data });
       if (typeof result.id !== 'string' || !result.id || typeof result.token !== 'string' || !result.token) throw new Error('Der Eingang konnte nicht eindeutig bestätigt werden. Bitte versuchen Sie es erneut.');
+      sentSignature = nextSignature;
+      message('request-message', 'Ihre Anfrage ist angekommen.', 'success');
+      if (result.kind === 'enquiry') {
+        // Sending the enquiry has its own receipt; retain the drawing analysis.
+        window.clearTimeout(enquiryTimer);
+        enquiry = { id: result.id, token: result.token }; enquiryPolls = 0;
+        renderEnquiry(result);
+        if (!['sent', 'failed'].includes(result.notificationStatus)) scheduleEnquiryPoll();
+        return;
+      }
       window.clearTimeout(pollTimer);
       current = { id: result.id, token: result.token };
       polls = 0;
-      sentSignature = nextSignature;
       renderStatus(result);
-      message('request-message', 'Ihre Anfrage ist angekommen.', 'success');
       $('response').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
       schedulePoll();
     } catch (error) { message('request-message', error.message, 'error'); }
     finally { requestBusy = false; updateSubmit(); }
+  });
+
+  $('preview-start').addEventListener('click', async () => {
+    syncPreviewInput();
+    const file = selectedFile();
+    if (!apiBase || requestBusy || previewBusy || !file || fileError() || CAD.test(file.name)) return;
+    const note = requestNote(), language = L.language, revision = previewRevision;
+    previewBusy = true; updateSubmit();
+    message('preview-message', ''); setPreviewProgress(true, true);
+    try {
+      // The content digest distinguishes files with identical names and sizes.
+      // Keys and private receipts stay in this page, including uncertain retries.
+      if (!fileDigests.has(file)) fileDigests.set(file, file.arrayBuffer().then(bytes => crypto.subtle.digest('SHA-256', bytes)).then(digest => Array.from(new Uint8Array(digest), value => value.toString(16).padStart(2, '0')).join('')));
+      const digest = await fileDigests.get(file);
+      if (revision !== previewRevision) return;
+      const signature = JSON.stringify([digest, file.name, file.size, note, language, showPrices]);
+      let record = previews.get(signature);
+      if (!record) {
+        record = { key: typeof crypto.randomUUID === 'function' ? crypto.randomUUID() : Array.from(crypto.getRandomValues(new Uint8Array(24)), value => value.toString(16).padStart(2, '0')).join('') };
+        previews.set(signature, record);
+      }
+      let result = record.result;
+      if (!result) {
+        const data = new FormData();
+        data.append('datei', file, file.name); data.append('notiz', note);
+        data.append('language', language); data.append('idempotency_key', record.key);
+        if (!showPrices) data.append('pricePolicy', 'technical-only');
+        result = await api('/preview', { method: 'POST', body: data });
+        if (typeof result.id !== 'string' || !result.id || typeof result.token !== 'string' || !result.token) throw new Error('Der Eingang konnte nicht eindeutig bestätigt werden. Bitte versuchen Sie es erneut.');
+        record.result = result;
+        record.id = result.id; record.token = result.token;
+      }
+      if (revision !== previewRevision) return;
+      window.clearTimeout(pollTimer);
+      current = { id: record.id, token: record.token, kind: 'preview', fileName: file.name, previewRecord: record };
+      polls = 0;
+      renderStatus(result);
+      if (!['ready', 'needs_info', 'failed'].includes(result.status)) message('preview-message', 'Die KI-Auswertung ist gestartet.', 'success');
+      $('response').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      if (!['ready', 'needs_info', 'failed'].includes(result.status)) schedulePoll();
+    } catch (error) { if (revision === previewRevision) { setPreviewProgress(false, false); message('preview-message', error.message, 'error'); } }
+    finally { if (revision === previewRevision) { previewBusy = false; updateSubmit(); } }
   });
 
   function appendChat(role, text, extra) {
@@ -479,6 +610,7 @@
     if (!apiBase || chatBusy || !chatForm.reportValidity()) return;
     const text = $('chat-input').value.trim();
     if (!text) return;
+    const revision = previewRevision;
     const priorHistory = history.slice(-12).map(item => ({ role: item.role, content: item.content.slice(0, 4000) }));
     const body = { message: text, history: priorHistory, language:L.language };
     if (!showPrices) body.pricePolicy = 'technical-only';
@@ -490,13 +622,14 @@
     chatBusy = true; updateSubmit(); message('chat-message', 'Die Antwort wird vorbereitet …');
     try {
       const response = await api('/chat', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body) });
+      if (revision !== previewRevision) { bubble.remove(); return; }
       if (typeof response.answer !== 'string' || !response.answer.trim()) throw new Error('Es liegt noch keine Antwort vor. Bitte versuchen Sie es erneut.');
       history.push({ role: 'user', content: text }, { role: 'assistant', content: response.answer });
       appendChat('assistant', response.answer, response);
       if ($('chat-input').value.trim() === text) $('chat-input').value = '';
       $('chat-examples').hidden = true;
       message('chat-message', '');
-    } catch (error) { bubble.remove(); message('chat-message', error.message, 'error'); }
+    } catch (error) { bubble.remove(); if (revision === previewRevision) message('chat-message', error.message, 'error'); }
     finally { chatBusy = false; updateSubmit(); }
   });
 
@@ -511,7 +644,8 @@
     if (questions.length && !$('description').value.trim()) $('description').value = questions.join('\n\n').slice(0, 12000);
     selectMode('description', true); updateSubmit();
   });
-  $('refresh-status').addEventListener('click', () => { polls = 0; refreshStatus(true); });
+  $('refresh-status').addEventListener('click', () => { polls = 0; if (current) current.pollPaused = false; return refreshStatus(true); });
+  $('request-refresh').addEventListener('click', () => { enquiryPolls = 0; return refreshEnquiry(true); });
   $('email-fallback').addEventListener('click', event => {
     const file = selectedFile();
     const body = [$('name').value.trim(), $('company').value.trim(), $('email').value.trim(), '', requestNote(), file ? '\n'+tr('Zeichnung:')+' '+file.name+' '+tr('(bitte dieser E-Mail beifügen)') : ''].join('\n');
@@ -521,7 +655,7 @@
   const openLinkedPrivacy = () => { if (window.location.hash === '#datenschutz') $('datenschutz').open = true; };
   window.addEventListener('hashchange', openLinkedPrivacy);
   openLinkedPrivacy();
-  window.addEventListener('pagehide', () => window.clearTimeout(pollTimer));
+  window.addEventListener('pagehide', () => { window.clearTimeout(pollTimer); window.clearTimeout(enquiryTimer); });
   $('availability').hidden = !!apiBase;
   $('email-fallback').hidden = !!apiBase;
   window.addEventListener('jy-languagechange',()=>{$('email').setCustomValidity('');$('consent').setCustomValidity('');$('chat-input').setCustomValidity('');selectMode(mode,false);renderSelectedMachine();updateFile();updateSubmit();if(latestStatus)renderStatus(latestStatus);L.apply();});

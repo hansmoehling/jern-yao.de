@@ -79,6 +79,21 @@
   .archive-file-status > div{ min-width:0; }
   .file-remove{ flex-shrink:0; border:1px solid currentColor; border-radius:4px; background:var(--paper); color:var(--ink); padding:7px 10px; font:inherit; font-size:13px; cursor:pointer; }
   .file-remove:focus-visible{ outline:2px solid var(--navy-soft); outline-offset:3px; }
+  .manual-analysis{ margin:16px 0; }
+  .analysis-progress{ display:flex; gap:18px; align-items:center; margin:16px 0; padding:16px; border:1px solid var(--hair); border-radius:7px; background:var(--band); }
+  .analysis-progress p{ margin:0; font-size:14px; }
+  .analysis-dots{ display:block; position:relative; flex:0 0 48px; width:48px; height:48px; animation:analysis-orbit 1.8s linear infinite; }
+  .analysis-dots i{ position:absolute; left:50%; top:50%; width:7px; height:7px; margin:-3.5px; border-radius:50%; background:var(--navy); transform:rotate(calc(var(--i)*45deg)) translateY(-18px); opacity:calc(.3 + var(--i)*.1); }
+  @keyframes analysis-orbit{ to{ transform:rotate(360deg); } }
+  @media(prefers-reduced-motion:reduce){ .analysis-dots{ animation:none; } }
+  #archive-analysis-status{ margin:12px 0; font-size:14px; }
+  #archive-analysis-status[data-state=error]{ color:var(--nein); }
+  #archive-analysis-result{ margin-top:18px; border-top:2px solid var(--navy); padding-top:16px; overflow-wrap:anywhere; }
+  .preview-answer{ white-space:pre-wrap; }
+  .preview-facts{ margin:14px 0; font-size:14px; }
+  .preview-facts > div{ border-bottom:1px solid var(--hair); padding:7px 0; }
+  .preview-facts dt{ color:var(--mid); }.preview-facts dd{ margin:3px 0 0; }
+  .preview-machine{ padding:14px 0; border-bottom:1px solid var(--hair); }.preview-machine h4{ margin:0 0 8px; font-size:18px; }
   @media(max-width:560px){ .archive-file-status{ flex-direction:column; gap:12px; } .file-remove{ min-height:44px; } }
 
   .ergebnis{ position:sticky; top:12px; }
@@ -290,12 +305,20 @@
 
       <fieldset>
         <legend>3 · Zeichnung (optional)</legend>
-        <div class="feld"><span id="archive-file-types">PDF, Bild, DXF oder STEP</span><button type="button" class="file-choose" id="archive-choose-file" aria-describedby="archive-file-types archive-file-name">Datei auswählen</button><input hidden aria-hidden="true" tabindex="-1" type="file" name="zeichnung" accept=".pdf,.png,.jpg,.jpeg,.tif,.tiff,.dxf,.dwg,.step,.stp,.igs,.iges"></div>
+        <div class="feld"><span id="archive-file-types">PDF, Bild, DXF oder STEP</span><button type="button" class="file-choose" id="archive-choose-file" aria-describedby="archive-file-types archive-file-name">Datei auswählen</button><input hidden aria-hidden="true" tabindex="-1" type="file" name="zeichnung" accept=".pdf,.png,.jpg,.jpeg,.webp,.tif,.tiff,.dxf,.dwg,.step,.stp,.igs,.iges"></div>
         <div id="archive-file-status" class="archive-file-status" role="status" aria-live="polite" aria-atomic="true" hidden>
           <div><strong id="archive-file-state" data-original-text></strong><span id="archive-file-name" data-original-text></span><span id="archive-file-size" data-original-text></span><p id="archive-file-error" data-original-text hidden></p></div>
           <button type="button" class="file-remove" id="archive-remove-file">Datei entfernen</button>
         </div>
-        <p class="klein">Die Zeichnung bleibt auf Ihrem Rechner. Bitte hängen Sie sie der E-Mail an Hans Möhling selbst an.</p>
+        <div class="manual-analysis">
+          <label class="feld" for="archive-drawing-note"><span>Angaben zur Zeichnung</span><textarea id="archive-drawing-note" name="drawingNote" rows="3" maxlength="12000" placeholder="Zum Beispiel Werkstoff, fehlende Maße oder Antworten auf Rückfragen."></textarea></label>
+          <button type="button" class="knopf" id="archive-analyse" hidden>Zeichnung mit KI auswerten</button>
+          <div id="archive-analysis-progress" class="analysis-progress" hidden><span class="analysis-dots" aria-hidden="true"><i style="--i:0"></i><i style="--i:1"></i><i style="--i:2"></i><i style="--i:3"></i><i style="--i:4"></i><i style="--i:5"></i><i style="--i:6"></i><i style="--i:7"></i></span><p>Die Zeichnungsanalyse benötigt etwas Zeit. Wir prüfen Maße, Umformschritte und passende Maschinen.</p></div>
+          <p id="archive-analysis-status" role="status" aria-live="polite" hidden></p>
+          <button type="button" class="knopf zwei" id="archive-analysis-refresh" hidden>Stand aktualisieren</button>
+          <div id="archive-analysis-result" aria-label="Analyseergebnis" hidden></div>
+        </div>
+        <p class="klein">Für die KI-Auswertung wird die Datei erst nach Ihrem Klick übertragen. Die Anfrage an Hans Möhling senden Sie separat.</p>
       </fieldset>
     </form>
 
@@ -328,21 +351,22 @@
   <section class="anfrage" id="anfrage">
     <p id="selected-machine" class="klein" role="status" aria-live="polite" hidden></p>
     <h2>Richtpreisangebot anfragen</h2>
-    <p class="lede" style="margin-top:10px">Die Anfrage geht mit allen Eingaben und dem Ergebnis an Hans Möhling. Die Antwort kommt persönlich, in der Regel am nächsten Werktag.</p>
+    <p class="lede" style="margin-top:10px">Mit dieser Anfrage senden Sie Ihre Angaben und die Zeichnung an Hans Möhling. Eine neue KI-Auswertung wird dabei nicht gestartet.</p>
     <form id="a" autocomplete="on">
       <div class="felder">
         <label class="feld"><span>Name</span><input type="text" name="name" autocomplete="name"></label>
         <label class="feld"><span>Firma</span><input type="text" name="firma" autocomplete="organization"></label>
-        <label class="feld"><span>E-Mail</span><input type="email" name="email" autocomplete="email"></label>
+        <label class="feld"><span>E-Mail</span><input type="email" name="email" autocomplete="email" required></label>
         <label class="feld"><span>Telefon</span><input type="tel" name="tel" autocomplete="tel"></label>
         <label class="feld voll"><span>Stückzahl im Jahr, Termin, Besonderheiten</span><textarea name="nachricht" rows="3"></textarea></label>
-        <label class="check voll"><input type="checkbox" name="ok"> Meine Angaben dürfen zur Bearbeitung der Anfrage verwendet werden.</label>
+        <label class="check voll"><input type="checkbox" name="ok" required> Meine Angaben dürfen zur Bearbeitung der Anfrage verwendet werden.</label>
       </div>
       <div class="knoepfe">
-        <button type="button" class="knopf" id="senden" disabled>Anfrage senden</button>
+        <button type="button" class="knopf" id="senden" disabled>Anfrage an Hans senden</button>
+        <button type="button" class="knopf zwei" id="archive-mail-refresh" hidden>Stand aktualisieren</button>
         <button type="button" class="knopf zwei" id="drucken" disabled>Anforderungsblatt drucken</button>
       </div>
-      <p class="klein" id="sendehinweis">Ohne Server öffnet sich Ihr E-Mail-Programm mit dem fertigen Text an info@jernyao.de. Eine gewählte Zeichnung hängen Sie dort bitte an.</p>
+      <p class="klein" id="sendehinweis" role="status" aria-live="polite">Die Anfrage wird erst nach Ihrem Klick versandt.</p>
     </form>
   </section>
 </main>
@@ -353,16 +377,18 @@
   <div class="wrap">
     <div>Jern Yao Vertretung für den deutschen Sprachraum · Hans Möhling · <a href="mailto:info@jernyao.de">info@jernyao.de</a> · +49 171 10 700 10</div>
     <details><summary>Impressum</summary><p>Hans Möhling · Exklusivvertretung Jern Yao Enterprises Co., Ltd. für Deutschland, Österreich und die Schweiz. E-Mail: jernyao@techno.parts · Telefon: +49 171 10 700 10</p></details>
-    <details><summary>Datenschutz</summary><p>Diese Seite setzt keine Cookies und speichert keine technischen Eingaben. Nur Ihre Sprachwahl wird lokal gespeichert. Die Rechnung läuft vollständig im Browser. Eine Anfrage öffnet Ihr E-Mail-Programm; die Angaben dienen allein ihrer Bearbeitung. Beim Abruf fallen beim Hostinganbieter technisch bedingte Zugriffsprotokolle an (IP-Adresse, Zeitpunkt, abgerufene Seite).</p></details>
+    <details><summary>Datenschutz</summary><p>Die manuelle Rechnung läuft im Browser. Für die optionale KI-Auswertung wird Ihre Zeichnung im privaten Cloudflare-Speicher bis zu 30 Tage gespeichert und von Anthropic verarbeitet. Eine Anfrage übermittelt Ihre Kontaktangaben und die Zeichnung über Resend an Hans Möhling. Nur Ihre Sprachwahl wird lokal gespeichert. Beim Hosting fallen technische Zugriffsprotokolle an.</p></details>
   </div>
 </footer>
 
+<script src="/site-config.js"></script>
 <script id="daten" type="application/json">/*DATEN*/</script>
 <script id="praxis" type="application/json">/*PRAXIS*/</script>
 <script>/*I18N*/</script>
 <script>/*I18N_BROWSER*/</script>
 <script>/*ENGINE*/</script>
 <script>/*CONCEPT_UI*/</script>
+<script>/*DRAWING_PREVIEW*/</script>
 <script>/*ARCHIVE_UI*/</script>
 </body>
 </html>

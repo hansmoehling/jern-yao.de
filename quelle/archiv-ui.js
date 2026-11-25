@@ -5,7 +5,6 @@
   const showPrices = window.JY_SHOW_PRICES !== false;
   const MASCHINEN = JSON.parse(document.getElementById('daten').textContent);
   const PRAXIS = JSON.parse(document.getElementById('praxis').textContent);
-  const ENDPOINT = ''; // später: Empfangsdienst für Upload und KI-Gutachten, z. B. https://api.jernyao.de/anfrage
   const MAIL = 'info@jernyao.de';
   const FAMNAME = { JBF: 'Bolzenpresse', JBP: 'Teilepresse, Langhub', JNP: 'Teilepresse, Kurzhub', JPF: 'Teilepresse für Mutternteile', JNF: 'Mutternpresse', JNFR: 'Mutternpresse, Buchsenabschnitt', JNFP: 'Mutternpresse' };
   const KATURL = 'https://www.jernyao.com/files/';
@@ -19,8 +18,8 @@
   const h = s => esc(tr(s));
   const msg = (key, values) => tr(key).replace(/\{(\w+)\}/g, (match, name) => Object.hasOwn(values, name) ? String(values[name]) : match);
   const rendered = (node, html) => { node.dataset.originalText = ''; node.innerHTML = html; };
-  const drawingFormats=/\.(pdf|png|jpg|jpeg|tif|tiff|dxf|dwg|step|stp|igs|iges)$/i;
-  let rejectedDrawing=null;
+  const drawingFormats=/\.(pdf|png|jpg|jpeg|webp|tif|tiff|dxf|dwg|step|stp|igs|iges)$/i;
+  let rejectedDrawing=null,drawingPreview=null;
   function zeichnungStatus() {
     const file=f.elements.zeichnung.files[0]||rejectedDrawing?.file,invalid=!!rejectedDrawing;
     const box=$('archive-file-status');box.hidden=!file;box.dataset.state=invalid?'invalid':'ready';
@@ -32,6 +31,7 @@
     };
     for(const [id,value]of Object.entries(values)){const node=$(id);node.dataset.originalText='';node.textContent=value;}
     $('archive-file-error').hidden=!invalid;
+    drawingPreview?.update();
   }
   function zeichnungGeaendert() {
     const file=f.elements.zeichnung.files[0];rejectedDrawing=null;
@@ -135,26 +135,27 @@
     return bad;
   }
 
-  let letzte = null, angefragtesModell = null;
+  let letzte = null, angefragtesModell = null,previewSelectedModel=null,previewHasMachines=false,mailBusy=false,mailKey='',mailSignature='',mailReceipt=null,mailTimer=null,mailPolls=0;
   const maschinenFunde=wahl=>wahl?[...wahl.passend.slice(0,3),...wahl.bedingt.slice(0,wahl.passend.length?2:4),...wahl.fast.slice(0,4)]:[];
   const angefragteMaschine=()=>maschinenFunde(letzte?.wahl).find(result=>result.o.m===angefragtesModell);
   function anfrageAuswahlZeigen() {
     const node=$('selected-machine');
-    node.dataset.originalText='';node.hidden=!angefragtesModell;
-    node.textContent=angefragtesModell?msg('Anfrage für {model}',{model:angefragtesModell}):'';
+    const model=previewSelectedModel||angefragtesModell;
+    node.dataset.originalText='';node.hidden=!model;
+    node.textContent=model?msg('Anfrage für {model}',{model}):'';
   }
   function anfrageAuswahlLoeschen() { angefragtesModell=null;anfrageAuswahlZeigen(); }
   function rechnen() {
     sichtbar();
-    if (ungueltig()) {letzte=null;anfrageAuswahlLoeschen();$('aus').hidden=true;$('empty-visual').hidden=false;knoepfe();L.apply();return;}
+    if (ungueltig()) {letzte=null;anfrageAuswahlLoeschen();$('aus').hidden=true;$('empty-visual').hidden=previewHasMachines;knoepfe();L.apply();return;}
     const e = lesen();
     if(angefragtesModell&&JSON.stringify(e)!==JSON.stringify(letzte?.e))anfrageAuswahlLoeschen();
     const aus = E.auslegen(e);
-    if (aus.fehlt.length || !aus.stufen.length) { $('leer').hidden = false; $('aus').hidden = true; $('empty-visual').hidden=false; $('leer').dataset.originalText=''; $('leer').textContent = aus.fehlt.length ? tr('Es fehlen noch:') + ' ' + aus.fehlt.map(tr).join(', ') + '.' : tr('Mit Draht-Ø und den Hüllmaßen des Teils erscheinen hier Stadienfolge, Werkzeuggröße und die passenden Modelle.'); letzte = null; anfrageAuswahlLoeschen(); knoepfe(); return; }
+    if (aus.fehlt.length || !aus.stufen.length) { $('leer').hidden = false; $('aus').hidden = true; $('empty-visual').hidden=previewHasMachines; $('leer').dataset.originalText=''; $('leer').textContent = aus.fehlt.length ? tr('Es fehlen noch:') + ' ' + aus.fehlt.map(tr).join(', ') + '.' : tr('Mit Draht-Ø und den Hüllmaßen des Teils erscheinen hier Stadienfolge, Werkzeuggröße und die passenden Modelle.'); letzte = null; anfrageAuswahlLoeschen(); knoepfe(); return; }
     const wahl = E.waehle(MASCHINEN, aus, e, PRAXIS);
     letzte = { e, aus, wahl };
     if(angefragtesModell&&!angefragteMaschine())angefragtesModell=null;
-    anfrageAuswahlZeigen();$('empty-visual').hidden=maschinenFunde(wahl).length>0;
+    anfrageAuswahlZeigen();$('empty-visual').hidden=previewHasMachines||maschinenFunde(wahl).length>0;
     zeigen(e, aus, wahl); L.apply();
     knoepfe();
   }
@@ -221,8 +222,9 @@
   }
 
   function knoepfe() {
-    const ok = !!letzte && a.elements.ok.checked && /.+@.+\..+/.test(a.elements.email.value);
-    $('senden').disabled = !ok;
+    const content=!!letzte||!!f.elements.zeichnung.files[0]||!!a.elements.nachricht.value.trim()||!!$('archive-drawing-note').value.trim();
+    const ok = content && a.elements.ok.checked && /.+@.+\..+/.test(a.elements.email.value);
+    $('senden').disabled = !ok||mailBusy;
     $('drucken').disabled = !letzte;
   }
 
@@ -285,21 +287,42 @@
     return lines.join('\n');
   }
 
+  function versandStatus(data){
+    const texts={sent:'Hans Möhling wurde per E-Mail über Ihre Anfrage informiert.',pending:'Anfrage eingegangen. Die E-Mail an Hans Möhling wird versandt.',failed:'Ihre Anfrage ist gespeichert. Die E-Mail an Hans Möhling konnte noch nicht zugestellt werden.'};
+    const node=$('sendehinweis');node.dataset.originalText='';node.textContent=tr(texts[data.notificationStatus]||'Ihre Anfrage ist angekommen.');
+    $('archive-mail-refresh').hidden=false;
+  }
+  async function versandAktualisieren(){
+    if(!mailReceipt)return;const identity=mailReceipt,api=window.JYDrawingPreview;$('archive-mail-refresh').disabled=true;
+    try{const data=await api.request('/status?'+new URLSearchParams(identity));if(identity!==mailReceipt)return;versandStatus(data);mailPolls++;if(data.notificationStatus==='pending'&&mailPolls<30)mailTimer=window.setTimeout(versandAktualisieren,4000);}
+    catch(error){if(identity===mailReceipt){$('sendehinweis').dataset.originalText='';$('sendehinweis').textContent=tr(error.message);}}
+    finally{$('archive-mail-refresh').disabled=false;}
+  }
   async function senden() {
+    if(mailBusy)return;
     rechnen();
-    if (!letzte) return;
+    if (!letzte&&!f.elements.zeichnung.files[0]&&!a.elements.nachricht.value.trim()&&!$('archive-drawing-note').value.trim()) return;
+    const email=a.elements.email.value.trim(),consent=a.elements.ok.checked,contactName=a.elements.name.value,company=a.elements.firma.value,language=L.language;
+    if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)||!consent){$('sendehinweis').dataset.originalText='';$('sendehinweis').textContent=tr(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)?'Bitte geben Sie eine gültige E-Mail-Adresse ein.':'Bitte stimmen Sie der Verarbeitung Ihrer Anfrage zu.');(!consent?a.elements.ok:a.elements.email).focus();return;}
     const z = f.elements.zeichnung.files[0];
     const kopf = [tr('Name')+': '+a.elements.name.value,tr('Firma')+': '+a.elements.firma.value,tr('E-Mail')+': '+a.elements.email.value,tr('Telefon')+': '+a.elements.tel.value].join('\n');
-    const text = kopf + '\n\n' + (a.elements.nachricht.value ? a.elements.nachricht.value + '\n\n' : '') + zusammenfassung() + (z ? '\n\n'+tr('Zeichnung:')+' '+z.name+' '+tr('(bitte anhängen)') : '');
-    const betreff = (tr(showPrices?'Richtpreisanfrage':'Maschinenanfrage')+' '+((angefragteMaschine() || letzte.wahl.passend[0] || letzte.wahl.bedingt[0])?.o.m || '')).trim();
-    if (ENDPOINT) {
-      const fd = new FormData();
-      fd.append('betreff', betreff); fd.append('text', text); fd.append('eingaben', JSON.stringify(letzte.e)); fd.append('email', a.elements.email.value);
-      if (z) fd.append('zeichnung', z, z.name);
+    const drawingNote=$('archive-drawing-note').value;
+    const text = kopf + '\n\n' + (previewSelectedModel?msg('Anfrage für {model}',{model:previewSelectedModel})+'\n\n':'') + (drawingNote?tr('Angaben zur Zeichnung')+': '+drawingNote+'\n\n':'') + (a.elements.nachricht.value ? a.elements.nachricht.value + '\n\n' : '') + (letzte?zusammenfassung():'') + (z ? '\n\n'+tr('Zeichnung:')+' '+z.name+(window.JYDrawingPreview?.apiBase?'':' '+tr('(bitte anhängen)')) : '');
+    const betreff = (tr(showPrices?'Richtpreisanfrage':'Maschinenanfrage')+' '+(previewSelectedModel||(angefragteMaschine() || letzte?.wahl.passend[0] || letzte?.wahl.bedingt[0])?.o.m || '')).trim();
+    const api=window.JYDrawingPreview;
+    if(api?.apiBase){
+      mailBusy=true;knoepfe();$('sendehinweis').dataset.originalText='';$('sendehinweis').textContent=tr('Ihre Anfrage wird übertragen …');
       try {
-        const r = await fetch(ENDPOINT, { method: 'POST', body: fd });
-        if (r.ok) { $('sendehinweis').textContent = 'Danke. Die Anfrage ist angekommen; die Antwort kommt persönlich.'; return; }
-      } catch (err) { /* Rückfall auf E-Mail */ }
+        if(z&&z.size>15*1024*1024)throw new Error('Die Datei ist für die Übertragung zu groß. Bitte verwenden Sie eine Datei bis 15 MB.');
+        const signature=await api.fingerprint(z,JSON.stringify([email,contactName,company,text]),language,showPrices?'with-prices':'technical-only');
+        if(signature!==mailSignature){mailSignature=signature;mailKey=api.uuid();}
+        const fd=new FormData();fd.append('email',email);fd.append('name',contactName);fd.append('firma',company);fd.append('notiz',text);fd.append('betreff',betreff);fd.append('consent','true');fd.append('language',language);fd.append('idempotency_key',mailKey);if(!showPrices)fd.append('pricePolicy','technical-only');if(z)fd.append('datei',z,z.name);
+        const receipt=await api.request('/anfrage',{method:'POST',body:fd,language});
+        if(receipt.kind!=='enquiry'||receipt.status!=='received'||typeof receipt.id!=='string'||!receipt.id||typeof receipt.token!=='string'||!receipt.token)throw new Error('Der Eingang konnte nicht eindeutig bestätigt werden. Bitte versuchen Sie es erneut.');
+        window.clearTimeout(mailTimer);mailReceipt={id:receipt.id,token:receipt.token};mailPolls=0;versandStatus(receipt);if(receipt.notificationStatus==='pending')mailTimer=window.setTimeout(versandAktualisieren,4000);
+      }catch(error){$('sendehinweis').dataset.originalText='';$('sendehinweis').textContent=tr(error.message);}
+      finally{mailBusy=false;knoepfe();}
+      return;
     }
     location.href = 'mailto:' + MAIL + '?subject=' + encodeURIComponent(betreff) + '&body=' + encodeURIComponent(text.replace(/\n/g, '\r\n'));
   }
@@ -344,7 +367,7 @@
       const model=requestButton.dataset.requestModel;
       rechnen();
       if(!maschinenFunde(letzte?.wahl).some(result=>result.o.m===model))return;
-      angefragtesModell=model;anfrageAuswahlZeigen();
+      previewSelectedModel=null;angefragtesModell=model;anfrageAuswahlZeigen();
       a.elements.email.focus({preventScroll:true});
       $('anfrage').scrollIntoView({behavior:window.matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth',block:'start'});
       return;
@@ -356,12 +379,15 @@
     details.querySelector('summary').focus({ preventScroll: true });
     details.scrollIntoView({ behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth', block: 'start' });
   });
-  a.addEventListener('input', knoepfe); a.addEventListener('change', knoepfe);
+  a.addEventListener('input',()=>{knoepfe();drawingPreview?.update();}); a.addEventListener('change',()=>{knoepfe();drawingPreview?.update();});
   $('archive-choose-file').addEventListener('click',()=>f.elements.zeichnung.click());
   f.elements.zeichnung.addEventListener('change',zeichnungGeaendert);
+  $('archive-drawing-note').addEventListener('input',()=>{drawingPreview?.update();knoepfe();});
   $('archive-remove-file').addEventListener('click',()=>{f.elements.zeichnung.value='';rejectedDrawing=null;zeichnungStatus();$('archive-choose-file').focus();});
   $('senden').addEventListener('click', senden);
+  $('archive-mail-refresh').addEventListener('click',()=>{mailPolls=0;window.clearTimeout(mailTimer);return versandAktualisieren();});
   $('drucken').addEventListener('click', drucken);
+  if(window.JYDrawingPreview)drawingPreview=window.JYDrawingPreview.create({button:$('archive-analyse'),progress:$('archive-analysis-progress'),status:$('archive-analysis-status'),result:$('archive-analysis-result'),refresh:$('archive-analysis-refresh'),getFile:()=>f.elements.zeichnung.files[0]||null,getNote:()=>$('archive-drawing-note').value.trim(),canChooseMachine:model=>MASCHINEN.some(machine=>machine.m===model),onChooseMachine:model=>{previewSelectedModel=model;angefragtesModell=null;anfrageAuswahlZeigen();a.elements.email.focus({preventScroll:true});$('anfrage').scrollIntoView({behavior:window.matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth',block:'start'});},onResult:data=>{previewHasMachines=Array.isArray(data.proposal?.machines)&&data.proposal.machines.length>0;$('empty-visual').hidden=previewHasMachines||maschinenFunde(letzte?.wahl).length>0;},onInvalidate:()=>{previewHasMachines=false;previewSelectedModel=null;anfrageAuswahlZeigen();$('empty-visual').hidden=maschinenFunde(letzte?.wahl).length>0;}});
   window.addEventListener('jy-languagechange',()=>{Array.from(sel.options).forEach(option=>{const variant=variantByValue.get(option.value);if(variant)option.textContent=optionLabel(variant);});zeichnungStatus();sichtbar();rechnen();L.apply();});
   zeichnungStatus(); sichtbar(); rechnen(); L.apply();
 })();

@@ -1,6 +1,6 @@
 # Fachassistent und Anfrage-Eingang
 
-Der Worker nimmt eine Zeichnung, Skizze oder Beschreibung an. Er speichert den Auftrag vor der Empfangsbestätigung und stellt zwei voneinander unabhängige Queue-Aufträge ein: Eingangs-Mail an Hans mit Originalanhang und technische Analyse. Eine gescheiterte KI-Ausarbeitung verhindert die Eingangs-Mail nicht; ihr eigener Status bleibt sichtbar.
+Der Worker trennt zwei bewusste Aktionen: „Zeichnung mit KI auswerten“ erstellt über `/preview` ausschließlich einen Analyseauftrag ohne Kontaktpflicht oder Mail. „Anfrage senden“ erstellt über `/anfrage` ausschließlich die E-Mail an Hans mit Angaben und Originalanhang. Beide Aufträge werden vor der Empfangsbestätigung gespeichert und haben einen privaten Statuszugang. Bereits gespeicherte ältere Aufträge mit kombinierter Analyse bleiben kompatibel.
 
 Claude Opus 5.5 liest zuerst das freigegebene Projektwissen und kann dann mehrmals das echte Werkzeug für Geometrie, Stadienfolge und Katalogprüfung aufrufen. Das Ergebnis erscheint direkt im Fachchat. Das frühere Verfahren mit einer zwingenden internen Entwurfsfreigabe wurde für diesen Ablauf abgelöst. Es gibt keinen automatischen Versand einer KI-Antwort an Kunden.
 
@@ -8,7 +8,8 @@ Die Modellrunden verwenden `tool_choice: {type: "auto"}`. Systemtext und Werkzeu
 
 ## API für das Frontend
 
-- POST /anfrage: multipart mit email, name, firma, notiz, optional datei und idempotency_key. E-Mail sowie Datei **oder** Beschreibung sind nötig; keine technischen Pflichtfragen. Antwort HTTP 202 mit {id, token, status:"queued", notificationStatus:"pending"}. Derselbe unveränderte Retry bekommt die gespeicherte Identität; abweichender Inhalt zur gleichen Kennung HTTP 409.
+- POST /preview: multipart mit datei (PDF/PNG/JPEG/WebP), optional notiz, language und pricePolicy sowie erforderlichem idempotency_key. Antwort HTTP 202 mit {id, token, kind:"preview", status:"queued", notificationStatus:"not_requested"}. Kein Mailauftrag und keine Kontaktdaten. Gleiche Kennung mit unverändertem Inhalt liefert gespeicherten Auftrag/Ergebnis, Änderungen zur gleichen Kennung HTTP 409.
+- POST /anfrage: multipart mit email, name, firma, notiz, optional datei, betreff, language und idempotency_key. Neue Formulare senden consent="true"; ältere veröffentlichte Formulare ohne dieses Feld bleiben kompatibel, ausdrückliche Ablehnung wird zurückgewiesen. E-Mail sowie Datei **oder** Beschreibung sind nötig. Antwort HTTP 202 mit {id, token, kind:"enquiry", status:"received", analysisStatus:"not_requested", notificationStatus:"pending"}. Nur Mail, keine Analyse. Derselbe unveränderte Retry bekommt die gespeicherte Identität; abweichender Inhalt zur gleichen Kennung HTTP 409. Ein optionaler Betreff wird auf 160 Zeichen begrenzt und von Steuerzeichen bereinigt.
 - GET /status?id=…&token=…: {status, answer, proposal, questions, sources, notificationStatus}. Es werden keine Kontaktstammdaten oder Originalanhänge zurückgegeben.
 - POST /chat: JSON {message, history?, requestId?, token?}. Ohne E-Mail möglich. history ist [{role:"user"|"assistant",content:string}]. Bei einer verknüpften Anfrage ersetzt die gespeicherte Historie die vom Browser gelieferte Historie; id und Token müssen zusammen passen. Antwort {answer, questions, proposal, sources, status}.
 - GET /health: {ready, checks, knowledgeStatus, credentialsVerified:false, model}. Prüft vorhandene Bindings/Secrets und liest die referenzierten Wissenstexte tatsächlich. Dies testet **keine** Anbieter-Zugangsdaten, Domainzustellung oder Ressourcen-Erreichbarkeit. Ein unvollständiger Snapshot macht ready=false.
@@ -16,7 +17,7 @@ Die Modellrunden verwenden `tool_choice: {type: "auto"}`. Systemtext und Werkzeu
 
 Analysezustände: queued → processing → ready oder needs_info. Nach ausgeschöpften Wiederholungen failed. Chat kann needs_info nach einer Ergänzung zu ready ändern. Mailzustand unabhängig: pending → sent oder failed. sent bedeutet vom Mailanbieter angenommen, nicht durch einen Zustellbeleg im Posteingang bestätigt.
 
-Dateien: höchstens 15 MiB. PDF/PNG/JPEG/WebP werden als Dokument/Bild gelesen, mit Prüfung der Dateisignatur. STEP/STP/DXF/DWG werden als Original gesichert und an Hans weitergegeben; ohne zusätzliche lesbare Ansicht oder Textmaße gibt es eine gezielte Rückfrage. CAD wird nicht ausgeführt oder als ausgelesen ausgegeben. Text höchstens 20.000 Zeichen, Chatnachricht 8.000, Chatkörper 64 kB.
+Dateien: höchstens 15 MiB. `/preview` liest PDF/PNG/JPEG/WebP als Dokument/Bild und prüft die Dateisignatur. `/anfrage` erlaubt außerdem TIFF sowie STEP/STP/DXF/DWG/IGS/IGES als Originalanhänge. Für deren KI-Auswertung wird eine PDF-/Bildansicht angefordert. CAD wird nicht ausgeführt oder als ausgelesen ausgegeben. Text höchstens 20.000 Zeichen, Chatnachricht 8.000, Chatkörper 64 kB.
 
 proposal enthält belegte Eingabewerte mit Originaleinheit/Herkunft, sichtbare Prozessannahmen, Drahtversuch, Engine-Stadien, echte Katalogkandidaten mit Einzelkriterien, öffentliche Regelkurztexte, konkrete Grenzen und eine reproduzierbare calculation. Maschinen, Kräfte und Maße werden nicht aus einem frei erfundenen JSON des Modells übernommen. Fehlender Werkstoff/fehlende Maße oder unplausible Wände verhindern eine Rechnung. C35 wird nicht als C15C gerechnet.
 
@@ -49,6 +50,7 @@ Neue Quellenhinweise landen unter lernen:<uuid>, Status ungeprueft, mit URL, Abr
 - nachricht:<id>: unabhängiger Mailstatus und Anbieter-ID.
 - chat:<id>: Gesprächsverlauf, maximal 20 Einträge.
 - idempotenz:<hash>, versandauftrag:<id>: Wiederaufnahme desselben Eingangs.
+- vorschau-idempotenz:<hash>, vorschauauftrag:<id>: eigene Wiederaufnahme einer KI-Auswertung; keine Mailkennungen.
 - rate:<bucket>:<day>:<IP-hash>: ungefähre tägliche Begrenzung, keine Roh-IP.
 - diagnose:last:chat / queue / request: letzte klassifizierte Dienststörung, private Aufbewahrung eine Stunde. Nur feste Fehlerklasse, Dienst, Status, Zeitpunkt und validierte Anbieter-Request-ID; keine Rohantwort, Zeichnung, Kontaktdaten oder Zugangsschlüssel.
 - Originaldatei: privates R2-Objekt anfragen/<id>/original. Keine öffentliche Downloadroute.
@@ -57,11 +59,11 @@ KV-Einträge zu Anfragen haben 30 Tage TTL. Der Zugriff erlischt zusätzlich nac
 
 **R2 löscht customMetadata.expiresAt nicht von selbst.** Im eingerichteten Dienst wurde die Lifecycle-Regel für Präfix anfragen/ mit Löschung nach 30 Tagen aktiviert und überprüft. Bei einer Neuinstallation muss diese Regel im R2-Bucket unter Settings → Object lifecycle rules erneut eingerichtet und im Dashboard kontrolliert werden. Ohne Regel bleibt die Datei liegen. Die Lifecycle-Löschung ist asynchron. Die separat zugestellten E-Mail-Anhänge unterliegen nicht dieser R2-Regel.
 
-Cloudflare Queues trägt ausschließlich {kind,id}; die Originaldatei gehört nicht in die Queue. Mail und Analyse haben eigene Nachrichten, Batchgröße 1 und bis zu vier parallele Consumer. Drei Retries nach dem ersten Versuch, Verzögerung 60 Sekunden, danach jy-anfragen-dlq. Die Analyse ist auf sieben Modellrunden und 240 Sekunden begrenzt, der synchrone Chat auf fünf Runden und 65 Sekunden. Kein mehrminütiges fire-and-forget über waitUntil.
+Cloudflare Queues trägt ausschließlich {kind,id}; die Originaldatei gehört nicht in die Queue. Neue Aufträge verwenden intake_mail oder preview_analysis; ältere analysis-Aufträge bleiben unterstützt. Batchgröße 1 und bis zu vier parallele Consumer. Die Queue erlaubt drei Retries nach dem ersten Versuch; neue Preview-Aufträge beenden bereits nach zwei fehlgeschlagenen Zustellungen mit sichtbarem Fehlerstatus. Fertige oder fehlgeschlagene Previews werden durch identische Wiederholungen nicht erneut analysiert. Die Analyse ist auf sieben Modellrunden und 240 Sekunden begrenzt, der synchrone Chat auf fünf Runden und 65 Sekunden. Kein mehrminütiges fire-and-forget über waitUntil.
 
 KV ist eventual consistent: kurze Statusverzögerungen und gleichzeitig eintreffende identische Erstübertragungen sind nicht atomar abgesichert. Wiederholungen nach bestätigtem Speichern werden wiedererkannt. Resend erhält pro Anfrage einen Idempotency-Key (Anbieterfenster 24 Stunden); bereits als sent gespeicherte Nachrichten werden übersprungen. Vor einem manuellen DLQ-Replay nach längerer Pause Anbieterstatus prüfen. Keine Exactly-once-Zusage. Für harte globale Idempotenz/Quoten wäre ein Durable Object nötig.
 
-Die tägliche KV-Begrenzung (10 Eingänge, 40 Chats je IP-Hash) ist ebenfalls näherungsweise. WAF-Limits für /anfrage und /chat sowie das API-Budget beim Anbieter sind separate Betriebseinstellungen und werden durch den Code nicht eingerichtet oder bestätigt. Limits auf den tatsächlichen Traffic abstimmen; CORS allein begrenzt keine Nutzung. Kosten hängen von Seitenzahl, Modell, Runden und Suche ab.
+Die tägliche KV-Begrenzung (je 10 neue Mailanfragen und Previews, 40 Chats je IP-Hash) ist ebenfalls näherungsweise. WAF-Limits für /anfrage, /preview und /chat sowie das API-Budget beim Anbieter sind separate Betriebseinstellungen und werden durch den Code nicht eingerichtet oder bestätigt. Limits auf den tatsächlichen Traffic abstimmen; CORS allein begrenzt keine Nutzung. Kosten hängen von Seitenzahl, Modell, Runden und Suche ab.
 
 ## Einrichtung und Aktivierung
 

@@ -35,6 +35,10 @@ async function postIntake(e,origin,extra={}){
  const response=await worker.fetch(new Request('https://worker.test/anfrage',{method:'POST',headers:origin?{Origin:origin}:{},body:f}),e);
  return {httpStatus:response.status,...await response.json()};
 }
+async function legacyIntake(e,origin,extra={}){
+ const r=await postIntake(e,origin,extra),record=JSON.parse(await e.SPEICHER.get('anfrage:'+r.id));
+ delete record.kind;await e.SPEICHER.put('anfrage:'+r.id,JSON.stringify(record));return r;
+}
 const status=(e,r,origin,policy=FULL)=>worker.fetch(new Request('https://worker.test/status?id='+r.id+'&token='+r.token+'&pricePolicy='+policy,{headers:origin?{Origin:origin}:{}}),e).then(r=>r.json());
 const chat=(e,origin,body)=>worker.fetch(new Request('https://worker.test/chat',{method:'POST',headers:origin?{Origin:origin}:{},body:JSON.stringify(body)}),e);
 function sizingMock(t,technical){
@@ -78,8 +82,8 @@ test('explicit technical restriction works on previews and legacy origin; idempo
  const other=await postIntake(e,PUBLIC,{pricePolicy:FULL});assert.notEqual(other.id,free.id);assert.equal(other.pricePolicy,TECH);
 });
 
-test('queued upload analysis uses saved policy, not forged queue payload; status cannot re-enable prices',async t=>{
- const e=env(),r=await postIntake(e,PUBLIC,{datei:new File(['%PDF-1.7 test'],'drawing.pdf',{type:'application/pdf'}),pricePolicy:FULL});
+test('legacy queued upload analysis uses saved policy, not forged queue payload; status cannot re-enable prices',async t=>{
+ const e=env(),r=await legacyIntake(e,PUBLIC,{datei:new File(['%PDF-1.7 test'],'drawing.pdf',{type:'application/pdf'}),pricePolicy:FULL});
  sizingMock(t,true);
  const message={body:{kind:'analysis',id:r.id,pricePolicy:FULL,siteOrigin:LEGACY},acks:0,ack(){this.acks++;},retry(){throw Error('unexpected retry');}};
  await worker.queue({messages:[message]},e);assert.equal(message.acks,1);
@@ -88,7 +92,7 @@ test('queued upload analysis uses saved policy, not forged queue payload; status
 });
 
 test('legacy origin preserves catalogue prices in its model tools and public result',async t=>{
- const e=env(),r=await postIntake(e,LEGACY);assert.equal(r.pricePolicy,FULL);sizingMock(t,false);
+ const e=env(),r=await legacyIntake(e,LEGACY);assert.equal(r.pricePolicy,FULL);sizingMock(t,false);
  await worker.queue({messages:[{body:{kind:'analysis',id:r.id},ack(){},retry(){throw Error('unexpected retry');}}]},e);
  const full=await status(e,r,LEGACY);assert.equal(full.pricePolicy,FULL);assert.ok(full.proposal.machines.some(x=>x.priceEUR>0));
  const free=await status(e,r,PUBLIC);assert.equal(free.pricePolicy,TECH);assertNoPrices(free);
@@ -107,7 +111,7 @@ test('linked follow-up retains saved technical policy and strips older monetary 
 });
 
 test('status sanitizes stale monetary prose and fields using intake policy, including nested results',async()=>{
- const e=env(),r=await postIntake(e,PUBLIC);
+ const e=env(),r=await legacyIntake(e,PUBLIC);
  await e.SPEICHER.put('analyse:'+r.id,JSON.stringify({status:'ready',result:{pricePolicy:FULL,answer:'Preis: 543210 EUR. Die Maschine hat fünf Stationen.',questions:['Passt das Budget von 432109 EUR?'],proposal:{machines:[{model:'JBF-7B4S',priceEUR:543210,priceRangeEUR:[432109,654321],concept:{rp:543210,lo:432109,hi:654321,stages:[{number:1,operation:'Vorstauchen'}]}}]},sources:[],language:'de'}}));
  const result=await status(e,r,LEGACY);assertNoPrices(result);assert.equal(result.answer,'Die Maschine hat fünf Stationen.');assert.deepEqual(result.questions,[]);assert.equal(result.proposal.machines[0].concept.stages.length,1);
 });

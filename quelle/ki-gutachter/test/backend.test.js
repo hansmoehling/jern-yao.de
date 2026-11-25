@@ -38,12 +38,12 @@ test('material references cannot echo private model-supplied metadata',()=>{
  assert.equal(r.proposal.input[0].reference,'Nutzerangabe Werkstoff');
  assert.ok(!JSON.stringify(r).includes('mail-source'));
 });
-test('health verifies knowledge completeness and refuses a broken snapshot',async()=>{
+test('health flags a broken knowledge snapshot while mail-only enquiries remain available',async()=>{
  const e=env();assert.equal((await(await worker.fetch(new Request('https://worker.test/health'),e)).json()).ready,true);
  await e.SPEICHER.put('konzept:manifest',JSON.stringify({version:'broken',keys:{regeln:'konzept:abcd:regeln',wissenskarten:'konzept:abcd:wissenskarten'}}));
  const h=await(await worker.fetch(new Request('https://worker.test/health'),e)).json();
  assert.equal(h.ready,false);assert.equal(h.checks.knowledge,false);assert.equal(h.credentialsVerified,false);
- assert.equal((await posted(e)).httpStatus,503);
+ assert.equal((await posted(e)).httpStatus,202);
 });
 test('space-separated invented model is rejected',async t=>{
  let n=0;fakeFetch(t,async()=>n++===0?reply(tool('projektwissen')):n===2?reply(final('JBF 99B9S passt.')):reply(final('Für einen Vergleich fehlen noch Maße.')));
@@ -247,20 +247,20 @@ test('knowledge material index is compact; only an explicitly selected grade ret
  await analyse({message:'Welche Angaben liegen für 1.1172 vor?'},env());assert.equal(n,3);
 });
 
-test('Text intake is durable, queues mail and analysis independently, retry reuses identity',async()=>{
+test('Text enquiry is durable, queues only mail, retry reuses identity',async()=>{
  const e=env(),first=await posted(e),again=await posted(e);
  assert.equal(first.httpStatus,202);assert.equal(again.id,first.id);assert.equal(again.token,first.token);
- assert.deepEqual(e._sent.map(x=>x.body.kind),['intake_mail','analysis']);
+ assert.deepEqual(e._sent.map(x=>x.body.kind),['intake_mail']);
  assert.equal(JSON.parse(await e.SPEICHER.get('anfrage:'+first.id)).note.includes('Bolzen'),true);
  const status=await worker.fetch(query(first.id,first.token),e),body=await status.json();
- assert.equal(body.status,'queued');assert.equal(body.notificationStatus,'pending');assert.equal(body.proposal,null);
+ assert.equal(body.status,'received');assert.equal(body.kind,'enquiry');assert.equal(body.analysisStatus,'not_requested');assert.equal(body.notificationStatus,'pending');assert.equal(body.proposal,null);
 });
 test('changed payload cannot reuse idempotency key; interrupted queue can be retried',async()=>{
  const e=env(),first=await posted(e);
  assert.equal((await posted(e,{notiz:'Andere Geometrie'})).httpStatus,409);
  const f=env();let calls=0;f.ANFRAGEN.sendBatch=async batch=>{if(++calls===1)throw Error('queue outage');f._sent.push(...batch);};
  assert.equal((await posted(f)).httpStatus,503);
- const retry=await posted(f);assert.ok(retry.id);assert.equal(f._sent.length,2);assert.equal(calls,2);
+ const retry=await posted(f);assert.ok(retry.id);assert.equal(f._sent.length,1);assert.equal(calls,2);
  assert.equal(first.id.length,36);
 });
 test('status and linked chat require matching secret token; strangers see no contact data',async()=>{
@@ -406,10 +406,11 @@ test('queue sends Hans independently, idempotently, fixed recipient, and does no
  await worker.queue({messages:[message({kind:'intake_mail',id:a.id})]},e);
  assert.equal(mails,1);assert.equal(first.acks,1);
  const status=await(await worker.fetch(query(a.id,a.token),e)).json();
- assert.equal(status.status,'queued');assert.equal(status.notificationStatus,'sent');
+ assert.equal(status.status,'received');assert.equal(status.notificationStatus,'sent');
 });
-test('failed mail does not stop analysis; exhaustion sets failed and retries toward DLQ',async t=>{
+test('legacy queued analysis survives failed mail; exhaustion sets failed and retries toward DLQ',async t=>{
  const e=env(),a=await posted(e);let ai=0;
+ const legacy=JSON.parse(await e.SPEICHER.get('anfrage:'+a.id));delete legacy.kind;await e.SPEICHER.put('anfrage:'+a.id,JSON.stringify(legacy));
  fakeFetch(t,async(url)=>{
   if(url.includes('resend'))return Response.json({error:'failure'},{status:500});
   return ai++===0?reply(tool('projektwissen')):reply(final('Welche Werkstoffbezeichnung steht auf Ihrer Zeichnung?',['Welches Material?']));

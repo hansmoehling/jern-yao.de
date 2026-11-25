@@ -92,10 +92,11 @@ test('dynamic questions translate fully while original grade names, numbers and 
  }
 });
 
-test('exhausted queued analysis retains the intake language in failure status',async ctx=>{
+test('exhausted legacy queued analysis retains the intake language in failure status',async ctx=>{
  replaceFetch(ctx,async()=>{throw Error('Mock provider unavailable');});
  for(const language of languages){
   const e=env(),a=await submit(e,language);let retried=false;
+  const legacy=JSON.parse(await e.SPEICHER.get('anfrage:'+a.id));delete legacy.kind;await e.SPEICHER.put('anfrage:'+a.id,JSON.stringify(legacy));
   await worker.queue({messages:[{body:{kind:'analysis',id:a.id},attempts:4,ack(){},retry(){retried=true;}}]},e);
   assert.equal(retried,true);
   const response=await worker.fetch(new Request('https://worker.test/status?id='+a.id+'&token='+a.token),e),state=await response.json();
