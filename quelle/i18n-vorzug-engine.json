@@ -17,18 +17,6 @@
     "The wire rod diameter before drawing must exceed the wire diameter at the press.",
     "预拉拔前的盘条直径必须大于进入压力机的线材直径。"
   ],
-  "Inline-Zieheinrichtung, Durchmesserbereich und verfügbare Ziehkraft für diesen Vorzug bestätigen.": [
-    "Confermare l'unità di trafilatura in linea, il campo diametri e la forza disponibile per questa riduzione.",
-    "Potrditi napravo za predvlek v liniji, območje premerov in razpoložljivo vlečno silo.",
-    "Confirm the inline drawing unit, diameter range and available drawing force for this reduction.",
-    "确认此预拉拔所需的在线拉拔装置、直径范围及可用拉拔力。"
-  ],
-  "Zieheinrichtung noch zu bestätigen": [
-    "Unità di trafilatura da confermare",
-    "Vlečno napravo je treba še potrditi",
-    "Drawing unit still to be confirmed",
-    "拉拔装置尚待确认"
-  ],
   "Drahtzugfestigkeit Rm nach dem Inline-Vorzug für die Abschnittprüfung ergänzen.": [
     "Integrare la resistenza a trazione Rm dopo la trafilatura in linea per verificare il taglio.",
     "Dopolniti natezno trdnost Rm po predvleku v liniji za preverjanje odreza.",
@@ -59,11 +47,11 @@
     "20MnB4: normalized hot-rolled starting condition. Curve at 25 °C and 0.1 s⁻¹; compression measurements to φ = 0.4, high-strain model supported by torsion and hardness comparison. Initial segment to φ = 0.01 is regularized; it is not a measured yield strength.",
     "20MnB4：正火轧制的初始状态。计算曲线对应 25 °C、0.1 s⁻¹；压缩试验至 φ = 0.4，高应变模型由扭转及硬度对比支持。φ = 0.01 以下采用起始段正则化，并非实测屈服强度。"
   ],
-  "Inline-Vorzug: Vorverformung φv = 2 ln(DWalzdraht/dPresse); isotrope Fortsetzung kf(φv + φ). Quellenbereich gilt für die Gesamtdehnung. Ohne Zwischen- oder Nachglühung; Ziehkraft und Zieheinrichtung separat prüfen.": [
-    "Trafilatura in linea: predeformazione φv = 2 ln(Dvergella/dfilo); prosecuzione isotropa kf(φv + φ). Il campo della fonte vale per la deformazione totale. Senza ricottura intermedia o successiva; verificare separatamente forza e unità di trafilatura.",
-    "Predvlek v liniji: preddeformacija φv = 2 ln(DvaljanaŽica/dstiskalnica); izotropno nadaljevanje kf(φv + φ). Območje vira velja za skupno deformacijo. Brez vmesnega ali naknadnega žarjenja; vlečno silo in napravo preveriti ločeno.",
-    "Inline drawing: prestrain φv = 2 ln(Drod/dpress); isotropic continuation kf(φv + φ). The source range applies to total strain. No intermediate or subsequent annealing; check drawing force and unit separately.",
-    "在线预拉拔：预应变 φv = 2 ln(D盘条/d压力机入口)，按各向同性硬化延续 kf(φv + φ)。原始数据范围适用于总应变。无中间或后续退火；拉拔力及装置另行核查。"
+  "Kundenseitig vorgegebener Inline-Vorzug: Vorverformung φv = 2 ln(DWalzdraht/dPresse); isotrope Fortsetzung kf(φv + φ). Quellenbereich gilt für die Gesamtdehnung. Ohne Zwischen- oder Nachglühung. Ziehgerät und Abzug sind Kundenvorgaben, kein Auswahlkriterium der Presse.": [
+    "Trafilatura in linea definita dal cliente: predeformazione φv = 2 ln(Dvergella/dfilo); prosecuzione isotropa kf(φv + φ). Il campo della fonte vale per la deformazione totale. Senza ricottura intermedia o successiva. Trafilatrice e riduzione sono dati del cliente, non criteri di scelta della pressa.",
+    "Predvlek v liniji določi kupec: preddeformacija φv = 2 ln(DvaljanaŽica/dstiskalnica); izotropno nadaljevanje kf(φv + φ). Območje vira velja za skupno deformacijo. Brez vmesnega ali naknadnega žarjenja. Vlečna naprava in redukcija sta podatka kupca, ne merilo izbire stiskalnice.",
+    "Customer-specified inline drawing: prestrain φv = 2 ln(Drod/dpress); isotropic continuation kf(φv + φ). The source range applies to total strain. No intermediate or subsequent annealing. Drawing equipment and reduction are customer inputs, not press selection criteria.",
+    "客户指定的在线预拉拔：预应变 φv = 2 ln(D盘条/d压力机入口)，按各向同性硬化延续 kf(φv + φ)。数据范围适用于总应变。无中间或后续退火。拉拔设备及减面率由客户提供，不作为压力机选型条件。"
   ],
   "Volumenkonstanz und isotrope Verfestigungsannahme": [
     "Conservazione del volume e ipotesi di incrudimento isotropo",

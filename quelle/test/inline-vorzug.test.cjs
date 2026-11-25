@@ -14,7 +14,11 @@ test('inline drawing accumulates geometric prestrain and raises force without ch
  close(drawn.werte.Fmax_t,expected);assert(drawn.werte.Fmax_t>direct.werte.Fmax_t);
  const model=M.find(m=>m.m==='JBF-10B2S');
  const checks=E.pruefe(model,drawn,e),concept=E.maschinenKonzept(drawn,e,model);
- assert.equal(checks.openPoints.find(p=>p.id==='machine-inline-drawing').owner,'Jern Yao');
+ assert(!checks.openPoints.some(p=>p.id==='machine-inline-drawing'));
+ assert(!checks.k.some(k=>k.krit==='Inline-Vorzug'),'customer-owned preparation is not a press selection criterion');
+ const supplied={...e,wirePreparation:'inline-drawing',rodDiameter:8.5,rm:400};
+ const complete=E.pruefe(model,E.auslegen(supplied),supplied);
+ assert.notEqual(complete.gesamt,'offen','inline drawing alone must not block a fully supplied press comparison');
  assert.deepEqual(concept.preparation,drawn.vorzug);assert.equal(concept.stages.length,direct.stufen.length);
 });
 test('prestrained mean stress integrates the shifted curve interval exactly',()=>{
