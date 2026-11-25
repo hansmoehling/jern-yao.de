@@ -21,7 +21,7 @@ function setup(search='?lang=de',saved='en'){
  const ta=body.append(new Node('textarea'));ta.setAttribute('placeholder','Beschreiben Sie, worüber Sie nachdenken …');ta.setAttribute('aria-label','Ihre Frage oder Idee');ta.value='Original Benutzereingabe bleibt unverändert';ta.text(ta.value);
  const user=body.append(new Node('div'));user.setAttribute('class','message-text');user.text('Mein Teil heißt Kopf');
  const original=body.append(new Node('p'));original.setAttribute('data-original-text','');original.text('Original datasheet quotation');
- const link=body.append(new Node('a'));link.setAttribute('data-language-link','');link.setAttribute('href','/archiv/konfigurator-v1.html#teil');link.text('Technische Auslegung');
+ const link=body.append(new Node('a'));link.setAttribute('data-language-link','');link.setAttribute('href','/manual/konfigurator-v1.html#teil');link.text('Manual · Manuelle Auslegung');
  const buttons=I.supported.map(l=>{const b=body.append(new Node('button'));b.setAttribute('data-language',l);b.text(l.toUpperCase());return b});
  const storage=new Map([['jy-language',saved]]),events=[];
  const window={JYI18N:I,location:{href:'https://example.test/'+search},history:{replaceState(_,__,url){window.location.href=url;}},dispatchEvent(e){events.push(e);}};
@@ -44,7 +44,8 @@ test('locale switching de → it → zh → de changes all labels, metadata and 
   assert.equal(p.original.childNodes[0].nodeValue,'Original datasheet quotation');
   assert.equal(p.storage.get('jy-language'),language);
   assert.equal(new URL(p.window.location.href).searchParams.get('lang'),language);
-  assert.equal(p.link.getAttribute('href'),'/archiv/konfigurator-v1.html?lang='+language+'#teil');
+  assert.equal(p.link.getAttribute('href'),'/manual/konfigurator-v1.html?lang='+language+'#teil');
+  assert.equal(p.link.childNodes[0].nodeValue,I.t('Manual · Manuelle Auslegung',language));
   p.buttons.forEach(b=>assert.equal(b.getAttribute('aria-pressed'),String(b.dataset.language===language)));
  }
 });

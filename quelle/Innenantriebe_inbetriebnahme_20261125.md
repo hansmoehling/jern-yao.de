@@ -2,7 +2,7 @@
 
 Technische Ergänzung für Konzept / Wissen · 25. November 2026
 
-## Innenantriebe in der technischen Archivversion
+## Innenantriebe im Manual
 
 Die Auswahl besteht aus Profil, Größe und Tiefe. Angeboten werden Torx T5, T6, T7, T8, T9, T10, T15, T20, T25, T27, T30, T40, T45, T50, T55 und T60; Innensechskant SW 1,5 bis 12 mm in den hinterlegten üblichen Abstufungen sowie eine freie Schlüsselweite; Phillips PH0 bis PH4 und Pozidriv PZ0 bis PZ4. Phillips und Pozidriv bleiben getrennte Profile. Die Größenlisten sind durch Werkzeug-Herstellerangaben belegt, keine vollständigen Prägestempelzeichnungen.
 

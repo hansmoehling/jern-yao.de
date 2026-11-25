@@ -25,7 +25,7 @@ AG-QA-02 und AG-QA-03 wurden nach Präzisierung der Antwortvorgaben wiederholt. 
 
 ## Oberfläche und Rechenkern
 
-- Startseite und Archiv in Deutsch, Italienisch, Slowenisch, Englisch und vereinfachtem Chinesisch im Browser geprüft.
+- Startseite und Manual (vormals Archiv) in Deutsch, Italienisch, Slowenisch, Englisch und vereinfachtem Chinesisch im Browser geprüft.
 - Innenantriebe Torx, Innensechskant, PH und PZ mit Größenlisten; ausgewähltes Profil und Tiefe erscheinen im Ergebnis und in den Maschinenkonzepten. Ohne belegtes Vertiefungsvolumen bleiben bei Torx/PH/PZ Abschnitt und Profilkraft offen. Kein Null-Kraft-Ersatzwert.
 - 79 JavaScript-Tests, 25 deterministische Fachprüfungen, drei Wissensprojektionstests, Werkstoff-, Geometriegrenzen- und UI-Vertragsprüfungen bestanden.
 

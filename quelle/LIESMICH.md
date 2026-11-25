@@ -1,13 +1,13 @@
 # Agentische Auslegung auf jern-yao.de
 
-Zeichnung, Skizze oder Maßbeschreibung einreichen und Fertigungskonzepte im Fachdialog entwickeln. Der Rechenkern prüft Zahlen und Maschinen; der Dienst liest zuerst den versionierten Konzeptstand. Die Seite `index.html` wird gebaut, nicht von Hand bearbeitet. Die bisherige technische Oberfläche bleibt in `archiv/konfigurator-v1.html` erhalten.
+Zeichnung, Skizze oder Maßbeschreibung einreichen und Fertigungskonzepte im Fachdialog entwickeln. Der Rechenkern prüft Zahlen und Maschinen; der Dienst liest zuerst den versionierten Konzeptstand. Die Seite `index.html` wird gebaut, nicht von Hand bearbeitet. Die technische Oberfläche steht als **Manual** unter `manual/konfigurator-v1.html` und über `/manual/` bereit. Der alte Link `archiv/konfigurator-v1.html` leitet mit Query und Hash weiter; unveränderte historische Sicherungen bleiben unter `archiv/`.
 
 ## Bauen
 
 ```
 python3 quelle/katalog/specs_parse.py <Ordner mit den Katalog-PDFs>     # Kataloge von https://www.jernyao.com/files/
 python3 quelle/katalog/daten_bauen.py <JernYao_Richtpreise_2026.csv>     # Preisliste aus dem Projektordner
-python3 quelle/bauen.py                                                  # baut Startseite, Archiv und 404-Seite
+python3 quelle/bauen.py                                                  # baut Startseite, Manual, Weiterleitungen und 404-Seite
 node quelle/test/faelle.js                                               # Referenzfälle und Prüffälle aus Stadienplänen
 node quelle/test/fachliche-pruefung.cjs                                   # numerische Regressionen mit Assertions
 node quelle/test/grenzen.cjs                                             # ungültige Geometrien / Laufzeitgrenzen
@@ -30,14 +30,14 @@ python3 quelle/test/test_wissen.py                                       # priva
 
 ## Veröffentlichung
 
-Die Domain ist GitHub Pages zugeordnet. Der Dienst läuft separat; ein Umzug der Domain ist für diese Architektur nicht notwendig. Nach Dienständerungen den kontrollierten Übertragungsweg prüfen, die bestätigte API-Basis in `site-config.js` eintragen, neu bauen und den geprüften Stand veröffentlichen. Die API-Basis enthält keine Zugangsschlüssel. Ein erfolgreicher Worker-Deploy ersetzt die Prüfung der anschließend veröffentlichten Startseite und Archivversion nicht.
+Die Domain ist GitHub Pages zugeordnet. Der Dienst läuft separat; ein Umzug der Domain ist für diese Architektur nicht notwendig. Nach Dienständerungen den kontrollierten Übertragungsweg prüfen, die bestätigte API-Basis in `site-config.js` eintragen, neu bauen und den geprüften Stand veröffentlichen. Die API-Basis enthält keine Zugangsschlüssel. Ein erfolgreicher Worker-Deploy ersetzt die Prüfung der anschließend veröffentlichten Startseite und Manual nicht.
 
-Inbetriebnahme vom 25.11.2026: Cloudflare-Dienst, versioniertes Projektwissen, Anthropic und Resend waren in der Vorschau verbunden. Eine eigens erstellte PDF-Testzeichnung wurde über den echten Upload gelesen und gerechnet; die unabhängige Vergleichsrechnung bestätigte Ø8 × 43,203 mm Abschnitt. Die parallele Eingangs-Mail mit Originalanhang wurde beim Versanddienst als zugestellt bestätigt. Die Archiv-Antriebe wurden im Browser in allen fünf Sprachen geprüft. Dieser Nachweis dokumentiert den Dienst- und Vorschautest, nicht den separat auszuführenden Publish der Hauptdomain. Alte Version und neuer Quellstand werden getrennt gesichert.
+Inbetriebnahme vom 25.11.2026: Cloudflare-Dienst, versioniertes Projektwissen, Anthropic und Resend waren in der Vorschau verbunden. Eine eigens erstellte PDF-Testzeichnung wurde über den echten Upload gelesen und gerechnet; die unabhängige Vergleichsrechnung bestätigte Ø8 × 43,203 mm Abschnitt. Die parallele Eingangs-Mail mit Originalanhang wurde beim Versanddienst als zugestellt bestätigt. Die Innenantriebe des Manual wurden im Browser in allen fünf Sprachen geprüft. Dieser Nachweis dokumentiert den Dienst- und Vorschautest, nicht den separat auszuführenden Publish der Hauptdomain. Alte Version und neuer Quellstand werden getrennt gesichert.
 
 
-## Mehrsprachigkeit und Archiv
+## Mehrsprachigkeit und Manual
 
-`python quelle/bauen.py` baut Startseite, technische Auslegung und 404-Seite. Bei vorhandener `werkstoffe-recherche.json` wird vorher `werkstoffe_bauen.build()` ausgeführt. Die unveränderten Originalarchive bleiben unangetastet.
+`python quelle/bauen.py` baut Startseite, Manual, Weiterleitungen und 404-Seite. Bei vorhandener `werkstoffe-recherche.json` wird vorher `werkstoffe_bauen.build()` ausgeführt. Die unveränderten Originalarchive bleiben unangetastet.
 
 `i18n-*.json` enthalten deutsche Originaltexte und je vier Übersetzungen in der Reihenfolge Italienisch, Slowenisch, Englisch, vereinfachtes Chinesisch. `bauen.build_i18n()` erzeugt daraus den browser- und servergeeigneten UMD/CJS-Katalog `i18n.js`. Vollständige Sätze und dynamische `{identifier}`-Vorlagen haben Vorrang vor Fachbegriffen. Zitierte Originalwerte, Werkstoffnamen und Zahlen bleiben erhalten. Nur Fachlabel-Platzhalter `field`, `feature`, `operation`, `location` werden ihrerseits übersetzt.
 
@@ -45,7 +45,7 @@ Inbetriebnahme vom 25.11.2026: Cloudflare-Dienst, versioniertes Projektwissen, A
 
 `concept-ui.js` stellt den maschinenspezifischen Abschnitt und die qualitative Stadienfolge aus dem Rechenkern dar. `archiv-ui.js` enthält die technische Oberfläche; `archiv-vorlage.html` ihre Vorlage.
 
-Im Archiv stehen Torx, Innensechskant, Phillips PH und Pozidriv PZ mit Größenwahl und eigener Tiefe zur Verfügung. Für Torx/PH/PZ bleibt die Abschnittlänge ohne Vertiefungsvolumen oder verwertbare Teilmasse offen; eine Profilnummer ist kein Geometriemaß. Ein CAD-Volumen erlaubt die Volumenbilanz, liefert aber noch keine profilabhängige Formkraft. Auswahl und Grenzen erscheinen auch in Maschinenkonzept, Druckblatt und E-Mail. Details und Primärquellen: [Innenantriebe](innenantriebe-quellen.md).
+Im Manual stehen Torx, Innensechskant, Phillips PH und Pozidriv PZ mit Größenwahl und eigener Tiefe zur Verfügung. Für Torx/PH/PZ bleibt die Abschnittlänge ohne Vertiefungsvolumen oder verwertbare Teilmasse offen; eine Profilnummer ist kein Geometriemaß. Ein CAD-Volumen erlaubt die Volumenbilanz, liefert aber noch keine profilabhängige Formkraft. Auswahl und Grenzen erscheinen auch in Maschinenkonzept, Druckblatt und E-Mail. Details und Primärquellen: [Innenantriebe](innenantriebe-quellen.md).
 
 Lokale Prüfungen ohne Netzwerk oder Browser:
 

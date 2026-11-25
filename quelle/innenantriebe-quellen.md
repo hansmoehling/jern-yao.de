@@ -1,4 +1,4 @@
-# Innenantriebe im Archiv-Konfigurator
+# Innenantriebe im Manual
 
 Stand: 25. November 2026. Die Größenlisten dienen der Auswahl üblicher Antriebe. Sie sind keine Maßtabelle für die Fertigung von Prägestempeln.
 
