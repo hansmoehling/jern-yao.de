@@ -223,13 +223,14 @@
     <form id="f" autocomplete="off" novalidate>
       <fieldset id="teil">
         <legend>1 · Teil</legend>
-        <div id="parts-tabs" class="parts-tabs" role="tablist" aria-label="Formteil auslegen" hidden><button type="button" id="parts-drawing-tab" role="tab" aria-controls="parts-drawing-panel" aria-selected="true">Zeichnung analysieren</button><button type="button" id="parts-geometry-tab" role="tab" aria-controls="geometry-panel" aria-selected="false" tabindex="-1">Teil aufbauen</button></div>
+        <p id="calculation-method-note"><strong>Programmrechnung:</strong> Die Stadienberechnung erfolgt durch ein Berechnungsprogramm, nicht durch KI. Grundlage sind Ihre Eingaben und hinterlegte Umformregeln.</p>
+        <div id="parts-tabs" class="parts-tabs" role="tablist" aria-label="Formteil auslegen" hidden><button type="button" id="parts-drawing-tab" role="tab" aria-controls="parts-drawing-panel" aria-selected="true">Zeichnung scannen</button><button type="button" id="parts-geometry-tab" role="tab" aria-controls="geometry-panel" aria-selected="false" tabindex="-1">Teil aufbauen</button></div>
         <div id="parts-drawing-panel" role="tabpanel" aria-labelledby="parts-drawing-tab" hidden>
           <div class="parts-upload" id="parts-drop-zone"><label for="parts-file"><strong>Zeichnung auswählen oder hier ablegen</strong></label><p class="klein">PDF, PNG, JPG oder WebP für die KI-Analyse · bis 15 MB. CAD und TIFF können Sie als Original an Hans senden.</p><input id="parts-file" type="file" accept=".pdf,.png,.jpg,.jpeg,.webp,.tif,.tiff,.step,.stp,.dxf,.dwg,.igs,.iges" aria-describedby="parts-file-help parts-file-feedback"></div>
           <div id="parts-file-feedback" class="parts-file-feedback" role="status" aria-live="polite" aria-atomic="true" hidden><strong id="parts-file-state"></strong><span id="parts-file-name"></span><button type="button" id="parts-file-remove" class="knopf zwei" hidden>Datei entfernen</button></div>
           <label class="feld"><span>Angaben zur Zeichnung</span><textarea id="parts-drawing-note" rows="3" placeholder="Werkstoff, Maße oder Ergänzungen zur Zeichnung"></textarea></label>
-          <p id="parts-file-help" class="klein">Die Analyse kann einige Minuten dauern. Sie startet erst mit Ihrem Klick und versendet keine E-Mail.</p>
-          <div class="knoepfe"><button type="button" id="parts-drawing-analyse" class="knopf" disabled>Zeichnung mit KI analysieren</button><button type="button" id="parts-drawing-refresh" class="knopf zwei" hidden>Stand aktualisieren</button></div>
+          <p id="parts-file-help" class="klein">Beim Zeichnungsscan liest die KI die Zeichnung und erläutert das Stadienkonzept. Der Scan kann einige Minuten dauern und versendet keine E-Mail.</p>
+          <div class="knoepfe"><button type="button" id="parts-drawing-analyse" class="knopf" disabled>Zeichnung scannen</button><button type="button" id="parts-drawing-refresh" class="knopf zwei" hidden>Stand aktualisieren</button></div>
           <div id="parts-drawing-progress" class="geometry-progress" role="status" aria-live="polite" hidden><div class="geometry-dots" aria-hidden="true"><i style="--i:0"></i><i style="--i:1"></i><i style="--i:2"></i><i style="--i:3"></i><i style="--i:4"></i><i style="--i:5"></i><i style="--i:6"></i><i style="--i:7"></i></div><p>Die Zeichnungsanalyse benötigt etwas Zeit. Wir prüfen Maße, Umformschritte und passende Maschinen.</p></div>
           <p id="parts-drawing-status" class="klein" role="status" aria-live="polite" hidden></p>
         </div>
@@ -262,6 +263,7 @@
             <label class="feld voll" id="standard-norm-field"><span>Normfamilie</span><select name="standardNorm" id="standard-norm"></select></label>
             <label class="feld voll"><span>Gewindefamilie</span><select name="threadFamily"><option value="metric">Metrisches Gewinde</option><option value="trilobular">Trilobulares Gewinde</option><option value="duo-taptite">Duo-Taptite</option><option value="self-tapping">Schneidgewinde</option><option value="thermoplastic">Thermoplast</option></select></label>
           </div>
+          <p class="klein" id="standard-norm-note" hidden>Kopfform und Innenantrieb folgen der Normfamilie. Für eigene Varianten „Ohne Normvorgabe“ wählen.</p>
           <div id="bolt-head">
           <h3>Kopf oder Bund</h3>
           <div class="felder">
@@ -273,9 +275,9 @@
                 <option value="none">Ohne Kopf</option>
                 <option value="krallen">Krallenkopf / Umspritz-Mitnahmeprofil</option>
               </select></label>
-            <label class="feld"><span>Größter Ø in mm</span><input type="text" inputmode="decimal" name="kD"></label>
+            <label class="feld" data-kopf="rund sechskant abgratet krallen"><span>Größter Ø in mm</span><input type="text" inputmode="decimal" name="kD"></label>
             <label class="feld" data-kopf="sechskant abgratet"><span>Schlüsselweite in mm</span><input type="text" inputmode="decimal" name="kSW"></label>
-            <label class="feld"><span>Höhe in mm</span><input type="text" inputmode="decimal" name="kH"></label>
+            <label class="feld" data-kopf="rund sechskant abgratet krallen"><span>Höhe in mm</span><input type="text" inputmode="decimal" name="kH"></label>
             <label class="feld voll" data-kopf="krallen"><span>Kopf-Außenkonturvolumen ohne Innenantrieb in mm³ (optional)</span><input type="text" inputmode="decimal" name="kVol"></label>
           </div>
           </div>

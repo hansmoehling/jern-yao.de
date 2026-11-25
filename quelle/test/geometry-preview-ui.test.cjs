@@ -5,24 +5,53 @@ const path = require('node:path');
 const vm = require('node:vm');
 const crypto = require('node:crypto').webcrypto;
 const source = fs.readFileSync(path.join(__dirname, '..', 'drawing-preview.js'), 'utf8');
+const catalogue={};
+for(const name of fs.readdirSync(path.join(__dirname,'..')).filter(name=>/^i18n-.*\.json$/.test(name)).sort())Object.assign(catalogue,JSON.parse(fs.readFileSync(path.join(__dirname,'..',name),'utf8').replace(/^\uFEFF/,'')));
+const translationModule={module:{exports:{}}};
+vm.runInNewContext(fs.readFileSync(path.join(__dirname,'..','i18n-runtime.js'),'utf8').replace('/*CATALOG*/',JSON.stringify(catalogue)),translationModule);
+const I18N=translationModule.module.exports;
+const models=JSON.parse(fs.readFileSync(path.join(__dirname,'..','maschinen.json'),'utf8')).map(machine=>machine.m);
 
 class Element {
   constructor() { this.hidden = false; this.disabled = false; this.dataset = {}; this.textContent = ''; this.innerHTML = ''; this.events = {}; }
   addEventListener(name, fn) { this.events[name] = fn; }
 }
-function harness(mode='geometry') {
+function harness(mode='geometry',{language='de',showPrices=false}={}) {
   const nodes = Object.fromEntries(['button', 'progress', 'status', 'result', 'refresh'].map(key => [key, new Element()]));
-  const requests = [], answers = [], received = [], timers = new Map(); let nextTimer = 0, invalidations = 0;
+  const requests = [], answers = [], received = [], chosen = [], timers = new Map(); let nextTimer = 0, invalidations = 0;
   let geometry = { geometrySpec: { version: 1, coordinateSystem: 'tool-parting-plane', elements: [{ id: 'body', operation: 'add', shape: 'cylinder', side: 'die', start: 0, length: 12, diameter: 8 }], trimming: [] }, material: 'C10C', d0: 8 };
   let note = 'Original note',file=null;
-  const locale = { language: 'de', t: value => value };
-  const window = { JYAnswerFormat: require('../answer-format.js'), JYLocale: locale, JYI18N: { numberLocale: () => 'en-GB' }, JY_API_BASE: 'https://api.example.test', JY_SHOW_PRICES: false, location: { href: 'https://jernyao.de/konfigurator/' }, setTimeout(fn, delay) { timers.set(++nextTimer, { fn, delay }); return nextTimer; }, clearTimeout(id) { timers.delete(id); } };
+  const locale = { language, t: value => I18N.t(value,locale.language) };
+  const window = { JYAnswerFormat: require('../answer-format.js'), JYLocale: locale, JYI18N: I18N, JY_API_BASE: 'https://api.example.test', JY_SHOW_PRICES: showPrices, location: { href: 'https://jernyao.de/konfigurator/' }, setTimeout(fn, delay) { timers.set(++nextTimer, { fn, delay }); return nextTimer; }, clearTimeout(id) { timers.delete(id); } };
   const context = { window, URL, URLSearchParams, FormData, AbortController, crypto, Uint8Array, TypeError, fetch: async (url, options) => { requests.push({ url, options }); const answer = await answers.shift(); if (answer instanceof Error) throw answer; assert(answer, 'unexpected API request'); return { ok: answer.ok !== false, status: answer.status || 200, json: async () => answer.data }; } };
   vm.runInNewContext(source, context);
-  const controller = window.JYDrawingPreview.create({ ...nodes, ...(mode==='drawing'?{getFile:()=>file,showWhenEmpty:true}:{getGeometry:()=>geometry}), getNote: () => note, onInvalidate: () => invalidations++, onResult: data => received.push(data) });
-  return { ...nodes, controller, locale, requests, answers, received, timers, get invalidations() { return invalidations; }, get geometry() { return geometry; }, set geometry(value) { geometry = value; }, set note(value) { note = value; },set file(value){file=value;}, async poll() { const entry = [...timers].find(([, item]) => item.delay === 4000); assert(entry, 'expected status poll'); timers.delete(entry[0]); await entry[1].fn(); } };
+  const controller = window.JYDrawingPreview.create({ ...nodes, ...(mode==='drawing'?{getFile:()=>file,showWhenEmpty:true}:{getGeometry:()=>geometry}), getNote: () => note, canChooseMachine:model=>models.includes(model), onChooseMachine:model=>chosen.push(model), onInvalidate: () => invalidations++, onResult: data => received.push(data) });
+  return { ...nodes, controller, locale, requests, answers, received, chosen, timers, get invalidations() { return invalidations; }, get geometry() { return geometry; }, set geometry(value) { geometry = value; }, set note(value) { note = value; },set file(value){file=value;}, async poll() { const entry = [...timers].find(([, item]) => item.delay === 4000); assert(entry, 'expected status poll'); timers.delete(entry[0]); await entry[1].fn(); } };
 }
 const receipt = (id, status = 'queued') => ({ data: { id, token: 'private-' + id, kind: 'preview', status, notificationStatus: 'not_requested' } });
+
+test('qualitative catalogue candidates show translated status and reason, preserve quote selection and obey both price policies',async()=>{
+ for(const mode of ['geometry','drawing'])for(const language of I18N.supported)for(const showPrices of [false,true]){
+  const p=harness(mode,{language,showPrices}),reason='JNP-10B6S: six stages; confirm tooling <before approval>.';
+  if(mode==='drawing')p.file=new File(['drawing'],'part.png',{type:'image/png'});
+  const response=receipt('QUALITATIVE','ready');response.data.proposal={machines:[
+   {model:'JNP-10B6S',status:'offen',selectionBasis:'qualitative',reason,priceEUR:123456,criteria:[],openPoints:[],concept:null},
+   {model:'JBF-10B2S',status:'offen',selectionBasis:'qualitative',reason:'Shorter part route.',priceRangeEUR:[234567,345678]},
+   {model:'JBF-99999B9S',status:'offen',selectionBasis:'qualitative',reason:'Unknown model'}
+  ]};p.answers.push(response);await p.controller.start();
+  const html=p.result.innerHTML;
+  assert(html.includes(I18N.t('Kandidat aus dem Stadienkonzept',language)));assert(!html.includes(I18N.t('Passend zur Vorauswahl',language)));
+  assert(html.includes('JNP-10B6S: six stages; confirm tooling &lt;before approval&gt;.'));assert(!html.includes('<before approval>'));
+  assert.equal((html.match(/data-preview-model=/g)||[]).length,2,'only catalogue models can be chosen');
+  assert.equal(html.includes('€'),showPrices);assert.equal(html.includes(I18N.t('Richtpreis',language)),showPrices);assert.equal(html.includes(I18N.t('Preisspanne',language)),showPrices);
+  const body=p.requests[0].options.body,policy=mode==='geometry'?JSON.parse(body).pricePolicy:body.get('pricePolicy');
+  assert.equal(policy,showPrices?(mode==='geometry'?'with-prices':null):'technical-only');
+  const click=model=>p.result.events.click({target:{closest:()=>({dataset:{previewModel:model}})}});
+  click('JNP-10B6S');assert.deepEqual(p.chosen,['JNP-10B6S']);assert.equal(p.requests.length,1,'model choice does not send an enquiry');
+  click('JBF-99999B9S');click(models.find(model=>!['JNP-10B6S','JBF-10B2S'].includes(model)));assert.deepEqual(p.chosen,['JNP-10B6S']);
+  p.note='Changed part';p.controller.update();click('JNP-10B6S');assert.deepEqual(p.chosen,['JNP-10B6S'],'invalidated result cannot restore an old selection');
+ }
+});
 
 test('drawing analysis action stays visible, starts only on click and sends no mail or implicit geometry',async()=>{
  const p=harness('drawing');assert.equal(p.button.hidden,false);assert.equal(p.button.disabled,true);await p.controller.start();assert.equal(p.requests.length,0);

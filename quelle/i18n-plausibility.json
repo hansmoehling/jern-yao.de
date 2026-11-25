@@ -1,0 +1,16 @@
+{
+  "Teilart eindeutig auswählen": ["Selezionare un tipo di pezzo valido", "Izberite veljavno vrsto dela", "Select a valid part type", "请选择有效的零件类型"],
+  "Stadien und etwaige Umformkräfte beruhen weiterhin auf den geometrischen Maßen.": ["Le operazioni e le eventuali forze di formatura restano basate sulle quote geometriche.", "Stopnje in morebitne preoblikovalne sile še naprej temeljijo na geometrijskih merah.", "The forming stages and any calculated forming forces remain based on the geometric dimensions.", "成形工序及已计算的成形力仍以几何尺寸为依据。"],
+  "Kopfform eindeutig auswählen": ["Selezionare una forma della testa valida", "Izberite veljavno obliko glave", "Select a valid head shape", "请选择有效的头部形状"],
+  "Ungültige Vorgaben: {group}": ["Parametri non validi: {group}", "Neveljavne zahteve: {group}", "Invalid requirements: {group}", "要求无效：{group}"],
+  "Flanschdurchmesser und Flanschhöhe vollständig angeben": ["Specificare sia il diametro sia l’altezza della flangia", "Vnesite premer in višino prirobnice", "Enter both flange diameter and flange height", "请完整填写法兰直径和高度"],
+  "Loch-Ø muss kleiner als der Flanschdurchmesser sein": ["Il diametro del foro deve essere inferiore al diametro della flangia", "Premer luknje mora biti manjši od premera prirobnice", "Hole diameter must be smaller than flange diameter", "孔径必须小于法兰直径"],
+  "Napfdurchmesser und Napftiefe vollständig angeben": ["Specificare sia il diametro sia la profondità della cavità", "Vnesite premer in globino votline", "Enter both cavity diameter and cavity depth", "请完整填写凹腔直径和深度"],
+  "Schaftdurchmesser muss positiv sein": ["Il diametro del gambo deve essere positivo", "Premer stebla mora biti pozitiven", "Shank diameter must be positive", "杆部直径必须大于零"],
+  "Angegebene Masse übersteigt das geometrische Außenvolumen bei gewählter Dichte; Maße und Dichte abgleichen. Abschnitt bleibt aus der angegebenen Masse gerechnet.": [
+    "La massa indicata supera quella del volume esterno geometrico alla densità scelta; verificare quote e densità. Il calcolo dello spezzone resta basato sulla massa indicata.",
+    "Vnesena masa presega maso zunanjega geometrijskega volumna pri izbrani gostoti; preverite mere in gostoto. Odrezek se še naprej računa iz vnesene mase.",
+    "The entered mass exceeds the mass of the geometric outer volume at the selected density; check dimensions and density. The blank remains calculated from the entered mass.",
+    "输入质量超过按所选密度和几何外形体积计算的质量；请核对尺寸和密度。下料长度仍按输入质量计算。"
+  ]
+}

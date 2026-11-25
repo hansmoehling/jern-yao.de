@@ -1,0 +1,16 @@
+{
+  "Zeichnung scannen": ["Scansiona il disegno", "Skeniraj risbo", "Scan drawing", "扫描图纸"],
+  "Programmrechnung:": ["Calcolo mediante programma:", "Programski izračun:", "Program-based calculation:", "程序计算："],
+  "Die Stadienberechnung erfolgt durch ein Berechnungsprogramm, nicht durch KI. Grundlage sind Ihre Eingaben und hinterlegte Umformregeln.": [
+    "Il calcolo delle operazioni viene eseguito da un programma di calcolo, non dall’IA. Si basa sui dati inseriti e su regole di formatura predefinite.",
+    "Stopnje preoblikovanja izračuna računski program, ne umetna inteligenca. Osnova so vaši vnosi in vgrajena pravila preoblikovanja.",
+    "The forming stages are calculated by a calculation program, not by AI. The calculation uses your inputs and stored forming rules.",
+    "成形工序由计算程序计算，而非由人工智能计算。计算依据是您输入的数据和预设的成形规则。"
+  ],
+  "Beim Zeichnungsscan liest die KI die Zeichnung und erläutert das Stadienkonzept. Der Scan kann einige Minuten dauern und versendet keine E-Mail.": [
+    "Durante la scansione, l’IA legge il disegno e illustra il concetto delle operazioni. La scansione può richiedere alcuni minuti e non invia e-mail.",
+    "Pri skeniranju umetna inteligenca prebere risbo in pojasni koncept stopenj preoblikovanja. Skeniranje lahko traja nekaj minut in ne pošlje e-pošte.",
+    "During the scan, AI reads the drawing and explains the forming concept. Scanning may take a few minutes and does not send an email.",
+    "扫描时，人工智能读取图纸并说明成形工序方案。扫描可能需要几分钟，不会发送电子邮件。"
+  ]
+}

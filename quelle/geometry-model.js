@@ -235,6 +235,9 @@
       if (!(mid > cell[a] && mid < cell[b])) { uncertain += cell.volume; heapPush(heap, cell); break; }
       put(Object.assign({}, cell, { [b]: mid })); put(Object.assign({}, cell, { [a]: mid }));
     }
+    // Once every cell is proved outside, the empty solid is exact. A positive
+    // rounding pad would otherwise disguise complete removal as a valid part.
+    if (!heap.length && exact === 0 && lower === 0) return { status: 'exact', volume: 0, bounds: [0, 0], cells, method: 'enclosing-cells' };
     // Outward padding for accumulated floating point additions.
     const padding = Number.EPSILON * 128 * Math.max(1, exact + lower + Math.max(0, uncertain)) * Math.max(1, cells);
     const lo = Math.max(0, exact + lower - padding), hi = exact + lower + Math.max(0, uncertain) + padding;

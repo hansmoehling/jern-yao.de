@@ -25,6 +25,7 @@
   let payloadSignature = '';
   let sentSignature = '';
   let selectedMachine = '';
+  let selectedMachineContext = null;
   const catalogueModels = new Set();
   try {
     const catalogue = JSON.parse($('daten').textContent);
@@ -115,6 +116,7 @@
     if (file === inputFile) return;
     inputFile = file;
     selectedMachine = '';
+    selectedMachineContext = null;
     renderSelectedMachine();
   }
 
@@ -123,7 +125,8 @@
   }
 
   function requestNote() {
-    return [machineEnquiry(), $('description').value.trim()].filter(Boolean).join('\n\n');
+    const context=selectedMachineContext?tr('Kandidat aus dem Stadienkonzept')+(selectedMachineContext.reason?': '+selectedMachineContext.reason:''):'';
+    return [machineEnquiry(), context, $('description').value.trim()].filter(Boolean).join('\n\n');
   }
 
   function renderSelectedMachine() {
@@ -142,9 +145,10 @@
     $('email').focus({ preventScroll: true });
   }
 
-  function chooseMachine(model) {
+  function chooseMachine(model, machine) {
     if (!catalogueModels.has(model)) return;
     selectedMachine = model;
+    selectedMachineContext = machine?.selectionBasis==='qualitative'?{reason:typeof machine.reason==='string'?machine.reason.trim():''}:null;
     if (!$('description').value.trim()) {
       $('description').value = history.filter(item => item.role === 'user').map(item => item.content).join('\n\n').slice(0, 12000);
     }
@@ -219,6 +223,7 @@
     catch (_) { message('file-error', 'Bitte wählen Sie die Datei über die Schaltfläche aus.', 'error'); }
   });
   requestForm.addEventListener('input',()=>{syncFileChoice();$('email').setCustomValidity('');$('consent').setCustomValidity('');updateSubmit();});
+  requestForm.addEventListener('reset',()=>{selectedMachine='';selectedMachineContext=null;renderSelectedMachine();window.setTimeout(updateFile,0);});
   function validRequest(){
     $('contact-details').open = true;
     const email=$('email').value.trim();
@@ -361,12 +366,16 @@
         const row = element('div');
         row.appendChild(element('dt', readable(machine.model)));
         const statusLabels = { ok: 'Passend zur Vorauswahl', knapp: 'Einzelne Punkte vertiefen', offen: 'Klärung nötig', nein: 'Grenze überschritten', suitable: 'Passend zur Vorauswahl' };
-        row.appendChild(element('dd', statusLabels[machine.status] || readable(machine.status)));
+        const qualitative=machine.selectionBasis==='qualitative';
+        row.appendChild(element('dd', qualitative?'Kandidat aus dem Stadienkonzept':statusLabels[machine.status] || readable(machine.status)));
+        if(qualitative&&typeof machine.reason==='string'&&machine.reason.trim()){
+          const reason=element('dd',null,'machine-reason');reason.textContent=machine.reason;reason.dataset.originalText='';row.appendChild(reason);
+        }
         const model = typeof machine.model === 'string' ? machine.model.trim() : '';
         if (catalogueModels.has(model)) {
           const action = element('dd'), button = element('button', 'Angebot anfragen', 'quote-button');
           button.type = 'button';
-          button.addEventListener('click', () => chooseMachine(model));
+          button.addEventListener('click', () => chooseMachine(model, machine));
           action.appendChild(button); row.appendChild(action);
         }
         const openPoints=(machine.openPoints||[]).filter(point=>point&&typeof point.detail==='string'&&point.detail.trim());

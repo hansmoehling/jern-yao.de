@@ -131,6 +131,14 @@ test('disconnected bodies, unspecified density and total subtraction are explici
   assert.equal(empty.valid, false); assert.equal(empty.volumeMm3, 0); assert(empty.errors.some(e => e.code === 'empty-solid'));
 });
 
+test('opposing trims that remove the whole part cannot become valid through a rounding pad', () => {
+  const empty = G.evaluate(spec([cyl('body')], [trim('right', 0, -1), trim('left', 180, -1)]));
+  assert.equal(empty.valid, false); assert.equal(empty.volumeStatus, 'exact');
+  assert.equal(empty.volumeMm3, 0); assert.deepEqual(empty.volumeBoundsMm3, [0, 0]);
+  assert(empty.calculation.cells > 1, 'the proof must exercise subdivision rather than initial-cell rejection');
+  assert(empty.errors.some(e => e.code === 'empty-solid'));
+});
+
 test('invalid evaluation options cannot trigger excessive work or silently substitute density', () => {
   for (const options of [{ densityGcm3: -1 }, { wireDiameterMm: NaN }, { maxCells: 1e9 }, { relativeTolerance: 0 }]) {
     const r = G.evaluate(spec([cyl('a')]), options); assert.equal(r.valid, false); assert.equal(r.volumeMm3, null);

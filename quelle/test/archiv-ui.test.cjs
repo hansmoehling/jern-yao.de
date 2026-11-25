@@ -274,6 +274,34 @@ test('standard references set only shape and drive, flange nuts route to the par
  p.f.elements.typ.value='mutter';p.f.events.change();p.f.elements.nutNorm.value='ISO4161';p.f.elements.nutNorm.events.change();assert.equal(p.f.elements.typ.value,'formteil');assert(!p.get('geometry-panel').hidden);assert(p.get('standard-part-fields').hidden);
 });
 
+test('cylinder-head norms override a stale hexagon even when input calculation precedes change',async()=>{
+ let received;const p=setup('de',{...E,auslegen(input){received=input;return E.auslegen(input);}});p.examples[0].events.click();
+ p.f.elements.standardNorm.value='ISO4017';p.f.elements.standardNorm.events.change();assert.equal(p.f.elements.kopfForm.value,'sechskant');
+ p.f.elements.standardNorm.value='ISO4762';p.f.events.input();await new Promise(resolve=>setTimeout(resolve,150));
+ assert.equal(p.f.elements.standardNorm.value,'ISO4762');assert.equal(p.f.elements.kopfForm.value,'rund');assert.equal(p.f.elements.iTyp.value,'hex');
+ p.f.elements.standardNorm.events.change();p.f.events.change();assert.equal(received.standardReference,'ISO4762');assert.equal(received.kopfForm,'rund');assert.equal(received.iTyp,'hex');
+});
+
+test('norm-controlled heads and drives remain consistent in five languages and unlock for custom parts',()=>{
+ for(const language of I.supported){
+  const p=setup(language);p.examples[1].events.click();
+  const head=p.f.elements.kopfForm,drive=p.f.elements.iTyp,norm=p.f.elements.standardNorm;
+  head.options=['rund','sechskant','abgratet','none','krallen'].map(value=>Object.assign(new El(),{value}));
+  for(const [reference,driveValue]of [['ISO4762','hex'],['ISO14579','torx']]){
+   head.value='sechskant';drive.value='none';norm.value=reference;norm.events.change();p.f.elements.iSize.value=driveValue==='hex'?'5':'T20';p.f.events.change();if(driveValue==='torx'){p.f.elements.iVol.value='20';p.f.events.change();}
+   assert.equal(head.value,'rund');assert.equal(drive.value,driveValue);assert(head.disabled);assert(drive.disabled);assert(!p.get('standard-norm-note').hidden);
+   assert.equal(head.options[0].textContent,I.t('Zylinderkopf',language));assert(head.options.filter(o=>o.value!=='rund').every(o=>o.disabled));
+   p.f.elements.sL.value='31';p.f.events.change();p.events['jy-languagechange']();assert.equal(norm.value,reference);assert.equal(head.value,'rund');
+   p.get('drucken').events.click();assert(p.get('blatt').innerHTML.includes(reference));assert(p.get('blatt').innerHTML.includes(I.t('Zylinderkopf',language)));
+  }
+  norm.value='';norm.events.change();assert(!head.disabled);assert(!drive.disabled);assert(head.options.every(o=>!o.disabled));assert(p.get('standard-norm-note').hidden);
+  assert.equal(head.options[0].textContent,I.t('rund, Zylinder- oder Flanschkopf',language));head.value='krallen';drive.value='ph';p.f.events.change();assert.equal(head.value,'krallen');assert.equal(drive.value,'ph');
+  norm.value='ISO4014';norm.events.change();assert.equal(head.value,'sechskant');assert(!head.disabled);assert.equal(drive.value,'none');
+  head.value='abgratet';p.f.events.change();assert.equal(norm.value,'ISO4014');assert.equal(head.value,'abgratet');assert(!head.options.find(o=>o.value==='abgratet').disabled);assert(head.options.find(o=>o.value==='rund').disabled);
+  p.f.elements.standardKind.value='rivet';p.f.elements.standardKind.events.change();assert.equal(norm.value,'');assert(!head.disabled);assert(!drive.disabled);assert(head.options.every(o=>!o.disabled));
+ }
+});
+
 test('profile and claw-head results remain qualitative without null station counts or invented reserve in exports',async()=>{
  for(const language of I.supported){
   const p=setup(language);p.examples[0].events.click();p.f.elements.threadFamily.value='trilobular';p.f.elements.sArea.value='35';p.f.events.change();
@@ -284,6 +312,19 @@ test('profile and claw-head results remain qualitative without null station coun
   p.f.elements.threadFamily.value='metric';p.f.elements.kopfForm.value='krallen';p.f.elements.kVol.value='900';p.f.events.change();assert.equal(p.get('aus').hidden,false);assert(p.get('kenn').innerHTML.includes(I.t('Kraft noch offen',language)));assert(!p.get('kenn').innerHTML.includes('null'));p.get('drucken').events.click();assert(p.get('blatt').innerHTML.includes('900 mm³'));
   p.examples[0].events.click();assert.equal(p.get('stages-heading').textContent,I.t('Stadienfolge',language));assert.equal(p.get('stage-column-heading').textContent,I.t('Station',language));assert(p.get('karten').innerHTML.includes(I.t('Stadium',language)+' 1:'));
  }
+});
+
+test('inactive dimensions are preserved in their fields but excluded from validation and calculation',()=>{
+ let received;const p=setup('de',{...E,auslegen(input){received=input;return E.auslegen(input);}});p.examples[0].events.click();
+ for(const key of ['kSW','mSW','rodDiameter','iT','sArea']){p.f.elements[key].name=key;p.f.elements[key].value='-1';}
+ const numeric=['kD','kSW','mSW','rodDiameter','iT','sArea'].map(key=>Object.assign(p.f.elements[key],{name:key}));
+ p.f.querySelectorAll=selector=>selector==='input[inputmode]'?numeric:[];
+ p.f.events.change();assert.equal(p.get('aus').hidden,false);
+ for(const key of ['kSW','mSW','rodDiameter','iT','sArea']){assert.equal(received[key],undefined);assert.equal(p.f.elements[key].value,'-1');assert.equal(p.f.elements[key].style.borderColor,'');}
+ p.f.elements.kD.value='-1';p.f.events.change();assert.equal(p.get('aus').hidden,true,'active invalid head is rejected');
+ p.f.elements.typ.value='mutter';p.f.elements.mM.value='10';p.f.elements.mSW.value='16';p.f.elements.mH.value='8';p.f.events.change();
+ assert.equal(p.get('aus').hidden,false,'hidden invalid bolt dimensions do not block a nut');assert.equal(received.kD,undefined);assert.equal(received.sL,undefined);assert.equal(p.f.elements.kD.value,'-1');assert.equal(p.f.elements.kD.style.borderColor,'');
+ p.f.elements.typ.value='bolzen';p.f.events.change();assert.equal(p.get('aus').hidden,true,'the stored invalid dimension is checked on returning');
 });
 
 test('reference steel density is identified in weight figures and exports but absent for separately sourced densities',async()=>{
@@ -452,4 +493,21 @@ test('hex presets and custom widths remain usable, while changing profile or siz
  p.f.elements.iSize.value='T25';p.f.events.change();assert.equal(p.f.elements.iVol.value,'');
  p.f.elements.iVol.value='50';p.f.events.change();p.f.elements.iTyp.value='pz';p.f.events.change();assert.equal(p.f.elements.iVol.value,'');
  p.f.elements.iTyp.value='none';p.f.events.change();assert.equal(p.get('aus').hidden,false);assert(!p.get('kenn').innerHTML.includes('<dt>Internal drive</dt>'));
+});
+
+test('returning from the flange-nut builder never labels a standard nut calculation as ISO4161',()=>{
+ for(const language of I.supported){
+  let received;const p=setup(language,{...E,auslegen(input){received=input;return E.auslegen(input);}});p.examples[2].events.click();
+  const dimensions=['mM','mSW','mH'].map(key=>p.f.elements[key].value);
+  p.f.elements.nutNorm.value='ISO4161';p.f.elements.nutNorm.events.change();p.f.events.change();
+  assert.equal(p.f.elements.typ.value,'formteil');assert.equal(p.get('geometry-panel').hidden,false);
+  p.f.elements.typ.value='mutter';p.f.events.change();
+  assert.equal(p.f.elements.nutNorm.value,'');assert.equal(received.standardReference,'');
+  assert.equal(p.get('geometry-panel').hidden,true);assert.equal(p.get('aus').hidden,false);
+  assert.deepEqual(['mM','mSW','mH'].map(key=>p.f.elements[key].value),dimensions,'returning keeps the entered nut dimensions');
+  p.get('drucken').events.click();assert(!p.get('blatt').innerHTML.includes('ISO4161'));
+  p.f.elements.nutNorm.value='ISO4032';p.f.elements.nutNorm.events.change();p.f.events.change();p.events['jy-languagechange']();
+  assert.equal(p.f.elements.typ.value,'mutter');assert.equal(received.standardReference,'ISO4032');
+  p.get('drucken').events.click();assert(p.get('blatt').innerHTML.includes('ISO4032'));
+ }
 });

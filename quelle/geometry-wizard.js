@@ -14,7 +14,8 @@
     }),trimming:[]};
     if(trim.mode!=='none'){
       const angles=trim.mode==='hex'?[0,60,120,180,240,300]:[number(trim.angleDeg)];
-      spec.trimming=angles.map((angle,index)=>({id:'trim-'+index,side:trim.side,start:number(trim.start),length:number(trim.length),angleDeg:angle,distance:trim.mode==='hex'?(number(trim.acrossFlats)===null?null:number(trim.acrossFlats)/2):number(trim.distance)}));
+      const acrossFlats=number(trim.acrossFlats),distance=trim.mode==='hex'?(acrossFlats!==null&&acrossFlats>0?acrossFlats/2:null):number(trim.distance);
+      spec.trimming=angles.map((angle,index)=>({id:'trim-'+index,side:trim.side,start:number(trim.start),length:number(trim.length),angleDeg:angle,distance}));
     }
     return spec;
   }
@@ -102,6 +103,7 @@
       const old=target[key];target[key]=node.type==='checkbox'?node.checked:node.value;
       if(old!==target[key]&&node.dataset.geometryKind==='element'){
         if(key==='shape'&&target.shape==='cone'&&target.operation==='subtract'){target.diameterEnd=target.diameter;target.diameter=0;}
+        else if(key==='shape'&&old==='cone'&&target.operation==='subtract'){target.diameter=target.diameterEnd;}
         else if(key==='operation'&&target.shape==='cone'){const diameter=target.diameter;target.diameter=target.diameterEnd;target.diameterEnd=diameter;}
       }
       if(node.tagName==='SELECT')panels();changed();};

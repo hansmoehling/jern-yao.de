@@ -40,6 +40,34 @@ test('selecting a subtractive cone initializes its inner tip to zero and preserv
  root.events.input(select('operation','subtract'));root.events.change(select('operation','subtract'));recess=controller.getSpec().elements.find(e=>e.id==='centre');assert.equal(recess.diameter,0);assert.equal(recess.diameterEnd,4);
 });
 
+test('changing a cone recess back to a cylinder preserves its opening, depth and tool side',()=>{
+ for(const side of ['punch','die']){
+  const root=new Node(),view=new Node(),controller=W.create({root,view,evaluate:G.evaluate});
+  controller.setElements([cylinder('body',side,'add',8,4),cylinder('recess',side,'subtract',4,2,2)]);
+  const shape=value=>({target:{dataset:{geometryKind:'element',geometryField:'shape',element:'recess'},value,tagName:'SELECT'}});
+  for(const value of ['cone','cylinder','cone','hex','cylinder']){
+   root.events.input(shape(value));root.events.change(shape(value));
+   const recess=controller.getSpec().elements.find(e=>e.id==='recess');
+   assert.equal(recess.side,side);assert.equal(recess.length,2);assert.equal(recess.start,2);
+   if(value==='cone'){assert.equal(recess.diameter,0);assert.equal(recess.diameterEnd,4);assert(G.validate(controller.getSpec()).valid);}
+   if(value==='cylinder'){assert.equal(recess.diameter,4);assert(G.validate(controller.getSpec()).valid);}
+  }
+ }
+});
+
+test('hex trimming requires positive across-flats before creating signed plane distances',()=>{
+ const elements=[cylinder('body','punch','add',8,4)],trim={mode:'hex',side:'punch',start:0,length:4};
+ for(const acrossFlats of [0,-1,'-0,5','',null]){
+  const geometry=W.specFrom(elements,{...trim,acrossFlats});
+  assert(geometry.trimming.every(plane=>plane.distance===null));
+  const result=G.evaluate(geometry);assert.equal(result.valid,false);assert.equal(result.volumeMm3,null);
+  assert(result.errors.some(error=>error.code==='dimension-range'&&error.path.endsWith('.distance')));
+ }
+ assert(G.validate(W.specFrom(elements,{...trim,acrossFlats:'6,5'})).valid);
+ const plane=W.specFrom(elements,{...trim,mode:'plane',angleDeg:0,distance:-1});
+ assert.equal(plane.trimming[0].distance,-1);assert(G.validate(plane).valid,'signed individual plane distances remain supported');
+});
+
 test('die-side editor has no claw option and injected die-side feature events are ignored',()=>{
  const root=new Node(),view=new Node(),controller=W.create({root,view,evaluate:G.evaluate});
  controller.setElements([cylinder('head','punch','add',8,4)]);assert(root.innerHTML.includes('Krallenkopf'));

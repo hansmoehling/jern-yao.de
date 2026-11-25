@@ -230,13 +230,19 @@
     if(drive){
       drive.forceStatus='missing';drive.restBottom=Lteil-drive.depth;
       if(!(drive.restBottom>0))return fail('Innenantrieb benötigt einen positiven Restboden');
-      driveEnvelope=kreis(kD)*Math.min(kH,drive.depth)+shaftArea*Math.max(0,drive.depth-kH);
+      const headArea=['sechskant','abgratet'].includes(e.kopfForm)?sechskant(e.kSW):kreis(kD);
+      const bodyDepth=Math.min(bodyLength,Math.max(0,drive.depth-kH)), tipDepth=Math.max(0,drive.depth-kH-bodyLength);
+      driveEnvelope=headArea*Math.min(kH,drive.depth)+(bodyArea===null?shaftArea:bodyArea)*bodyDepth;
+      if(tipDepth>0){
+        if(tipDiameter!==null){const endDiameter=sD+(tipDiameter-sD)*tipDepth/tipLength;driveEnvelope+=Math.PI*tipDepth*(sD*sD+sD*endDiameter+endDiameter*endDiameter)/12;}
+        else driveEnvelope+=(pos(e.tipArea)?e.tipArea:shaftArea)*tipDepth;
+      }
       if(pos(driveVolume)&&driveVolume>=driveEnvelope)return fail('Innenantriebsvolumen überschreitet den verfügbaren Hüllraum seiner Tiefe');
       let localOutside=drive.depth>kH?(kH>0?Math.min(kD,sD):sD):kD;
       if(tipLength>0&&tipDiameter!==null&&drive.depth>kH+bodyLength)localOutside=Math.min(localOutside,sD+(tipDiameter-sD)*(drive.depth-kH-bodyLength)/tipLength);
       if(drive.family==='hex'){
         const corner=e.iSW/Math.cos(Math.PI/6);
-        if(corner>=localOutside)return fail('Innensechskant benötigt eine positive Restwand');
+        if(corner>=localOutside||kH>0&&['sechskant','abgratet'].includes(e.kopfForm)&&e.iSW>=e.kSW)return fail('Innensechskant benötigt eine positive Restwand');
         drive.restWall=profiled||claw?null:(localOutside-corner)/2;
         drive.wallStatus=drive.restWall===null?'profile-contour-required':'round-envelope-checked';
       }else{drive.restWall=null;drive.wallStatus='profile-contour-required';}
@@ -296,13 +302,29 @@
     const out = { stufen: [], hinweise: [], fehlt: [], regeln: new Set(), werte: {} };
     const invalid = text => { out.stufen = []; out.werte = {}; out.fehlt.push(text); return out; };
     if (!e || typeof e !== 'object') return invalid('Teilbeschreibung fehlt');
+    if (!['bolzen', 'mutter', 'formteil'].includes(e.typ)) return invalid('Teilart eindeutig auswählen');
+    if (e.kopfForm !== undefined && !['none', 'rund', 'sechskant', 'abgratet', 'krallen'].includes(e.kopfForm)) return invalid('Kopfform eindeutig auswählen');
     if(e.threadFamily!==undefined&&!['metric','trilobular','duo-taptite','self-tapping','thermoplastic'].includes(e.threadFamily))return invalid('Gewindeart eindeutig auswählen');
-    for(const key of ['sArea','tipArea','tipLength','tipDiameter','kVol'])if(e[key]!==undefined&&e[key]!==null&&typeof e[key]!=='number')return invalid('Ungültiger Zahlenwert: '+key);
     if (!Number.isInteger(e.wst) || !WERKSTOFFE[e.wst]) return invalid('Werkstoff aus der Werkstoffliste bestimmen');
     if (e.wirePreparation && !['as-supplied', 'inline-drawing'].includes(e.wirePreparation)) return invalid('Vormaterial und Vorzug eindeutig auswählen');
+    // Hidden fields from an explicitly deselected operation are not inputs.
+    const inactive = new Set();
+    if (e.iTyp === 'none') ['iSW', 'iT', 'iVol'].forEach(key => inactive.add(key));
+    else if (e.iTyp && e.iTyp !== 'hex') inactive.add('iSW');
+    if (e.wirePreparation !== 'inline-drawing') inactive.add('rodDiameter');
+    if (!['sechskant', 'abgratet'].includes(e.kopfForm)) inactive.add('kSW');
+    if (e.kopfForm === 'none') ['kD', 'kH', 'kVol'].forEach(key => inactive.add(key));
+    const numericKeys = ['d0','rodDiameter','rm','sD','sL','kD','kSW','kH','sArea','tipArea','tipLength','tipDiameter','kVol','iSW','iT','iVol','nD','nT','mM','mSW','mH','mLoch','mFlansch','mFlanschH','masse','lStempel'];
+    for (const key of numericKeys) if (!inactive.has(key) && e[key] !== undefined && e[key] !== null && typeof e[key] !== 'number') return invalid('Ungültiger Zahlenwert: ' + key);
     for (const [key, value] of Object.entries(e)) {
-      if (typeof value === 'number' && (!Number.isFinite(value) || value < 0)) return invalid('Ungültiger Zahlenwert: ' + key);
+      if (!inactive.has(key) && typeof value === 'number' && (!Number.isFinite(value) || value < 0)) return invalid('Ungültiger Zahlenwert: ' + key);
     }
+    for (const [group, keys] of [['vorgaben', ['stationen','ko','pko','matD','matL','stD','stL','zusatz']], ['soll', ['ausbringung']]]) {
+      if (e[group] !== undefined && e[group] !== null && (typeof e[group] !== 'object' || Array.isArray(e[group]))) return invalid('Ungültige Vorgaben: ' + group);
+      for (const key of keys) { const value = e[group]?.[key]; if (value !== undefined && value !== null && (typeof value !== 'number' || !Number.isFinite(value) || value < 0)) return invalid('Ungültiger Zahlenwert: ' + group + '.' + key); }
+    }
+    e = { ...e };
+    inactive.forEach(key => { delete e[key]; });
     const drive = innenantrieb(e);
     if (drive && drive.error) return invalid(drive.error);
     out.antrieb = drive;
@@ -336,10 +358,11 @@
       out.regeln.add('R-VZ');
     }
     const A0 = kreis(d0);
+    if (!pos(A0)) return invalid('Geometrie außerhalb des numerischen Rechenbereichs; Maße und Einheiten prüfen');
     if(e.typ!=='mutter'&&(e.standardKind==='headless'||['trilobular','duo-taptite'].includes(e.threadFamily)||pos(e.tipLength)||e.kopfForm==='krallen'))return profilTeil(e,out,m,drive,d0,A0);
     const R = id => out.regeln.add(id);
 
-    let V = 0, Vab = 0, Lteil = 0, Lstempel = 0, kopfD = 0, kopfH = 0, matBohrung = d0;
+    let V = 0, Vab = 0, Lteil = 0, Lstempel = 0, kopfD = 0, kopfH = 0, matBohrung = d0, massEnvelope = 0, driveEnvelope = 0;
     let phiKopf = 0, sKopf = 0, phiEnde = 0;
 
     if (e.typ === 'mutter') {
@@ -351,12 +374,15 @@
       if (!pos(e.mLoch)) out.hinweise.push('Loch-Ø nicht angegeben: angenommen 0,84 × M = ' + z(dl) + ' mm');
       const Ahex = sechskant(e.mSW), eck = e.mSW / Math.cos(Math.PI / 6);
       const flansch = pos(e.mFlansch) ? e.mFlansch : 0, fH = pos(e.mFlanschH) ? e.mFlanschH : 0;
+      if (!!flansch !== !!fH) return invalid('Flanschdurchmesser und Flanschhöhe vollständig angeben');
       if (fH > e.mH) return invalid('Flanschhöhe übersteigt die Mutterhöhe');
+      if (flansch && dl >= flansch) return invalid('Loch-Ø muss kleiner als der Flanschdurchmesser sein');
       V = Ahex * (e.mH - fH) + (flansch ? kreis(flansch) * fH : 0) - kreis(dl) * e.mH;
+      massEnvelope = V + kreis(dl) * e.mH;
       const T = 0.5 * dl; R('R-LO1');
       Vab = kreis(dl) * T;
       Lteil = e.mH; kopfD = Math.max(eck, flansch); matBohrung = kopfD;
-      Lstempel = pos(e.lStempel) ? e.lStempel : 0; // Mutter: Stempelseite nur auf Vorgabe
+      Lstempel = Number.isFinite(e.lStempel) ? e.lStempel : 0; // Mutter: Stempelseite nur auf Vorgabe
       // Stufen
       const phi1 = 0.15, A1 = A0 * Math.exp(phi1);
       const A2 = kreis(0.95 * eck), phi2 = Math.log(A2 / A0);
@@ -375,6 +401,10 @@
     } else {
       // Bolzen und Formteile: Kopf/Bund + Schaft (+ Napf, Innenantrieb)
       const hatKopf = pos(e.kD) && pos(e.kH);
+      if ((pos(e.kD) || pos(e.kH)) && !hatKopf) return invalid('Kopf-Hüllmaße vollständig angeben');
+      if (hatKopf && ['sechskant', 'abgratet'].includes(e.kopfForm) && !pos(e.kSW)) return invalid('Kopfschlüsselweite angeben');
+      if (pos(e.nD) !== pos(e.nT)) return invalid('Napfdurchmesser und Napftiefe vollständig angeben');
+      if (pos(e.sL) && e.sD !== undefined && e.sD !== null && !pos(e.sD)) return invalid('Schaftdurchmesser muss positiv sein');
       const sD = pos(e.sD) ? e.sD : d0, sL = pos(e.sL) ? e.sL : 0;
       if (!hatKopf && !sL) { out.fehlt.push('Kopf (Ø und Höhe) oder Schaftlänge'); return out; }
       let Akopf = 0, kopfAbgr = 0;
@@ -388,16 +418,23 @@
         } else Akopf = kreis(e.kD);
       }
       const Vkopf = Akopf * kopfH;
+      const headSection = hatKopf && ['sechskant', 'abgratet'].includes(e.kopfForm) ? sechskant(e.kSW) : Akopf;
+      const headWallDiameter = hatKopf && ['sechskant', 'abgratet'].includes(e.kopfForm) ? e.kSW : kopfD;
       if (drive && !hatKopf) return invalid('Innenantrieb benötigt Kopf- oder Bundmaße');
       if (drive && drive.depth >= kopfH + sL) return invalid('Innenantrieb benötigt einen positiven Restboden');
       if (drive && drive.family === 'hex') {
         const outside = drive.depth > kopfH ? Math.min(kopfD, sD) : kopfD;
-        if (e.iSW / Math.cos(Math.PI / 6) >= outside || (e.kopfForm !== 'rund' && pos(e.kSW) && e.iSW >= e.kSW)) return invalid('Innensechskant benötigt eine positive Restwand');
+        if (e.iSW / Math.cos(Math.PI / 6) >= outside || (['sechskant', 'abgratet'].includes(e.kopfForm) && e.iSW >= e.kSW)) return invalid('Innensechskant benötigt eine positive Restwand');
+      }
+      if (drive) {
+        driveEnvelope = headSection * Math.min(kopfH, drive.depth) + kreis(sD) * Math.max(0, drive.depth - kopfH);
+        if (volumeKnown && drive.volume >= driveEnvelope) return invalid('Innenantriebsvolumen überschreitet den verfügbaren Hüllraum seiner Tiefe');
       }
       const Vi = drive && volumeKnown ? drive.volume : 0;
       const Vn = (pos(e.nD) && pos(e.nT)) ? kreis(e.nD) * e.nT : 0;
       if (drive && Vn) return invalid('Innenantrieb und Napf: Lage und Überlappung der Hohlräume zuerst klären; Volumen nicht doppelt abziehen');
       const Vs = kreis(sD) * sL;
+      massEnvelope = Vkopf - kopfAbgr + Vs;
       V = Vkopf - kopfAbgr + Vs - Vi - Vn; // Fertigteil
       if (!pos(V)) return invalid('Geometrie ergibt kein positives Restvolumen; Maße und Einheiten prüfen');
       if (Vn && (e.nT > kopfH + sL || (!e.nDurch && e.nT >= kopfH + sL))) return invalid('Napftiefe und Restboden widersprechen der Teillänge');
@@ -405,7 +442,7 @@
       let butzen = 0;
       if (Vn && e.nDurch) { butzen = 0.5 * e.nD; Vab += kreis(e.nD) * butzen; R('R-LO1'); }
       Lteil = kopfH + sL;
-      Lstempel = pos(e.lStempel) ? e.lStempel : (e.typ === 'bolzen' ? kopfH : kopfH);
+      Lstempel = Number.isFinite(e.lStempel) ? e.lStempel : kopfH;
       R('R-KF');
       // Schaft gegenüber Draht
       let phiSchaft = 0;
@@ -488,7 +525,8 @@
         // The cavity is formed after the exterior operations above. Its wall
         // is bounded by the finished regional exterior, not the original wire.
         const Dw = hatKopf && e.nT <= kopfH ? kopfD : hatKopf ? Math.min(kopfD, sD) : sD;
-        if (e.nD >= Dw) return invalid('Napf-Ø muss kleiner als der wirksame Außen-Ø sein; positive Restwand erforderlich');
+        const wallDiameter = hatKopf && e.nT <= kopfH ? headWallDiameter : hatKopf ? Math.min(headWallDiameter, sD) : sD;
+        if (e.nD >= wallDiameter) return invalid('Napf-Ø muss kleiner als der wirksame Außen-Ø sein; positive Restwand erforderlich');
         const eps = kreis(e.nD) / kreis(Dw);
         if (eps < gr.napfMin) out.hinweise.push('Napf: Querschnittsabnahme ' + Math.round(eps * 100) + ' % unter ' + Math.round(gr.napfMin * 100) + ' %: Stempel stark belastet');
         // Über der Napfgrenze: Napf bis zur Grenze mit kleinerem Stempel, dann abstrecken (R-FP2); Außen-Ø bleibt
@@ -524,6 +562,7 @@
       phiEnde = Math.max(phiEnde, phiKopf, phiSchaft);
     }
 
+    if (Lstempel > Lteil) return invalid('Werkzeugtrennkante muss innerhalb der Teillänge liegen');
     // Kalibrier- und Zusatzstufen (R-KA): Hohlteile mit Napf eine, sonst nach Angabe
     const vz = e.vorgaben || {};
     const zStd = e.typ === 'formteil' && pos(e.nD) && pos(e.nT) ? 1 : 0;
@@ -542,13 +581,17 @@
     let Vab0 = V + Vab;
     if (pos(e.masse)) {
       if (!pos(m.rho)) return invalid('Für die Abschnittberechnung aus Masse fehlt eine belegte Werkstoffdichte. Stattdessen geometrische Maße verwenden.');
-      if (!volumeKnown && e.masse / m.rho * 1000 >= V) return invalid('Angegebene Masse lässt kein positives Innenantriebsvolumen zu');
-      Vab0 = e.masse / m.rho * 1000 + Vab; out.hinweise.push('Abschnitt aus der angegebenen Masse gerechnet');
+      const fromMass = e.masse / m.rho * 1000;
+      if (volumeKnown && fromMass > massEnvelope + 1e-9) out.hinweise.push('Angegebene Masse übersteigt das geometrische Außenvolumen bei gewählter Dichte; Maße und Dichte abgleichen. Abschnitt bleibt aus der angegebenen Masse gerechnet.');
+      if (!volumeKnown && (fromMass >= V || fromMass <= V - driveEnvelope)) return invalid('Teilemasse widerspricht dem verfügbaren Hüllvolumen');
+      out.werte.Vgeometrie = volumeKnown ? V : null;
+      Vab0 = fromMass + Vab; out.hinweise.push('Abschnitt aus der angegebenen Masse gerechnet');
+      out.hinweise.push('Stadien und etwaige Umformkräfte beruhen weiterhin auf den geometrischen Maßen.');
     }
     if (!pos(Vab0) || !pos(V)) return invalid('Abschnitt- und Teilvolumen müssen positiv und endlich sein');
     const L0 = volumeKnown || pos(e.masse) ? Vab0 / A0 : null;
-    const partVolume = volumeKnown ? V : pos(e.masse) ? e.masse / m.rho * 1000 : null;
-    out.werte.V = partVolume; out.werte.Vabgang = Vab; out.werte.L0 = L0; out.werte.masse = pos(e.masse) && !volumeKnown ? e.masse : pos(partVolume) && pos(m.rho) ? partVolume * m.rho / 1000 : null; out.werte.d0 = d0;
+    const partVolume = pos(e.masse) ? e.masse / m.rho * 1000 : volumeKnown ? V : null;
+    out.werte.V = partVolume; out.werte.Vabgang = Vab; out.werte.L0 = L0; out.werte.masse = pos(e.masse) ? e.masse : pos(partVolume) && pos(m.rho) ? partVolume * m.rho / 1000 : null; out.werte.d0 = d0;
     out.werte.sKopf = sKopf; out.werte.phiKopf = phiKopf; out.werte.kopfD = kopfD; out.werte.Lteil = Lteil;
 
     // Stationen: Reduzieren bis 30 % läuft im Vorstauchschlag mit

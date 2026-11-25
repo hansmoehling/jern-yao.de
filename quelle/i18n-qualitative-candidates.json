@@ -1,0 +1,14 @@
+{
+  "Kandidat aus dem Stadienkonzept": [
+    "Candidato individuato dal piano delle stazioni",
+    "Kandidat na podlagi koncepta preoblikovalnih stopenj",
+    "Candidate from the stage concept",
+    "根据工位方案提出的候选机型"
+  ],
+  "Die strukturierte Geometrie ist für das qualitative Stadienkonzept geprüft. Kräfte und eine berechnete Maschinenfreigabe benötigen eine vollständige Abbildung der Form- und Trennoperationen.": [
+    "La geometria strutturata è stata verificata per il concetto qualitativo delle operazioni. Le forze e una verifica calcolata dell’idoneità della macchina richiedono una modellazione completa delle operazioni di formatura e separazione.",
+    "Strukturirana geometrija je preverjena za kvalitativni koncept stopenj. Izračun sil in računska potrditev ustreznosti stroja zahtevata popoln model operacij preoblikovanja in ločevanja.",
+    "The structured geometry has been checked for the qualitative forming concept. Forces and a calculated confirmation of machine suitability require a complete model of the forming and cutting operations.",
+    "结构化几何已通过定性成形工序方案检查。计算成形力及确认设备适用性，需要完整建模成形和分离工序。"
+  ]
+}

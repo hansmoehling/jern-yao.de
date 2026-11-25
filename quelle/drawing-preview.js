@@ -32,9 +32,12 @@
     if(Array.isArray(proposal.machines)&&proposal.machines.length){
       parts.push('<h3>'+h('Maschinen zum Konzept')+'</h3>');
       for(const machine of proposal.machines){
-        parts.push('<section class="preview-machine"><h4>'+escape(machine.model)+'</h4><p>'+h({ok:'Passend zur Vorauswahl',knapp:'Einzelne Punkte vertiefen',offen:'Klärung nötig',nein:'Grenze überschritten'}[machine.status]||machine.status)+'</p>');
+        const qualitative=machine.selectionBasis==='qualitative';
+        parts.push('<section class="preview-machine"><h4>'+escape(machine.model)+'</h4><p>'+h(qualitative?'Kandidat aus dem Stadienkonzept':{ok:'Passend zur Vorauswahl',knapp:'Einzelne Punkte vertiefen',offen:'Klärung nötig',nein:'Grenze überschritten'}[machine.status]||machine.status)+'</p>');
+        if(qualitative&&typeof machine.reason==='string'&&machine.reason.trim())parts.push('<p class="machine-reason">'+escape(machine.reason)+'</p>');
         if(canChooseMachine?.(machine.model))parts.push('<button type="button" class="quote-button" data-preview-model="'+escape(machine.model)+'" aria-label="'+h('Angebot anfragen')+' · '+escape(machine.model)+'">'+h('Angebot anfragen')+'</button>');
         if(window.JY_SHOW_PRICES!==false&&Number.isFinite(machine.priceEUR))parts.push('<p>'+h('Richtpreis')+' '+escape(machine.priceEUR.toLocaleString(window.JYI18N.numberLocale(L.language)))+' €</p>');
+        if(window.JY_SHOW_PRICES!==false&&Array.isArray(machine.priceRangeEUR)&&machine.priceRangeEUR.length===2&&machine.priceRangeEUR.every(Number.isFinite))parts.push('<p>'+h('Preisspanne')+' '+machine.priceRangeEUR.map(value=>escape(value.toLocaleString(window.JYI18N.numberLocale(L.language)))+' €').join(' – ')+'</p>');
         if(machine.concept&&window.JYConcept)parts.push(window.JYConcept.html(machine.concept,L.language));
         if(Array.isArray(machine.openPoints)&&machine.openPoints.length)parts.push('<ul>'+machine.openPoints.map(point=>'<li><strong>'+h(point.owner)+':</strong> '+h(point.detail)+'</li>').join('')+'</ul>');
         parts.push('</section>');

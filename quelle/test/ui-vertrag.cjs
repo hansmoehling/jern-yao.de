@@ -225,6 +225,38 @@ const quoteButtons = node => descendants(node).filter(item=>item.tagName==='butt
       assert(!note.includes('KI-Annahme'),'only user history is sent to Hans');
     }
   }
+  for(const language of I18N.supported)for(const showPrices of [false,true]){
+    const p=harness('https://api.example.test',language,showPrices),reason='JNP-10B6S: six stages; confirm tooling <before approval>.';
+    const original='  Kundenseitige Maße Ø 12 × 25 mm.  ',label=I18N.t('Kandidat aus dem Stadienkonzept',language);
+    assert(language==='de'||label!=='Kandidat aus dem Stadienkonzept','candidate status has a source translation');
+    p.get('description').value=original;p.get('chat-input').value='Welche Maschine kommt infrage?';
+    p.answers.push({data:{answer:'Concept response',proposal:{machines:[
+      {model:'JNP-10B6S',status:'offen',selectionBasis:'qualitative',reason,priceEUR:123456,criteria:[],openPoints:[],concept:null},
+      {model:'JBF-10B2S',status:'offen',priceRangeEUR:[234567,345678]}
+    ]}}});await p.get('chat-form').emit('submit');
+    const text=flattened(p.get('messages')),buttons=quoteButtons(p.get('messages'));
+    assert(text.includes(label));assert(text.includes(reason));assert.equal(buttons.length,2);assert.equal(/EUR|€/.test(text),showPrices);
+    const reasonNode=descendants(p.get('messages')).find(node=>node.className==='machine-reason');
+    assert.equal(reasonNode.textContent,reason);assert.equal(reasonNode.children.length,0,'generated reason is text rather than markup');
+    await buttons[0].emit('click');assert.equal(p.requests.length,1);assert.equal(p.get('description').value,original);
+    const enquiry=I18N.t('Anfrage für {model}',language).replace('{model}','JNP-10B6S');
+    assert.equal(p.get('selected-machine').textContent,enquiry);
+    p.get('email').value='customer@example.invalid';p.answers.push({data:{id:'QUALITATIVE-'+language,token:'private',kind:'enquiry',status:'received',notificationStatus:'sent'}});
+    await p.get('request-form').emit('submit');
+    assert.equal(p.requests.at(-1).options.body.get('notiz'),[enquiry,label+': '+reason,original.trim()].join('\n\n'));
+    assert.equal(p.requests.at(-1).options.body.get('pricePolicy'),showPrices?null:'technical-only');
+    assert.equal(p.get('description').value,original,'candidate reasoning never rewrites customer text');
+    await p.get('email-fallback').emit('click');assert(new URL(p.get('email-fallback').href).searchParams.get('body').includes(label+': '+reason));
+    for(const clear of ['numeric','file','reset']){
+      await buttons[0].emit('click');
+      if(clear==='numeric')await buttons[1].emit('click');
+      if(clear==='file'){p.get('file').files=[new File(['changed'],'changed.pdf')];await p.get('file').emit('change');}
+      if(clear==='reset'){await p.get('request-form').emit('reset');await p.runTimer(0);}
+      await p.get('email-fallback').emit('click');const note=new URL(p.get('email-fallback').href).searchParams.get('body');
+      assert(!note.includes(reason)&&!note.includes(label),clear+' clears the previous candidate context');
+      if(clear!=='numeric')assert(p.get('selected-machine').hidden);
+    }
+  }
   for(const language of I18N.supported){
     for(const flag of [undefined,true,false]){
       const p=harness('https://api.example.test',language,flag),priced=flag!==false;

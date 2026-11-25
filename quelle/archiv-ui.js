@@ -68,21 +68,32 @@
 
   function typ() { return f.elements.typ.value; }
   const THREAD_LABELS={'metric':'Metrisches Gewinde','trilobular':'Trilobulares Gewinde','duo-taptite':'Duo-Taptite','self-tapping':'Schneidgewinde','thermoplastic':'Thermoplast'};
+  const HEAD_LABELS={rund:'rund, Zylinder- oder Flanschkopf',sechskant:'Sechskant, gestaucht',abgratet:'Sechskant, rund gestaucht und abgegratet',none:'Ohne Kopf',krallen:'Krallenkopf / Umspritz-Mitnahmeprofil'};
   let standardKind=null;
   function standardAuswahl(){
     const kind=f.elements.standardKind?.value||'screw';
     const fill=(field,family)=>{if(!field)return;const previous=field.value;const choices=window.JYStandardFamilies?.getFamilies(family)||[];field.replaceChildren(...['',...choices.map(item=>item.id)].map(id=>{const option=document.createElement('option');option.value=id;option.dataset.originalText='';option.textContent=id?tr(choices.find(item=>item.id===id).label):tr('Ohne Normvorgabe');return option;}));field.value=choices.some(item=>item.id===previous)?previous:'';};
     if(standardKind!==kind){fill(f.elements.standardNorm,kind);standardKind=kind;}
-    const family=(window.JYStandardFamilies?.getFamilies(kind)||[]).find(item=>item.id===f.elements.standardNorm?.value);
-    if(family&&((family.headForm&&family.headForm!==f.elements.kopfForm.value)||(family.driveFamily&&family.driveFamily!==f.elements.iTyp.value)))f.elements.standardNorm.value='';
+    normAnwenden();
     fill(f.elements.nutNorm,'nut');
     $('standard-norm-field').hidden=['rivet','pin'].includes(kind);$('bolt-head').hidden=kind==='headless';
   }
   function normAnwenden(){
     const kind=f.elements.standardKind?.value||'screw',id=f.elements.standardNorm?.value;
     const family=(window.JYStandardFamilies?.getFamilies(kind)||[]).find(item=>item.id===id);
-    if(family?.headForm)f.elements.kopfForm.value=family.headForm;
+    // A norm specifies the finished head, while either upsetting or trimming can
+    // produce a hexagon. Apply it before calculation, including delayed input.
+    const heads=family?.headForm==='sechskant'?['sechskant','abgratet']:family?.headForm?[family.headForm]:null;
+    if(heads&&!heads.includes(f.elements.kopfForm.value))f.elements.kopfForm.value=family.headForm;
     if(family?.driveFamily)f.elements.iTyp.value=family.driveFamily;
+    f.elements.kopfForm.disabled=!!heads&&heads.length===1;
+    Array.from(f.elements.kopfForm.options).forEach(option=>{
+      option.disabled=!!heads&&!heads.includes(option.value);
+      option.dataset.originalText='';
+      option.textContent=tr(family?.headForm==='rund'&&option.value==='rund'?'Zylinderkopf':HEAD_LABELS[option.value]||option.value);
+    });
+    f.elements.iTyp.disabled=!!family?.driveFamily;
+    $('standard-norm-note').hidden=!family;
     if(kind==='headless'||family?.headForm==='none'){f.elements.kopfForm.value='none';for(const key of ['kD','kH','kSW'])f.elements[key].value='0';}
     antriebAuswahl();
   }
@@ -93,6 +104,7 @@
     const t = typ();
     standardAuswahl();
     const special=formteilmodus();
+    $('calculation-method-note').hidden=special;
     const drawing=drawingActive();
     $('standard-part-fields').hidden=special;$('manual-tools').hidden=special;$('parts-tabs').hidden=!special;$('parts-drawing-panel').hidden=!drawing;$('parts-drawing-output').hidden=!drawing;$('material-fields').hidden=drawing;$('geometry-panel').hidden=!special||drawing;$('geometry-view').hidden=!special||drawing;$('regelbox').hidden=special;$('anfrage').hidden=false;
     for(const mode of ['drawing','geometry']){const tab=$('parts-'+mode+'-tab');tab.setAttribute('aria-selected',String(partsMode===mode));tab.tabIndex=partsMode===mode?0:-1;}
@@ -108,8 +120,21 @@
     f.elements.rm.placeholder = tr('aus Drahtzeugnis, falls bekannt');
   }
 
+  function zahlenfeldAktiv(name){
+    const bolt=typ()==='bolzen',head=f.elements.kopfForm.value,drive=f.elements.iTyp.value,thread=f.elements.threadFamily?.value||'metric';
+    if(['kD','kH','kSW','kVol'].includes(name))return bolt&&head!=='none'&&(name!=='kSW'||['sechskant','abgratet'].includes(head))&&(name!=='kVol'||head==='krallen');
+    if(['sD','sL'].includes(name))return bolt;
+    if(['mM','mSW','mH','mLoch'].includes(name))return typ()==='mutter';
+    if(['iSW','iT','iVol'].includes(name))return bolt&&drive!=='none'&&(name!=='iSW'||drive==='hex'&&f.elements.iSize.value==='custom')&&(name!=='iVol'||drive!=='hex');
+    if(name==='sArea')return bolt&&['trilobular','duo-taptite'].includes(thread);
+    if(name==='tipLength')return bolt&&['duo-taptite','self-tapping','thermoplastic'].includes(thread);
+    if(name==='tipArea')return bolt&&thread==='duo-taptite';
+    if(name==='tipDiameter')return bolt&&['self-tapping','thermoplastic'].includes(thread);
+    if(name==='rodDiameter')return f.elements.wirePreparation.value==='inline-drawing';
+    return true;
+  }
   function lesen() {
-    const g = n => num(f.elements[n] && f.elements[n].value);
+    const g = n => zahlenfeldAktiv(n)?num(f.elements[n] && f.elements[n].value):undefined;
     const variant=selectedVariant();
     const e = {
       typ: typ(), wst: variant?.index, curveId: variant?.curve.id, materialState:variant?.curve.state, rm: g('rm'), d0: g('d0'),
@@ -139,7 +164,7 @@
   function ungueltig() {
     let bad = false;
     f.querySelectorAll('input[inputmode]').forEach(el => {
-      if(el.disabled||el.closest?.('#geometry-wizard'))return;
+      if(el.disabled||!zahlenfeldAktiv(el.name)||el.closest?.('[hidden],#geometry-wizard')){el.style.borderColor='';el.title='';return;}
       const v = num(el.value);
       const falsch = el.value.trim() !== '' && (!isFinite(v) || v < 0);
       el.style.borderColor = falsch ? 'var(--nein)' : '';
@@ -336,7 +361,7 @@
       field('Mutter', 'M' + fmt(w.mM)); field('Mutternschlüsselweite', mm(e.mSW)); field('Mutternhöhe', mm(e.mH));
       if (e.mFlansch) field('Flanschdurchmesser', mm(e.mFlansch));
     } else {
-      field('Form', tr({rund:'rund, Zylinder- oder Flanschkopf',sechskant:'Sechskant, gestaucht',abgratet:'Sechskant, rund gestaucht und abgegratet',none:'Ohne Kopf',krallen:'Krallenkopf / Umspritz-Mitnahmeprofil'}[e.kopfForm] || e.kopfForm));
+      field('Form', tr(window.JYStandardFamilies?.get(e.standardReference)?.headForm==='rund'?'Zylinderkopf':HEAD_LABELS[e.kopfForm] || e.kopfForm));
       field('Kopfdurchmesser', mm(e.kD)); field('Kopfhöhe', mm(e.kH));
       if (e.kSW) field('Kopfschlüsselweite', mm(e.kSW));
       field('Körperdurchmesser', mm(e.sD || e.d0)); field('Körperlänge', mm(e.sL));
@@ -455,7 +480,7 @@
   f.elements.standardKind?.addEventListener('change',()=>{standardKind=null;standardAuswahl();if(f.elements.standardKind.value==='headless')normAnwenden();else if(f.elements.kopfForm.value==='none')f.elements.kopfForm.value='rund';rechnen();});
   f.elements.standardNorm?.addEventListener('change',()=>{normAnwenden();rechnen();});
   $('flange-nut-route').addEventListener('click',()=>{f.elements.typ.value='formteil';selectPartsMode('geometry');$('geometry-wizard').scrollIntoView({behavior:window.matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth',block:'start'});});
-  f.elements.nutNorm?.addEventListener('change',()=>{if(window.JYStandardFamilies?.get(f.elements.nutNorm.value)?.route==='formteil'){f.elements.typ.value='formteil';selectPartsMode('geometry');$('geometry-wizard').scrollIntoView({behavior:window.matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth',block:'start'});}});
+  f.elements.nutNorm?.addEventListener('change',()=>{if(window.JYStandardFamilies?.get(f.elements.nutNorm.value)?.route==='formteil'){f.elements.nutNorm.value='';f.elements.typ.value='formteil';selectPartsMode('geometry');$('geometry-wizard').scrollIntoView({behavior:window.matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth',block:'start'});}});
   $('karten').addEventListener('click', event => {
     const requestButton=event.target.closest('button[data-request-model]');
     if(requestButton){
