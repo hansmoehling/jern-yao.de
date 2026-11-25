@@ -8,12 +8,12 @@ Testfeld für die Maschinenwahl mit Grobauslegung und Richtpreis 2026. Die Seite
 python3 quelle/katalog/specs_parse.py <Ordner mit den Katalog-PDFs>     # Kataloge von https://www.jernyao.com/files/
 python3 quelle/katalog/daten_bauen.py <JernYao_Richtpreise_2026.csv>     # Preisliste aus dem Projektordner
 python3 quelle/bauen.py                                                  # schreibt index.html
-node quelle/test/faelle.js                                               # Referenzfälle
+node quelle/test/faelle.js                                               # Referenzfälle und Prüffälle aus Stadienplänen
 ```
 
 ## Dateien
 
 - `engine.js`: Rechenkern. Stadienfolge, Kräfte, Werkzeuggrößen, Maschinenprüfung. Jede Regel trägt eine Kennung; die Fundstellen stehen in `regeln.md` im Projektordner JernYao_Konfigurator.
 - `ui.js`, `vorlage.html`: Oberfläche.
-- `maschinen.json`: 329 Katalogmodelle mit Richtpreis und Spanne. Nur Katalogdaten und Richtpreise, keine Angebote.
+- `maschinen.json`: 329 Katalogmodelle mit Richtpreis und Spanne, dazu Schlittenhub, Motor, Gewicht und bei Teile- und Mutternpressen das Produktmaß ψ. Nur Katalogdaten und Richtpreise, keine Angebote. Der Leser `specs_parse.py` nimmt die Zellen aus den Tabellenlinien der PDFs; verbundene Zellen gelten für alle Modelle darunter. Gegenprobe: alle 329 Modelle stimmen mit dem Modellkonfigurator der Sammlung «Literatur» überein.
 - `ENDPOINT` in `ui.js`: leer, solange kein Empfangsdienst läuft. Dann öffnet die Anfrage das E-Mail-Programm.

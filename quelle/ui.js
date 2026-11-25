@@ -25,7 +25,7 @@
     f.querySelectorAll('[data-fuer]').forEach(el => { el.hidden = !el.dataset.fuer.split(' ').includes(t); });
     const k = f.elements.kopfForm.value;
     f.querySelectorAll('[data-kopf]').forEach(el => { el.hidden = !el.dataset.kopf.split(' ').includes(k); });
-    f.elements.rm.placeholder = E.WERKSTOFFE[+sel.value].Rm + ' (typisch)';
+    f.elements.rm.placeholder = E.WERKSTOFFE[+sel.value].Rm + ' typisch';
   }
 
   function lesen() {
@@ -36,7 +36,7 @@
       iSW: g('iSW'), iT: g('iT'), nD: g('nD'), nT: g('nT'), nDurch: f.elements.nDurch.checked,
       mM: g('mM'), mSW: g('mSW'), mH: g('mH'), mLoch: g('mLoch'), mFlansch: g('mFlansch'), mFlanschH: g('mFlanschH'),
       masse: g('masse'), lStempel: g('lStempel'), wenden: f.elements.wenden.checked,
-      vorgaben: { ko: g('ko'), pko: g('pko'), matD: g('matD'), matL: g('matL'), stD: g('stD'), stL: g('stL'), stationen: g('stationen') },
+      vorgaben: { ko: g('ko'), pko: g('pko'), matD: g('matD'), matL: g('matL'), stD: g('stD'), stL: g('stL'), stationen: g('stationen'), zusatz: g('zusatz') },
       soll: { ausbringung: g('ausbringung') }
     };
     if (e.typ !== 'bolzen') { e.iSW = e.iT = undefined; }
@@ -77,6 +77,7 @@
     f.elements.ko.placeholder = fmt(w.lMatrize) + ' berechnet';
     f.elements.pko.placeholder = fmt(w.lStempel) + ' berechnet';
     f.elements.stationen.placeholder = String(aus.stufen.length);
+    f.elements.zusatz.placeholder = String(w.zusatzStandard) + (w.zusatzStandard ? ' (Kalibrieren, Hohlteil)' : '');
     const kenn = [
       ['Abschnitt', 'Ø' + fmt(w.d0) + ' × ' + fmt(w.L0) + ' mm'],
       ['Masse Fertigteil', fmt(w.masse) + ' g'],
@@ -105,7 +106,7 @@
       return '<div class="karte' + (beste ? ' beste' : '') + '"><div class="kopfzeile"><div><span class="modell">' + o.m + '</span><span class="marke m-' + r.gesamt + '">' + marke + '</span><div class="fam">' + (FAMNAME[o.f] || o.f) + ' · ' + o.st + ' Stationen · ' + o.pw + ' t' + (o.sz ? ' · bis ' + o.sz : '') + '</div></div>' +
         '<div class="preis"><b>' + eur(o.rp) + '</b><small>' + sp + '</small></div></div>' +
         '<div class="balken" title="Auslastung der Nennkraft, Strich bei 65 %"><i style="width:' + Math.min(100, Math.round(r.ausl * 100)) + '%;background:' + farbe + '"></i></div>' +
-        '<div class="kurz"><span>Auslastung ' + Math.round(r.ausl * 100) + ' %</span><span>Abschnitt bis Ø' + o.cd + '</span><span>KO ' + (o.ko || '·') + (o.kor ? ' (' + o.kor + ')' : '') + '</span><span>PKO ' + (o.pko || '·') + '</span><span>Matrize Ø' + (o.die ? o.die[0] + ' × ' + o.die[1] : '·') + '</span>' + (r.plan ? '<span title="Erfahrungswert aus der Serienfertigung; der Katalog nennt die Höchstdrehzahl">Planung ≈ ' + r.plan.aus + ' /min, rund ' + r.stundeProStk.toLocaleString('de-DE') + ' Stück/h (Katalog bis ' + o.out + ')</span>' : (o.out ? '<span>bis ' + o.out + ' /min</span>' : '')) + '</div>' +
+        '<div class="kurz"><span>Auslastung ' + Math.round(r.ausl * 100) + ' %</span><span>Abschnitt bis Ø' + o.cd + '</span><span>KO ' + (o.ko || '·') + (o.kor ? ' (' + o.kor + ')' : '') + '</span><span>PKO ' + (o.pko || '·') + '</span><span>Matrize Ø' + (o.die ? o.die[0] + ' × ' + o.die[1] : '·') + '</span>' + (o.wt ? '<span>rund ' + fmt(o.wt) + ' t, Motor ' + fmt(o.hp * 0.7457, 0) + ' kW</span>' : '') + (r.plan ? '<span title="Erfahrungswert aus der Serienfertigung; der Katalog nennt die Höchstdrehzahl">Planung ≈ ' + r.plan.aus + ' /min, rund ' + r.stundeProStk.toLocaleString('de-DE') + ' Stück/h (Katalog bis ' + o.out + ')</span>' : (o.out ? '<span>bis ' + o.out + ' /min</span>' : '')) + '</div>' +
         '<details><summary>Prüfung im Einzelnen</summary><table class="krit"><thead><tr><th>Kriterium</th><th>Bedarf</th><th>Maschine</th><th></th></tr></thead><tbody>' + zeilen + '</tbody></table><p class="klein">' + kat + '</p></details></div>';
     };
     if (wahl.passend.length) { k.push(...wahl.passend.slice(0, 3).map((r, i) => karte(r, i === 0))); }
@@ -126,13 +127,14 @@
     const { e, aus, wahl } = letzte, w = aus.werte, m = aus.werkstoff;
     const zeilen = [];
     zeilen.push('Teileart: ' + { bolzen: 'Schraube/Bolzen', formteil: 'Formteil/Hülse', mutter: 'Mutter' }[e.typ]);
-    zeilen.push('Werkstoff: ' + m.id + ', Rm ' + m.Rm + ' N/mm²');
+    zeilen.push('Werkstoff: ' + m.id + ', Rm des Drahtes ' + m.Rm + ' N/mm²');
     zeilen.push('Draht-Ø ' + fmt(w.d0) + ' mm, Abschnitt ' + fmt(w.L0) + ' mm, Masse ' + fmt(w.masse) + ' g');
     if (e.typ === 'mutter') zeilen.push('Mutter M' + fmt(w.mM) + ', SW ' + fmt(e.mSW) + ', Höhe ' + fmt(e.mH) + (e.mFlansch ? ', Flansch Ø' + fmt(e.mFlansch) : ''));
     else zeilen.push('Kopf ' + (f.elements.kopfForm.selectedOptions[0].textContent) + ' Ø' + fmt(e.kD) + (e.kSW ? ' SW ' + fmt(e.kSW) : '') + ' × ' + fmt(e.kH) + '; Schaft Ø' + fmt(e.sD || e.d0) + ' × ' + fmt(e.sL) + (e.iSW ? '; Innenantrieb SW ' + fmt(e.iSW) + ' × ' + fmt(e.iT) : '') + (e.nD ? '; Napf Ø' + fmt(e.nD) + ' × ' + fmt(e.nT) + (e.nDurch ? ' gelocht' : '') : ''));
     zeilen.push('Werkzeugtrennkante: ' + fmt(w.lStempel) + ' mm im Stempel; KO ' + fmt(w.ko) + ' mm, PKO ' + fmt(w.pko) + ' mm' + (e.wenden ? ', mit 180°-Wendung' : ''));
     const v = e.vorgaben;
     if (v.matD || v.stD) zeilen.push('Vorhandene Werkzeuge: Matrize ' + (v.matD ? 'Ø' + v.matD + ' × ' + (v.matL || '?') : '·') + ', Stempel ' + (v.stD ? 'Ø' + v.stD + ' × ' + (v.stL || '?') : '·'));
+    if (v.zusatz != null && isFinite(v.zusatz)) zeilen.push('Zusatzstufen (Kalibrieren, Kerben, Prägen, Beschneiden): ' + v.zusatz);
     if (e.soll.ausbringung) zeilen.push('Ausbringung: ' + e.soll.ausbringung + ' /min');
     zeilen.push('');
     zeilen.push('Grobauslegung: ' + w.stationen + ' Stationen (+1 Reserve), höchste Stationskraft ' + fmt(w.Fmax_t) + ' t, Nennkraft ab ' + fmt(w.FN_muss_t, 0) + ' t');

@@ -1,4 +1,4 @@
-/* Grobauslegung und Maschinenwahl Jern Yao, Rechenkern V1 (25.11.2026)
+/* Grobauslegung und Maschinenwahl Jern Yao, Rechenkern V1.1 (25.11.2026)
    Läuft im Browser und unter Node (Tests). Alle Längen in mm, Kräfte in kN und t, Massen in g.
    Jede Regel trägt eine Kennung aus REGELN; die Herkunft steht dort. */
 (function (root) {
@@ -6,16 +6,18 @@
 
   const G = 9.80665; // kN je t
 
-  // Werkstoffe: C, n, rho typische Werte; Rm typische Zugfestigkeit des Drahtes vor der Presse.
-  // grp: Werkstoffgruppe für Fließpressgrenzen (siehe GRENZEN)
+  // Werkstoffe: C, n, rho typische Werte. Rm ist die Zugfestigkeit des Drahtes, wie er in die Presse geht:
+  // gezogen und geglüht (+U+C+AC), nicht die Festigkeitsklasse des Fertigteils. Die Klasse entsteht durch
+  // Kaltverfestigung beim Umformen oder durch Vergüten danach. Stähle: TKG-Zeugnisse, ohne Zeugnis 90 % der
+  // Obergrenze im geglühten Lieferzustand (Fundstellen in regeln.md, A10). grp: Gruppe für Fließpressgrenzen (GRENZEN)
   const WERKSTOFFE = [
-    { id: 'C10C', Rm: 420, C: 740, n: 0.23, rho: 7.85, grp: 'gut', hinweis: 'Schrauben 4.8 bis 5.8' },
-    { id: 'C15C', Rm: 470, C: 820, n: 0.21, rho: 7.85, grp: 'gut', hinweis: 'Festigkeitsklasse 6.8' },
-    { id: '19MnB4', Rm: 540, C: 850, n: 0.18, rho: 7.85, grp: 'schwerer', hinweis: '8.8 nach Vergüten' },
-    { id: '20MnB4', Rm: 560, C: 880, n: 0.17, rho: 7.85, grp: 'schwerer', hinweis: '8.8' },
-    { id: '23MnB4', Rm: 600, C: 920, n: 0.16, rho: 7.85, grp: 'schwerer', hinweis: '8.8 bis 10.9' },
-    { id: '33B2', Rm: 700, C: 990, n: 0.14, rho: 7.85, grp: 'schwerer', hinweis: '10.9' },
-    { id: 'C45', Rm: 700, C: 1100, n: 0.15, rho: 7.85, grp: 'schwer', hinweis: 'begrenzt kaltumformbar' },
+    { id: 'C10C', Rm: 350, C: 740, n: 0.23, rho: 7.85, grp: 'gut', hinweis: '4.8 bis 5.8 ohne Vergüten' },
+    { id: 'C15C', Rm: 390, C: 820, n: 0.21, rho: 7.85, grp: 'gut', hinweis: '5.8 bis 6.8 ohne Vergüten' },
+    { id: '19MnB4', Rm: 430, C: 850, n: 0.18, rho: 7.85, grp: 'schwerer', hinweis: '8.8 nach Vergüten' },
+    { id: '20MnB4', Rm: 430, C: 880, n: 0.17, rho: 7.85, grp: 'schwerer', hinweis: '8.8 nach Vergüten' },
+    { id: '23MnB4', Rm: 460, C: 920, n: 0.16, rho: 7.85, grp: 'schwerer', hinweis: '8.8 bis 10.9 nach Vergüten' },
+    { id: '33B2', Rm: 480, C: 990, n: 0.14, rho: 7.85, grp: 'schwerer', hinweis: '10.9 nach Vergüten' },
+    { id: 'C45', Rm: 640, C: 1100, n: 0.15, rho: 7.85, grp: 'schwer', hinweis: 'begrenzt kaltumformbar' },
     { id: '1.4301 (A2)', Rm: 620, C: 1400, n: 0.45, rho: 7.90, grp: 'rostfrei', hinweis: 'starke Verfestigung' },
     { id: '1.4305 (A1)', Rm: 550, C: 1200, n: 0.40, rho: 7.90, grp: 'rostfrei', hinweis: 'Automatenstahl, austenitisch' },
     { id: '1.4571 (A4)', Rm: 580, C: 1350, n: 0.43, rho: 8.00, grp: 'rostfrei', hinweis: 'Mo-legiert' },
@@ -44,8 +46,10 @@
     'R-ST1': { t: 'Stauchverhältnis s = Kopfvolumen / (A₀ · d₀); 1 Schlag bis 2,3; 2 Schläge bis 4,5; 3 Schläge bis 8,0; darüber 4', art: 'Erfahrungsregel' },
     'R-ST2': { t: 'Kopf mit Innenantrieb: Vorstauchen auch unter s = 2,3', art: 'Erfahrungsregel' },
     'R-ST3': { t: 'Größter Stauch-Ø frei 2,0 bis 2,5 · d₀, geführt bis 3 · d₀; darüber Zwischenstufe', art: 'Erfahrungsregel' },
+    'R-ST4': { t: 'Schaft oder Körper mehr als 5 % dicker als der Draht: eigene Stauchstufe vor dem Kopf, Zahl der Schläge wie R-ST1', art: 'Erfahrungsregel, Stadienpläne Bundhülse 26002 und Exzenter' },
     'R-RE1': { t: 'Freies Reduzieren bis 30 % Querschnittsabnahme, sonst geschlossenes Vorwärtsfließpressen', art: 'Erfahrungsregel' },
     'R-FP1': { t: 'Querschnittsabnahme je Hub nach Werkstoffgruppe (Vorwärts) und Napfbereich mit Lochtiefe', art: 'Richtwerte je Werkstoffgruppe, jeweils der vorsichtigere' },
+    'R-FP2': { t: 'Napf über der Grenze je Hub: Napf bis zur Grenze, den Rest abstrecken, je Zug bis 30 % weniger Wandquerschnitt', art: 'Richtwert; Stadienplan Hülse 9 mm (Napf 72 %, danach Abstrecken 21 %)' },
     'R-LO1': { t: 'Lochbutzen T = 0,5 · Loch-Ø (normal), bis 1,0 · Loch-Ø', art: 'Erfahrungsregel' },
     'R-KF':  { t: 'Fließkurve k_f = C · φⁿ, Anfangswert bei φ = 0,025', art: 'Näherungsmodell (Fließkurve nach Ludwik)' },
     'R-F1':  { t: 'Stauchkraft F = A₁ · k_f1 / η_F; η_F 0,6 im Fertigschlag, 0,8 im Vorstauchen', art: 'Näherungsmodell, η_F aus dem Bereich 0,6 bis 0,9' },
@@ -54,7 +58,10 @@
     'R-F4':  { t: 'Abgraten und Lochen: F = Schnittlänge · Dicke · 0,8 · k_f', art: 'Näherungsmodell' },
     'R-PK':  { t: 'Presskraft: höchste Stationskraft bis 80 % der Nennkraft (muss), bis 65 % (wünschenswert)', art: 'Auslegungsvorgabe' },
     'R-STN': { t: 'Stationen: benötigte Stufen (muss), eine weitere als Vorformreserve (wünschenswert)', art: 'Auslegungsvorgabe' },
-    'R-KO':  { t: 'Auswerferweg matrizenseitig ≥ Teillänge in der Matrize; bei 180°-Wendung gilt der Klammerwert', art: 'Katalogwert' },
+    'R-KA':  { t: 'Kalibrier- und Zusatzstufen (Kalibrieren, Kerben, Prägen, Beschneiden): eine Stufe je Vorgang, Hohlteile mit Napf ohne Angabe eine; Kraft F = A · k_f am Ende', art: 'Erfahrungsregel aus Stadienplänen; Kraft als Näherung' },
+    'R-KO':  { t: 'Auswerferweg matrizenseitig ≥ Teillänge in der Matrize', art: 'Katalogwert' },
+    'R-WE':  { t: 'Wendung um 180° im Transfer: ganze Teillänge höchstens der Klammerwert der Auswerferzeile', art: 'Katalogwert (Fußnote der Jern-Yao-Kataloge)' },
+    'R-PR':  { t: 'Produktmaß ψ Ø × Länge der Teile- und Mutternpressen (JPF, JNF-L, JNFP-L, JNFR-L): darüber knapp, Rückfrage bei Jern Yao', art: 'Katalogwert' },
     'R-PKO': { t: 'Auswerferweg stempelseitig ≥ Teillänge im Stempel', art: 'Katalogwert' },
     'R-MA':  { t: 'Matrize: Außen-Ø = 4,5 / 5 / 6 · größter Bohrungs-Ø (minimal, normal, ideal)', art: 'Erfahrungsregel Armierung, durch Katalogproportionen bestätigt' },
     'R-SB':  { t: 'Schneidbüchse: Bohrung 1,01 · d₀, Außen-Ø rund 3,3 · d₀', art: 'Werknorm, durch Katalogproportionen bestätigt' },
@@ -120,7 +127,7 @@
     const R = id => out.regeln.add(id);
 
     let V = 0, Vab = 0, Lteil = 0, Lstempel = 0, kopfD = 0, kopfH = 0, matBohrung = d0;
-    let phiKopf = 0, sKopf = 0;
+    let phiKopf = 0, sKopf = 0, phiEnde = 0;
 
     if (e.typ === 'mutter') {
       if (!pos(e.mSW) || !pos(e.mH)) { out.fehlt.push('Schlüsselweite und Höhe der Mutter'); return out; }
@@ -141,7 +148,7 @@
       const phiHex = Math.log(Ahex / A0) + 0.3;
       const eps = Math.min(0.9, kreis(dl) / Ahex);
       const p4 = napfDruck(m, phiHex, Math.min(eps, 0.75), 0.35 * e.mH, dl);
-      const phiEnd = phiHex + 0.5;
+      const phiEnd = phiHex + 0.5; phiEnde = phiEnd;
       out.stufen.push({ v: 'Planstauchen', F: A1 * kf(m, phi1) / ETA_VOR, A: A1, bohr: d0, r: 'R-F1' });
       out.stufen.push({ v: 'Vorstauchen rund', F: A2 * kf(m, phi2) / ETA_VOR, A: A2, bohr: 0.95 * eck, r: 'R-F1' });
       out.stufen.push({ v: 'Sechskant formen, beidseitig vorlochen', F: Ahex * kf(m, phiHex) / ETA_FERTIG, A: Ahex, bohr: eck, r: 'R-F1' });
@@ -194,8 +201,20 @@
           if (gr.l0d0 && ((V + Vab) / A0) / d0 > gr.l0d0) out.hinweise.push('Rohteil schlanker als l₀/d₀ = ' + gr.l0d0 + ' beim Vorwärtsfließpressen: hohe Wandreibung, Schaft in der Matrize abstützen oder Abschnitt kürzen');
           if (nFP > 1) out.hinweise.push('Querschnittsabnahme ' + Math.round(eps * 100) + ' % über der Grenze je Hub für ' + m.id + ' (' + Math.round(gr.vor * 100) + ' %): auf ' + nFP + ' Hübe verteilt');
         }
+      } else if (sL && sD > d0 * 1.05) {
+        // Körper dicker als der Draht: eigene Stauchstufe(n) vor dem Kopf (R-ST4), Schlagzahl wie R-ST1
+        R('R-ST4'); R('R-ST1'); R('R-F1');
+        const VsEff = Vs - (Vn && !(hatKopf && e.nT <= kopfH) ? Math.min(Vn, Vs) : 0); // Napf im Körper: hohler Körper
+        const sS = VsEff / (A0 * d0), nS = sS <= 2.3 ? 1 : sS <= 4.5 ? 2 : sS <= 8.0 ? 3 : 4;
+        const phS = Math.log(kreis(sD) / A0);
+        for (let i = 1; i <= nS; i++) {
+          const ph = phS * i / nS, A = A0 * Math.exp(ph), dA = Math.sqrt(4 * A / Math.PI);
+          out.stufen.push({ v: 'Körper stauchen ' + z(d0) + ' → ' + z(dA) + (nS > 1 ? ' (' + i + '/' + nS + ')' : ''), F: A * kf(m, ph) / ETA_VOR, A, bohr: dA, r: 'R-F1' });
+        }
+        phiSchaft = phS;
+        out.hinweise.push('Schaft-Ø ' + z(sD) + ' mm mehr als 5 % über Draht-Ø: Körper in eigener Stufe gestaucht, Matrizenbohrung = Schaft-Ø');
       } else if (sL && sD > d0 * 1.005) {
-        out.hinweise.push('Schaft-Ø größer als Draht-Ø: Schaft wird gestaucht, Matrizenbohrung = Schaft-Ø');
+        out.hinweise.push('Schaft-Ø bis 5 % über Draht-Ø: füllt im ersten Schlag, Matrizenbohrung = Schaft-Ø');
       }
       matBohrung = Math.max(d0, sD);
       // Kopf
@@ -234,19 +253,48 @@
         const Dw = hatKopf && e.nT <= kopfH ? kopfD : Math.max(sD, d0);
         const eps = kreis(e.nD) / kreis(Dw);
         if (eps < gr.napfMin) out.hinweise.push('Napf: Querschnittsabnahme ' + Math.round(eps * 100) + ' % unter ' + Math.round(gr.napfMin * 100) + ' %: Stempel stark belastet');
-        if (eps > gr.napfMax) out.hinweise.push('Napf: Querschnittsabnahme ' + Math.round(eps * 100) + ' % über ' + Math.round(gr.napfMax * 100) + ' %: Wand zu dünn für einen Hub');
-        const tiefeJeHub = gr.tiefe * e.nD;
-        const nN = Math.max(1, Math.ceil(e.nT / tiefeJeHub - 1e-9));
-        for (let i = 1; i <= nN; i++) {
-          const p = napfDruck(m, phiKopf || phiSchaft, Math.min(Math.max(eps, 0.05), 0.9), e.nT * i / nN, e.nD);
-          out.stufen.push({ v: 'Napf rückwärts fließpressen' + (nN > 1 ? ' (' + i + '/' + nN + ')' : '') + ' Ø' + z(e.nD) + ' × ' + z(e.nT * i / nN), F: kreis(e.nD) * p, A: kreis(e.nD), bohr: Dw, r: 'R-F3' });
+        // Über der Napfgrenze: Napf bis zur Grenze mit kleinerem Stempel, dann abstrecken (R-FP2); Außen-Ø bleibt
+        let epsN = eps, nAb = 0, q = 1;
+        if (eps > gr.napfMax) {
+          epsN = gr.napfMax; q = (1 - epsN) / (1 - eps);
+          nAb = Math.ceil(Math.log(q) / Math.log(1 / 0.7) - 1e-9);
+          R('R-FP2');
+          out.hinweise.push('Napf: Querschnittsabnahme ' + Math.round(eps * 100) + ' % über ' + Math.round(gr.napfMax * 100) + ' % je Hub: Napf bis ' + Math.round(epsN * 100) + ' %, danach ' + nAb + (nAb > 1 ? ' Abstreckzüge' : ' Abstreckzug'));
         }
+        const dN = Dw * Math.sqrt(epsN), tN = e.nT * (1 - eps) / (1 - epsN);
+        const tiefeJeHub = gr.tiefe * dN;
+        const nN = Math.max(1, Math.ceil(tN / tiefeJeHub - 1e-9));
+        for (let i = 1; i <= nN; i++) {
+          const p = napfDruck(m, phiKopf || phiSchaft, Math.min(Math.max(epsN, 0.05), 0.9), tN * i / nN, dN);
+          out.stufen.push({ v: 'Napf rückwärts fließpressen' + (nN > 1 ? ' (' + i + '/' + nN + ')' : '') + ' Ø' + z(dN) + ' × ' + z(tN * i / nN), F: kreis(dN) * p, A: kreis(dN), bohr: Dw, r: 'R-F3' });
+        }
+        const phiN = Math.log(1 / (1 - epsN)), phiZ = nAb ? Math.log(q) / nAb : 0;
+        for (let j = 1; j <= nAb; j++) {
+          const wVor = (1 - epsN) * kreis(Dw) * Math.exp(-phiZ * (j - 1));
+          const dj = Math.sqrt(4 * (kreis(Dw) - (1 - epsN) * kreis(Dw) * Math.exp(-phiZ * j)) / Math.PI);
+          out.stufen.push({ v: 'Abstrecken' + (nAb > 1 ? ' (' + j + '/' + nAb + ')' : '') + ', Bohrung Ø' + z(dj) + ', Wand ' + Math.round((1 - Math.exp(-phiZ)) * 100) + ' % dünner', F: wVor * kf(m, (phiKopf || phiSchaft) + phiN + phiZ * j), A: kreis(dj), bohr: Dw, r: 'R-FP2' });
+        }
+        phiEnde = Math.max(phiEnde, (phiKopf || phiSchaft) + Math.log(1 / (1 - eps)));
         if (e.nDurch) {
           out.stufen.push({ v: 'Lochen Ø' + z(e.nD), F: Math.PI * e.nD * butzen * 0.8 * kf(m, Math.max(phiKopf, phiSchaft) + 0.7), A: kreis(e.nD), bohr: Dw, r: 'R-F4' }); R('R-F4');
         }
         matBohrung = Math.max(matBohrung, Dw);
       }
       if (e.typ === 'formteil') out.stufen.unshift({ v: 'Planstauchen, Abschnitt richten', F: A0 * Math.exp(0.1) * kf(m, 0.1) / ETA_VOR, A: A0 * Math.exp(0.1), bohr: d0, r: 'R-F1' });
+      phiEnde = Math.max(phiEnde, phiKopf, phiSchaft);
+    }
+
+    // Kalibrier- und Zusatzstufen (R-KA): Hohlteile mit Napf eine, sonst nach Angabe
+    const vz = e.vorgaben || {};
+    const zStd = e.typ === 'formteil' && pos(e.nD) && pos(e.nT) ? 1 : 0;
+    const zAngabe = vz.zusatz === 0 || pos(vz.zusatz);
+    const nZ = zAngabe ? Math.min(6, Math.round(vz.zusatz)) : zStd;
+    const Dmax = Math.max(kopfD || 0, pos(e.sD) ? e.sD : 0, d0);
+    out.werte.Dmax = Dmax; out.werte.zusatz = nZ; out.werte.zusatzStandard = zStd;
+    if (nZ > 0) {
+      R('R-KA');
+      const Az = kreis(Dmax), kz = kf(m, Math.max(phiEnde, 0.3));
+      for (let i = 1; i <= nZ; i++) out.stufen.push({ v: zAngabe ? 'Zusatzstufe' + (nZ > 1 ? ' ' + i : '') + ' (Kalibrieren, Kerben, Prägen, Beschneiden)' : 'Kalibrieren, Fertigformen', F: Az * kz, A: Az, bohr: Dmax, r: 'R-KA' });
     }
 
     // Abschnitt
@@ -339,9 +387,13 @@
       add('Abschnittlänge', st, z(w.L0) + ' mm', (lo ? lo + ' bis ' : 'bis ') + hi + ' mm', 'R-AB2');
     } else add('Abschnittlänge', 'offen', z(w.L0) + ' mm', 'nicht im Katalog', 'R-AB2');
     // Auswerfer matrizenseitig
-    const koMax = w.wenden && o.kor ? o.kor : o.ko;
-    if (pos(koMax)) add('Auswerfer Matrize (KO)', w.ko <= koMax ? (w.ko <= 0.95 * koMax ? 'ok' : 'knapp') : 'nein', z(w.ko) + ' mm', koMax + ' mm' + (w.wenden && o.kor ? ' (Wendung)' : ''), 'R-KO');
+    if (pos(o.ko)) add('Auswerfer Matrize (KO)', w.ko <= o.ko ? (w.ko <= 0.95 * o.ko ? 'ok' : 'knapp') : 'nein', z(w.ko) + ' mm', o.ko + ' mm', 'R-KO');
     else add('Auswerfer Matrize (KO)', 'offen', z(w.ko) + ' mm', 'nicht im Katalog', 'R-KO');
+    // Wendung um 180°: ganze Teillänge gegen den Klammerwert (Katalogfußnote)
+    if (w.wenden) {
+      if (pos(o.kor)) add('Wendelänge', w.Lteil <= o.kor ? (w.Lteil <= 0.95 * o.kor ? 'ok' : 'knapp') : 'nein', z(w.Lteil) + ' mm Teillänge', 'bis ' + o.kor + ' mm', 'R-WE');
+      else add('Wendelänge', 'offen', z(w.Lteil) + ' mm Teillänge', 'Katalog ohne Wendeangabe', 'R-WE');
+    }
     // Auswerfer stempelseitig
     if (w.pko > 0) {
       if (pos(o.pko)) add('Auswerfer Stempel (PKO)', w.pko <= o.pko ? (w.pko <= 0.95 * o.pko ? 'ok' : 'knapp') : 'nein', z(w.pko) + ' mm', o.pko + ' mm', 'R-PKO');
@@ -385,6 +437,8 @@
       if (mk) add('Mutterngröße', w.mM <= +mk[1] ? 'ok' : 'nein', 'M' + w.mM, 'bis ' + o.sz, 'Katalog');
       else add('Mutterngröße', 'offen', 'M' + w.mM, o.size || 'nicht im Katalog', 'Katalog');
     }
+    // Produktmaß ψ der Teile- und Mutternpressen (Katalog)
+    if (o.ps && e.typ !== 'bolzen') add('Produktmaß (Katalog)', w.Dmax <= o.ps[0] && w.Lteil <= o.ps[1] ? 'ok' : 'knapp', 'Ø' + z(w.Dmax) + ' × ' + z(w.Lteil) + ' mm', 'ψ ' + o.ps[0] + ' × ' + o.ps[1] + ' mm', 'R-PR');
     // Schaftlänge bei Bolzenpressen
     if (e.typ === 'bolzen' && pos(o.ml) && pos(e.sL)) add('Teillänge unter Kopf', e.sL <= o.ml ? 'ok' : 'nein', z(e.sL) + ' mm', 'bis ' + o.ml + ' mm', 'Katalog');
     // Ausbringung: Planungswert aus der Praxis, Katalog als Obergrenze

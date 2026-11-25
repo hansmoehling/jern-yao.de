@@ -18,6 +18,12 @@ def rng(s):
 def dxl(s):
     m=re.match(r'^(\d+(?:\.\d+)?)x(\d+(?:\.\d+)?)$',str(s or ''))
     return [float(m.group(1)),float(m.group(2))] if m else None
+def ou(s):
+    v=[float(x) for x in re.findall(r'Φ(\d+(?:\.\d+)?)',str(s or ''))]
+    return min(v) if v else None   # «JSΦ15 ISΦ20»: der kleinere Wert
+def psi(s):
+    m=re.match(r'^[ψφ](\d+(?:\.\d+)?)x(\d+(?:\.\d+)?)$',str(s or ''))
+    return [float(m.group(1)),float(m.group(2))] if m else None
 def ko(s):
     m=re.match(r'^(\d+(?:\.\d+)?)(?:\((\d+(?:\.\d+)?)\))?$',str(s or ''))
     return (float(m.group(1)), float(m.group(2)) if m.group(2) else None) if m else (None,None)
@@ -32,12 +38,12 @@ for m,d in S.items():
     out.append(dict(m=m, f=fam, fn=FAMNAME[fam]+(' Langhub' if fam in('JNF','JNFR','JNFP') and m.endswith(('SL','SXL')) else ''),
         st=int(d['stations']), cd=num(d.get('cutoff_dia')), cl=rng(d.get('cutoff_len')), ko=k, kor=kr, pko=num(d.get('pko')),
         die=dxl(d.get('die_hole')), pun=dxl(d.get('punch_hole')), q=dxl(d.get('quill')), pi=num(d.get('pitch')), rs=num(d.get('stroke')),
-        pw=num(d.get('power')), ou=num(d.get('open_upset')), out=num(d.get('output')), hp=num(d.get('motor_hp')), wt=num(d.get('weight')),
+        pw=num(d.get('power')), ou=ou(d.get('open_upset')), ps=psi(d.get('size')) or psi(d.get('prod_wrench')), out=num(d.get('output')), hp=num(d.get('motor_hp')), wt=num(d.get('weight')),
         ml=num(d.get('max_len')), sz=(sm.group(1) if sm else None), kat=d['katalog'], s=d.get('seite'),
         rp=p.get('richtpreis_eur'), lo=p.get('von_eur'), hi=p.get('bis_eur')))
 miss=[o['m'] for o in out if o['rp'] is None or o['cd'] is None or o['cl'] is None or o['pw'] is None or o['die'] is None]
 print(len(out),'Modelle; unvollständig:',miss[:10], len(miss))
-keep=['m','f','st','cd','cl','ko','kor','pko','die','pun','q','pi','pw','ou','out','ml','sz','kat','s','rp','lo','hi']
+keep=['m','f','st','cd','cl','ko','kor','pko','die','pun','q','pi','rs','pw','ou','out','ml','sz','ps','hp','wt','kat','s','rp','lo','hi']
 out=[{k:o[k] for k in keep if o.get(k) is not None} for o in out]
 json.dump(out,open(HIER.parent/'maschinen.json','w'),ensure_ascii=False,separators=(',',':'))
 print((HIER.parent/'maschinen.json').stat().st_size,'Bytes')

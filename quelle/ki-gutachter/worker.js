@@ -91,7 +91,7 @@ async function gutachter(anf, env) {
         nD: { type: 'number' }, nT: { type: 'number' }, nDurch: { type: 'boolean' },
         mM: { type: 'number' }, mSW: { type: 'number' }, mH: { type: 'number' }, mLoch: { type: 'number' }, mFlansch: { type: 'number' }, mFlanschH: { type: 'number' },
         masse: { type: 'number' }, lStempel: { type: 'number' }, wenden: { type: 'boolean' },
-        vorgaben: { type: 'object', properties: { ko: { type: 'number' }, pko: { type: 'number' }, matD: { type: 'number' }, matL: { type: 'number' }, stD: { type: 'number' }, stL: { type: 'number' }, stationen: { type: 'number' } } }
+        vorgaben: { type: 'object', properties: { ko: { type: 'number' }, pko: { type: 'number' }, matD: { type: 'number' }, matL: { type: 'number' }, stD: { type: 'number' }, stL: { type: 'number' }, stationen: { type: 'number' }, zusatz: { type: 'number', description: 'Zusatzstufen: Kalibrieren, Kerben, Prägen, Beschneiden, unrunder Kopf' } } }
       }
     }
   }];
