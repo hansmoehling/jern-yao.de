@@ -1,0 +1,32 @@
+{
+  "normalisierend warmgewalzt": [
+    "laminato normalizzante a caldo",
+    "normalizacijsko vroče valjano",
+    "normalizing hot-rolled",
+    "正火热轧态"
+  ],
+  "Belegter Fließkurvenansatz {curve}; Ausgangszustand: {feature}; Quellenbereich φ = {minimum} bis {maximum}. Temperatur und Dehnrate gelten wie im Kurvenprofil dokumentiert.": [
+    "Modello di scorrimento documentato {curve}; stato iniziale: {feature}; campo della fonte φ = {minimum}–{maximum}. Temperatura e velocità di deformazione sono quelle documentate nel profilo della curva.",
+    "Dokumentiran model tečenja {curve}; začetno stanje: {feature}; območje vira φ = {minimum}–{maximum}. Temperatura in hitrost deformacije veljata, kot sta dokumentirani v profilu krivulje.",
+    "Documented flow model {curve}; starting condition: {feature}; source range φ = {minimum}–{maximum}. Temperature and strain rate apply as documented in the curve profile.",
+    "有据流动模型 {curve}；初始状态：{feature}；来源范围 φ = {minimum}–{maximum}。温度和应变率以曲线资料记录的条件为准。"
+  ],
+  "Versuchsdehnrate gemäß Kurvenprofil: {rate} s⁻¹.": [
+    "Velocità di deformazione della prova secondo il profilo della curva: {rate} s⁻¹.",
+    "Hitrost deformacije pri preizkusu po profilu krivulje: {rate} s⁻¹.",
+    "Test strain rate according to the curve profile: {rate} s⁻¹.",
+    "曲线资料记录的试验应变率：{rate} s⁻¹。"
+  ],
+  "Prozessvorschlag: normalisierend warmgewalztes Ausgangsmaterial einsetzen. Dieser Ausgangszustand ist eine ausdrückliche Rechenannahme und noch keine bestätigte Lieferangabe.": [
+    "Proposta di processo: utilizzare materiale iniziale laminato normalizzante a caldo. Questo stato iniziale è un'ipotesi di calcolo esplicita e non è ancora un dato di fornitura confermato.",
+    "Predlog postopka: uporabiti normalizacijsko vroče valjan vhodni material. To začetno stanje je izrecna računska predpostavka in še ni potrjen dobavni podatek.",
+    "Process proposal: use normalizing hot-rolled starting material. This starting condition is an explicit calculation assumption and is not yet a confirmed delivery specification.",
+    "工艺建议：采用正火热轧态原材料。此初始状态是明确的计算假设，尚不是已确认的交货信息。"
+  ],
+  "Liegt das Ausgangsmaterial normalisierend warmgewalzt vor? Bei Inline-Vorzug ist der Zustand des Walzdrahts vor dem Ziehen maßgeblich.": [
+    "Il materiale iniziale è laminato normalizzante a caldo? Con trafilatura in linea, conta lo stato della vergella prima della trafilatura.",
+    "Ali je vhodni material normalizacijsko vroče valjan? Pri predvleku v liniji je odločilno stanje valjane žice pred vlečenjem.",
+    "Is the starting material normalizing hot-rolled? With inline drawing, the wire rod condition before drawing is the relevant state.",
+    "原材料是否为正火热轧态？采用在线拉拔时，应以拉拔前盘条的状态为准。"
+  ]
+}

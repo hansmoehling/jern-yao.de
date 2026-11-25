@@ -48,6 +48,26 @@ const flattened = node => node.textContent+' '+node.children.map(flattened).join
     }
   }
   for(const language of I18N.supported){
+    const p=harness('https://api.example.test',language);p.get('chat-input').value='Original question';
+    const points=[{id:'wire-rm',owner:'Kunde / Drahtlieferant',detail:'Drahtzugfestigkeit'},{id:'machine-ko',owner:'Jern Yao',detail:'Auswerfer Matrize (KO)'}];
+    p.answers.push({data:{answer:'Model reply',language,proposal:{machines:points.map((point,index)=>({model:'MODEL-'+index,status:'offen',openPoints:[point]}))}}});
+    await p.get('chat-form').emit('submit');
+    const descendants=node=>[node,...node.children.flatMap(descendants)];
+    const sections=descendants(p.get('messages')).filter(node=>node.className==='machine-open-points');assert.equal(sections.length,2);
+    sections.forEach((section,index)=>{
+      const text=flattened(section);assert(text.includes(I18N.t('Noch zu klären',language)));assert(text.includes(I18N.t(points[index].owner,language)));assert(text.includes(I18N.t(points[index].detail,language)));
+      assert(!text.includes(I18N.t(points[1-index].detail,language)),'open data stay attached to their machine');
+    });
+    const rendered=flattened(p.get('messages'));assert(rendered.includes(I18N.t('Klärung nötig',language)));assert(!rendered.includes(I18N.t('Angaben offen',language)));
+  }
+  for(const language of I18N.supported){
+    const p=harness('https://api.example.test',language);p.get('chat-input').value='Original question';
+    p.answers.push({data:{answer:'Model reply',language,proposal:{input:[{field:'wirePreparation',value:'inline-drawing'},{field:'rodDiameter',value:8.4,unit:'mm'},{field:'d0',value:8,unit:'mm'},{field:'rm',value:500,unit:'N/mm²'}]}}});
+    await p.get('chat-form').emit('submit');const rendered=flattened(p.get('messages'));
+    for(const key of ['Vormaterial / Vorzug','Walzdraht mit Inline-Vorzug','Walzdraht-Ø vor dem Vorzug','Draht-Ø an der Presse','Drahtzugfestigkeit Rm an der Presse'])assert(rendered.includes(I18N.t(key,language)),language+' '+key);
+    assert(!rendered.includes('inline-drawing'));assert(!rendered.includes('rodDiameter'));
+  }
+  for(const language of I18N.supported){
     const translated=harness('https://api.example.test',language);translated.get('email').value='test@example.invalid';translated.get('description').value='Originaltext';translated.answers.push({data:{id:'LANG-'+language,token:'test',status:'queued'}});await translated.get('request-form').emit('submit');
     assert.equal(translated.requests[0].options.body.get('language'),language);assert.equal(new URL(translated.requests[0].url).searchParams.get('language'),language);assert.equal(translated.get('request-message').textContent,I18N.t('Ihre Anfrage ist angekommen.',language));
     translated.get('chat-input').value='Original question';translated.answers.push({data:{answer:'Model reply',language}});await translated.get('chat-form').emit('submit');assert.equal(JSON.parse(translated.requests.at(-1).options.body).language,language);

@@ -27,9 +27,10 @@
     .map(curve=>({value:index+'|'+curve.id,index,material,curve})));
   const variantByValue=new Map(variants.map(variant=>[variant.value,variant]));
   const selectedVariant=()=>variantByValue.get(sel.value)||null;
-  const conditionLabel=curve=>tr(curve.state==='soft-annealed'?'weichgeglüht':curve.state==='cold-drawn'?'gezogen (Literaturzustand)':curve.state);
+  const conditionLabel=curve=>tr(curve.state==='soft-annealed'?'weichgeglüht':curve.state==='cold-drawn'?'gezogen':curve.stateLabel||curve.state);
   const modelLabel=curve=>tr(curve.approval==='proxy'?'begründete Ersatzkurve':'Literaturansatz');
-  const materialLabel=variant=>(variant.material.sourceName||variant.material.id)+(variant.material.number?' · '+variant.material.number:'')+' · '+conditionLabel(variant.curve)+' · '+modelLabel(variant.curve);
+  const preparationLabel=value=>tr(value==='inline-drawing'?'Walzdraht mit Inline-Vorzug':'Draht im gewählten Lieferzustand');
+  const materialLabel=variant=>(variant.material.sourceName||variant.material.id)+(variant.material.number?' · '+variant.material.number:'')+' · '+conditionLabel(variant.curve);
   variants.forEach(variant=>{const option=document.createElement('option');option.value=variant.value;option.dataset.originalText='';option.textContent=materialLabel(variant);sel.appendChild(option);});
   sel.value=variants.find(variant=>variant.material.id==='C4C'&&variant.curve.state==='soft-annealed')?.value||'';
 
@@ -69,6 +70,9 @@
     const k = f.elements.kopfForm.value;
     f.querySelectorAll('[data-kopf]').forEach(el => { el.hidden = !el.dataset.kopf.split(' ').includes(k); });
     antriebAuswahl();
+    const inlineDrawing=f.elements.wirePreparation.value==='inline-drawing';
+    $('rod-diameter-field').hidden=!inlineDrawing;$('inline-drawing-note').hidden=!inlineDrawing;$('wire-strength-note').hidden=!inlineDrawing;
+    f.elements.rodDiameter.disabled=!inlineDrawing;
     f.elements.rm.placeholder = tr('aus Drahtzeugnis, falls bekannt');
   }
 
@@ -77,6 +81,7 @@
     const variant=selectedVariant();
     const e = {
       typ: typ(), wst: variant?.index, curveId: variant?.curve.id, materialState:variant?.curve.state, rm: g('rm'), d0: g('d0'),
+      wirePreparation:f.elements.wirePreparation.value||'as-supplied',rodDiameter:f.elements.wirePreparation.value==='inline-drawing'?g('rodDiameter'):undefined,
       kopfForm: f.elements.kopfForm.value, kD: g('kD'), kSW: g('kSW'), kH: g('kH'), sD: g('sD'), sL: g('sL'),
       iTyp: f.elements.iTyp.value || 'none', iSize: f.elements.iSize.value,
       iSW: f.elements.iSize.value==='custom'?g('iSW'):num(f.elements.iSize.value), iT: g('iT'), iVol: g('iVol'),
@@ -124,6 +129,9 @@
     const w = aus.werte;
     const variant=selectedVariant(),basis=document.getElementById('material-basis');
     if(basis){basis.dataset.originalText='';basis.textContent=variant?materialLabel(variant)+' · '+tr('Raumtemperatur')+' · φ '+fmt(variant.curve.phiMin,2)+'–'+fmt(variant.curve.phiMax,2):tr('Fließkurve des Lieferzustands fehlt');}
+    if(basis&&typeof aus.vorzug?.assumption==='string')basis.textContent+=' · '+tr(aus.vorzug.assumption);
+    const preparationSummary=$('inline-drawing-summary'),preparationText=window.JYConcept.preparationText(aus.vorzug,L.language);
+    preparationSummary.hidden=!preparationText;preparationSummary.dataset.originalText='';preparationSummary.textContent=preparationText;
     $('leer').hidden = true; $('aus').hidden = false;
     // Platzhalter der Werkzeugfelder
     f.elements.lStempel.placeholder = fmt(w.lStempel) + ' ' + tr('berechnet');
@@ -147,18 +155,20 @@
     if(aus.antrieb)kenn.splice(1,0,['Innenantrieb',h(aus.antrieb.label)+(aus.antrieb.depth?' · '+fmt(aus.antrieb.depth)+' mm':'')]);
     if (e.typ !== 'mutter') kenn.splice(3, 0, ['Stauchverhältnis Kopf', w.sKopf ? fmt(w.sKopf, 2) : '·']);
     rendered($('kenn'),kenn.map(([k, v]) => '<div><dt>' + h(k) + '</dt><dd>' + v + '</dd></div>').join(''));
-    rendered($('hinweise'),aus.hinweise.map(note => '<li>' + h(note) + '</li>').join(''));
     rendered($('stufen').tBodies[0],aus.stufen.map((s, i) => '<tr><td>' + (i + 1) + '</td><td>' + h(s.v) + '</td><td class="z">' + (s.t==null?h('Kraft noch offen'):fmt(s.t)+' t') + '</td><td class="z">' + (s.p==null?h('nicht belegt'):fmt(s.p,0)) + '</td><td class="z">Ø' + (s.matD==null?h('nicht belegt'):rounded(s.matD)) + (s.arm ? '<br><small>' + h(s.arm) + '</small>' : '') + '</td></tr>').join(''));
     // Karten
     const k = [];
     const karte = (r, beste) => {
       const o = r.o, sp = (o.lo && o.hi) ? eur(o.lo) + ' '+tr('bis')+' ' + eur(o.hi) : '';
       const farbe = r.ausl==null?'var(--offen)':r.ausl <= 0.65 ? 'var(--ok)' : r.ausl <= 0.8 ? 'var(--knapp)' : 'var(--nein)';
-      const marke = { ok: 'passt', knapp: 'knapp', offen: 'Daten fehlen', nein: 'passt nicht' }[r.gesamt];
+      const marke = { ok: 'passt', knapp: 'knapp', offen: 'Klärung nötig', nein: 'passt nicht' }[r.gesamt];
+      const openPoints=(r.openPoints||[]).filter(point=>point&&typeof point.detail==='string'&&point.detail.trim());
+      const clarification=openPoints.length?'<div class="machine-open-points"><strong>'+h('Noch zu klären')+'</strong><ul>'+openPoints.map(point=>'<li><strong>'+h(point.owner)+':</strong> '+h(point.detail)+'</li>').join('')+'</ul></div>':'';
       const zeilen = r.k.map(x => '<tr><td>' + h(x.krit) + '</td><td>' + h(x.soll) + '</td><td>' + h(x.ist) + '</td><td><span class="st m-' + x.status + '">' + h({ ok: 'ok', knapp: 'knapp', nein: 'nein', offen: 'offen' }[x.status]) + '</span></td></tr>').join('');
       const kat = o.kat ? '<a href="' + KATURL + o.kat + '.pdf#page=' + (o.s || 1) + '" target="_blank" rel="noopener">'+esc(msg('Katalog {catalogue}, S. {page}',{catalogue:o.kat,page:o.s||1}))+'</a>' : '';
       return '<div class="karte' + (beste ? ' beste' : '') + '"><div class="kopfzeile"><div><span class="modell">' + esc(o.m) + '</span><span class="marke m-' + r.gesamt + '">' + h(marke) + '</span><div class="fam">' + h(FAMNAME[o.f] || o.f) + ' · ' + o.st + ' '+h('Stationen')+' · ' + fmt(o.pw) + ' t' + (o.sz ? ' · '+esc(msg('bis {v}',{v:o.sz})) : '') + '</div></div>' +
         '<div class="preis"><b>' + esc(eur(o.rp)) + '</b><small>' + esc(sp) + '</small></div></div>' +
+        clarification +
         (r.ausl==null?'':'<div class="balken" title="'+h('Auslastung der Nennkraft, Strich bei 65 %')+'"><i style="width:' + Math.min(100, rounded(r.ausl * 100)) + '%;background:' + farbe + '"></i></div>') +
         '<div class="kurz"><span>'+(r.ausl==null?h('Kraft noch offen'):h('Auslastung')+' '+rounded(r.ausl*100)+' %')+'</span><span>'+esc(msg('Abschnitt bis Ø{value}',{value:fmt(o.cd)}))+'</span><span>KO ' + (o.ko ? fmt(o.ko) : '·') + (o.kor ? ' (' + esc(o.kor) + ')' : '') + '</span><span>PKO ' + (o.pko ? fmt(o.pko) : '·') + '</span><span>'+esc(msg('Matrize Ø{value}',{value:o.die?fmt(o.die[0])+' × '+fmt(o.die[1]):'·'}))+'</span>' + (o.wt ? '<span>'+esc(msg('rund {weight} t, Motor {power} kW',{weight:fmt(o.wt),power:fmt(o.hp==null?null:o.hp*0.7457,0)}))+'</span>' : '') + (r.plan ? '<span title="'+h('Erfahrungswert aus der Serienfertigung; der Katalog nennt die Höchstdrehzahl')+'">'+esc(msg('Planung ≈ {rate} /min, rund {hourly} Stück/h (Katalog bis {maximum})',{rate:fmt(r.plan.aus),hourly:fmt(r.stundeProStk,0),maximum:fmt(o.out)}))+'</span>' : (o.out ? '<span>'+esc(msg('bis {v}',{v:fmt(o.out)}))+' /min</span>' : '')) + '</div>' +
         (E.maschinenKonzept?window.JYConcept.html(E.maschinenKonzept(aus,e,o,PRAXIS),L.language):'')+'<details><summary>'+h('Prüfung im Einzelnen')+'</summary><table class="krit"><thead><tr><th>'+h('Kriterium')+'</th><th>'+h('Bedarf')+'</th><th>'+h('Maschine')+'</th><th></th></tr></thead><tbody>' + zeilen + '</tbody></table><p class="klein">' + kat + '</p></details></div>';
@@ -185,10 +195,15 @@
     const force = value => value == null ? tr('Kraft noch offen') : fmt(value) + ' t';
     field('Teileart', tr({ bolzen: 'Schraube/Bolzen', formteil: 'Formteil/Hülse', mutter: 'Mutter' }[e.typ]));
     field('Werkstoff', (m.sourceName || m.id) + (m.number ? ' · ' + m.number : ''));
-    field('Drahtzugfestigkeit', m.Rm == null ? tr('nicht belegt') : fmt(m.Rm) + ' N/mm²');
+    field('Vormaterial / Vorzug',preparationLabel(e.wirePreparation));
+    if(e.wirePreparation==='inline-drawing')field('Walzdraht-Ø vor dem Vorzug',mm(e.rodDiameter));
+    field('Draht-Ø an der Presse',mm(e.d0));
+    field('Drahtzugfestigkeit Rm an der Presse', m.Rm == null ? tr('nicht belegt') : fmt(m.Rm) + ' N/mm²');
     const variant=selectedVariant();
     if(variant){field('Lieferzustand',conditionLabel(variant.curve));field('Werkstoffmodell:',modelLabel(variant.curve)+' · '+variant.curve.id);field('Kurvenbereich',tr('Raumtemperatur')+' · φ '+fmt(variant.curve.phiMin,2)+'–'+fmt(variant.curve.phiMax,2));}
     else field('Werkstoffmodell:',tr('Fließkurve des Lieferzustands fehlt'));
+    const preparationText=window.JYConcept.preparationText(aus.vorzug,L.language);
+    if(preparationText){lines.push(preparationText);if(typeof aus.vorzug.assumption==='string')lines.push(tr(aus.vorzug.assumption));}
     field('Abschnitt Ø × Länge', mm(w.d0) + ' × ' + mm(w.L0));
     field('Masse Fertigteil', fmt(w.masse) + ' g');
     if (e.typ === 'mutter') {
@@ -220,8 +235,12 @@
     aus.stufen.forEach((stage,index)=>lines.push('  '+(index+1)+'. '+tr(stage.v)+': '+force(stage.t)));
     lines.push('',tr('Vorauswahl:'));
     const top=[...wahl.passend.slice(0,3),...(wahl.passend.length?[]:wahl.bedingt.slice(0,3))];
-    const status={ok:'passt',knapp:'knapp',offen:'Daten fehlen',nein:'passt nicht'};
-    top.forEach(r=>lines.push('  '+r.o.m+' ('+tr(status[r.gesamt]||r.gesamt)+'), '+tr('Richtpreis')+' 2026 '+(r.o.rp?eur(r.o.rp):tr('auf Anfrage'))+', '+(r.ausl==null?tr('Kraft noch offen'):tr('Auslastung')+' '+fmt(r.ausl*100,0)+' %')+(r.plan?', '+tr('Planung')+' '+fmt(r.plan.aus,0)+' /min':'')));
+    const status={ok:'passt',knapp:'knapp',offen:'Klärung nötig',nein:'passt nicht'};
+    top.forEach(r=>{
+      lines.push('  '+r.o.m+' ('+tr(status[r.gesamt]||r.gesamt)+'), '+tr('Richtpreis')+' 2026 '+(r.o.rp?eur(r.o.rp):tr('auf Anfrage'))+', '+(r.ausl==null?tr('Kraft noch offen'):tr('Auslastung')+' '+fmt(r.ausl*100,0)+' %')+(r.plan?', '+tr('Planung')+' '+fmt(r.plan.aus,0)+' /min':''));
+      const openPoints=(r.openPoints||[]).filter(point=>point&&typeof point.detail==='string'&&point.detail.trim());
+      if(openPoints.length){lines.push('    '+tr('Noch zu klären')+':');openPoints.forEach(point=>lines.push('    '+tr(point.owner)+': '+tr(point.detail)));}
+    });
     return lines.join('\n');
   }
 
@@ -259,6 +278,7 @@
   };
   document.querySelectorAll('[data-bsp]').forEach(btn => btn.addEventListener('click', () => {
     f.reset(); a.elements.ok.checked = false;
+    f.elements.wirePreparation.value='as-supplied';
     const d = {...BSP[btn.dataset.bsp]};d.wst=variants.find(variant=>variant.material.id==='C4C'&&variant.curve.state==='soft-annealed')?.value||'';
     f.elements.iTyp.value=d.iTyp||'none';antriebAuswahl();
     for (const [k, v] of Object.entries(d)) {

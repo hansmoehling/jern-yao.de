@@ -1,0 +1,134 @@
+{
+  "Klärung nötig": [
+    "Da chiarire",
+    "Potrebna pojasnitev",
+    "Clarification needed",
+    "需要明确"
+  ],
+  "Noch zu klären": [
+    "Punti da chiarire",
+    "Odprta vprašanja",
+    "Points to clarify",
+    "待明确事项"
+  ],
+  "Kunde / Drahtlieferant": [
+    "Cliente / fornitore del filo",
+    "Kupec / dobavitelj žice",
+    "Customer / wire supplier",
+    "客户 / 线材供应商"
+  ],
+  "Kunde": [
+    "Cliente",
+    "Kupec",
+    "Customer",
+    "客户"
+  ],
+  "Unsere Auslegung": [
+    "Nostra progettazione del processo",
+    "Naše načrtovanje procesa",
+    "Our process engineering",
+    "我们的工艺设计"
+  ],
+  "Anzahl der Maschinenstationen bestätigen.": [
+    "Confermare il numero di stazioni della macchina.",
+    "Potrditi število postaj stroja.",
+    "Confirm the number of machine stations.",
+    "确认机器工位数。"
+  ],
+  "Maximalen Abschnittdurchmesser der Maschine bestätigen.": [
+    "Confermare il diametro massimo di taglio della macchina.",
+    "Potrditi največji premer odrezka za stroj.",
+    "Confirm the machine's maximum cut-off diameter.",
+    "确认机器允许的最大切断直径。"
+  ],
+  "Drahtzugfestigkeit Rm im Lieferzustand aus dem Drahtzeugnis ergänzen.": [
+    "Integrare la resistenza a trazione Rm del filo nello stato di fornitura dal certificato.",
+    "Dopolniti natezno trdnost Rm žice v dobavnem stanju iz certifikata.",
+    "Provide wire tensile strength Rm in the delivery condition from the wire certificate.",
+    "根据线材质保书补充交货状态下的抗拉强度 Rm。"
+  ],
+  "Volumen des Innenantriebs aus CAD oder verwertbare Teilemasse ergänzen, damit die Abschnittlänge berechnet werden kann.": [
+    "Integrare il volume dell'impronta da CAD o una massa del pezzo utilizzabile per calcolare la lunghezza dello spezzone.",
+    "Dopolniti prostornino notranjega utora iz CAD ali uporabno maso izdelka za izračun dolžine odrezka.",
+    "Provide the recess volume from CAD or a usable part mass so the blank length can be calculated.",
+    "补充 CAD 中内驱动凹槽的体积或可用于计算的零件质量，以计算坯料长度。"
+  ],
+  "Zulässigen Abschnittlängenbereich der Maschine bestätigen.": [
+    "Confermare il campo ammesso delle lunghezze di taglio della macchina.",
+    "Potrditi dovoljeno območje dolžine odrezka za stroj.",
+    "Confirm the machine's permissible cut-off length range.",
+    "确认机器允许的切断长度范围。"
+  ],
+  "Verfügbaren matrizenseitigen Auswerferweg (KO) bestätigen.": [
+    "Confermare la corsa disponibile dell'espulsore lato matrice (KO).",
+    "Potrditi razpoložljivi hod izmetalnika na strani matrice (KO).",
+    "Confirm the available die-side knockout stroke (KO).",
+    "确认凹模侧可用顶出行程（KO）。"
+  ],
+  "Verfügbaren stempelseitigen Auswerferweg (PKO) bestätigen.": [
+    "Confermare la corsa disponibile dell'espulsore lato punzone (PKO).",
+    "Potrditi razpoložljivi hod izmetalnika na strani pestiča (PKO).",
+    "Confirm the available punch-side knockout stroke (PKO).",
+    "确认冲头侧可用顶出行程（PKO）。"
+  ],
+  "Zulässige Teillänge beim Wenden um 180° bestätigen.": [
+    "Confermare la lunghezza ammessa del pezzo per il ribaltamento a 180°.",
+    "Potrditi dovoljeno dolžino izdelka pri obračanju za 180°.",
+    "Confirm the permissible part length for 180° turning.",
+    "确认翻转 180° 时允许的零件长度。"
+  ],
+  "Zulässigen Mutterngrößenbereich der Maschine bestätigen.": [
+    "Confermare il campo ammesso delle dimensioni dei dadi della macchina.",
+    "Potrditi dovoljeno območje velikosti matic za stroj.",
+    "Confirm the machine's permissible nut size range.",
+    "确认机器允许加工的螺母规格范围。"
+  ],
+  "Nennpresskraft der Maschine bestätigen.": [
+    "Confermare la forza nominale della pressa.",
+    "Potrditi nazivno stiskalno silo stroja.",
+    "Confirm the machine's rated pressing force.",
+    "确认机器的公称压力。"
+  ],
+  "Lieferzustand des Drahts einschließlich letzter Glühung und anschließendem Ziehen bestätigen.": [
+    "Confermare lo stato di fornitura del filo, inclusa l'ultima ricottura e la successiva trafilatura.",
+    "Potrditi dobavno stanje žice, vključno z zadnjim žarjenjem in poznejšim vlečenjem.",
+    "Confirm the wire delivery condition, including the last anneal and subsequent drawing.",
+    "确认线材交货状态，包括最后一次退火及后续拉拔。"
+  ],
+  "Passende Fließkurve für Werkstoff und Lieferzustand beschaffen und zuordnen.": [
+    "Reperire e assegnare una curva di flusso adatta al materiale e allo stato di fornitura.",
+    "Pridobiti in določiti ustrezno krivuljo tečenja za material in dobavno stanje.",
+    "Obtain and assign a flow curve matching the material and delivery condition.",
+    "获取并匹配适合该材料及交货状态的流动应力曲线。"
+  ],
+  "Fließkurve für den erforderlichen Umformgrad erweitern oder das Stadienkonzept überarbeiten.": [
+    "Estendere la curva di flusso alla deformazione richiesta o rivedere la sequenza di formatura.",
+    "Razširiti krivuljo tečenja na zahtevano stopnjo deformacije ali preučiti zaporedje operacij.",
+    "Extend the flow curve to the required strain or revise the forming sequence.",
+    "补充所需应变范围内的流动应力曲线，或调整成形工序方案。"
+  ],
+  "Fließkurve für die vorgegebene Umformtemperatur zuordnen.": [
+    "Assegnare una curva di flusso per la temperatura di formatura specificata.",
+    "Določiti krivuljo tečenja za podano temperaturo preoblikovanja.",
+    "Assign a flow curve for the specified forming temperature.",
+    "匹配指定成形温度下的流动应力曲线。"
+  ],
+  "Volumen des Innenantriebs aus CAD ergänzen, damit die Umformkräfte berechnet werden können.": [
+    "Integrare il volume dell'impronta da CAD per calcolare le forze di formatura.",
+    "Dopolniti prostornino notranjega utora iz CAD za izračun sil preoblikovanja.",
+    "Provide the recess volume from CAD so forming forces can be calculated.",
+    "补充 CAD 中内驱动凹槽的体积，以计算成形力。"
+  ],
+  "Profilabhängige Umformkraft des Innenantriebs aus Kontur und Stempelkonzept bestimmen.": [
+    "Determinare la forza di formatura dell'impronta in base al profilo e al progetto del punzone.",
+    "Določiti silo oblikovanja notranjega utora na podlagi profila in zasnove pestiča.",
+    "Determine the profile-dependent recess forming force from the contour and punch design.",
+    "根据轮廓及冲头方案确定内驱动凹槽的成形力。"
+  ],
+  "Offene Stationskräfte aus dem Stadien- und Werkzeugkonzept bestimmen.": [
+    "Determinare le forze mancanti delle stazioni in base alla sequenza e al progetto degli utensili.",
+    "Določiti še neznane sile postaj na podlagi zaporedja operacij in zasnove orodja.",
+    "Determine unresolved station forces from the forming sequence and tooling concept.",
+    "根据工序及模具方案确定尚未明确的工位载荷。"
+  ]
+}

@@ -85,7 +85,8 @@
   td{ border-bottom:1px solid var(--hair); padding:6px 8px; vertical-align:top; }
   td.z{ text-align:right; white-space:nowrap; }
   td.z small{ color:var(--mid); font-size:11.5px; }
-  .hinweise{ margin:10px 0 0; padding-left:18px; font-size:13.5px; color:var(--knapp); }
+  .machine-open-points{ margin:14px 0; font-size:13.5px; }
+  .machine-open-points ul{ margin:6px 0 0; padding-left:18px; }
   .karte{ border:1px solid var(--hair); border-radius:8px; padding:14px 16px; margin-bottom:12px; }
   .karte.beste{ border-color:var(--navy-soft); box-shadow:0 0 0 1px var(--navy-soft) inset; }
   .kopfzeile{ display:flex; justify-content:space-between; gap:12px; align-items:baseline; flex-wrap:wrap; }
@@ -168,8 +169,12 @@
           <label class="feld voll"><span>Draht / Lieferzustand</span><select name="wst"></select></label>
           <p class="klein voll">Die Auswahl enthält Drähte mit belegtem Fließkurvenansatz. Weitere Werkstoffe oder Lieferzustände bitte über die Zeichnungsanfrage einreichen.</p>
           <a class="klein voll" data-language-link href="/">Anderen Werkstoff anfragen</a>
-          <label class="feld voll"><span>Drahtzugfestigkeit R<sub>m</sub> in N/mm² (optional)</span><input type="text" inputmode="decimal" name="rm"></label>
-          <label class="feld voll"><span><b>Draht-Ø d₀</b> in mm</span><input type="text" inputmode="decimal" name="d0" placeholder="z. B. 7,6"></label>
+          <label class="feld voll"><span>Drahtzugfestigkeit Rm an der Presse in N/mm² (optional)</span><input type="text" inputmode="decimal" name="rm"></label>
+          <label class="feld voll"><span>Vormaterial / Vorzug</span><select name="wirePreparation"><option value="as-supplied" selected>Draht im gewählten Lieferzustand</option><option value="inline-drawing">Walzdraht mit Inline-Vorzug</option></select></label>
+          <p class="klein voll" id="inline-drawing-note" hidden>Der gewählte Lieferzustand gilt vor dem Vorzug. Inline-Vorzug umfasst keine Glühung.</p>
+          <p class="klein voll" id="wire-strength-note" hidden>Die Drahtzugfestigkeit Rm gilt bei Inline-Vorzug nach dem Ziehen, am Eingang der Presse.</p>
+          <label class="feld voll" id="rod-diameter-field" hidden><span><b>Walzdraht-Ø vor dem Vorzug</b> in mm</span><input type="text" inputmode="decimal" name="rodDiameter" disabled></label>
+          <label class="feld voll"><span><b>Draht-Ø an der Presse</b> in mm</span><input type="text" inputmode="decimal" name="d0" placeholder="z. B. 7,6"></label>
         </div>
 
         <div data-fuer="bolzen formteil">
@@ -265,7 +270,7 @@
       <div id="aus" hidden>
         <h2>Grobauslegung</h2><p class="klein" id="material-basis"></p>
         <dl class="kenn" id="kenn"></dl>
-        <ul class="hinweise" id="hinweise"></ul>
+        <p class="klein" id="inline-drawing-summary" hidden></p>
         <h3>Stadienfolge</h3>
         <table id="stufen"><thead><tr><th>Station</th><th>Vorgang</th><th style="text-align:right">Kraft</th><th style="text-align:right">Druck N/mm²</th><th style="text-align:right">Matrize Ø min</th></tr></thead><tbody></tbody></table>
         <div class="gruppe">

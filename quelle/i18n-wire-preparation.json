@@ -1,0 +1,33 @@
+{
+  "Vormaterial / Vorzug": ["Materiale iniziale / trafilatura in linea", "Vhodni material / predvlek", "Starting stock / inline drawing", "原材料 / 在线拉拔"],
+  "Draht im gewählten Lieferzustand": ["Filo nello stato di fornitura selezionato", "Žica v izbranem dobavnem stanju", "Wire in selected delivery condition", "所选交货状态的线材"],
+  "Walzdraht mit Inline-Vorzug": ["Vergella con trafilatura in linea", "Valjana žica s predvlekom v liniji", "Wire rod with inline drawing", "盘条加在线拉拔"],
+  "Walzdraht-Ø vor dem Vorzug": ["Diametro della vergella prima della trafilatura", "Ø valjane žice pred predvlekom", "Wire rod diameter before drawing", "拉拔前盘条直径"],
+  "Draht-Ø an der Presse": ["Diametro del filo alla pressa", "Ø žice na stiskalnici", "Wire diameter at the press", "进入压力机的线材直径"],
+  "Drahtzugfestigkeit Rm an der Presse": ["Resistenza a trazione Rm del filo alla pressa", "Natezna trdnost Rm žice na stiskalnici", "Wire tensile strength Rm at the press", "进入压力机的线材抗拉强度 Rm"],
+  "Drahtzugfestigkeit Rm an der Presse in N/mm² (optional)": ["Resistenza a trazione Rm del filo alla pressa in N/mm² (facoltativa)", "Natezna trdnost Rm žice na stiskalnici v N/mm² (neobvezno)", "Wire tensile strength Rm at the press in N/mm² (optional)", "进入压力机的线材抗拉强度 Rm，N/mm²（选填）"],
+  "Die Drahtzugfestigkeit Rm gilt bei Inline-Vorzug nach dem Ziehen, am Eingang der Presse.": [
+    "Con trafilatura in linea, la resistenza a trazione Rm del filo si riferisce allo stato dopo la trafilatura, all'ingresso della pressa.",
+    "Pri predvleku v liniji velja natezna trdnost Rm žice po vlečenju, na vhodu v stiskalnico.",
+    "With inline drawing, wire tensile strength Rm refers to the material after drawing, at the press inlet.",
+    "采用在线拉拔时，线材抗拉强度 Rm 指拉拔后、进入压力机时的状态。"
+  ],
+  "Inline-Vorzug: Ø {rod} → Ø {wire} mm; Querschnittsabnahme {reduction} %; Vorverformung φ = {strain}.": [
+    "Trafilatura in linea: Ø {rod} → Ø {wire} mm; riduzione della sezione {reduction} %; predeformazione φ = {strain}.",
+    "Predvlek v liniji: Ø {rod} → Ø {wire} mm; zmanjšanje preseka {reduction} %; preddeformacija φ = {strain}.",
+    "Inline drawing: Ø {rod} → Ø {wire} mm; area reduction {reduction} %; prestrain φ = {strain}.",
+    "在线拉拔：Ø {rod} → Ø {wire} mm；截面积减小率 {reduction} %；预应变 φ = {strain}。"
+  ],
+  "Vorverfestigung aus homogener Querschnittsabnahme; isotrope Fortsetzung der Ausgangskurve ohne Zwischen- oder Nachglühung. Zusätzliche Scherverformung und Zieherwärmung sind nicht modelliert.": [
+    "Incrudimento precedente dovuto alla riduzione omogenea della sezione; prosecuzione isotropa della curva iniziale senza ricottura intermedia o successiva. Ulteriori deformazioni di taglio e il riscaldamento da trafilatura non sono modellati.",
+    "Predhodno utrjevanje zaradi homogenega zmanjšanja preseka; izotropno nadaljevanje začetne krivulje brez vmesnega ali naknadnega žarjenja. Dodatna strižna deformacija in segrevanje pri vlečenju nista modelirana.",
+    "Prior work hardening from homogeneous area reduction; isotropic continuation of the starting curve without intermediate or subsequent annealing. Additional shear deformation and drawing heat are not modelled.",
+    "根据均匀截面积减小计算预加工硬化；初始曲线按各向同性硬化继续延伸，不包含中间或后续退火。未建模额外剪切变形和拉拔温升。"
+  ],
+  "Der gewählte Lieferzustand gilt vor dem Vorzug. Inline-Vorzug umfasst keine Glühung.": [
+    "Lo stato di fornitura selezionato si riferisce al materiale prima della trafilatura. La trafilatura in linea non comprende ricottura.",
+    "Izbrano dobavno stanje velja pred predvlekom. Predvlek v liniji ne vključuje žarjenja.",
+    "The selected delivery condition applies before drawing. Inline drawing does not include annealing.",
+    "所选交货状态指拉拔前的原材料状态。在线拉拔不包含退火。"
+  ]
+}

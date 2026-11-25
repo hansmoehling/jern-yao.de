@@ -246,12 +246,18 @@
     if (!proposal || typeof proposal !== 'object') return;
     const fieldLabels = { material: 'Werkstoff', materialState:'Lieferzustand', curveId:'Fließkurvenansatz', d0: 'Drahtdurchmesser', kD: 'Kopfdurchmesser', kSW: 'Kopfschlüsselweite', kH: 'Kopfhöhe', sD: 'Körperdurchmesser', sL: 'Körperlänge', iSW: 'Innenantrieb-Schlüsselweite', iT: 'Innenantriebstiefe', nD: 'Napfinnendurchmesser', nT: 'Napftiefe', mM: 'Gewinde-Nenndurchmesser', mSW: 'Mutternschlüsselweite', mH: 'Mutternhöhe', mLoch: 'Lochdurchmesser', mFlansch: 'Flanschdurchmesser', mFlanschH: 'Flanschhöhe', masse: 'Teilmasse', rm: 'Drahtzugfestigkeit', lStempel: 'Länge im Stempel', ko: 'Matrizenauswerferweg', pko: 'Stempelauswerferweg', matD: 'Matrizenaufnahme-Durchmesser', matL: 'Matrizenaufnahme-Länge', stD: 'Stempelaufnahme-Durchmesser', stL: 'Stempelaufnahme-Länge', stationen: 'Stationsvorgabe', zusatz: 'Zusatzstufen', ausbringung: 'Ausbringung' };
     const originLabels = { user_text: 'Ihre Beschreibung', drawing: 'Aus der Zeichnung gelesen', derived: 'Abgeleitet', assumption: 'Prozessannahme' };
+    Object.assign(fieldLabels,{wirePreparation:'Vormaterial / Vorzug',rodDiameter:'Walzdraht-Ø vor dem Vorzug',d0:'Draht-Ø an der Presse',rm:'Drahtzugfestigkeit Rm an der Presse'});
+    const inputValue=item=>{
+      if(item.field==='materialState')return tr(item.value==='gezogen (Literaturzustand)'?'gezogen':readable(item.value));
+      if(item.field==='wirePreparation')return tr({'as-supplied':'Draht im gewählten Lieferzustand','inline-drawing':'Walzdraht mit Inline-Vorzug'}[item.value]||readable(item.value));
+      return readable(item.value);
+    };
     const provenance = item => ({ assumption: !!item.assumption, origin: originLabels[item.origin] || '', reference: readable(item.reference) });
     const materialModel=proposal.calculation&&proposal.calculation.materialModel;
     if(materialModel){
       const curve=materialModel.selectedFlowCurve,status=proposal.calculation.materialStatus;
       const statuses={missing:'Kein belegter Fließkurvenansatz für diesen Werkstoff','state-missing':'Lieferzustand des Drahts fehlt','state-mismatch':'Lieferzustand passt nicht zur ausgewählten Fließkurve','selection-missing':'Belegten Fließkurvenansatz und Lieferzustand auswählen','temperature-mismatch':'Temperatur passt nicht zum Quellenbereich der Fließkurve','strain-outside-range':'Umformgrad außerhalb des belegten Fließkurvenbereichs'};
-      let description=curve?tr(curve.approval==='proxy'?'begründete Ersatzkurve':'Literaturansatz')+' · '+tr(curve.state==='soft-annealed'?'weichgeglüht':curve.state==='cold-drawn'?'gezogen (Literaturzustand)':curve.state)+' · '+readable(curve.id):tr('Fließkurve des Lieferzustands fehlt');
+      let description=curve?tr(curve.approval==='proxy'?'begründete Ersatzkurve':'Literaturansatz')+' · '+tr(curve.state==='soft-annealed'?'weichgeglüht':curve.state==='cold-drawn'?'gezogen':curve.stateLabel||curve.state)+' · '+readable(curve.id):tr('Fließkurve des Lieferzustands fehlt');
       if(curve&&status?.flow!=='ready')description+=' · '+tr(statuses[status?.flow]||'Kraft noch offen');
       const basis=element('p',tr('Werkstoffmodell:')+' '+description,'small');basis.dataset.originalText='';parent.appendChild(basis);
     }
@@ -259,13 +265,13 @@
     if (input.length) {
       parent.appendChild(element('h3', 'Aus Ihren Angaben'));
       const facts = element('dl', null, 'proposal-grid');
-      input.forEach(item => factRow(facts, fieldLabels[item.field] || readable(item.field), [item.field==='materialState'?tr(readable(item.value)):readable(item.value), item.unit === 'count' ? '' : readable(item.unit)].filter(Boolean).join(' '), provenance(item)));
+      input.forEach(item => factRow(facts, fieldLabels[item.field] || readable(item.field), [inputValue(item), item.unit === 'count' ? '' : readable(item.unit)].filter(Boolean).join(' '), provenance(item)));
       parent.appendChild(facts);
     }
     const wire = proposal.wireDiameter;
     if (wire && wire.value != null) {
       const facts = element('dl', null, 'proposal-grid');
-      factRow(facts, 'Vorgeschlagener Drahtdurchmesser', readable(wire.value) + ' ' + readable(wire.unit || 'mm'), provenance(wire));
+      factRow(facts, 'Draht-Ø an der Presse', readable(wire.value) + ' ' + readable(wire.unit || 'mm'), provenance(wire));
       parent.appendChild(facts);
     }
     if (Array.isArray(proposal.stages) && proposal.stages.length) {
@@ -286,8 +292,15 @@
       proposal.machines.forEach(machine => {
         const row = element('div');
         row.appendChild(element('dt', readable(machine.model)));
-        const statusLabels = { ok: 'Passend zur Vorauswahl', knapp: 'Einzelne Punkte vertiefen', offen: 'Angaben offen', nein: 'Grenze überschritten', suitable: 'Passend zur Vorauswahl' };
+        const statusLabels = { ok: 'Passend zur Vorauswahl', knapp: 'Einzelne Punkte vertiefen', offen: 'Klärung nötig', nein: 'Grenze überschritten', suitable: 'Passend zur Vorauswahl' };
         row.appendChild(element('dd', statusLabels[machine.status] || readable(machine.status)));
+        const openPoints=(machine.openPoints||[]).filter(point=>point&&typeof point.detail==='string'&&point.detail.trim());
+        if(openPoints.length){
+          const box=element('dd',null,'machine-open-points'),list=element('ul');
+          box.appendChild(element('strong','Noch zu klären'));
+          openPoints.forEach(point=>{const item=element('li');item.appendChild(element('strong',readable(point.owner)+': '));item.appendChild(element('span',point.detail));list.appendChild(item);});
+          box.appendChild(list);row.appendChild(box);
+        }
         const price = typeof machine.priceEUR==='number' && machine.priceEUR>0?number(machine.priceEUR, 'EUR'):'';
         if (price) row.appendChild(element('dd', 'Richtpreis ' + price, 'small'));
         if (Array.isArray(machine.priceRangeEUR) && machine.priceRangeEUR.length === 2) row.appendChild(element('dd', 'Preisspanne ' + machine.priceRangeEUR.map(value => number(value, 'EUR')).join(' – '), 'small'));
