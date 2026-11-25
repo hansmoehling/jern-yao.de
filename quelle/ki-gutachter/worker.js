@@ -283,7 +283,9 @@ async function queued(message, env) {
     const latest = await get(env, key);
     if (isAnalysis && ['ready', 'needs_info'].includes(latest?.status) || kind === 'intake_mail' && latest?.status === 'sent') { message.ack(); return; }
     const language = normalizeLanguage(record?.language);
-    await put(env, key, { status: final ? 'failed' : isAnalysis ? 'queued' : 'pending', updatedAt: new Date().toISOString(), ...(isAnalysis && final ? { result: { answer: t(record?.previewSource==='structured_geometry'?'Die strukturierte Geometrie konnte nicht vollständig ausgearbeitet werden. Ihre Eingaben bleiben gespeichert.':isPreview?'Die Zeichnung konnte nicht vollständig ausgewertet werden. Bitte prüfen Sie die Datei oder ergänzen Sie eine lesbare PDF-/Bildansicht.':'Die automatische Ausarbeitung konnte nicht abgeschlossen werden. Ihre Anfrage ist gespeichert.', language), questions: [], proposal: null, sources: [], language } } : {}) });
+    const technicalDrawingFailure=isPreview&&storedFeatures(record).featureVersion===DRAWING_DEFAULTS_VERSION&&error?.diagnostic?.classification!=='document_invalid';
+    const failureAnswer=technicalDrawingFailure?materialText('Die KI-Auswertung wurde technisch unterbrochen. Ihre Eingaben bleiben gespeichert. Bitte starten Sie die Auswertung erneut.',language):t(record?.previewSource==='structured_geometry'?'Die strukturierte Geometrie konnte nicht vollständig ausgearbeitet werden. Ihre Eingaben bleiben gespeichert.':isPreview?'Die Zeichnung konnte nicht vollständig ausgewertet werden. Bitte prüfen Sie die Datei oder ergänzen Sie eine lesbare PDF-/Bildansicht.':'Die automatische Ausarbeitung konnte nicht abgeschlossen werden. Ihre Anfrage ist gespeichert.',language);
+    await put(env, key, { status: final ? 'failed' : isAnalysis ? 'queued' : 'pending', updatedAt: new Date().toISOString(), ...(isAnalysis && final ? { result: { answer: failureAnswer, questions: [], proposal: null, sources: [], language } } : {}) });
     if(isPreview&&final){message.ack();return;}
     message.retry({ delaySeconds: 60 }); // Exhausted jobs reach the configured dead-letter queue.
   }

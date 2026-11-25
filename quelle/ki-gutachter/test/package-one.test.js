@@ -5,8 +5,8 @@ import machines from '../../maschinen.json' with {type:'json'};
 import praxis from '../../praxis.json' with {type:'json'};
 import translations from '../i18n-material-choice.json' with {type:'json'};
 import worker from '../worker.js';
-import {screen,analyse,publicResult} from '../analysis.js';
-import {DRAWING_DEFAULTS_VERSION,defaultMaterialChoice,validateMaterialChoice,resolveDrawingMaterial} from '../material-choice.js';
+import {screen,analyse,publicResult,loadKnowledge} from '../analysis.js';
+import {DRAWING_DEFAULTS_VERSION,defaultMaterialChoice,validateMaterialChoice,resolveDrawingMaterial,materialText} from '../material-choice.js';
 import {prepareDecision,recordDecision} from '../decision-log.js';
 import {coaxialDrawingTopology} from './topology-fixture.js';
 
@@ -225,4 +225,88 @@ test('only a new manual hyphen-site enquiry records a decision; replay, main ori
 
 test('all new visible material messages have the four required translations',()=>{
  for(const[key,values]of Object.entries(translations)){assert.ok(key);assert.equal(values.length,4);for(const value of values)assert.ok(typeof value==='string'&&value.trim());}
+});
+
+test('only gated drawing analysis receives the larger output budget and compact final-answer instruction',async t=>{
+ let round=0,expected=16000,signal;
+ mock(t,async(url,request)=>{
+  const body=JSON.parse(request.body);assert.equal(body.max_tokens,expected);
+  if(expected===16000){assert.match(body.system,/höchstens drei begründete Maschinenkandidaten/);assert.match(body.system,/Keine Katalog-Datenblöcke/);}else assert.ok(!body.system.includes('Abschlussumfang:'));
+  if(round++%2===0){signal=request.signal;return reply(tool('projektwissen'));}
+  assert.equal(request.signal,signal,'the same overall deadline applies to every round');return reply(final());
+ });
+ for(const [data,budget]of [[context,16000],[{file:drawing},6000],[{featureVersion:DRAWING_DEFAULTS_VERSION},6000]]){expected=budget;await analyse(data,environment(),{timeoutMs:240000,maxRounds:7});}
+});
+
+test('gated drawing analysis reserves the final minute for completion without changing legacy timing',async t=>{
+ const originalNow=Date.now;let now=originalNow(),round=0,gated=true,prefix;
+ Date.now=()=>now;t.after(()=>{Date.now=originalNow;});
+ mock(t,async(url,request)=>{
+  const body=JSON.parse(request.body);
+  if(round++===0){prefix={system:body.system,tools:body.tools};now+=190000;return reply(tool('projektwissen'));}
+  assert.equal(body.system,prefix.system);assert.deepEqual(body.tools,prefix.tools);
+  const contents=JSON.stringify(body.messages.at(-1));
+  assert.equal(contents.includes('Die verbleibende Laufzeit für die vollständige Schlussantwort nutzen'),gated);
+  return reply(final());
+ });
+ await analyse(context,environment(),{timeoutMs:240000,maxRounds:7});
+ gated=false;round=0;now=originalNow();await analyse({file:drawing},environment(),{timeoutMs:240000,maxRounds:7});
+});
+
+test('the larger drawing budget still rejects token-truncated JSON rather than accepting a partial result',async t=>{
+ let round=0;mock(t,async()=>round++===0?reply(tool('projektwissen')):Response.json({stop_reason:'max_tokens',content:[final()]}));
+ await assert.rejects(analyse(context,environment()),error=>error.message==='model_output_limit');
+});
+
+test('a technical interruption of gated drawing analysis gives a retry message in all five languages',async t=>{
+ mock(t,async(url,request)=>{assert.equal(JSON.parse(request.body).max_tokens,16000);return Response.json({stop_reason:'max_tokens',content:[final()]});});
+ const key='Die KI-Auswertung wurde technisch unterbrochen. Ihre Eingaben bleiben gespeichert. Bitte starten Sie die Auswertung erneut.';
+ for(const language of ['de','it','sl','en','zh']){
+  const env=environment(),receipt=await post(env,{language});
+  await worker.queue({messages:[{...queueMessage(receipt.id),attempts:2}]},env);
+  const response=await worker.fetch(new Request('https://worker.test/status?id='+receipt.id+'&token='+receipt.token,{headers:{Origin:'https://jern-yao.de'}}),env),result=await response.json();
+  assert.equal(result.status,'failed');assert.equal(result.language,language);assert.equal(result.answer,materialText(key,language));assert.equal(result.proposal,null);assert.deepEqual(result.questions,[]);
+  assert.ok(!/PDF|Bildansicht|readable|lesbar/.test(result.answer));assert.equal(stored(env,'diagnose:last:queue').code,'model_output_limit');
+ }
+});
+
+test('main-site and already stored legacy previews keep the original budget and failure text',async t=>{
+ mock(t,async(url,request)=>{assert.equal(JSON.parse(request.body).max_tokens,6000);return Response.json({stop_reason:'max_tokens',content:[final()]});});
+ for(const origin of ['https://jernyao.de','https://www.jernyao.de','https://jern-yao.de']){
+  const env=environment(),receipt=await post(env,{origin,featureVersion:DRAWING_DEFAULTS_VERSION});
+  if(origin==='https://jern-yao.de'){const record=stored(env,'anfrage:'+receipt.id);delete record.featureVersion;await env.SPEICHER.put('anfrage:'+receipt.id,JSON.stringify(record));}
+  await worker.queue({messages:[{...queueMessage(receipt.id),attempts:2}]},env);
+  assert.match(stored(env,'analyse:'+receipt.id).result.answer,/lesbare PDF-/);
+ }
+});
+
+function snapshot(env,key,sha,version,label){
+ const keys={regeln:'konzept:'+sha+':regeln',wissenskarten:'konzept:'+sha+':wissenskarten'};
+ env.SPEICHER.map.set(key,JSON.stringify({version,keys}));env.SPEICHER.map.set(keys.regeln,label+' Regeln');env.SPEICHER.map.set(keys.wissenskarten,label+' Fachkarten');return keys;
+}
+
+test('the stage knowledge manifest is opt-in, absent-stage fallback is compatible and incomplete stages fail closed',async()=>{
+ const env=environment(),option={stageManifest:'konzept:manifest:kvp-v1'};
+ snapshot(env,'konzept:manifest','aaaa','main-version','Main test');
+ assert.equal((await loadKnowledge(env,option)).version,'main-version');
+ const stage=snapshot(env,option.stageManifest,'bbbb','stage-version','Stage test');
+ assert.equal((await loadKnowledge(env)).version,'main-version');assert.equal((await loadKnowledge(env,option)).version,'stage-version');
+ env.SPEICHER.map.delete(stage.wissenskarten);await assert.rejects(loadKnowledge(env,option),/knowledge_snapshot_incomplete/);assert.equal((await loadKnowledge(env)).version,'main-version');
+ env.SPEICHER.map.set(option.stageManifest,'');await assert.rejects(loadKnowledge(env,option));
+ await assert.rejects(loadKnowledge(env,{stageManifest:'anfrage:other'}),/knowledge_manifest_invalid/);
+ const legacy=environment();assert.equal((await loadKnowledge(legacy,option)).version,'legacy-unversioned');
+});
+
+test('analysis selects stage knowledge only for the gated drawing feature and health ignores the stage manifest',async t=>{
+ const env=environment();snapshot(env,'konzept:manifest','aaaa','main-version','Main test');const keys=snapshot(env,'konzept:manifest:kvp-v1','bbbb','stage-version','Stage test');
+ let round=0,expected='stage-version';
+ mock(t,async(url,request)=>{
+  if(round++%2===0)return reply(tool('projektwissen'));
+  const body=JSON.parse(request.body),knowledge=JSON.parse(body.messages.at(-1).content[0].content);
+  assert.equal(knowledge.version,expected);assert.equal(knowledge.rules.startsWith(expected==='stage-version'?'Stage':'Main'),true);return reply(final());
+ });
+ for(const [data,version]of [[context,'stage-version'],[{file:drawing},'main-version'],[{featureVersion:DRAWING_DEFAULTS_VERSION},'main-version']]){expected=version;await analyse(data,env);}
+ env.SPEICHER.map.delete(keys.wissenskarten);
+ const health=await(await worker.fetch(new Request('https://worker.test/health'),env)).json();assert.equal(health.ready,true);assert.equal(health.knowledgeStatus,'versioned');
+ await assert.rejects(analyse(context,env),/knowledge_snapshot_incomplete/);
 });

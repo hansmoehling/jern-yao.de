@@ -31,3 +31,16 @@ test('six-step special part keeps its centre recess and opposite blind end disti
  assert.equal(baseline.value,6);assert.equal(baseline.origin,'assumption');
  assert.equal(result.numericEligibility.forces,false);assert.equal(result.numericEligibility.machines,false);
 });
+
+test('120-degree centre and flow-pin bottom preserve total blind depth and material volume',()=>{
+ const centreHeight=1/Math.tan(Math.PI/3),bottomHeight=1.5/Math.tan(Math.PI/3);
+ const recess={...centre,start:9-centreHeight,length:centreHeight,diameterEnd:2};
+ const bottom={...hollow,id:'flow-pin-bottom',shape:'cone',start:21,length:bottomHeight,diameter:0,diameterEnd:3};
+ const bore={...hollow,start:21+bottomHeight,length:5-bottomHeight};
+ const r=G.evaluate(spec([...outer,recess,bottom,bore]),{wireDiameterMm:6});
+ assert.equal(r.valid,true);assert.equal(r.volumeStatus,'exact');
+ const expected=1325.7520998148925-Math.PI*centreHeight/3-Math.PI*2.25*(5-bottomHeight+bottomHeight/3);
+ close(r.volumeMm3,expected);close(bore.start+bore.length,26);close(bottom.start,21);
+ assert(r.volumeMm3>1290.2782827681076,'the shaped blind bottom changes volume instead of becoming a flat-bottom hole');
+ assert.equal(r.numericEligibility.forces,false);
+});
