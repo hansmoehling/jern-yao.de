@@ -160,3 +160,12 @@ test('empty or absent subject preserves old request fingerprints and default mai
  await worker.queue({messages:[job('intake_mail',r.id)]},e);
  const p=await post(e,{betreff:'Do not send this'});assert.equal((await record(e,p.id)).subject,undefined);assert.equal((await post(e,{betreff:'Still not a mail'})).id,p.id);
 });
+
+test('a bounded preview loop with project knowledge ends as an honest follow-up, not a full-cost queue retry',async t=>{
+ const e=environment(),r=await post(e);let calls=0;
+ fetchMock(t,async()=>{calls++;return reply(tool('projektwissen'));});
+ const m=job('preview_analysis',r.id);await worker.queue({messages:[m]},e);
+ assert.equal(calls,7);assert.equal(m.acks,1);assert.equal(m.retries,0);
+ const s=await(await state(e,r)).json();assert.equal(s.status,'needs_info');assert.equal(s.proposal,null);assert.ok(s.questions.length);assert.equal(s.notificationStatus,'not_requested');
+ await worker.queue({messages:[job('preview_analysis',r.id,2)]},e);assert.equal(calls,7);
+});

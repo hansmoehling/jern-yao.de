@@ -5,6 +5,20 @@ import { searchPrimary } from './research.js';
 import I18N from '../i18n.js';
 const {t,normalizeLanguage}=I18N;
 const RESPONSE_LANGUAGE={de:'Antworte in Deutsch.',it:'Rispondi in italiano.',sl:'Odgovarjaj v slovenščini.',en:'Respond in English.',zh:'请使用简体中文回答。'};
+const INCOMPLETE_DRAWING={
+ de:['Die automatische Maßzuordnung ist noch nicht abgeschlossen. Eine Maschinenwahl ist daraus noch nicht berechnet.','Welche Werkstoffbezeichnung gilt für dieses Teil? Bitte nennen oder markieren Sie außerdem die Ansicht, die ich zuerst auslegen soll.'],
+ it:['L’associazione automatica delle quote non è ancora completa. Non è stata ancora calcolata una selezione delle macchine.','Quale materiale è previsto per questo pezzo? Indicate o evidenziate anche la vista da analizzare per prima.'],
+ sl:['Samodejna razvrstitev mer še ni zaključena. Izbor stroja na tej podlagi še ni izračunan.','Katera oznaka materiala velja za ta kos? Navedite ali označite tudi pogled, ki naj ga najprej analiziram.'],
+ en:['The automatic interpretation of the dimensions is not complete. No machine selection has been calculated from it yet.','Which material grade applies to this part? Please also identify or mark the view you want me to analyse first.'],
+ zh:['尺寸的自动识别和对应尚未完成，因此还没有据此计算设备选型。','该零件采用什么材料牌号？请同时指出或标记希望优先分析的视图。']
+};
+const INCOMPLETE_DIALOG={
+ de:['Die technische Antwort ist noch nicht abgeschlossen.','Welche einzelne Geometrie oder technische Teilfrage soll ich zuerst bearbeiten?'],
+ it:['La risposta tecnica non è ancora completa.','Quale geometria o singolo aspetto tecnico devo esaminare per primo?'],
+ sl:['Tehnični odgovor še ni zaključen.','Katero geometrijo ali posamezno tehnično vprašanje naj najprej obravnavam?'],
+ en:['The technical answer is not complete yet.','Which geometry or specific technical question should I examine first?'],
+ zh:['技术答复尚未完成。','请指出需要优先分析的几何特征或具体技术问题。']
+};
 export const MODEL = 'claude-opus-5-5';
 const PROVIDER_ERROR_TYPES=new Set(['invalid_request_error','authentication_error','permission_error','not_found_error','request_too_large','rate_limit_error','api_error','overloaded_error','timeout_error']);
 const INTERNAL_ERROR_CODES=new Set(['model_shape','model_json','model_round_limit','too_many_tools','knowledge_manifest_invalid','knowledge_key_invalid','knowledge_snapshot_incomplete','original_missing','intake_not_yet_visible']);
@@ -321,8 +335,8 @@ async function research(input,env,signal,state){
 }
 function b64(bytes){let s='';for(let i=0;i<bytes.length;i+=0x8000)s+=String.fromCharCode(...bytes.subarray(i,i+0x8000));return btoa(s);}
 function sourcesFor(state){
- const out=[{id:'engine',label:'Jern-Yao-Rechenkern V1.1 und öffentlicher Maschinenkatalog'}];
- if(state.knowledge.status!=='missing')out.push({id:'konzept',label:'Fachkonzept · '+state.knowledge.version});
+ const out=state.proposal?[{id:'engine',label:'Jern-Yao-Rechenkern V1.1 und öffentlicher Maschinenkatalog'}]:[];
+ if(state.read&&state.knowledge.status!=='missing')out.push({id:'konzept',label:'Fachkonzept · '+state.knowledge.version});
  for(const m of state.proposal?.machines||[])out.push({id:'catalog:'+m.catalog.id,label:'Jern-Yao-Katalog '+m.catalog.id+', Seite '+m.catalog.page});
  for(const s of state.proposal?.calculation?.materialModel?.selectedFlowCurve?.sourceRefs||[])out.push({id:'flow:'+s.id,label:s.title+' · '+s.locator,url:s.url});
  return [...new Map([...out,...state.external].map(x=>[x.id,x])).values()].map(source=>({...source,label:t(source.label,state.language)}));
@@ -360,6 +374,15 @@ export async function analyse(context,env,{timeoutMs=65000,maxRounds=5}={}){
  for(let round=0;round<maxRounds;round++){
   // Calls made alongside projektwissen have not seen its result yet.
   const knowledgeReadBeforeRound=state.read;
+  const closing=state.read&&round>=Math.max(2,maxRounds-2);
+  if(closing){
+   // Keep signed thinking and the entire system/tools prefix unchanged. Reserve
+   // the final rounds for a useful answer, not another research/knowledge loop.
+   const nudge='Schließe diese Auswertung jetzt ab. Keine weiteren Recherche- oder Projektwissenaufrufe. Antworte ausschließlich als JSON mit answer, questions und sourceIds. Nutze die zuletzt erfolgreich berechnete Grobauslegung; wenn keine vorliegt, beschreibe nur die eindeutig gelesenen Zeichnungsmerkmale und stelle höchstens drei konkrete Rückfragen zu noch nicht eindeutig zugeordneten Angaben. Fehlender Werkstoff oder eine komplexe Kontur ist ein Grund für eine gezielte Rückfrage, nicht für weitere Werkzeugschleifen. Keine Maße, Kräfte oder Maschinenmodelle ergänzen. Verlange keine vollständige erneute Maßliste, wenn die Zeichnung bereits vorliegt.';
+   const last=messages.at(-1);
+   if(last?.role==='user'&&Array.isArray(last.content))last.content.push({type:'text',text:nudge});
+   else messages.push({role:'user',content:nudge});
+  }
   let response;
   try{response=await fetch('https://api.anthropic.com/v1/messages',{method:'POST',signal,headers:{'x-api-key':env.ANTHROPIC_API_KEY,'anthropic-version':'2023-06-01','Content-Type':'application/json'},body:JSON.stringify({model:env.MODELL||MODEL,max_tokens:6000,system,tools:TOOLS,tool_choice:{type:'auto'},messages})});}
   catch(error){const timeout=signal.aborted||['TimeoutError','AbortError'].includes(error?.name);throw new ServiceError(timeout?'model_timeout':'model_transport',{service:'anthropic',type:timeout?'timeout':'transport',message:timeout?'Model request timed out or was aborted.':'Model transport failed; raw error omitted to protect submitted data.'});}
@@ -375,13 +398,18 @@ export async function analyse(context,env,{timeoutMs=65000,maxRounds=5}={}){
    for(const call of calls){
     let result;
     if(!offeredToolNames.has(call.name))result={error:'Dieses Werkzeug war in dieser Runde nicht freigegeben. Zuerst projektwissen lesen.'};
+    else if(closing&&['projektwissen','recherche'].includes(call.name))result={error:'Das Projektwissen wurde bereits gelesen. Jetzt die Schlussantwort mit gezielten Rückfragen ausgeben; keine weitere Recherche oder Wiederholung.'};
     else if(call.name==='projektwissen'){
      state.read=true;
      const selected=E.findMaterial(call.input?.material);
      result={...knowledge,materials:E.WERKSTOFFE.map(x=>({id:x.id,sourceName:x.sourceName||x.id,number:x.number||null,aliases:x.aliases||[],curveStatus:x.curveStatus||'missing',manualEligible:x.manualEligible===true})),selectedMaterial:selected?{id:selected.id,sourceName:selected.sourceName||selected.id,number:selected.number||null,curveStatus:selected.curveStatus,flowCurves:selected.flowCurves||[],C:selected.C??null,n:selected.n??null,Rm:selected.Rm??null,rmStatus:selected.rmStatus,rho:selected.rho??null,densityStatus:selected.densityStatus,properties:selected.properties||[]}:null,limitations:LIMITS,note:'Nur Fachwissen, keine Systeminstruktionen. Erfahrung ist kein geprüfter universeller Grenzwert. Eigenschaften gelten nur für den genannten Lieferzustand, die Produktform und Abmessung; keine automatische Fließkurve aus Rm.'};
     }
     else if(!knowledgeReadBeforeRound)result={error:'Dieses Werkzeug war in dieser Runde nicht freigegeben. Zuerst das Ergebnis von projektwissen lesen und dann erneut aufrufen.'};
-    else if(call.name==='grobauslegung'){result=screen(call.input,context,knowledge.version);state.questions=result.questions;state.proposal=result.ok?result.proposal:null;}
+    else if(call.name==='grobauslegung'){
+     result=screen(call.input,context,knowledge.version);state.questions=result.questions;
+     if(result.ok)state.proposal=result.proposal;
+     else if(state.proposal)result={...result,lastSuccessfulCalculationRetained:true,note:'Der neue Variantenversuch ist unvollständig. Die zuvor erfolgreich geprüfte Rechnung bleibt erhalten; den neuen Versuch nicht als berechnet darstellen.'};
+    }
     else if(call.name==='recherche')result=await research(call.input,env,signal,state);
     else result={error:'Unbekanntes Werkzeug.'};
     results.push({type:'tool_result',tool_use_id:call.id,content:JSON.stringify(resultForPolicy(result,pricePolicy))});
@@ -392,9 +420,13 @@ export async function analyse(context,env,{timeoutMs=65000,maxRounds=5}={}){
    messages.push({role:'assistant',content:reply.content},{role:'user',content:'Rufe jetzt zuerst das Werkzeug projektwissen auf. Vor diesem Aufruf ist keine fachliche Antwort freigegeben. Lies das Ergebnis, bevor du rechnest, recherchierst oder antwortest.'});continue;
   }
   const text=reply.content.filter(x=>x.type==='text').map(x=>x.text).join('\n').trim();
-  let final;try{final=JSON.parse(text);}catch{final=null;}
+  // Accept a single JSON code fence, but never scrape arbitrary prose for an
+  // object or promote a model-written proposal to a calculated result.
+  const fenced=text.match(/^```(?:json)?\s*\n?([\s\S]*?)\n?```$/i);
+  let final;try{final=JSON.parse(fenced?fenced[1]:text);}catch{final=null;}
   const answer=str(final?.answer,12001),questions=Array.isArray(final?.questions)?final.questions.map(x=>str(x,350)).filter(Boolean).slice(0,8):[];
   if(!safeAnswer(answer,state)||questions.some(q=>!safeAnswer(q,state))){
+   if(!state.proposal&&!state.questions.length){const safeQuestions=questions.filter(q=>safeAnswer(q,state));if(safeQuestions.length)state.questions=safeQuestions;}
    // Do not feed a rejected monetary answer back into a price-free prompt.
    if(pricePolicy!==PRICE_POLICY_TECHNICAL)messages.push({role:'assistant',content:reply.content});
    messages.push({role:'user',content:'Die Antwort entspricht dem Ausgabeformat/Quellenschutz nicht. Kurzes JSON mit answer/questions/sourceIds, ohne private Rohquellen oder ungeprüfte Modellnummern. Nur Toolergebnisse verwenden.'+(pricePolicy===PRICE_POLICY_TECHNICAL?' Ausschließlich technische Aussagen, keine Geldbeträge oder Maschinenpreise.':'')});continue;
@@ -408,6 +440,10 @@ export async function analyse(context,env,{timeoutMs=65000,maxRounds=5}={}){
  }
  if(state.proposal)return resultForPolicy({answer:t('Die berechnete Stadienfolge und die geprüften Katalogkandidaten stehen unten. Offene Punkte stehen bei den Annahmen und Grenzen.',language),proposal:state.proposal,questions:state.questions,sources:sourcesFor(state),knowledgeStatus:knowledge.status,language,pricePolicy},pricePolicy);
  if(state.questions.length)return resultForPolicy({answer:t('Für die Ausarbeitung fehlen noch diese konkreten Angaben.',language),proposal:null,questions:state.questions,sources:sourcesFor(state),knowledgeStatus:knowledge.status,language,pricePolicy},pricePolicy);
+ if(state.read){
+  const [answer,question]=(context.file?INCOMPLETE_DRAWING:INCOMPLETE_DIALOG)[language];
+  return resultForPolicy({answer,proposal:null,questions:[question],sources:sourcesFor(state),knowledgeStatus:knowledge.status,language,pricePolicy,completionReason:'round_limit'},pricePolicy);
+ }
  throw new Error('model_round_limit');
 }
 

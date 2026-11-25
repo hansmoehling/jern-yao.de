@@ -6,6 +6,8 @@ Claude Opus 5.5 liest zuerst das freigegebene Projektwissen und kann dann mehrma
 
 Die Modellrunden verwenden `tool_choice: {type: "auto"}`. Systemtext und Werkzeugdefinitionen bleiben während einer Ausarbeitung unverändert; zurückgegebene Thinking-Blöcke bleiben erhalten. Der Server erlaubt Rechnung und Recherche erst in einer späteren Runde, nachdem `projektwissen` gelesen wurde. Ein gleichzeitig mit dem Wissensaufruf gesendeter Rechenaufruf wird noch nicht ausgeführt. Vorzeitige Schlussantworten erhalten die gezielte Anforderung, zuerst das Projektwissen zu lesen.
 
+Die letzten zwei Runden bilden eine Schlussphase: keine wiederholte Wissensabfrage oder weitere Recherche, sondern ein Ergebnis mit gezielten Rückfragen. Eine zuvor gültige Engine-Rechnung bleibt bei einer später unvollständigen Variante erhalten und wird als solche ausgewiesen. Ist nach gelesenem Projektwissen noch keine verwertbare Maßzuordnung vorhanden, endet der Auftrag mit einer offen benannten Rückfrage und ohne erfundene Maße oder Maschinen. Fehlendes Projektwissen und Anbieterfehler bleiben Fehlerfälle.
+
 ## API für das Frontend
 
 - POST /preview: multipart mit datei (PDF/PNG/JPEG/WebP), optional notiz, language und pricePolicy sowie erforderlichem idempotency_key. Antwort HTTP 202 mit {id, token, kind:"preview", status:"queued", notificationStatus:"not_requested"}. Kein Mailauftrag und keine Kontaktdaten. Gleiche Kennung mit unverändertem Inhalt liefert gespeicherten Auftrag/Ergebnis, Änderungen zur gleichen Kennung HTTP 409.

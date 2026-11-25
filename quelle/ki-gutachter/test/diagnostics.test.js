@@ -31,9 +31,9 @@ test('known provider failures distinguish model, schema, token, credit and acces
  for(const [message,classification]of fixtures){const e=env();const error=await providerFailure(Response.json({error:{type:'invalid_request_error',message}},{status:400,headers:{'request-id':'https://private.test/?token=SECRET'}}));await recordServiceDiagnostic(e,error,'chat');assert.equal(event(e).classification,classification);assert.equal(event(e).vendorRequestID,null);}
 });
 
-test('chat transport, timeout and exhausted rounds receive distinct private codes',async t=>{
- const e=env();let mode='transport',round=0;
- fetchMock(t,async()=>{if(mode==='transport')throw new TypeError('network failure with sk-ant-secret and buyer@example.test');if(mode==='timeout')throw new DOMException('private timeout text','TimeoutError');return Response.json({content:round++===0?[{type:'tool_use',name:'projektwissen',id:'knowledge',input:{}}]:[]});});
+test('chat transport, timeout and refusal to read knowledge receive distinct private codes',async t=>{
+ const e=env();let mode='transport';
+ fetchMock(t,async()=>{if(mode==='transport')throw new TypeError('network failure with sk-ant-secret and buyer@example.test');if(mode==='timeout')throw new DOMException('private timeout text','TimeoutError');return Response.json({content:[]});});
  for(const [value,code]of [['transport','model_transport'],['timeout','model_timeout'],['rounds','model_round_limit']]){mode=value;const response=await worker.fetch(chat({message:'Neutral test'}),e);assert.equal(response.status,503);assert.equal(event(e).code,code);assert.ok(!JSON.stringify(event(e)).includes('buyer@'));}
 });
 
