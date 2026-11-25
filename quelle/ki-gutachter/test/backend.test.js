@@ -190,6 +190,34 @@ test('post-drawing anneal, spheroidizing and normalizing cannot reuse the drawn 
  }
 });
 
+test('explicitly negated annealing preserves a sourced drawn state without erasing contradictory treatments',()=>{
+ const i=input();i.material='AISI 1010';i.materialEvidence={origin:'user_text',quote:'AISI 1010'};
+ i.curveId=Engine.findMaterial('AISI 1010').flowCurves[0].id;i.materialState='cold-drawn';
+ const c={note:context.note.replace('C15C','AISI 1010')};
+ const positive=['gezogen, nicht nachgeglüht','gezogen, nicht geglüht','gezogen, nicht weichgeglüht','cold-drawn, not annealed after drawing','cold-drawn, not re-annealed','drawn, unannealed','trafilato, non ricotto','vlečen, ni naknadno žarjen','冷拉，未经退火'];
+ for(const quote of positive){
+  for(const origin of ['user_text','drawing']){
+   i.materialStateEvidence={origin,quote,page:1};
+   const r=screen(i,origin==='user_text'?{note:c.note+' '+quote}:{...c,file:{type:'application/pdf',bytes:new Uint8Array()}});
+   assert.equal(r.proposal.calculation.materialStatus.flow,'ready',quote);
+   assert.ok(Math.abs(r.proposal.calculation.values.Fmax_t-15.647838583338958)<1e-9,quote);
+   assert.equal(r.proposal.input.find(item=>item.field==='materialState').quote,quote,'evidence remains literal');
+  }
+ }
+ // Neither negation alone nor a forged quote supplies the missing drawn state.
+ for(const quote of ['nicht nachgeglüht','not annealed after manufacture','unannealed']){
+  i.materialStateEvidence={origin:'user_text',quote};assert.equal(screen(i,{note:c.note+' '+quote}).proposal.calculation.values.Fmax_t,null,quote);
+ }
+ i.materialStateEvidence={origin:'user_text',quote:positive[0]};assert.equal(screen(i,c).proposal.calculation.values.Fmax_t,null);
+ const negative=['gezogen, danach nachgeglüht','cold-drawn, annealed after drawing','gezogen, nicht nachgeglüht, später weichgeglüht','drawn, unannealed initially, then annealed','drawn, not annealed after drawing, then normalized','gezogen, nicht nur nachgeglüht','drawn, not only annealed','drawn, not unannealed','drawn, not not annealed','gezogen, keineswegs nicht geglüht','nicht gezogen, nicht nachgeglüht','not cold-drawn, unannealed'];
+ for(const quote of negative){
+  i.materialStateEvidence={origin:'user_text',quote};assert.equal(screen(i,{note:c.note+' '+quote}).proposal.calculation.values.Fmax_t,null,quote);
+ }
+ i.materialStateEvidence={origin:'assumption',quote:'Gezogenes Ausgangsmaterial verwenden.'};
+ assert.ok(screen(i,{note:c.note+' '+positive[0]}).proposal.calculation.values.Fmax_t>0);
+ assert.equal(screen(i,{note:c.note+' gezogen, danach nachgeglüht'}).proposal.calculation.values.Fmax_t,null);
+});
+
 test('exact grade identity or material number resolves; a shorter unverified grade is not substituted',()=>{
  const i=input();i.material='1.1172';i.materialEvidence={origin:'user_text',quote:'1.1172',reference:'material number'};
  const result=screen(i,{note:context.note.replace('C15C','1.1172')});
