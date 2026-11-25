@@ -418,7 +418,7 @@ export function publicResult(result,{pricePolicy}={}){
  const answer=typeof safe?.answer==='string'?safe.answer:result?.answer&&policy===PRICE_POLICY_TECHNICAL?PRICE_RESPONSE[language]:'';
  return {answer,proposal:safe?.proposal||null,questions:Array.isArray(safe?.questions)?safe.questions:[],sources:Array.isArray(safe?.sources)?safe.sources:[],language,pricePolicy:policy,...(safe?.geometry?{geometry:safe.geometry}:{})};
 }
-export async function analyse(context,env,{timeoutMs=65000,maxRounds=5}={}){
+export async function analyse(context,env,{timeoutMs=120000,maxRounds=5}={}){
  const language=normalizeLanguage(context.language);
  const pricePolicy=context.pricePolicy===PRICE_POLICY_TECHNICAL?PRICE_POLICY_TECHNICAL:PRICE_POLICY_FULL;
  context={...context,language,pricePolicy};

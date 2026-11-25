@@ -234,7 +234,7 @@
 
   async function api(path, options) {
     const controller = new AbortController();
-    const timer = window.setTimeout(() => controller.abort(), 90000);
+    const timer = window.setTimeout(() => controller.abort(), 150000);
     try {
       const response = await fetch(apiBase + path + (path.includes('?')?'&':'?') + 'language=' + encodeURIComponent(L.language), Object.assign({}, options, { signal: controller.signal, credentials: 'omit', cache: 'no-store' }));
       let data;

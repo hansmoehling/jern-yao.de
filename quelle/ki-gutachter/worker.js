@@ -216,7 +216,7 @@ async function chat(req, env, cors, locale) {
   await throttle(req, env, 'chat', 40);
   const file = request?.file?.readable ? await readFile(env, request.file) : null;
   let result;
-  try { result = await analyse({ note: request?.note || '', message, history, file, filename: request?.file?.name, unreadableFile: !!request?.file && !request.file.readable, geometrySpec:request?.geometrySpec,geometryProcess:request?.geometryProcess, language: locale.value,pricePolicy }, env, { timeoutMs: 65000, maxRounds: 5 }); }
+  try { result = await analyse({ note: request?.note || '', message, history, file, filename: request?.file?.name, unreadableFile: !!request?.file && !request.file.readable, geometrySpec:request?.geometrySpec,geometryProcess:request?.geometryProcess, language: locale.value,pricePolicy }, env, { timeoutMs: 120000, maxRounds: 5 }); }
   catch (error) { await recordServiceDiagnostic(env, error, 'chat'); throw new HttpError(503, 'Die Antwort konnte gerade nicht fertiggestellt werden. Ihre bisherige Anfrage bleibt erhalten. Bitte versuchen Sie es erneut.'); }
   if (request) {
     await put(env, 'chat:' + request.id, [...history, { role: 'user', content: message }, { role: 'assistant', content: result.answer }].slice(-20));
