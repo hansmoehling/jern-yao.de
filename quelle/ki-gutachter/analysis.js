@@ -5,7 +5,7 @@ import { searchPrimary } from './research.js';
 import I18N from '../i18n.js';
 import { geometryContext } from './geometry-context.js';
 import {catalogModel,modelMentions,qualitativeCatalog,qualitativeMachineCards,withQualitativeMachines} from './qualitative-machines.js';
-import {drawingDefaultsEnabled,resolveDrawingMaterial,defaultMaterialChoice,materialText,MATERIAL_QUESTION} from './material-choice.js';
+import {drawingDefaultsEnabled,resolveDrawingMaterial,defaultMaterialChoice,materialText,MATERIAL_QUESTION,asksMaterialAndState} from './material-choice.js';
 const {t,normalizeLanguage}=I18N;
 const RESPONSE_LANGUAGE={de:'Antworte in Deutsch.',it:'Rispondi in italiano.',sl:'Odgovarjaj v slovenščini.',en:'Respond in English.',zh:'请使用简体中文回答。'};
 const INCOMPLETE_DRAWING={
@@ -473,7 +473,10 @@ export async function analyse(context,env,{timeoutMs=120000,maxRounds=5}={}){
  const finish=result=>{
   const material=state.materialContext;
   if(material){
-   result={...result,materialContext:material,questions:[...new Set([...(material.conflict?[material.conflict]:[]),...(material.assumption?[materialText(MATERIAL_QUESTION,language)]:[]),...(result.questions||[])])].slice(0,3)};
+   const confirmation=materialText(MATERIAL_QUESTION,language);
+   const questions=material.assumption?(result.questions||[]).filter(question=>question!==confirmation):(result.questions||[]);
+   const needsConfirmation=material.assumption&&!questions.some(question=>asksMaterialAndState(question,language));
+   result={...result,materialContext:material,questions:[...new Set([...(material.conflict?[material.conflict]:[]),...(needsConfirmation?[confirmation]:[]),...questions])].slice(0,3)};
    if(material.assumption&&!result.answer.includes(material.notice))result.answer=material.notice+'\n\n'+result.answer;
    if(result.proposal){
     result.proposal={...result.proposal,materialContext:material,input:[...(result.proposal.input||[])],assumptions:[...(result.proposal.assumptions||[])]};

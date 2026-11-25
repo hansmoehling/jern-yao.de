@@ -6,7 +6,7 @@ import praxis from '../../praxis.json' with {type:'json'};
 import translations from '../i18n-material-choice.json' with {type:'json'};
 import worker from '../worker.js';
 import {screen,analyse,publicResult,loadKnowledge} from '../analysis.js';
-import {DRAWING_DEFAULTS_VERSION,defaultMaterialChoice,validateMaterialChoice,resolveDrawingMaterial,materialText} from '../material-choice.js';
+import {DRAWING_DEFAULTS_VERSION,defaultMaterialChoice,validateMaterialChoice,resolveDrawingMaterial,materialText,MATERIAL_QUESTION} from '../material-choice.js';
 import {prepareDecision,recordDecision} from '../decision-log.js';
 import {coaxialDrawingTopology} from './topology-fixture.js';
 
@@ -159,6 +159,26 @@ test('first qualitative answer has real candidates and a visible material assump
   assert.equal(result.proposal.input[0].origin,'assumption');assert.ok(result.answer.includes(result.materialContext.notice));assert.ok(result.sources.some(source=>source.id==='material:assumption'&&source.assumption));assert.ok(!result.sources.some(source=>source.id==='engine'));
   if(language!=='de')assert.ok(!result.materialContext.notice.startsWith('Werkstoffannahme'));
   const restricted=publicResult(result,{pricePolicy:'technical-only'});assert.equal(restricted.materialContext.origin,'assumption');assert.ok(!('priceEUR' in restricted.proposal.machines[0]));
+ }
+});
+
+test('assumption confirmation is asked once while individual state and tolerance questions survive in five languages',async t=>{
+ const cases={
+  de:['Welchen Werkstoff und welchen Lieferzustand soll der Draht haben? Ich rechne vorläufig mit C4C weichgeglüht.','Wird der Draht nach dem Glühen nochmals kaltgezogen?','Welche Toleranz gilt für die Bohrung Ø3 mm?'],
+  it:['Quale materiale e quale stato di fornitura deve avere il filo? Per ora considero C4C ricotto.','Il filo viene nuovamente trafilato dopo la ricottura?','Quale tolleranza è richiesta per il foro Ø3 mm?'],
+  sl:['Kateri material in katero dobavno stanje naj ima žica? Začasno predpostavljam mehko žarjeni C4C.','Ali se žica po žarjenju ponovno hladno vleče?','Kakšna toleranca velja za izvrtino Ø3 mm?'],
+  en:['Which material and which supply condition should the wire have? I provisionally assume soft-annealed C4C.','Is the wire cold-drawn again after annealing?','What tolerance applies to the Ø3 mm bore?'],
+  zh:['线材应采用哪种材料和哪种供货状态？暂按软化退火的 C4C 计算。','线材退火后是否还会再次冷拉？','Ø3 mm 孔的公差是多少？']
+ };
+ let round=0,questions=[];mock(t,async()=>++round%2===1?reply(tool('projektwissen')):reply(final(undefined,{questions})));
+ for(const[language,individual]of Object.entries(cases)){
+  const canonical=materialText(MATERIAL_QUESTION,language);
+  questions=[canonical,...individual];
+  const result=await analyse({...context,language},environment());assert.deepEqual(result.questions,individual);assert.equal(result.materialContext.assumption,true);assert.ok(result.proposal.machines.length);
+  questions=individual.slice(1);
+  const onlySpecific=await analyse({...context,language},environment());assert.deepEqual(onlySpecific.questions,[canonical,...questions]);
+  questions=individual;
+  const legacy=await analyse({file:drawing,language},environment());assert.deepEqual(legacy.questions,individual);assert.equal(legacy.materialContext,undefined);
  }
 });
 

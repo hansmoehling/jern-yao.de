@@ -12,6 +12,20 @@ const STATE_LABELS={'soft-annealed':'weichgeglüht','cold-drawn':'gezogen','norm
 const SOFT_STATE_CONFLICT=/kaltgezogen|vorverfestigt|cold[ -]?drawn|work[ -]?hardened|vergütet|quenched|tempered|normalisierend|normalizacijsko|normali[sz](?:ed|ing)[ -]+(?:hot[ -]+)?roll|trafilat[oa]|vle[čc]en|冷拉|冷拔|正火|nicht\s+(?:weich)?geglüht|not\s+(?:soft[ -]?)?annealed|\+(?:LC|QT|C)\b|\bT[456789]\d?\b/i;
 const STATE_CHOICE_CONFLICT='Die Lieferzustandsangabe aus Zeichnung oder Text widerspricht der Auswahl. Der Zustand wird nicht durch die Auswahl ersetzt; ohne passende Fließkurve bleiben Kräfte offen.';
 export const materialText=(key,language='de')=>(translations[key]||rmTranslations[key])?.[['it','sl','en','zh'].indexOf(language)]||key;
+const MATERIAL_AND_STATE_QUESTION={
+ de:/^(?:welcher|welchen|welche)\s+(?:werkstoff(?:sorte)?|material(?:sorte)?)\s+(?:und|sowie)\s+(?:(?:welcher|welchen|welchem)\s+)?(?:lieferzustand|materialzustand)\b/iu,
+ it:/^(?:quale|quali)\s+material[ei]\s+e\s+(?:(?:quale|quali)\s+)?(?:stato|condizione)\s+di\s+fornitura\b/iu,
+ sl:/^(?:kateri|kakšen)\s+material\s+in\s+(?:(?:katero|kakšno)\s+)?dobavno\s+stanje\b/iu,
+ en:/^(?:which|what)\s+(?:material(?:\s+grade)?|grade)\s+and\s+(?:(?:which|what)\s+)?(?:(?:supply|delivery|material)\s+)?(?:condition|state)\b/iu,
+ zh:/(?:什么|哪种|何种|哪一种|哪些).{0,8}(?:材料|材质|牌号).{0,4}(?:和|及|与).{0,8}(?:供货状态|交货状态|材料状态)/u
+};
+// Only suppress our automatic confirmation when the model already asks for
+// both grade and supply state. Keep every model question verbatim, including
+// its individual qualification or tolerance request.
+export function asksMaterialAndState(question,language){
+ const firstQuestion=String(question||'').trim().split(/[?？]/u)[0];
+ return MATERIAL_AND_STATE_QUESTION[language]?.test(firstQuestion)||false;
+}
 export const drawingDefaultsEnabled=context=>context?.featureVersion===DRAWING_DEFAULTS_VERSION&&!!context.file;
 const text=value=>typeof value==='string'?value.trim():'';
 const original=context=>[context.note,context.message,...(context.history||[]).filter(item=>item.role==='user').map(item=>item.content)].filter(Boolean).join('\n');
