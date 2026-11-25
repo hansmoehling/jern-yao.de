@@ -33,7 +33,7 @@
   const preparationLabel=value=>tr(value==='inline-drawing'?'Walzdraht mit Inline-Vorzug':'Draht im gewählten Lieferzustand');
   const materialIdentity=variant=>(variant.material.sourceName||variant.material.id)+(variant.material.number?' · '+variant.material.number:'');
   const materialLabel=variant=>materialIdentity(variant)+' · '+conditionLabel(variant.curve);
-  const optionLabel=variant=>variant.curve.state==='soft-annealed'?materialIdentity(variant):materialLabel(variant);
+  const optionLabel=variant=>['soft-annealed','normalized-rolled'].includes(variant.curve.state)?materialIdentity(variant):materialLabel(variant);
   variants.forEach(variant=>{const option=document.createElement('option');option.value=variant.value;option.dataset.originalText='';option.textContent=optionLabel(variant);sel.appendChild(option);});
   sel.value=variants.find(variant=>variant.material.id==='C4C'&&variant.curve.state==='soft-annealed')?.value||'';
 
@@ -115,15 +115,26 @@
     return bad;
   }
 
-  let letzte = null;
+  let letzte = null, angefragtesModell = null;
+  const maschinenFunde=wahl=>wahl?[...wahl.passend.slice(0,3),...wahl.bedingt.slice(0,wahl.passend.length?2:4),...wahl.fast.slice(0,4)]:[];
+  const angefragteMaschine=()=>maschinenFunde(letzte?.wahl).find(result=>result.o.m===angefragtesModell);
+  function anfrageAuswahlZeigen() {
+    const node=$('selected-machine');
+    node.dataset.originalText='';node.hidden=!angefragtesModell;
+    node.textContent=angefragtesModell?msg('Anfrage für {model}',{model:angefragtesModell}):'';
+  }
+  function anfrageAuswahlLoeschen() { angefragtesModell=null;anfrageAuswahlZeigen(); }
   function rechnen() {
     sichtbar();
-    if (ungueltig()) {letzte=null;$('aus').hidden=true;knoepfe();L.apply();return;}
+    if (ungueltig()) {letzte=null;anfrageAuswahlLoeschen();$('aus').hidden=true;$('empty-visual').hidden=false;knoepfe();L.apply();return;}
     const e = lesen();
+    if(angefragtesModell&&JSON.stringify(e)!==JSON.stringify(letzte?.e))anfrageAuswahlLoeschen();
     const aus = E.auslegen(e);
-    if (aus.fehlt.length || !aus.stufen.length) { $('leer').hidden = false; $('aus').hidden = true; $('leer').dataset.originalText=''; $('leer').textContent = aus.fehlt.length ? tr('Es fehlen noch:') + ' ' + aus.fehlt.map(tr).join(', ') + '.' : tr('Mit Draht-Ø und den Hüllmaßen des Teils erscheinen hier Stadienfolge, Werkzeuggröße und die passenden Modelle.'); letzte = null; knoepfe(); return; }
+    if (aus.fehlt.length || !aus.stufen.length) { $('leer').hidden = false; $('aus').hidden = true; $('empty-visual').hidden=false; $('leer').dataset.originalText=''; $('leer').textContent = aus.fehlt.length ? tr('Es fehlen noch:') + ' ' + aus.fehlt.map(tr).join(', ') + '.' : tr('Mit Draht-Ø und den Hüllmaßen des Teils erscheinen hier Stadienfolge, Werkzeuggröße und die passenden Modelle.'); letzte = null; anfrageAuswahlLoeschen(); knoepfe(); return; }
     const wahl = E.waehle(MASCHINEN, aus, e, PRAXIS);
     letzte = { e, aus, wahl };
+    if(angefragtesModell&&!angefragteMaschine())angefragtesModell=null;
+    anfrageAuswahlZeigen();$('empty-visual').hidden=maschinenFunde(wahl).length>0;
     zeigen(e, aus, wahl); L.apply();
     knoepfe();
   }
@@ -174,7 +185,7 @@
       const clarification=openPoints.length?'<div class="machine-open-points"><strong>'+h('Noch zu klären')+'</strong><ul>'+openPoints.map(point=>'<li><strong>'+h(point.owner)+':</strong> '+h(point.detail)+'</li>').join('')+'</ul></div>':'';
       const zeilen = r.k.map(x => '<tr><td>' + h(x.krit) + '</td><td>' + h(x.soll) + '</td><td>' + h(x.ist) + '</td><td><span class="st m-' + x.status + '">' + h({ ok: 'ok', knapp: 'knapp', nein: 'nein', offen: 'offen' }[x.status]) + '</span></td></tr>').join('');
       const kat = o.kat ? '<a href="' + KATURL + o.kat + '.pdf#page=' + (o.s || 1) + '" target="_blank" rel="noopener">'+esc(msg('Katalog {catalogue}, S. {page}',{catalogue:o.kat,page:o.s||1}))+'</a>' : '';
-      return '<div class="karte' + (beste ? ' beste' : '') + '"><div class="kopfzeile"><div><span class="modell">' + esc(o.m) + '</span>' + badge + '<div class="fam">' + h(FAMNAME[o.f] || o.f) + ' · ' + o.st + ' '+h('Stationen')+' · ' + fmt(o.pw) + ' t' + (o.sz ? ' · '+esc(msg('bis {v}',{v:o.sz})) : '') + '</div></div>' +
+      return '<div class="karte' + (beste ? ' beste' : '') + '"><div class="kopfzeile"><div><span class="modell">' + esc(o.m) + '</span>' + badge + '<button type="button" class="quote-button" data-request-model="'+esc(o.m)+'" aria-label="'+h('Angebot anfragen')+' · '+esc(o.m)+'">'+h('Angebot anfragen')+'</button><div class="fam">' + h(FAMNAME[o.f] || o.f) + ' · ' + o.st + ' '+h('Stationen')+' · ' + fmt(o.pw) + ' t' + (o.sz ? ' · '+esc(msg('bis {v}',{v:o.sz})) : '') + '</div></div>' +
         (showPrices ? '<div class="preis"><b>' + esc(eur(o.rp)) + '</b><small>' + esc(sp) + '</small></div>' : '') + '</div>' +
         clarification +
         (r.ausl==null?'':'<div class="balken" title="'+h('Auslastung der Nennkraft, Strich bei 65 %')+'"><i style="width:' + Math.min(100, rounded(r.ausl * 100)) + '%;background:' + farbe + '"></i></div>') +
@@ -201,6 +212,8 @@
     const field = (label, value) => lines.push(tr(label).replace(/[:：]$/, '') + ': ' + value);
     const mm = value => value == null ? tr('nicht belegt') : fmt(value) + ' mm';
     const force = value => value == null ? tr('Kraft noch offen') : fmt(value) + ' t';
+    const selected=angefragteMaschine();
+    if(selected)lines.push(msg('Anfrage für {model}',{model:selected.o.m}),'');
     field('Teileart', tr({ bolzen: 'Schraube/Bolzen', formteil: 'Formteil/Hülse', mutter: 'Mutter' }[e.typ]));
     field('Werkstoff', (m.sourceName || m.id) + (m.number ? ' · ' + m.number : ''));
     field('Vormaterial / Vorzug',preparationLabel(e.wirePreparation));
@@ -242,7 +255,7 @@
     field('Höchste Stationskraft',force(w.Fmax_t));field('Nennkraft nötig',force(w.FN_muss_t));
     aus.stufen.forEach((stage,index)=>lines.push('  '+(index+1)+'. '+tr(stage.v)+': '+force(stage.t)));
     lines.push('',tr('Vorauswahl:'));
-    const top=[...wahl.passend.slice(0,3),...(wahl.passend.length?[]:wahl.bedingt.slice(0,3))];
+    const top=selected?[selected]:[...wahl.passend.slice(0,3),...(wahl.passend.length?[]:wahl.bedingt.slice(0,3))];
     const status={ok:'passt',knapp:'knapp',offen:'Klärung nötig',nein:'passt nicht'};
     top.forEach(r=>{
       lines.push('  '+r.o.m+' ('+tr(status[r.gesamt]||r.gesamt)+'), '+(showPrices?tr('Richtpreis')+' 2026 '+(r.o.rp?eur(r.o.rp):tr('auf Anfrage'))+', ':'')+(r.ausl==null?tr('Kraft noch offen'):tr('Auslastung')+' '+fmt(r.ausl*100,0)+' %')+(r.plan?', '+tr('Planung')+' '+fmt(r.plan.aus,0)+' /min':''));
@@ -253,11 +266,12 @@
   }
 
   async function senden() {
+    rechnen();
     if (!letzte) return;
     const z = f.elements.zeichnung.files[0];
     const kopf = [tr('Name')+': '+a.elements.name.value,tr('Firma')+': '+a.elements.firma.value,tr('E-Mail')+': '+a.elements.email.value,tr('Telefon')+': '+a.elements.tel.value].join('\n');
     const text = kopf + '\n\n' + (a.elements.nachricht.value ? a.elements.nachricht.value + '\n\n' : '') + zusammenfassung() + (z ? '\n\n'+tr('Zeichnung:')+' '+z.name+' '+tr('(bitte anhängen)') : '');
-    const betreff = (tr(showPrices?'Richtpreisanfrage':'Maschinenanfrage')+' '+(((letzte.wahl.passend[0] || letzte.wahl.bedingt[0] || {}).o || {}).m || '')).trim();
+    const betreff = (tr(showPrices?'Richtpreisanfrage':'Maschinenanfrage')+' '+((angefragteMaschine() || letzte.wahl.passend[0] || letzte.wahl.bedingt[0])?.o.m || '')).trim();
     if (ENDPOINT) {
       const fd = new FormData();
       fd.append('betreff', betreff); fd.append('text', text); fd.append('eingaben', JSON.stringify(letzte.e)); fd.append('email', a.elements.email.value);
@@ -271,6 +285,7 @@
   }
 
   function drucken() {
+    rechnen();
     if (!letzte) return;
     const b = $('blatt');
     b.dataset.originalText = ''; // This export is already localized once; preserve its numbers and identifiers.
@@ -300,9 +315,19 @@
   }));
 
   let t = null;
-  f.addEventListener('input', () => { clearTimeout(t); t = setTimeout(rechnen, 120); });
+  f.addEventListener('input', () => { if(angefragtesModell&&JSON.stringify(lesen())!==JSON.stringify(letzte?.e))anfrageAuswahlLoeschen();clearTimeout(t); t = setTimeout(rechnen, 120); });
   f.addEventListener('change', rechnen);
   $('karten').addEventListener('click', event => {
+    const requestButton=event.target.closest('button[data-request-model]');
+    if(requestButton){
+      const model=requestButton.dataset.requestModel;
+      rechnen();
+      if(!maschinenFunde(letzte?.wahl).some(result=>result.o.m===model))return;
+      angefragtesModell=model;anfrageAuswahlZeigen();
+      a.elements.email.focus({preventScroll:true});
+      $('anfrage').scrollIntoView({behavior:window.matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth',block:'start'});
+      return;
+    }
     const button = event.target.closest('button[data-open-check]');
     if (!button) return;
     const details = button.closest('.karte').querySelector('details.machine-check');

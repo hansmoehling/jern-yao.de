@@ -24,6 +24,14 @@
   let idempotencyKey = '';
   let payloadSignature = '';
   let sentSignature = '';
+  let selectedMachine = '';
+  const catalogueModels = new Set();
+  try {
+    const catalogue = JSON.parse($('daten').textContent);
+    if (Array.isArray(catalogue)) catalogue.forEach(machine => {
+      if (typeof machine.m === 'string' && /^J[A-Z]{1,4}-[0-9]+[A-Z0-9-]*$/.test(machine.m)) catalogueModels.add(machine.m);
+    });
+  } catch (_) { /* Only verified catalogue names can become a machine enquiry. */ }
 
   // The deployment provides only the public service URL, never credentials.
   const configuredBase = typeof window.JY_API_BASE === 'string' ? window.JY_API_BASE.trim() : '';
@@ -100,6 +108,36 @@
 
   function selectedFile() { return $('file').files[0] || null; }
 
+  function machineEnquiry() {
+    return selectedMachine ? tr('Anfrage für {model}').replace('{model}', selectedMachine) : '';
+  }
+
+  function requestNote() {
+    return [machineEnquiry(), $('description').value.trim()].filter(Boolean).join('\n\n');
+  }
+
+  function renderSelectedMachine() {
+    const node = $('selected-machine');
+    if (!node) return;
+    node.textContent = machineEnquiry();
+    node.dataset.jySource = selectedMachine ? 'Anfrage für ' + selectedMachine : '';
+    node.hidden = !selectedMachine;
+  }
+
+  function chooseMachine(model) {
+    if (!catalogueModels.has(model)) return;
+    selectedMachine = model;
+    if (!$('description').value.trim()) {
+      $('description').value = history.filter(item => item.role === 'user').map(item => item.content).join('\n\n').slice(0, 12000);
+    }
+    renderSelectedMachine();
+    selectMode(selectedFile() ? 'upload' : 'description', false);
+    updateSubmit();
+    L.apply();
+    $('panel-anfrage').scrollIntoView({ behavior: 'smooth', block: 'start' });
+    $('email').focus({ preventScroll: true });
+  }
+
   function fileError() {
     const file = selectedFile();
     if (!file) return '';
@@ -111,7 +149,7 @@
 
   function signature() {
     const file = selectedFile();
-    return JSON.stringify({ language:L.language, email: $('email').value.trim(), name: $('name').value.trim(), firma: $('company').value.trim(), notiz: $('description').value.trim(), file: file ? [file.name, file.size, file.lastModified] : null });
+    return JSON.stringify({ language:L.language, email: $('email').value.trim(), name: $('name').value.trim(), firma: $('company').value.trim(), notiz: requestNote(), file: file ? [file.name, file.size, file.lastModified] : null });
   }
 
   function updateSubmit() {
@@ -295,6 +333,13 @@
         row.appendChild(element('dt', readable(machine.model)));
         const statusLabels = { ok: 'Passend zur Vorauswahl', knapp: 'Einzelne Punkte vertiefen', offen: 'Klärung nötig', nein: 'Grenze überschritten', suitable: 'Passend zur Vorauswahl' };
         row.appendChild(element('dd', statusLabels[machine.status] || readable(machine.status)));
+        const model = typeof machine.model === 'string' ? machine.model.trim() : '';
+        if (catalogueModels.has(model)) {
+          const action = element('dd'), button = element('button', 'Angebot anfragen', 'quote-button');
+          button.type = 'button';
+          button.addEventListener('click', () => chooseMachine(model));
+          action.appendChild(button); row.appendChild(action);
+        }
         const openPoints=(machine.openPoints||[]).filter(point=>point&&typeof point.detail==='string'&&point.detail.trim());
         if(openPoints.length){
           const box=element('dd',null,'machine-open-points'),list=element('ul');
@@ -379,7 +424,7 @@
     event.preventDefault();
     if (!apiBase || requestBusy || !validRequest()) return;
     const file = selectedFile();
-    const note = $('description').value.trim();
+    const note = requestNote();
     if (!file && !note) {
       message('request-message', 'Bitte wählen Sie eine Zeichnung aus oder beschreiben Sie Ihr Teil mit wenigen Worten.', 'error');
       $('description').focus(); return;
@@ -463,7 +508,7 @@
   $('refresh-status').addEventListener('click', () => { polls = 0; refreshStatus(true); });
   $('email-fallback').addEventListener('click', event => {
     const file = selectedFile();
-    const body = [$('name').value.trim(), $('company').value.trim(), $('email').value.trim(), '', $('description').value.trim(), file ? '\n'+tr('Zeichnung:')+' '+file.name+' '+tr('(bitte dieser E-Mail beifügen)') : ''].join('\n');
+    const body = [$('name').value.trim(), $('company').value.trim(), $('email').value.trim(), '', requestNote(), file ? '\n'+tr('Zeichnung:')+' '+file.name+' '+tr('(bitte dieser E-Mail beifügen)') : ''].join('\n');
     event.currentTarget.href = 'mailto:' + MAIL + '?subject=' + encodeURIComponent(tr('Anfrage zur Kaltumformung')) + '&body=' + encodeURIComponent(body.slice(0, 7000));
   });
   document.querySelectorAll('a[href="#datenschutz"]').forEach(link => link.addEventListener('click', () => { $('datenschutz').open = true; }));
@@ -473,6 +518,6 @@
   window.addEventListener('pagehide', () => window.clearTimeout(pollTimer));
   $('availability').hidden = !!apiBase;
   $('email-fallback').hidden = !!apiBase;
-  window.addEventListener('jy-languagechange',()=>{$('email').setCustomValidity('');$('consent').setCustomValidity('');$('chat-input').setCustomValidity('');selectMode(mode,false);updateFile();updateSubmit();if(latestStatus)renderStatus(latestStatus);L.apply();});
+  window.addEventListener('jy-languagechange',()=>{$('email').setCustomValidity('');$('consent').setCustomValidity('');$('chat-input').setCustomValidity('');selectMode(mode,false);renderSelectedMachine();updateFile();updateSubmit();if(latestStatus)renderStatus(latestStatus);L.apply();});
   updateSubmit(); L.apply();
 })();

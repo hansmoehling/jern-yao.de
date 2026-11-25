@@ -7,6 +7,7 @@ from pathlib import Path
 import argparse
 import json
 import re
+import shutil
 
 Q = Path(__file__).resolve().parent
 
@@ -32,6 +33,11 @@ def technical_catalog(text):
 
 def build(destination):
     destination = Path(destination).resolve()
+    for name in ('endteil_chrom.png', 'Stadie.jpg', 'zeichnung.png'):
+        source_asset = Q.parent / 'assets' / 'konfigurator' / name
+        target_asset = destination / 'assets' / 'konfigurator' / name
+        target_asset.parent.mkdir(parents=True, exist_ok=True)
+        shutil.copy2(source_asset, target_asset)
     config = (Q.parent / 'site-config.js').read_text(encoding='utf-8')
     assert 'window.JY_API_BASE' in config
     for source, folder in [('index.html', 'auslegung'), ('manual/konfigurator-v1.html', 'konfigurator')]:

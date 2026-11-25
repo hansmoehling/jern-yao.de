@@ -16,6 +16,14 @@
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
 .languages{display:flex;flex-wrap:wrap;gap:5px;justify-content:flex-end;padding:12px 0}.languages button{font:inherit;font-size:.875rem;border:1px solid #a5b5cc;background:#fff;color:#102d66;padding:6px 10px;cursor:pointer}.languages button[aria-pressed="true"]{background:#102d66;color:white}.concept{border-left:3px solid #c74716;padding:12px 16px;margin:18px 0;background:#f3f6fa}.concept h4{margin:0 0 10px;font-size:1rem}.concept ol{padding-left:22px}.concept p{margin:8px 0}.original-language{font-size:.875rem;color:#526176}html[lang="zh-Hans"] h1,html[lang="zh-Hans"] h2{font-family:Inter,"Microsoft YaHei",sans-serif;line-height:1.25}
 .visually-hidden{position:absolute!important;width:1px!important;height:1px!important;padding:0!important;margin:-1px!important;overflow:hidden!important;clip:rect(0,0,0,0)!important;white-space:nowrap!important;border:0!important}.file-choose{font:inherit;border:1px solid #102d66;background:white;color:#102d66;padding:10px 16px;cursor:pointer}</style>
+<style>
+#chat-submit{background:#e9eff8;color:#172641;border-color:#9caec8}
+#chat-submit:hover{background:#d8e4f4}
+.quote-button{display:inline-block;margin-left:10px;padding:6px 10px;border:1px solid #cc9a72;border-radius:5px;background:#fff0e4;color:#6b310e;font:inherit;font-size:14px;line-height:1.3;cursor:pointer;vertical-align:middle}
+.quote-button:hover{background:#ffe2cb;border-color:#ad6a35}
+#selected-machine{padding:12px 16px;border-left:3px solid var(--orange);background:var(--pale);color:var(--ink)}
+@media(max-width:720px){.quote-button{min-height:44px;margin-top:6px}}
+</style>
 </head>
 <body>
 <a class="skip" href="#einstieg">Direkt zur Anfrage</a>
@@ -34,6 +42,7 @@
 <form id="request-form" novalidate>
 <div id="upload-area"><div class="drop" id="drop-zone"><svg viewBox="0 0 32 32" fill="none" aria-hidden="true"><path d="M7 3H20L26 9V29H7Z" stroke="currentColor" stroke-width="1.5"/><path d="M20 3V10H26M16 23V13M12 17L16 13L20 17" stroke="currentColor" stroke-width="1.5"/></svg><strong>Ihre Zeichnung oder Skizze</strong><p id="file-help">PDF oder Bild · bis 15 MB. STEP, DXF und DWG als CAD-Anhang.</p><button type="button" class="file-choose" id="choose-file" aria-describedby="file-help file-error">Datei auswählen</button><input hidden aria-hidden="true" tabindex="-1" class="file-picker" id="file" name="datei" type="file" accept=".pdf,.png,.jpg,.jpeg,.webp,.step,.stp,.dxf,.dwg" aria-label="Zeichnung oder Skizze auswählen" aria-describedby="file-help file-error"></div><p class="form-message error" id="file-error" role="alert" hidden></p><p class="helper">Datei auswählen oder hier ablegen. Eine Beschreibung ist genauso willkommen.</p></div>
 <div class="file-summary" id="file-summary" hidden><span id="file-name"></span><button type="button" class="text-button" id="remove-file">Entfernen</button></div>
+<p id="selected-machine" role="status" aria-live="polite" hidden></p>
 <div class="field"><label for="description" id="description-label">Was möchten Sie uns mitgeben? <span class="optional">Optional zur Zeichnung</span></label><textarea id="description" name="notiz" rows="4" maxlength="12000" placeholder="Zum Beispiel Stückzahl, Werkstoff, gewünschter Termin oder eine Frage zum Teil." aria-describedby="description-help"></textarea><p class="helper" id="description-help" hidden>Beschreiben Sie Form, Maße und Aufgabe so, wie Sie sie kennen. Die technische Auslegung übernehmen wir.</p></div>
 <h3 class="contact-title">Wie erreichen wir Sie?</h3><div class="contact-fields"><div class="field wide"><label for="email">E-Mail-Adresse</label><input id="email" name="email" type="email" autocomplete="email" required maxlength="254" placeholder="name@firma.de"></div><div class="field"><label for="name">Ihr Name <span class="optional">Optional</span></label><input id="name" name="name" autocomplete="name" maxlength="120"></div><div class="field"><label for="company">Firma <span class="optional">Optional</span></label><input id="company" name="firma" autocomplete="organization" maxlength="160"></div></div>
 <label class="consent"><input id="consent" type="checkbox" required><span>Ich stimme der Verarbeitung meiner Anfrage und Unterlagen einschließlich KI-Auswertung zu. <a href="#datenschutz">Datenschutz</a></span></label>

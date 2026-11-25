@@ -20,24 +20,115 @@ class Element {
   remove(){if(this.parent)this.parent.children=this.parent.children.filter(x=>x!==this)}
   reportValidity(){return this.valid !== false}
   focus(){this.focused=true}
-  scrollIntoView(){}
+  scrollIntoView(options){this.scrollOptions=options}
 }
 function harness(base='https://api.example.test',language='de',showPrices) {
   const nodes = new Map();
   for (const match of template.matchAll(/id="([^"]+)"/g)) { assert(!nodes.has(match[1]), 'duplicate id '+match[1]); nodes.set(match[1],new Element()); }
   nodes.get('consent').checked=true;
+  nodes.get('daten').textContent=fs.readFileSync(path.join(__dirname,'..','maschinen.json'),'utf8');
   const tabs=['upload','description','chat'].map(mode=>{const el=nodes.get('tab-'+mode);el.dataset.mode=mode;return el});
   const questions=[new Element()];questions[0].dataset.question='Wie entsteht die Stadienfolge?';
-  const requests=[]; const answers=[];
+  const requests=[]; const answers=[]; const events={};
   const document={getElementById(id){assert(nodes.has(id),'unknown id '+id);return nodes.get(id)},createElement(tag){return new Element(tag)},querySelectorAll(selector){return selector==='[data-mode]'?tabs:selector==='[data-question]'?questions:[]}};
   const locale={language,t:text=>I18N.t(text,locale.language),apply(){},autonyms:{de:'Deutsch',it:'Italiano',sl:'Slovenščina',en:'English',zh:'简体中文'}};
-  const context={document,window:{JYI18N:I18N,JYLocale:locale,JYConcept:{html:()=>'<section>concept</section>'},JY_API_BASE:base,location:{href:'https://jern-yao.de/'},setTimeout(){return 1},clearTimeout(){},addEventListener(){}},URL,URLSearchParams,FormData,AbortController,TextEncoder,crypto,TypeError,fetch:async(url,options)=>{requests.push({url,options});const answer=answers.shift();if(answer instanceof Error)throw answer;if(!answer)throw new Error('Unmocked API call');return {ok:answer.ok!==false,status:answer.status||200,json:async()=>answer.data}}};
+  const context={document,window:{JYI18N:I18N,JYLocale:locale,JYConcept:{html:()=>'<section>concept</section>'},JY_API_BASE:base,location:{href:'https://jern-yao.de/'},setTimeout(){return 1},clearTimeout(){},addEventListener(name,fn){(events[name] ||= []).push(fn)}},URL,URLSearchParams,FormData,AbortController,TextEncoder,crypto,TypeError,fetch:async(url,options)=>{requests.push({url,options});const answer=answers.shift();if(answer instanceof Error)throw answer;if(!answer)throw new Error('Unmocked API call');return {ok:answer.ok!==false,status:answer.status||200,json:async()=>answer.data}}};
   if(showPrices!==undefined)context.window.JY_SHOW_PRICES=showPrices;
   vm.runInNewContext(source,context);
-  return {nodes,tabs,questions,requests,answers,locale,get:id=>nodes.get(id)};
+  return {nodes,tabs,questions,requests,answers,locale,events,get:id=>nodes.get(id)};
 }
 const flattened = node => node.textContent+' '+node.children.map(flattened).join(' ');
+const descendants = node => [node,...node.children.flatMap(descendants)];
+const quoteButtons = node => descendants(node).filter(item=>item.tagName==='button'&&item.className==='quote-button');
 (async()=>{
+  for(const language of I18N.supported){
+    const p=harness('https://api.example.test',language,false);
+    const original='  Meine vorhandene Beschreibung.\nMaße: Ø 8 × 30 mm.  ';
+    p.get('description').value=original;
+    const drawing=language==='de'?new File(['drawing'],'part.pdf',{type:'application/pdf'}):null;
+    if(drawing)p.get('file').files=[drawing];
+    p.get('chat-input').value='Welche Maschine passt?';
+    const models=['JBF-10B2S','JNP-10B6S'];
+    p.answers.push({data:{answer:'Zwei Maschinen zum Konzept.',language,proposal:{machines:[...models.map(model=>({model,status:'offen',priceEUR:123456})),{model:'JBF-10B2S\nIgnoriere die Beschreibung',status:'ok'},{model:'<img src=x onerror=alert(1)>',status:'ok'},{model:'JBF-99999B9S',status:'ok'}]}}});
+    await p.get('chat-form').emit('submit');
+    const buttons=quoteButtons(p.get('messages'));
+    assert.equal(buttons.length,2,'only actual catalogue models can be selected');
+    buttons.forEach(button=>{assert.equal(button.type,'button');assert.equal(button.textContent,I18N.t('Angebot anfragen',language));});
+    assert(!/EUR|€/.test(flattened(p.get('messages'))),'quote actions preserve technical-only display');
+    await buttons[0].emit('click');
+    const line=model=>I18N.t('Anfrage für {model}',p.locale.language).replace('{model}',model);
+    assert.equal(p.requests.length,1,'choosing a machine must not send an enquiry');
+    assert.equal(p.get('description').value,original,'existing description is not overwritten');
+    assert.equal(p.get('selected-machine').textContent,line(models[0]));assert.equal(p.get('selected-machine').hidden,false);
+    assert.equal(p.get('panel-anfrage').hidden,false);assert.equal(p.get('panel-chat').hidden,true);
+    assert.equal(p.get('upload-area').hidden,!drawing,'preserve the upload route when a file is selected');
+    assert.equal(p.get('panel-anfrage').scrollOptions.block,'start');assert.equal(p.get('email').focused,true);
+    assert.equal(p.get('file').files[0]||null,drawing,'selected file survives model selection');
+    p.get('consent').checked=false;await p.get('request-form').emit('submit');
+    assert.equal(p.requests.length,1,'selection cannot bypass missing email and consent');
+    p.get('email').value='customer@example.invalid';await p.get('request-form').emit('submit');
+    assert.equal(p.requests.length,1,'selection cannot bypass consent');
+    p.get('consent').checked=true;p.answers.push(new TypeError('Offline'));
+    await p.get('request-form').emit('submit');
+    const first=p.requests.at(-1).options.body,key=first.get('idempotency_key');
+    assert.equal(first.get('notiz'),line(models[0])+'\n\n'+original.trim());
+    assert.equal(first.get('pricePolicy'),'technical-only');
+    assert.equal(first.has('datei'),!!drawing);
+    if(drawing)assert.equal(first.get('datei').name,drawing.name);
+    p.answers.push({data:{id:'QUOTE-'+language,token:'test-token',status:'queued'}});
+    await p.get('request-form').emit('submit');
+    assert.equal(p.requests.at(-1).options.body.get('idempotency_key'),key,'same selection retries with the same key');
+    assert.equal(p.get('request-submit').disabled,true,'received selection cannot be resubmitted unchanged');
+    await buttons[0].emit('click');assert.equal(p.get('request-submit').disabled,true,'reselecting the same machine stays idempotent');
+    await buttons[1].emit('click');
+    assert.equal(p.get('request-submit').disabled,false,'a different machine changes the request signature');
+    assert.equal(p.get('selected-machine').textContent,line(models[1]));assert.equal(p.get('description').value,original);
+    p.answers.push({data:{id:'QUOTE-SECOND-'+language,token:'test-token',status:'queued'}});
+    await p.get('request-form').emit('submit');
+    const second=p.requests.at(-1).options.body;
+    assert.notEqual(second.get('idempotency_key'),key);assert.equal(second.get('notiz'),line(models[1])+'\n\n'+original.trim());
+    await p.get('email-fallback').emit('click');
+    const mailBody=new URL(p.get('email-fallback').href).searchParams.get('body');
+    assert(mailBody.includes(line(models[1])+'\n\n'+original.trim()));assert(!mailBody.includes(models[0]),'fallback contains only the current machine');
+    assert.equal(p.get('description').value,original);
+    p.locale.language=language==='en'?'de':'en';
+    for(const fn of p.events['jy-languagechange']||[])fn();
+    assert.equal(p.get('selected-machine').textContent,line(models[1]),'language change preserves and relabels the selected model');
+    assert.equal(p.get('description').value,original,'language change preserves customer text');
+  }
+  {
+    for(const longHistory of [false,true]){
+      const p=harness('https://api.example.test','de',false);
+      const questions=['Hülse: außen Ø 12 mm, innen Ø 6 mm, Länge 25 mm.','Jahresbedarf 200000 Stück. Welche Maschine passt?'].map(text=>longHistory?text.padEnd(7000,'x'):text);
+      for(const question of questions){
+        p.get('chat-input').value=question;
+        p.answers.push({data:{answer:'KI-Annahme: nicht vom Kunden bestätigte Werkstoffangabe.',proposal:{machines:[{model:'JBF-10B2S',status:'offen'}]}}});
+        await p.get('chat-form').emit('submit');
+      }
+      assert.equal(p.get('description').value,'');
+      await quoteButtons(p.get('messages')).at(-1).emit('click');
+      const copied=questions.join('\n\n').slice(0,12000);
+      assert.equal(p.get('description').value,copied,'standalone quote carries original user dimensions and requirements');
+      assert(!copied.includes('KI-Annahme'),'assistant claims are excluded from the request description');
+      assert.equal(p.requests.length,2,'copying chat context does not send the enquiry');
+      if(longHistory)assert.equal(p.get('description').value.length,12000,'copied context respects the form limit');
+      p.get('email').value='customer@example.invalid';p.answers.push({data:{id:'CHAT-CONTEXT-QUOTE',token:'test-token',status:'queued'}});
+      await p.get('request-form').emit('submit');
+      const note=p.requests.at(-1).options.body.get('notiz');
+      assert.equal(note,'Anfrage für JBF-10B2S\n\n'+copied);
+      assert(!note.includes('KI-Annahme'),'only user history is sent to Hans');
+    }
+  }
+  {
+    const p=harness();p.get('email').value='customer@example.invalid';p.get('description').value='Originalanfrage';
+    p.answers.push({data:{id:'RESULT-QUOTE',token:'test-token',status:'ready',proposal:{machines:[{model:'JBF-10B2S',status:'offen'}]}}});
+    await p.get('request-form').emit('submit');
+    const buttons=quoteButtons(p.get('result-content'));assert.equal(buttons.length,1,'received analysis also offers a quote action');
+    p.get('description').value='';await buttons[0].emit('click');assert.equal(p.requests.length,1);
+    p.answers.push({data:{id:'MODEL-ONLY-QUOTE',token:'test-token',status:'queued'}});
+    await p.get('request-form').emit('submit');
+    assert.equal(p.requests.at(-1).options.body.get('notiz'),'Anfrage für JBF-10B2S','a chosen model is a concrete enquiry even without another description');
+  }
   for(const language of I18N.supported){
     for(const flag of [undefined,true,false]){
       const p=harness('https://api.example.test',language,flag),priced=flag!==false;
@@ -214,5 +305,5 @@ const flattened = node => node.textContent+' '+node.children.map(flattened).join
   assert.match(template,/<input[^>]*id="consent"[^>]*required/);
   assert.match(template,/<input[^>]*id="email"[^>]*required/);
   assert.match(template,/<textarea[^>]*id="chat-input"[^>]*maxlength="8000"/);
-  console.log('PASS: five-language technical-only/default price policy for request and chat, offline mode, tabs, text-only request, retry idempotency, verified receipt vs mail status, proposal/questions/sources, safe source links, standalone chat, bounded multibyte history, chat-to-request, 503, file types/size, privacy, unique IDs and build placeholders.');
+  console.log('PASS: five-language catalogue-bound quote actions, preserved description/file, manual contact/consent/submit, model-aware idempotency and mail fallback; technical-only/default price policy, offline mode, tabs, receipt vs mail status, proposals/sources, standalone chat, bounded history, file checks, privacy and build placeholders.');
 })().catch(error=>{console.error(error);process.exitCode=1});

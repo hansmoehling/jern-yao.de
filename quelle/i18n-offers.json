@@ -1,0 +1,9 @@
+{
+  "Angebot anfragen": ["Richiedi un’offerta", "Pošljite povpraševanje", "Request a quotation", "索取报价"],
+  "Anfrage für {model}": ["Richiesta per {model}", "Povpraševanje za {model}", "Enquiry for {model}", "询价机型：{model}"],
+  "Fertigteil mit Bund und Innenprofil": ["Pezzo finito con flangia e profilo interno", "Končni kos s prirobnico in notranjim profilom", "Finished part with flange and internal profile", "带法兰和内孔型面的成品"],
+  "Zwischenformen einer Stadienfolge": ["Forme intermedie di una sequenza di formatura", "Vmesne oblike v zaporedju preoblikovanja", "Intermediate shapes in a forming sequence", "成形工序中的中间形状"],
+  "Fertigteil": ["Pezzo finito", "Končni kos", "Finished part", "成品"],
+  "Technische Zeichnung des Bauteils": ["Disegno tecnico del pezzo", "Tehnična risba izdelka", "Technical drawing of the part", "零件技术图纸"],
+  "Zeichnung vergrößern": ["Ingrandisci il disegno", "Povečaj risbo", "Enlarge drawing", "放大图纸"]
+}

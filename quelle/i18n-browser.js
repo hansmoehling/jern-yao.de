@@ -22,7 +22,7 @@ function apply(root=document.documentElement){
   if(node.nodeType===1){
    if(node.hasAttribute('data-language'))node.setAttribute('aria-pressed',String(node.getAttribute('data-language')===language));
    if(node.matches('script,style,.notranslate,[data-original-text],.message-text,.answer-text'))return;
-   for(const key of ['placeholder','aria-label','title','data-question']){
+   for(const key of ['placeholder','aria-label','title','alt','data-question']){
     if(node.hasAttribute(key)){
      let map=attributes.get(node);if(!map){map={};attributes.set(node,map);}
      const value=node.getAttribute(key);if(!map[key]||value!==map[key].last)map[key]={source:value,last:value};

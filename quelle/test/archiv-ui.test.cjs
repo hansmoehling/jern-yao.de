@@ -9,7 +9,8 @@ class El{
  replaceChildren(...elements){this.options=elements;this.value=elements[0]?.value||''}
  addEventListener(k,fn){this.events[k]=fn}
  querySelectorAll(){return []}
- scrollIntoView(){}
+ scrollIntoView(options){this.scrollOptions=options}
+ focus(options){this.focusOptions=options;this.focused=true}
 }
 function setup(language,engine=E,showPrices){
  const ids=new Map();const get=id=>{if(!ids.has(id))ids.set(id,new El());return ids.get(id)};
@@ -21,7 +22,8 @@ function setup(language,engine=E,showPrices){
  f.querySelector=selector=>({set checked(value){if(value)f.elements.typ.value=selector.match(/value=([^\]]+)/)[1]}});
  get('daten').textContent=JSON.stringify(machines);get('praxis').textContent=JSON.stringify(praxis);
  const examples=['m8','m6','mu','hu'].map(name=>{const el=new El();el.dataset.bsp=name;return el});
- const events={};const window={JYK:engine,JYI18N:I,JYLocale:{language,t:s=>I.t(s,language),apply(){}},matchMedia:()=>({matches:false}),addEventListener:(name,fn)=>events[name]=fn,print(){}};
+ const locale={language,t:s=>I.t(s,locale.language),apply(){}};
+ const events={};const window={JYK:engine,JYI18N:I,JYLocale:locale,matchMedia:()=>({matches:false}),addEventListener:(name,fn)=>events[name]=fn,print(){}};
  if(showPrices!==undefined)window.JY_SHOW_PRICES=showPrices;
  const document={getElementById:get,createElement:()=>new El(),querySelectorAll:selector=>selector==='[data-bsp]'?examples:[]};
  const context={window,document,clearTimeout,setTimeout,location:{href:''},FormData,fetch:()=>{throw Error('Network forbidden in archive tests')}};
@@ -37,7 +39,7 @@ test('only approved wire-condition curves are selectable and all examples explic
    const [index,curveId]=option.value.split('|'),material=E.WERKSTOFFE[Number(index)],curve=material.flowCurves.find(curve=>curve.id===curveId);
    assert(curve?.eligible);assert(['literature','proxy'].includes(curve.approval));assert(material.number&&curve.materialNumbers?.includes(material.number)||curve.materialIds?.includes(material.id));
    const identity=(material.sourceName||material.id)+(material.number?' · '+material.number:'');
-   if(curve.state==='soft-annealed')assert.equal(option.textContent,identity,'annealed state is omitted only from the option label');
+   if(['soft-annealed','normalized-rolled'].includes(curve.state))assert.equal(option.textContent,identity,'annealed and normalized-rolled states are omitted only from option labels');
    else assert.equal(option.textContent,identity+' · '+I.t(curve.state==='cold-drawn'?'gezogen':curve.stateLabel||curve.state,language));
    assert(!option.textContent.includes(I.t('Literaturansatz',language)));assert(!option.textContent.includes(curve.id));assert(curve.sourceRefs.length,'internal evidence remains available');
    assert(!['C8C','23MnB4','33B2'].includes(material.id));
@@ -238,6 +240,56 @@ test('technical-only manual removes prices from cards, print and email in five l
    assert.equal(p.get('kenn').innerHTML,baseline.get('kenn').innerHTML,'price policy preserves calculated figures');
    assert.equal(p.get('stufen').tBodies[0].innerHTML,baseline.get('stufen').tBodies[0].innerHTML,'price policy preserves the forming sequence');
   }
+ }
+});
+
+const requestModel=(p,model)=>p.get('karten').events.click({target:{closest:selector=>selector==='button[data-request-model]'?{dataset:{requestModel:model}}:null}});
+const quoteModels=p=>Array.from(p.get('karten').innerHTML.matchAll(/<button type="button" class="quote-button" data-request-model="([^"]+)" aria-label="([^"]+)">([^<]+)<\/button>/g));
+
+test('each machine quote button selects that model for the form, print and mail without changing the customer note or sending',async()=>{
+ for(const language of I.supported)for(const prices of [true,false]){
+  const p=setup(language,E,prices);p.examples[0].events.click();
+  const buttons=quoteModels(p);assert(buttons.length>1,'fixture must offer a machine beyond the first recommendation');
+  assert.equal(buttons.length,(p.get('karten').innerHTML.match(/<span class="modell">/g)||[]).length,'every displayed machine has its own quote button');
+  for(const button of buttons){assert.equal(button[3],I.t('Angebot anfragen',language));assert.equal(button[2],I.t('Angebot anfragen',language)+' · '+button[1],'accessible name includes visible label and model');}
+  if(language!=='de'){assert.notEqual(I.t('Angebot anfragen',language),'Angebot anfragen');assert.notEqual(I.t('Anfrage für {model}',language),'Anfrage für {model}');}
+  const first=buttons[0][1],selected=buttons[1][1],note='Originalnotiz  mit Abstand\nBitte Zeichnung beachten';
+  p.a.elements.nachricht.value=note;p.a.elements.email.value='customer@example.invalid';
+  requestModel(p,'INVENTED-MODEL');assert(p.get('selected-machine').hidden);assert(!p.a.elements.email.focused,'unavailable model is rejected');
+  requestModel(p,selected);
+  const label=I.t('Anfrage für {model}',language).replace('{model}',selected);
+  assert.equal(p.get('selected-machine').textContent,label);assert.equal(p.get('selected-machine').hidden,false);assert.equal(p.get('selected-machine').dataset.originalText,'');
+  assert(p.a.elements.email.focused);assert.equal(p.a.elements.email.focusOptions.preventScroll,true);assert.equal(p.get('anfrage').scrollOptions.block,'start');
+  assert.equal(p.context.location.href,'','selecting a model never sends or opens mail');assert.equal(p.a.elements.nachricht.value,note);
+  const changedLanguage=language==='en'?'de':'en';p.context.window.JYLocale.language=changedLanguage;p.events['jy-languagechange']();
+  assert.equal(p.get('selected-machine').textContent,I.t('Anfrage für {model}',changedLanguage).replace('{model}',selected),'language changes retain and translate the chosen model');
+  p.context.window.JYLocale.language=language;p.events['jy-languagechange']();
+  p.get('drucken').events.click();const print=p.get('blatt').innerHTML;assert(print.includes(label));assert(print.includes('\n  '+selected+' ('));assert(!print.includes('\n  '+first+' ('),'print uses the chosen machine instead of the first match');
+  await p.get('senden').events.click();const mail=new URL(p.context.location.href),body=mail.searchParams.get('body');
+  assert.equal(mail.searchParams.get('subject'),I.t(prices?'Richtpreisanfrage':'Maschinenanfrage',language)+' '+selected);
+  assert(body.includes(label));assert(body.includes('\r\n  '+selected+' ('));assert(!body.includes('\r\n  '+first+' ('));assert(body.includes(note.replace(/\n/g,'\r\n')));
+  assert.equal(p.a.elements.nachricht.value,note);if(!prices)assert(!/€/.test(print+body));
+ }
+});
+
+test('quote selections are cleared when calculation inputs or available models change, including pending input',async()=>{
+ const p=setup('de');p.examples[0].events.click();const chosen=quoteModels(p)[1][1];requestModel(p,chosen);
+ p.f.elements.sL.value='41';p.f.events.input();assert(p.get('selected-machine').hidden,'pending input immediately clears the old choice');
+ await p.get('senden').events.click();assert(!new URL(p.context.location.href).searchParams.get('body').includes('Anfrage für '+chosen),'send recalculates pending geometry without the stale selection');
+ const next=quoteModels(p)[1][1];requestModel(p,next);p.f.elements.d0.value='';p.f.events.change();assert(p.get('selected-machine').hidden);assert.equal(p.get('drucken').disabled,true);assert.equal(p.get('empty-visual').hidden,false);
+ requestModel(p,chosen);assert(p.get('selected-machine').hidden,'old card clicks are rejected after an incomplete calculation');
+ let available=true;
+ const engine={...E,waehle(...args){const result=E.waehle(...args);return available?result:{...result,passend:[],bedingt:[],fast:[]};}};
+ const q=setup('de',engine);assert.equal(q.get('empty-visual').hidden,false);q.examples[0].events.click();assert.equal(q.get('empty-visual').hidden,true);
+ requestModel(q,quoteModels(q)[0][1]);available=false;q.f.events.change();assert(q.get('selected-machine').hidden,'model must still be in the current results');assert.equal(q.get('empty-visual').hidden,false,'no machine matches keeps the empty visual');
+});
+
+test('normalized-rolled dropdown labels are simplified while the selected result retains the technical state',()=>{
+ for(const language of I.supported){
+  const p=setup(language),index=E.WERKSTOFFE.findIndex(material=>material.id==='20MnB4'),material=E.WERKSTOFFE[index],curve=material.flowCurves.find(item=>item.state==='normalized-rolled'&&item.eligible);
+  assert(curve);p.examples[0].events.click();p.f.elements.wst.value=index+'|'+curve.id;p.f.events.change();
+  const option=p.f.elements.wst.options.find(item=>item.value===p.f.elements.wst.value);assert(option);assert(!option.textContent.includes(I.t('normalisierend warmgewalzt',language)));
+  assert(p.get('material-basis').textContent.includes(I.t('normalisierend warmgewalzt',language)));p.get('drucken').events.click();assert(p.get('blatt').innerHTML.includes(I.t('normalisierend warmgewalzt',language)));
  }
 });
 
