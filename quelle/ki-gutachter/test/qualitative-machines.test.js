@@ -89,7 +89,9 @@ test('no-material analysis returns both family candidates, real catalog sources 
  const answer=`${A} und ${B} sind qualitative Anfragekandidaten für den Drahtschnitt und das Stadienkonzept. Die endgültige Familienwahl bei offener Produktlänge und Auswerferdetails übernehmen die Technologen in Taiwan.`;
  const calls=mock(t,answer,{inspect(body,round){
   assert.match(body.system,/Nennmaß des Drahtschnitts/);assert.match(body.system,/Stufen deines geometrischen Stadienkonzepts/);assert.match(body.system,/Technologen in Taiwan/);
-  if(round){const knowledge=JSON.parse(body.messages.at(-1).content[0].content);assert.ok(knowledge.catalogModels.rows.length>100);}
+  assert.match(body.system,/nach projektwissen direkt aus catalogModels antworten/);
+  assert.doesNotMatch(body.system,/echte Maschinen mit grobauslegung prüfen/);
+  if(round){const knowledge=JSON.parse(body.messages.at(-1).content[0].content);assert.ok(knowledge.catalogModels.rows.length>100);assert.match(knowledge.note,/jetzt direkt die Schlussantwort/);assert.match(knowledge.note,/Keine weitere Projektwissen-, Recherche- oder Grobauslegungsrunde allein wegen fehlendem Werkstoff/);}
  }});
  const result=await analyse({message:'Werkstoff fehlt; geometrisch fünf Stationen und Drahtschnitt 8 mm. Welche Maschine?',pricePolicy:'with-prices'},env());
  assert.equal(calls(),2);assert.deepEqual(result.proposal.machines.map(c=>c.model),[A,B]);

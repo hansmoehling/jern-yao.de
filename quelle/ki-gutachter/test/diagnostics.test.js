@@ -1,7 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import worker from '../worker.js';
-import {providerFailure,recordServiceDiagnostic} from '../analysis.js';
+import {analyse,providerFailure,recordServiceDiagnostic} from '../analysis.js';
 
 class KV{
  constructor(){this.values=new Map([['regeln','R-ST1: Fachregel'],['wissenskarten','K1: Fachwissen']]);this.writes=[];}
@@ -35,6 +35,39 @@ test('chat transport, timeout and refusal to read knowledge receive distinct pri
  const e=env();let mode='transport';
  fetchMock(t,async()=>{if(mode==='transport')throw new TypeError('network failure with sk-ant-secret and buyer@example.test');if(mode==='timeout')throw new DOMException('private timeout text','TimeoutError');return Response.json({content:[]});});
  for(const [value,code]of [['transport','model_transport'],['timeout','model_timeout'],['rounds','model_round_limit']]){mode=value;const response=await worker.fetch(chat({message:'Neutral test'}),e);assert.equal(response.status,503);assert.equal(event(e).code,code);assert.ok(!JSON.stringify(event(e)).includes('buyer@'));}
+});
+
+test('model timeouts record only the round and fixed last action through every allowed loop path',async t=>{
+ const e=env();let round=0,mode='knowledge';
+ const tool=name=>Response.json({content:[{type:'tool_use',name,id:'PRIVATE_TOOL_ID',input:{}}]});
+ fetchMock(t,async()=>{
+  round++;
+  if(mode!=='knowledge'&&round===1)return tool('projektwissen');
+  if(['grobauslegung','recherche','answer-rejected','unknown-tool'].includes(mode)&&round===2){
+   if(mode==='answer-rejected')return Response.json({content:[{type:'text',text:JSON.stringify({answer:'PRIVATE_EMAIL@example.test',questions:[],sourceIds:[]})}]});
+   return tool(mode==='unknown-tool'?'PRIVATE_INVENTED_TOOL':mode);
+  }
+  throw new DOMException('PRIVATE_TIMEOUT_MESSAGE '+e.ANTHROPIC_API_KEY,'TimeoutError');
+ });
+ for(const [action,expectedRound,expectedAction] of [['knowledge',1,'knowledge'],['projektwissen',2,'projektwissen'],['grobauslegung',3,'grobauslegung'],['recherche',3,'recherche'],['answer-rejected',3,'answer-rejected'],['unknown-tool',3,'projektwissen']]){
+  mode=action;round=0;
+  await assert.rejects(analyse({message:'PRIVATE_CUSTOMER_INPUT'},e),asyncError=>{
+   assert.equal(asyncError.message,'model_timeout');
+   assert.equal(asyncError.diagnostic.message,`Model request timed out or was aborted (round ${expectedRound}, last action ${expectedAction}).`);
+   return true;
+  });
+  try{round=0;await analyse({message:'PRIVATE_CUSTOMER_INPUT'},e);}catch(error){await recordServiceDiagnostic(e,error,'chat');}
+  const raw=JSON.stringify(event(e));
+  assert.equal(event(e).code,'model_timeout');assert.match(event(e).message,new RegExp(`round ${expectedRound}, last action ${expectedAction}`));
+  for(const forbidden of ['PRIVATE_','example.test',e.ANTHROPIC_API_KEY])assert.ok(!raw.includes(forbidden),forbidden);
+ }
+});
+
+test('timeout while consuming the response body retains the same safe round diagnosis',async t=>{
+ const e=env();let count=0;
+ fetchMock(t,async()=>count++===0?Response.json({content:[{type:'tool_use',name:'projektwissen',id:'private-id',input:{}}]}):{ok:true,json:async()=>{throw new DOMException('PRIVATE_BODY_TEXT','AbortError');}});
+ try{await analyse({message:'PRIVATE_CUSTOMER_TEXT'},e);assert.fail('expected timeout');}catch(error){await recordServiceDiagnostic(e,error,'chat');}
+ assert.equal(event(e).code,'model_timeout');assert.equal(event(e).message,'Model request timed out or was aborted (round 2, last action projektwissen).');assert.ok(!JSON.stringify(event(e)).includes('PRIVATE_'));
 });
 
 test('queued model failure records a diagnostic without intake fields or queue identifiers',async t=>{
