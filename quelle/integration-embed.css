@@ -1,0 +1,9 @@
+.jy-embedded body{background:#fff}
+.jy-embedded body > header,.jy-embedded .skip,.jy-embedded .hero,.jy-embedded .personal,.jy-embedded footer .footer-row,.jy-embedded #impressum{display:none}
+.jy-embedded .wrap{max-width:none;padding-inline:0}
+.jy-embedded .entry{border-top:0}
+.jy-embedded .entry-top{padding-top:8px}
+.jy-embedded .workspace{padding-bottom:20px;gap:28px}
+.jy-embedded footer{padding:12px 16px;background:#f2f5f9}
+.jy-embedded footer details{max-width:none}
+@media(max-width:720px){.jy-embedded .workspace{gap:24px}.jy-embedded .entry-top{padding-top:0}}

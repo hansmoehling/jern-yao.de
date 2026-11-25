@@ -22,7 +22,7 @@ class Element {
   focus(){this.focused=true}
   scrollIntoView(){}
 }
-function harness(base='https://api.example.test',language='de') {
+function harness(base='https://api.example.test',language='de',showPrices) {
   const nodes = new Map();
   for (const match of template.matchAll(/id="([^"]+)"/g)) { assert(!nodes.has(match[1]), 'duplicate id '+match[1]); nodes.set(match[1],new Element()); }
   nodes.get('consent').checked=true;
@@ -32,11 +32,45 @@ function harness(base='https://api.example.test',language='de') {
   const document={getElementById(id){assert(nodes.has(id),'unknown id '+id);return nodes.get(id)},createElement(tag){return new Element(tag)},querySelectorAll(selector){return selector==='[data-mode]'?tabs:selector==='[data-question]'?questions:[]}};
   const locale={language,t:text=>I18N.t(text,locale.language),apply(){},autonyms:{de:'Deutsch',it:'Italiano',sl:'Slovenščina',en:'English',zh:'简体中文'}};
   const context={document,window:{JYI18N:I18N,JYLocale:locale,JYConcept:{html:()=>'<section>concept</section>'},JY_API_BASE:base,location:{href:'https://jern-yao.de/'},setTimeout(){return 1},clearTimeout(){},addEventListener(){}},URL,URLSearchParams,FormData,AbortController,TextEncoder,crypto,TypeError,fetch:async(url,options)=>{requests.push({url,options});const answer=answers.shift();if(answer instanceof Error)throw answer;if(!answer)throw new Error('Unmocked API call');return {ok:answer.ok!==false,status:answer.status||200,json:async()=>answer.data}}};
+  if(showPrices!==undefined)context.window.JY_SHOW_PRICES=showPrices;
   vm.runInNewContext(source,context);
   return {nodes,tabs,questions,requests,answers,locale,get:id=>nodes.get(id)};
 }
 const flattened = node => node.textContent+' '+node.children.map(flattened).join(' ');
 (async()=>{
+  for(const language of I18N.supported){
+    for(const flag of [undefined,true,false]){
+      const p=harness('https://api.example.test',language,flag),priced=flag!==false;
+      const proposal={machines:[
+        {model:'MODEL-FIXED',status:'offen',priceEUR:123456,criteria:[{criterion:'Stationen',required:4,available:5}],openPoints:[{owner:'Jern Yao',detail:'Auswerfer Matrize (KO)'}]},
+        {model:'MODEL-RANGE',status:'ok',priceRangeEUR:[234567,345678]}
+      ]};
+      const assertPricePolicy=(node,channel)=>{
+        const text=flattened(node);
+        assert(text.includes('MODEL-FIXED')&&text.includes('MODEL-RANGE'),channel+' retains both machine recommendations');
+        assert(text.includes(I18N.t('Stationen',language)),channel+' retains technical criteria');
+        assert(text.includes(I18N.t('Auswerfer Matrize (KO)',language)),channel+' retains open machine questions');
+        assert.equal(/EUR|€/.test(text),priced,language+' '+channel+' currency');
+        const all=node=>[node,...node.children.flatMap(all)];
+        const priceRows=all(node).filter(item=>item.tagName==='dd'&&item.className==='small');
+        assert.equal(priceRows.length,priced?2:0,language+' '+channel+' fixed price and price range');
+        if(!priced){assert(!text.includes(I18N.t('Richtpreis',language)));assert(!text.includes(I18N.t('Preisspanne',language)));}
+      };
+      p.get('email').value='customer@example.invalid';p.get('description').value='Hülse Ø12, Länge 25 mm';
+      p.answers.push({data:{id:'PRICE-POLICY',token:'test-token',status:'ready',answer:'Technical response',proposal}});
+      await p.get('request-form').emit('submit');
+      const form=p.requests[0].options.body;
+      assert.equal(form.get('pricePolicy'),priced?null:'technical-only',language+' request form policy');
+      assert.equal(form.get('notiz'),'Hülse Ø12, Länge 25 mm');assert.equal(form.get('language'),language);
+      assertPricePolicy(p.get('result-content'),'request result');
+      p.get('chat-input').value='Welche Maschine passt?';p.answers.push({data:{answer:'Technical response',language,proposal}});
+      await p.get('chat-form').emit('submit');
+      const chat=JSON.parse(p.requests.at(-1).options.body);
+      assert.equal(chat.pricePolicy,priced?undefined:'technical-only',language+' chat policy');
+      assert.equal(chat.message,'Welche Maschine passt?');assert.equal(chat.language,language);assert.equal(chat.requestId,'PRICE-POLICY');
+      assertPricePolicy(p.get('messages'),'chat result');
+    }
+  }
   for(const language of I18N.supported){
     for(const [flow,statusLabel]of [['ready',null],['state-missing','Lieferzustand des Drahts fehlt'],['strain-outside-range','Umformgrad außerhalb des belegten Fließkurvenbereichs']]){
       const p=harness('https://api.example.test',language);p.get('chat-input').value='Original question';
@@ -180,5 +214,5 @@ const flattened = node => node.textContent+' '+node.children.map(flattened).join
   assert.match(template,/<input[^>]*id="consent"[^>]*required/);
   assert.match(template,/<input[^>]*id="email"[^>]*required/);
   assert.match(template,/<textarea[^>]*id="chat-input"[^>]*maxlength="8000"/);
-  console.log('PASS: offline mode, tabs, text-only request, retry idempotency, verified receipt vs mail status, proposal/questions/sources, safe source links, standalone chat, bounded multibyte history, chat-to-request, 503, file types/size, privacy, unique IDs and build placeholders.');
+  console.log('PASS: five-language technical-only/default price policy for request and chat, offline mode, tabs, text-only request, retry idempotency, verified receipt vs mail status, proposal/questions/sources, safe source links, standalone chat, bounded multibyte history, chat-to-request, 503, file types/size, privacy, unique IDs and build placeholders.');
 })().catch(error=>{console.error(error);process.exitCode=1});

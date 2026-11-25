@@ -5,6 +5,7 @@
   const MAIL = 'info@jernyao.de';
   const L=window.JYLocale;
   const tr=text=>L.t(text);
+  const showPrices = window.JY_SHOW_PRICES !== false;
   let latestStatus=null;
   const MAX_BYTES = 15 * 1024 * 1024;
   const ALLOWED = /\.(pdf|png|jpe?g|webp|step|stp|dxf|dwg)$/i;
@@ -302,8 +303,8 @@
           box.appendChild(list);row.appendChild(box);
         }
         const price = typeof machine.priceEUR==='number' && machine.priceEUR>0?number(machine.priceEUR, 'EUR'):'';
-        if (price) row.appendChild(element('dd', 'Richtpreis ' + price, 'small'));
-        if (Array.isArray(machine.priceRangeEUR) && machine.priceRangeEUR.length === 2) row.appendChild(element('dd', 'Preisspanne ' + machine.priceRangeEUR.map(value => number(value, 'EUR')).join(' – '), 'small'));
+        if (showPrices && price) row.appendChild(element('dd', 'Richtpreis ' + price, 'small'));
+        if (showPrices && Array.isArray(machine.priceRangeEUR) && machine.priceRangeEUR.length === 2) row.appendChild(element('dd', 'Preisspanne ' + machine.priceRangeEUR.map(value => number(value, 'EUR')).join(' – '), 'small'));
         if(machine.concept){const box=element('div');box.innerHTML=window.JYConcept.html(machine.concept,L.language);row.appendChild(box);}
         if (Array.isArray(machine.criteria) && machine.criteria.length) {
           const details = element('details'); details.appendChild(element('summary', 'Abgleich mit den Maschinendaten'));
@@ -391,6 +392,7 @@
     }
     const data = new FormData();
     data.append('language',L.language);
+    if (!showPrices) data.append('pricePolicy', 'technical-only');
     data.append('email', $('email').value.trim()); data.append('name', $('name').value.trim()); data.append('firma', $('company').value.trim()); data.append('notiz', note); data.append('idempotency_key', idempotencyKey);
     if (file) data.append('datei', file, file.name);
     requestBusy = true; updateSubmit(); message('request-message', 'Ihre Anfrage wird übertragen …');
@@ -428,6 +430,7 @@
     if (!text) return;
     const priorHistory = history.slice(-12).map(item => ({ role: item.role, content: item.content.slice(0, 4000) }));
     const body = { message: text, history: priorHistory, language:L.language };
+    if (!showPrices) body.pricePolicy = 'technical-only';
     if (current) { body.requestId = current.id; body.token = current.token; }
     // Keep the actual UTF-8 JSON below the service's 64 KB limit, including long
     // answers and languages with multibyte characters. Remove oldest pairs first.
@@ -464,6 +467,9 @@
     event.currentTarget.href = 'mailto:' + MAIL + '?subject=' + encodeURIComponent(tr('Anfrage zur Kaltumformung')) + '&body=' + encodeURIComponent(body.slice(0, 7000));
   });
   document.querySelectorAll('a[href="#datenschutz"]').forEach(link => link.addEventListener('click', () => { $('datenschutz').open = true; }));
+  const openLinkedPrivacy = () => { if (window.location.hash === '#datenschutz') $('datenschutz').open = true; };
+  window.addEventListener('hashchange', openLinkedPrivacy);
+  openLinkedPrivacy();
   window.addEventListener('pagehide', () => window.clearTimeout(pollTimer));
   $('availability').hidden = !!apiBase;
   $('email-fallback').hidden = !!apiBase;

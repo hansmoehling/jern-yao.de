@@ -11,7 +11,7 @@ class El{
  querySelectorAll(){return []}
  scrollIntoView(){}
 }
-function setup(language,engine=E){
+function setup(language,engine=E,showPrices){
  const ids=new Map();const get=id=>{if(!ids.has(id))ids.set(id,new El());return ids.get(id)};
  const f=get('f'),a=get('a');f.elements={};a.elements={};
  for(const key of ['typ','wst','rm','d0','wirePreparation','rodDiameter','kopfForm','kD','kSW','kH','sD','sL','iTyp','iSize','iSW','iT','iVol','nD','nT','nDurch','mM','mSW','mH','mLoch','mFlansch','mFlanschH','masse','lStempel','wenden','ko','pko','matD','matL','stD','stL','stationen','zusatz','ausbringung','zeichnung'])f.elements[key]=new El();
@@ -22,6 +22,7 @@ function setup(language,engine=E){
  get('daten').textContent=JSON.stringify(machines);get('praxis').textContent=JSON.stringify(praxis);
  const examples=['m8','m6','mu','hu'].map(name=>{const el=new El();el.dataset.bsp=name;return el});
  const events={};const window={JYK:engine,JYI18N:I,JYLocale:{language,t:s=>I.t(s,language),apply(){}},matchMedia:()=>({matches:false}),addEventListener:(name,fn)=>events[name]=fn,print(){}};
+ if(showPrices!==undefined)window.JY_SHOW_PRICES=showPrices;
  const document={getElementById:get,createElement:()=>new El(),querySelectorAll:selector=>selector==='[data-bsp]'?examples:[]};
  const context={window,document,clearTimeout,setTimeout,location:{href:''},FormData,fetch:()=>{throw Error('Network forbidden in archive tests')}};
  vm.runInNewContext(fs.readFileSync(path.join(__dirname,'..','concept-ui.js'),'utf8'),context);
@@ -35,10 +36,14 @@ test('only approved wire-condition curves are selectable and all examples explic
   for(const option of p.f.elements.wst.options){
    const [index,curveId]=option.value.split('|'),material=E.WERKSTOFFE[Number(index)],curve=material.flowCurves.find(curve=>curve.id===curveId);
    assert(curve?.eligible);assert(['literature','proxy'].includes(curve.approval));assert(material.number&&curve.materialNumbers?.includes(material.number)||curve.materialIds?.includes(material.id));
-   assert(option.textContent.includes(I.t(curve.state==='cold-drawn'?'gezogen':curve.state==='soft-annealed'?'weichgeglüht':curve.stateLabel||curve.state,language)));
+   const identity=(material.sourceName||material.id)+(material.number?' · '+material.number:'');
+   if(curve.state==='soft-annealed')assert.equal(option.textContent,identity,'annealed state is omitted only from the option label');
+   else assert.equal(option.textContent,identity+' · '+I.t(curve.state==='cold-drawn'?'gezogen':curve.stateLabel||curve.state,language));
    assert(!option.textContent.includes(I.t('Literaturansatz',language)));assert(!option.textContent.includes(curve.id));assert(curve.sourceRefs.length,'internal evidence remains available');
    assert(!['C8C','23MnB4','33B2'].includes(material.id));
   }
+  const labels=p.f.elements.wst.options.map(option=>option.textContent);
+  p.events['jy-languagechange']();assert.deepEqual(p.f.elements.wst.options.map(option=>option.textContent),labels,'language refresh preserves the simplified labels');
   for(const example of p.examples){example.events.click();const cards=p.get('karten').innerHTML;assert(cards.includes(I.t('Stadienkonzept für diese Maschine',language)),language+' '+example.dataset.bsp);assert(!cards.includes('NaN'));assert.equal(E.WERKSTOFFE[Number(p.f.elements.wst.value.split('|')[0])].id,'C4C');assert(p.get('material-basis').textContent.includes(I.t('weichgeglüht',language)));assert(!p.get('kenn').innerHTML.includes(I.t('Kraft noch offen',language)),'all demonstration geometries stay within the selected C4C curve');}
  }
  assert(!fs.readFileSync(path.join(__dirname,'..','archiv-vorlage.html'),'utf8').includes('id="hinweise"'),'the brown note block is removed');
@@ -199,6 +204,40 @@ test('print and mail are fully localized before DOM translation, with identical 
   assert(body.includes('Original_Zeichnung.pdf'));
   assert(body.includes(I.t('(bitte anhängen)',language)));
   assert(!uri.searchParams.get('subject').includes('undefined'));
+ }
+});
+
+test('technical-only manual removes prices from cards, print and email in five languages without changing machine selection',async()=>{
+ const translations=JSON.parse(fs.readFileSync(path.join(__dirname,'..','i18n-integration.json'),'utf8'));
+ const machineSubject=language=>language==='de'?'Maschinenanfrage':translations.Maschinenanfrage[['it','sl','en','zh'].indexOf(language)];
+ const models=html=>Array.from(html.matchAll(/<span class="modell">([^<]+)<\/span>/g),match=>match[1]);
+ for(const language of I.supported){
+  const variants=[undefined,true,false].map(flag=>({flag,p:setup(language,E,flag)}));
+  for(const {flag,p}of variants){
+   p.examples[0].events.click();p.a.elements.email.value='customer@example.invalid';
+   const cards=p.get('karten').innerHTML;assert(models(cards).length>0,'the price-free result still offers machines');
+   const priced=flag!==false;
+   assert.equal(cards.includes('class="preis"'),priced,language+' card price block');
+   assert.equal(cards.includes('€'),priced,language+' card currency');
+   p.get('drucken').events.click();const print=p.get('blatt').innerHTML;
+   await p.get('senden').events.click();const mail=new URL(p.context.location.href),body=mail.searchParams.get('body'),subject=mail.searchParams.get('subject');
+   for(const [channel,text]of [['print',print],['email',body]]){
+    assert.equal(text.includes('€'),priced,language+' '+channel+' currency');
+    assert.equal(text.includes(I.t('Richtpreis',language)),priced,language+' '+channel+' price label');
+    assert(text.includes(I.t('Höchste Stationskraft',language)),channel+' retains technical requirements');
+    assert(text.includes(models(cards)[0]),channel+' retains the selected machine');
+   }
+   assert(subject.startsWith((priced?I.t('Richtpreisanfrage',language):machineSubject(language))+' '),language+' localized enquiry subject');
+   assert(subject.includes(models(cards)[0]),'enquiry subject retains the model');
+   if(!priced)assert(!subject.includes(I.t('Richtpreisanfrage',language))&&!subject.includes('€'));
+   const labels=cards;p.events['jy-languagechange']();assert.equal(p.get('karten').innerHTML,labels,'locale refresh retains the price policy');
+  }
+  const baseline=variants[0].p;
+  for(const {p}of variants.slice(1)){
+   assert.deepEqual(models(p.get('karten').innerHTML),models(baseline.get('karten').innerHTML),'price policy preserves recommendation order');
+   assert.equal(p.get('kenn').innerHTML,baseline.get('kenn').innerHTML,'price policy preserves calculated figures');
+   assert.equal(p.get('stufen').tBodies[0].innerHTML,baseline.get('stufen').tBodies[0].innerHTML,'price policy preserves the forming sequence');
+  }
  }
 });
 

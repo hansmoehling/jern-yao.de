@@ -2,6 +2,7 @@
   'use strict';
   const E = window.JYK;
   const L=window.JYLocale, tr=s=>L.t(s);
+  const showPrices = window.JY_SHOW_PRICES !== false;
   const MASCHINEN = JSON.parse(document.getElementById('daten').textContent);
   const PRAXIS = JSON.parse(document.getElementById('praxis').textContent);
   const ENDPOINT = ''; // später: Empfangsdienst für Upload und KI-Gutachten, z. B. https://api.jernyao.de/anfrage
@@ -30,8 +31,10 @@
   const conditionLabel=curve=>tr(curve.state==='soft-annealed'?'weichgeglüht':curve.state==='cold-drawn'?'gezogen':curve.stateLabel||curve.state);
   const modelLabel=curve=>tr(curve.approval==='proxy'?'begründete Ersatzkurve':'Literaturansatz');
   const preparationLabel=value=>tr(value==='inline-drawing'?'Walzdraht mit Inline-Vorzug':'Draht im gewählten Lieferzustand');
-  const materialLabel=variant=>(variant.material.sourceName||variant.material.id)+(variant.material.number?' · '+variant.material.number:'')+' · '+conditionLabel(variant.curve);
-  variants.forEach(variant=>{const option=document.createElement('option');option.value=variant.value;option.dataset.originalText='';option.textContent=materialLabel(variant);sel.appendChild(option);});
+  const materialIdentity=variant=>(variant.material.sourceName||variant.material.id)+(variant.material.number?' · '+variant.material.number:'');
+  const materialLabel=variant=>materialIdentity(variant)+' · '+conditionLabel(variant.curve);
+  const optionLabel=variant=>variant.curve.state==='soft-annealed'?materialIdentity(variant):materialLabel(variant);
+  variants.forEach(variant=>{const option=document.createElement('option');option.value=variant.value;option.dataset.originalText='';option.textContent=optionLabel(variant);sel.appendChild(option);});
   sel.value=variants.find(variant=>variant.material.id==='C4C'&&variant.curve.state==='soft-annealed')?.value||'';
 
   // Size designations only: tool dimensions are not recess areas or forming factors.
@@ -172,7 +175,7 @@
       const zeilen = r.k.map(x => '<tr><td>' + h(x.krit) + '</td><td>' + h(x.soll) + '</td><td>' + h(x.ist) + '</td><td><span class="st m-' + x.status + '">' + h({ ok: 'ok', knapp: 'knapp', nein: 'nein', offen: 'offen' }[x.status]) + '</span></td></tr>').join('');
       const kat = o.kat ? '<a href="' + KATURL + o.kat + '.pdf#page=' + (o.s || 1) + '" target="_blank" rel="noopener">'+esc(msg('Katalog {catalogue}, S. {page}',{catalogue:o.kat,page:o.s||1}))+'</a>' : '';
       return '<div class="karte' + (beste ? ' beste' : '') + '"><div class="kopfzeile"><div><span class="modell">' + esc(o.m) + '</span>' + badge + '<div class="fam">' + h(FAMNAME[o.f] || o.f) + ' · ' + o.st + ' '+h('Stationen')+' · ' + fmt(o.pw) + ' t' + (o.sz ? ' · '+esc(msg('bis {v}',{v:o.sz})) : '') + '</div></div>' +
-        '<div class="preis"><b>' + esc(eur(o.rp)) + '</b><small>' + esc(sp) + '</small></div></div>' +
+        (showPrices ? '<div class="preis"><b>' + esc(eur(o.rp)) + '</b><small>' + esc(sp) + '</small></div>' : '') + '</div>' +
         clarification +
         (r.ausl==null?'':'<div class="balken" title="'+h('Auslastung der Nennkraft, Strich bei 65 %')+'"><i style="width:' + Math.min(100, rounded(r.ausl * 100)) + '%;background:' + farbe + '"></i></div>') +
         '<div class="kurz"><span>'+(r.ausl==null?h('Kraft noch offen'):h('Auslastung')+' '+rounded(r.ausl*100)+' %')+'</span><span>'+esc(msg('Abschnitt bis Ø{value}',{value:fmt(o.cd)}))+'</span><span>KO ' + (o.ko ? fmt(o.ko) : '·') + (o.kor ? ' (' + esc(o.kor) + ')' : '') + '</span><span>PKO ' + (o.pko ? fmt(o.pko) : '·') + '</span><span>'+esc(msg('Matrize Ø{value}',{value:o.die?fmt(o.die[0])+' × '+fmt(o.die[1]):'·'}))+'</span>' + (o.wt ? '<span>'+esc(msg('rund {weight} t, Motor {power} kW',{weight:fmt(o.wt),power:fmt(o.hp==null?null:o.hp*0.7457,0)}))+'</span>' : '') + (r.plan ? '<span title="'+h('Erfahrungswert aus der Serienfertigung; der Katalog nennt die Höchstdrehzahl')+'">'+esc(msg('Planung ≈ {rate} /min, rund {hourly} Stück/h (Katalog bis {maximum})',{rate:fmt(r.plan.aus),hourly:fmt(r.stundeProStk,0),maximum:fmt(o.out)}))+'</span>' : (o.out ? '<span>'+esc(msg('bis {v}',{v:fmt(o.out)}))+' /min</span>' : '')) + '</div>' +
@@ -242,7 +245,7 @@
     const top=[...wahl.passend.slice(0,3),...(wahl.passend.length?[]:wahl.bedingt.slice(0,3))];
     const status={ok:'passt',knapp:'knapp',offen:'Klärung nötig',nein:'passt nicht'};
     top.forEach(r=>{
-      lines.push('  '+r.o.m+' ('+tr(status[r.gesamt]||r.gesamt)+'), '+tr('Richtpreis')+' 2026 '+(r.o.rp?eur(r.o.rp):tr('auf Anfrage'))+', '+(r.ausl==null?tr('Kraft noch offen'):tr('Auslastung')+' '+fmt(r.ausl*100,0)+' %')+(r.plan?', '+tr('Planung')+' '+fmt(r.plan.aus,0)+' /min':''));
+      lines.push('  '+r.o.m+' ('+tr(status[r.gesamt]||r.gesamt)+'), '+(showPrices?tr('Richtpreis')+' 2026 '+(r.o.rp?eur(r.o.rp):tr('auf Anfrage'))+', ':'')+(r.ausl==null?tr('Kraft noch offen'):tr('Auslastung')+' '+fmt(r.ausl*100,0)+' %')+(r.plan?', '+tr('Planung')+' '+fmt(r.plan.aus,0)+' /min':''));
       const openPoints=(r.openPoints||[]).filter(point=>point&&typeof point.detail==='string'&&point.detail.trim());
       if(openPoints.length){lines.push('    '+tr('Noch zu klären')+':');openPoints.forEach(point=>lines.push('    '+tr(point.owner)+': '+tr(point.detail)));}
     });
@@ -254,7 +257,7 @@
     const z = f.elements.zeichnung.files[0];
     const kopf = [tr('Name')+': '+a.elements.name.value,tr('Firma')+': '+a.elements.firma.value,tr('E-Mail')+': '+a.elements.email.value,tr('Telefon')+': '+a.elements.tel.value].join('\n');
     const text = kopf + '\n\n' + (a.elements.nachricht.value ? a.elements.nachricht.value + '\n\n' : '') + zusammenfassung() + (z ? '\n\n'+tr('Zeichnung:')+' '+z.name+' '+tr('(bitte anhängen)') : '');
-    const betreff = (tr('Richtpreisanfrage')+' '+(((letzte.wahl.passend[0] || letzte.wahl.bedingt[0] || {}).o || {}).m || '')).trim();
+    const betreff = (tr(showPrices?'Richtpreisanfrage':'Maschinenanfrage')+' '+(((letzte.wahl.passend[0] || letzte.wahl.bedingt[0] || {}).o || {}).m || '')).trim();
     if (ENDPOINT) {
       const fd = new FormData();
       fd.append('betreff', betreff); fd.append('text', text); fd.append('eingaben', JSON.stringify(letzte.e)); fd.append('email', a.elements.email.value);
@@ -312,6 +315,6 @@
   f.elements.zeichnung.addEventListener('change',()=>{$('archive-file-name').textContent=f.elements.zeichnung.files[0]?.name||'';});
   $('senden').addEventListener('click', senden);
   $('drucken').addEventListener('click', drucken);
-  window.addEventListener('jy-languagechange',()=>{Array.from(sel.options).forEach(option=>{const variant=variantByValue.get(option.value);if(variant)option.textContent=materialLabel(variant);});sichtbar();rechnen();L.apply();});
+  window.addEventListener('jy-languagechange',()=>{Array.from(sel.options).forEach(option=>{const variant=variantByValue.get(option.value);if(variant)option.textContent=optionLabel(variant);});sichtbar();rechnen();L.apply();});
   sichtbar(); rechnen(); L.apply();
 })();
