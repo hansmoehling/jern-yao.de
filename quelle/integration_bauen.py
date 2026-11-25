@@ -53,7 +53,7 @@ def build(destination):
             replacements = {
                 'Manuelle Auslegung: Stadienfolge, Werkzeuggröße und passende Jern-Yao-Mehrstufenpressen mit Richtpreis 2026.': 'Manuelle Auslegung: Stadienfolge, Werkzeuggröße und passende Jern-Yao-Mehrstufenpressen.',
                 'Stadienfolge, Presskraft, Werkzeuggröße und Auswerferwege grob ausgelegt, dazu die passenden Jern-Yao-Modelle mit Richtpreis 2026.': 'Stadienfolge, Presskraft, Werkzeuggröße und Auswerferwege grob ausgelegt, dazu die passenden Jern-Yao-Modelle.',
-                '<h2>Richtpreisangebot anfragen</h2>': '<h2>Maschinenangebot anfragen</h2>',
+                '<h2>Angebot anfragen</h2>': '<h2>Maschinenangebot anfragen</h2>',
                 'href="/"': 'href="/#auslegung"',
             }
             # These strings also occur in the embedded translation catalogue; only
