@@ -55,11 +55,30 @@ test('state and exact curve selection gate forces but retain geometry and candid
 });
 
 test('C10C legacy estimates and tensile override cannot produce a force curve',()=>{
- const e={...bolt,wst:E.WERKSTOFFE.indexOf(material('C10C')),materialState:'soft-annealed',curveId:'dietrich2018-c15c-soft',rm:800};
- const a=E.auslegen(e);assert.equal(a.fehlt.length,0);assert.equal(a.materialStatus.flow,'missing');
- assert.equal(a.werte.Fmax_t,null);assert.equal(a.werte.Fsum_t,null);
- assert.ok(a.stufen.every(x=>x.F===null&&x.t===null&&x.p===null&&x.arm===null));
- close(a.werte.L0,43.203125);
+ for(const curveId of [undefined,'dietrich2018-c15c-soft']){
+  const e={...bolt,wst:E.WERKSTOFFE.indexOf(material('C10C')),materialState:'soft-annealed',curveId,rm:800};
+  const a=E.auslegen(e);assert.equal(a.fehlt.length,0);assert.equal(a.materialStatus.flow,'selection-missing');
+  assert.equal(a.werte.Fmax_t,null);assert.equal(a.werte.Fsum_t,null);
+  assert.ok(a.stufen.every(x=>x.F===null&&x.t===null&&x.p===null&&x.arm===null));
+  close(a.werte.L0,43.203125);
+ }
+});
+
+test('C10C compression-literature fixture independently checks flow stress, force, start and upper range',()=>{
+ const e={...bolt,...selection('C10C')},m=curveMaterial('C10C'),a=E.auslegen(e);
+ assert.equal(a.fehlt.length,0);assert.equal(a.materialStatus.flow,'ready');assert.equal(a.stufen.length,1);
+ // Onder 2004, section 4.1: friction-corrected upsetting fit K=640.4 MPa, n=.16.
+ // This fixture deliberately computes from the source constants, not the model's fields.
+ const phi=Math.log(169/64),expectedKf=640.4*Math.pow(phi,.16),expectedN=Math.PI*169/4*expectedKf/.6;
+ close(E.kf(m,.1),640.4*Math.pow(.1,.16));close(E.kf(m,1),640.4);
+ close(a.werte.L0,43.203125);close(a.stufen[0].F,expectedN,1e-7);
+ close(a.werte.Fmax_t,expectedN/9806.65);close(a.stufen[0].p,expectedKf/.6);
+ // The start interpolation is an explicitly selected calculation model. The
+ // measured offset value 346.8 differs from the thesis summary table's 336.
+ close(E.kf(m,0),346.8);close(E.kf(m,.05),(346.8+640.4*Math.pow(.1,.16))/2);
+ assert.ok(Number.isNaN(E.kf(m,1.001)));
+ const outside=E.auslegen({...e,kD:14});assert.equal(outside.fehlt.length,0);
+ assert.equal(outside.materialStatus.flow,'strain-outside-range');assert.equal(outside.werte.Fmax_t,null);
 });
 
 test('range exceedance preserves known stations and geometry while total force and die checks remain open',()=>{
