@@ -38,6 +38,16 @@ function harness(base='https://api.example.test',language='de') {
 const flattened = node => node.textContent+' '+node.children.map(flattened).join(' ');
 (async()=>{
   for(const language of I18N.supported){
+    for(const [flow,statusLabel]of [['ready',null],['state-missing','Lieferzustand des Drahts fehlt'],['strain-outside-range','Umformgrad außerhalb des belegten Fließkurvenbereichs']]){
+      const p=harness('https://api.example.test',language);p.get('chat-input').value='Original question';
+      p.answers.push({data:{answer:'Model reply',language,proposal:{calculation:{materialModel:{selectedFlowCurve:{id:'source-c4c',approval:'literature',state:'soft-annealed'}},materialStatus:{flow}}}}});
+      await p.get('chat-form').emit('submit');
+      const rendered=flattened(p.get('messages'));
+      assert(rendered.includes(I18N.t('Literaturansatz',language)));assert(rendered.includes(I18N.t('weichgeglüht',language)));assert(rendered.includes('source-c4c'));
+      if(statusLabel)assert(rendered.includes(I18N.t(statusLabel,language)),'selected curve does not imply a usable force model');
+    }
+  }
+  for(const language of I18N.supported){
     const translated=harness('https://api.example.test',language);translated.get('email').value='test@example.invalid';translated.get('description').value='Originaltext';translated.answers.push({data:{id:'LANG-'+language,token:'test',status:'queued'}});await translated.get('request-form').emit('submit');
     assert.equal(translated.requests[0].options.body.get('language'),language);assert.equal(new URL(translated.requests[0].url).searchParams.get('language'),language);assert.equal(translated.get('request-message').textContent,I18N.t('Ihre Anfrage ist angekommen.',language));
     translated.get('chat-input').value='Original question';translated.answers.push({data:{answer:'Model reply',language}});await translated.get('chat-form').emit('submit');assert.equal(JSON.parse(translated.requests.at(-1).options.body).language,language);

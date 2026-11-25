@@ -15,11 +15,16 @@ Alle **58 Katalogidentitäten** der [Möhling-Materialübersicht](https://moehli
 | Einträge mit Zugfestigkeitsbeleg Rm | 48 |
 | Einträge mit Dehngrenzenbeleg Rp0,2 | 33 |
 | Einträge mit Dichtebeleg | 30 |
-| Neu freigegebene Kaltfließkurven | 0 |
+| Literaturprofile für die Vorauslegung, jeweils weichgeglüht | 11 |
+| Damit auswählbare Katalogeinträge | 12 |
 
 Jeder Zahlenbeleg nennt Quelle, Einheit, Lieferzustand, Produktform und den belegten Abmessungsbereich beziehungsweise dessen fehlende Spezifikation. Mindestwerte, Höchstwerte, Bereiche und typische Werte werden unterschieden. Vergütete Stäbe, einsatzgehärtete Proben oder Walzband liefern keine automatisch gültigen Kennwerte für geglühten Kaltstauchdraht. Herstellerreferenzen und berechnete Nenndichten sind keine Chargenmessungen.
 
-Die **14 ungeprüften Bestandsmodelle** bleiben als historische Näherungsmodelle gekennzeichnet. Die neue Recherche bestätigt deren Fließkurvenparameter nicht. Aus Rm, Rp0,2 oder Härte wird keine Fließkurve abgeleitet. Für neue Werkstoffe ohne passende Kurve können Abschnitt und Stadien geometrisch bestimmt werden; Kraft und Werkzeugdruck bleiben offen. Für eine Abschnittsberechnung aus Masse ist außerdem eine belegte Dichte erforderlich.
+Die **14 ungeprüften Bestandsmodelle** bleiben ausschließlich historische Daten und berechtigen nicht zur Kraftberechnung. Das manuelle Dropdown beschränkt sich auf die zwölf Katalogeinträge mit einem quellengebundenen Literaturprofil: C4C, C15C, C15E2C, C35EC, 34Cr4, 34CrMo4, 42CrMo4, 16MnCr5, CuZn37, Al99,5 sowie die zwei erhaltenen 6082-Katalogzeilen. Der weichgeglühte Ausgangszustand gehört zur Auswahl. Die vollständigen 58 Identitäten bleiben als Wissensbasis erhalten.
+
+Aus Rm, Rp0,2 oder Härte wird keine Fließkurve abgeleitet. C45EC bleibt wegen eines Werkstoffnummernkonflikts ausgeschlossen; C10C und Borstähle erhalten ohne passenden Nachweis auch keine Ersatzkurve. Für Werkstoffe ohne passende Kurve können Abschnitt und Stadien geometrisch bestimmt werden; Kraft und Werkzeugdruck bleiben offen. Für eine Abschnittsberechnung aus Masse ist außerdem eine belegte Dichte erforderlich. Frühere C10C-Livetests aus der Inbetriebnahme belegen lediglich den damaligen technischen Datenfluss und gelten nicht als Nachweis der bereinigten Kurvenauswahl.
+
+Die elf Profile verwenden acht veröffentlichte Punktkurven und drei Potenzansätze mit dokumentiertem linearem Anfangsanschluss. Anfangswert, Modellform und Umformgradgrenzen bleiben erhalten; es gibt keine automatische Extrapolation. Details und verworfene Ersatzkurven stehen in [Fließkurven-Recherche](Fliesskurven_Recherche_20261125.md), die exakten Daten in [fliesskurven.json](fliesskurven.json).
 
 ## Offene Identitätsfrage NiFe 47
 
@@ -45,4 +50,4 @@ Die Oberfläche und technischen Auslegungstexte unterstützen **Deutsch, Italien
 
 Die vollständigen Belege und Einschränkungen stehen im [Quellenregister](werkstoffe-quellen.md); die maschinenlesbaren Einzelwerte in [werkstoffe-recherche.json](werkstoffe-recherche.json). Die Recherche enthält auch nicht übernommene Kandidaten: Beispielsweise beschreibt die [C15-Studie zum Widerstandspunktschweißen](https://link.springer.com/article/10.1007/s40194-023-01528-0) einen anderen Ausgangszustand und Simulationszweck und begründet keine allgemeine Fließkurve für geglühten Kaltstauchdraht.
 
-Neue Kennwerte werden nur mit dokumentierter Identität und passendem Geltungsbereich ergänzt. Eine spätere Freigabe von Fließkurven erfordert zusätzlich einen belegten Zusammenhang mit Lieferzustand, Temperatur, Dehnrate, Dehnungsbereich und verwendeter Modellkonvention.
+Neue Kennwerte werden nur mit dokumentierter Identität und passendem Geltungsbereich ergänzt. Die aktuellen Literaturprofile belegen einen weichgeglühten Kaltumformzustand, jedoch keine numerische Dehnraten- oder Temperaturabhängigkeit. Weitere Kurven und Lieferzustände benötigen eigene Nachweise und eine passende Modellkonvention; unbekannte Versuchsbedingungen werden nicht nachträglich als gemessen ausgegeben.

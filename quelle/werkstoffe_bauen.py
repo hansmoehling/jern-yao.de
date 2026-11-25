@@ -1,8 +1,8 @@
 """Build a source-bound material catalogue without inventing flow curves.
 
-The first 14 positions stay stable for saved V1 examples. Manufacturer properties
-remain reference data with their condition/product restrictions. Tensile strength
-is deliberately not converted to a flow curve or a wire certificate value.
+The first 14 positions stay stable for historical references. Only explicitly
+approved, sourced curves with a defined delivery condition enter Manual choices.
+Tensile strength is not converted to a flow curve or a wire certificate value.
 """
 import copy
 import json
@@ -54,6 +54,19 @@ def density(item):
 def build():
     legacy = json.loads((Q / "werkstoffe-bestand.json").read_text(encoding="utf-8"))["materials"]
     research = json.loads((Q / "werkstoffe-recherche.json").read_text(encoding="utf-8"))
+    flow = json.loads((Q / "fliesskurven.json").read_text(encoding="utf-8"))
+    assert flow["schemaVersion"] == 1
+    sources = {item["id"]: item for item in flow["sources"]}
+    approved = [curve for curve in flow["curves"] if curve.get("eligible") is True]
+    assert len({curve["id"] for curve in approved}) == len(approved), "Duplicate curve ID"
+    for curve in approved:
+        assert curve.get("approval") in {"literature", "proxy"}, curve["id"]
+        if curve["approval"] == "proxy":
+            assert curve.get("proxy", {}).get("rationale") and curve.get("proxy", {}).get("sourceMaterial"), curve["id"]
+        assert curve.get("state") and curve.get("temperature") and curve.get("sourceIds"), curve["id"]
+        assert all(source_id in sources for source_id in curve["sourceIds"]), curve["id"]
+        assert curve.get("model") in {"tabulated", "hollomon"}, curve["id"]
+        assert 0 <= curve["phiMin"] < curve["phiMax"], curve["id"]
     catalogue = research["materials"]
     assert len(catalogue) == 58, "Moehling source inventory must contain all 58 identities"
     used = set()
@@ -64,8 +77,10 @@ def build():
                       if norm(bare) in {norm(item["name"]), norm(item.get("number", ""))}]
         assert len(candidates) <= 1, "Ambiguous legacy identity: " + old["id"]
         entry = copy.deepcopy(old)
-        entry.update(curveStatus="legacy-estimate", curveSource="Bestandsmodell V1.1; nicht als chargenspezifische Fließkurve validiert",
-                     rmStatus="legacy-estimate", densityStatus="legacy-estimate")
+        entry.update(legacyParameters={key: old.get(key) for key in ["C", "n", "Rm"]},
+                     C=None, n=None, Rm=None, curveStatus="missing",
+                     curveSource="Historische Parameter archiviert; keine freigegebene Fließkurve",
+                     rmStatus="missing", densityStatus="legacy-estimate")
         if candidates:
             i, item = candidates[0]
             used.add(i)
@@ -92,6 +107,20 @@ def build():
         materials.append(entry)
     identities = {(m["sourceName"], m.get("number")) for m in materials}
     assert all((m["name"], m.get("number")) in identities for m in catalogue)
+    assigned = set()
+    for entry in materials:
+        matches = [copy.deepcopy(curve) for curve in approved
+                   if entry.get("number") in curve.get("materialNumbers", [])]
+        for curve in matches:
+            curve["sourceRefs"] = [copy.deepcopy(sources[source_id]) for source_id in curve["sourceIds"]]
+            assigned.add(curve["id"])
+        approvals = {curve["approval"] for curve in matches}
+        entry.update(flowCurves=matches, manualEligible=bool(matches),
+                     curveStatus=next(iter(approvals)) if len(approvals) == 1 else "curated" if matches else "missing")
+        if matches:
+            entry["curveSource"] = "; ".join(curve["id"] for curve in matches)
+            entry["hinweis"] = "Lieferzustand und Fließkurve ausdrücklich wählen"
+    assert assigned == {curve["id"] for curve in approved}, "Approved curve has no exact catalogue identity"
     # Independent public metadata, also embedded in the standalone engine.
     (Q / "werkstoffe.json").write_text(json.dumps(materials, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     engine = (Q / "engine.js").read_text(encoding="utf-8")
@@ -109,4 +138,4 @@ def build():
 
 if __name__ == "__main__":
     rows = build()
-    print(f"{len(rows)} material choices; all 58 Moehling catalogue identities included")
+    print(f"{len(rows)} material identities; {sum(row['manualEligible'] for row in rows)} Manual choices; all 58 catalogue identities included")

@@ -1,6 +1,7 @@
 const assert = require('node:assert/strict');
 const E = require('../engine.js');
-const base = { typ: 'formteil', wst: 0, d0: 10, sD: 10, sL: 20, nD: 5, nT: 10 };
+const material=E.findMaterial('C4C');
+const base = { typ: 'formteil', wst: E.WERKSTOFFE.indexOf(material), curveId:material.flowCurves[0].id, materialState:'soft-annealed', d0: 10, sD: 10, sL: 20, nD: 5, nT: 10 };
 // Degenerate walls used to make the drawing agent hang in an unbounded loop.
 for (const bad of [
   { ...base, nD: 10 }, { ...base, nD: 11 }, { ...base, nT: 20 },

@@ -47,6 +47,8 @@ Inbetriebnahme vom 25.11.2026: Cloudflare-Dienst, versioniertes Projektwissen, A
 
 Im Manual stehen Torx, Innensechskant, Phillips PH und Pozidriv PZ mit Größenwahl und eigener Tiefe zur Verfügung. Für Torx/PH/PZ bleibt die Abschnittlänge ohne Vertiefungsvolumen oder verwertbare Teilmasse offen; eine Profilnummer ist kein Geometriemaß. Ein CAD-Volumen erlaubt die Volumenbilanz, liefert aber noch keine profilabhängige Formkraft. Auswahl und Grenzen erscheinen auch in Maschinenkonzept, Druckblatt und E-Mail. Details und Primärquellen: [Innenantriebe](innenantriebe-quellen.md).
 
+Die Werkstoffauswahl im Manual zeigt ausschließlich freigegebene Kombinationen aus Drahtwerkstoff, Lieferzustand und Literaturkurve aus `fliesskurven.json`: derzeit zwölf Katalogzeilen mit elf Kurven für den weichgeglühten Zustand. Der vollständige Katalog bleibt für den Fachassistenten erhalten. `werkstoffe_bauen.py` ordnet Kurven ausschließlich über exakte Werkstoffnummern zu; alte C/n/Rm-Parameter bleiben nur als `legacyParameters` dokumentiert und liefern keine Kräfte oder Drahtzugfestigkeit. Rm kann ausdrücklich aus dem Drahtzeugnis eingegeben werden. Die vier Geometriebeispiele nennen jetzt C4C, weichgeglüht; frühere Borstahl-/Festigkeitsklassenangaben werden damit nicht fortgeschrieben. Die M8-Geometrie verwendet einen neuen Drahtversuch Ø8 mm, damit die Rechnung im belegten Kurvenbereich bleibt. Andere Werkstoffe und Lieferzustände können weiterhin über die Zeichnungsanfrage geprüft werden.
+
 Lokale Prüfungen ohne Netzwerk oder Browser:
 
 ```

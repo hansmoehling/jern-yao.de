@@ -28,22 +28,30 @@ function setup(language){
  vm.runInNewContext(source,context);
  return {get,f,a,examples,events,context};
 }
-test('all material identities and four examples render machine concepts in all five locales',()=>{
+test('only approved wire-condition curves are selectable and all examples explicitly use annealed C4C',()=>{
  for(const language of I.supported){
-  const p=setup(language);assert.equal(p.f.elements.wst.options.length,E.WERKSTOFFE.length);
-  for(const example of p.examples){example.events.click();const cards=p.get('karten').innerHTML;assert(cards.includes(I.t('Stadienkonzept für diese Maschine',language)),language+' '+example.dataset.bsp);assert(!cards.includes('NaN'));}
+  const p=setup(language),allowed=E.WERKSTOFFE.flatMap((material,index)=>(material.manualEligible?material.flowCurves||[]:[]).filter(curve=>curve.eligible===true).map(curve=>({index,material,curve})));
+  assert(allowed.length>0);assert.equal(p.f.elements.wst.options.length,allowed.length);assert(allowed.length<E.WERKSTOFFE.length);
+  for(const option of p.f.elements.wst.options){
+   const [index,curveId]=option.value.split('|'),material=E.WERKSTOFFE[Number(index)],curve=material.flowCurves.find(curve=>curve.id===curveId);
+   assert(curve?.eligible);assert(['literature','proxy'].includes(curve.approval));assert(curve.materialNumbers.includes(material.number));
+   assert(option.textContent.includes(I.t('weichgeglüht',language)));assert(option.textContent.includes(I.t('Literaturansatz',language)));
+   assert(!['C10C','23MnB4','33B2'].includes(material.id));
+  }
+  for(const example of p.examples){example.events.click();const cards=p.get('karten').innerHTML;assert(cards.includes(I.t('Stadienkonzept für diese Maschine',language)),language+' '+example.dataset.bsp);assert(!cards.includes('NaN'));assert.equal(E.WERKSTOFFE[Number(p.f.elements.wst.value.split('|')[0])].id,'C4C');assert(p.get('material-basis').textContent.includes(I.t('weichgeglüht',language)));assert(!p.get('kenn').innerHTML.includes(I.t('Kraft noch offen',language)),'all demonstration geometries stay within the selected C4C curve');}
  }
 });
-test('missing flow curves remain qualitative, never showing null typical values or 0% force utilization',()=>{
+test('out-of-range curve values stay qualitative and unsupported dropdown injections fail closed',()=>{
  const p=setup('en');p.examples[0].events.click();
- const missing=E.WERKSTOFFE.findIndex(w=>w.curveStatus==='missing');assert(missing>=0);
- p.f.elements.wst.value=String(missing);p.f.events.change();
+ p.f.elements.kD.value='40';p.f.events.change();
  assert(p.get('kenn').innerHTML.includes(I.t('Kraft noch offen','en')));
  assert(p.get('stufen').tBodies[0].innerHTML.includes(I.t('Kraft noch offen','en')));
  assert(!p.get('karten').innerHTML.includes('Auslastung 0 %'));
  assert(!p.f.elements.rm.placeholder.includes('null'));
  assert(!p.get('karten').innerHTML.includes('NaN'));
  p.get('drucken').events.click();assert(!p.get('blatt').innerHTML.includes('null'));assert(!p.get('blatt').innerHTML.includes('Auslastung 0 %'));
+ const missing=E.WERKSTOFFE.findIndex(w=>w.curveStatus==='missing');assert(missing>=0);
+ p.f.elements.wst.value=String(missing);p.f.events.change();assert.equal(p.get('aus').hidden,true);assert.equal(p.get('drucken').disabled,true);
 });
 
 test('complete rendered archive output has localized cards, figures, tooling, stages, rules and attributes before DOM translation',()=>{
@@ -65,8 +73,8 @@ test('complete rendered archive output has localized cards, figures, tooling, st
  }
  const p=setup('en');p.examples[0].events.click();
  const cards=p.get('karten').innerHTML,figures=p.get('kenn').innerHTML;
- for(const expected of ['up to M10','€ to ','Blank up to Ø12','Die Ø70 × 95','parts/h (catalogue up to 210)'])assert(cards.includes(expected),'M8 card: '+expected);
- for(const expected of ['Station pitch from 34','Bore 7.68','outside Ø25'])assert(figures.includes(expected),'M8 figures: '+expected);
+ for(const expected of ['€ to ','Blank up to Ø','Die Ø','parts/h (catalogue up to '])assert(cards.includes(expected),'M8 card: '+expected);
+ for(const expected of ['Station pitch from 36','Bore 8.08','outside Ø26'])assert(figures.includes(expected),'M8 figures: '+expected);
 });
 
 test('archive exposes only its translated custom file button, not the browser-native file widget',()=>{
@@ -89,7 +97,8 @@ test('print and mail are fully localized before DOM translation, with identical 
   assert(html.includes(I.t('Grobauslegung, unverbindlich',language)));
   assert.equal(p.get('blatt').dataset.originalText,'');
   const summary=html.match(/<pre[^>]*>([\s\S]*?)<\/pre>/)[1].replace(/&amp;/g,'&').replace(/&lt;/g,'<').replace(/&gt;/g,'>').replace(/&quot;/g,'"');
-  assert(summary.includes((7.6).toLocaleString(I.numberLocale(language))+' mm'));
+  assert(summary.includes((8).toLocaleString(I.numberLocale(language))+' mm'));
+  assert(summary.includes('C4C'));assert(summary.includes(I.t('weichgeglüht',language)));assert(summary.includes(I.t('Literaturansatz',language)));
   if(language!=='de')assert(!/Teileart|Drahtzugfestigkeit|Werkstoffmodell|Kopfdurchmesser|Körperlänge|Höchste Stationskraft|Nennkraft nötig|Kopf fertigstauchen|Vorauswahl|Richtpreis|Auslastung/.test(summary),language+' untranslated summary');
   await p.get('senden').events.click();
   const uri=new URL(p.context.location.href),body=uri.searchParams.get('body');

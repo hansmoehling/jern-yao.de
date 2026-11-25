@@ -40,7 +40,9 @@ if (noDensity >= 0) {
   assert.ok(E.auslegen({ ...e, wst: noDensity, masse: 10 }).fehlt.length);
 }
 for (const m of E.WERKSTOFFE) {
-  if (m.curveStatus === 'missing') { assert.equal(m.C, null); assert.equal(m.n, null); }
+  assert.equal(m.C, null, 'legacy C is never an active flow model');assert.equal(m.n, null, 'legacy n is never an active flow model');assert.equal(m.Rm,null,'unverified legacy wire Rm is not reused');
+  assert.equal(m.manualEligible,!!m.flowCurves.length);
+  for(const curve of m.flowCurves){assert.equal(curve.eligible,true);assert(curve.materialNumbers.includes(m.number),'exact material identity');assert(curve.sourceIds.length>0);assert(curve.sourceRefs.length===curve.sourceIds.length);assert(curve.state);assert(curve.phiMax>curve.phiMin);}
   if (m.densityStatus === 'sourced') assert.ok(m.densitySource.sourceUrl);
 }
-console.log('PASS: 58 source identities, exact grade lookup, nullable forces, Rm isolation, geometric candidates and density restrictions');
+console.log('PASS: 58 source identities, exact grade/curve lookup, approved Manual conditions, nullable forces, Rm isolation, geometric candidates and density restrictions');

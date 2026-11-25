@@ -244,16 +244,22 @@
 
   function renderProposal(parent, proposal) {
     if (!proposal || typeof proposal !== 'object') return;
-    const fieldLabels = { material: 'Werkstoff', d0: 'Drahtdurchmesser', kD: 'Kopfdurchmesser', kSW: 'Kopfschlüsselweite', kH: 'Kopfhöhe', sD: 'Körperdurchmesser', sL: 'Körperlänge', iSW: 'Innenantrieb-Schlüsselweite', iT: 'Innenantriebstiefe', nD: 'Napfinnendurchmesser', nT: 'Napftiefe', mM: 'Gewinde-Nenndurchmesser', mSW: 'Mutternschlüsselweite', mH: 'Mutternhöhe', mLoch: 'Lochdurchmesser', mFlansch: 'Flanschdurchmesser', mFlanschH: 'Flanschhöhe', masse: 'Teilmasse', rm: 'Drahtzugfestigkeit', lStempel: 'Länge im Stempel', ko: 'Matrizenauswerferweg', pko: 'Stempelauswerferweg', matD: 'Matrizenaufnahme-Durchmesser', matL: 'Matrizenaufnahme-Länge', stD: 'Stempelaufnahme-Durchmesser', stL: 'Stempelaufnahme-Länge', stationen: 'Stationsvorgabe', zusatz: 'Zusatzstufen', ausbringung: 'Ausbringung' };
+    const fieldLabels = { material: 'Werkstoff', materialState:'Lieferzustand', curveId:'Fließkurvenansatz', d0: 'Drahtdurchmesser', kD: 'Kopfdurchmesser', kSW: 'Kopfschlüsselweite', kH: 'Kopfhöhe', sD: 'Körperdurchmesser', sL: 'Körperlänge', iSW: 'Innenantrieb-Schlüsselweite', iT: 'Innenantriebstiefe', nD: 'Napfinnendurchmesser', nT: 'Napftiefe', mM: 'Gewinde-Nenndurchmesser', mSW: 'Mutternschlüsselweite', mH: 'Mutternhöhe', mLoch: 'Lochdurchmesser', mFlansch: 'Flanschdurchmesser', mFlanschH: 'Flanschhöhe', masse: 'Teilmasse', rm: 'Drahtzugfestigkeit', lStempel: 'Länge im Stempel', ko: 'Matrizenauswerferweg', pko: 'Stempelauswerferweg', matD: 'Matrizenaufnahme-Durchmesser', matL: 'Matrizenaufnahme-Länge', stD: 'Stempelaufnahme-Durchmesser', stL: 'Stempelaufnahme-Länge', stationen: 'Stationsvorgabe', zusatz: 'Zusatzstufen', ausbringung: 'Ausbringung' };
     const originLabels = { user_text: 'Ihre Beschreibung', drawing: 'Aus der Zeichnung gelesen', derived: 'Abgeleitet', assumption: 'Prozessannahme' };
     const provenance = item => ({ assumption: !!item.assumption, origin: originLabels[item.origin] || '', reference: readable(item.reference) });
     const materialModel=proposal.calculation&&proposal.calculation.materialModel;
-    if(materialModel){const basis=element('p',tr('Werkstoffmodell:')+' '+tr(materialModel.curveStatus==='missing'?'Fließkurve des Lieferzustands fehlt':'Näherungsmodell'),'small');parent.appendChild(basis);}
+    if(materialModel){
+      const curve=materialModel.selectedFlowCurve,status=proposal.calculation.materialStatus;
+      const statuses={missing:'Kein belegter Fließkurvenansatz für diesen Werkstoff','state-missing':'Lieferzustand des Drahts fehlt','state-mismatch':'Lieferzustand passt nicht zur ausgewählten Fließkurve','selection-missing':'Belegten Fließkurvenansatz und Lieferzustand auswählen','temperature-mismatch':'Temperatur passt nicht zum Quellenbereich der Fließkurve','strain-outside-range':'Umformgrad außerhalb des belegten Fließkurvenbereichs'};
+      let description=curve?tr(curve.approval==='proxy'?'begründete Ersatzkurve':'Literaturansatz')+' · '+tr(curve.state==='soft-annealed'?'weichgeglüht':curve.state)+' · '+readable(curve.id):tr('Fließkurve des Lieferzustands fehlt');
+      if(curve&&status?.flow!=='ready')description+=' · '+tr(statuses[status?.flow]||'Kraft noch offen');
+      const basis=element('p',tr('Werkstoffmodell:')+' '+description,'small');basis.dataset.originalText='';parent.appendChild(basis);
+    }
     const input = Array.isArray(proposal.input) ? proposal.input : [];
     if (input.length) {
       parent.appendChild(element('h3', 'Aus Ihren Angaben'));
       const facts = element('dl', null, 'proposal-grid');
-      input.forEach(item => factRow(facts, fieldLabels[item.field] || readable(item.field), [readable(item.value), item.unit === 'count' ? '' : readable(item.unit)].filter(Boolean).join(' '), provenance(item)));
+      input.forEach(item => factRow(facts, fieldLabels[item.field] || readable(item.field), [item.field==='materialState'?tr(readable(item.value)):readable(item.value), item.unit === 'count' ? '' : readable(item.unit)].filter(Boolean).join(' '), provenance(item)));
       parent.appendChild(facts);
     }
     const wire = proposal.wireDiameter;
@@ -395,7 +401,7 @@
     article.appendChild(element('div', role === 'user' ? 'Sie' : 'Technischer Dialog', 'speaker'));
     article.appendChild(element('div', text, 'message-text'));
     if(extra&&extra.language)article.appendChild(element('p',tr('Antwortsprache:')+' '+(L.autonyms[window.JYI18N.normalizeLanguage(extra.language)]||extra.language),'original-language'));
-    if (extra) { listSection(article, 'Dazu noch eine Frage', extra.questions); sourcesSection(article, extra.sources); }
+    if (extra) { renderProposal(article,extra.proposal);listSection(article, 'Dazu noch eine Frage', extra.questions); sourcesSection(article, extra.sources); }
     $('messages').appendChild(article);
     $('messages').scrollTop = $('messages').scrollHeight;
     return article;

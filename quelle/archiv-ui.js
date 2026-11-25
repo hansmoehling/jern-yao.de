@@ -19,10 +19,19 @@
   const msg = (key, values) => tr(key).replace(/\{(\w+)\}/g, (match, name) => Object.hasOwn(values, name) ? String(values[name]) : match);
   const rendered = (node, html) => { node.dataset.originalText = ''; node.innerHTML = html; };
 
-  // Werkstoffliste
+  // Manual exposes only reviewed material/condition/curve combinations.
+  // Catalogue identities without a curve remain available to the drawing assistant.
   const sel = f.elements.wst;
-  E.WERKSTOFFE.forEach((w, i) => { const o = document.createElement('option'); o.value = i; o.textContent = (w.sourceName || w.id) + (w.number ? ' · '+w.number : '') + ' · ' + tr(w.hinweis || (w.curveStatus==='missing'?'Fließkurve des Lieferzustands fehlt':'Näherungsmodell'));  sel.appendChild(o); });
-  sel.value = Math.max(0,E.WERKSTOFFE.findIndex(w=>w.id==='23MnB4')); // stable grade identity
+  const variants=E.WERKSTOFFE.flatMap((material,index)=>(material.manualEligible?material.flowCurves||[]:[])
+    .filter(curve=>curve.eligible===true&&['literature','proxy'].includes(curve.approval))
+    .map(curve=>({value:index+'|'+curve.id,index,material,curve})));
+  const variantByValue=new Map(variants.map(variant=>[variant.value,variant]));
+  const selectedVariant=()=>variantByValue.get(sel.value)||null;
+  const conditionLabel=curve=>tr(curve.state==='soft-annealed'?'weichgeglüht':curve.state);
+  const modelLabel=curve=>tr(curve.approval==='proxy'?'begründete Ersatzkurve':'Literaturansatz');
+  const materialLabel=variant=>(variant.material.sourceName||variant.material.id)+(variant.material.number?' · '+variant.material.number:'')+' · '+conditionLabel(variant.curve)+' · '+modelLabel(variant.curve);
+  variants.forEach(variant=>{const option=document.createElement('option');option.value=variant.value;option.dataset.originalText='';option.textContent=materialLabel(variant);sel.appendChild(option);});
+  sel.value=variants.find(variant=>variant.material.id==='C4C'&&variant.curve.state==='soft-annealed')?.value||'';
 
   // Size designations only: tool dimensions are not recess areas or forming factors.
   const DRIVE_SIZES = {
@@ -60,13 +69,14 @@
     const k = f.elements.kopfForm.value;
     f.querySelectorAll('[data-kopf]').forEach(el => { el.hidden = !el.dataset.kopf.split(' ').includes(k); });
     antriebAuswahl();
-    f.elements.rm.placeholder = E.WERKSTOFFE[+sel.value].Rm==null?tr('nicht belegt'):E.WERKSTOFFE[+sel.value].Rm+' '+tr('typisch');
+    f.elements.rm.placeholder = tr('aus Drahtzeugnis, falls bekannt');
   }
 
   function lesen() {
     const g = n => num(f.elements[n] && f.elements[n].value);
+    const variant=selectedVariant();
     const e = {
-      typ: typ(), wst: +sel.value, rm: g('rm'), d0: g('d0'),
+      typ: typ(), wst: variant?.index, curveId: variant?.curve.id, materialState:variant?.curve.state, rm: g('rm'), d0: g('d0'),
       kopfForm: f.elements.kopfForm.value, kD: g('kD'), kSW: g('kSW'), kH: g('kH'), sD: g('sD'), sL: g('sL'),
       iTyp: f.elements.iTyp.value || 'none', iSize: f.elements.iSize.value,
       iSW: f.elements.iSize.value==='custom'?g('iSW'):num(f.elements.iSize.value), iT: g('iT'), iVol: g('iVol'),
@@ -112,7 +122,8 @@
 
   function zeigen(e, aus, wahl) {
     const w = aus.werte;
-    const basis=document.getElementById('material-basis');if(basis)basis.textContent=(aus.werkstoff.sourceName||aus.werkstoff.id)+' · '+tr(aus.werkstoff.curveStatus==='missing'?'Fließkurve des Lieferzustands fehlt':'Näherungsmodell');
+    const variant=selectedVariant(),basis=document.getElementById('material-basis');
+    if(basis){basis.dataset.originalText='';basis.textContent=variant?materialLabel(variant)+' · '+tr('Raumtemperatur')+' · φ '+fmt(variant.curve.phiMin,2)+'–'+fmt(variant.curve.phiMax,2):tr('Fließkurve des Lieferzustands fehlt');}
     $('leer').hidden = true; $('aus').hidden = false;
     // Platzhalter der Werkzeugfelder
     f.elements.lStempel.placeholder = fmt(w.lStempel) + ' ' + tr('berechnet');
@@ -175,7 +186,9 @@
     field('Teileart', tr({ bolzen: 'Schraube/Bolzen', formteil: 'Formteil/Hülse', mutter: 'Mutter' }[e.typ]));
     field('Werkstoff', (m.sourceName || m.id) + (m.number ? ' · ' + m.number : ''));
     field('Drahtzugfestigkeit', m.Rm == null ? tr('nicht belegt') : fmt(m.Rm) + ' N/mm²');
-    field('Werkstoffmodell:', tr(m.curveStatus === 'missing' ? 'Fließkurve des Lieferzustands fehlt' : 'Näherungsmodell'));
+    const variant=selectedVariant();
+    if(variant){field('Lieferzustand',conditionLabel(variant.curve));field('Werkstoffmodell:',modelLabel(variant.curve)+' · '+variant.curve.id);field('Kurvenbereich',tr('Raumtemperatur')+' · φ '+fmt(variant.curve.phiMin,2)+'–'+fmt(variant.curve.phiMax,2));}
+    else field('Werkstoffmodell:',tr('Fließkurve des Lieferzustands fehlt'));
     field('Abschnitt Ø × Länge', mm(w.d0) + ' × ' + mm(w.L0));
     field('Masse Fertigteil', fmt(w.masse) + ' g');
     if (e.typ === 'mutter') {
@@ -239,14 +252,14 @@
   }
 
   const BSP = {
-    m8: { typ: 'bolzen', wst: '4', d0: '7,6', kopfForm: 'rund', kD: '17', kH: '6', sD: '7,2', sL: '40' },
-    m6: { typ: 'bolzen', wst: '5', d0: '5,6', kopfForm: 'rund', kD: '10', kH: '6', sD: '5,4', sL: '30', iTyp:'hex', iSize:'5', iT: '3' },
-    mu: { typ: 'mutter', wst: '0', d0: '13', mM: '10', mSW: '16', mH: '8' },
-    hu: { typ: 'formteil', wst: '1', d0: '16', kopfForm: 'rund', kD: '24', kH: '5', sD: '16', sL: '30', nD: '10', nT: '20', nDurch: true }
+    m8: { typ: 'bolzen', d0: '8', kopfForm: 'rund', kD: '17', kH: '6', sD: '7,2', sL: '40' },
+    m6: { typ: 'bolzen', d0: '5,6', kopfForm: 'rund', kD: '10', kH: '6', sD: '5,4', sL: '30', iTyp:'hex', iSize:'5', iT: '3' },
+    mu: { typ: 'mutter', d0: '13', mM: '10', mSW: '16', mH: '8' },
+    hu: { typ: 'formteil', d0: '16', kopfForm: 'rund', kD: '24', kH: '5', sD: '16', sL: '30', nD: '10', nT: '20', nDurch: true }
   };
   document.querySelectorAll('[data-bsp]').forEach(btn => btn.addEventListener('click', () => {
     f.reset(); a.elements.ok.checked = false;
-    const d = {...BSP[btn.dataset.bsp]};const grades={m8:'23MnB4',m6:'33B2',mu:'C10C',hu:'C15C'};d.wst=String(Math.max(0,E.WERKSTOFFE.findIndex(w=>w.id===grades[btn.dataset.bsp])));
+    const d = {...BSP[btn.dataset.bsp]};d.wst=variants.find(variant=>variant.material.id==='C4C'&&variant.curve.state==='soft-annealed')?.value||'';
     f.elements.iTyp.value=d.iTyp||'none';antriebAuswahl();
     for (const [k, v] of Object.entries(d)) {
       const el = f.elements[k];
@@ -266,6 +279,6 @@
   f.elements.zeichnung.addEventListener('change',()=>{$('archive-file-name').textContent=f.elements.zeichnung.files[0]?.name||'';});
   $('senden').addEventListener('click', senden);
   $('drucken').addEventListener('click', drucken);
-  window.addEventListener('jy-languagechange',()=>{Array.from(sel.options).forEach((o,i)=>{const w=E.WERKSTOFFE[i];o.textContent=(w.sourceName||w.id)+(w.number?' · '+w.number:'')+' · '+tr(w.hinweis||'');});sichtbar();rechnen();L.apply();});
+  window.addEventListener('jy-languagechange',()=>{Array.from(sel.options).forEach(option=>{const variant=variantByValue.get(option.value);if(variant)option.textContent=materialLabel(variant);});sichtbar();rechnen();L.apply();});
   sichtbar(); rechnen(); L.apply();
 })();

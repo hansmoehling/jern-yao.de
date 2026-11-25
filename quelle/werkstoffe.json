@@ -1,15 +1,20 @@
 [
   {
     "id": "C10C",
-    "Rm": 350,
-    "C": 740,
-    "n": 0.23,
+    "Rm": null,
+    "C": null,
+    "n": null,
     "rho": 7.85,
     "grp": "gut",
     "hinweis": "4.8 bis 5.8 ohne Vergüten",
-    "curveStatus": "legacy-estimate",
-    "curveSource": "Bestandsmodell V1.1; nicht als chargenspezifische Fließkurve validiert",
-    "rmStatus": "legacy-estimate",
+    "legacyParameters": {
+      "C": 740,
+      "n": 0.23,
+      "Rm": 350
+    },
+    "curveStatus": "missing",
+    "curveSource": "Historische Parameter archiviert; keine freigegebene Fließkurve",
+    "rmStatus": "missing",
     "densityStatus": "legacy-estimate",
     "sourceName": "C10C",
     "number": "1.0214",
@@ -276,19 +281,26 @@
     "materialNotes": [
       "Rm-Werte sind dokumentierte Obergrenzen, keine tatsächliche Chargenzugfestigkeit. Rp0,2 und Dichte in diesem geprüften Blatt nicht belegt."
     ],
-    "catalogueSource": "https://moehling.com/de/produkte/materialien.html"
+    "catalogueSource": "https://moehling.com/de/produkte/materialien.html",
+    "flowCurves": [],
+    "manualEligible": false
   },
   {
     "id": "C15C",
-    "Rm": 390,
-    "C": 820,
-    "n": 0.21,
+    "Rm": null,
+    "C": null,
+    "n": null,
     "rho": 7.85,
     "grp": "gut",
-    "hinweis": "5.8 bis 6.8 ohne Vergüten",
-    "curveStatus": "legacy-estimate",
-    "curveSource": "Bestandsmodell V1.1; nicht als chargenspezifische Fließkurve validiert",
-    "rmStatus": "legacy-estimate",
+    "hinweis": "Lieferzustand und Fließkurve ausdrücklich wählen",
+    "legacyParameters": {
+      "C": 820,
+      "n": 0.21,
+      "Rm": 390
+    },
+    "curveStatus": "literature",
+    "curveSource": "dietrich2018-c15c-soft",
+    "rmStatus": "missing",
     "densityStatus": "legacy-estimate",
     "sourceName": "C15C",
     "number": "1.0234",
@@ -572,37 +584,97 @@
       "Rm-Werte sind dokumentierte Obergrenzen, keine tatsächliche Chargenzugfestigkeit. Rp0,2 und Dichte in diesem geprüften Blatt nicht belegt.",
       "Bonaiti-Tabelle visuell geprüft. Reihenfolge der Durchmesserspalten in der Textauslesung war vertauscht; Bild zeigt 2–5 / 5–10 / 10–40 / 40–100 mm. Tabellenwerte bleiben herstellerspezifische Referenz, insbesondere +U+C+AC nicht aus C10C übertragen."
     ],
-    "catalogueSource": "https://moehling.com/de/produkte/materialien.html"
+    "catalogueSource": "https://moehling.com/de/produkte/materialien.html",
+    "flowCurves": [
+      {
+        "state": "soft-annealed",
+        "stateLabel": "weichgeglüht",
+        "temperature": "room",
+        "temperatureStatus": "qualitative-cold-forming-no-numeric-temperature",
+        "strainRateStatus": "not-reported",
+        "approval": "literature",
+        "eligible": true,
+        "evidenceClass": "typical-literature-curve",
+        "id": "dietrich2018-c15c-soft",
+        "name": "C15C",
+        "materialNumbers": [
+          "1.0234"
+        ],
+        "model": "hollomon",
+        "C": 760,
+        "n": 0.165,
+        "kf0": 280,
+        "phiMin": 0.1,
+        "phiMax": 1,
+        "startMode": "linear-to-phiMin",
+        "startBasis": "Explizite technische Näherung: linear zwischen separat belegtem kf0 bei phi0 und C*0,1^n. Kein neu gemessener Kurvenabschnitt.",
+        "rangeBasis": "Konservativ begrenzt auf den durchgezogen dargestellten Bereich des überprüften Tschätsch-Diagramms; gestrichelte Fortsetzung nicht verwendet.",
+        "sourceIds": [
+          "dietrich-2018-t2-1-t31-2",
+          "tschaetsch-1997-c15"
+        ],
+        "sourceRefs": [
+          {
+            "id": "dietrich-2018-t2-1-t31-2",
+            "title": "Dietrich: Praxis der Umformtechnik, 12. Auflage, 2018",
+            "locator": "Tabelle 2.1, Buch S.7 / PDF S.19; Tabelle 31.2, Buch S.447 / PDF S.457",
+            "url": "https://doi.org/10.1007/978-3-658-19530-4",
+            "file": "Dietrich_Praxis_der_Umformtechnik_12_Auflage.pdf",
+            "evidence": "Potenzansatz kf = C * phi^n, separat kf0; ausdrückliches Alt-/Neu-Namensmapping, einschließlich Cq15/C15C und Al99,5/EN AW-1050A."
+          },
+          {
+            "id": "tschaetsch-1997-c15",
+            "title": "Tschätsch: Praxiswissen Umformtechnik, 5. Auflage, 1997",
+            "locator": "Buch S.307 / PDF S.317",
+            "file": "Tschaetsch_Praxiswissen_Umformtechnik_1997.pdf",
+            "evidence": "Ck15/Cq15 weichgeglüht; kf0 280, C760, n0,165. Potenzkurve durchgezogen etwa phi0,1 bis 1,0, danach gestrichelt. Berechnung auf phi<=1,0 begrenzt."
+          }
+        ]
+      }
+    ],
+    "manualEligible": true
   },
   {
     "id": "19MnB4",
-    "Rm": 430,
-    "C": 850,
-    "n": 0.18,
+    "Rm": null,
+    "C": null,
+    "n": null,
     "rho": 7.85,
     "grp": "schwerer",
     "hinweis": "8.8 nach Vergüten",
-    "curveStatus": "legacy-estimate",
-    "curveSource": "Bestandsmodell V1.1; nicht als chargenspezifische Fließkurve validiert",
-    "rmStatus": "legacy-estimate",
+    "legacyParameters": {
+      "C": 850,
+      "n": 0.18,
+      "Rm": 430
+    },
+    "curveStatus": "missing",
+    "curveSource": "Historische Parameter archiviert; keine freigegebene Fließkurve",
+    "rmStatus": "missing",
     "densityStatus": "legacy-estimate",
     "sourceName": "19MnB4",
     "aliases": [],
     "properties": [],
     "materialNotes": [],
-    "standard": "Bestandsmodell"
+    "standard": "Bestandsmodell",
+    "flowCurves": [],
+    "manualEligible": false
   },
   {
     "id": "20MnB4",
-    "Rm": 430,
-    "C": 880,
-    "n": 0.17,
+    "Rm": null,
+    "C": null,
+    "n": null,
     "rho": 7.85,
     "grp": "schwerer",
     "hinweis": "8.8 nach Vergüten",
-    "curveStatus": "legacy-estimate",
-    "curveSource": "Bestandsmodell V1.1; nicht als chargenspezifische Fließkurve validiert",
-    "rmStatus": "legacy-estimate",
+    "legacyParameters": {
+      "C": 880,
+      "n": 0.17,
+      "Rm": 430
+    },
+    "curveStatus": "missing",
+    "curveSource": "Historische Parameter archiviert; keine freigegebene Fließkurve",
+    "rmStatus": "missing",
     "densityStatus": "legacy-estimate",
     "sourceName": "20MnB4",
     "number": "1.5525",
@@ -612,19 +684,26 @@
     "materialNotes": [
       "Herstellerprogramm bestätigt Identität, aber kein für Zustand/Abmessung verbindlicher Rm/Rp-Wert in den geprüften Primärquellen. Keine Werte benachbarter Borsorten übernommen."
     ],
-    "catalogueSource": "https://moehling.com/de/produkte/materialien.html"
+    "catalogueSource": "https://moehling.com/de/produkte/materialien.html",
+    "flowCurves": [],
+    "manualEligible": false
   },
   {
     "id": "23MnB4",
-    "Rm": 460,
-    "C": 920,
-    "n": 0.16,
+    "Rm": null,
+    "C": null,
+    "n": null,
     "rho": 7.85,
     "grp": "schwerer",
     "hinweis": "8.8 bis 10.9 nach Vergüten",
-    "curveStatus": "legacy-estimate",
-    "curveSource": "Bestandsmodell V1.1; nicht als chargenspezifische Fließkurve validiert",
-    "rmStatus": "legacy-estimate",
+    "legacyParameters": {
+      "C": 920,
+      "n": 0.16,
+      "Rm": 460
+    },
+    "curveStatus": "missing",
+    "curveSource": "Historische Parameter archiviert; keine freigegebene Fließkurve",
+    "rmStatus": "missing",
     "densityStatus": "legacy-estimate",
     "sourceName": "23MnB4",
     "number": "1.5535",
@@ -873,19 +952,26 @@
     "materialNotes": [
       "Tabellenkopf und Werte visuell geprüft. Getrennte Vergütungs-Tabelle ausdrücklich nicht für geglühten Draht übernommen."
     ],
-    "catalogueSource": "https://moehling.com/de/produkte/materialien.html"
+    "catalogueSource": "https://moehling.com/de/produkte/materialien.html",
+    "flowCurves": [],
+    "manualEligible": false
   },
   {
     "id": "33B2",
-    "Rm": 480,
-    "C": 990,
-    "n": 0.14,
+    "Rm": null,
+    "C": null,
+    "n": null,
     "rho": 7.85,
     "grp": "schwerer",
     "hinweis": "10.9 nach Vergüten",
-    "curveStatus": "legacy-estimate",
-    "curveSource": "Bestandsmodell V1.1; nicht als chargenspezifische Fließkurve validiert",
-    "rmStatus": "legacy-estimate",
+    "legacyParameters": {
+      "C": 990,
+      "n": 0.14,
+      "Rm": 480
+    },
+    "curveStatus": "missing",
+    "curveSource": "Historische Parameter archiviert; keine freigegebene Fließkurve",
+    "rmStatus": "missing",
     "densityStatus": "legacy-estimate",
     "sourceName": "33B2",
     "number": "1.5514",
@@ -1008,37 +1094,51 @@
     "materialNotes": [
       "Blatt benennt den letzten Zustand widersprüchlich als kaltgezogen, Code jedoch +AC+U. Diese Tabellenzeile wird nicht maschinell übernommen."
     ],
-    "catalogueSource": "https://moehling.com/de/produkte/materialien.html"
+    "catalogueSource": "https://moehling.com/de/produkte/materialien.html",
+    "flowCurves": [],
+    "manualEligible": false
   },
   {
     "id": "C45",
-    "Rm": 640,
-    "C": 1100,
-    "n": 0.15,
+    "Rm": null,
+    "C": null,
+    "n": null,
     "rho": 7.85,
     "grp": "schwer",
     "hinweis": "begrenzt kaltumformbar",
-    "curveStatus": "legacy-estimate",
-    "curveSource": "Bestandsmodell V1.1; nicht als chargenspezifische Fließkurve validiert",
-    "rmStatus": "legacy-estimate",
+    "legacyParameters": {
+      "C": 1100,
+      "n": 0.15,
+      "Rm": 640
+    },
+    "curveStatus": "missing",
+    "curveSource": "Historische Parameter archiviert; keine freigegebene Fließkurve",
+    "rmStatus": "missing",
     "densityStatus": "legacy-estimate",
     "sourceName": "C45",
     "aliases": [],
     "properties": [],
     "materialNotes": [],
-    "standard": "Bestandsmodell"
+    "standard": "Bestandsmodell",
+    "flowCurves": [],
+    "manualEligible": false
   },
   {
     "id": "1.4301 (A2)",
-    "Rm": 620,
-    "C": 1400,
-    "n": 0.45,
+    "Rm": null,
+    "C": null,
+    "n": null,
     "rho": 7.9,
     "grp": "rostfrei",
     "hinweis": "starke Verfestigung",
-    "curveStatus": "legacy-estimate",
-    "curveSource": "Bestandsmodell V1.1; nicht als chargenspezifische Fließkurve validiert",
-    "rmStatus": "legacy-estimate",
+    "legacyParameters": {
+      "C": 1400,
+      "n": 0.45,
+      "Rm": 620
+    },
+    "curveStatus": "missing",
+    "curveSource": "Historische Parameter archiviert; keine freigegebene Fließkurve",
+    "rmStatus": "missing",
     "densityStatus": "sourced",
     "sourceName": "X5CrNi18-10",
     "number": "1.4301",
@@ -1117,37 +1217,51 @@
       "sourceStandard": "DIN EN 10088-3",
       "sourceId": "DEW_1.4301",
       "eligibleForForceCalculation": false
-    }
+    },
+    "flowCurves": [],
+    "manualEligible": false
   },
   {
     "id": "1.4305 (A1)",
-    "Rm": 550,
-    "C": 1200,
-    "n": 0.4,
+    "Rm": null,
+    "C": null,
+    "n": null,
     "rho": 7.9,
     "grp": "rostfrei",
     "hinweis": "Automatenstahl, austenitisch",
-    "curveStatus": "legacy-estimate",
-    "curveSource": "Bestandsmodell V1.1; nicht als chargenspezifische Fließkurve validiert",
-    "rmStatus": "legacy-estimate",
+    "legacyParameters": {
+      "C": 1200,
+      "n": 0.4,
+      "Rm": 550
+    },
+    "curveStatus": "missing",
+    "curveSource": "Historische Parameter archiviert; keine freigegebene Fließkurve",
+    "rmStatus": "missing",
     "densityStatus": "legacy-estimate",
     "sourceName": "1.4305 (A1)",
     "aliases": [],
     "properties": [],
     "materialNotes": [],
-    "standard": "Bestandsmodell"
+    "standard": "Bestandsmodell",
+    "flowCurves": [],
+    "manualEligible": false
   },
   {
     "id": "1.4571 (A4)",
-    "Rm": 580,
-    "C": 1350,
-    "n": 0.43,
+    "Rm": null,
+    "C": null,
+    "n": null,
     "rho": 8,
     "grp": "rostfrei",
     "hinweis": "Mo-legiert",
-    "curveStatus": "legacy-estimate",
-    "curveSource": "Bestandsmodell V1.1; nicht als chargenspezifische Fließkurve validiert",
-    "rmStatus": "legacy-estimate",
+    "legacyParameters": {
+      "C": 1350,
+      "n": 0.43,
+      "Rm": 580
+    },
+    "curveStatus": "missing",
+    "curveSource": "Historische Parameter archiviert; keine freigegebene Fließkurve",
+    "rmStatus": "missing",
     "densityStatus": "sourced",
     "sourceName": "X6CrNiMoTi17-12-2",
     "number": "1.4571",
@@ -1226,19 +1340,26 @@
       "sourceStandard": "DIN EN 10088-3",
       "sourceId": "DEW_1.4571",
       "eligibleForForceCalculation": false
-    }
+    },
+    "flowCurves": [],
+    "manualEligible": false
   },
   {
     "id": "CuZn37",
-    "Rm": 320,
-    "C": 650,
-    "n": 0.36,
+    "Rm": null,
+    "C": null,
+    "n": null,
     "rho": 8.4,
     "grp": "messing",
-    "hinweis": "Messing",
-    "curveStatus": "legacy-estimate",
-    "curveSource": "Bestandsmodell V1.1; nicht als chargenspezifische Fließkurve validiert",
-    "rmStatus": "legacy-estimate",
+    "hinweis": "Lieferzustand und Fließkurve ausdrücklich wählen",
+    "legacyParameters": {
+      "C": 650,
+      "n": 0.36,
+      "Rm": 320
+    },
+    "curveStatus": "literature",
+    "curveSource": "dietrich2018-cuzn37-soft",
+    "rmStatus": "missing",
     "densityStatus": "sourced",
     "sourceName": "Cu Zn 37",
     "number": "2.0321",
@@ -1465,19 +1586,110 @@
       "eligibleForFlowCurve": false,
       "sourceId": "SRC-44",
       "eligibleForForceCalculation": false
-    }
+    },
+    "flowCurves": [
+      {
+        "state": "soft-annealed",
+        "stateLabel": "weichgeglüht",
+        "temperature": "room",
+        "temperatureStatus": "qualitative-cold-forming-no-numeric-temperature",
+        "strainRateStatus": "not-reported",
+        "approval": "literature",
+        "eligible": true,
+        "evidenceClass": "typical-literature-curve",
+        "id": "dietrich2018-cuzn37-soft",
+        "name": "CuZn37",
+        "materialNumbers": [
+          "2.0321"
+        ],
+        "model": "tabulated",
+        "kf0": 280,
+        "phiMin": 0,
+        "phiMax": 2,
+        "interpolation": "piecewise-linear",
+        "points": [
+          [
+            0,
+            280
+          ],
+          [
+            0.1,
+            325
+          ],
+          [
+            0.2,
+            438
+          ],
+          [
+            0.4,
+            592
+          ],
+          [
+            0.6,
+            706
+          ],
+          [
+            0.8,
+            799
+          ],
+          [
+            1,
+            880
+          ],
+          [
+            1.2,
+            952
+          ],
+          [
+            1.4,
+            1018
+          ],
+          [
+            1.6,
+            1078
+          ],
+          [
+            1.8,
+            1134
+          ],
+          [
+            2,
+            1188
+          ]
+        ],
+        "sourceIds": [
+          "dietrich-2018-t31-1"
+        ],
+        "sourceRefs": [
+          {
+            "id": "dietrich-2018-t31-1",
+            "title": "Dietrich: Praxis der Umformtechnik, 12. Auflage, 2018",
+            "locator": "Tabelle 31.1, Buch S.446 / PDF S.456",
+            "url": "https://doi.org/10.1007/978-3-658-19530-4",
+            "file": "Dietrich_Praxis_der_Umformtechnik_12_Auflage.pdf",
+            "evidence": "Tabellierte kf(phi)-Werte, separat kf0; Überschrift weichgeglüht / Kaltverformung. Keine Mess-/Extrapolationsmarkierung pro Tabellenpunkt."
+          }
+        ]
+      }
+    ],
+    "manualEligible": true
   },
   {
     "id": "Cu-ETP",
-    "Rm": 220,
-    "C": 450,
-    "n": 0.45,
+    "Rm": null,
+    "C": null,
+    "n": null,
     "rho": 8.9,
     "grp": "kupfer",
     "hinweis": "Kupfer",
-    "curveStatus": "legacy-estimate",
-    "curveSource": "Bestandsmodell V1.1; nicht als chargenspezifische Fließkurve validiert",
-    "rmStatus": "legacy-estimate",
+    "legacyParameters": {
+      "C": 450,
+      "n": 0.45,
+      "Rm": 220
+    },
+    "curveStatus": "missing",
+    "curveSource": "Historische Parameter archiviert; keine freigegebene Fließkurve",
+    "rmStatus": "missing",
     "densityStatus": "sourced",
     "sourceName": "Cu-ETP",
     "number": "CW004A",
@@ -1704,19 +1916,26 @@
       "eligibleForFlowCurve": false,
       "sourceId": "SRC-48",
       "eligibleForForceCalculation": false
-    }
+    },
+    "flowCurves": [],
+    "manualEligible": false
   },
   {
     "id": "AlMg3",
-    "Rm": 220,
-    "C": 420,
-    "n": 0.28,
+    "Rm": null,
+    "C": null,
+    "n": null,
     "rho": 2.67,
     "grp": "alu",
     "hinweis": "Aluminium",
-    "curveStatus": "legacy-estimate",
-    "curveSource": "Bestandsmodell V1.1; nicht als chargenspezifische Fließkurve validiert",
-    "rmStatus": "legacy-estimate",
+    "legacyParameters": {
+      "C": 420,
+      "n": 0.28,
+      "Rm": 220
+    },
+    "curveStatus": "missing",
+    "curveSource": "Historische Parameter archiviert; keine freigegebene Fließkurve",
+    "rmStatus": "missing",
     "densityStatus": "sourced",
     "sourceName": "AlMg 3",
     "number": "3.3535",
@@ -1898,19 +2117,26 @@
       "eligibleForFlowCurve": false,
       "sourceId": "SRC-57",
       "eligibleForForceCalculation": false
-    }
+    },
+    "flowCurves": [],
+    "manualEligible": false
   },
   {
     "id": "AlMgSi1",
-    "Rm": 300,
-    "C": 410,
-    "n": 0.18,
+    "Rm": null,
+    "C": null,
+    "n": null,
     "rho": 2.71,
     "grp": "alu",
-    "hinweis": "Aluminium, vorverfestigt",
-    "curveStatus": "legacy-estimate",
-    "curveSource": "Bestandsmodell V1.1; nicht als chargenspezifische Fließkurve validiert",
-    "rmStatus": "legacy-estimate",
+    "hinweis": "Lieferzustand und Fließkurve ausdrücklich wählen",
+    "legacyParameters": {
+      "C": 410,
+      "n": 0.18,
+      "Rm": 300
+    },
+    "curveStatus": "literature",
+    "curveSource": "dietrich2018-aw6082-soft",
+    "rmStatus": "missing",
     "densityStatus": "sourced",
     "sourceName": "AlMgSi 1",
     "number": "3.2315",
@@ -2153,7 +2379,140 @@
       "eligibleForFlowCurve": false,
       "sourceId": "SRC-54",
       "eligibleForForceCalculation": false
-    }
+    },
+    "flowCurves": [
+      {
+        "state": "soft-annealed",
+        "stateLabel": "weichgeglüht",
+        "temperature": "room",
+        "temperatureStatus": "qualitative-cold-forming-no-numeric-temperature",
+        "strainRateStatus": "not-reported",
+        "approval": "literature",
+        "eligible": true,
+        "evidenceClass": "typical-literature-curve",
+        "id": "dietrich2018-aw6082-soft",
+        "name": "AlMgSi1 / EN AW-6082",
+        "materialNumbers": [
+          "3.2315",
+          "EN AW 6082"
+        ],
+        "model": "tabulated",
+        "kf0": 130,
+        "phiMin": 0,
+        "phiMax": 4,
+        "interpolation": "piecewise-linear",
+        "points": [
+          [
+            0,
+            130
+          ],
+          [
+            0.1,
+            165
+          ],
+          [
+            0.2,
+            189
+          ],
+          [
+            0.4,
+            217
+          ],
+          [
+            0.6,
+            235
+          ],
+          [
+            0.8,
+            249
+          ],
+          [
+            1,
+            260
+          ],
+          [
+            1.2,
+            270
+          ],
+          [
+            1.4,
+            278
+          ],
+          [
+            1.6,
+            285
+          ],
+          [
+            1.8,
+            292
+          ],
+          [
+            2,
+            298
+          ],
+          [
+            2.4,
+            309
+          ],
+          [
+            2.6,
+            314
+          ],
+          [
+            2.8,
+            318
+          ],
+          [
+            3,
+            323
+          ],
+          [
+            3.2,
+            327
+          ],
+          [
+            3.4,
+            331
+          ],
+          [
+            3.6,
+            335
+          ],
+          [
+            3.8,
+            338
+          ],
+          [
+            4,
+            342
+          ]
+        ],
+        "sourceIds": [
+          "dietrich-2018-t31-1",
+          "dietrich-2018-t2-1-t31-2"
+        ],
+        "sourceChoice": "Zwei Katalogzeilen derselben 6082-Identität, eine Literaturkurve. Weichgeglüht; ausdrücklich nicht T6.",
+        "sourceRefs": [
+          {
+            "id": "dietrich-2018-t31-1",
+            "title": "Dietrich: Praxis der Umformtechnik, 12. Auflage, 2018",
+            "locator": "Tabelle 31.1, Buch S.446 / PDF S.456",
+            "url": "https://doi.org/10.1007/978-3-658-19530-4",
+            "file": "Dietrich_Praxis_der_Umformtechnik_12_Auflage.pdf",
+            "evidence": "Tabellierte kf(phi)-Werte, separat kf0; Überschrift weichgeglüht / Kaltverformung. Keine Mess-/Extrapolationsmarkierung pro Tabellenpunkt."
+          },
+          {
+            "id": "dietrich-2018-t2-1-t31-2",
+            "title": "Dietrich: Praxis der Umformtechnik, 12. Auflage, 2018",
+            "locator": "Tabelle 2.1, Buch S.7 / PDF S.19; Tabelle 31.2, Buch S.447 / PDF S.457",
+            "url": "https://doi.org/10.1007/978-3-658-19530-4",
+            "file": "Dietrich_Praxis_der_Umformtechnik_12_Auflage.pdf",
+            "evidence": "Potenzansatz kf = C * phi^n, separat kf0; ausdrückliches Alt-/Neu-Namensmapping, einschließlich Cq15/C15C und Al99,5/EN AW-1050A."
+          }
+        ]
+      }
+    ],
+    "manualEligible": true
   },
   {
     "id": "C4C",
@@ -2166,8 +2525,8 @@
     "n": null,
     "rho": null,
     "grp": "gut",
-    "hinweis": "Fließkurve für den Lieferzustand offen",
-    "curveStatus": "missing",
+    "hinweis": "Lieferzustand und Fließkurve ausdrücklich wählen",
+    "curveStatus": "literature",
     "rmStatus": "missing",
     "densityStatus": "missing",
     "densitySource": null,
@@ -2304,7 +2663,86 @@
     "materialNotes": [
       "Rm-Werte sind dokumentierte Obergrenzen, keine tatsächliche Chargenzugfestigkeit. Rp0,2 und Dichte in diesem geprüften Blatt nicht belegt."
     ],
-    "catalogueSource": "https://moehling.com/de/produkte/materialien.html"
+    "catalogueSource": "https://moehling.com/de/produkte/materialien.html",
+    "flowCurves": [
+      {
+        "state": "soft-annealed",
+        "stateLabel": "weichgeglüht",
+        "temperature": "room",
+        "temperatureStatus": "qualitative-cold-forming-no-numeric-temperature",
+        "strainRateStatus": "not-reported",
+        "approval": "literature",
+        "eligible": true,
+        "evidenceClass": "typical-literature-curve",
+        "id": "dietrich2018-c4c-soft",
+        "name": "C4C",
+        "materialNumbers": [
+          "1.0303"
+        ],
+        "model": "tabulated",
+        "kf0": 250,
+        "phiMin": 0,
+        "phiMax": 1.6,
+        "interpolation": "piecewise-linear",
+        "points": [
+          [
+            0,
+            250
+          ],
+          [
+            0.1,
+            420
+          ],
+          [
+            0.2,
+            496
+          ],
+          [
+            0.4,
+            586
+          ],
+          [
+            0.6,
+            646
+          ],
+          [
+            0.8,
+            692
+          ],
+          [
+            1,
+            730
+          ],
+          [
+            1.2,
+            763
+          ],
+          [
+            1.4,
+            792
+          ],
+          [
+            1.6,
+            818
+          ]
+        ],
+        "sourceIds": [
+          "dietrich-2018-t31-1"
+        ],
+        "sourceRefs": [
+          {
+            "id": "dietrich-2018-t31-1",
+            "title": "Dietrich: Praxis der Umformtechnik, 12. Auflage, 2018",
+            "locator": "Tabelle 31.1, Buch S.446 / PDF S.456",
+            "url": "https://doi.org/10.1007/978-3-658-19530-4",
+            "file": "Dietrich_Praxis_der_Umformtechnik_12_Auflage.pdf",
+            "evidence": "Tabellierte kf(phi)-Werte, separat kf0; Überschrift weichgeglüht / Kaltverformung. Keine Mess-/Extrapolationsmarkierung pro Tabellenpunkt."
+          }
+        ]
+      }
+    ],
+    "manualEligible": true,
+    "curveSource": "dietrich2018-c4c-soft"
   },
   {
     "id": "C8C",
@@ -2583,7 +3021,9 @@
     "materialNotes": [
       "Rm-Werte sind dokumentierte Obergrenzen, keine tatsächliche Chargenzugfestigkeit. Rp0,2 und Dichte in diesem geprüften Blatt nicht belegt."
     ],
-    "catalogueSource": "https://moehling.com/de/produkte/materialien.html"
+    "catalogueSource": "https://moehling.com/de/produkte/materialien.html",
+    "flowCurves": [],
+    "manualEligible": false
   },
   {
     "id": "C35EC",
@@ -2596,8 +3036,8 @@
     "n": null,
     "rho": null,
     "grp": "schwer",
-    "hinweis": "Fließkurve für den Lieferzustand offen",
-    "curveStatus": "missing",
+    "hinweis": "Lieferzustand und Fließkurve ausdrücklich wählen",
+    "curveStatus": "literature",
     "rmStatus": "missing",
     "densityStatus": "missing",
     "densitySource": null,
@@ -2748,7 +3188,95 @@
       }
     ],
     "materialNotes": [],
-    "catalogueSource": "https://moehling.com/de/produkte/materialien.html"
+    "catalogueSource": "https://moehling.com/de/produkte/materialien.html",
+    "flowCurves": [
+      {
+        "state": "soft-annealed",
+        "stateLabel": "weichgeglüht",
+        "temperature": "room",
+        "temperatureStatus": "qualitative-cold-forming-no-numeric-temperature",
+        "strainRateStatus": "not-reported",
+        "approval": "literature",
+        "eligible": true,
+        "evidenceClass": "typical-literature-curve",
+        "id": "dietrich2018-c35ec-soft",
+        "name": "C35EC",
+        "materialNumbers": [
+          "1.1172"
+        ],
+        "model": "tabulated",
+        "kf0": 340,
+        "phiMin": 0,
+        "phiMax": 1.6,
+        "interpolation": "piecewise-linear",
+        "points": [
+          [
+            0,
+            340
+          ],
+          [
+            0.1,
+            630
+          ],
+          [
+            0.2,
+            713
+          ],
+          [
+            0.4,
+            807
+          ],
+          [
+            0.6,
+            867
+          ],
+          [
+            0.8,
+            913
+          ],
+          [
+            1,
+            950
+          ],
+          [
+            1.2,
+            982
+          ],
+          [
+            1.4,
+            1008
+          ],
+          [
+            1.6,
+            1033
+          ]
+        ],
+        "sourceIds": [
+          "dietrich-2018-t31-1",
+          "dietrich-2018-t31-3"
+        ],
+        "sourceRefs": [
+          {
+            "id": "dietrich-2018-t31-1",
+            "title": "Dietrich: Praxis der Umformtechnik, 12. Auflage, 2018",
+            "locator": "Tabelle 31.1, Buch S.446 / PDF S.456",
+            "url": "https://doi.org/10.1007/978-3-658-19530-4",
+            "file": "Dietrich_Praxis_der_Umformtechnik_12_Auflage.pdf",
+            "evidence": "Tabellierte kf(phi)-Werte, separat kf0; Überschrift weichgeglüht / Kaltverformung. Keine Mess-/Extrapolationsmarkierung pro Tabellenpunkt."
+          },
+          {
+            "id": "dietrich-2018-t31-3",
+            "title": "Dietrich: Praxis der Umformtechnik, 12. Auflage, 2018",
+            "locator": "Tabelle 31.3, Buch S.449 / PDF S.459",
+            "url": "https://doi.org/10.1007/978-3-658-19530-4",
+            "file": "Dietrich_Praxis_der_Umformtechnik_12_Auflage.pdf",
+            "evidence": "Werkstoffidentitäten. C45EC-Konflikt mit Katalognummer ist nicht aufgelöst und wird nicht freigegeben."
+          }
+        ]
+      }
+    ],
+    "manualEligible": true,
+    "curveSource": "dietrich2018-c35ec-soft"
   },
   {
     "id": "C45EC",
@@ -2913,7 +3441,9 @@
       }
     ],
     "materialNotes": [],
-    "catalogueSource": "https://moehling.com/de/produkte/materialien.html"
+    "catalogueSource": "https://moehling.com/de/produkte/materialien.html",
+    "flowCurves": [],
+    "manualEligible": false
   },
   {
     "id": "38Cr2",
@@ -2935,7 +3465,9 @@
     "materialNotes": [
       "Identität exakt aus dem Möehling-Katalog erhalten. In der begrenzten Primärquellenrecherche kein ausreichend zu Identität, Produkt und Lieferzustand passender numerischer Kennwert übernommen; fehlend bedeutet nicht null."
     ],
-    "catalogueSource": "https://moehling.com/de/produkte/materialien.html"
+    "catalogueSource": "https://moehling.com/de/produkte/materialien.html",
+    "flowCurves": [],
+    "manualEligible": false
   },
   {
     "id": "46Cr2",
@@ -2957,7 +3489,9 @@
     "materialNotes": [
       "Identität exakt aus dem Möehling-Katalog erhalten. In der begrenzten Primärquellenrecherche kein ausreichend zu Identität, Produkt und Lieferzustand passender numerischer Kennwert übernommen; fehlend bedeutet nicht null."
     ],
-    "catalogueSource": "https://moehling.com/de/produkte/materialien.html"
+    "catalogueSource": "https://moehling.com/de/produkte/materialien.html",
+    "flowCurves": [],
+    "manualEligible": false
   },
   {
     "id": "34Cr4",
@@ -2970,8 +3504,8 @@
     "n": null,
     "rho": null,
     "grp": "schwer",
-    "hinweis": "Fließkurve für den Lieferzustand offen",
-    "curveStatus": "missing",
+    "hinweis": "Lieferzustand und Fließkurve ausdrücklich wählen",
+    "curveStatus": "literature",
     "rmStatus": "missing",
     "densityStatus": "missing",
     "densitySource": null,
@@ -3108,7 +3642,56 @@
     "materialNotes": [
       "Verifizierte Rm/Rp0,2-Daten betreffen DIN EN10083 +QT. Für Kaltstauchdraht EN10263 im weichen Zustand weiterhin kein daraus abgeleiteter Festigkeitswert freigegeben; HB nicht in Rm umgerechnet."
     ],
-    "catalogueSource": "https://moehling.com/de/produkte/materialien.html"
+    "catalogueSource": "https://moehling.com/de/produkte/materialien.html",
+    "flowCurves": [
+      {
+        "state": "soft-annealed",
+        "stateLabel": "weichgeglüht",
+        "temperature": "room",
+        "temperatureStatus": "qualitative-cold-forming-no-numeric-temperature",
+        "strainRateStatus": "not-reported",
+        "approval": "literature",
+        "eligible": true,
+        "evidenceClass": "typical-literature-curve",
+        "id": "dietrich2018-34cr4-soft",
+        "name": "34Cr4",
+        "materialNumbers": [
+          "1.7033"
+        ],
+        "model": "hollomon",
+        "C": 970,
+        "n": 0.118,
+        "kf0": 410,
+        "phiMin": 0.1,
+        "phiMax": 0.8,
+        "startMode": "linear-to-phiMin",
+        "startBasis": "Explizite technische Näherung: linear zwischen separat belegtem kf0 bei phi0 und C*0,1^n. Kein neu gemessener Kurvenabschnitt.",
+        "rangeBasis": "Konservativ begrenzt auf den durchgezogen dargestellten Bereich des überprüften Tschätsch-Diagramms; gestrichelte Fortsetzung nicht verwendet.",
+        "sourceIds": [
+          "dietrich-2018-t2-1-t31-2",
+          "tschaetsch-1997-34cr4"
+        ],
+        "sourceRefs": [
+          {
+            "id": "dietrich-2018-t2-1-t31-2",
+            "title": "Dietrich: Praxis der Umformtechnik, 12. Auflage, 2018",
+            "locator": "Tabelle 2.1, Buch S.7 / PDF S.19; Tabelle 31.2, Buch S.447 / PDF S.457",
+            "url": "https://doi.org/10.1007/978-3-658-19530-4",
+            "file": "Dietrich_Praxis_der_Umformtechnik_12_Auflage.pdf",
+            "evidence": "Potenzansatz kf = C * phi^n, separat kf0; ausdrückliches Alt-/Neu-Namensmapping, einschließlich Cq15/C15C und Al99,5/EN AW-1050A."
+          },
+          {
+            "id": "tschaetsch-1997-34cr4",
+            "title": "Tschätsch: Praxiswissen Umformtechnik, 5. Auflage, 1997",
+            "locator": "Buch S.312 / PDF S.322",
+            "file": "Tschaetsch_Praxiswissen_Umformtechnik_1997.pdf",
+            "evidence": "34Cr4 weichgeglüht; kf0 410, C970, n0,118. Potenzkurve durchgezogen etwa phi0,1 bis 0,8, danach gestrichelt. Berechnung auf phi<=0,8 begrenzt."
+          }
+        ]
+      }
+    ],
+    "manualEligible": true,
+    "curveSource": "dietrich2018-34cr4-soft"
   },
   {
     "id": "37Cr4",
@@ -3259,7 +3842,9 @@
     "materialNotes": [
       "Verifizierte Rm/Rp0,2-Daten betreffen DIN EN10083 +QT. Für Kaltstauchdraht EN10263 im weichen Zustand weiterhin kein daraus abgeleiteter Festigkeitswert freigegeben; HB nicht in Rm umgerechnet."
     ],
-    "catalogueSource": "https://moehling.com/de/produkte/materialien.html"
+    "catalogueSource": "https://moehling.com/de/produkte/materialien.html",
+    "flowCurves": [],
+    "manualEligible": false
   },
   {
     "id": "41Cr4",
@@ -3410,7 +3995,9 @@
     "materialNotes": [
       "Verifizierte Rm/Rp0,2-Daten betreffen DIN EN10083 +QT. Für Kaltstauchdraht EN10263 im weichen Zustand weiterhin kein daraus abgeleiteter Festigkeitswert freigegeben; HB nicht in Rm umgerechnet."
     ],
-    "catalogueSource": "https://moehling.com/de/produkte/materialien.html"
+    "catalogueSource": "https://moehling.com/de/produkte/materialien.html",
+    "flowCurves": [],
+    "manualEligible": false
   },
   {
     "id": "34CrMo4",
@@ -3423,8 +4010,8 @@
     "n": null,
     "rho": null,
     "grp": "schwer",
-    "hinweis": "Fließkurve für den Lieferzustand offen",
-    "curveStatus": "missing",
+    "hinweis": "Lieferzustand und Fließkurve ausdrücklich wählen",
+    "curveStatus": "literature",
     "rmStatus": "missing",
     "densityStatus": "missing",
     "densitySource": null,
@@ -3635,7 +4222,86 @@
     "materialNotes": [
       "Verifizierte Rm/Rp0,2-Daten betreffen DIN EN10083 +QT. Für Kaltstauchdraht EN10263 im weichen Zustand weiterhin kein daraus abgeleiteter Festigkeitswert freigegeben; HB nicht in Rm umgerechnet."
     ],
-    "catalogueSource": "https://moehling.com/de/produkte/materialien.html"
+    "catalogueSource": "https://moehling.com/de/produkte/materialien.html",
+    "flowCurves": [
+      {
+        "state": "soft-annealed",
+        "stateLabel": "weichgeglüht",
+        "temperature": "room",
+        "temperatureStatus": "qualitative-cold-forming-no-numeric-temperature",
+        "strainRateStatus": "not-reported",
+        "approval": "literature",
+        "eligible": true,
+        "evidenceClass": "typical-literature-curve",
+        "id": "dietrich2018-34crmo4-soft",
+        "name": "34CrMo4",
+        "materialNumbers": [
+          "1.7220"
+        ],
+        "model": "tabulated",
+        "kf0": 410,
+        "phiMin": 0,
+        "phiMax": 1.6,
+        "interpolation": "piecewise-linear",
+        "points": [
+          [
+            0,
+            410
+          ],
+          [
+            0.1,
+            730
+          ],
+          [
+            0.2,
+            808
+          ],
+          [
+            0.4,
+            893
+          ],
+          [
+            0.6,
+            947
+          ],
+          [
+            0.8,
+            998
+          ],
+          [
+            1,
+            1020
+          ],
+          [
+            1.2,
+            1048
+          ],
+          [
+            1.4,
+            1071
+          ],
+          [
+            1.6,
+            1092
+          ]
+        ],
+        "sourceIds": [
+          "dietrich-2018-t31-1"
+        ],
+        "sourceRefs": [
+          {
+            "id": "dietrich-2018-t31-1",
+            "title": "Dietrich: Praxis der Umformtechnik, 12. Auflage, 2018",
+            "locator": "Tabelle 31.1, Buch S.446 / PDF S.456",
+            "url": "https://doi.org/10.1007/978-3-658-19530-4",
+            "file": "Dietrich_Praxis_der_Umformtechnik_12_Auflage.pdf",
+            "evidence": "Tabellierte kf(phi)-Werte, separat kf0; Überschrift weichgeglüht / Kaltverformung. Keine Mess-/Extrapolationsmarkierung pro Tabellenpunkt."
+          }
+        ]
+      }
+    ],
+    "manualEligible": true,
+    "curveSource": "dietrich2018-34crmo4-soft"
   },
   {
     "id": "42CrMo4",
@@ -3648,8 +4314,8 @@
     "n": null,
     "rho": null,
     "grp": "schwer",
-    "hinweis": "Fließkurve für den Lieferzustand offen",
-    "curveStatus": "missing",
+    "hinweis": "Lieferzustand und Fließkurve ausdrücklich wählen",
+    "curveStatus": "literature",
     "rmStatus": "missing",
     "densityStatus": "missing",
     "densitySource": null,
@@ -3860,7 +4526,86 @@
     "materialNotes": [
       "Verifizierte Rm/Rp0,2-Daten betreffen DIN EN10083 +QT. Für Kaltstauchdraht EN10263 im weichen Zustand weiterhin kein daraus abgeleiteter Festigkeitswert freigegeben; HB nicht in Rm umgerechnet."
     ],
-    "catalogueSource": "https://moehling.com/de/produkte/materialien.html"
+    "catalogueSource": "https://moehling.com/de/produkte/materialien.html",
+    "flowCurves": [
+      {
+        "state": "soft-annealed",
+        "stateLabel": "weichgeglüht",
+        "temperature": "room",
+        "temperatureStatus": "qualitative-cold-forming-no-numeric-temperature",
+        "strainRateStatus": "not-reported",
+        "approval": "literature",
+        "eligible": true,
+        "evidenceClass": "typical-literature-curve",
+        "id": "dietrich2018-42crmo4-soft",
+        "name": "42CrMo4",
+        "materialNumbers": [
+          "1.7225"
+        ],
+        "model": "tabulated",
+        "kf0": 420,
+        "phiMin": 0,
+        "phiMax": 1.6,
+        "interpolation": "piecewise-linear",
+        "points": [
+          [
+            0,
+            420
+          ],
+          [
+            0.1,
+            780
+          ],
+          [
+            0.2,
+            865
+          ],
+          [
+            0.4,
+            959
+          ],
+          [
+            0.6,
+            1019
+          ],
+          [
+            0.8,
+            1064
+          ],
+          [
+            1,
+            1100
+          ],
+          [
+            1.2,
+            1130
+          ],
+          [
+            1.4,
+            1156
+          ],
+          [
+            1.6,
+            1180
+          ]
+        ],
+        "sourceIds": [
+          "dietrich-2018-t31-1"
+        ],
+        "sourceRefs": [
+          {
+            "id": "dietrich-2018-t31-1",
+            "title": "Dietrich: Praxis der Umformtechnik, 12. Auflage, 2018",
+            "locator": "Tabelle 31.1, Buch S.446 / PDF S.456",
+            "url": "https://doi.org/10.1007/978-3-658-19530-4",
+            "file": "Dietrich_Praxis_der_Umformtechnik_12_Auflage.pdf",
+            "evidence": "Tabellierte kf(phi)-Werte, separat kf0; Überschrift weichgeglüht / Kaltverformung. Keine Mess-/Extrapolationsmarkierung pro Tabellenpunkt."
+          }
+        ]
+      }
+    ],
+    "manualEligible": true,
+    "curveSource": "dietrich2018-42crmo4-soft"
   },
   {
     "id": "34CrNiMo6",
@@ -4085,7 +4830,9 @@
     "materialNotes": [
       "Verifizierte Rm/Rp0,2-Daten betreffen DIN EN10083 +QT. Für Kaltstauchdraht EN10263 im weichen Zustand weiterhin kein daraus abgeleiteter Festigkeitswert freigegeben; HB nicht in Rm umgerechnet."
     ],
-    "catalogueSource": "https://moehling.com/de/produkte/materialien.html"
+    "catalogueSource": "https://moehling.com/de/produkte/materialien.html",
+    "flowCurves": [],
+    "manualEligible": false
   },
   {
     "id": "23B2",
@@ -4107,7 +4854,9 @@
     "materialNotes": [
       "Herstellerprogramm bestätigt Identität, aber kein für Zustand/Abmessung verbindlicher Rm/Rp-Wert in den geprüften Primärquellen. Keine Werte benachbarter Borsorten übernommen."
     ],
-    "catalogueSource": "https://moehling.com/de/produkte/materialien.html"
+    "catalogueSource": "https://moehling.com/de/produkte/materialien.html",
+    "flowCurves": [],
+    "manualEligible": false
   },
   {
     "id": "28B2",
@@ -4129,7 +4878,9 @@
     "materialNotes": [
       "Herstellerprogramm bestätigt Identität, aber kein für Zustand/Abmessung verbindlicher Rm/Rp-Wert in den geprüften Primärquellen. Keine Werte benachbarter Borsorten übernommen."
     ],
-    "catalogueSource": "https://moehling.com/de/produkte/materialien.html"
+    "catalogueSource": "https://moehling.com/de/produkte/materialien.html",
+    "flowCurves": [],
+    "manualEligible": false
   },
   {
     "id": "36CrB4",
@@ -4294,7 +5045,9 @@
       }
     ],
     "materialNotes": [],
-    "catalogueSource": "https://moehling.com/de/produkte/materialien.html"
+    "catalogueSource": "https://moehling.com/de/produkte/materialien.html",
+    "flowCurves": [],
+    "manualEligible": false
   },
   {
     "id": "C15E2C",
@@ -4307,8 +5060,8 @@
     "n": null,
     "rho": null,
     "grp": "schwerer",
-    "hinweis": "Fließkurve für den Lieferzustand offen",
-    "curveStatus": "missing",
+    "hinweis": "Lieferzustand und Fließkurve ausdrücklich wählen",
+    "curveStatus": "literature",
     "rmStatus": "missing",
     "densityStatus": "missing",
     "densitySource": null,
@@ -4573,7 +5326,86 @@
     "materialNotes": [
       "Rm-Werte sind dokumentierte Obergrenzen, keine tatsächliche Chargenzugfestigkeit. Rp0,2 und Dichte in diesem geprüften Blatt nicht belegt."
     ],
-    "catalogueSource": "https://moehling.com/de/produkte/materialien.html"
+    "catalogueSource": "https://moehling.com/de/produkte/materialien.html",
+    "flowCurves": [
+      {
+        "state": "soft-annealed",
+        "stateLabel": "weichgeglüht",
+        "temperature": "room",
+        "temperatureStatus": "qualitative-cold-forming-no-numeric-temperature",
+        "strainRateStatus": "not-reported",
+        "approval": "literature",
+        "eligible": true,
+        "evidenceClass": "typical-literature-curve",
+        "id": "dietrich2018-c15e2c-soft",
+        "name": "C15E2C",
+        "materialNumbers": [
+          "1.1132"
+        ],
+        "model": "tabulated",
+        "kf0": 280,
+        "phiMin": 0,
+        "phiMax": 1.6,
+        "interpolation": "piecewise-linear",
+        "points": [
+          [
+            0,
+            280
+          ],
+          [
+            0.1,
+            520
+          ],
+          [
+            0.2,
+            583
+          ],
+          [
+            0.4,
+            654
+          ],
+          [
+            0.6,
+            700
+          ],
+          [
+            0.8,
+            733
+          ],
+          [
+            1,
+            760
+          ],
+          [
+            1.2,
+            783
+          ],
+          [
+            1.4,
+            803
+          ],
+          [
+            1.6,
+            821
+          ]
+        ],
+        "sourceIds": [
+          "dietrich-2018-t31-1"
+        ],
+        "sourceRefs": [
+          {
+            "id": "dietrich-2018-t31-1",
+            "title": "Dietrich: Praxis der Umformtechnik, 12. Auflage, 2018",
+            "locator": "Tabelle 31.1, Buch S.446 / PDF S.456",
+            "url": "https://doi.org/10.1007/978-3-658-19530-4",
+            "file": "Dietrich_Praxis_der_Umformtechnik_12_Auflage.pdf",
+            "evidence": "Tabellierte kf(phi)-Werte, separat kf0; Überschrift weichgeglüht / Kaltverformung. Keine Mess-/Extrapolationsmarkierung pro Tabellenpunkt."
+          }
+        ]
+      }
+    ],
+    "manualEligible": true,
+    "curveSource": "dietrich2018-c15e2c-soft"
   },
   {
     "id": "17Cr3",
@@ -4645,7 +5477,9 @@
     "materialNotes": [
       "Rm-Minima gelten nach Vergütung bei 200 °C, nicht für weichgeglühten Draht. Die geprüfte Quelle verwendet EN10084; mechanische Kaltstauch-Lieferbedingungen EN10263 nicht daraus ersetzt."
     ],
-    "catalogueSource": "https://moehling.com/de/produkte/materialien.html"
+    "catalogueSource": "https://moehling.com/de/produkte/materialien.html",
+    "flowCurves": [],
+    "manualEligible": false
   },
   {
     "id": "16MnCr5",
@@ -4658,8 +5492,8 @@
     "n": null,
     "rho": null,
     "grp": "schwerer",
-    "hinweis": "Fließkurve für den Lieferzustand offen",
-    "curveStatus": "missing",
+    "hinweis": "Lieferzustand und Fließkurve ausdrücklich wählen",
+    "curveStatus": "literature",
     "rmStatus": "missing",
     "densityStatus": "missing",
     "densitySource": null,
@@ -4733,7 +5567,87 @@
     "materialNotes": [
       "Rm-Minima gelten nach Vergütung bei 200 °C, nicht für weichgeglühten Draht. Die geprüfte Quelle verwendet EN10084; mechanische Kaltstauch-Lieferbedingungen EN10263 nicht daraus ersetzt."
     ],
-    "catalogueSource": "https://moehling.com/de/produkte/materialien.html"
+    "catalogueSource": "https://moehling.com/de/produkte/materialien.html",
+    "flowCurves": [
+      {
+        "state": "soft-annealed",
+        "stateLabel": "weichgeglüht",
+        "temperature": "room",
+        "temperatureStatus": "qualitative-cold-forming-no-numeric-temperature",
+        "strainRateStatus": "not-reported",
+        "approval": "literature",
+        "eligible": true,
+        "evidenceClass": "typical-literature-curve",
+        "id": "dietrich2018-16mncr5-soft",
+        "name": "16MnCr5",
+        "materialNumbers": [
+          "1.7131"
+        ],
+        "model": "tabulated",
+        "kf0": 380,
+        "phiMin": 0,
+        "phiMax": 1.6,
+        "interpolation": "piecewise-linear",
+        "points": [
+          [
+            0,
+            380
+          ],
+          [
+            0.1,
+            630
+          ],
+          [
+            0.2,
+            702
+          ],
+          [
+            0.4,
+            780
+          ],
+          [
+            0.6,
+            832
+          ],
+          [
+            0.8,
+            869
+          ],
+          [
+            1,
+            900
+          ],
+          [
+            1.2,
+            926
+          ],
+          [
+            1.4,
+            948
+          ],
+          [
+            1.6,
+            968
+          ]
+        ],
+        "sourceIds": [
+          "dietrich-2018-t31-1"
+        ],
+        "sourceChoice": "Dietrich-Punktkurve gewählt. Abweichender Lange-Ansatz C810/n0,09 mit phi0,1–0,7 wird nicht eingemischt.",
+        "sourceRefs": [
+          {
+            "id": "dietrich-2018-t31-1",
+            "title": "Dietrich: Praxis der Umformtechnik, 12. Auflage, 2018",
+            "locator": "Tabelle 31.1, Buch S.446 / PDF S.456",
+            "url": "https://doi.org/10.1007/978-3-658-19530-4",
+            "file": "Dietrich_Praxis_der_Umformtechnik_12_Auflage.pdf",
+            "evidence": "Tabellierte kf(phi)-Werte, separat kf0; Überschrift weichgeglüht / Kaltverformung. Keine Mess-/Extrapolationsmarkierung pro Tabellenpunkt."
+          }
+        ]
+      }
+    ],
+    "manualEligible": true,
+    "curveSource": "dietrich2018-16mncr5-soft"
   },
   {
     "id": "20MoCr4",
@@ -4785,7 +5699,9 @@
     "materialNotes": [
       "Rm/Rp nicht belegt; Hersteller nennt weichglühen650–700°C und207HBmax, aber keine Umrechnung inRm vorgenommen. Produktprogramm/Abmessung gesondert zu bestätigen."
     ],
-    "catalogueSource": "https://moehling.com/de/produkte/materialien.html"
+    "catalogueSource": "https://moehling.com/de/produkte/materialien.html",
+    "flowCurves": [],
+    "manualEligible": false
   },
   {
     "id": "20NiCrMo2-2",
@@ -4873,7 +5789,9 @@
     "materialNotes": [
       "Rm-Minima gelten nach Vergütung bei 200 °C, nicht für weichgeglühten Draht. Die geprüfte Quelle verwendet EN10084; mechanische Kaltstauch-Lieferbedingungen EN10263 nicht daraus ersetzt."
     ],
-    "catalogueSource": "https://moehling.com/de/produkte/materialien.html"
+    "catalogueSource": "https://moehling.com/de/produkte/materialien.html",
+    "flowCurves": [],
+    "manualEligible": false
   },
   {
     "id": "17CrNi6-6",
@@ -4961,7 +5879,9 @@
     "materialNotes": [
       "Rm-Minima gelten nach Vergütung bei 200 °C, nicht für weichgeglühten Draht. Die geprüfte Quelle verwendet EN10084; mechanische Kaltstauch-Lieferbedingungen EN10263 nicht daraus ersetzt."
     ],
-    "catalogueSource": "https://moehling.com/de/produkte/materialien.html"
+    "catalogueSource": "https://moehling.com/de/produkte/materialien.html",
+    "flowCurves": [],
+    "manualEligible": false
   },
   {
     "id": "X6Cr17",
@@ -5049,7 +5969,9 @@
     "materialNotes": [
       "Hersteller nennt Kaltstauch-/Verarbeitungseignung getrennt von den mechanischen Lieferwerten nach EN10088-3. Verfestigungsdiagramme Rm gegen Verformung sind keine direkt freigegebenen kf(phi)-Fließkurven."
     ],
-    "catalogueSource": "https://moehling.com/de/produkte/materialien.html"
+    "catalogueSource": "https://moehling.com/de/produkte/materialien.html",
+    "flowCurves": [],
+    "manualEligible": false
   },
   {
     "id": "X12Cr13",
@@ -5122,7 +6044,9 @@
       "Hersteller nennt Kaltstauch-/Verarbeitungseignung getrennt von den mechanischen Lieferwerten nach EN10088-3. Verfestigungsdiagramme Rm gegen Verformung sind keine direkt freigegebenen kf(phi)-Fließkurven.",
       "Hersteller bezeichnet Kaltumformung als selten und Kaltstauchen als nicht üblich; Katalogaufnahme allein ist keine Verfahrensfreigabe."
     ],
-    "catalogueSource": "https://moehling.com/de/produkte/materialien.html"
+    "catalogueSource": "https://moehling.com/de/produkte/materialien.html",
+    "flowCurves": [],
+    "manualEligible": false
   },
   {
     "id": "X2CrNi19-11",
@@ -5211,7 +6135,9 @@
       "Hersteller nennt Kaltstauch-/Verarbeitungseignung getrennt von den mechanischen Lieferwerten nach EN10088-3. Verfestigungsdiagramme Rm gegen Verformung sind keine direkt freigegebenen kf(phi)-Fließkurven.",
       "Keine pauschale AISI-304L-Gleichsetzung: Herstellerblatt warnt ausdrücklich, dass AISI304L 1.4307 und nicht exakt 1.4306 entspricht."
     ],
-    "catalogueSource": "https://moehling.com/de/produkte/materialien.html"
+    "catalogueSource": "https://moehling.com/de/produkte/materialien.html",
+    "flowCurves": [],
+    "manualEligible": false
   },
   {
     "id": "X4CrNi18-12",
@@ -5299,7 +6225,9 @@
     "materialNotes": [
       "Hersteller nennt Kaltstauch-/Verarbeitungseignung getrennt von den mechanischen Lieferwerten nach EN10088-3. Verfestigungsdiagramme Rm gegen Verformung sind keine direkt freigegebenen kf(phi)-Fließkurven."
     ],
-    "catalogueSource": "https://moehling.com/de/produkte/materialien.html"
+    "catalogueSource": "https://moehling.com/de/produkte/materialien.html",
+    "flowCurves": [],
+    "manualEligible": false
   },
   {
     "id": "X5CrNiMo17-12-2",
@@ -5389,7 +6317,9 @@
     "materialNotes": [
       "Hersteller nennt Kaltstauch-/Verarbeitungseignung getrennt von den mechanischen Lieferwerten nach EN10088-3. Verfestigungsdiagramme Rm gegen Verformung sind keine direkt freigegebenen kf(phi)-Fließkurven."
     ],
-    "catalogueSource": "https://moehling.com/de/produkte/materialien.html"
+    "catalogueSource": "https://moehling.com/de/produkte/materialien.html",
+    "flowCurves": [],
+    "manualEligible": false
   },
   {
     "id": "X2CrNiMoN17-13-3",
@@ -5479,7 +6409,9 @@
     "materialNotes": [
       "Hersteller nennt Kaltstauch-/Verarbeitungseignung getrennt von den mechanischen Lieferwerten nach EN10088-3. Verfestigungsdiagramme Rm gegen Verformung sind keine direkt freigegebenen kf(phi)-Fließkurven."
     ],
-    "catalogueSource": "https://moehling.com/de/produkte/materialien.html"
+    "catalogueSource": "https://moehling.com/de/produkte/materialien.html",
+    "flowCurves": [],
+    "manualEligible": false
   },
   {
     "id": "X6CrNiTi18-10",
@@ -5569,7 +6501,9 @@
     "materialNotes": [
       "Hersteller nennt Kaltstauch-/Verarbeitungseignung getrennt von den mechanischen Lieferwerten nach EN10088-3. Verfestigungsdiagramme Rm gegen Verformung sind keine direkt freigegebenen kf(phi)-Fließkurven."
     ],
-    "catalogueSource": "https://moehling.com/de/produkte/materialien.html"
+    "catalogueSource": "https://moehling.com/de/produkte/materialien.html",
+    "flowCurves": [],
+    "manualEligible": false
   },
   {
     "id": "X3CrNiCu18-9-4",
@@ -5659,7 +6593,9 @@
     "materialNotes": [
       "Hersteller nennt Kaltstauch-/Verarbeitungseignung getrennt von den mechanischen Lieferwerten nach EN10088-3. Verfestigungsdiagramme Rm gegen Verformung sind keine direkt freigegebenen kf(phi)-Fließkurven."
     ],
-    "catalogueSource": "https://moehling.com/de/produkte/materialien.html"
+    "catalogueSource": "https://moehling.com/de/produkte/materialien.html",
+    "flowCurves": [],
+    "manualEligible": false
   },
   {
     "id": "Cu Zn 5",
@@ -5823,7 +6759,9 @@
     "materialNotes": [
       "Mechanische Daten gelten als Bandreferenz und nicht als automatisch verwendbare Kaltstauchdraht-Kennwerte. Keine Fließkurve aus Rm/Rp abgeleitet."
     ],
-    "catalogueSource": "https://moehling.com/de/produkte/materialien.html"
+    "catalogueSource": "https://moehling.com/de/produkte/materialien.html",
+    "flowCurves": [],
+    "manualEligible": false
   },
   {
     "id": "Cu Sn 6",
@@ -6098,7 +7036,9 @@
     "materialNotes": [
       "Mechanische Daten gelten als Bandreferenz und nicht als automatisch verwendbare Kaltstauchdraht-Kennwerte. Keine Fließkurve aus Rm/Rp abgeleitet."
     ],
-    "catalogueSource": "https://moehling.com/de/produkte/materialien.html"
+    "catalogueSource": "https://moehling.com/de/produkte/materialien.html",
+    "flowCurves": [],
+    "manualEligible": false
   },
   {
     "id": "Cu Zn 36",
@@ -6336,7 +7276,9 @@
     "materialNotes": [
       "Mechanische Daten gelten als Bandreferenz und nicht als automatisch verwendbare Kaltstauchdraht-Kennwerte. Keine Fließkurve aus Rm/Rp abgeleitet."
     ],
-    "catalogueSource": "https://moehling.com/de/produkte/materialien.html"
+    "catalogueSource": "https://moehling.com/de/produkte/materialien.html",
+    "flowCurves": [],
+    "manualEligible": false
   },
   {
     "id": "Cu Sn 8",
@@ -6611,7 +7553,9 @@
     "materialNotes": [
       "Mechanische Daten gelten als Bandreferenz und nicht als automatisch verwendbare Kaltstauchdraht-Kennwerte. Keine Fließkurve aus Rm/Rp abgeleitet."
     ],
-    "catalogueSource": "https://moehling.com/de/produkte/materialien.html"
+    "catalogueSource": "https://moehling.com/de/produkte/materialien.html",
+    "flowCurves": [],
+    "manualEligible": false
   },
   {
     "id": "E-Cu 57",
@@ -6633,7 +7577,9 @@
     "materialNotes": [
       "Identität exakt aus dem Möehling-Katalog erhalten. In der begrenzten Primärquellenrecherche kein ausreichend zu Identität, Produkt und Lieferzustand passender numerischer Kennwert übernommen; fehlend bedeutet nicht null."
     ],
-    "catalogueSource": "https://moehling.com/de/produkte/materialien.html"
+    "catalogueSource": "https://moehling.com/de/produkte/materialien.html",
+    "flowCurves": [],
+    "manualEligible": false
   },
   {
     "id": "E-Cu 58",
@@ -6688,7 +7634,9 @@
     "materialNotes": [
       "KME bestätigt E-Cu58/2.0065 ->Cu-ETP/CW004A. Mechanische Kennwerte nicht ungeprüft auf alten Drahtzustand übertragen."
     ],
-    "catalogueSource": "https://moehling.com/de/produkte/materialien.html"
+    "catalogueSource": "https://moehling.com/de/produkte/materialien.html",
+    "flowCurves": [],
+    "manualEligible": false
   },
   {
     "id": "Al 99,5",
@@ -6703,8 +7651,8 @@
     "n": null,
     "rho": 2.7,
     "grp": "alu",
-    "hinweis": "Fließkurve für den Lieferzustand offen",
-    "curveStatus": "missing",
+    "hinweis": "Lieferzustand und Fließkurve ausdrücklich wählen",
+    "curveStatus": "literature",
     "rmStatus": "missing",
     "densityStatus": "sourced",
     "densitySource": {
@@ -6861,7 +7809,56 @@
     "materialNotes": [
       "Elisental-Drahtdaten Rev.0326. Hochgestellte Fußnotenziffern sind keine Zustandskennziffern: z.B. T4 mit Fußnote 3, nicht Zustand T43; H12 mit Fußnote 4, nicht H124."
     ],
-    "catalogueSource": "https://moehling.com/de/produkte/materialien.html"
+    "catalogueSource": "https://moehling.com/de/produkte/materialien.html",
+    "flowCurves": [
+      {
+        "state": "soft-annealed",
+        "stateLabel": "weichgeglüht",
+        "temperature": "room",
+        "temperatureStatus": "qualitative-cold-forming-no-numeric-temperature",
+        "strainRateStatus": "not-reported",
+        "approval": "literature",
+        "eligible": true,
+        "evidenceClass": "typical-literature-curve",
+        "id": "dietrich2018-aw1050a-soft",
+        "name": "Al99,5 / EN AW-1050A",
+        "materialNumbers": [
+          "3.0255"
+        ],
+        "model": "hollomon",
+        "C": 150,
+        "n": 0.222,
+        "kf0": 60,
+        "phiMin": 0.1,
+        "phiMax": 1,
+        "startMode": "linear-to-phiMin",
+        "startBasis": "Explizite technische Näherung: linear zwischen separat belegtem kf0 bei phi0 und C*0,1^n. Kein neu gemessener Kurvenabschnitt.",
+        "rangeBasis": "Konservativ begrenzt auf den durchgezogen dargestellten Bereich des überprüften Tschätsch-Diagramms; gestrichelte Fortsetzung nicht verwendet.",
+        "sourceIds": [
+          "dietrich-2018-t2-1-t31-2",
+          "tschaetsch-1997-al995"
+        ],
+        "sourceRefs": [
+          {
+            "id": "dietrich-2018-t2-1-t31-2",
+            "title": "Dietrich: Praxis der Umformtechnik, 12. Auflage, 2018",
+            "locator": "Tabelle 2.1, Buch S.7 / PDF S.19; Tabelle 31.2, Buch S.447 / PDF S.457",
+            "url": "https://doi.org/10.1007/978-3-658-19530-4",
+            "file": "Dietrich_Praxis_der_Umformtechnik_12_Auflage.pdf",
+            "evidence": "Potenzansatz kf = C * phi^n, separat kf0; ausdrückliches Alt-/Neu-Namensmapping, einschließlich Cq15/C15C und Al99,5/EN AW-1050A."
+          },
+          {
+            "id": "tschaetsch-1997-al995",
+            "title": "Tschätsch: Praxiswissen Umformtechnik, 5. Auflage, 1997",
+            "locator": "Buch S.314 / PDF S.324",
+            "file": "Tschaetsch_Praxiswissen_Umformtechnik_1997.pdf",
+            "evidence": "Al99,5 weichgeglüht; kf0 60, C150, n0,222. Kurve durchgezogen bis etwa phi1,0, danach gestrichelt. Potenzansatz ab phi0,1, Berechnung auf phi<=1,0 begrenzt."
+          }
+        ]
+      }
+    ],
+    "manualEligible": true,
+    "curveSource": "dietrich2018-aw1050a-soft"
   },
   {
     "id": "Ni 99,6",
@@ -6951,7 +7948,9 @@
     "materialNotes": [
       "2.4060 ist durch Deutsche Nickel als BR-Nickel99,6 bestätigt; keine Verwechslung mit LC-Nickel99,6 (2.4061), Nickel200 (2.4066) oder Nickel201 (2.4068)."
     ],
-    "catalogueSource": "https://moehling.com/de/produkte/materialien.html"
+    "catalogueSource": "https://moehling.com/de/produkte/materialien.html",
+    "flowCurves": [],
+    "manualEligible": false
   },
   {
     "id": "AlMgSi 0,5",
@@ -7125,7 +8124,9 @@
     "materialNotes": [
       "Elisental-Drahtdaten Rev.0326. Hochgestellte Fußnotenziffern sind keine Zustandskennziffern: z.B. T4 mit Fußnote 3, nicht Zustand T43; H12 mit Fußnote 4, nicht H124."
     ],
-    "catalogueSource": "https://moehling.com/de/produkte/materialien.html"
+    "catalogueSource": "https://moehling.com/de/produkte/materialien.html",
+    "flowCurves": [],
+    "manualEligible": false
   },
   {
     "id": "NiFe 47",
@@ -7147,7 +8148,9 @@
     "materialNotes": [
       "Identitätskonflikt: Katalogname NiFe47 und Nummer2.4478 nicht stillschweigend korrigieren. Keine mechanischen Werte des Herstellerblatts Ni52/Dilaton51 übernehmen, bevor Ziellegierung bestätigt ist."
     ],
-    "catalogueSource": "https://moehling.com/de/produkte/materialien.html"
+    "catalogueSource": "https://moehling.com/de/produkte/materialien.html",
+    "flowCurves": [],
+    "manualEligible": false
   },
   {
     "id": "NiCrofer",
@@ -7277,7 +8280,9 @@
     "materialNotes": [
       "Katalogname NiCrofer bleibt erhalten. Herstellerzuordnung über1.4876 zu Nicrofer3220/Alloy800; nicht auf800H/800HT übertragen."
     ],
-    "catalogueSource": "https://moehling.com/de/produkte/materialien.html"
+    "catalogueSource": "https://moehling.com/de/produkte/materialien.html",
+    "flowCurves": [],
+    "manualEligible": false
   },
   {
     "id": "CuNi20Fe",
@@ -7299,7 +8304,9 @@
     "materialNotes": [
       "Identität exakt aus dem Möehling-Katalog erhalten. In der begrenzten Primärquellenrecherche kein ausreichend zu Identität, Produkt und Lieferzustand passender numerischer Kennwert übernommen; fehlend bedeutet nicht null."
     ],
-    "catalogueSource": "https://moehling.com/de/produkte/materialien.html"
+    "catalogueSource": "https://moehling.com/de/produkte/materialien.html",
+    "flowCurves": [],
+    "manualEligible": false
   },
   {
     "id": "AlMg 5",
@@ -7492,7 +8499,9 @@
       "Elisental-Drahtdaten Rev.0326. Hochgestellte Fußnotenziffern sind keine Zustandskennziffern: z.B. T4 mit Fußnote 3, nicht Zustand T43; H12 mit Fußnote 4, nicht H124.",
       "Dichte ist ein publizierter berechneter Nennwert der Aluminum Association(2015), kein Messwert am konkreten Draht."
     ],
-    "catalogueSource": "https://moehling.com/de/produkte/materialien.html"
+    "catalogueSource": "https://moehling.com/de/produkte/materialien.html",
+    "flowCurves": [],
+    "manualEligible": false
   },
   {
     "id": "CuNi30Fe",
@@ -7583,7 +8592,9 @@
       }
     ],
     "materialNotes": [],
-    "catalogueSource": "https://moehling.com/de/produkte/materialien.html"
+    "catalogueSource": "https://moehling.com/de/produkte/materialien.html",
+    "flowCurves": [],
+    "manualEligible": false
   },
   {
     "id": "AlMn 1",
@@ -7741,7 +8752,9 @@
       "Elisental-Drahtdaten Rev.0326. Hochgestellte Fußnotenziffern sind keine Zustandskennziffern: z.B. T4 mit Fußnote 3, nicht Zustand T43; H12 mit Fußnote 4, nicht H124.",
       "Dichte ist ein publizierter berechneter Nennwert der Aluminum Association(2015), kein Messwert am konkreten Draht."
     ],
-    "catalogueSource": "https://moehling.com/de/produkte/materialien.html"
+    "catalogueSource": "https://moehling.com/de/produkte/materialien.html",
+    "flowCurves": [],
+    "manualEligible": false
   },
   {
     "id": "CuFe2P",
@@ -8017,7 +9030,9 @@
     "materialNotes": [
       "Mechanische Daten gelten als Bandreferenz und nicht als automatisch verwendbare Kaltstauchdraht-Kennwerte. Keine Fließkurve aus Rm/Rp abgeleitet."
     ],
-    "catalogueSource": "https://moehling.com/de/produkte/materialien.html"
+    "catalogueSource": "https://moehling.com/de/produkte/materialien.html",
+    "flowCurves": [],
+    "manualEligible": false
   },
   {
     "id": "AlSi1MgCuMn",
@@ -8244,7 +9259,9 @@
       "Elisental-Drahtdaten Rev.0326. Hochgestellte Fußnotenziffern sind keine Zustandskennziffern: z.B. T4 mit Fußnote 3, nicht Zustand T43; H12 mit Fußnote 4, nicht H124.",
       "Dichte ist ein publizierter berechneter Nennwert der Aluminum Association(2015), kein Messwert am konkreten Draht."
     ],
-    "catalogueSource": "https://moehling.com/de/produkte/materialien.html"
+    "catalogueSource": "https://moehling.com/de/produkte/materialien.html",
+    "flowCurves": [],
+    "manualEligible": false
   },
   {
     "id": "AlSi1MgMn",
@@ -8259,8 +9276,8 @@
     "n": null,
     "rho": 2.71,
     "grp": "alu",
-    "hinweis": "Fließkurve für den Lieferzustand offen",
-    "curveStatus": "missing",
+    "hinweis": "Lieferzustand und Fließkurve ausdrücklich wählen",
+    "curveStatus": "literature",
     "rmStatus": "missing",
     "densityStatus": "sourced",
     "densitySource": {
@@ -8488,6 +9505,140 @@
       "Elisental-Drahtdaten Rev.0326. Hochgestellte Fußnotenziffern sind keine Zustandskennziffern: z.B. T4 mit Fußnote 3, nicht Zustand T43; H12 mit Fußnote 4, nicht H124.",
       "Siehe separate Katalogzeile AlMgSi 1 /3.2315; beide bleiben für Vollständigkeit erhalten, gleiche EN-AW-Zuordnung ist dokumentiert."
     ],
-    "catalogueSource": "https://moehling.com/de/produkte/materialien.html"
+    "catalogueSource": "https://moehling.com/de/produkte/materialien.html",
+    "flowCurves": [
+      {
+        "state": "soft-annealed",
+        "stateLabel": "weichgeglüht",
+        "temperature": "room",
+        "temperatureStatus": "qualitative-cold-forming-no-numeric-temperature",
+        "strainRateStatus": "not-reported",
+        "approval": "literature",
+        "eligible": true,
+        "evidenceClass": "typical-literature-curve",
+        "id": "dietrich2018-aw6082-soft",
+        "name": "AlMgSi1 / EN AW-6082",
+        "materialNumbers": [
+          "3.2315",
+          "EN AW 6082"
+        ],
+        "model": "tabulated",
+        "kf0": 130,
+        "phiMin": 0,
+        "phiMax": 4,
+        "interpolation": "piecewise-linear",
+        "points": [
+          [
+            0,
+            130
+          ],
+          [
+            0.1,
+            165
+          ],
+          [
+            0.2,
+            189
+          ],
+          [
+            0.4,
+            217
+          ],
+          [
+            0.6,
+            235
+          ],
+          [
+            0.8,
+            249
+          ],
+          [
+            1,
+            260
+          ],
+          [
+            1.2,
+            270
+          ],
+          [
+            1.4,
+            278
+          ],
+          [
+            1.6,
+            285
+          ],
+          [
+            1.8,
+            292
+          ],
+          [
+            2,
+            298
+          ],
+          [
+            2.4,
+            309
+          ],
+          [
+            2.6,
+            314
+          ],
+          [
+            2.8,
+            318
+          ],
+          [
+            3,
+            323
+          ],
+          [
+            3.2,
+            327
+          ],
+          [
+            3.4,
+            331
+          ],
+          [
+            3.6,
+            335
+          ],
+          [
+            3.8,
+            338
+          ],
+          [
+            4,
+            342
+          ]
+        ],
+        "sourceIds": [
+          "dietrich-2018-t31-1",
+          "dietrich-2018-t2-1-t31-2"
+        ],
+        "sourceChoice": "Zwei Katalogzeilen derselben 6082-Identität, eine Literaturkurve. Weichgeglüht; ausdrücklich nicht T6.",
+        "sourceRefs": [
+          {
+            "id": "dietrich-2018-t31-1",
+            "title": "Dietrich: Praxis der Umformtechnik, 12. Auflage, 2018",
+            "locator": "Tabelle 31.1, Buch S.446 / PDF S.456",
+            "url": "https://doi.org/10.1007/978-3-658-19530-4",
+            "file": "Dietrich_Praxis_der_Umformtechnik_12_Auflage.pdf",
+            "evidence": "Tabellierte kf(phi)-Werte, separat kf0; Überschrift weichgeglüht / Kaltverformung. Keine Mess-/Extrapolationsmarkierung pro Tabellenpunkt."
+          },
+          {
+            "id": "dietrich-2018-t2-1-t31-2",
+            "title": "Dietrich: Praxis der Umformtechnik, 12. Auflage, 2018",
+            "locator": "Tabelle 2.1, Buch S.7 / PDF S.19; Tabelle 31.2, Buch S.447 / PDF S.457",
+            "url": "https://doi.org/10.1007/978-3-658-19530-4",
+            "file": "Dietrich_Praxis_der_Umformtechnik_12_Auflage.pdf",
+            "evidence": "Potenzansatz kf = C * phi^n, separat kf0; ausdrückliches Alt-/Neu-Namensmapping, einschließlich Cq15/C15C und Al99,5/EN AW-1050A."
+          }
+        ]
+      }
+    ],
+    "manualEligible": true,
+    "curveSource": "dietrich2018-aw6082-soft"
   }
 ]
