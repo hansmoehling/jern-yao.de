@@ -55,7 +55,6 @@ def build(destination):
                 'Stadienfolge, Presskraft, Werkzeuggröße und Auswerferwege grob ausgelegt, dazu die passenden Jern-Yao-Modelle mit Richtpreis 2026.': 'Stadienfolge, Presskraft, Werkzeuggröße und Auswerferwege grob ausgelegt, dazu die passenden Jern-Yao-Modelle.',
                 '<h2>Richtpreisangebot anfragen</h2>': '<h2>Maschinenangebot anfragen</h2>',
                 'href="/"': 'href="/#auslegung"',
-                'href="/#einstieg"': 'href="/auslegung/#einstieg"',
             }
             # These strings also occur in the embedded translation catalogue; only
             # alter the markup before any runtime/catalogue scripts.

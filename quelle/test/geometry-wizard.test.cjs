@@ -15,6 +15,41 @@ test('longitudinal sketch has correct tool-side cavity opening and handles trimm
  const before=W.sketch(geometry);geometry.elements[0].offsetY=9;assert.notEqual(W.sketch(geometry),before);assert.deepEqual(W.sectionIntervals(geometry,5),[]);
  assert(before.includes('z &lt; 0'));assert(before.includes('z &gt; 0'));assert(before.includes('role="img"'));assert(!before.includes('NaN'));
 });
+
+test('punch centre recess is visible as an inward-pointing hole, not a reversed cone or an omitted zero-end shape',()=>{
+ const head=cylinder('head','punch','add',8,4),recess={...cylinder('centre','punch','subtract',0,2,2),shape:'cone',diameterEnd:4};
+ const geometry=spec([head,recess]);assert(G.validate(geometry).valid);
+ assert.deepEqual(W.sectionIntervals(geometry,-4),[[-4,-2],[2,4]],'wide opening at the outer end');
+ assert.deepEqual(W.sectionIntervals(geometry,-3),[[-4,-1],[1,4]]);
+ assert.deepEqual(W.sectionIntervals(geometry,-2),[[-4,4]],'the cone ends at an interior point');
+ assert.deepEqual(W.sectionIntervals(geometry,-1),[[-4,4]],'solid rest bottom towards the parting plane');
+ assert.deepEqual(W.sectionIntervals(geometry,3),[],'the cavity is not mirrored into the die side');
+ const holeSvg=W.sketch(geometry),solidSvg=W.sketch(spec([head])),path=svg=>svg.match(/<path d="([^"]*)"/)[1];
+ assert.notEqual(path(holeSvg),path(solidSvg),'the actual rendered material path includes the zero-ended cone subtraction');assert(!holeSvg.includes('NaN'));
+});
+
+test('selecting a subtractive cone initializes its inner tip to zero and preserves the outside opening through select events',()=>{
+ const root=new Node(),view=new Node(),controller=W.create({root,view,evaluate:G.evaluate});
+ controller.setElements([cylinder('head','punch','add',8,4),cylinder('centre','punch','subtract',4,2,2)]);
+ const select=(field,value)=>({target:{dataset:{geometryKind:'element',geometryField:field,element:'centre'},value,tagName:'SELECT'}});
+ root.events.input(select('shape','cone'));root.events.change(select('shape','cone'));
+ let recess=controller.getSpec().elements.find(e=>e.id==='centre');assert.equal(recess.diameter,0);assert.equal(recess.diameterEnd,4);assert(G.validate(controller.getSpec()).valid);
+ assert(root.innerHTML.includes('Öffnungs-Ø außen in mm'));assert(root.innerHTML.includes('Ø am Grund innen in mm'));assert(root.innerHTML.includes('Körner / konische Vertiefung'));
+ assert.deepEqual(W.sectionIntervals(controller.getSpec(),-3),[[-4,-1],[1,4]]);
+ root.events.change(select('operation','add'));recess=controller.getSpec().elements.find(e=>e.id==='centre');assert.equal(recess.diameter,4);assert.equal(recess.diameterEnd,0);
+ root.events.input(select('operation','subtract'));root.events.change(select('operation','subtract'));recess=controller.getSpec().elements.find(e=>e.id==='centre');assert.equal(recess.diameter,0);assert.equal(recess.diameterEnd,4);
+});
+
+test('die-side editor has no claw option and injected die-side feature events are ignored',()=>{
+ const root=new Node(),view=new Node(),controller=W.create({root,view,evaluate:G.evaluate});
+ controller.setElements([cylinder('head','punch','add',8,4)]);assert(root.innerHTML.includes('Krallenkopf'));
+ const feature=(side,field,value,type='select',checked=false)=>({target:{dataset:{geometryKind:'feature',geometryField:field,element:side},value,type,checked,tagName:type==='select'?'SELECT':'INPUT'}});
+ root.events.change(feature('punch','kind','claw'));assert.equal(controller.isComplete(),false);
+ root.events.click({target:{closest:()=>({dataset:{geometryStep:'3'}})}});
+ assert(!root.innerHTML.includes('Krallenkopf'));assert(!root.innerHTML.includes('data-geometry-kind="feature"'));
+ const before=controller.getFeatures();root.events.change(feature('die','kind','claw'));root.events.input(feature('die','complete','','checkbox',true));
+ assert.deepEqual(controller.getFeatures(),before);assert.equal(controller.isComplete(),false);assert(!controller.featureSummary().some(line=>line.includes('Matrizenseite')));
+});
 test('claw features stay outside geometric spec and suppress complete-part weight until explicitly modelled',()=>{
  const root=new Node(),view=new Node();let controller;controller=W.create({root,view,evaluate:G.evaluate,onChange(){controller.refresh({densityGcm3:7.85,wireDiameterMm:8});}});
  controller.setElements([cylinder('E1','punch','add',12,6)]);

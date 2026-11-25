@@ -16,6 +16,7 @@ export function geometryContext(raw, supplied = {}) {
       const sides=new Set();process.geometryFeatures=[];
       for(const feature of features){
         if(!feature||typeof feature!=='object'||Array.isArray(feature)||Object.keys(feature).some(key=>!['side','type','contourComplete'].includes(key))||!['punch','die'].includes(feature.side)||feature.type!=='claw-head'||typeof feature.contourComplete!=='boolean'||sides.has(feature.side)){issue('geometryFeatures','invalid_feature');continue;}
+        if(feature.side!=='punch'){issue('geometryFeatures','claw_head_punch_only');continue;}
         sides.add(feature.side);process.geometryFeatures.push({side:feature.side,type:'claw-head',contourComplete:feature.contourComplete});
       }
       process.geometryFeatures.sort((a,b)=>a.side.localeCompare(b.side));

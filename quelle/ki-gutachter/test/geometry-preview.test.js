@@ -104,6 +104,24 @@ test('incomplete claw contours are persisted explicitly and suppress finished we
  for(const features of [[{side:'punch',type:'claw-head',contourComplete:'true'}],[{side:'punch',type:'claw-head',contourComplete:false},{side:'punch',type:'claw-head',contourComplete:true}],[{side:'punch',type:'hole',contourComplete:true}]])assert.equal(geometryContext(spec(),{geometryFeatures:features}).ok,false);
 });
 
+test('a die-side claw head is rejected before storing or queueing regardless of contour completeness',async t=>{
+ fetchMock(t,async()=>{throw Error('Invalid geometry cannot reach a provider');});
+ for(const contourComplete of [false,true]){
+  const e=environment(),features=[{side:'die',type:'claw-head',contourComplete}];
+  const validated=geometryContext(spec(),{geometryFeatures:features});assert.equal(validated.ok,false);assert.ok(validated.errors.some(issue=>issue.code==='claw_head_punch_only'));
+  const r=await post(e,payload({geometryFeatures:features}));assert.equal(r.httpStatus,400);assert.ok(r.issues.some(issue=>issue.code==='claw_head_punch_only'));assert.equal(e._jobs.length,0);
+  assert.ok(![...e.SPEICHER.map.keys()].some(key=>/^(?:anfrage|analyse|vorschauauftrag|geometrie-idempotenz):/.test(key)));
+ }
+ const mixed=geometryContext(spec(),{geometryFeatures:[{side:'punch',type:'claw-head',contourComplete:true},{side:'die',type:'claw-head',contourComplete:true}]});assert.equal(mixed.ok,false);
+});
+
+test('saved geometry is revalidated so a former die-side claw cannot enter follow-up analysis',async t=>{
+ const e=environment(),r=await post(e,payload({geometryFeatures:[{side:'punch',type:'claw-head',contourComplete:true}]}));assert.equal(r.httpStatus,202);
+ const record=await saved(e,r.id);record.geometryProcess.geometryFeatures[0].side='die';await e.SPEICHER.put('anfrage:'+r.id,JSON.stringify(record));
+ let calls=0;fetchMock(t,async()=>{calls++;throw Error('No provider call for invalid saved geometry');});
+ const response=await worker.fetch(request({requestId:r.id,token:r.token,message:'Bitte das Konzept fortsetzen.'},PUBLIC,'/chat'),e);assert.equal(response.status,503);assert.equal(calls,0);assert.equal(e._jobs.length,1,'no additional job was created');
+});
+
 test('geometry remains knowledge-first and invalid stored geometry is rejected before any model call',async t=>{
  let calls=0;fetchMock(t,async()=>{calls++;return Response.json({content:[final('Ein Konzept ohne Projektwissen.')]});});
  await assert.rejects(analyse({geometrySpec:{...spec(),trusted:true}},environment()),/geometry_invalid/);assert.equal(calls,0);

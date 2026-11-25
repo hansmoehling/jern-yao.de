@@ -59,7 +59,8 @@
       common(item, path);
       if (!['add', 'subtract'].includes(item.operation)) fail(path + '.operation', 'boolean-operation', 'Vereinigung oder Abzug auswählen.');
       if (!['cylinder', 'cone', 'hex'].includes(item.shape)) fail(path + '.shape', 'shape-type', 'Zylinder, Kegelstumpf oder Sechskant auswählen.');
-      shapeKeys.forEach(key => dimension(item[key], path + '.' + key, key === 'diameterEnd'));
+      shapeKeys.forEach(key => dimension(item[key], path + '.' + key, item.shape === 'cone'));
+      if (item.shape === 'cone' && item.diameter === 0 && item.diameterEnd === 0) fail(path, 'empty-cone', 'Mindestens ein Kegeldurchmesser muss größer als null sein.');
       const offsetX = item.offsetX === undefined ? 0 : item.offsetX, offsetY = item.offsetY === undefined ? 0 : item.offsetY;
       dimension(offsetX, path + '.offsetX', true, true); dimension(offsetY, path + '.offsetY', true, true);
       const normalized = { id: item.id, operation: item.operation, shape: item.shape, side: item.side, start: item.start, length: item.length, offsetX, offsetY };

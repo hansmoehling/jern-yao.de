@@ -1,0 +1,8 @@
+{
+  "Mindestens ein Kegeldurchmesser muss größer als null sein.": ["Almeno un diametro del cono deve essere maggiore di zero.", "Vsaj en premer stožca mora biti večji od nič.", "At least one cone diameter must be greater than zero.", "圆锥至少一端的直径必须大于零。"],
+  "Körner / konische Vertiefung": ["Centratura / incavo conico", "Centrirna vdolbina / stožčasta vdolbina", "Centre mark / conical recess", "中心凹坑 / 锥形凹槽"],
+  "Öffnungs-Ø außen in mm": ["Ø apertura esterna in mm", "Ø zunanje odprtine v mm", "Outer opening Ø in mm", "外侧开口直径，mm"],
+  "Ø am Grund innen in mm": ["Ø sul fondo interno in mm", "Ø notranjega dna v mm", "Inner bottom Ø in mm", "内部底端直径，mm"],
+  "Ø trennkantenseitig in mm": ["Ø verso il piano di divisione in mm", "Ø na strani delilne ravnine v mm", "Ø towards the parting plane in mm", "靠近分模面一端的直径，mm"],
+  "Ø stirnseitig in mm": ["Ø verso la faccia esterna in mm", "Ø na strani zunanjega čela v mm", "Ø towards the outer end face in mm", "朝向外端面一端的直径，mm"]
+}

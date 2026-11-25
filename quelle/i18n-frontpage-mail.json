@@ -1,0 +1,62 @@
+{
+  "Ihre Zeichnung direkt an Hans. KI-Auslegung im Expertenbereich.": [
+    "Il vostro disegno direttamente a Hans. Analisi con IA nell’area esperti.",
+    "Vaša risba neposredno Hansu. Analiza z UI v strokovnem konfiguratorju.",
+    "Your drawing directly to Hans. AI analysis in the expert area.",
+    "将图纸直接发送给 Hans。AI 分析请进入专家区。"
+  ],
+  "Zeichnungen mit KI auswerten und Rohlinge aus Maßen und Geometrieelementen aufbauen – im Bereich für Formteile.": [
+    "Analizzate i disegni con l’IA e costruite i grezzi a partire da dimensioni ed elementi geometrici nella sezione dei pezzi sagomati.",
+    "V razdelku za oblikovane dele analizirajte risbe z UI in sestavite surovce iz mer ter geometrijskih elementov.",
+    "Analyze drawings with AI and build blanks from dimensions and geometric elements in the shaped parts section.",
+    "在异形件区域使用 AI 分析图纸，并根据尺寸和几何元素构建毛坯。"
+  ],
+  "Datei auswählen oder hier ablegen. Anschließend ergänzen Sie Ihre Kontaktdaten und senden die Zeichnung an Hans Möhling.": [
+    "Scegliete un file o trascinatelo qui. Poi inserite i vostri recapiti e inviate il disegno a Hans Möhling.",
+    "Izberite datoteko ali jo povlecite sem. Nato vnesite kontaktne podatke in pošljite risbo Hansu Möhlingu.",
+    "Select a file or drop it here. Then add your contact details and send the drawing to Hans Möhling.",
+    "选择文件或将其拖放到此处，然后填写联系方式并将图纸发送给 Hans Möhling。"
+  ],
+  "Ihre Zeichnung wird mit der Anfrage per E-Mail versandt. Hier startet keine KI-Auswertung.": [
+    "Il disegno viene inviato via e-mail insieme alla richiesta. Qui non viene avviata alcuna analisi con IA.",
+    "Vaša risba se pošlje po e-pošti skupaj s povpraševanjem. Tukaj se analiza z UI ne zažene.",
+    "Your drawing is emailed with your enquiry. No AI analysis starts here.",
+    "图纸将随询价通过电子邮件发送。此处不会启动 AI 分析。"
+  ],
+  "Stellen Sie hier allgemeine Fachfragen zu Umformverfahren, Werkzeugen und Maschinen. Der Chat erhält keine hochgeladene Zeichnung. Die KI-Auswertung Ihres Teils starten Sie im Expertenkonfigurator.": [
+    "Ponete qui domande tecniche generali su processi di formatura, attrezzature e macchine. La chat non riceve il disegno caricato. L’analisi con IA del vostro pezzo si avvia nel configuratore per esperti.",
+    "Tukaj postavite splošna strokovna vprašanja o postopkih preoblikovanja, orodjih in strojih. Klepet ne prejme naložene risbe. Analizo vašega dela z UI zaženete v strokovnem konfiguratorju.",
+    "Ask general technical questions about forming processes, tooling and machines here. The chat does not receive your uploaded drawing. Start AI analysis of your part in the expert configurator.",
+    "在此咨询成形工艺、模具和机器的一般技术问题。聊天不会接收您上传的图纸。请在专家配置器中启动零件的 AI 分析。"
+  ],
+  "Ihre Zeichnungsanfrage geht an Hans Möhling zur persönlichen Bearbeitung. Im Expertenkonfigurator analysiert die KI Zeichnungen und strukturierte Geometrien, entwickelt Stadienkonzepte und prüft passende Maschinen.": [
+    "La richiesta con il disegno viene inviata a Hans Möhling per la gestione personale. Nel configuratore per esperti, l’IA analizza disegni e geometrie strutturate, sviluppa sequenze di formatura e verifica le macchine adatte.",
+    "Povpraševanje z risbo prejme Hans Möhling za osebno obravnavo. V strokovnem konfiguratorju UI analizira risbe in strukturirane geometrije, razvije koncepte zaporedja operacij ter preveri ustrezne stroje.",
+    "Your drawing enquiry goes to Hans Möhling for personal handling. In the expert configurator, AI analyzes drawings and structured geometries, develops forming sequences and checks suitable machines.",
+    "您的图纸询价将发送给 Hans Möhling 亲自处理。在专家配置器中，AI 分析图纸和结构化几何模型，制定成形工序方案并核查适用机器。"
+  ],
+  "Dieser Zeichnungseingang dient ausschließlich Ihrer E-Mail-Anfrage an Hans Möhling. Ausgewählte Dateien bleiben bis zum Absenden auf Ihrem Gerät und werden hier nicht zur KI-Auswertung übermittelt.": [
+    "Questo ingresso disegni serve esclusivamente alla vostra richiesta via e-mail a Hans Möhling. I file selezionati restano sul vostro dispositivo fino all’invio e qui non vengono trasmessi per un’analisi con IA.",
+    "Ta obrazec za risbe je namenjen izključno vašemu povpraševanju po e-pošti Hansu Möhlingu. Izbrane datoteke do oddaje ostanejo na vaši napravi in se tukaj ne posredujejo v analizo z UI.",
+    "This drawing upload is exclusively for your email enquiry to Hans Möhling. Selected files remain on your device until you submit and are not transmitted for AI analysis here.",
+    "此图纸入口仅用于向 Hans Möhling 发送电子邮件询价。所选文件在提交前保留在您的设备上，不会在此传输给 AI 分析。"
+  ],
+  "Beim Absenden werden Kontaktdaten, Nachricht und Originaldatei an unseren Anfragedienst übertragen und dort 30 Tage in einem privaten Cloudflare-Speicher vorgehalten. Resend versendet die Anfrage mit der Originaldatei als E-Mail-Anhang an Hans Möhling. Die 30 Tage gelten für den Anfragedienst, nicht für die zur persönlichen Bearbeitung versandte E-Mail.": [
+    "All’invio, recapiti, messaggio e file originale vengono trasmessi al nostro servizio richieste e conservati per 30 giorni in uno spazio privato Cloudflare. Resend invia la richiesta a Hans Möhling con il file originale allegato all’e-mail. I 30 giorni si applicano al servizio richieste, non all’e-mail inviata per la gestione personale.",
+    "Ob oddaji se kontaktni podatki, sporočilo in izvirna datoteka prenesejo v našo storitev za povpraševanja, kjer se 30 dni hranijo v zasebni shrambi Cloudflare. Resend pošlje povpraševanje Hansu Möhlingu z izvirno datoteko kot e-poštno prilogo. Rok 30 dni velja za storitev za povpraševanja, ne za e-pošto, poslano v osebno obravnavo.",
+    "When you submit, your contact details, message and original file are transferred to our enquiry service and retained for 30 days in private Cloudflare storage. Resend emails the enquiry to Hans Möhling with the original file attached. The 30 days apply to the enquiry service, not to the email sent for personal handling.",
+    "提交时，联系方式、留言和原始文件将传输至我们的询价服务，并在私有 Cloudflare 存储空间中保留 30 天。Resend 将询价发送给 Hans Möhling，并将原始文件作为电子邮件附件。30 天期限适用于询价服务，不适用于为人工处理而发送的电子邮件。"
+  ],
+  "Für den separaten KI-Fachchat werden nur Ihre eingegebene Frage und der bisherige Chatverlauf an Anthropic übermittelt. Die Zeichnung und Ihre Anfrage-Kontaktdaten werden diesem Chat nicht beigefügt. Eine KI-Zeichnungsanalyse starten Sie bewusst im Expertenkonfigurator; dort gelten die Hinweise zur KI-Verarbeitung.": [
+    "Per la chat tecnica separata con IA vengono trasmessi ad Anthropic soltanto la domanda inserita e la cronologia della chat. Il disegno e i recapiti della richiesta non vengono allegati alla chat. L’analisi del disegno con IA si avvia su vostra scelta nel configuratore per esperti, dove si applicano le informazioni sul trattamento con IA.",
+    "Za ločeni strokovni klepet z UI se družbi Anthropic posredujeta samo vaše vneseno vprašanje in dotedanji potek klepeta. Risba in kontaktni podatki iz povpraševanja se temu klepetu ne priložijo. Analizo risbe z UI zavestno zaženete v strokovnem konfiguratorju, kjer veljajo pojasnila o obdelavi z UI.",
+    "For the separate AI technical chat, only your entered question and previous chat history are sent to Anthropic. Your drawing and enquiry contact details are not attached to this chat. You deliberately start AI drawing analysis in the expert configurator, where the AI processing notice applies.",
+    "独立的 AI 技术聊天只会将您输入的问题及此前的聊天记录发送给 Anthropic。图纸和询价联系方式不会附加到此聊天。您可以在专家配置器中主动启动 AI 图纸分析，相关 AI 处理说明适用于该功能。"
+  ],
+  "Diese Datei ist größer als 15 MB. Bitte verwenden Sie eine kleinere Datei oder senden Sie Hans einen Downloadlink per E-Mail.": [
+    "Questo file supera i 15 MB. Usate un file più piccolo oppure inviate a Hans un link per il download via e-mail.",
+    "Ta datoteka je večja od 15 MB. Uporabite manjšo datoteko ali Hansu po e-pošti pošljite povezavo za prenos.",
+    "This file exceeds 15 MB. Please use a smaller file or email Hans a download link.",
+    "此文件超过 15 MB。请使用较小的文件，或通过电子邮件向 Hans 发送下载链接。"
+  ]
+}

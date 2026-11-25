@@ -9,6 +9,7 @@ class El{
  appendChild(e){this.options.push(e)}
  replaceChildren(...elements){this.options=elements;this.value=elements[0]?.value||''}
  addEventListener(k,fn){this.events[k]=fn}
+ setAttribute(key,value){(this.attributes||={})[key]=value}
  querySelectorAll(){return []}
  scrollIntoView(options){this.scrollOptions=options}
  focus(options){this.focusOptions=options;this.focused=true}
@@ -185,22 +186,23 @@ test('complete rendered archive output has localized cards, figures, tooling, st
  for(const expected of ['Station pitch from 36','Bore 8.08','outside Ø26'])assert(figures.includes(expected),'M8 figures: '+expected);
 });
 
-test('expert mode has three ordered entries and a structured-geometry concept without another upload',()=>{
+test('expert upload is confined to the drawing tab under formed parts with an explicit initially disabled start',()=>{
  const html=fs.readFileSync(path.join(__dirname,'..','archiv-vorlage.html'),'utf8');
  assert(html.includes('<h1>Expertenkonfigurator</h1>'));
- assert(!/<input\b[^>]*type="file"/.test(html));assert(!/id="archive-(?:analyse|analysis-result|drawing-note|file-status|choose-file)"/.test(html));assert(!html.includes('data-bsp="hu"'));
- for(const id of ['standard-drawing-route','special-drawing-route'])assert(new RegExp('<a[^>]*id="'+id+'"[^>]*data-language-link[^>]*href="/#einstieg"[^>]*>Zur Zeichnungsanalyse</a>').test(html),'central language-aware link '+id);
+ assert.equal((html.match(/<input\b[^>]*type="file"/g)||[]).length,1);assert(html.includes('id="parts-file"'));assert(!html.includes('data-bsp="hu"'));
+ assert(!html.includes('standard-drawing-route'));assert(!html.includes('standard-drawing-note'));assert(!source.includes('standard-drawing-note'));
+ assert(!html.includes('special-drawing-route'),'drawing analysis is now directly inside expert parts');
  assert(source.includes('getGeometry:geometryInput'));assert(!source.includes("'/preview'"));
  assert(html.indexOf('value="bolzen" form="f"')<html.indexOf('value="formteil" form="f"'));assert(html.indexOf('value="formteil" form="f"')<html.indexOf('value="mutter" form="f"'));
- for(const language of I.supported){const p=setup(language,E,false,{});assert.equal(p.f.elements.zeichnung,undefined);assert.deepEqual(p.networkRequests,[]);assert(p.get('drucken').disabled);assert(p.get('senden').disabled);}
+ for(const language of I.supported){const p=setup(language,E,false,{});assert.deepEqual(p.networkRequests,[]);assert(p.get('drucken').disabled);assert(p.get('senden').disabled);for(const type of ['bolzen','mutter','formteil']){p.f.elements.typ.value=type;p.f.events.change();assert.equal(p.get('parts-drawing-panel').hidden,type!=='formteil');assert(p.get('geometry-panel').hidden);assert(p.get('parts-drawing-analyse').disabled);assert.equal(p.get('parts-drawing-analyse').hidden,false);}assert(p.get('material-fields').hidden);p.get('parts-geometry-tab').events.click();assert(!p.get('geometry-panel').hidden);assert(!p.get('material-fields').hidden);assert(p.get('parts-drawing-panel').hidden);}
 });
 
 test('empty form-part geometry bypasses the standard engine and clears stale selections and exports',async()=>{
  for(const language of I.supported){
   let calls=0;const engine={...E,auslegen(input){assert.notEqual(input.typ,'formteil','special geometry must never reach envelope-based calculation');calls++;return E.auslegen(input);}};
   const p=setup(language,engine,false,{});p.examples[0].events.click();const previous=quoteModels(p)[0][1];requestModel(p,previous);p.get('drucken').events.click();assert(p.get('blatt').innerHTML.includes(previous));const printCount=p.context.window.printCount;
-  const before=calls;p.f.elements.typ.value='formteil';p.f.events.change();assert.equal(calls,before);
-  assert(p.get('standard-part-fields').hidden);assert(p.get('manual-tools').hidden);assert.equal(p.get('geometry-panel').hidden,false);assert(p.get('standard-drawing-note').hidden);assert(p.get('regelbox').hidden);assert.equal(p.get('anfrage').hidden,false);
+  const before=calls;p.f.elements.typ.value='formteil';p.f.events.change();p.get('parts-geometry-tab').events.click();assert.equal(calls,before);
+  assert(p.get('standard-part-fields').hidden);assert(p.get('manual-tools').hidden);assert.equal(p.get('geometry-panel').hidden,false);assert(p.get('regelbox').hidden);assert.equal(p.get('anfrage').hidden,false);
   assert(p.get('aus').hidden);assert(p.get('leer').hidden);assert(p.get('selected-machine').hidden);assert(p.get('drucken').disabled);assert(p.get('empty-visual').hidden);
   for(const id of ['kenn','karten','regeln','blatt'])assert.equal(p.get(id).innerHTML,'','stale '+id+' is removed');assert.equal(p.get('stufen').tBodies[0].innerHTML,'');assert.equal(p.get('material-basis').textContent,'');
   p.get('drucken').events.click();assert.equal(p.context.window.printCount,printCount,'old print output cannot be reopened');requestModel(p,previous);assert(p.get('selected-machine').hidden,'stale card actions cannot restore the old model');
@@ -214,7 +216,7 @@ test('empty form-part geometry bypasses the standard engine and clears stale sel
 test('constructed geometry uses its own volume, private KI request, selected model and mail without file upload',async()=>{
  for(const language of I.supported){
   const engine={...E,auslegen(input){assert.notEqual(input.typ,'formteil');return E.auslegen(input);}};
-  const p=setup(language,engine,false,{});p.f.elements.typ.value='formteil';p.f.elements.d0.value='8';p.f.events.change();
+  const p=setup(language,engine,false,{});p.f.elements.typ.value='formteil';p.f.elements.d0.value='8';p.f.events.change();p.get('parts-geometry-tab').events.click();
   const elements=[{id:'E1',shape:'cylinder',operation:'add',side:'die',start:0,length:20,diameter:10,offsetX:0,offsetY:0}];
   p.geometryWizard.setElements(elements);assert.equal(p.get('drucken').disabled,false);assert(!p.get('geometry-analyse').disabled);assert(p.get('geometry-view').innerHTML.includes('mm³'));assert.equal(p.get('karten').innerHTML,'');
   const model=machines.find(machine=>machine.f==='JNP').m;
@@ -228,6 +230,39 @@ test('constructed geometry uses its own volume, private KI request, selected mod
   const mail=p.networkRequests.at(-1);assert.equal(new URL(mail.url).pathname,'/anfrage');assert(mail.options.body.get('betreff').includes(model));assert(mail.options.body.get('notiz').includes('E1'));assert(mail.options.body.get('notiz').includes('Unchanged note'));assert(!mail.options.body.has('datei'));
   p.geometryWizard.setElements([{...elements[0],diameter:11}]);assert(p.get('selected-machine').hidden);assert(p.get('geometry-result').hidden);assert.equal(p.get('geometry-result').innerHTML,'');
  }
+});
+
+test('parts drawing selection, explicit KI analysis, progress and explicit mail are independent in five languages',async()=>{
+ for(const language of I.supported){
+  const p=setup(language,E,false,{});p.f.elements.typ.value='formteil';p.f.events.change();
+  const file=new File(['%PDF-1.7\nOriginal drawing'],'part.pdf',{type:'application/pdf'});p.get('parts-file').files=[file];p.get('parts-file').events.change();
+  assert.equal(p.networkRequests.length,0);assert(!p.get('parts-file-feedback').hidden);assert(p.get('parts-file-name').textContent.includes('part.pdf'));assert(!p.get('parts-drawing-analyse').disabled);assert(!p.get('empty-visual').hidden);
+  p.get('parts-drawing-note').value='Only the explicit drawing note';p.get('parts-drawing-note').events.input();
+  p.answers.push({data:{id:'D1',token:'private-drawing-token',kind:'preview',status:'queued',notificationStatus:'not_requested'}});await p.get('parts-drawing-analyse').events.click();
+  const analysis=p.networkRequests[0];assert.equal(new URL(analysis.url).pathname,'/preview');assert.equal(analysis.options.body.get('datei').name,'part.pdf');assert.equal(analysis.options.body.get('notiz'),'Only the explicit drawing note');assert.equal(analysis.options.body.get('language'),language);assert.equal(analysis.options.body.get('pricePolicy'),'technical-only');assert(!analysis.options.body.has('email'));assert(!analysis.options.body.has('material'));assert(!analysis.options.body.has('d0'));assert(!p.get('parts-drawing-progress').hidden);assert(p.get('parts-drawing-analyse').disabled);
+  const model=machines.find(machine=>machine.f==='JNP').m;p.answers.push({data:{id:'D1',kind:'preview',status:'needs_info',answer:'Drawing concept',questions:['Please specify the material.'],proposal:{machines:[{model,status:'offen',priceEUR:999}]}}});await p.get('parts-drawing-refresh').events.click();
+  assert(p.get('parts-drawing-progress').hidden);assert(!p.get('parts-drawing-result').hidden);assert(p.get('parts-drawing-result').innerHTML.includes('Please specify the material.'));assert(p.get('empty-visual').hidden);assert.equal(p.networkRequests.length,2);
+  p.get('parts-drawing-result').events.click({target:{closest:()=>({dataset:{previewModel:model}})}});assert(!p.get('selected-machine').hidden);assert.equal(p.networkRequests.length,2);
+  p.a.elements.email.value='customer@example.invalid';p.a.elements.nachricht.value='Personal enquiry';p.a.elements.ok.checked=true;
+  p.answers.push({data:{id:'MAIL',token:'private-mail-token',kind:'enquiry',status:'received',notificationStatus:'sent',analysisStatus:'not_requested'}});await p.get('senden').events.click();
+  const mail=p.networkRequests[2];assert.equal(new URL(mail.url).pathname,'/anfrage');assert.equal(mail.options.body.get('datei').name,'part.pdf');assert.equal(await mail.options.body.get('datei').text(),await file.text());assert(mail.options.body.get('notiz').includes('Personal enquiry'));assert(mail.options.body.get('notiz').includes('Drawing concept'));assert(!mail.options.body.get('notiz').includes('C4C'));assert(!mail.options.body.get('notiz').includes('€'));assert(mail.options.body.get('betreff').includes(model));assert.notEqual(mail.options.body.get('idempotency_key'),analysis.options.body.get('idempotency_key'));assert.equal(p.networkRequests.filter(r=>new URL(r.url).pathname==='/preview').length,1);
+  p.get('parts-file-remove').events.click();assert(p.get('parts-drawing-result').hidden);assert(p.get('selected-machine').hidden);assert(p.get('parts-drawing-analyse').disabled);assert(!p.get('parts-drawing-analyse').hidden);assert(!p.get('empty-visual').hidden);assert(p.get('senden').disabled);
+ }
+});
+
+test('drawing mail works without KI, CAD remains mail-only, and invalid drops cannot be sent',async()=>{
+ const p=setup('de',E,false,{});p.f.elements.typ.value='formteil';p.f.events.change();p.a.elements.email.value='customer@example.invalid';p.a.elements.ok.checked=true;
+ let prevented=false;const file=new File(['ISO-10303-21;'],'part.step');p.get('parts-drop-zone').events.drop({preventDefault(){prevented=true},dataTransfer:{files:[file]}});assert(prevented);assert(p.get('parts-file-name').textContent.includes('part.step'));assert(p.get('parts-drawing-analyse').disabled);assert.equal(p.networkRequests.length,0);
+ p.answers.push({data:{id:'CAD',token:'private',kind:'enquiry',status:'received',notificationStatus:'sent'}});await p.get('senden').events.click();assert.equal(new URL(p.networkRequests[0].url).pathname,'/anfrage');assert.equal(p.networkRequests[0].options.body.get('datei').name,'part.step');assert.equal(p.networkRequests.length,1);
+ for(const files of [[new File([],'empty.pdf')],[new File(['bad'],'bad.exe')],[{name:'large.pdf',size:15*1024*1024+1}],[file,file]]){
+  p.get('parts-file').value='stale';p.get('parts-drop-zone').events.drop({preventDefault(){},dataTransfer:{files}});assert.equal(p.get('parts-file').value,'');assert.equal(p.get('parts-file-feedback').dataset.state,'error');assert(p.get('senden').disabled);assert(p.get('parts-drawing-analyse').disabled);await p.get('senden').events.click();assert.equal(p.networkRequests.length,1);
+ }
+});
+
+test('switching to standard parts hides drawing controls and never attaches their retained drawing to a standard quote',async()=>{
+ const p=setup('en',E,false,{});p.examples[0].events.click();p.f.elements.typ.value='formteil';p.f.events.change();p.get('parts-file').files=[new File(['%PDF-1.7'],'retained.pdf')];p.get('parts-file').events.change();
+ p.f.elements.typ.value='bolzen';p.f.events.change();assert(p.get('parts-drawing-panel').hidden);assert(p.get('parts-tabs').hidden);assert(!p.get('material-fields').hidden);
+ p.a.elements.email.value='customer@example.invalid';p.a.elements.ok.checked=true;p.answers.push({data:{id:'STANDARD',token:'private',kind:'enquiry',status:'received',notificationStatus:'sent'}});await p.get('senden').events.click();assert(!p.networkRequests[0].options.body.has('datei'));assert(!p.networkRequests[0].options.body.get('notiz').includes('retained.pdf'));
 });
 
 test('standard references set only shape and drive, flange nuts route to the parts builder, and profile fields follow the selected family',()=>{

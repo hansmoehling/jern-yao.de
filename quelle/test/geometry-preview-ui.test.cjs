@@ -10,19 +10,27 @@ class Element {
   constructor() { this.hidden = false; this.disabled = false; this.dataset = {}; this.textContent = ''; this.innerHTML = ''; this.events = {}; }
   addEventListener(name, fn) { this.events[name] = fn; }
 }
-function harness() {
+function harness(mode='geometry') {
   const nodes = Object.fromEntries(['button', 'progress', 'status', 'result', 'refresh'].map(key => [key, new Element()]));
   const requests = [], answers = [], received = [], timers = new Map(); let nextTimer = 0, invalidations = 0;
   let geometry = { geometrySpec: { version: 1, coordinateSystem: 'tool-parting-plane', elements: [{ id: 'body', operation: 'add', shape: 'cylinder', side: 'die', start: 0, length: 12, diameter: 8 }], trimming: [] }, material: 'C10C', d0: 8 };
-  let note = 'Original note';
+  let note = 'Original note',file=null;
   const locale = { language: 'de', t: value => value };
   const window = { JYAnswerFormat: require('../answer-format.js'), JYLocale: locale, JYI18N: { numberLocale: () => 'en-GB' }, JY_API_BASE: 'https://api.example.test', JY_SHOW_PRICES: false, location: { href: 'https://jernyao.de/konfigurator/' }, setTimeout(fn, delay) { timers.set(++nextTimer, { fn, delay }); return nextTimer; }, clearTimeout(id) { timers.delete(id); } };
   const context = { window, URL, URLSearchParams, FormData, AbortController, crypto, Uint8Array, TypeError, fetch: async (url, options) => { requests.push({ url, options }); const answer = await answers.shift(); if (answer instanceof Error) throw answer; assert(answer, 'unexpected API request'); return { ok: answer.ok !== false, status: answer.status || 200, json: async () => answer.data }; } };
   vm.runInNewContext(source, context);
-  const controller = window.JYDrawingPreview.create({ ...nodes, getGeometry: () => geometry, getNote: () => note, onInvalidate: () => invalidations++, onResult: data => received.push(data) });
-  return { ...nodes, controller, locale, requests, answers, received, timers, get invalidations() { return invalidations; }, get geometry() { return geometry; }, set geometry(value) { geometry = value; }, set note(value) { note = value; }, async poll() { const entry = [...timers].find(([, item]) => item.delay === 4000); assert(entry, 'expected status poll'); timers.delete(entry[0]); await entry[1].fn(); } };
+  const controller = window.JYDrawingPreview.create({ ...nodes, ...(mode==='drawing'?{getFile:()=>file,showWhenEmpty:true}:{getGeometry:()=>geometry}), getNote: () => note, onInvalidate: () => invalidations++, onResult: data => received.push(data) });
+  return { ...nodes, controller, locale, requests, answers, received, timers, get invalidations() { return invalidations; }, get geometry() { return geometry; }, set geometry(value) { geometry = value; }, set note(value) { note = value; },set file(value){file=value;}, async poll() { const entry = [...timers].find(([, item]) => item.delay === 4000); assert(entry, 'expected status poll'); timers.delete(entry[0]); await entry[1].fn(); } };
 }
 const receipt = (id, status = 'queued') => ({ data: { id, token: 'private-' + id, kind: 'preview', status, notificationStatus: 'not_requested' } });
+
+test('drawing analysis action stays visible, starts only on click and sends no mail or implicit geometry',async()=>{
+ const p=harness('drawing');assert.equal(p.button.hidden,false);assert.equal(p.button.disabled,true);await p.controller.start();assert.equal(p.requests.length,0);
+ p.file=new File(['drawing'],'part.png',{type:'image/png'});p.controller.update();assert.equal(p.button.hidden,false);assert.equal(p.button.disabled,false);assert.equal(p.requests.length,0);
+ p.answers.push(receipt('DRAWING'));await p.controller.start();assert.equal(p.requests.length,1);assert.match(p.requests[0].url,/\/preview\?language=de/);
+ const body=p.requests[0].options.body;assert.equal(body.get('datei').name,'part.png');assert.equal(body.get('notiz'),'Original note');for(const name of ['email','consent','geometrySpec','material'])assert.equal(body.has(name),false);
+ assert.equal(p.progress.hidden,false);p.file=null;p.controller.update();assert.equal(p.button.hidden,false);assert.equal(p.button.disabled,true);assert.equal(p.progress.hidden,true);assert.equal(p.result.hidden,true);
+});
 
 test('invalid/empty geometry does not queue an analysis; explicit start snapshots JSON and blocks duplicate starts', async () => {
   const p = harness(); const initial = p.geometry; p.geometry = null; p.controller.update();

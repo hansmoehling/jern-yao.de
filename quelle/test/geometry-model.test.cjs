@@ -54,6 +54,28 @@ test('cone, frustum and crossing radial envelopes integrate their true Boolean s
   close(G.evaluate(spec([cyl('outer', 6, 2), cone('hole', 2, 6, 2, { operation: 'subtract' })])).volumeMm3, 28 * Math.PI / 3);
 });
 
+test('an inward punch-side centre recess opens at z=-4 and reaches its zero-diameter tip at z=-2', () => {
+  const recess=cone('centre',0,4,2,{side:'punch',start:2,operation:'subtract'});
+  const r=G.evaluate(spec([cyl('head',8,4,{side:'punch'}),recess]));
+  assert.equal(r.valid,true);assert.equal(r.volumeStatus,'exact');assert.equal(r.envelope.minZ,-4);close(r.envelope.maxZ,0);
+  close(r.volumeMm3,64*Math.PI-8*Math.PI/3);
+  // The two axial halves distinguish opening direction even though reversing
+  // a complete cone would leave its total volume unchanged.
+  const outer=G.evaluate(spec([cyl('outer-half',8,1,{side:'punch',start:3}),recess]));
+  const inner=G.evaluate(spec([cyl('inner-half',8,1,{side:'punch',start:2}),recess]));
+  close(outer.volumeMm3,16*Math.PI-7*Math.PI/3);
+  close(inner.volumeMm3,16*Math.PI-Math.PI/3);
+  assert(outer.volumeMm3<inner.volumeMm3,'the wider opening removes more material at the outer face');
+});
+
+test('either cone end may be zero, but two zero ends and zero-diameter cylinders are invalid',()=>{
+  for(const [a,b]of [[0,4],[4,0]]){
+    const result=G.evaluate(spec([cone('point',a,b,2,{side:'punch',start:2})]));assert.equal(result.valid,true);close(result.volumeMm3,8*Math.PI/3);
+  }
+  const empty=G.validate(spec([cone('empty',0,0,2)]));assert.equal(empty.valid,false);assert.equal(empty.spec,null);assert(empty.errors.some(error=>error.code==='empty-cone'));
+  assert.equal(G.validate(spec([cyl('zero',0,2)])).valid,false);
+});
+
 test('thin annular wall is not lost through subtracting two large near-equal volumes', () => {
   const outer = 100, inner = 100 - 1e-8, r = G.evaluate(spec([cyl('a', outer, 20), cyl('b', inner, 20, { operation: 'subtract' })]));
   close(r.volumeMm3, Math.PI * 20 / 4 * (outer - inner) * (outer + inner), 1e-15);

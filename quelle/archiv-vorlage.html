@@ -72,6 +72,18 @@
   .geometry-summary{ margin:12px 0; padding-left:20px; font-size:13px; }
   .geometry-issues{ font-size:13px; padding:10px 14px; background:var(--knapp-bg); color:var(--knapp); border-radius:5px; }
   .geometry-result{ font-size:14px; }.geometry-result .preview-answer{ white-space:pre-wrap; }
+  .parts-tabs{ display:flex; gap:6px; flex-wrap:wrap; margin:0 0 20px; border-bottom:1px solid var(--hair); }
+  .parts-tabs button{ flex:1; min-width:0; font:inherit; font-size:14px; padding:12px 10px; border:0; border-bottom:3px solid transparent; background:var(--band); color:var(--ink); cursor:pointer; }
+  .parts-tabs button[aria-selected="true"]{ color:var(--navy); border-bottom-color:var(--accent); font-weight:600; }
+  .parts-tabs button:focus-visible{ outline:2px solid var(--navy-soft); outline-offset:3px; }
+  .parts-upload{ padding:18px; border:1px dashed var(--navy-soft); border-radius:6px; background:var(--band); margin-bottom:16px; }
+  .parts-upload[data-dragging="true"]{ border:2px solid var(--navy); background:var(--ok-bg); }
+  .parts-upload input{ display:block; width:100%; max-width:100%; font:inherit; font-size:14px; }
+  .parts-upload input::file-selector-button{ padding:9px 12px; font:inherit; border:1px solid var(--navy); border-radius:4px; background:var(--paper); color:var(--navy); cursor:pointer; }
+  .parts-file-feedback{ padding:14px 16px; margin:14px 0; border-left:4px solid var(--navy); border-radius:4px; background:var(--band); }
+  .parts-file-feedback strong{ display:block; font-size:16px; color:var(--navy); }.parts-file-feedback span{ display:block; margin-top:5px; overflow-wrap:anywhere; }
+  .parts-file-feedback[data-state="error"]{ border-color:var(--nein); }.parts-file-feedback[data-state="error"] strong{ color:var(--nein); }
+  .parts-file-feedback button{ margin-top:10px; }
   .geometry-progress{ display:flex; align-items:center; gap:14px; padding:14px; background:var(--band); border-radius:6px; margin:12px 0; }
   .geometry-dots{ width:36px; height:36px; position:relative; flex:none; animation:geometry-spin 2s linear infinite; }
   .geometry-dots i{ position:absolute; left:15px; top:15px; width:6px; height:6px; border-radius:50%; background:var(--navy); transform:rotate(calc(var(--i)*45deg)) translateY(-14px); opacity:calc(.3 + var(--i)*.1); }
@@ -95,8 +107,6 @@
   .check input{ margin-top:4px; }
   .klein{ font-size:12.5px; color:var(--mid); }
   [hidden]{ display:none !important; }
-  .drawing-route{ margin:14px 0; padding:16px; border-left:3px solid var(--navy); border-radius:5px; background:var(--band); }
-  .drawing-route p{ margin:0 0 12px; font-size:14px; }
 
 
   .ergebnis{ position:sticky; top:12px; }
@@ -213,8 +223,17 @@
     <form id="f" autocomplete="off" novalidate>
       <fieldset id="teil">
         <legend>1 · Teil</legend>
-        <div id="standard-drawing-note" class="drawing-route"><p>Abweichende Geometrie? Im Formteile-Baukasten aufbauen oder als Zeichnung einreichen.</p><a id="standard-drawing-route" class="knopf zwei" data-language-link href="/#einstieg">Zur Zeichnungsanalyse</a></div>
-        <div class="felder">
+        <div id="parts-tabs" class="parts-tabs" role="tablist" aria-label="Formteil auslegen" hidden><button type="button" id="parts-drawing-tab" role="tab" aria-controls="parts-drawing-panel" aria-selected="true">Zeichnung analysieren</button><button type="button" id="parts-geometry-tab" role="tab" aria-controls="geometry-panel" aria-selected="false" tabindex="-1">Teil aufbauen</button></div>
+        <div id="parts-drawing-panel" role="tabpanel" aria-labelledby="parts-drawing-tab" hidden>
+          <div class="parts-upload" id="parts-drop-zone"><label for="parts-file"><strong>Zeichnung auswählen oder hier ablegen</strong></label><p class="klein">PDF, PNG, JPG oder WebP für die KI-Analyse · bis 15 MB. CAD und TIFF können Sie als Original an Hans senden.</p><input id="parts-file" type="file" accept=".pdf,.png,.jpg,.jpeg,.webp,.tif,.tiff,.step,.stp,.dxf,.dwg,.igs,.iges" aria-describedby="parts-file-help parts-file-feedback"></div>
+          <div id="parts-file-feedback" class="parts-file-feedback" role="status" aria-live="polite" aria-atomic="true" hidden><strong id="parts-file-state"></strong><span id="parts-file-name"></span><button type="button" id="parts-file-remove" class="knopf zwei" hidden>Datei entfernen</button></div>
+          <label class="feld"><span>Angaben zur Zeichnung</span><textarea id="parts-drawing-note" rows="3" placeholder="Werkstoff, Maße oder Ergänzungen zur Zeichnung"></textarea></label>
+          <p id="parts-file-help" class="klein">Die Analyse kann einige Minuten dauern. Sie startet erst mit Ihrem Klick und versendet keine E-Mail.</p>
+          <div class="knoepfe"><button type="button" id="parts-drawing-analyse" class="knopf" disabled>Zeichnung mit KI analysieren</button><button type="button" id="parts-drawing-refresh" class="knopf zwei" hidden>Stand aktualisieren</button></div>
+          <div id="parts-drawing-progress" class="geometry-progress" role="status" aria-live="polite" hidden><div class="geometry-dots" aria-hidden="true"><i style="--i:0"></i><i style="--i:1"></i><i style="--i:2"></i><i style="--i:3"></i><i style="--i:4"></i><i style="--i:5"></i><i style="--i:6"></i><i style="--i:7"></i></div><p>Die Zeichnungsanalyse benötigt etwas Zeit. Wir prüfen Maße, Umformschritte und passende Maschinen.</p></div>
+          <p id="parts-drawing-status" class="klein" role="status" aria-live="polite" hidden></p>
+        </div>
+        <div id="material-fields" class="felder">
           <label class="feld voll"><span>Draht / Lieferzustand</span><select name="wst"></select></label>
           <p class="klein voll">Die Auswahl enthält Drähte mit belegtem Fließkurvenansatz. Weitere Werkstoffe oder Lieferzustände bitte über die Zeichnungsanfrage einreichen.</p>
           <a class="klein voll" data-language-link href="/">Anderen Werkstoff anfragen</a>
@@ -226,14 +245,13 @@
           <label class="feld voll"><span><b>Draht-Ø an der Presse</b> in mm</span><input type="text" inputmode="decimal" name="d0" placeholder="z. B. 7,6"></label>
         </div>
 
-        <div id="geometry-panel" hidden>
+        <div id="geometry-panel" role="tabpanel" aria-labelledby="parts-geometry-tab" hidden>
           <div id="geometry-wizard" class="geometry-shell"></div>
           <label class="feld"><span>Ergänzungen zum Stadienkonzept</span><textarea id="geometry-note" rows="3"></textarea></label>
           <div class="knoepfe"><button type="button" class="knopf" id="geometry-analyse" disabled>Stadienkonzept mit KI ausarbeiten</button><button type="button" class="knopf zwei" id="geometry-refresh" hidden>Stand aktualisieren</button></div>
           <div id="geometry-progress" class="geometry-progress" hidden><div class="geometry-dots" aria-hidden="true"><i style="--i:0"></i><i style="--i:1"></i><i style="--i:2"></i><i style="--i:3"></i><i style="--i:4"></i><i style="--i:5"></i><i style="--i:6"></i><i style="--i:7"></i></div><p>Das Stadienkonzept wird ausgearbeitet. Wir prüfen Geometrie, Umformschritte und passende Maschinen.</p></div>
           <p id="geometry-status" role="status" aria-live="polite" hidden></p>
           <div id="geometry-result" class="geometry-result" hidden></div>
-          <p class="klein"><a id="special-drawing-route" data-language-link href="/#einstieg">Zur Zeichnungsanalyse</a></p>
         </div>
 
         <div id="standard-part-fields">
@@ -330,6 +348,7 @@
     </form>
 
     <div class="ergebnis" id="ergebnis" aria-live="polite">
+      <div id="parts-drawing-output" hidden><div id="parts-drawing-result" class="geometry-result" hidden></div></div>
       <div id="geometry-view" hidden></div>
       <div class="leer" id="leer">Mit Draht-Ø und den Hüllmaßen des Teils erscheinen hier Stadienfolge, Werkzeuggröße und die passenden Modelle. Ein Beispiel oben zeigt den Ablauf.</div>
       <div id="empty-visual" class="empty-visual" hidden>
@@ -360,7 +379,7 @@
   <section class="anfrage" id="anfrage">
     <p id="selected-machine" class="klein" role="status" aria-live="polite" hidden></p>
     <h2>Richtpreisangebot anfragen</h2>
-    <p class="lede" style="margin-top:10px">Mit dieser Anfrage senden Sie Ihre Angaben und die berechnete Zusammenfassung an Hans Möhling.</p>
+    <p class="lede" style="margin-top:10px">Diese Anfrage sendet Ihre Angaben, das vorhandene Ergebnis und eine ausgewählte Originalzeichnung an Hans Möhling. Sie startet keine KI-Analyse.</p>
     <form id="a" autocomplete="on">
       <div class="felder">
         <label class="feld"><span>Name</span><input type="text" name="name" autocomplete="name"></label>
@@ -386,7 +405,7 @@
   <div class="wrap">
     <div>Jern Yao Vertretung für den deutschen Sprachraum · Hans Möhling · <a href="mailto:info@jernyao.de">info@jernyao.de</a> · +49 171 10 700 10</div>
     <details><summary>Impressum</summary><p>Hans Möhling · Exklusivvertretung Jern Yao Enterprises Co., Ltd. für Deutschland, Österreich und die Schweiz. E-Mail: jernyao@techno.parts · Telefon: +49 171 10 700 10</p></details>
-    <details><summary>Datenschutz</summary><p>Die Geometrieberechnung läuft im Browser. Mit „Stadienkonzept mit KI ausarbeiten“ werden die Geometrie, Werkstoffangaben und Ergänzungen zur KI-Auswertung übertragen. Erst mit „Anfrage an Hans senden“ werden Ihre Kontaktdaten, Notiz und Zusammenfassung über Resend an Hans Möhling übermittelt. Die Zeichnungsanalyse finden Sie auf der Hauptseite. Nur Ihre Sprachwahl wird lokal gespeichert. Beim Hosting fallen technische Zugriffsprotokolle an.</p></details>
+    <details><summary>Datenschutz</summary><p>Die Geometrieberechnung läuft im Browser. Erst mit dem jeweiligen KI-Start werden Ihre Zeichnung und Angaben oder Ihre aufgebaute Geometrie zur Analyse übertragen. Die getrennte Anfrage an Hans sendet Ihre Kontaktdaten, Notiz, das vorhandene Ergebnis und eine ausgewählte Originalzeichnung über Resend an Hans Möhling. Nur Ihre Sprachwahl wird lokal gespeichert. Beim Hosting fallen technische Zugriffsprotokolle an.</p></details>
   </div>
 </footer>
 
