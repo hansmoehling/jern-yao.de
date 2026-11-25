@@ -7,6 +7,7 @@
   "Loch-Ø muss kleiner als der Flanschdurchmesser sein": ["Il diametro del foro deve essere inferiore al diametro della flangia", "Premer luknje mora biti manjši od premera prirobnice", "Hole diameter must be smaller than flange diameter", "孔径必须小于法兰直径"],
   "Napfdurchmesser und Napftiefe vollständig angeben": ["Specificare sia il diametro sia la profondità della cavità", "Vnesite premer in globino votline", "Enter both cavity diameter and cavity depth", "请完整填写凹腔直径和深度"],
   "Schaftdurchmesser muss positiv sein": ["Il diametro del gambo deve essere positivo", "Premer stebla mora biti pozitiven", "Shank diameter must be positive", "杆部直径必须大于零"],
+  "Schaftdurchmesser und Schaftlänge vollständig angeben": ["Specificare il diametro e la lunghezza del gambo", "Vnesite premer in dolžino stebla", "Enter the shank diameter and length", "请完整填写杆部直径和长度"],
   "Angegebene Masse übersteigt das geometrische Außenvolumen bei gewählter Dichte; Maße und Dichte abgleichen. Abschnitt bleibt aus der angegebenen Masse gerechnet.": [
     "La massa indicata supera quella del volume esterno geometrico alla densità scelta; verificare quote e densità. Il calcolo dello spezzone resta basato sulla massa indicata.",
     "Vnesena masa presega maso zunanjega geometrijskega volumna pri izbrani gostoti; preverite mere in gostoto. Odrezek se še naprej računa iz vnesene mase.",

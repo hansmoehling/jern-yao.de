@@ -298,7 +298,7 @@ test('norm-controlled heads and drives remain consistent in five languages and u
   assert.equal(head.options[0].textContent,I.t('rund, Zylinder- oder Flanschkopf',language));head.value='krallen';drive.value='ph';p.f.events.change();assert.equal(head.value,'krallen');assert.equal(drive.value,'ph');
   norm.value='ISO4014';norm.events.change();assert.equal(head.value,'sechskant');assert(!head.disabled);assert.equal(drive.value,'none');
   head.value='abgratet';p.f.events.change();assert.equal(norm.value,'ISO4014');assert.equal(head.value,'abgratet');assert(!head.options.find(o=>o.value==='abgratet').disabled);assert(head.options.find(o=>o.value==='rund').disabled);
-  p.f.elements.standardKind.value='rivet';p.f.elements.standardKind.events.change();assert.equal(norm.value,'');assert(!head.disabled);assert(!drive.disabled);assert(head.options.every(o=>!o.disabled));
+  p.f.elements.standardKind.value='rivet';p.f.elements.standardKind.events.change();assert.equal(norm.value,'');assert(!head.disabled);assert(drive.disabled);assert(head.options.every(o=>!o.disabled));
  }
 });
 
@@ -478,6 +478,54 @@ test('drive profile choices reach the result, each machine concept, print and ma
    await sendMail(p);assert(new URL(p.context.location.href).searchParams.get('body').includes(size));
    p.events['jy-languagechange']();assert.equal(p.f.elements.iSize.value,size,'locale update preserves drive selection');
   }
+ }
+});
+
+test('small Torx sizes T1 to T4 can be selected without invented recess dimensions',()=>{
+ for(const showPrices of [true,false]){
+  const p=setup('de',E,showPrices);p.examples[0].events.click();p.f.elements.iTyp.value='torx';p.f.events.change();
+  assert.deepEqual(Array.from(p.f.elements.iSize.options.slice(1,6),o=>o.value),['T1','T2','T3','T4','T5']);
+  for(const size of ['T1','T2','T3','T4']){
+   p.f.elements.iSize.value=size;p.f.elements.iT.value='1';p.f.events.change();
+   assert.equal(p.get('aus').hidden,false);assert(p.get('kenn').innerHTML.includes('Torx '+size));
+   assert(p.get('kenn').innerHTML.includes(I.t('nicht belegt','de')));
+   p.get('drucken').events.click();assert(p.get('blatt').innerHTML.includes(size));
+  }
+ }
+});
+
+test('rivets and pins ignore inherited screw profiles and drives in both sites and all languages',()=>{
+ for(const language of I.supported)for(const showPrices of [true,false])for(const kind of ['rivet','pin']){
+  let received;const p=setup(language,{...E,auslegen(e){received=e;return E.auslegen(e);}},showPrices);
+  p.examples[1].events.click();p.f.elements.standardNorm.value='ISO4762';p.f.elements.standardNorm.events.change();
+  p.f.elements.threadFamily.value='duo-taptite';p.f.elements.sArea.value='20';p.f.elements.tipArea.value='15';p.f.elements.tipLength.value='5';p.f.events.change();
+  p.f.elements.standardKind.value=kind;p.f.elements.standardKind.events.change();
+  assert.equal(received.threadFamily,'none');assert.equal(received.iTyp,'none');
+  for(const field of ['sArea','tipArea','tipLength','tipDiameter','iSize','iSW','iT','iVol'])assert.equal(received[field],undefined,field);
+  assert(p.get('thread-family-field').hidden);assert(p.f.elements.threadFamily.disabled);assert(p.get('bolt-drive-fields').hidden);assert(p.f.elements.iTyp.disabled);
+  assert.equal(p.get('aus').hidden,false);assert(!/JNFP|JNF-|JNFR/.test(p.get('karten').innerHTML));
+  p.get('drucken').events.click();const sheet=p.get('blatt').innerHTML;
+  assert(sheet.includes(I.t(kind==='rivet'?'Niet':'Bolzen',language)));
+  assert(!sheet.includes(I.t('Gewindefamilie',language)));assert(!sheet.includes('Duo-Taptite'));assert(!sheet.includes(I.t('Innenantrieb',language)));
+  p.events['jy-languagechange']();assert.equal(received.threadFamily,'none');
+  p.f.elements.standardKind.value='screw';p.f.elements.standardKind.events.change();
+  assert(!p.get('thread-family-field').hidden);assert(!p.get('bolt-drive-fields').hidden);
+  assert.equal(received.threadFamily,'duo-taptite','returning to screw preserves its profile input');
+ }
+});
+
+test('missing or cleared shaft dimensions block cards, print and requests for rivets',()=>{
+ for(const language of I.supported)for(const showPrices of [true,false]){
+  const p=setup(language,E,showPrices);p.examples[0].events.click();p.f.elements.standardKind.value='rivet';p.f.elements.standardKind.events.change();
+  for(const key of ['sD','sL']){
+   const previous=p.f.elements[key].value;p.f.elements[key].value='';p.f.events.change();
+   assert(p.get('aus').hidden);assert(!p.get('leer').hidden);assert(p.get('leer').textContent.includes(I.t('Schaftdurchmesser und Schaftlänge vollständig angeben',language)));
+   assert(p.get('drucken').disabled);assert(p.get('senden').disabled);
+   p.f.elements[key].value=previous;p.f.events.change();assert.equal(p.get('aus').hidden,false);assert.equal(p.get('drucken').disabled,false);
+  }
+  p.examples[2].events.click();p.f.elements.standardKind.value='rivet';p.f.events.change();
+  assert.equal(p.get('aus').hidden,false,'hidden rivet selection cannot block a nut calculation');
+  assert(/JNF|JPF/.test(p.get('karten').innerHTML));
  }
 });
 

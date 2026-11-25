@@ -40,12 +40,12 @@
   // Size designations only: tool dimensions are not recess areas or forming factors.
   const DRIVE_SIZES = {
     hex: ['1.5','2','2.5','3','4','5','6','7','8','10','12','custom'],
-    torx: [5,6,7,8,9,10,15,20,25,27,30,40,45,50,55,60].map(n=>'T'+n),
+    torx: [1,2,3,4,5,6,7,8,9,10,15,20,25,27,30,40,45,50,55,60].map(n=>'T'+n),
     ph: [0,1,2,3,4].map(n=>'PH'+n), pz: [0,1,2,3,4].map(n=>'PZ'+n)
   };
   let driveFamily = null, driveSize = '';
   function antriebAuswahl() {
-    const family=f.elements.iTyp.value || 'none', sizes=DRIVE_SIZES[family] || [], field=f.elements.iSize;
+    const family=antriebsFamilie(), sizes=DRIVE_SIZES[family] || [], field=f.elements.iSize;
     if(driveFamily!==family){
       f.elements.iVol.value='';
       const previous=field.value;
@@ -67,6 +67,9 @@
   }
 
   function typ() { return f.elements.typ.value; }
+  function gewindelos() { return typ()==='bolzen'&&['rivet','pin'].includes(f.elements.standardKind?.value); }
+  function gewindeFamilie() { return gewindelos()?'none':f.elements.threadFamily?.value||'metric'; }
+  function antriebsFamilie() { return gewindelos()?'none':f.elements.iTyp.value||'none'; }
   const THREAD_LABELS={'metric':'Metrisches Gewinde','trilobular':'Trilobulares Gewinde','duo-taptite':'Duo-Taptite','self-tapping':'Schneidgewinde','thermoplastic':'Thermoplast'};
   const HEAD_LABELS={rund:'rund, Zylinder- oder Flanschkopf',sechskant:'Sechskant, gestaucht',abgratet:'Sechskant, rund gestaucht und abgegratet',none:'Ohne Kopf',krallen:'Krallenkopf / Umspritz-Mitnahmeprofil'};
   let standardKind=null;
@@ -77,6 +80,7 @@
     normAnwenden();
     fill(f.elements.nutNorm,'nut');
     $('standard-norm-field').hidden=['rivet','pin'].includes(kind);$('bolt-head').hidden=kind==='headless';
+    $('thread-family-field').hidden=gewindelos();f.elements.threadFamily.disabled=gewindelos();
   }
   function normAnwenden(){
     const kind=f.elements.standardKind?.value||'screw',id=f.elements.standardNorm?.value;
@@ -92,7 +96,7 @@
       option.dataset.originalText='';
       option.textContent=tr(family?.headForm==='rund'&&option.value==='rund'?'Zylinderkopf':HEAD_LABELS[option.value]||option.value);
     });
-    f.elements.iTyp.disabled=!!family?.driveFamily;
+    f.elements.iTyp.disabled=gewindelos()||!!family?.driveFamily;
     $('standard-norm-note').hidden=!family;
     if(kind==='headless'||family?.headForm==='none'){f.elements.kopfForm.value='none';for(const key of ['kD','kH','kSW'])f.elements[key].value='0';}
     antriebAuswahl();
@@ -109,9 +113,10 @@
     $('standard-part-fields').hidden=special;$('manual-tools').hidden=special;$('parts-tabs').hidden=!special;$('parts-drawing-panel').hidden=!drawing;$('parts-drawing-output').hidden=!drawing;$('material-fields').hidden=drawing;$('geometry-panel').hidden=!special||drawing;$('geometry-view').hidden=!special||drawing;$('regelbox').hidden=special;$('anfrage').hidden=false;
     for(const mode of ['drawing','geometry']){const tab=$('parts-'+mode+'-tab');tab.setAttribute('aria-selected',String(partsMode===mode));tab.tabIndex=partsMode===mode?0:-1;}
     f.querySelectorAll('[data-fuer]').forEach(el => { el.hidden = !el.dataset.fuer.split(' ').includes(t); });
+    $('bolt-drive-fields').hidden=t!=='bolzen'||gewindelos();
     const k = f.elements.kopfForm.value;
     f.querySelectorAll('[data-kopf]').forEach(el => { el.hidden = !el.dataset.kopf.split(' ').includes(k); });
-    const thread=f.elements.threadFamily?.value||'metric';
+    const thread=gewindeFamilie();
     f.querySelectorAll('[data-thread]').forEach(el=>{el.hidden=!el.dataset.thread.split(' ').includes(thread);el.querySelectorAll('input').forEach(input=>input.disabled=el.hidden);});
     antriebAuswahl();
     const inlineDrawing=f.elements.wirePreparation.value==='inline-drawing';
@@ -121,7 +126,7 @@
   }
 
   function zahlenfeldAktiv(name){
-    const bolt=typ()==='bolzen',head=f.elements.kopfForm.value,drive=f.elements.iTyp.value,thread=f.elements.threadFamily?.value||'metric';
+    const bolt=typ()==='bolzen',head=f.elements.kopfForm.value,drive=antriebsFamilie(),thread=gewindeFamilie();
     if(['kD','kH','kSW','kVol'].includes(name))return bolt&&head!=='none'&&(name!=='kSW'||['sechskant','abgratet'].includes(head))&&(name!=='kVol'||head==='krallen');
     if(['sD','sL'].includes(name))return bolt;
     if(['mM','mSW','mH','mLoch'].includes(name))return typ()==='mutter';
@@ -138,10 +143,10 @@
     const variant=selectedVariant();
     const e = {
       typ: typ(), wst: variant?.index, curveId: variant?.curve.id, materialState:variant?.curve.state, rm: g('rm'), d0: g('d0'),
-      standardKind:f.elements.standardKind?.value||'screw',standardReference:typ()==='mutter'?f.elements.nutNorm?.value:f.elements.standardNorm?.value,threadFamily:f.elements.threadFamily?.value||'metric',
+      standardKind:typ()==='bolzen'?f.elements.standardKind?.value||'screw':undefined,standardReference:typ()==='mutter'?f.elements.nutNorm?.value:f.elements.standardNorm?.value,threadFamily:typ()==='bolzen'?gewindeFamilie():undefined,
       wirePreparation:f.elements.wirePreparation.value||'as-supplied',rodDiameter:f.elements.wirePreparation.value==='inline-drawing'?g('rodDiameter'):undefined,
       kopfForm: f.elements.kopfForm.value, kD: g('kD'), kSW: g('kSW'), kH: g('kH'), kVol:f.elements.kopfForm.value==='krallen'?g('kVol'):undefined,sD: g('sD'), sL: g('sL'),
-      iTyp: f.elements.iTyp.value || 'none', iSize: f.elements.iSize.value,
+      iTyp: antriebsFamilie(), iSize: f.elements.iSize.value,
       iSW: f.elements.iSize.value==='custom'?g('iSW'):num(f.elements.iSize.value), iT: g('iT'), iVol: g('iVol'),
       mM: g('mM'), mSW: g('mSW'), mH: g('mH'), mLoch: g('mLoch'),
       masse: g('masse'), lStempel: g('lStempel'), wenden: f.elements.wenden.checked,
@@ -341,9 +346,9 @@
     const force = value => value == null ? tr('Kraft noch offen') : fmt(value) + ' t';
     const selected=angefragteMaschine();
     if(selected)lines.push(msg('Anfrage für {model}',{model:selected.o.m}),'');
-    field('Teileart', tr({ bolzen: 'Schraube/Bolzen', formteil: 'Formteil/Hülse', mutter: 'Mutter' }[e.typ]));
+    field('Teileart', tr(e.typ==='bolzen'?({screw:'Schraube',rivet:'Niet',pin:'Bolzen',headless:'Kopfloses Teil'}[e.standardKind]||'Schraube/Bolzen'):{formteil:'Formteil/Hülse',mutter:'Mutter'}[e.typ]));
     if(e.standardReference)field('Normfamilie',e.standardReference);
-    if(e.typ==='bolzen')field('Gewindefamilie',tr(THREAD_LABELS[e.threadFamily]||e.threadFamily));
+    if(e.typ==='bolzen'&&e.threadFamily!=='none')field('Gewindefamilie',tr(THREAD_LABELS[e.threadFamily]||e.threadFamily));
     field('Werkstoff', (m.sourceName || m.id) + (m.number ? ' · ' + m.number : ''));
     field('Vormaterial / Vorzug',preparationLabel(e.wirePreparation));
     if(e.wirePreparation==='inline-drawing')field('Walzdraht-Ø vor dem Vorzug',mm(e.rodDiameter));
@@ -364,7 +369,7 @@
       field('Form', tr(window.JYStandardFamilies?.get(e.standardReference)?.headForm==='rund'?'Zylinderkopf':HEAD_LABELS[e.kopfForm] || e.kopfForm));
       field('Kopfdurchmesser', mm(e.kD)); field('Kopfhöhe', mm(e.kH));
       if (e.kSW) field('Kopfschlüsselweite', mm(e.kSW));
-      field('Körperdurchmesser', mm(e.sD || e.d0)); field('Körperlänge', mm(e.sL));
+      field('Körperdurchmesser', mm(e.sD)); field('Körperlänge', mm(e.sL));
       if(e.kVol!=null)field('Kopf-Außenkonturvolumen',fmt(e.kVol)+' mm³');
       if(e.sArea!=null)field('Rohling-Querschnittsfläche',fmt(e.sArea)+' mm²');
       if(e.tipLength!=null)field('Spitzenlänge',mm(e.tipLength));

@@ -150,7 +150,6 @@
   .empty-visual img{ display:block; width:100%; height:auto; object-fit:contain; }
   .empty-visual .finished-part img{ max-height:260px; }
   .empty-visual .technical-drawing img{ max-height:340px; }
-  .empty-visual .technical-drawing a{ color:#284c82; }
   .empty-visual .forming-sequence{ border-top:1px solid #e4e9f0; }
   .empty-visual figcaption{ margin-top:8px; color:#526176; font-size:14px; }
   @media(max-width:900px){ .empty-visual{ display:none!important; } .quote-button{ min-height:44px; margin-top:6px; } }
@@ -261,7 +260,7 @@
           <div class="felder">
             <label class="feld voll"><span>Teilefamilie</span><select name="standardKind" id="standard-kind"><option value="screw">Schraube</option><option value="rivet">Niet</option><option value="pin">Bolzen</option><option value="headless">Kopfloses Teil</option></select></label>
             <label class="feld voll" id="standard-norm-field"><span>Normfamilie</span><select name="standardNorm" id="standard-norm"></select></label>
-            <label class="feld voll"><span>Gewindefamilie</span><select name="threadFamily"><option value="metric">Metrisches Gewinde</option><option value="trilobular">Trilobulares Gewinde</option><option value="duo-taptite">Duo-Taptite</option><option value="self-tapping">Schneidgewinde</option><option value="thermoplastic">Thermoplast</option></select></label>
+            <label class="feld voll" id="thread-family-field"><span>Gewindefamilie</span><select name="threadFamily"><option value="metric">Metrisches Gewinde</option><option value="trilobular">Trilobulares Gewinde</option><option value="duo-taptite">Duo-Taptite</option><option value="self-tapping">Schneidgewinde</option><option value="thermoplastic">Thermoplast</option></select></label>
           </div>
           <p class="klein" id="standard-norm-note" hidden>Kopfform und Innenantrieb folgen der Normfamilie. Für eigene Varianten „Ohne Normvorgabe“ wählen.</p>
           <div id="bolt-head">
@@ -283,14 +282,14 @@
           </div>
           <h3>Schaft</h3>
           <div class="felder">
-            <label class="feld"><span>Schaft- / Hüll-Ø in mm</span><input type="text" inputmode="decimal" name="sD"></label>
-            <label class="feld"><span>Gesamtschaftlänge in mm</span><input type="text" inputmode="decimal" name="sL"></label>
+            <label class="feld"><span>Schaft- / Hüll-Ø in mm</span><input type="text" inputmode="decimal" name="sD" required></label>
+            <label class="feld"><span>Gesamtschaftlänge in mm</span><input type="text" inputmode="decimal" name="sL" required></label>
             <label class="feld voll" data-thread="trilobular duo-taptite" hidden><span>Rohling-Querschnittsfläche in mm²</span><input type="text" inputmode="decimal" name="sArea"></label>
             <label class="feld" data-thread="duo-taptite self-tapping thermoplastic" hidden><span>Spitzenlänge in mm (in Gesamtschaftlänge enthalten)</span><input type="text" inputmode="decimal" name="tipLength"></label>
             <label class="feld" data-thread="self-tapping thermoplastic" hidden><span>End-Ø der konischen Spitze in mm</span><input type="text" inputmode="decimal" name="tipDiameter"></label>
             <label class="feld" data-thread="duo-taptite" hidden><span>Querschnittsfläche des Spitzenabschnitts in mm²</span><input type="text" inputmode="decimal" name="tipArea"></label>
           </div>
-          <div data-fuer="bolzen">
+          <div data-fuer="bolzen" id="bolt-drive-fields">
             <h3>Innenantrieb</h3>
             <div class="felder">
               <label class="feld voll"><span>Antriebsprofil</span><select name="iTyp">
@@ -357,7 +356,7 @@
         <h2>Vom Fertigteil zum Umformkonzept.</h2>
         <div class="part-studies">
           <figure class="finished-part"><img src="/assets/konfigurator/endteil_chrom.png" alt="Fertigteil mit Bund und Innenprofil" width="1800" height="1200"><figcaption>Fertigteil</figcaption></figure>
-          <figure class="technical-drawing"><a href="/assets/konfigurator/zeichnung.png" target="_blank" rel="noopener" aria-label="Zeichnung vergrößern"><img src="/assets/konfigurator/zeichnung.png" alt="Technische Zeichnung des Bauteils" width="1049" height="1339"></a><figcaption><a href="/assets/konfigurator/zeichnung.png" target="_blank" rel="noopener">Zeichnung vergrößern</a></figcaption></figure>
+          <figure class="technical-drawing"><img src="/assets/konfigurator/zeichnung.png" alt="Technische Zeichnung des Bauteils" width="1049" height="1339"><figcaption>Zeichnung</figcaption></figure>
         </div>
         <figure class="forming-sequence"><img src="/assets/konfigurator/Stadie.jpg" alt="Zwischenformen einer Stadienfolge" width="1600" height="671"><figcaption>Stadienfolge</figcaption></figure>
       </div>

@@ -4,6 +4,7 @@ Stand: 25. November 2026. Die Größenlisten dienen der Auswahl üblicher Antrie
 
 | Profil | Angebotene Größen | Primärquelle |
 | --- | --- | --- |
+| Torx / Innensechsrund | T1, T2, T3, T4 | [Wera 2067 Elektronik TORX](https://www.wera.de/de/werkzeuge/2067-elektronik-torx-schraubendreher) führt diese als TX 1–4; Artikelnummern 05118035001, 05118036001, 05118037001 und 05118039001. |
 | Torx / Innensechsrund | T5, T6, T7, T8, T9, T10, T15, T20, T25, T27, T30, T40 | [Wera 867/1 TZ](https://www.wera.de/de/werkzeuge/867-1-tz-torx-bits) nennt diese Größen als TX. |
 | Torx / Innensechsrund | T45, T50, T55, T60 | [Wera 967 PKL, Herstellerdatenblatt](https://hybris-media.wera.de/download/pdfgenerator-datasheets/en/05024202001.pdf). |
 | Innensechskant | SW 1,5; 2; 2,5; 3; 4; 5; 6; 7; 8; 10; 12 mm, dazu freie Schlüsselweite | [Wera 950 PKL metrisch](https://www.wera.de/de/werkzeuge/950-pkl-winkelschluessel-metrisch-gestellverchromt). |

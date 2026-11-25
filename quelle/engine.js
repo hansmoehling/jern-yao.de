@@ -144,6 +144,8 @@
   const kreis = d => Math.PI * d * d / 4;
   const sechskant = s => Math.sqrt(3) / 2 * s * s;
   const pos = x => typeof x === 'number' && isFinite(x) && x > 0;
+  const needsShaft = e => e && e.typ === 'bolzen';
+  const missingShaft = e => needsShaft(e) && (!pos(e.sD) || !pos(e.sL));
   // Qualitative Metadaten zur tatsächlich berechneten Operation; keine zusätzliche Stufe.
   const op = (name, location) => ({ name, location });
   const r1 = x => Math.round(x * 10) / 10;
@@ -304,7 +306,7 @@
     if (!e || typeof e !== 'object') return invalid('Teilbeschreibung fehlt');
     if (!['bolzen', 'mutter', 'formteil'].includes(e.typ)) return invalid('Teilart eindeutig auswählen');
     if (e.kopfForm !== undefined && !['none', 'rund', 'sechskant', 'abgratet', 'krallen'].includes(e.kopfForm)) return invalid('Kopfform eindeutig auswählen');
-    if(e.threadFamily!==undefined&&!['metric','trilobular','duo-taptite','self-tapping','thermoplastic'].includes(e.threadFamily))return invalid('Gewindeart eindeutig auswählen');
+    if(e.threadFamily!==undefined&&!['none','metric','trilobular','duo-taptite','self-tapping','thermoplastic'].includes(e.threadFamily))return invalid('Gewindeart eindeutig auswählen');
     if (!Number.isInteger(e.wst) || !WERKSTOFFE[e.wst]) return invalid('Werkstoff aus der Werkstoffliste bestimmen');
     if (e.wirePreparation && !['as-supplied', 'inline-drawing'].includes(e.wirePreparation)) return invalid('Vormaterial und Vorzug eindeutig auswählen');
     // Hidden fields from an explicitly deselected operation are not inputs.
@@ -314,6 +316,7 @@
     if (e.wirePreparation !== 'inline-drawing') inactive.add('rodDiameter');
     if (!['sechskant', 'abgratet'].includes(e.kopfForm)) inactive.add('kSW');
     if (e.kopfForm === 'none') ['kD', 'kH', 'kVol'].forEach(key => inactive.add(key));
+    if (e.threadFamily === 'none') ['sArea', 'tipArea', 'tipLength', 'tipDiameter'].forEach(key => inactive.add(key));
     const numericKeys = ['d0','rodDiameter','rm','sD','sL','kD','kSW','kH','sArea','tipArea','tipLength','tipDiameter','kVol','iSW','iT','iVol','nD','nT','mM','mSW','mH','mLoch','mFlansch','mFlanschH','masse','lStempel'];
     for (const key of numericKeys) if (!inactive.has(key) && e[key] !== undefined && e[key] !== null && typeof e[key] !== 'number') return invalid('Ungültiger Zahlenwert: ' + key);
     for (const [key, value] of Object.entries(e)) {
@@ -325,6 +328,7 @@
     }
     e = { ...e };
     inactive.forEach(key => { delete e[key]; });
+    if (missingShaft(e)) return invalid('Schaftdurchmesser und Schaftlänge vollständig angeben');
     const drive = innenantrieb(e);
     if (drive && drive.error) return invalid(drive.error);
     out.antrieb = drive;
@@ -662,6 +666,7 @@
     formteil: ['JBF', 'JBP', 'JNP', 'JPF'],
     mutter: ['JNF', 'JNFR', 'JNFP', 'JPF']
   };
+  const machineFamilies = e => e?.typ === 'bolzen' && e.standardKind === 'rivet' ? FAMILIEN.formteil : FAMILIEN[e?.typ] || FAMILIEN.bolzen;
 
   const PRAXIS_STANDARD = { quote: 0.35, quoteMin: 0.25, quoteMax: 0.47, nutzung: 0.6, modelle: {}, groessen: {} };
   function planung(o, P) {
@@ -814,11 +819,16 @@
   }
 
   function waehle(maschinen, a, e, P) {
-    const fam = FAMILIEN[e.typ] || FAMILIEN.bolzen;
+    if (!a || !e || missingShaft(e) || a.fehlt?.length || !a.werkstoff || !a.stufen?.length || !pos(a.werte?.d0)) return { passend: [], bedingt: [], fast: [], alle: [] };
+    const fam = machineFamilies(e);
     const res = maschinen.filter(o => fam.includes(o.f)).map(o => Object.assign({ o }, pruefe(o, a, e, P)));
     const ord = { ok: 0, knapp: 1, offen: 2, nein: 3 };
     const preis = r => r.o.rp || 9e9;
-    res.sort((x, y) => (ord[x.gesamt] - ord[y.gesamt]) || (preis(x) - preis(y)));
+    // A solid headed rivet is a natural bolt-former job. Keep technically
+    // suitable parts machines available and preserve every hard check.
+    const solidRivet = e.typ === 'bolzen' && e.standardKind === 'rivet' && !a.qualitative && !a.antrieb && !pos(e.nD) && !pos(e.nT) && !e.wenden;
+    const familyPreference = r => solidRivet && r.o.f !== 'JBF' ? 1 : 0;
+    res.sort((x, y) => (ord[x.gesamt] - ord[y.gesamt]) || (familyPreference(x) - familyPreference(y)) || (preis(x) - preis(y)));
     const passend = res.filter(r => r.gesamt === 'ok');
     const bedingt = res.filter(r => r.gesamt === 'knapp' || r.gesamt === 'offen');
     // Fast passend: genau ein Kriterium «nein»
@@ -841,6 +851,11 @@
       reserveStations: required !== null && available !== null ? Math.max(0, available - required) : null,
       stages: [], rationale: '', status: 'incomplete'
     };
+    if (missingShaft(e)) {
+      result.blank = null; result.requiredStations = null; result.reserveStations = null;
+      result.rationale = 'Schaftdurchmesser und Schaftlänge vollständig angeben';
+      return result;
+    }
     if(a?.qualitative){
       result.stages=(a.stufen||[]).map((stage,index)=>({number:index+1,operation:stage.v,location:stage.operations.map(detail=>detail.location).join('; '),operations:stage.operations,kind:'unassigned'}));
       result.geometry=a.geometry;
@@ -851,7 +866,7 @@
       result.rationale = 'Für ein Maschinenkonzept fehlen eine vollständige Rechnung oder Maschinendaten.';
       return result;
     }
-    const family = FAMILIEN[e.typ] || [];
+    const family = machineFamilies(e);
     const checks = pruefe(o, a, e, P);
     const rejected = checks.k.filter(k => k.status === 'nein').map(k => k.krit);
     if (!family.includes(o.f)) rejected.push('Maschinenfamilie');
