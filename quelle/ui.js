@@ -163,7 +163,13 @@
     const file = selectedFile();
     const error = fileError();
     $('file-summary').hidden = !file;
-    $('file-name').textContent = file ? file.name + ' · ' + number(file.size / 1024 / 1024, 'MB') + (CAD.test(file.name) ? ' · CAD-Anhang für Hans Möhling' : '') : '';
+    $('file-summary').dataset.state = !file ? '' : error ? 'error' : 'ready';
+    $('file-state-icon').textContent = !file ? '' : error ? '!' : '✓';
+    const status = !file ? '' : error ? 'Dateiauswahl prüfen' : 'Datei bereit zum Absenden';
+    $('file-status').textContent = tr(status); $('file-status').dataset.jySource = status;
+    const size = file ? file.size < 1024 ? number(file.size, 'B') : file.size < 1024 * 1024 ? number(file.size / 1024, 'KB') : number(file.size / 1024 / 1024, 'MB') : '';
+    $('file-name').textContent = file ? file.name + ' · ' + size + (CAD.test(file.name) ? ' · ' + tr('CAD-Anhang für Hans Möhling') : '') : '';
+    $('file-name').dataset.originalText = '';
     message('file-error', error, 'error');
     $('file').setAttribute('aria-invalid', String(!!error));
     updateSubmit();

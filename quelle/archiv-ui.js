@@ -19,6 +19,26 @@
   const h = s => esc(tr(s));
   const msg = (key, values) => tr(key).replace(/\{(\w+)\}/g, (match, name) => Object.hasOwn(values, name) ? String(values[name]) : match);
   const rendered = (node, html) => { node.dataset.originalText = ''; node.innerHTML = html; };
+  const drawingFormats=/\.(pdf|png|jpg|jpeg|tif|tiff|dxf|dwg|step|stp|igs|iges)$/i;
+  let rejectedDrawing=null;
+  function zeichnungStatus() {
+    const file=f.elements.zeichnung.files[0]||rejectedDrawing?.file,invalid=!!rejectedDrawing;
+    const box=$('archive-file-status');box.hidden=!file;box.dataset.state=invalid?'invalid':'ready';
+    const values={
+      'archive-file-state':file?tr(invalid?'Dateiauswahl prüfen':'Datei ausgewählt'):'',
+      'archive-file-name':file?.name||'',
+      'archive-file-size':file&&Number.isFinite(file.size)?(file.size>=1e6?fmt(file.size/1e6,1)+' MB':file.size>=1000?fmt(file.size/1000,1)+' kB':fmt(file.size,0)+' B'):'',
+      'archive-file-error':invalid?tr(rejectedDrawing.error):''
+    };
+    for(const [id,value]of Object.entries(values)){const node=$(id);node.dataset.originalText='';node.textContent=value;}
+    $('archive-file-error').hidden=!invalid;
+  }
+  function zeichnungGeaendert() {
+    const file=f.elements.zeichnung.files[0];rejectedDrawing=null;
+    const error=file&&!drawingFormats.test(file.name)?'Dieses Dateiformat wird hier nicht unterstützt. Bitte wählen Sie ein angegebenes Format.':file?.size===0?'Die ausgewählte Datei ist leer. Bitte wählen Sie die Zeichnung erneut aus.':'';
+    if(error){rejectedDrawing={file,error};f.elements.zeichnung.value='';}
+    zeichnungStatus();
+  }
 
   // Manual exposes only reviewed material/condition/curve combinations.
   // Catalogue identities without a curve remain available to the drawing assistant.
@@ -301,6 +321,7 @@
   };
   document.querySelectorAll('[data-bsp]').forEach(btn => btn.addEventListener('click', () => {
     f.reset(); a.elements.ok.checked = false;
+    rejectedDrawing=null;zeichnungStatus();
     f.elements.wirePreparation.value='as-supplied';
     const d = {...BSP[btn.dataset.bsp]};d.wst=variants.find(variant=>variant.material.id==='C4C'&&variant.curve.state==='soft-annealed')?.value||'';
     f.elements.iTyp.value=d.iTyp||'none';antriebAuswahl();
@@ -337,9 +358,10 @@
   });
   a.addEventListener('input', knoepfe); a.addEventListener('change', knoepfe);
   $('archive-choose-file').addEventListener('click',()=>f.elements.zeichnung.click());
-  f.elements.zeichnung.addEventListener('change',()=>{$('archive-file-name').textContent=f.elements.zeichnung.files[0]?.name||'';});
+  f.elements.zeichnung.addEventListener('change',zeichnungGeaendert);
+  $('archive-remove-file').addEventListener('click',()=>{f.elements.zeichnung.value='';rejectedDrawing=null;zeichnungStatus();$('archive-choose-file').focus();});
   $('senden').addEventListener('click', senden);
   $('drucken').addEventListener('click', drucken);
-  window.addEventListener('jy-languagechange',()=>{Array.from(sel.options).forEach(option=>{const variant=variantByValue.get(option.value);if(variant)option.textContent=optionLabel(variant);});sichtbar();rechnen();L.apply();});
-  sichtbar(); rechnen(); L.apply();
+  window.addEventListener('jy-languagechange',()=>{Array.from(sel.options).forEach(option=>{const variant=variantByValue.get(option.value);if(variant)option.textContent=optionLabel(variant);});zeichnungStatus();sichtbar();rechnen();L.apply();});
+  zeichnungStatus(); sichtbar(); rechnen(); L.apply();
 })();

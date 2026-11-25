@@ -11,12 +11,14 @@ class El{
  querySelectorAll(){return []}
  scrollIntoView(options){this.scrollOptions=options}
  focus(options){this.focusOptions=options;this.focused=true}
+ click(){this.clicked=true}
 }
 function setup(language,engine=E,showPrices){
  const ids=new Map();const get=id=>{if(!ids.has(id))ids.set(id,new El());return ids.get(id)};
  const f=get('f'),a=get('a');f.elements={};a.elements={};
  for(const key of ['typ','wst','rm','d0','wirePreparation','rodDiameter','kopfForm','kD','kSW','kH','sD','sL','iTyp','iSize','iSW','iT','iVol','nD','nT','nDurch','mM','mSW','mH','mLoch','mFlansch','mFlanschH','masse','lStempel','wenden','ko','pko','matD','matL','stD','stL','stationen','zusatz','ausbringung','zeichnung'])f.elements[key]=new El();
  for(const key of ['ok','email','name','firma','tel','nachricht'])a.elements[key]=new El();
+ Object.defineProperty(f.elements.zeichnung,'value',{get(){return this.fileValue||''},set(value){this.fileValue=value;if(value==='')this.files=[]}});
  f.elements.typ.value='bolzen';f.elements.kopfForm.value='rund';f.elements.iTyp.value='none';f.elements.wirePreparation.value='as-supplied';
  f.reset=()=>{for(const [key,el]of Object.entries(f.elements)){if(key!=='wst')el.value='';el.checked=false;}f.elements.typ.value='bolzen';f.elements.kopfForm.value='rund';f.elements.iTyp.value='none';f.elements.wirePreparation.value='as-supplied'};
  f.querySelector=selector=>({set checked(value){if(value)f.elements.typ.value=selector.match(/value=([^\]]+)/)[1]}});
@@ -26,10 +28,11 @@ function setup(language,engine=E,showPrices){
  const events={};const window={JYK:engine,JYI18N:I,JYLocale:locale,matchMedia:()=>({matches:false}),addEventListener:(name,fn)=>events[name]=fn,print(){}};
  if(showPrices!==undefined)window.JY_SHOW_PRICES=showPrices;
  const document={getElementById:get,createElement:()=>new El(),querySelectorAll:selector=>selector==='[data-bsp]'?examples:[]};
- const context={window,document,clearTimeout,setTimeout,location:{href:''},FormData,fetch:()=>{throw Error('Network forbidden in archive tests')}};
+ const networkRequests=[];
+ const context={window,document,clearTimeout,setTimeout,location:{href:''},FormData,fetch:(...args)=>{networkRequests.push(args);throw Error('Network forbidden in archive tests')}};
  vm.runInNewContext(fs.readFileSync(path.join(__dirname,'..','concept-ui.js'),'utf8'),context);
  vm.runInNewContext(source,context);
- return {get,f,a,examples,events,context};
+ return {get,f,a,examples,events,context,networkRequests};
 }
 test('only approved wire-condition curves are selectable and all examples explicitly use annealed C4C',()=>{
  for(const language of I.supported){
@@ -181,8 +184,46 @@ test('archive exposes only its translated custom file button, not the browser-na
  assert(/\bhidden(?:\s|>)/.test(input));assert(input.includes('aria-hidden="true"'));assert(input.includes('tabindex="-1"'));
  assert(/\[hidden\]\s*\{\s*display:none !important/.test(html));
  assert(/id="archive-choose-file"[^>]*aria-describedby="archive-file-types archive-file-name"/.test(html));
+ assert(/id="archive-file-status"[^>]*role="status"[^>]*aria-live="polite"[^>]*aria-atomic="true"[^>]*hidden/.test(html));
+ assert(/type="button"[^>]*id="archive-remove-file"/.test(html));
  for(const language of I.supported)assert(I.t('Datei auswählen',language).length);
 });
+test('manual file feedback names the local file and size in five languages, survives language changes, and clears on removal or reset',()=>{
+ for(const language of I.supported){
+  const p=setup(language,E,false);p.examples[0].events.click();const figures=p.get('kenn').innerHTML;
+  assert(p.get('archive-file-status').hidden);p.get('archive-choose-file').events.click();assert(p.f.elements.zeichnung.clicked);
+  const drawing={name:'Original <Teil>  Zeichnung.PDF',size:1500000};p.f.elements.zeichnung.files=[drawing];p.f.elements.zeichnung.events.change();
+  assert.equal(p.get('archive-file-status').hidden,false);assert.equal(p.get('archive-file-status').dataset.state,'ready');
+  assert.equal(p.get('archive-file-state').textContent,I.t('Datei ausgewählt',language));assert.equal(p.get('archive-file-name').textContent,drawing.name);assert.equal(p.get('archive-file-name').innerHTML,'','filename is rendered as text');
+  assert.equal(p.get('archive-file-size').textContent,(1.5).toLocaleString(I.numberLocale(language),{maximumFractionDigits:1,minimumFractionDigits:0})+' MB');assert(p.get('archive-file-error').hidden);
+  if(language!=='de')assert.notEqual(I.t('Datei ausgewählt',language),'Datei ausgewählt');
+  const next=language==='en'?'de':'en';p.context.window.JYLocale.language=next;p.events['jy-languagechange']();
+  assert.equal(p.get('archive-file-state').textContent,I.t('Datei ausgewählt',next));assert.equal(p.get('archive-file-name').textContent,drawing.name);assert.equal(p.f.elements.zeichnung.files[0],drawing);
+  p.context.window.JYLocale.language=language;p.events['jy-languagechange']();assert.equal(p.get('kenn').innerHTML,figures,'file feedback leaves the calculation unchanged');
+  p.get('archive-remove-file').events.click();assert.equal(p.f.elements.zeichnung.files.length,0);assert(p.get('archive-file-status').hidden);assert.equal(p.get('archive-file-name').textContent,'');assert.equal(p.get('archive-file-size').textContent,'');assert(p.get('archive-choose-file').focused);
+  p.f.elements.zeichnung.files=[{name:'Große Zeichnung.step',size:25000000}];p.f.elements.zeichnung.events.change();assert.equal(p.get('archive-file-status').dataset.state,'ready','local manual adds no upload-size limit');assert.equal(p.get('archive-file-size').textContent,'25 MB');
+  p.examples[1].events.click();assert.equal(p.f.elements.zeichnung.files.length,0);assert(p.get('archive-file-status').hidden,'example reset cannot leave a stale file confirmation');
+  assert.equal(p.context.location.href,'');assert.deepEqual(p.networkRequests,[],'selection/removal never analyses, uploads or sends');
+ }
+});
+
+test('unsupported manual file selections show a localized error and are removed from the input and mail, then recover cleanly',async()=>{
+ const key='Dieses Dateiformat wird hier nicht unterstützt. Bitte wählen Sie ein angegebenes Format.';
+ for(const language of I.supported){
+  const p=setup(language);p.examples[0].events.click();p.a.elements.email.value='customer@example.invalid';
+  p.f.elements.zeichnung.files=[{name:'Programm.exe',size:2048}];p.f.elements.zeichnung.events.change();
+  assert.equal(p.f.elements.zeichnung.files.length,0,'rejected file is actually removed');assert.equal(p.get('archive-file-status').dataset.state,'invalid');assert.equal(p.get('archive-file-status').hidden,false);
+  assert.equal(p.get('archive-file-state').textContent,I.t('Dateiauswahl prüfen',language));assert.equal(p.get('archive-file-name').textContent,'Programm.exe');assert.equal(p.get('archive-file-error').textContent,I.t(key,language));assert.equal(p.get('archive-file-error').hidden,false);
+  if(language!=='de')assert.notEqual(I.t(key,language),key);
+  p.events['jy-languagechange']();assert.equal(p.get('archive-file-status').dataset.state,'invalid','language refresh cannot turn rejection into success');
+  assert.equal(p.context.location.href,'');assert.deepEqual(p.networkRequests,[]);
+  await p.get('senden').events.click();assert(!new URL(p.context.location.href).searchParams.get('body').includes('Programm.exe'),'explicit mail request does not carry a rejected file');
+  p.f.elements.zeichnung.files=[{name:'Bauteil.iges',size:800}];p.f.elements.zeichnung.events.change();assert.equal(p.get('archive-file-status').dataset.state,'ready');assert(p.get('archive-file-error').hidden);assert.equal(p.get('archive-file-error').textContent,'');assert.equal(p.get('archive-file-size').textContent,'800 B');
+  p.f.elements.zeichnung.files=[{name:'Leer.pdf',size:0}];p.f.elements.zeichnung.events.change();assert.equal(p.f.elements.zeichnung.files.length,0);assert.equal(p.get('archive-file-status').dataset.state,'invalid');assert.equal(p.get('archive-file-error').textContent,I.t('Die ausgewählte Datei ist leer. Bitte wählen Sie die Zeichnung erneut aus.',language));
+  p.f.elements.zeichnung.files=[];p.f.elements.zeichnung.events.change();assert(p.get('archive-file-status').hidden,'empty selection removes stale feedback');
+ }
+});
+
 test('print and mail are fully localized before DOM translation, with identical summary numbers and unchanged customer text',async()=>{
  for(const language of I.supported){
   const p=setup(language);p.examples[0].events.click();

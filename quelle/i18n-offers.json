@@ -5,5 +5,10 @@
   "Zwischenformen einer Stadienfolge": ["Forme intermedie di una sequenza di formatura", "Vmesne oblike v zaporedju preoblikovanja", "Intermediate shapes in a forming sequence", "成形工序中的中间形状"],
   "Fertigteil": ["Pezzo finito", "Končni kos", "Finished part", "成品"],
   "Technische Zeichnung des Bauteils": ["Disegno tecnico del pezzo", "Tehnična risba izdelka", "Technical drawing of the part", "零件技术图纸"],
-  "Zeichnung vergrößern": ["Ingrandisci il disegno", "Povečaj risbo", "Enlarge drawing", "放大图纸"]
+  "Zeichnung vergrößern": ["Ingrandisci il disegno", "Povečaj risbo", "Enlarge drawing", "放大图纸"],
+  "Datei bereit zum Absenden": ["File pronto per l’invio", "Datoteka je pripravljena za pošiljanje", "File ready to send", "文件已准备好发送"],
+  "Datei ausgewählt": ["File selezionato", "Datoteka je izbrana", "File selected", "已选择文件"],
+  "Dateiauswahl prüfen": ["Verifica il file selezionato", "Preverite izbrano datoteko", "Check the selected file", "请检查所选文件"],
+  "Dieses Dateiformat wird hier nicht unterstützt. Bitte wählen Sie ein angegebenes Format.": ["Questo formato di file non è supportato. Seleziona uno dei formati indicati.", "Ta oblika datoteke ni podprta. Izberite eno od navedenih oblik.", "This file format is not supported here. Please choose one of the listed formats.", "此处不支持该文件格式。请选择列出的格式。"],
+  "Datei entfernen": ["Rimuovi file", "Odstrani datoteko", "Remove file", "移除文件"]
 }

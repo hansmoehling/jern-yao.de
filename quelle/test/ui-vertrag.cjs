@@ -27,6 +27,7 @@ function harness(base='https://api.example.test',language='de',showPrices) {
   for (const match of template.matchAll(/id="([^"]+)"/g)) { assert(!nodes.has(match[1]), 'duplicate id '+match[1]); nodes.set(match[1],new Element()); }
   nodes.get('consent').checked=true;
   nodes.get('daten').textContent=fs.readFileSync(path.join(__dirname,'..','maschinen.json'),'utf8');
+  Object.defineProperty(nodes.get('file'),'value',{get(){return this._value||''},set(value){this._value=value;if(value==='')this.files=[]}});
   const tabs=['upload','description','chat'].map(mode=>{const el=nodes.get('tab-'+mode);el.dataset.mode=mode;return el});
   const questions=[new Element()];questions[0].dataset.question='Wie entsteht die Stadienfolge?';
   const requests=[]; const answers=[]; const events={};
@@ -41,6 +42,39 @@ const flattened = node => node.textContent+' '+node.children.map(flattened).join
 const descendants = node => [node,...node.children.flatMap(descendants)];
 const quoteButtons = node => descendants(node).filter(item=>item.tagName==='button'&&item.className==='quote-button');
 (async()=>{
+  for(const language of I18N.supported){
+    const p=harness('https://api.example.test',language);
+    const file=new File([new Uint8Array(2048)],'Zeichnung Anfrage senden.pdf',{type:'application/pdf'});
+    const ready=()=>{
+      assert.equal(p.get('file-summary').hidden,false);assert.equal(p.get('file-summary').dataset.state,'ready');
+      assert.equal(p.get('file-state-icon').textContent,'✓');assert.equal(p.get('file-status').textContent,I18N.t('Datei bereit zum Absenden',language));
+      assert.equal(p.get('file-name').textContent,file.name+' · 2 KB');assert.equal(p.get('file-name').dataset.originalText,'','filename is never translated');
+      assert.equal(p.get('file-error').hidden,true);assert.equal(p.get('file').attributes['aria-invalid'],'false');
+      assert.equal(p.requests.length,0,'file selection does not upload, submit or start AI analysis');
+    };
+    const remove=async()=>{
+      await p.get('remove-file').emit('click');
+      assert.equal(p.get('file').files.length,0);assert.equal(p.get('file-summary').hidden,true);
+      assert.equal(p.get('file-summary').dataset.state,'');assert.equal(p.get('file-state-icon').textContent,'');
+      assert.equal(p.get('file-status').textContent,'');assert.equal(p.get('file-name').textContent,'');assert.equal(p.get('file-error').hidden,true);
+    };
+    p.get('file').files=[file];await p.get('file').emit('change');ready();
+    await remove();await p.get('drop-zone').emit('drop',{dataTransfer:{files:[file]}});ready();
+    for(const bad of [{name:'x.exe',size:10},{name:'empty.pdf',size:0},{name:'large.pdf',size:16*1024*1024}]){
+      await p.get('drop-zone').emit('drop',{dataTransfer:{files:[bad]}});
+      assert.equal(p.get('file-summary').hidden,false);assert.equal(p.get('file-summary').dataset.state,'error');
+      assert.equal(p.get('file-state-icon').textContent,'!');assert.equal(p.get('file-status').textContent,I18N.t('Dateiauswahl prüfen',language));
+      assert.equal(p.get('file-error').hidden,false);assert.equal(p.get('file').attributes['aria-invalid'],'true');
+      assert.equal(p.get('request-submit').disabled,true);assert.equal(p.requests.length,0);
+    }
+    await remove();
+    await p.get('drop-zone').emit('drop',{dataTransfer:{files:[file,file]}});
+    assert.equal(p.get('file-summary').hidden,true);assert.equal(p.get('file-error').hidden,false,'multiple-file drop keeps its existing error');
+    p.get('file').files=[file];await p.get('file').emit('change');ready();
+    p.locale.language=language==='en'?'de':'en';for(const fn of p.events['jy-languagechange']||[])fn();
+    assert.equal(p.get('file-status').textContent,I18N.t('Datei bereit zum Absenden',p.locale.language));assert.equal(p.get('file-name').textContent,file.name+' · 2 KB');
+  }
+  assert.match(template,/<div[^>]*id="file-summary"[^>]*role="status"[^>]*aria-live="polite"[^>]*aria-atomic="true"/,'file confirmation is an accessible live status');
   for(const language of I18N.supported){
     const p=harness('https://api.example.test',language,false);
     const original='  Meine vorhandene Beschreibung.\nMaße: Ø 8 × 30 mm.  ';

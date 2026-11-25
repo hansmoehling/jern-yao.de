@@ -70,6 +70,16 @@
   .check input{ margin-top:4px; }
   .klein{ font-size:12.5px; color:var(--mid); }
   [hidden]{ display:none !important; }
+  .archive-file-status{ display:flex; align-items:flex-start; justify-content:space-between; gap:16px; margin:14px 0; padding:16px; border:2px solid var(--ok); border-radius:7px; background:var(--ok-bg); color:var(--ok); }
+  .archive-file-status[data-state=invalid]{ border-color:var(--nein); background:var(--nein-bg); color:var(--nein); }
+  .archive-file-status strong{ display:block; font-size:15px; }
+  .archive-file-status #archive-file-name{ display:block; margin-top:5px; font-size:16px; font-weight:600; color:var(--ink); overflow-wrap:anywhere; }
+  .archive-file-status #archive-file-size{ display:block; font-size:14px; color:var(--mid); }
+  .archive-file-status p{ margin:8px 0 0; font-size:14px; }
+  .archive-file-status > div{ min-width:0; }
+  .file-remove{ flex-shrink:0; border:1px solid currentColor; border-radius:4px; background:var(--paper); color:var(--ink); padding:7px 10px; font:inherit; font-size:13px; cursor:pointer; }
+  .file-remove:focus-visible{ outline:2px solid var(--navy-soft); outline-offset:3px; }
+  @media(max-width:560px){ .archive-file-status{ flex-direction:column; gap:12px; } .file-remove{ min-height:44px; } }
 
   .ergebnis{ position:sticky; top:12px; }
   @media (max-width:900px){ .ergebnis{ position:static; } }
@@ -280,7 +290,11 @@
 
       <fieldset>
         <legend>3 · Zeichnung (optional)</legend>
-        <div class="feld"><span id="archive-file-types">PDF, Bild, DXF oder STEP</span><button type="button" class="file-choose" id="archive-choose-file" aria-describedby="archive-file-types archive-file-name">Datei auswählen</button><span id="archive-file-name" class="klein" data-original-text aria-live="polite"></span><input hidden aria-hidden="true" tabindex="-1" type="file" name="zeichnung" accept=".pdf,.png,.jpg,.jpeg,.tif,.tiff,.dxf,.dwg,.step,.stp,.igs,.iges"></div>
+        <div class="feld"><span id="archive-file-types">PDF, Bild, DXF oder STEP</span><button type="button" class="file-choose" id="archive-choose-file" aria-describedby="archive-file-types archive-file-name">Datei auswählen</button><input hidden aria-hidden="true" tabindex="-1" type="file" name="zeichnung" accept=".pdf,.png,.jpg,.jpeg,.tif,.tiff,.dxf,.dwg,.step,.stp,.igs,.iges"></div>
+        <div id="archive-file-status" class="archive-file-status" role="status" aria-live="polite" aria-atomic="true" hidden>
+          <div><strong id="archive-file-state" data-original-text></strong><span id="archive-file-name" data-original-text></span><span id="archive-file-size" data-original-text></span><p id="archive-file-error" data-original-text hidden></p></div>
+          <button type="button" class="file-remove" id="archive-remove-file">Datei entfernen</button>
+        </div>
         <p class="klein">Die Zeichnung bleibt auf Ihrem Rechner. Bitte hängen Sie sie der E-Mail an Hans Möhling selbst an.</p>
       </fieldset>
     </form>
