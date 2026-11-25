@@ -96,6 +96,10 @@
   .preis b{ font-size:21px; font-weight:500; font-variant-numeric:tabular-nums; }
   .preis small{ display:block; font-size:12px; color:var(--mid); }
   .marke{ display:inline-block; font-size:11px; letter-spacing:.08em; text-transform:uppercase; padding:2px 8px; border-radius:10px; margin-left:8px; vertical-align:middle; }
+  button.marke{ font-family:inherit; line-height:inherit; border:0; cursor:pointer; text-decoration:underline; text-underline-offset:2px; }
+  button.marke:hover{ box-shadow:0 0 0 1px currentColor; }
+  button.marke:focus-visible, .machine-check > summary:focus-visible{ outline:2px solid var(--navy-soft); outline-offset:3px; }
+  .machine-check{ scroll-margin-top:16px; }
   .m-ok{ background:var(--ok-bg); color:var(--ok); } .m-knapp{ background:var(--knapp-bg); color:var(--knapp); }
   .m-nein{ background:var(--nein-bg); color:var(--nein); } .m-offen{ background:var(--offen-bg); color:var(--offen); }
   .balken{ height:6px; background:var(--band); border-radius:3px; margin:10px 0 4px; position:relative; overflow:hidden; }
