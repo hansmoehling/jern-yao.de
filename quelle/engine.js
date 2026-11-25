@@ -26,7 +26,7 @@
 
   // Regelwerk: Kennung, Aussage, Art. Öffentliche Kurzform; Fundstellen in regeln.md im Projektordner.
   const REGELN = {
-    'R-VZ': { t: 'Inline-Vorzug: Vorverformung φv = 2 ln(DWalzdraht/dPresse); isotrope Fortsetzung kf(φv + φ). Quellenbereich gilt für die Gesamtdehnung. Ohne Zwischen- oder Nachglühung; Ziehkraft und Zieheinrichtung separat prüfen.', art: 'Volumenkonstanz und isotrope Verfestigungsannahme' },
+    'R-VZ': { t: 'Kundenseitig vorgegebener Inline-Vorzug: Vorverformung φv = 2 ln(DWalzdraht/dPresse); isotrope Fortsetzung kf(φv + φ). Quellenbereich gilt für die Gesamtdehnung. Ohne Zwischen- oder Nachglühung. Ziehgerät und Abzug sind Kundenvorgaben, kein Auswahlkriterium der Presse.', art: 'Volumenkonstanz und isotrope Verfestigungsannahme' },
     'R-GR':  { t: 'Grundsatz: Umform-, Werkzeug- und Transportgrenzen sind tribologisch, werkstofflich und konstruktiv verschieblich und erscheinen als Hinweis («knapp»); ablehnen dürfen nur feste Maschinendaten (Stationen, Abschnitt-Ø und -länge, Auswerferwege, Wendelänge, Nennkraft)', art: 'Auslegungsvorgabe' },
     'R-VOL': { t: 'Volumenkonstanz: Abschnittvolumen = Teilvolumen + Abgang (Grat, Butzen)', art: 'Identität' },
     'R-AB1': { t: 'Abschnitt-Ø: Katalogwert als Maschinengrenze; über 400 N/mm² Richtwert d = d_Katalog · √(400/Rm), darüber Hinweis', art: 'Katalogwert und Erfahrungswert aus Betriebsdaten' },
@@ -558,7 +558,6 @@
       else if (c === 'Auswerfer Stempel (PKO)') add('machine-pko', c, 'Jern Yao', 'Verfügbaren stempelseitigen Auswerferweg (PKO) bestätigen.');
       else if (c === 'Wendelänge') add('machine-turning-length', c, 'Jern Yao', 'Zulässige Teillänge beim Wenden um 180° bestätigen.');
       else if (c === 'Mutterngröße') add('machine-nut-size', c, 'Jern Yao', 'Zulässigen Mutterngrößenbereich der Maschine bestätigen.');
-      else if (c === 'Inline-Vorzug') add('machine-inline-drawing', c, 'Jern Yao', 'Inline-Zieheinrichtung, Durchmesserbereich und verfügbare Ziehkraft für diesen Vorzug bestätigen.');
       else if (c === 'Presskraft' || c === 'Summe der Stationskräfte') {
         if (!pos(o.pw)) add('machine-force', 'Presskraft', 'Jern Yao', 'Nennpresskraft der Maschine bestätigen.');
         if (!pos(w.Fmax_t) || !pos(w.Fsum_t)) {
@@ -582,7 +581,6 @@
     const add = (krit, status, soll, ist, r) => k.push({ krit, status, soll, ist, r });
     const zk = x => String(x).replace('.', ','); // Katalogzahl mit Dezimalkomma
     const Rm = a.werkstoff.Rm;
-    if (a.vorzug) add('Inline-Vorzug', 'offen', 'Ø' + z(a.vorzug.rodDiameter) + ' → Ø' + z(a.vorzug.wireDiameter) + ' mm', 'Zieheinrichtung noch zu bestätigen', 'R-VZ');
     // Stationen
     add('Stationen', !pos(o.st) ? 'offen' : o.st >= w.stationenReserve ? 'ok' : o.st >= w.stationen ? 'knapp' : 'nein', w.stationen + ' (+1 Reserve)', o.st ?? 'nicht im Katalog', 'R-STN');
     // Abschnitt-Ø

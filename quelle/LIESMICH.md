@@ -37,6 +37,8 @@ Inbetriebnahme vom 25.11.2026: Cloudflare-Dienst, versioniertes Projektwissen, A
 
 ## Mehrsprachigkeit und Manual
 
+Ziehgeräte und Abzug sind kundenseitig vorgegeben. Inline-Vorzug verändert nur den mathematischen Ausgangszustand der Kraftrechnung und erzeugt keine Rückfrage zur Zieheinrichtung an Jern Yao sowie kein zusätzliches Maschinenkriterium.
+
 Aktueller Ausbau: **15 auswählbare Identitäten mit 14 Kurvenprofilen**, darunter 14 Möhling-Katalogidentitäten und AISI 1010. Neu ist 20MnB4 im normalisierend warmgewalzten Zustand nach Komischke (ETH 2019); [Quellenprüfung und Modellgrenzen](20MnB4_Quellenpruefung.md). Die ältere Bestandsbeschreibung weiter unten beschreibt die bisherigen weichgeglühten Profile.
 
 Dropdowns nennen Sorte, Werkstoffnummer und Zustand; Quellen bleiben im Datenmodell. Der braune Hinweisblock unter der Grobauslegung entfällt. Maschinen führen stattdessen konkrete `openPoints` mit zuständigem Kunden/Drahtlieferanten, Jern Yao oder unserer Auslegung. Dieselben Angaben stehen in Fachchat, Druckblatt und Mailtext.
