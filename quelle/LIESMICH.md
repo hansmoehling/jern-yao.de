@@ -37,6 +37,10 @@ Inbetriebnahme vom 25.11.2026: Cloudflare-Dienst, versioniertes Projektwissen, A
 
 ## Mehrsprachigkeit und Manual
 
+`integration_bauen.py <jernyao.de-Checkout>/docs` exportiert nach `bauen.py` die Module `/auslegung/` und `/konfigurator/` für die Hauptseite ohne Bindestrich. Diese Variante enthält keine Maschinenpreise im clientseitigen Katalog und keine Preisausgabe in Ergebnissen, Druck oder E-Mail. Die ursprünglichen Ausgaben dieses Repositorys bleiben mit Preisen. Im Dienst ist die preisfreie Herkunft von Upload bis Folgechat verbindlich gespeichert; eine Nutzereingabe kann die Freigabe nur weiter einschränken. Die Einbettung verwendet `embedded=1`, passt ihre Höhe an und lässt den Datenschutz erreichbar.
+
+Die Material-Dropdowns lassen das Wort „weichgeglüht“ weg; Lieferzustand, ausgewählte Fließkurve und Rechenannahmen bleiben unverändert im Modell und in der Ergebnisbasis.
+
 Ziehgeräte und Abzug sind kundenseitig vorgegeben. Inline-Vorzug verändert nur den mathematischen Ausgangszustand der Kraftrechnung und erzeugt keine Rückfrage zur Zieheinrichtung an Jern Yao sowie kein zusätzliches Maschinenkriterium.
 
 Aktueller Ausbau: **15 auswählbare Identitäten mit 14 Kurvenprofilen**, darunter 14 Möhling-Katalogidentitäten und AISI 1010. Neu ist 20MnB4 im normalisierend warmgewalzten Zustand nach Komischke (ETH 2019); [Quellenprüfung und Modellgrenzen](20MnB4_Quellenpruefung.md). Die ältere Bestandsbeschreibung weiter unten beschreibt die bisherigen weichgeglühten Profile.

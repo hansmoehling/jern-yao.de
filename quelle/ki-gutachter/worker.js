@@ -5,6 +5,13 @@ const {t,normalizeLanguage}=I18N;
 const TTL = 30 * 86400;
 const MAX_FILE = 15 * 1024 * 1024;
 const ORIGINS = ['https://jern-yao.de', 'https://jernyao.de', 'https://www.jernyao.de'];
+const TECHNICAL_ONLY='technical-only',WITH_PRICES='with-prices';
+const pricedOrigin=origin=>['https://jern-yao.de','https://www.jern-yao.de'].includes(origin);
+const originPricePolicy=req=>pricedOrigin(req.headers.get('Origin'))?WITH_PRICES:TECHNICAL_ONLY;
+const storedPricePolicy=record=>record?.pricePolicy===WITH_PRICES&&pricedOrigin(record.siteOrigin)?WITH_PRICES:TECHNICAL_ONLY;
+// Client values may only restrict. A linked request also keeps its original
+// policy when revisited from another origin or processed without HTTP headers.
+const requestPricePolicy=(req,requested,record)=>originPricePolicy(req)===TECHNICAL_ONLY||requested===TECHNICAL_ONLY||record&&storedPricePolicy(record)===TECHNICAL_ONLY?TECHNICAL_ONLY:WITH_PRICES;
 const EXT = { pdf: 'application/pdf', png: 'image/png', jpg: 'image/jpeg', jpeg: 'image/jpeg', webp: 'image/webp', step: 'application/step', stp: 'application/step', dxf: 'image/vnd.dxf', dwg: 'image/vnd.dwg' };
 const enc = new TextEncoder();
 const json = (value, status = 200, cors = {}) => new Response(JSON.stringify(value), { status, headers: { ...cors, 'Content-Type': 'application/json; charset=utf-8', 'Cache-Control': 'no-store', 'Referrer-Policy': 'no-referrer', 'X-Content-Type-Options': 'nosniff' } });
@@ -48,9 +55,9 @@ async function authorised(env, id, token) {
   if (!intake || Date.parse(intake.createdAt) + TTL * 1000 < Date.now()) throw new HttpError(404, 'Diese Anfrage ist nicht mehr abrufbar.');
   return intake;
 }
-async function snapshot(env, id) {
+async function snapshot(env, id, pricePolicy) {
   const [a, n] = await Promise.all([get(env, 'analyse:' + id), get(env, 'nachricht:' + id)]);
-  return { status: a?.status || 'queued', ...publicResult(a?.result), notificationStatus: n?.status || 'pending' };
+  return { status: a?.status || 'queued', ...publicResult(a?.result,{pricePolicy}), notificationStatus: n?.status || 'pending' };
 }
 function signatureOK(bytes, ext) {
   const b = Array.from(bytes.slice(0, 16)), ascii = new TextDecoder().decode(bytes.slice(0, 16));
@@ -68,6 +75,7 @@ async function intake(req, env, cors, locale) {
   const bytes = await readBounded(req, MAX_FILE + 128 * 1024);
   let form; try { form = await new Request(req.url, { method: 'POST', headers: req.headers, body: bytes }).formData(); } catch { throw new HttpError(400, 'Das Formular konnte nicht gelesen werden.'); }
   const language = normalizeLanguage(form.get('language') || locale.value);
+  const siteOrigin=req.headers.get('Origin')||null,pricePolicy=requestPricePolicy(req,form.get('pricePolicy'));
   locale.value = language;
   await requireReady(env);
   const email = txt(form.get('email'), 254);
@@ -85,14 +93,15 @@ async function intake(req, env, cors, locale) {
   if (!note && !file) throw new HttpError(400, 'Bitte laden Sie eine Zeichnung hoch oder beschreiben Sie Ihr Teil.');
   const idem = txt(form.get('idempotency_key'), 160);
   if (idem && !/^[\w-]{8,160}$/.test(idem)) throw new HttpError(400, 'Die Anfragekennung ist ungültig.');
-  const fingerprint = await digest(JSON.stringify({ email, note, name, company, file, language }));
-  const idemKey = idem ? 'idempotenz:' + await digest(email.toLowerCase() + ':' + idem) : null;
+  const fingerprint = await digest(JSON.stringify({ email, note, name, company, file, language,siteOrigin,pricePolicy }));
+  const idemKey = idem ? 'idempotenz:' + await digest(email.toLowerCase() + ':' + siteOrigin + ':' + idem) : null;
   if (idemKey) {
     const old = await get(env, idemKey);
     if (old) {
       if (old.fingerprint !== fingerprint) throw new HttpError(409, 'Diese Anfragekennung gehört bereits zu anderen Angaben. Bitte senden Sie eine neue Anfrage.');
       if (!await get(env, 'versandauftrag:' + old.id)) await enqueue(env, old.id);
-      const state = await snapshot(env, old.id);
+      const saved=await get(env,'anfrage:'+old.id);
+      const state = await snapshot(env, old.id,requestPricePolicy(req,pricePolicy,saved));
       if (!state.answer) state.language = language;
       return json({ id: old.id, token: await tokenFor(env, old.id), ...state }, 200, cors);
     }
@@ -100,12 +109,12 @@ async function intake(req, env, cors, locale) {
   await throttle(req, env, 'intake', 10);
   const id = crypto.randomUUID(), createdAt = new Date().toISOString();
   if (file) { file.key = 'anfragen/' + id + '/original'; await env.DATEIEN.put(file.key, fileBytes, { httpMetadata: { contentType: file.type }, customMetadata: { expiresAt: String(Date.now() + TTL * 1000) } }); }
-  await put(env, 'anfrage:' + id, { id, createdAt, email, name, company, note, file, language });
+  await put(env, 'anfrage:' + id, { id, createdAt, email, name, company, note, file, language,siteOrigin,pricePolicy });
   await put(env, 'analyse:' + id, { status: 'queued', updatedAt: createdAt });
   await put(env, 'nachricht:' + id, { status: 'pending', updatedAt: createdAt });
   if (idemKey) await put(env, idemKey, { id, fingerprint });
   try { await enqueue(env, id); } catch { throw new HttpError(503, 'Die Übertragung wurde unterbrochen. Bitte senden Sie dieselbe Anfrage erneut.'); }
-  return json({ id, token: await tokenFor(env, id), status: 'queued', notificationStatus: 'pending', language }, 202, cors);
+  return json({ id, token: await tokenFor(env, id), status: 'queued', notificationStatus: 'pending', language,pricePolicy }, 202, cors);
 }
 async function chat(req, env, cors, locale) {
   let body; try { body = JSON.parse(new TextDecoder().decode(await readBounded(req, 64000))); } catch (e) { if (e instanceof HttpError) throw e; throw new HttpError(400, 'Die Nachricht konnte nicht gelesen werden.'); }
@@ -117,16 +126,17 @@ async function chat(req, env, cors, locale) {
   let request = null, history = [];
   if (body.requestId || body.token) { request = await authorised(env, body.requestId, body.token); history = await get(env, 'chat:' + request.id) || []; if (typeof body.language !== 'string' && !locale.explicit) locale.value = normalizeLanguage(request.language); }
   else if (Array.isArray(body.history)) history = body.history.slice(-12).filter(x => x && ['user', 'assistant'].includes(x.role)).map(x => ({ role: x.role, content: txt(x.content || x.message, 4000) }));
+  const pricePolicy=requestPricePolicy(req,body.pricePolicy,request);
   await throttle(req, env, 'chat', 40);
   const file = request?.file?.readable ? await readFile(env, request.file) : null;
   let result;
-  try { result = await analyse({ note: request?.note || '', message, history, file, filename: request?.file?.name, unreadableFile: !!request?.file && !request.file.readable, language: locale.value }, env, { timeoutMs: 65000, maxRounds: 5 }); }
+  try { result = await analyse({ note: request?.note || '', message, history, file, filename: request?.file?.name, unreadableFile: !!request?.file && !request.file.readable, language: locale.value,pricePolicy }, env, { timeoutMs: 65000, maxRounds: 5 }); }
   catch (error) { await recordServiceDiagnostic(env, error, 'chat'); throw new HttpError(503, 'Die Antwort konnte gerade nicht fertiggestellt werden. Ihre bisherige Anfrage bleibt erhalten. Bitte versuchen Sie es erneut.'); }
   if (request) {
     await put(env, 'chat:' + request.id, [...history, { role: 'user', content: message }, { role: 'assistant', content: result.answer }].slice(-20));
     await put(env, 'analyse:' + request.id, { status: result.questions.length ? 'needs_info' : 'ready', result, updatedAt: new Date().toISOString() });
   }
-  return json({ ...publicResult(result), status: result.questions.length ? 'needs_info' : 'ready' }, 200, cors);
+  return json({ ...publicResult(result,{pricePolicy}), status: result.questions.length ? 'needs_info' : 'ready' }, 200, cors);
 }
 async function readFile(env, file) { const object = await env.DATEIEN.get(file.key); if (!object) throw new Error('original_missing'); return { type: file.type, bytes: new Uint8Array(await object.arrayBuffer()) }; }
 function b64(bytes) { let s = ''; for (let i = 0; i < bytes.length; i += 0x8000) s += String.fromCharCode(...bytes.subarray(i, i + 0x8000)); return btoa(s); }
@@ -159,7 +169,7 @@ async function queued(message, env) {
       if (['ready', 'needs_info'].includes(old?.status)) { message.ack(); return; }
       await put(env, key, { status: 'processing', updatedAt: new Date().toISOString() });
       const file = record.file?.readable ? await readFile(env, record.file) : null;
-      const result = await analyse({ note: record.note, file, filename: record.file?.name, unreadableFile: !!record.file && !record.file.readable, language: normalizeLanguage(record.language) }, env, { timeoutMs: 240000, maxRounds: 7 });
+      const result = await analyse({ note: record.note, file, filename: record.file?.name, unreadableFile: !!record.file && !record.file.readable, language: normalizeLanguage(record.language),pricePolicy:storedPricePolicy(record) }, env, { timeoutMs: 240000, maxRounds: 7 });
       const latest = await get(env, key);
       if (!['ready', 'needs_info'].includes(latest?.status)) await put(env, key, { status: result.questions.length ? 'needs_info' : 'ready', result, updatedAt: new Date().toISOString() });
     }
@@ -186,7 +196,7 @@ export default {
       if (url.pathname === '/health' && req.method === 'GET') return json(await readiness(env), 200, cors);
       if (url.pathname === '/anfrage' && req.method === 'POST') return await intake(req, env, cors, locale);
       if (url.pathname === '/chat' && req.method === 'POST') return await chat(req, env, cors, locale);
-      if (url.pathname === '/status' && req.method === 'GET') { const a = await authorised(env, url.searchParams.get('id'), url.searchParams.get('token')); const state = await snapshot(env, a.id); if (!state.answer) state.language = normalizeLanguage(a.language); return json(state, 200, cors); }
+      if (url.pathname === '/status' && req.method === 'GET') { const a = await authorised(env, url.searchParams.get('id'), url.searchParams.get('token')); const state = await snapshot(env, a.id,requestPricePolicy(req,url.searchParams.get('pricePolicy'),a)); if (!state.answer) state.language = normalizeLanguage(a.language); return json(state, 200, cors); }
       return json({ error: t('Nicht gefunden.', locale.value), language: locale.value }, 404, cors);
     } catch (e) { if (!(e instanceof HttpError)) await recordServiceDiagnostic(env, e, url.pathname === '/chat' ? 'chat' : 'request'); return json({ error: t(e instanceof HttpError ? e.message : 'Der Dienst konnte die Anfrage gerade nicht abschließen.', locale.value), language: locale.value }, e.status || 503, cors); }
   },
