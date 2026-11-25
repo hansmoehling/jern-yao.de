@@ -30,7 +30,7 @@
       "locator": "Tabelle 2.1, Buch S.7 / PDF S.19; Tabelle 31.2, Buch S.447 / PDF S.457",
       "url": "https://doi.org/10.1007/978-3-658-19530-4",
       "file": "Dietrich_Praxis_der_Umformtechnik_12_Auflage.pdf",
-      "evidence": "Potenzansatz kf = C * phi^n, separat kf0; ausdrückliches Alt-/Neu-Namensmapping, einschließlich Cq15/C15C und Al99,5/EN AW-1050A."
+      "evidence": "Potenzansatz kf=C*phi^n und separat kf0. Die Tabelle nennt C15C ausdrücklich, aber ihre Alt-/Neu-Zuordnung Cq15→C15C ist als Normgleichheit ungenau: Cq15 wird im Herstellervergleich C15E2C1.1132 zugeordnet. Der C15C-Eintrag wird als benanntes Literaturmodell, nicht als Werkstoffalias verwendet. Al99,5/ENAW1050A ist ausdrücklich angegeben."
     },
     {
       "id": "dietrich-2018-t31-3",
@@ -45,7 +45,7 @@
       "title": "Tschätsch: Praxiswissen Umformtechnik, 5. Auflage, 1997",
       "locator": "Buch S.307 / PDF S.317",
       "file": "Tschaetsch_Praxiswissen_Umformtechnik_1997.pdf",
-      "evidence": "Ck15/Cq15 weichgeglüht; kf0 280, C760, n0,165. Potenzkurve durchgezogen etwa phi0,1 bis 1,0, danach gestrichelt. Berechnung auf phi<=1,0 begrenzt."
+      "evidence": "Ck15/Cq15 weichgeglüht; kf0 280, C760, n0,165. Potenzkurve durchgezogen etwa phi0,1 bis 1,0, danach gestrichelt. Berechnung auf phi<=1,0 begrenzt. Historischer Kurvenbeleg; keine Behauptung Cq15 undC15C seien normidentisch."
     },
     {
       "id": "tschaetsch-1997-34cr4",
@@ -60,6 +60,21 @@
       "locator": "Buch S.314 / PDF S.324",
       "file": "Tschaetsch_Praxiswissen_Umformtechnik_1997.pdf",
       "evidence": "Al99,5 weichgeglüht; kf0 60, C150, n0,222. Kurve durchgezogen bis etwa phi1,0, danach gestrichelt. Potenzansatz ab phi0,1, Berechnung auf phi<=1,0 begrenzt."
+    },
+    {
+      "id": "onder-2004-qst36-3-compression",
+      "title": "Canderim Önder: Analysis of Bolt Production by Metal Forming, METU, August 2004",
+      "locator": "Buch S.90–106 / PDF S.99–115, insbesondere Gleichung 4.1 S.91/PDF100, Messwert S.102/PDF111 und Bild 4.17 S.106/PDF115; Tabelle 4.5 S.109/PDF118; Anhang F S.270–271/PDF281–282",
+      "url": "https://www.netformmetal.com/download/Kutuphane/tezler/soguk_sekillendirme/2004_METU_Canderim_Onder_ANALYSIS_OF_BOLT_PRODUCTION_BY_METAL_FORMING.pdf",
+      "file": "Onder2004-Bolt.pdf",
+      "evidence": "Originalarbeit, zugängliche Kopie bei NETFORM. QSt.36-3 ausdrücklich Werkstoffnummer 1.0214; geglühte Proben; Stauchversuch bei Raumtemperatur und iterative Reibungskorrektur. Veröffentlichter Potenzfit K640,4 MPa/n0,16. Separater Rp0,2-Messwert346,8 MPa; Zusammenfassung nennt abweichend336 MPa. Vergleich mit IBF-Rastegaev-Versuchen bei20°C im Anhang, keine neuen Fitparameter daraus entnommen."
+    },
+    {
+      "id": "rodacciai-c10c-identity",
+      "title": "Rodacciai: C10C – Nr.1.0214 / CB10FF, Datenblatt Rev.10/2018",
+      "locator": "PDF S.1, Werkstoffvergleich EN10263-2 / DIN1654-2",
+      "url": "https://www.rodacciai.de/UPLOAD/datasheets/CB10FF_C10C-Nr.1.0214-ENG.pdf",
+      "evidence": "Hersteller ordnet C10C1.0214 der historischen Bezeichnung QSt36-3 mit derselben Werkstoffnummer zu. Dient der Identität, nicht als Quelle der Fließkurvenparameter."
     }
   ],
   "curves": [
@@ -132,6 +147,37 @@
       "state": "soft-annealed",
       "stateLabel": "weichgeglüht",
       "temperature": "room",
+      "temperatureStatus": "room-temperature-test-25C-table-20C-comparison",
+      "strainRateStatus": "not-reported",
+      "approval": "literature",
+      "eligible": true,
+      "evidenceClass": "published-experimental-fit",
+      "id": "onder2004-c10c-soft",
+      "name": "C10C / QSt36-3",
+      "materialNumbers": [
+        "1.0214"
+      ],
+      "model": "hollomon",
+      "C": 640.4,
+      "n": 0.16,
+      "kf0": 346.8,
+      "phiMin": 0.1,
+      "phiMax": 1.0,
+      "startMode": "linear-to-phiMin",
+      "startBasis": "Expliziter Modellanschluss: linear vom in Bild4.12/TextS.102 dokumentierten technischen Rp0,2=346,8 MPa bei phi0 bis640,4*0,1^0,16. Unter0,1 wird nicht behauptet, der reine Potenzfit bilde die Messung ab. Der Autor beschreibt für einen früheren anderen Parametersatz selbst einen linearen Startanschluss bis0,05 (S.93); die Grenze0,1 ist unsere dokumentierte Modellentscheidung.",
+      "rangeBasis": "Auf phi0,1–1,0 begrenzter veröffentlichter Fit des reibungskorrigierten Stauchversuchs. Bild4.17 zeigt Daten bis etwa1,08; AnhangF vergleicht Raumtemperaturkurven mit IBF bis1,0. Kein Extrapolieren über1,0.",
+      "sourceIds": [
+        "onder-2004-qst36-3-compression",
+        "rodacciai-c10c-identity"
+      ],
+      "sourceChoice": "Stauchfit aus Bild4.17 gewählt, nicht Zugfit, früherer ICFG-Satz670/0,25, gemittelter RT-Satz oder200°C-Kurve. Tabellenwert336 für den Anfang widerspricht dem expliziten346,8-Messwert; der höhere, unmittelbar erläuterte Messwert ist verwendet. K640 inTabelle4.5 ist gegenüber640,4 gerundet.",
+      "stateScope": "Quelle nennt geglühten QSt.36-3, aber keinen vollständig spezifizierten Glühzyklus und keine industrielle Chargenstreuung. Nicht auf nachgezogenen oder vorverfestigten Draht übertragen.",
+      "fitLimitations": "Veröffentlichter angenäherter Potenzfit, keine exakte Digitalisierung der roten Kurve. Bei phi1 liefert der Fit640,4MPa, das Diagramm4.17 etwa600MPa. AnhangF zeigt eine weitere Raumtemperatur-Gegenprüfung; daraus wird keine statistisch abgesicherte Fehlergrenze abgeleitet."
+    },
+    {
+      "state": "soft-annealed",
+      "stateLabel": "weichgeglüht",
+      "temperature": "room",
       "temperatureStatus": "qualitative-cold-forming-no-numeric-temperature",
       "strainRateStatus": "not-reported",
       "approval": "literature",
@@ -154,7 +200,8 @@
       "sourceIds": [
         "dietrich-2018-t2-1-t31-2",
         "tschaetsch-1997-c15"
-      ]
+      ],
+      "identityNote": "Dietrich nennt C15C ausdrücklich in der Parameterzeile. Das Alt-/Neu-Mapping ist kein Beleg für Normgleichheit mit Cq15/C15E2C. Der Eintrag bleibt ein typisches Literaturmodell; unabhängiger direkter C15C1.0234/GKZ-Versuchsbeleg ist Kiener2020, kein Import dieser separaten Messkurve."
     },
     {
       "state": "soft-annealed",
@@ -732,13 +779,6 @@
       ],
       "name": "C45EC",
       "reason": "Katalog nennt 1.1192, Dietrich nennt für C45EC 1.1197. Identitätskonflikt vor Zuordnung klären."
-    },
-    {
-      "materialNumbers": [
-        "1.0214"
-      ],
-      "name": "C10C",
-      "reason": "Gefundene Ck10/C10E-Kurve ist kein direkter C10C-Nachweis; kein hinreichend belegter Proxy."
     },
     {
       "name": "Borstähle einschließlich 20MnB4 und 23MnB4",

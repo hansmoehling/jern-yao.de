@@ -124,10 +124,10 @@ test('a false or wrong state quote and a foreign-grade curve never release force
 });
 
 test('catalog grade without a flow curve still returns geometry and machine concepts, never zero forces',()=>{
- const i=input();i.material='C10C';i.materialEvidence={origin:'user_text',quote:'C10C',reference:'user material'};
- const result=screen(i,{note:context.note.replace('C15C','C10C')});
+ const i=input();i.material='C8C';i.materialEvidence={origin:'user_text',quote:'C8C',reference:'user material'};
+ const result=screen(i,{note:context.note.replace('C15C','C8C')});
  assert.equal(result.ok,true);
- const p=result.proposal;assert.equal(p.input[0].value,'C10C');
+ const p=result.proposal;assert.equal(p.input[0].value,'C8C');
  assert.ok(p.stages.length>0);assert.ok(p.calculation.values.L0>0);
  assert.equal(p.calculation.materialModel.curveStatus,'missing');
  assert.equal(p.calculation.values.Fmax_t,null);assert.equal(p.calculation.values.Fsum_t,null);
@@ -136,6 +136,20 @@ test('catalog grade without a flow curve still returns geometry and machine conc
  for(const m of p.machines){assert.equal(m.utilization,null);assert.equal(m.status,'offen');assert.equal(m.criteria.find(c=>c.criterion==='Presskraft').status,'offen');assert.equal(m.concept.status,'candidate');assert.ok(m.concept.stages.length>0);}
  assert.ok(p.assumptions.some(x=>x.includes('Fließkurvenansatz')));
  assert.ok(!p.assumptions.some(x=>/null|undefined|NaN/.test(x)));
+});
+
+test('C10C uses its own compression-literature curve only after explicit state selection',()=>{
+ const i=input();i.material='C10C';i.materialEvidence={origin:'user_text',quote:'C10C'};
+ const c={note:context.note.replace('C15C','C10C')};
+ assert.equal(screen(i,c).proposal.calculation.values.Fmax_t,null);
+ i.curveId=Engine.findMaterial('C10C').flowCurves[0].id;
+ assert.equal(screen(i,c).proposal.calculation.values.Fmax_t,null);
+ i.materialState='soft-annealed';i.materialStateEvidence={origin:'assumption',quote:'weichgeglühten Draht verwenden'};
+ const r=screen(i,c);assert.equal(r.ok,true);assert.equal(r.proposal.calculation.materialStatus.flow,'ready');
+ const expectedN=Math.PI*169/4*640.4*Math.pow(Math.log(169/64),.16)/.6;
+ assert.ok(Math.abs(r.proposal.calculation.values.Fmax_t-expectedN/9806.65)<1e-9);
+ assert.equal(r.proposal.calculation.materialModel.selectedFlowCurve.id,i.curveId);
+ assert.ok(r.proposal.input.find(x=>x.field==='materialState').assumption);
 });
 
 test('exact grade identity or material number resolves; a shorter unverified grade is not substituted',()=>{

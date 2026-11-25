@@ -6,11 +6,11 @@ Stand: 25.11.2026. Recherche und quellengebundenes Kurvenregister für die Vorau
 
 **Ja, geeignete Literatur- und Versuchskurven sind auffindbar.** Bereits die vorhandene Sammlung enthält konkrete Anknüpfungen für **14 der 58 Katalogzeilen**. Darin enthalten sind zwei getrennte Katalogzeilen derselben Aluminiumlegierung 6082 und ein gesperrter Identitätskonflikt bei C45EC. Die Zahl bedeutet weder 14 unabhängige Messreihen noch 14 freigegebene Werkstoffe.
 
-Zusätzliche Originalarbeiten belegen Versuche für C15C, 16MnCr5, CuZn37, AlMgSi1/6082, 1.4301 und Cu-ETP. Für C10C wurde im begrenzten Suchumfang noch keine exakt zuordenbare Kaltfließkurve nachgewiesen. Bei 23MnB4 fanden sich belegte **Warm**umformdaten; diese schließen die Kaltumformlücke nicht.
+Zusätzliche Originalarbeiten belegen Versuche für C15C, 16MnCr5, CuZn37, AlMgSi1/6082, 1.4301 und Cu-ETP. Die anschließende gezielte Recherche fand außerdem eine **direkte Kurve für C10C / QSt36-3, Werkstoffnummer 1.0214**, aus Önder 2004. Damit ist die frühere C10C-Nachweislücke geschlossen; der konkrete Datensatz steht unter W8. Bei 23MnB4 fanden sich bislang belegte **Warm**umformdaten; diese schließen die Kaltumformlücke nicht.
 
-Für die manuelle Auswahl werden daraus **zwölf Katalogeinträge mit elf Literaturkurven im weichgeglühten Zustand** bereitgestellt. Die vollständigen 58 Katalogidentitäten bleiben als Wissensbasis erhalten. C45EC bleibt wegen des Nummernkonflikts gesperrt; AlMg3 fehlt ein belegter Anfangsbereich. Die 14 historischen C/n-Ansätze sind kein Kraftnachweis. Katalogidentität, Rm-Beleg und verwendbare Fließkurve bleiben getrennte Datensätze.
+Für die manuelle Auswahl werden daraus **dreizehn Katalogeinträge mit zwölf Literaturkurven im weichgeglühten Zustand** bereitgestellt. Die vollständigen 58 Katalogidentitäten bleiben als Wissensbasis erhalten. C45EC bleibt wegen des Nummernkonflikts gesperrt; AlMg3 fehlt ein belegter Anfangsbereich. Die 14 historischen C/n-Ansätze sind kein Kraftnachweis. Katalogidentität, Rm-Beleg und verwendbare Fließkurve bleiben getrennte Datensätze.
 
-Das maschinenlesbare Register [fliesskurven.json](fliesskurven.json) enthält die ausgewählten Zahlen, Zustände, Quellen und Bereichsgrenzen. Acht Profile verwenden veröffentlichte Tabellenpunkte, drei den ausdrücklich belegten Potenzansatz mit einem dokumentierten linearen Anfangsanschluss. Keine Ersatzkurve aufgrund bloßer Sortenähnlichkeit wurde aktiviert.
+Das maschinenlesbare Register [fliesskurven.json](fliesskurven.json) enthält die ausgewählten Zahlen, Zustände, Quellen und Bereichsgrenzen. Acht Profile verwenden veröffentlichte Tabellenpunkte, vier den ausdrücklich belegten Potenzansatz mit einem dokumentierten linearen Anfangsanschluss. Keine Ersatzkurve aufgrund bloßer Sortenähnlichkeit wurde aktiviert.
 
 ## Zuerst geprüft: Konzept und vorhandene Literatur
 
@@ -49,6 +49,8 @@ Die lokalen PDFs unter `Downloads/Literatur_Sandra` sind inzwischen besser zugä
 | AlMg 3, 3.3535 | C = 390; n = 0,19; ausdrücklich φ = 0,2–1,0 | Geglüht / Raumtemperatur; L1 Tab. 10.1 | Ja, innerhalb des Intervalls; kf0 und numerische Dehnrate fehlen. |
 
 Diese Tabellen liefern eine nutzbare Grundlage für **zustandsbezogene Literaturprofile**. Sie liefern keine numerisch belegte Temperatur- oder Dehnratenabhängigkeit. „Raumtemperatur“ wird deshalb nicht nachträglich als nachgewiesener Versuch bei exakt 20 °C und 1 s⁻¹ etikettiert.
+
+**Präzisierung der C15C-Zuordnung:** Dietrich Tab.2.1 nennt in der Parameterzeile ausdrücklich C15C, bezeichnet die Spalten aber zugleich als „alt/neu“. Die dort nahegelegte Normgleichheit Cq15 = C15C ist ungenau: Der Herstellerprospekt `Heckler_Brosch_24_online-a60f7127.pdf`, PDF8, ordnet Cq15 ausdrücklich C15E2C/1.1132 zu und führt C15C/1.0234 getrennt. Der C15C-Datensatz wird deshalb als ausdrücklich benanntes **typisches Literaturmodell**, nicht als Normalias oder vermessene C15C-Charge verwendet. Der unabhängige Versuchsnachweis C15C/1.0234 aus W1 bleibt davon getrennt.
 
 ## Gezielte Originalarbeiten im Web
 
@@ -92,7 +94,22 @@ Vuppala et al., RWTH Aachen, 2021: [FepiM-Originalarbeit](https://www.mdpi.com/2
 
 ### W7 — 23MnB4: bewusst ausgeschlossener Warmfund
 
-[Originalbeitrag METAL 2015: *Formability of steels for rolling of wire rod*](https://www.confer.cz/metal/2015/download/2218-formability-of-steels-for-rolling-of-wire-rod.pdf), Tabellen 2/3 und Bilder 5/6. Die gefundenen Parameter gelten für **850–1150 °C**, Umformgrade 0,05–2,0 und Dehnraten 0,01–10 s⁻¹. **Nein für Kaltumformung.** Der exakte Sortenname allein berechtigt nicht zur Verwendung bei Raumtemperatur. Für C10C und eine passende kalte 23MnB4-Lieferzustandskurve bleibt der Nachweis im begrenzten Suchumfang offen; dies ist keine Behauptung, dass solche Daten nicht existieren.
+[Originalbeitrag METAL 2015: *Formability of steels for rolling of wire rod*](https://www.confer.cz/metal/2015/download/2218-formability-of-steels-for-rolling-of-wire-rod.pdf), Tabellen 2/3 und Bilder 5/6. Die gefundenen Parameter gelten für **850–1150 °C**, Umformgrade 0,05–2,0 und Dehnraten 0,01–10 s⁻¹. **Nein für Kaltumformung.** Der exakte Sortenname allein berechtigt nicht zur Verwendung bei Raumtemperatur. Für eine passende kalte 23MnB4-Lieferzustandskurve bleibt der Nachweis im begrenzten Suchumfang offen; dies ist keine Behauptung, dass solche Daten nicht existieren.
+
+### W8 — Direkter C10C-Nachweis unter QSt36-3 / 1.0214
+
+Canderim Önder, *Analysis of Bolt Production by Metal Forming*, Masterarbeit, Middle East Technical University, August 2004. [Originalarbeit, zugängliche Kopie bei NETFORM](https://www.netformmetal.com/download/Kutuphane/tezler/soguk_sekillendirme/2004_METU_Canderim_Onder_ANALYSIS_OF_BOLT_PRODUCTION_BY_METAL_FORMING.pdf); lokale Quelldatei `Onder2004-Bolt.pdf`.
+
+- **Identität:** Buch S.90/PDF99 nennt für QSt.36-3 ausdrücklich die Werkstoffnummer **1.0214**. Das [Rodacciai-Originaldatenblatt, PDF1](https://www.rodacciai.de/UPLOAD/datasheets/CB10FF_C10C-Nr.1.0214-ENG.pdf) verbindet die heutige Bezeichnung C10C/1.0214 mit QSt36-3. Die Zuordnung beruht damit auf Werkstoffidentität, nicht auf der Nähe zu C10E oder C15C.
+- **Versuch:** Buch S.97–98/PDF106–107 und S.101/PDF110 beschreiben aus geglühtem QSt.36-3 gefertigte Proben sowie Zug- und Stauchversuche. Tabelle4.5, Buch S.109/PDF118, ordnet den Stauchversuch **25°C** zu. Eine numerische Dehnrate, vollständiger Glühzyklus und eine belastbare Chargenstreuung sind nicht angegeben.
+- **Korrektur und Fit:** Buch S.103–106/PDF112–115 beschreibt eine iterative Reibungskorrektur über den Vergleich mit einer FE-Nachrechnung. Bild4.17 nennt für die korrigierte Kurve **K = 640,4 MPa, n = 0,16**. Gleichung4.1, Buch S.91/PDF100, definiert ausdrücklich `kf = K · ε^n`; damit ist die Modellform kompatibel. Das Diagramm zeigt Werte bis ungefähr φ1,08; unser Profil wird auf **0,1–1,0** begrenzt.
+- **Anfangswert:** Buch S.102/PDF111 erläutert die 0,2%-Offsetbestimmung im Stauchversuch und nennt **346,8 MPa**. Tabelle4.5 nennt abweichend **336 MPa**. Wir verwenden die höhere, direkt erklärte Messangabe346,8 und dokumentieren den Widerspruch. Dieser technische Rp0,2-Wert wird als Anfangswert des Vorauslegungsmodells genutzt, nicht als exakt bestimmter Beginn der Plastizität ausgegeben.
+- **Anfangsanschluss:** Zwischen φ0 und0,1 verbindet eine Gerade346,8 MPa mit dem Potenzwert **443,05 MPa**. Das ist unsere ausdrückliche Modellergänzung. Die Quelle beschreibt selbst einen linearen Anfangsanschluss bis0,05, jedoch für einen früher verwendeten, anderen Satz K670/n0,25 mit Anfangswert200 MPa (Buch S.93/PDF102). Diese Werte werden nicht miteinander vermischt.
+- **Gegenprüfung und Fitgrenze:** AnhangF, Buch S.270–271/PDF281–282, vergleicht Raumtemperaturkurven aus METU und Rastegaev-Stauchversuchen des IBF Aachen bisφ1,0. Die Diagramme4.17 undF.1 wurden visuell geprüft. Der Potenzfit ist eine Näherung: beiφ1 liefert er640,4 MPa, die korrigierte Linie in Bild4.17 liegt ungefähr bei600 MPa. Eine statistisch abgesicherte Fehlerschranke wird daraus nicht behauptet. Die200°C-Kurven und der gemittelte Raumtemperatursatz werden nicht übernommen.
+
+**Einordnung:** Dieser direkte Datensatz ersetzt die zuvor offene C10C-Zuordnung. Er wird als quellengebundenes Literaturprofil `onder2004-c10c-soft` aktiviert. Ein C15C-Ersatz ist dafür nicht mehr erforderlich. Beiφ0,1/0,4/0,8/1 liefert der neue C10C-Fit rund443/553/618/640 MPa; der bisherige C15C-Literaturansatz rund520/653/733/760 MPa. Diese konkreten Modelle liegen rund17–19% auseinander. Das ist ein Modellvergleich im bezeichneten Zustand, keine universelle Sorten- oder Chargendifferenz.
+
+Für weitere Ausgangszustände bleibt der praktische Beschaffungsweg: Lieferant nach `kf(φ)` für den gelieferten Drahtzustand fragen, alternativ eine vollständige Zugkurve einschließlich Gleichmaßdehnung und einen Stauchversuch im relevanten Umformbereich beschaffen. Lange, Buch S.483–486/PDF494–497, beschreibt für geeignete nicht vorverfestigte Stähle einen ersten Hollomon-Ansatz aus `n ≈ ln(1 + Ag)` und `C ≈ Rm · (e/n)^n`; **Rm allein genügt weiterhin nicht**. Dort genannte Nachschlagequelle: Doege/Meyer-Nolkemper/Saeed, *Fließkurvenatlas metallischer Werkstoffe*, Hanser1986, sowie VDI3200 Blatt2.
 
 ## Gibt es eine übersichtliche Kurvenbibliothek?
 
@@ -106,11 +123,12 @@ StahlDat SX ist der konkret belegte Einstieg für eine systematische Stahlkurven
 
 ## Bereitgestellter Rechenansatz
 
-Die folgenden zwölf Katalogzeilen werden aus elf voneinander getrennten Literaturprofilen bedient. Der Zustand lautet immer **weichgeglüht**. Die Auswahl ist ein dokumentierter Ansatz zur Vorauslegung; für bereits gezogenen oder vergüteten Draht ist sie keine automatische Zustandszuordnung.
+Die folgenden dreizehn Katalogzeilen werden aus zwölf voneinander getrennten Literaturprofilen bedient. Der Zustand lautet immer **weichgeglüht**. Die Auswahl ist ein dokumentierter Ansatz zur Vorauslegung; für bereits gezogenen oder vergüteten Draht ist sie keine automatische Zustandszuordnung.
 
 | Katalogzeile / Nummer | Aktives Profil | Verwendeter Bereich φ |
 |---|---|---|
 | C4C / 1.0303 | Dietrich Tab. 31.1, Punkte einschließlich kf0 = 250 | 0–1,6 |
+| C10C / 1.0214 | Önder2004, korrigierter Stauchfit C640,4/n0,16; Anfangswert346,8 | Potenzfunktion0,1–1,0; linearer Anschluss0–0,1 |
 | C15C / 1.0234 | C760, n0,165, kf0 = 280; Dietrich und Tschätsch S. 307 | Potenzfunktion 0,1–1,0; linearer Anschluss 0–0,1 |
 | C15E2C / 1.1132 | Dietrich Tab. 31.1, eigene benannte Punktkurve, kf0 = 280 | 0–1,6 |
 | C35EC / 1.1172 | Dietrich Tab. 31.1, kf0 = 340 | 0–1,6 |
@@ -123,7 +141,7 @@ Die folgenden zwölf Katalogzeilen werden aus elf voneinander getrennten Literat
 | AlMgSi1 / 3.2315 | Dietrich Tab. 31.1, EN AW-6082, kf0 = 130 | 0–4,0 |
 | AlSi1MgMn / EN AW 6082 | dasselbe 6082-Profil | 0–4,0 |
 
-**Interpolation ist Teil des Modells:** Tabellenwerte werden stückweise linear verbunden, einschließlich des separat belegten Anfangswerts. Bei den drei Potenzprofilen verbindet eine Gerade den belegten Wert kf0 mit `C · 0,1^n`. Dieser kurze Anfangsanschluss ist eine offen benannte technische Näherung, keine zusätzliche Messreihe. Bei C15C, 34Cr4 und Al99,5 endet der freigegebene Potenzbereich spätestens am Übergang zur gestrichelten Fortsetzung des Originaldiagramms. Der Anschluss wird im Datensatz ausdrücklich als `startMode: linear-to-phiMin` geführt.
+**Interpolation ist Teil des Modells:** Tabellenwerte werden stückweise linear verbunden, einschließlich des separat belegten Anfangswerts. Bei den vier Potenzprofilen verbindet eine Gerade den belegten Anfangswert mit `C · 0,1^n`. Dieser kurze Anfangsanschluss ist eine offen benannte technische Näherung, keine zusätzliche Messreihe. Bei C15C, 34Cr4 und Al99,5 endet der freigegebene Potenzbereich spätestens am Übergang zur gestrichelten Fortsetzung des Originaldiagramms. Bei C10C wird der gemessene Stauchbereich konservativ aufφ1,0 begrenzt. Der Anschluss wird im Datensatz ausdrücklich als `startMode: linear-to-phiMin` geführt.
 
 Die Tabellenwerte aus Dietrich werden als **veröffentlichte Literaturwerte** bezeichnet. Die Tabelle markiert nicht jeden Punkt als gemessen oder extrapoliert; daher wird keine durchgängige Messvalidierung bis zum Tabellenende behauptet. Es wird weder über das Tabellenende hinaus verlängert noch auf andere Lieferzustände übertragen.
 
@@ -133,15 +151,15 @@ Die Tabellenwerte aus Dietrich werden als **veröffentlichte Literaturwerte** be
 2. **Modellform erhalten:** Der bisherige Ansatz `C * max(phi, 0.025)^n` mit zusätzlichem Offset `+0.025` an beiden Enden der bisherigen Mittelwertberechnung bildet den Literaturansatz nicht korrekt ab. Die neuen Profile benötigen die unveränderte Potenzform beziehungsweise stückweise lineare Punkte und das Integral über den tatsächlichen Umformgradbereich. `kf0` wird separat behandelt; ein bloßer Austausch zweier C/n-Zahlen ist ausgeschlossen. Swift und Hockett–Sherby sind andere Modellfamilien und werden nicht in einen Hollomon-Adapter gezwängt.
 3. **Geltungsbereich führen:** Gemessener φ-Bereich, Bereich eines Fits, Extrapolation, Temperatur und Dehnrate müssen unterscheidbar sein. 5 mm/min nicht ohne Probengeometrie und Hubverlauf in eine konstante s⁻¹-Angabe verwandeln.
 4. **Zahlen prüfen:** Diagramme kontrolliert digitalisieren oder Rohdaten beschaffen; Einheiten und mehrere Prüfpunkte gegen das Original testen. Punktkurven nicht ohne dokumentierte Anpassung in einen Hollomon-Zweiparameteransatz pressen. Quellabweichungen nicht mitteln.
-5. **Gültigkeit im Ergebnis führen:** Die elf ausgewählten Literaturprofile erhalten die Kennzeichnung `approval: literature` und sind ausschließlich mit ihrem Zustand und Bereich als Rechenansatz zugelassen. Für schnelle Pressen bleiben Erwärmung, Geschwindigkeit und Lieferzustand zusätzliche Prüfgrößen. Die übrigen Funde sind Recherchekandidaten. Kraft aus Materialdaten allein ist noch keine Presskraft: Geometrie, Umformpfad, Reibung, Werkzeugkontakt und gleichzeitig wirkende Stationen müssen zusätzlich zum gewählten Kraftmodell passen.
+5. **Gültigkeit im Ergebnis führen:** Die zwölf ausgewählten Literaturprofile erhalten die Kennzeichnung `approval: literature` und sind ausschließlich mit ihrem Zustand und Bereich als Rechenansatz zugelassen. Für schnelle Pressen bleiben Erwärmung, Geschwindigkeit und Lieferzustand zusätzliche Prüfgrößen. Die übrigen Funde sind Recherchekandidaten. Kraft aus Materialdaten allein ist noch keine Presskraft: Geometrie, Umformpfad, Reibung, Werkzeugkontakt und gleichzeitig wirkende Stationen müssen zusätzlich zum gewählten Kraftmodell passen.
 
 ## Gegenprüfung des Kurvenregisters
 
-Alle elf Profile wurden gegen die genannten Tabellen beziehungsweise Diagramme geprüft. Die zwölf Werkstoffnummern stimmen exakt mit dem Katalogregister überein; alle Quellenkennungen sind aufgelöst. Anfangswerte sind positiv, Stützstellen geordnet und Fließspannungen monoton. Die numerische Integration wurde für jedes Profil über vier unterschiedliche Intervalle gegen eine unabhängige Mittelpunktsquadratur mit jeweils 20.000 Teilintervallen geprüft: **44 Gegenprüfungen**, größte Abweichung rund **1,2 · 10⁻⁷ N/mm²**. Bereichsüberschreitungen liefern keine numerische Fließspannung. Diese Prüfung bestätigt die Umsetzung der Kurven, nicht die Genauigkeit eines vollständigen Werkzeug- oder Prozessmodells.
+Alle zwölf Profile wurden gegen die genannten Tabellen beziehungsweise Diagramme geprüft. Die dreizehn Werkstoffnummern stimmen exakt mit dem Katalogregister überein; alle Quellenkennungen sind aufgelöst. Anfangswerte sind positiv, Stützstellen geordnet und Fließspannungen monoton. Die numerische Integration wurde für jedes Profil über vier unterschiedliche Intervalle gegen eine unabhängige Mittelpunktsquadratur mit jeweils 20.000 Teilintervallen geprüft: **48 Gegenprüfungen**, größte Abweichung rund **1,2 · 10⁻⁷ N/mm²**. Bereichsüberschreitungen liefern keine numerische Fließspannung. Diese Prüfung bestätigt die Umsetzung der Kurven, nicht die Genauigkeit eines vollständigen Werkzeug- oder Prozessmodells.
 
 ## Geprüfte Ersatzkurven: derzeit keine Freigabe
 
-Ähnliche Chemie, ähnliche Zugfestigkeit oder ein benachbarter Sortenname genügen nicht, um den ganzen Verfestigungsverlauf zu übertragen. Eine brauchbare Ersatzkurve benötigt mindestens einen nachgewiesenen vergleichbaren Ausgangszustand und einen belastbaren Vergleich des kf-Verlaufs im verwendeten Umformbereich. Für die konkret offenen Borstähle und C10C wurde eine solche Übereinstimmung in den folgenden Quellen nicht gefunden:
+Ähnliche Chemie, ähnliche Zugfestigkeit oder ein benachbarter Sortenname genügen nicht, um den ganzen Verfestigungsverlauf zu übertragen. Eine brauchbare Ersatzkurve benötigt mindestens einen nachgewiesenen vergleichbaren Ausgangszustand und einen belastbaren Vergleich des kf-Verlaufs im verwendeten Umformbereich. Die folgenden zuvor untersuchten Ersatzwege wurden nicht aktiviert; C10C wird inzwischen durch den direkten NachweisW8 abgedeckt:
 
 - **27MnB4 als möglicher 23MnB4-Nachbar:** Akyıldız et al., 2023, [Original-PDF](https://dergipark.org.tr/en/download/article-file/2485489), DOI 10.36306/konjes.1130504. PDF S. 4 beschreibt 14-mm-Draht und unterschiedliche Streckgrenzen nach Warmwalzen, Weichglühen und Kugelkarbidglühen. Eine vollständige numerische Fließkurve für eine überprüfbare Übertragung ist nicht zugänglich; PDF S. 11 nennt die zugrunde liegenden Daten vertraulich. Keine 23MnB4-Ersatzkurve aktiviert.
 - **20MnB4/23MnB4 und C10C/C10E2C:** Das [Originaldatenblatt von British Steel, PDF S. 2](https://www.britishsteel.co.uk/wp-content/uploads/2026/02/cold-heading-datasheet.pdf) belegt benachbarte chemische Zusammensetzungen und Zugfestigkeitsangaben für warmgewalzte Produkte. Es enthält keinen vergleichenden kalten kf-Verlauf. Keine Übertragung von C10E auf C10C oder eines Borstahls auf einen anderen.
@@ -151,4 +169,4 @@ Alle elf Profile wurden gegen die genannten Tabellen beziehungsweise Diagramme g
 
 Die Suche konzentrierte sich auf vorhandene Literatur und die genannten repräsentativen Sorten. Es erfolgte **keine vollständige Einzelrecherche aller 58 Zeilen**, keine vollständige OCR aller Hilgeland-Scans und keine erneute Auswertung sämtlicher 193 Einzelanlagen. Keine Behauptung vollständiger Abdeckung.
 
-Das getrennte Kurvenregister liegt jetzt vor. Die nächsten Erweiterungen betreffen zusätzliche Lieferzustände, nachvollziehbare Daten für C10C und Borstähle sowie dynamische Daten für schnelle Pressen. Dafür eignen sich gezielte Lieferanten-/Institutsdaten oder eine geprüfte Bibliothekslizenz; die Recherchelücke wird nicht durch Zugfestigkeit als Ersatz für eine Fließkurve geschlossen.
+Das getrennte Kurvenregister liegt jetzt einschließlich C10C vor. Die nächsten Erweiterungen betreffen zusätzliche Lieferzustände, nachvollziehbare Daten für Borstähle sowie dynamische Daten für schnelle Pressen. Dafür eignen sich gezielte Lieferanten-/Institutsdaten oder eine geprüfte Bibliothekslizenz; die Recherchelücke wird nicht durch Zugfestigkeit als Ersatz für eine Fließkurve geschlossen.

@@ -36,9 +36,25 @@ test('only approved wire-condition curves are selectable and all examples explic
    const [index,curveId]=option.value.split('|'),material=E.WERKSTOFFE[Number(index)],curve=material.flowCurves.find(curve=>curve.id===curveId);
    assert(curve?.eligible);assert(['literature','proxy'].includes(curve.approval));assert(curve.materialNumbers.includes(material.number));
    assert(option.textContent.includes(I.t('weichgeglüht',language)));assert(option.textContent.includes(I.t('Literaturansatz',language)));
-   assert(!['C10C','23MnB4','33B2'].includes(material.id));
+   assert(!['C8C','23MnB4','33B2'].includes(material.id));
   }
   for(const example of p.examples){example.events.click();const cards=p.get('karten').innerHTML;assert(cards.includes(I.t('Stadienkonzept für diese Maschine',language)),language+' '+example.dataset.bsp);assert(!cards.includes('NaN'));assert.equal(E.WERKSTOFFE[Number(p.f.elements.wst.value.split('|')[0])].id,'C4C');assert(p.get('material-basis').textContent.includes(I.t('weichgeglüht',language)));assert(!p.get('kenn').innerHTML.includes(I.t('Kraft noch offen',language)),'all demonstration geometries stay within the selected C4C curve');}
+ }
+});
+
+test('direct C10C literature curve is selectable in all languages and retains its range limit',()=>{
+ for(const language of I.supported){
+  const p=setup(language),index=E.WERKSTOFFE.findIndex(material=>material.id==='C10C'),material=E.WERKSTOFFE[index];
+  const curve=material.flowCurves.find(item=>item.eligible&&item.approval==='literature');assert(curve,'C10C needs its own sourced curve');
+  p.examples[0].events.click();p.f.elements.wst.value=index+'|'+curve.id;
+  for(const [key,value]of Object.entries({d0:8,kD:13,kH:5,sD:8,sL:30}))p.f.elements[key].value=String(value);
+  p.f.events.change();
+  assert(p.f.elements.wst.options.some(option=>option.value===index+'|'+curve.id));
+  assert(p.get('material-basis').textContent.includes('C10C'));
+  assert(!p.get('kenn').innerHTML.includes(I.t('Kraft noch offen',language)));
+  p.get('drucken').events.click();assert(p.get('blatt').innerHTML.includes('C10C'));
+  p.f.elements.kD.value='14';p.f.events.change();
+  assert(p.get('kenn').innerHTML.includes(I.t('Kraft noch offen',language)),'C10C is not extrapolated beyond the source range');
  }
 });
 test('out-of-range curve values stay qualitative and unsupported dropdown injections fail closed',()=>{
