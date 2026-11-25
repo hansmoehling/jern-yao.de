@@ -102,10 +102,14 @@ test('each machine shows its own open data and owner in five languages, print an
   for(let index=0;index<2;index++){
    const card=cards.find(html=>html.includes('<span class="modell">'+selectedModels[index]+'</span>'));assert(card);
    const start=card.indexOf('<div class="machine-open-points">'),end=card.indexOf('</ul></div>',start),section=card.slice(start,end);
-   assert(start>=0&&start<card.indexOf('<details>'),'open data are visible without opening details');
+   assert(start>=0&&start<card.indexOf('<details class="machine-check"'),'open data are visible without opening details');
    assert(section.includes(I.t('Noch zu klären',language)));assert(section.includes(I.t(points[index].owner,language)));assert(section.includes(I.t(points[index].detail,language)));
    assert(!section.includes(I.t(points[1-index].detail,language)),'only this machine\'s missing data');
    assert(card.includes(I.t('Klärung nötig',language)));assert(!card.includes(I.t('Daten fehlen',language)));
+   const button=card.match(/<button type="button" class="marke m-offen" data-open-check aria-controls="([^"]+)"[^>]*>([^<]+)<\/button>/);
+   assert(button,'clarification is a keyboard-accessible button');
+   assert.equal(button[2],I.t('Klärung nötig',language));
+   assert(card.includes('<details class="machine-check" id="'+button[1]+'">'),'button refers to this machine’s detail check');
   }
   p.get('drucken').events.click();const print=p.get('blatt').innerHTML;
   await p.get('senden').events.click();const mail=new URL(p.context.location.href).searchParams.get('body');
