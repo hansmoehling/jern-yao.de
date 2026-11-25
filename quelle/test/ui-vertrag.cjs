@@ -3,6 +3,7 @@ const vm = require('node:vm');
 const path = require('node:path');
 const assert = require('node:assert/strict');
 const crypto = require('node:crypto').webcrypto;
+const I18N=require('../i18n.js');
 const source = fs.readFileSync(path.join(__dirname, '..', 'ui.js'), 'utf8');
 const template = fs.readFileSync(path.join(__dirname, '..', 'vorlage.html'), 'utf8');
 // Network-contract tests with an intentionally small DOM double. These check
@@ -11,6 +12,8 @@ class Element {
   constructor(tag='div') { this.tagName=tag; this.children=[]; this.events={}; this.dataset={}; this.attributes={}; this.value=''; this.files=[]; this.hidden=false; this.disabled=false; this.textContent=''; this.className=''; this.classList={add(){},remove(){}}; }
   addEventListener(name,fn){(this.events[name] ||= []).push(fn)}
   async emit(name,extra={}){for(const fn of this.events[name]||[]) await fn({preventDefault(){},currentTarget:this,...extra});await new Promise(setImmediate)}
+  setCustomValidity(value){this.validationMessage=value}
+  click(){}
   setAttribute(key,value){this.attributes[key]=value}
   appendChild(child){child.parent=this;this.children.push(child);return child}
   replaceChildren(){this.children=[]}
@@ -19,19 +22,27 @@ class Element {
   focus(){this.focused=true}
   scrollIntoView(){}
 }
-function harness(base='https://api.example.test') {
+function harness(base='https://api.example.test',language='de') {
   const nodes = new Map();
   for (const match of template.matchAll(/id="([^"]+)"/g)) { assert(!nodes.has(match[1]), 'duplicate id '+match[1]); nodes.set(match[1],new Element()); }
+  nodes.get('consent').checked=true;
   const tabs=['upload','description','chat'].map(mode=>{const el=nodes.get('tab-'+mode);el.dataset.mode=mode;return el});
   const questions=[new Element()];questions[0].dataset.question='Wie entsteht die Stadienfolge?';
   const requests=[]; const answers=[];
   const document={getElementById(id){assert(nodes.has(id),'unknown id '+id);return nodes.get(id)},createElement(tag){return new Element(tag)},querySelectorAll(selector){return selector==='[data-mode]'?tabs:selector==='[data-question]'?questions:[]}};
-  const context={document,window:{JY_API_BASE:base,location:{href:'https://jern-yao.de/'},setTimeout(){return 1},clearTimeout(){},addEventListener(){}},URL,URLSearchParams,FormData,AbortController,TextEncoder,crypto,TypeError,fetch:async(url,options)=>{requests.push({url,options});const answer=answers.shift();if(answer instanceof Error)throw answer;if(!answer)throw new Error('Unmocked API call');return {ok:answer.ok!==false,status:answer.status||200,json:async()=>answer.data}}};
+  const locale={language,t:text=>I18N.t(text,locale.language),apply(){},autonyms:{de:'Deutsch',it:'Italiano',sl:'Slovenščina',en:'English',zh:'简体中文'}};
+  const context={document,window:{JYI18N:I18N,JYLocale:locale,JYConcept:{html:()=>'<section>concept</section>'},JY_API_BASE:base,location:{href:'https://jern-yao.de/'},setTimeout(){return 1},clearTimeout(){},addEventListener(){}},URL,URLSearchParams,FormData,AbortController,TextEncoder,crypto,TypeError,fetch:async(url,options)=>{requests.push({url,options});const answer=answers.shift();if(answer instanceof Error)throw answer;if(!answer)throw new Error('Unmocked API call');return {ok:answer.ok!==false,status:answer.status||200,json:async()=>answer.data}}};
   vm.runInNewContext(source,context);
-  return {nodes,tabs,questions,requests,answers,get:id=>nodes.get(id)};
+  return {nodes,tabs,questions,requests,answers,locale,get:id=>nodes.get(id)};
 }
 const flattened = node => node.textContent+' '+node.children.map(flattened).join(' ');
 (async()=>{
+  for(const language of I18N.supported){
+    const translated=harness('https://api.example.test',language);translated.get('email').value='test@example.invalid';translated.get('description').value='Originaltext';translated.answers.push({data:{id:'LANG-'+language,token:'test',status:'queued'}});await translated.get('request-form').emit('submit');
+    assert.equal(translated.requests[0].options.body.get('language'),language);assert.equal(new URL(translated.requests[0].url).searchParams.get('language'),language);assert.equal(translated.get('request-message').textContent,I18N.t('Ihre Anfrage ist angekommen.',language));
+    translated.get('chat-input').value='Original question';translated.answers.push({data:{answer:'Model reply',language}});await translated.get('chat-form').emit('submit');assert.equal(JSON.parse(translated.requests.at(-1).options.body).language,language);
+  }
+  for(const language of I18N.supported){const invalid=harness('https://api.example.test',language);invalid.get('email').value='bad';invalid.get('consent').checked=false;await invalid.get('request-form').emit('submit');assert.equal(invalid.requests.length,0);assert.equal(invalid.get('email').validationMessage,I18N.t('Bitte geben Sie eine gültige E-Mail-Adresse ein.',language));assert.equal(invalid.get('consent').validationMessage,I18N.t('Bitte stimmen Sie der Verarbeitung Ihrer Anfrage zu.',language));}
   const offline=harness('');
   assert.equal(offline.get('availability').hidden,false);
   assert.equal(offline.get('request-submit').disabled,true);
@@ -99,6 +110,26 @@ const flattened = node => node.textContent+' '+node.children.map(flattened).join
   await unconfirmed.get('request-form').emit('submit');
   assert.doesNotMatch(unconfirmed.get('request-message').textContent,/angekommen/,'2xx without receipt must not claim success');
   assert.match(unconfirmed.get('request-message').textContent,/nicht eindeutig bestätigt/);
+
+  const provenanceUI=harness('https://api.example.test','en');
+  provenanceUI.get('email').value='test@example.invalid';provenanceUI.get('description').value='Original';
+  provenanceUI.answers.push({data:{id:'PROVENANCE',token:'test-token',status:'queued'}});
+  await provenanceUI.get('request-form').emit('submit');
+  const originalQuote='Kopfdurchmesser  13 mm\nSchaft 30 mm';
+  const originalReference='Nutzerangabe: '+originalQuote;
+  for(const language of ['en','it','zh']){
+    provenanceUI.locale.language=language;
+    provenanceUI.answers.push({data:{status:'ready',notificationStatus:'sent',proposal:{input:[{field:'kD',value:13,unit:'mm',origin:'user_text',reference:originalReference}]}}});
+    await provenanceUI.get('refresh-status').emit('click');
+    const content=provenanceUI.get('result-content');
+    const facts=content.children.find(node=>node.className==='proposal-grid');
+    const detail=facts.children[0].children[2];
+    const reference=detail.children.at(-1);
+    assert.equal(reference.textContent,I18N.t(originalReference,language),'full reference template localized once');
+    assert(reference.textContent.endsWith(originalQuote),'customer quote retains wording and whitespace');
+    assert.equal(reference.dataset.originalText,'','DOM translation must skip original quote span');
+    assert.equal(detail.children[0].textContent,I18N.t('Ihre Beschreibung',language),'origin label is localized separately');
+  }
 
   const unavailable=harness(); unavailable.get('email').value='test@example.invalid'; unavailable.get('description').value='Ein Teil';
   unavailable.answers.push({ok:false,status:503,data:{error:'not configured'}});

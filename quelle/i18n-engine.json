@@ -1,0 +1,1400 @@
+{
+  "Gleiche berechnete Basisfolge: {n} Umformstufen; {req} benötigte Stationen auf {avail} Maschinenstationen; {free} frei als Reserve. Die Stationsvorgabe bindet weitere Plätze; deren Operationen sind noch festzulegen. Zusatzoperationen und ihre Lage sind noch festzulegen.": [
+    "Stessa sequenza base calcolata: {n} stadi; {req} stazioni necessarie su {avail} disponibili; {free} libere di riserva. Il numero di stazioni richiesto occupa ulteriori posizioni; le operazioni restano da definire. Operazioni aggiuntive e relative posizioni restano da definire.",
+    "Enako izračunano osnovno zaporedje: {n} preoblikovalnih stopenj; potrebnih {req} od {avail} postaj stroja; {free} prostih za rezervo. Zahtevano število postaj zasede dodatna mesta; postopke je še treba določiti. Dodatne postopke in njihova mesta je še treba določiti.",
+    "Same calculated base sequence: {n} forming stages; {req} required stations out of {avail} machine stations; {free} free as reserve. The specified station count reserves additional positions; their operations remain to be defined. Additional operations and their locations remain to be defined.",
+    "相同的计算基础工序：{n} 个成形工步；在 {avail} 个机器工位中需要 {req} 个；{free} 个空闲作备用。 指定工位数占用额外位置；其操作仍待确定。 附加操作及其部位仍待确定。"
+  ],
+  "Gleiche berechnete Basisfolge: {n} Umformstufen; {req} benötigte Stationen auf {avail} Maschinenstationen; {free} frei als Reserve. Die Stationsvorgabe bindet weitere Plätze; deren Operationen sind noch festzulegen.": [
+    "Stessa sequenza base calcolata: {n} stadi; {req} stazioni necessarie su {avail} disponibili; {free} libere di riserva. Il numero di stazioni richiesto occupa ulteriori posizioni; le operazioni restano da definire.",
+    "Enako izračunano osnovno zaporedje: {n} preoblikovalnih stopenj; potrebnih {req} od {avail} postaj stroja; {free} prostih za rezervo. Zahtevano število postaj zasede dodatna mesta; postopke je še treba določiti.",
+    "Same calculated base sequence: {n} forming stages; {req} required stations out of {avail} machine stations; {free} free as reserve. The specified station count reserves additional positions; their operations remain to be defined.",
+    "相同的计算基础工序：{n} 个成形工步；在 {avail} 个机器工位中需要 {req} 个；{free} 个空闲作备用。 指定工位数占用额外位置；其操作仍待确定。"
+  ],
+  "Gleiche berechnete Basisfolge: {n} Umformstufen; {req} benötigte Stationen auf {avail} Maschinenstationen; {free} frei als Reserve. Zusatzoperationen und ihre Lage sind noch festzulegen.": [
+    "Stessa sequenza base calcolata: {n} stadi; {req} stazioni necessarie su {avail} disponibili; {free} libere di riserva. Operazioni aggiuntive e posizioni restano da definire.",
+    "Enako izračunano osnovno zaporedje: {n} stopenj; potrebnih {req} od {avail} postaj; {free} prostih za rezervo. Dodatne postopke in njihova mesta je še treba določiti.",
+    "Same calculated base sequence: {n} forming stages; {req} required stations out of {avail} machine stations; {free} free as reserve. Additional operations and their locations remain to be defined.",
+    "相同的计算基础工序：{n} 个成形工步；在 {avail} 个机器工位中需要 {req} 个；{free} 个空闲作备用。附加操作及其部位仍待确定。"
+  ],
+  "Presskraft: höchste Stationskraft bis 65 % der Nennkraft gut, bis 80 % Auslegungsgrenze, darüber bis zur Nennkraft Hinweis; Summe aller Stationen als Nebenwert": [
+    "Forza: massima forza di stazione fino al 65 % della nominale buona, fino all'80 % limite di progetto, oltre fino alla nominale avviso; somma delle stazioni come dato supplementare",
+    "Sila stiskanja: največja sila postaje do 65 % nazivne dobra, do 80 % meja dimenzioniranja, nad tem do nazivne opozorilo; vsota postaj kot dodatni podatek",
+    "Press force: highest station force up to 65 % of rated force good, up to 80 % design limit, above this up to rated force warning; sum of stations as a secondary value",
+    "压力：最大单工位力不超过额定力 65 % 为良好，80 % 为设计限值，高于此值至额定力时提示；各工位力之和仅作辅助值"
+  ],
+  "Kalibrier- und Zusatzstufen (Kalibrieren, Kerben, Prägen, Beschneiden): eine Stufe je Vorgang, Hohlteile mit Napf ohne Angabe eine; Kraft F = A · k_f am Ende": [
+    "Stadi di calibratura e aggiuntivi (calibrare, intagliare, coniare, rifilare): uno per operazione; per pezzi cavi a bicchiere uno se non indicato; forza finale F = A · k_f",
+    "Kalibrirne in dodatne stopnje (kalibriranje, zarezovanje, vtiskovanje, obrezovanje): ena na postopek, pri votlih delih brez navedbe ena; končna sila F = A · k_f",
+    "Sizing and additional stages (sizing, notching, coining, trimming): one per operation; one for hollow cup parts if unspecified; force F = A · k_f at the end",
+    "校准及附加工步（校准、切槽、压印、修边）：每道操作一个工步；杯形空心件未说明时取一个；最终力 F = A · k_f"
+  ],
+  "Zangenöffnung: größter Teil-Ø höchstens die Öffnung der Transferzange (Katalogzeile OPEN UPSET DIA.); darüber Hinweis, anderer Transfertyp oder Sonderzange": [
+    "Apertura pinza: Ø massimo pezzo non oltre l'apertura della pinza transfer (riga OPEN UPSET DIA.); oltre, avviso, altro transfer o pinza speciale",
+    "Odprtina prijemala: največji Ø izdelka največ do odprtine prenosnega prijemala (vrstica OPEN UPSET DIA.); nad tem opozorilo, drug prenos ali posebno prijemalo",
+    "Gripper opening: maximum part Ø no greater than transfer gripper opening (catalogue row OPEN UPSET DIA.); above this, warning, different transfer or special gripper",
+    "夹钳开口：零件最大直径不得超过传送夹钳开口（目录行 OPEN UPSET DIA.）；超过时提示，须换传送形式或专用夹钳"
+  ],
+  "Fließpresskraft F = [A₀ · k_fm · (⅔α + (1 + 2μ/sin 2α) · φ) + π · d₀ · l · μ · k_f0] / 0,6; 2α = 30° beim Reduzieren, 90° beim Fließpressen, μ = 0,1": [
+    "Forza di estrusione F = [A₀ · k_fm · (⅔α + (1 + 2μ/sin 2α) · φ) + π · d₀ · l · μ · k_f0] / 0,6; 2α = 30° nella riduzione, 90° nell'estrusione, μ = 0,1",
+    "Sila iztiskovanja F = [A₀ · k_fm · (⅔α + (1 + 2μ/sin 2α) · φ) + π · d₀ · l · μ · k_f0] / 0,6; 2α = 30° pri reduciranju, 90° pri iztiskovanju, μ = 0,1",
+    "Extrusion force F = [A₀ · k_fm · (⅔α + (1 + 2μ/sin 2α) · φ) + π · d₀ · l · μ · k_f0] / 0,6; 2α = 30° for reduction, 90° for extrusion, μ = 0,1",
+    "挤压力 F = [A₀ · k_fm · (⅔α + (1 + 2μ/sin 2α) · φ) + π · d₀ · l · μ · k_f0] / 0,6；缩径时 2α = 30°，挤压时为 90°，μ = 0,1"
+  ],
+  "Planungsausbringung: Erfahrungswert je Modell aus Serienteilen, sonst rund ein Drittel der Katalogausbringung (25 bis 47 %); Nutzungsgrad 0,6": [
+    "Produzione pianificata: esperienza per modello da pezzi di serie, altrimenti circa un terzo del catalogo (25–47 %); utilizzo 0,6",
+    "Načrtovana zmogljivost: izkušnje s serijskimi deli po modelu, sicer približno tretjina kataloške (25 do 47 %); izkoriščenost 0,6",
+    "Planned output: model-specific production experience, otherwise about one third of catalogue output (25 to 47 %); utilisation 0,6",
+    "计划产量：按机型的批量生产经验，否则约为目录产量的三分之一（25 至 47 %）；利用率 0,6"
+  ],
+  "Für {material} fehlt die Fließkurve des Lieferzustands. Abschnitt und Stadien sind geometrisch ermittelt; Kraft und Werkzeugdruck bleiben offen.": [
+    "Per {material} manca la curva di flusso dello stato di fornitura. Spezzone e stadi sono determinati geometricamente; forza e pressione utensile restano da definire.",
+    "Za {material} manjka krivulja tečenja dobavnega stanja. Odrezek in stopnje so določeni geometrijsko; sila in tlak na orodje ostajata odprta.",
+    "The flow curve for the delivery condition of {material} is missing. Blank and stages are determined geometrically; force and tool pressure remain unknown.",
+    "缺少 {material} 交货状态的流动应力曲线。坯料及工步依据几何确定；成形力及工具压力仍待确定。"
+  ],
+  "Rohteil schlanker als l₀/d₀ = {r} beim Vorwärtsfließpressen: hohe Wandreibung, Schaft in der Matrize abstützen oder Abschnitt kürzen": [
+    "Grezzo più snello di l₀/d₀ = {r} nell'estrusione diretta: elevato attrito di parete; sostenere il gambo nella matrice o accorciare lo spezzone",
+    "Surovec vitkejši od l₀/d₀ = {r} pri iztiskovanju naprej: veliko trenje ob steni; podpreti steblo v matrici ali skrajšati odrezek",
+    "Blank slenderness exceeds l₀/d₀ = {r} in forward extrusion: high wall friction; support shank in die or shorten blank",
+    "正挤压坯料长径比超过 l₀/d₀ = {r}：壁面摩擦高，应在凹模内支撑杆部或缩短坯料"
+  ],
+  "Werkzeugdruck je Station: bis 2200 N/mm² für gehärtete Kaltarbeitsstähle, darüber nur mit Sonderwerkstoff und kurzem Stempel": [
+    "Pressione utensile per stazione: fino a 2200 N/mm² per acciai temprati da lavoro a freddo; oltre, solo materiale speciale e punzone corto",
+    "Tlak na orodje po postaji: do 2200 N/mm² za kaljena jekla za delo v hladnem; nad tem le poseben material in kratek pestič",
+    "Tool pressure per station: up to 2200 N/mm² for hardened cold-work steels; above this, only special material and short punch",
+    "单工位工具压力：淬硬冷作工具钢不超过 2200 N/mm²；更高时须采用特殊材料及短冲头"
+  ],
+  "Produktmaß ψ Ø × Länge der Teile- und Mutternpressen (JPF, JNF-L, JNFP-L, JNFR-L): darüber knapp, Rückfrage bei Jern Yao": [
+    "Dimensione prodotto ψ Ø × lunghezza delle presse per pezzi e dadi (JPF, JNF-L, JNFP-L, JNFR-L): oltre, al limite; consultare Jern Yao",
+    "Dimenzija izdelka ψ Ø × dolžina pri stiskalnicah za dele in matice (JPF, JNF-L, JNFP-L, JNFR-L): nad tem mejno, preveriti pri Jern Yao",
+    "Product size ψ Ø × length for parts and nut formers (JPF, JNF-L, JNFP-L, JNFR-L): above this, marginal; check with Jern Yao",
+    "零件及螺母成形机（JPF、JNF-L、JNFP-L、JNFR-L）的产品尺寸 ψ 直径 × 长度：超过时属临界，须向 Jern Yao 确认"
+  ],
+  "Armierung nach Werkzeugdruck: bis 1000 N/mm² ohne Ring, bis 1600 ein Ring, bis 2160 zwei Ringe, darüber Sonderarmierung": [
+    "Cerchiatura secondo la pressione utensile: fino a 1000 N/mm² senza anello, fino a 1600 un anello, fino a 2160 due anelli, oltre cerchiatura speciale",
+    "Ojačitev po tlaku na orodje: do 1000 N/mm² brez obroča, do 1600 en obroč, do 2160 dva obroča, nad tem posebna ojačitev",
+    "Reinforcement by tool pressure: up to 1000 N/mm² no ring, up to 1600 one ring, up to 2160 two rings, above this special reinforcement",
+    "按工具压力配置预应力套：不超过 1000 N/mm² 无套，至 1600 一层，至 2160 两层，更高时特殊加固"
+  ],
+  "Abschnittlänge innerhalb des Katalogbereichs; bis 1 mm unter dem Mindestabschnitt Hinweis (nach Rückfrage verkürzbar)": [
+    "Lunghezza spezzone nell'intervallo di catalogo; avviso fino a 1 mm sotto il minimo (riduzione da concordare)",
+    "Dolžina odrezka v kataloškem območju; do 1 mm pod minimumom opozorilo (skrajšanje po dogovoru)",
+    "Blank length within catalogue range; warning up to 1 mm below minimum (shortening subject to confirmation)",
+    "坯料长度应在目录范围内；低于最小长度不超过 1 mm 时提示（缩短须确认）"
+  ],
+  "Vorwärtsfließpressen: Rohteil nicht schlanker als l₀/d₀ = 10, 6 oder 4 je Werkstoffgruppe, sonst zu viel Wandreibung": [
+    "Estrusione diretta: snellezza grezzo non oltre l₀/d₀ = 10, 6 o 4 secondo il materiale, altrimenti attrito di parete eccessivo",
+    "Iztiskovanje naprej: vitkost surovca največ l₀/d₀ = 10, 6 ali 4 glede na skupino materiala, sicer preveliko trenje ob steni",
+    "Forward extrusion: blank slenderness no greater than l₀/d₀ = 10, 6 or 4 by material group; otherwise excessive wall friction",
+    "正挤压：坯料长径比按材料组不得超过 l₀/d₀ = 10、6 或 4，否则壁面摩擦过大"
+  ],
+  "Matrize: Außen-Ø = 4,5 / 5 / 6 · größter Bohrungs-Ø (minimal, normal, ideal); darunter Hinweis auf Sonderarmierung": [
+    "Matrice: Ø esterno = 4,5 / 5 / 6 · Ø massimo del foro (minimo, normale, ideale); sotto, avviso di cerchiatura speciale",
+    "Matrica: zunanji Ø = 4,5 / 5 / 6 · največji Ø izvrtine (minimalno, normalno, idealno); pod tem opozorilo za posebno ojačitev",
+    "Die: outside Ø = 4,5 / 5 / 6 · largest bore Ø (minimum, normal, ideal); below this, special reinforcement warning",
+    "凹模：外径 = 最大孔径的 4,5 / 5 / 6 倍（最小、正常、理想）；低于此值时提示需特殊预应力套"
+  ],
+  "Für die Abschnittberechnung aus Masse fehlt eine belegte Werkstoffdichte. Stattdessen geometrische Maße verwenden.": [
+    "Manca una densità del materiale documentata per calcolare lo spezzone dalla massa. Usare invece le dimensioni geometriche.",
+    "Za izračun odrezka iz mase manjka potrjena gostota materiala. Namesto tega uporabite geometrijske mere.",
+    "A documented material density is missing for calculating the blank from mass. Use geometric dimensions instead.",
+    "根据质量计算坯料时缺少有来源的材料密度。请改用几何尺寸。"
+  ],
+  "Abschnitt-Ø: Katalogwert als Maschinengrenze; über 400 N/mm² Richtwert d = d_Katalog · √(400/Rm), darüber Hinweis": [
+    "Ø spezzone: limite macchina da catalogo; oltre 400 N/mm² valore orientativo d = d_Katalog · √(400/Rm), oltre tale valore avviso",
+    "Ø odrezka: kataloška vrednost kot omejitev stroja; nad 400 N/mm² orientacijsko d = d_Katalog · √(400/Rm), nad tem opozorilo",
+    "Blank Ø: catalogue value is the machine limit; above 400 N/mm² guideline d = d_Katalog · √(400/Rm), warning above this value",
+    "坯料直径：以目录值为机器极限；超过 400 N/mm² 时参考 d = d_Katalog · √(400/Rm)，超过该值时提示"
+  ],
+  "Schaft oder Körper mehr als 5 % dicker als der Draht: eigene Stauchstufe vor dem Kopf, Zahl der Schläge wie R-ST1": [
+    "Gambo o corpo oltre il 5 % più spesso del filo: ricalcatura separata prima della testa, numero di colpi secondo R-ST1",
+    "Steblo ali telo več kot 5 % debelejše od žice: ločeno nakrčevanje pred glavo, število udarcev po R-ST1",
+    "Shank or body more than 5 % thicker than wire: separate upsetting stage before heading, blow count as in R-ST1",
+    "杆部或主体直径比线材大 5 % 以上：成形头部前单独镦粗，打击次数按 R-ST1"
+  ],
+  "Stauchverhältnis s = Kopfvolumen / (A₀ · d₀); 1 Schlag bis 2,3; 2 Schläge bis 4,5; 3 Schläge bis 8,0; darüber 4": [
+    "Rapporto di ricalcatura s = volume testa / (A₀ · d₀); 1 colpo fino a 2,3; 2 colpi fino a 4,5; 3 colpi fino a 8,0; oltre, 4",
+    "Razmerje nakrčevanja s = prostornina glave / (A₀ · d₀); 1 udarec do 2,3; 2 do 4,5; 3 do 8,0; nad tem 4",
+    "Upsetting ratio s = head volume / (A₀ · d₀); 1 blow up to 2,3; 2 blows up to 4,5; 3 blows up to 8,0; above this, 4",
+    "镦粗比 s = 头部体积 / (A₀ · d₀)；不超过 2,3 用 1 次打击；不超过 4,5 用 2 次；不超过 8,0 用 3 次；更高时用 4 次"
+  ],
+  "Napf über der Grenze je Hub: Napf bis zur Grenze, den Rest abstrecken, je Zug bis 30 % weniger Wandquerschnitt": [
+    "Bicchiere oltre il limite per colpo: estrudere fino al limite e stirare il resto; riduzione della sezione di parete fino al 30 % per passata",
+    "Votlo iztiskovanje nad mejo na hod: iztisniti do meje, preostalo steno tanjšati; do 30 % zmanjšanja prereza stene na prehod",
+    "Cup beyond the per-stroke limit: extrude to the limit, then iron the remainder; up to 30 % wall-area reduction per pass",
+    "杯形反挤压超过单次行程限值：先反挤压至限值，再减薄拉伸；每道次壁截面积减缩率不超过 30 %"
+  ],
+  "Gleiche berechnete Basisfolge: {n} Umformstufen; {req} benötigte Stationen auf {avail} Maschinenstationen; {free} frei als Reserve.": [
+    "Stessa sequenza base calcolata: {n} stadi; {req} stazioni necessarie su {avail} disponibili; {free} libere di riserva.",
+    "Enako izračunano osnovno zaporedje: {n} preoblikovalnih stopenj; potrebnih {req} od {avail} postaj stroja; {free} prostih za rezervo.",
+    "Same calculated base sequence: {n} forming stages; {req} required stations out of {avail} machine stations; {free} free as reserve.",
+    "相同的计算基础工序：{n} 个成形工步；在 {avail} 个机器工位中需要 {req} 个；{free} 个空闲作备用。"
+  ],
+  "Stadienaufteilung mit vorläufigen Umformgrenzen; werkstoffspezifische Grenzwerte sind noch zu bestimmen.": [
+    "Ripartizione degli stadi con limiti di formatura provvisori; i limiti specifici del materiale restano da determinare.",
+    "Razdelitev stopenj z začasnimi mejami preoblikovanja; meje za konkretni material je še treba določiti.",
+    "Stage allocation uses provisional forming limits; material-specific limits remain to be determined.",
+    "工步划分采用临时成形限值；具体材料的限值仍待确定。"
+  ],
+  "Station {n}: Werkzeugdruck {p} N/mm² über 2200 N/mm²; kurzer Stempel aus Schnellarbeitsstahl oder Hartmetall": [
+    "Stazione {n}: pressione utensile {p} N/mm² oltre 2200 N/mm²; punzone corto in HSS o metallo duro",
+    "Postaja {n}: tlak na orodje {p} N/mm² nad 2200 N/mm²; kratek pestič iz hitroreznega jekla ali karbidne trdine",
+    "Station {n}: tool pressure {p} N/mm² above 2200 N/mm²; short high-speed-steel or carbide punch",
+    "工位 {n}：工具压力 {p} N/mm² 超过 2200 N/mm²；采用高速钢或硬质合金短冲头"
+  ],
+  "Napf- und Innenantriebsstempel: p = k_f · (1 + φ + 2μ·h/d), μ = 0,1, k_f bei aufsummiertem Umformgrad": [
+    "Punzone per bicchiere e impronta interna: p = k_f · (1 + φ + 2μ·h/d), μ = 0,1, k_f alla deformazione cumulata",
+    "Pestič za votlo iztiskovanje in notranji pogon: p = k_f · (1 + φ + 2μ·h/d), μ = 0,1, k_f pri skupni stopnji deformacije",
+    "Cup and internal-drive punch: p = k_f · (1 + φ + 2μ·h/d), μ = 0,1, k_f at accumulated strain",
+    "杯形反挤压及内驱动槽冲头：p = k_f · (1 + φ + 2μ·h/d)，μ = 0,1，k_f 按累计应变取值"
+  ],
+  "Schaft-Ø {d} mm mehr als 5 % über Draht-Ø: Körper in eigener Stufe gestaucht, Matrizenbohrung = Schaft-Ø": [
+    "Ø gambo {d} mm oltre il 5 % sopra il Ø filo: corpo ricalcato in stadio separato, foro matrice = Ø gambo",
+    "Ø stebla {d} mm več kot 5 % nad Ø žice: telo nakrčeno v ločeni stopnji, izvrtina matrice = Ø stebla",
+    "Shank Ø {d} mm more than 5 % above wire Ø: body upset in separate stage, die bore = shank Ø",
+    "杆部直径 {d} mm 比线材直径大 5 % 以上：主体单独镦粗，凹模孔径 = 杆部直径"
+  ],
+  "Station {n}: Innenantriebsstempel {p} N/mm², über 2200 N/mm²: Stempel aus Schnellarbeitsstahl, kurz geführt": [
+    "Stazione {n}: punzone impronta interna {p} N/mm², oltre 2200 N/mm²: punzone HSS con guida corta",
+    "Postaja {n}: pestič notranjega pogona {p} N/mm², nad 2200 N/mm²: hitrorezno jeklo, kratko vodenje",
+    "Station {n}: internal-drive punch {p} N/mm², above 2200 N/mm²: high-speed-steel punch, short guidance",
+    "工位 {n}：内驱动槽冲头 {p} N/mm²，超过 2200 N/mm²；采用短导向高速钢冲头"
+  ],
+  "Station {n}: Werkzeugdruck {p} N/mm² über 2500 N/mm²; Stufe teilen oder Werkzeugkonzept im Fachgespräch": [
+    "Stazione {n}: pressione utensile {p} N/mm² oltre 2500 N/mm²; dividere lo stadio o discutere il progetto utensile",
+    "Postaja {n}: tlak na orodje {p} N/mm² nad 2500 N/mm²; razdeliti stopnjo ali strokovno preveriti zasnovo orodja",
+    "Station {n}: tool pressure {p} N/mm² above 2500 N/mm²; split the stage or review tooling concept with a specialist",
+    "工位 {n}：工具压力 {p} N/mm² 超过 2500 N/mm²；应拆分工步或由专业人员审查模具方案"
+  ],
+  "Station {n}: Innenantriebsstempel {p} N/mm², über 2500 N/mm²: Antrieb im vorigen Schlag vorformen": [
+    "Stazione {n}: punzone impronta interna {p} N/mm², oltre 2500 N/mm²: preformare l'impronta al colpo precedente",
+    "Postaja {n}: pestič notranjega pogona {p} N/mm², nad 2500 N/mm²: pogon predoblikovati pri prejšnjem udarcu",
+    "Station {n}: internal-drive punch {p} N/mm², above 2500 N/mm²: preform drive on previous blow",
+    "工位 {n}：内驱动槽冲头 {p} N/mm²，超过 2500 N/mm²；前一次打击须预成形驱动槽"
+  ],
+  "Keine vollständige Umformoperation beschrieben; Halbzeug und Fertiggeometrie unterscheiden": [
+    "Nessuna operazione completa descritta; distinguere semilavorato e geometria finale",
+    "Ni opisan celoten preoblikovalni postopek; razlikujte polizdelek in končno geometrijo",
+    "No complete forming operation described; distinguish stock from finished geometry",
+    "未描述完整成形操作；请区分半成品与最终几何"
+  ],
+  "Wendung um 180° im Transfer: ganze Teillänge höchstens der Klammerwert der Auswerferzeile": [
+    "Rotazione di 180° nel transfer: lunghezza totale del pezzo non oltre il valore tra parentesi nella riga espulsore",
+    "Obrat za 180° v prenosu: celotna dolžina izdelka največ do vrednosti v oklepaju pri izmetalniku",
+    "180° turnover in transfer: total part length no greater than the parenthesised value in the knockout row",
+    "传送中翻转 180°：零件总长不得超过顶出器一行中的括号值"
+  ],
+  "Freies Reduzieren bis 30 % Querschnittsabnahme, sonst geschlossenes Vorwärtsfließpressen": [
+    "Riduzione libera fino al 30 % di riduzione di sezione, altrimenti estrusione diretta in matrice chiusa",
+    "Prosto reduciranje do 30 % zmanjšanja prereza, sicer zaprto iztiskovanje naprej",
+    "Free reduction up to 30 % area reduction; otherwise closed-die forward extrusion",
+    "截面积减缩率不超过 30 % 时可自由缩径，否则采用闭式正挤压"
+  ],
+  "Querschnittsabnahme je Hub nach Werkstoffgruppe (Vorwärts) und Napfbereich mit Lochtiefe": [
+    "Riduzione di sezione per colpo secondo il gruppo di materiale (diretta) e campo di estrusione a bicchiere con profondità del foro",
+    "Zmanjšanje prereza na hod po skupini materiala (naprej) ter območje votlega iztiskovanja z globino izvrtine",
+    "Area reduction per stroke by material group (forward) and cup-extrusion range with hole depth",
+    "每次行程截面积减缩率按材料组（正挤压）及带孔深的杯形反挤压范围确定"
+  ],
+  "Stationen: benötigte Stufen (muss), eine weitere als Vorformreserve (wünschenswert)": [
+    "Stazioni: stadi necessari (obbligatori), uno aggiuntivo di riserva per preformatura (auspicabile)",
+    "Postaje: potrebne stopnje (nujno), dodatna rezerva za predoblikovanje (zaželeno)",
+    "Stations: required stages (mandatory), one additional preforming reserve (desirable)",
+    "工位：必要工步（必须），另加一个预成形备用工位（建议）"
+  ],
+  "Die Stationsvorgabe bindet weitere Plätze; deren Operationen sind noch festzulegen.": [
+    "Il numero di stazioni richiesto occupa ulteriori posizioni; le operazioni restano da definire.",
+    "Zahtevano število postaj zasede dodatna mesta; postopke je še treba določiti.",
+    "The specified station count reserves additional positions; their operations remain to be defined.",
+    "指定工位数占用额外位置；其操作仍待确定。"
+  ],
+  "Reduktion außerhalb des numerischen Rechenbereichs; Geometrie und Einheiten prüfen": [
+    "Riduzione fuori dall'intervallo numerico; verificare geometria e unità",
+    "Reduciranje je zunaj številčnega območja; preverite geometrijo in enote",
+    "Reduction outside numerical range; check geometry and units",
+    "减缩率超出数值计算范围；请检查几何及单位"
+  ],
+  "Größter Stauch-Ø frei 2,0 bis 2,5 · d₀, geführt bis 3 · d₀; darüber Zwischenstufe": [
+    "Ø massimo di ricalcatura libera da 2,0 a 2,5 · d₀, guidata fino a 3 · d₀; oltre, stadio intermedio",
+    "Največji Ø prostega nakrčevanja 2,0 do 2,5 · d₀, vodenega do 3 · d₀; nad tem vmesna stopnja",
+    "Maximum upset Ø: free upsetting 2,0 to 2,5 · d₀, guided upsetting up to 3 · d₀; above this, intermediate stage",
+    "最大镦粗直径：自由镦粗为 2,0 至 2,5 · d₀，受导向镦粗不超过 3 · d₀；更大时增加中间工步"
+  ],
+  "Schaft-Ø bis 5 % über Draht-Ø: füllt im ersten Schlag, Matrizenbohrung = Schaft-Ø": [
+    "Ø gambo fino al 5 % sopra il Ø filo: riempimento al primo colpo, foro matrice = Ø gambo",
+    "Ø stebla do 5 % nad Ø žice: zapolnitev pri prvem udarcu, izvrtina matrice = Ø stebla",
+    "Shank Ø up to 5 % above wire Ø: fills on first blow, die bore = shank Ø",
+    "杆部直径比线材大不超过 5 %：首击充填，凹模孔径 = 杆部直径"
+  ],
+  "Napf-Ø muss kleiner als der wirksame Außen-Ø sein; positive Restwand erforderlich": [
+    "Il Ø bicchiere deve essere inferiore al Ø esterno efficace; è richiesta una parete residua positiva",
+    "Ø votline mora biti manjši od efektivnega zunanjega Ø; potrebna je pozitivna preostala debelina stene",
+    "Cup Ø must be smaller than effective outside Ø; positive remaining wall required",
+    "杯形孔径必须小于有效外径；余壁厚必须为正"
+  ],
+  "Napfgeometrie außerhalb des numerischen Rechenbereichs; Maße und Einheiten prüfen": [
+    "Geometria bicchiere fuori dall'intervallo numerico; verificare dimensioni e unità",
+    "Geometrija votline je zunaj številčnega območja; preverite mere in enote",
+    "Cup geometry outside numerical range; check dimensions and units",
+    "杯形孔几何超出数值计算范围；请检查尺寸及单位"
+  ],
+  "Für ein Maschinenkonzept fehlen eine vollständige Rechnung oder Maschinendaten.": [
+    "Per un concetto macchina mancano un calcolo completo o i dati macchina.",
+    "Za koncept stroja manjka popoln izračun ali podatki stroja.",
+    "A complete calculation or machine data are missing for a machine concept.",
+    "制定机器方案所需的完整计算或机器数据缺失。"
+  ],
+  "Napf: Querschnittsabnahme {r} % über {lim} % je Hub: Napf bis {cup} %, danach {n} Abstreckzüge": [
+    "Bicchiere: riduzione di sezione {r} % oltre {lim} % per colpo: estrudere fino a {cup} %, poi {n} passate di stiratura",
+    "Votlina: zmanjšanje prereza {r} % nad {lim} % na hod: iztiskovanje do {cup} %, nato {n} prehodov tanjšanja",
+    "Cup: area reduction {r} % above {lim} % per stroke: extrude to {cup} %, then {n} ironing passes",
+    "杯形孔：截面积减缩率 {r} % 超过每行程 {lim} %；先反挤压至 {cup} %，随后 {n} 道次减薄拉伸"
+  ],
+  "Kopf-Ø {d} mm ist {r} × d₀, über dem Richtwert 3 × d₀: eine Zwischenstufe eingeplant": [
+    "Ø testa {d} mm pari a {r} × d₀, oltre il riferimento 3 × d₀: previsto uno stadio intermedio",
+    "Ø glave {d} mm je {r} × d₀, nad orientacijsko mejo 3 × d₀: predvidena vmesna stopnja",
+    "Head Ø {d} mm is {r} × d₀, above the 3 × d₀ guideline: an intermediate stage is planned",
+    "头部直径 {d} mm 为 {r} × d₀，超过参考限值 3 × d₀：已安排中间工步"
+  ],
+  "Napf: Querschnittsabnahme {r} % über {lim} % je Hub: Napf bis {cup} %, danach {n} Abstreckzug": [
+    "Bicchiere: riduzione di sezione {r} % oltre {lim} % per colpo: estrudere fino a {cup} %, poi {n} passata di stiratura",
+    "Votlina: zmanjšanje prereza {r} % nad {lim} % na hod: iztiskovanje do {cup} %, nato {n} prehod tanjšanja",
+    "Cup: area reduction {r} % above {lim} % per stroke: extrude to {cup} %, then {n} ironing pass",
+    "杯形孔：截面积减缩率 {r} % 超过每行程 {lim} %；先反挤压至 {cup} %，随后 {n} 道次减薄拉伸"
+  ],
+  "Stationsvorgabe kleiner als die berechnete Folge: verwendet werden {n} Stationen": [
+    "Numero di stazioni richiesto inferiore alla sequenza calcolata: utilizzate {n} stazioni",
+    "Zahtevano število postaj je manjše od izračunanega zaporedja: uporabljenih {n} postaj",
+    "Specified station count below calculated sequence: {n} stations used",
+    "指定工位数少于计算工序所需：采用 {n} 个工位"
+  ],
+  "Stauchkraft F = A₁ · k_f1 / η_F; η_F 0,6 im Fertigschlag, 0,8 im Vorstauchen": [
+    "Forza di ricalcatura F = A₁ · k_f1 / η_F; η_F 0,6 nel colpo finale, 0,8 nella pre-ricalcatura",
+    "Sila nakrčevanja F = A₁ · k_f1 / η_F; η_F 0,6 pri končnem udarcu, 0,8 pri predhodnem nakrčevanju",
+    "Upsetting force F = A₁ · k_f1 / η_F; η_F 0,6 for finishing blow, 0,8 for pre-upsetting",
+    "镦粗力 F = A₁ · k_f1 / η_F；终镦时 η_F 为 0,6，预镦时为 0,8"
+  ],
+  "Querschnittsabnahme {r} % über der Grenze je Hub für {material} ({lim} %): auf {n} Hübe verteilt": [
+    "Riduzione di sezione {r} % oltre il limite per colpo di {material} ({lim} %): distribuita su {n} colpi",
+    "Zmanjšanje prereza {r} % nad mejo na hod za {material} ({lim} %): razdeljeno na {n} hodov",
+    "Area reduction {r} % above the per-stroke limit for {material} ({lim} %): split across {n} strokes",
+    "截面积减缩率 {r} % 超过 {material} 的单次行程限值（{lim} %）：分为 {n} 次行程"
+  ],
+  "Volumenkonstanz: Abschnittvolumen = Teilvolumen + Abgang (Grat, Butzen)": [
+    "Costanza del volume: volume dello spezzone = volume del pezzo + scarto (bava, fondello)",
+    "Ohranitev prostornine: prostornina odrezka = prostornina izdelka + odpad (srh, prebojni ostanek)",
+    "Volume conservation: blank volume = part volume + scrap (flash, slug)",
+    "体积守恒：坯料体积 = 零件体积 + 废料（飞边、冲孔料芯）"
+  ],
+  "Potenzansatz; Bestandsparameter sind nicht chargenspezifisch validiert": [
+    "Legge di potenza; parametri preesistenti non validati per il lotto",
+    "Potenčni model; obstoječi parametri niso potrjeni za posamezno šaržo",
+    "Power-law model; existing parameters are not validated for the batch",
+    "幂律模型；现有参数未经具体批次验证"
+  ],
+  "Geometrie ergibt kein positives Restvolumen; Maße und Einheiten prüfen": [
+    "La geometria non produce un volume residuo positivo; verificare dimensioni e unità",
+    "Geometrija ne daje pozitivne preostale prostornine; preverite mere in enote",
+    "Geometry gives no positive remaining volume; check dimensions and units",
+    "几何计算的剩余体积非正值；请检查尺寸及单位"
+  ],
+  "Richtwert; Stadienplan Hülse 9 mm (Napf 72 %, danach Abstrecken 21 %)": [
+    "Valore orientativo; sequenza bussola 9 mm (bicchiere 72 %, poi stiratura 21 %)",
+    "Orientacijska vrednost; zaporedje puše 9 mm (votlo iztiskovanje 72 %, nato tanjšanje 21 %)",
+    "Guideline; stage plan for 9 mm sleeve (cup extrusion 72 %, then ironing 21 %)",
+    "参考值；9 mm 套筒工序图（反挤压 72 %，随后减薄拉伸 21 %）"
+  ],
+  "Teilegewicht je Baugröße: Bereich der Serienteile, die darauf liefen": [
+    "Peso pezzo per taglia macchina: intervallo dei pezzi prodotti in serie",
+    "Masa izdelka po velikosti stroja: območje serijskih izdelkov, izdelanih na njem",
+    "Part weight by machine size: range of production parts previously run",
+    "按机型规格的零件重量：曾在该机型生产的批量零件范围"
+  ],
+  "Rechnung ergibt keine endlichen positiven Kräfte oder Abschnittlänge": [
+    "Il calcolo non produce forze o lunghezza spezzone finite e positive",
+    "Izračun ne daje končnih pozitivnih sil ali dolžine odrezka",
+    "Calculation gives no finite positive forces or blank length",
+    "计算未得到有限正值的成形力或坯料长度"
+  ],
+  "Innenantrieb tiefer als 2 × SW: Vorformen im vorigen Schlag nötig": [
+    "Impronta interna più profonda di 2 × SW: preformatura necessaria al colpo precedente",
+    "Notranji pogon globlji od 2 × SW: potrebno predoblikovanje pri prejšnjem udarcu",
+    "Internal drive deeper than 2 × SW: preforming required on previous blow",
+    "内驱动槽深度超过 2 × SW：前一次打击需预成形"
+  ],
+  "Stauchverhältnis {s} über 8,0: Sonderfolge, Prüfung im Fachgespräch": [
+    "Rapporto di ricalcatura {s} oltre 8,0: sequenza speciale, verifica con lo specialista",
+    "Razmerje nakrčevanja {s} nad 8,0: posebno zaporedje, strokovni pregled",
+    "Upsetting ratio {s} above 8,0: special sequence, specialist review required",
+    "镦粗比 {s} 超过 8,0：需特殊工序，由专业人员审查"
+  ],
+  "Erfahrungsregel Armierung, durch Katalogproportionen bestätigt": [
+    "Regola empirica di cerchiatura, confermata dalle proporzioni di catalogo",
+    "Izkustveno pravilo ojačitve, potrjeno s kataloškimi razmerji",
+    "Empirical reinforcement rule, supported by catalogue proportions",
+    "预应力套经验规则，经目录比例验证"
+  ],
+  "Napf: Querschnittsabnahme {r} % unter {lim} %: Stempel stark belastet": [
+    "Bicchiere: riduzione di sezione {r} % sotto {lim} %: punzone fortemente sollecitato",
+    "Votlina: zmanjšanje prereza {r} % pod {lim} %: pestič močno obremenjen",
+    "Cup: area reduction {r} % below {lim} %: punch heavily loaded",
+    "杯形孔：截面积减缩率 {r} % 低于 {lim} %，冲头负荷很高"
+  ],
+  "Erfahrungsregel, Stadienpläne Bundhülse 26002 und Exzenter": [
+    "Regola empirica, sequenze bussola flangiata 26002 ed eccentrico",
+    "Izkustveno pravilo, zaporedji za pušo s prirobnico 26002 in ekscenter",
+    "Empirical rule, stage plans for flanged sleeve 26002 and eccentric",
+    "经验规则，依据带肩套筒 26002 和偏心件的工序图"
+  ],
+  "Abschnitt- und Teilvolumen müssen positiv und endlich sein": [
+    "I volumi di spezzone e pezzo devono essere positivi e finiti",
+    "Prostornini odrezka in izdelka morata biti pozitivni in končni",
+    "Blank and part volumes must be positive and finite",
+    "坯料及零件体积必须为有限正值"
+  ],
+  "{a} bis {b} mm; Mindestabschnitt nach Rückfrage rund 1 mm kürzer": [
+    "da {a} a {b} mm; minimo riducibile di circa 1 mm previa conferma",
+    "{a} do {b} mm; minimum po potrditvi približno 1 mm krajši",
+    "{a} to {b} mm; minimum about 1 mm shorter subject to confirmation",
+    "{a} 至 {b} mm；经确认后最小值可缩短约 1 mm"
+  ],
+  "Abgraten und Lochen: F = Schnittlänge · Dicke · 0,8 · k_f": [
+    "Sbavatura e foratura: F = lunghezza di taglio · spessore · 0,8 · k_f",
+    "Obrezovanje in prebijanje: F = dolžina reza · debelina · 0,8 · k_f",
+    "Trimming and piercing: F = cutting length · thickness · 0,8 · k_f",
+    "切边与冲孔：F = 剪切长度 · 厚度 · 0,8 · k_f"
+  ],
+  "Richtwerte je Werkstoffgruppe, jeweils der vorsichtigere": [
+    "Valori orientativi per gruppo di materiale, scegliendo sempre il più prudente",
+    "Orientacijske vrednosti po skupini materiala, vedno previdnejša vrednost",
+    "Guidelines by material group, using the more conservative value",
+    "按材料组给出参考值，均采用较保守者"
+  ],
+  "Zusatzstufe {n} (Kalibrieren, Kerben, Prägen, Beschneiden)": [
+    "Stadio aggiuntivo {n} (calibratura, intaglio, coniatura, rifilatura)",
+    "Dodatna stopnja {n} (kalibriranje, zarezovanje, vtiskovanje, obrezovanje)",
+    "Additional stage {n} (sizing, notching, coining, trimming)",
+    "附加工步 {n}（校准、切槽、压印、修边）"
+  ],
+  "Schneidbüchse: Bohrung 1,01 · d₀, Außen-Ø rund 3,3 · d₀": [
+    "Bussola di taglio: foro 1,01 · d₀, Ø esterno circa 3,3 · d₀",
+    "Rezalna puša: izvrtina 1,01 · d₀, zunanji Ø približno 3,3 · d₀",
+    "Cut-off die: bore 1,01 · d₀, outside Ø approximately 3,3 · d₀",
+    "切断衬套：孔径 1,01 · d₀，外径约 3,3 · d₀"
+  ],
+  "Lochbutzen T = 0,5 · Loch-Ø (normal), bis 1,0 · Loch-Ø": [
+    "Fondello da tranciare T = 0,5 · Ø foro (normale), fino a 1,0 · Ø foro",
+    "Prebojni ostanek T = 0,5 · Ø izvrtine (običajno), do 1,0 · Ø izvrtine",
+    "Piercing web T = 0,5 · hole Ø (normal), up to 1,0 · hole Ø",
+    "冲孔余底 T = 0,5 · 孔径（通常），最大为 1,0 · 孔径"
+  ],
+  "Auswerferweg matrizenseitig ≥ Teillänge in der Matrize": [
+    "Corsa espulsore lato matrice ≥ lunghezza pezzo nella matrice",
+    "Hod izmetalnika na strani matrice ≥ dolžina izdelka v matrici",
+    "Die-side knockout stroke ≥ part length in die",
+    "模具侧顶出行程 ≥ 零件在凹模内的长度"
+  ],
+  "Zusatzstufe (Kalibrieren, Kerben, Prägen, Beschneiden)": [
+    "Stadio aggiuntivo (calibratura, intaglio, coniatura, rifilatura)",
+    "Dodatna stopnja (kalibriranje, zarezovanje, vtiskovanje, obrezovanje)",
+    "Additional stage (sizing, notching, coining, trimming)",
+    "附加工步（校准、切槽、压印、修边）"
+  ],
+  "Zusatzoperationen und ihre Lage sind noch festzulegen.": [
+    "Operazioni aggiuntive e relative posizioni restano da definire.",
+    "Dodatne postopke in njihova mesta je še treba določiti.",
+    "Additional operations and their locations remain to be defined.",
+    "附加操作及其部位仍待确定。"
+  ],
+  "Kopf mit Innenantrieb: Vorstauchen auch unter s = 2,3": [
+    "Testa con impronta interna: pre-ricalcatura anche sotto s = 2,3",
+    "Glava z notranjim pogonom: predhodno nakrčevanje tudi pod s = 2,3",
+    "Head with internal drive: pre-upsetting also below s = 2,3",
+    "带内驱动槽的头部：即使 s < 2,3 也应预镦"
+  ],
+  "Erfahrungsregel aus Stadienplänen; Kraft als Näherung": [
+    "Regola empirica da sequenze di formatura; forza approssimata",
+    "Izkustveno pravilo iz zaporedij preoblikovanja; sila je približek",
+    "Empirical rule from stage plans; force is approximate",
+    "依据工序图的经验规则；力为近似值"
+  ],
+  "{v} mm; Mindestabschnitt nach Rückfrage rund 1 mm kürzer": [
+    "{v} mm; spezzone minimo riducibile di circa 1 mm previa conferma",
+    "{v} mm; najmanjši odrezek po potrditvi približno 1 mm krajši",
+    "{v} mm; minimum blank about 1 mm shorter subject to confirmation",
+    "{v} mm；经确认后最小坯料可缩短约 1 mm"
+  ],
+  "Stempelaufnahme rund 2,3 · Kopf-Ø; darunter Hinweis": [
+    "Sede punzone circa 2,3 · Ø testa; sotto, avviso",
+    "Vpenjalo pestiča približno 2,3 · Ø glave; pod tem opozorilo",
+    "Punch holder approximately 2,3 · head Ø; warning below this",
+    "冲头安装尺寸约为头部直径的 2,3 倍；低于此值时提示"
+  ],
+  "{v} % der Nennkraft, je nach Zeitversatz der Stationen": [
+    "{v} % della forza nominale, secondo lo sfasamento delle stazioni",
+    "{v} % nazivne sile, odvisno od časovnega zamika postaj",
+    "{v} % of rated force, depending on station timing offset",
+    "额定力的 {v} %，取决于各工位的时间错位"
+  ],
+  "Napftiefe und Restboden widersprechen der Teillänge": [
+    "Profondità del bicchiere e fondo residuo incompatibili con la lunghezza del pezzo",
+    "Globina votline in preostalo dno nista skladna z dolžino izdelka",
+    "Cup depth and remaining bottom are inconsistent with part length",
+    "杯形孔深及余底与零件长度不一致"
+  ],
+  "Fließkurve k_f = C · φⁿ, Anfangswert bei φ = 0,025": [
+    "Curva di flusso k_f = C · φⁿ, valore iniziale a φ = 0,025",
+    "Krivulja tečenja k_f = C · φⁿ, začetna vrednost pri φ = 0,025",
+    "Flow curve k_f = C · φⁿ, initial value at φ = 0,025",
+    "流动应力曲线 k_f = C · φⁿ，初始值取 φ = 0,025"
+  ],
+  "Katalog {d} mm; Einfluss der Drahtzugfestigkeit offen": [
+    "Catalogo {d} mm; influenza della resistenza del filo da verificare",
+    "Katalog {d} mm; vpliv natezne trdnosti žice še ni preverjen",
+    "Catalogue {d} mm; effect of wire tensile strength not yet checked",
+    "目录 {d} mm；线材抗拉强度的影响待校核"
+  ],
+  "Auswerferweg stempelseitig ≥ Teillänge im Stempel": [
+    "Corsa espulsore lato punzone ≥ lunghezza pezzo nel punzone",
+    "Hod izmetalnika na strani pestiča ≥ dolžina izdelka v pestiču",
+    "Punch-side knockout stroke ≥ part length in punch",
+    "冲头侧顶出行程 ≥ 零件在冲头内的长度"
+  ],
+  "Loch-Ø nicht angegeben: angenommen 0,84 × M = {d} mm": [
+    "Ø foro non indicato: assunto 0,84 × M = {d} mm",
+    "Ø izvrtine ni podan: privzeto 0,84 × M = {d} mm",
+    "Hole Ø unspecified: assumed 0,84 × M = {d} mm",
+    "未给出孔径：假定 0,84 × M = {d} mm"
+  ],
+  "{f} t, Auslastung {r} %, über der Auslegungsgrenze 80 %": [
+    "{f} t, utilizzo {r} %, oltre il limite di progetto dell'80 %",
+    "{f} t, obremenitev {r} %, nad mejo dimenzioniranja 80 %",
+    "{f} t, utilisation {r} %, above the 80 % design limit",
+    "{f} t，负荷率 {r} %，超过设计限值 80 %"
+  ],
+  "Katalogwert und Erfahrungswert aus Betriebsdaten": [
+    "Valore di catalogo ed esperienza operativa",
+    "Kataloška vrednost in izkušnje iz proizvodnje",
+    "Catalogue value and operating experience",
+    "目录值及生产经验值"
+  ],
+  "Näherungsmodell, η_F aus dem Bereich 0,6 bis 0,9": [
+    "Modello approssimato, η_F nell'intervallo da 0,6 a 0,9",
+    "Približni model, η_F v območju 0,6 do 0,9",
+    "Approximate model, η_F in the range 0,6 to 0,9",
+    "近似模型，η_F 范围为 0,6 至 0,9"
+  ],
+  "Kein Stadienkonzept zugeordnet. Nicht erfüllt: {feature}.": [
+    "Nessuna sequenza associata. Requisiti non soddisfatti: {feature}.",
+    "Koncept zaporedja ni dodeljen. Neizpolnjeno: {feature}.",
+    "No stage concept assigned. Not satisfied: {feature}.",
+    "未分配工序方案。未满足：{feature}。"
+  ],
+  "Loch-Ø muss kleiner als die Schlüsselweite sein": [
+    "Il Ø foro deve essere inferiore all'apertura chiave",
+    "Ø izvrtine mora biti manjši od zeva ključa",
+    "Hole Ø must be smaller than the width across flats",
+    "孔径必须小于对边尺寸"
+  ],
+  "Kopf-Ø über 2,5 × d₀: geführtes Stauchen nötig": [
+    "Ø testa oltre 2,5 × d₀: ricalcatura guidata necessaria",
+    "Ø glave nad 2,5 × d₀: potrebno vodeno nakrčevanje",
+    "Head Ø above 2,5 × d₀: guided upsetting required",
+    "头部直径超过 2,5 × d₀：需受导向镦粗"
+  ],
+  "Werknorm, durch Katalogproportionen bestätigt": [
+    "Norma aziendale, confermata dalle proporzioni di catalogo",
+    "Interni standard, potrjen s kataloškimi razmerji",
+    "Works standard, supported by catalogue proportions",
+    "企业标准，经目录比例验证"
+  ],
+  "Abschnitt aus der angegebenen Masse gerechnet": [
+    "Spezzone calcolato dalla massa indicata",
+    "Odrezek izračunan iz podane mase",
+    "Blank calculated from stated mass",
+    "坯料根据给定质量计算"
+  ],
+  "Katalogwert (Fußnote der Jern-Yao-Kataloge)": [
+    "Valore di catalogo (nota dei cataloghi Jern Yao)",
+    "Kataloška vrednost (opomba v katalogih Jern Yao)",
+    "Catalogue value (footnote in Jern Yao catalogues)",
+    "目录值（Jern Yao 目录脚注）"
+  ],
+  "bis {v}, Produktangabe des Katalogs, Rückfrage": [
+    "fino a {v}, dato prodotto da catalogo, da confermare",
+    "do {v}, kataloški podatek o izdelku, preveriti",
+    "up to {v}, catalogue product specification, confirm",
+    "不超过 {v}，目录产品参数，须确认"
+  ],
+  "Napf durch Kopf / Bund und Körper / Schaft": [
+    "Bicchiere attraverso testa / collare e corpo / gambo",
+    "Votlina skozi glavo / obroč in telo / steblo",
+    "Cup through head / collar and body / shank",
+    "杯形孔贯穿头部 / 台肩及主体 / 杆部"
+  ],
+  "Werkstoff aus der Werkstoffliste bestimmen": [
+    "Selezionare il materiale dall'elenco",
+    "Izberite material s seznama",
+    "Select a material from the material list",
+    "请从材料列表选择材料"
+  ],
+  "Abstrecken ({n}/{total}), Bohrung Ø{d}, Wand {r} % dünner": [
+    "Stiratura ({n}/{total}), foro Ø{d}, parete più sottile del {r} %",
+    "Tanjšanje ({n}/{total}), izvrtina Ø{d}, stena tanjša za {r} %",
+    "Ironing ({n}/{total}), bore Ø{d}, wall {r} % thinner",
+    "减薄拉伸（{n}/{total}），孔径 Ø{d}，壁厚减薄 {r} %"
+  ],
+  "Kalibrieren, Kerben, Prägen, Beschneiden": [
+    "Calibrare, intagliare, coniare, rifilare",
+    "Kalibriranje, zarezovanje, vtiskovanje, obrezovanje",
+    "Sizing, notching, coining, trimming",
+    "校准、切槽、压印、修边"
+  ],
+  "{v}, Produktangabe des Katalogs, Rückfrage": [
+    "{v}, dato prodotto da catalogo, da confermare",
+    "{v}, kataloški podatek o izdelku, preveriti",
+    "{v}, catalogue product specification, confirm",
+    "{v}，目录产品参数，须确认"
+  ],
+  "Sechskant formen, beidseitig vorlochen": [
+    "Formare l'esagono, preforare dai due lati",
+    "Oblikovati šesterokotnik, predhodno luknjati z obeh strani",
+    "Form hexagon, pre-pierce from both sides",
+    "成形六角，两侧预冲孔"
+  ],
+  "Fließkurve für den Lieferzustand offen": [
+    "Curva di flusso dello stato di fornitura da verificare",
+    "Krivulja tečenja za dobavno stanje še ni potrjena",
+    "Flow curve for delivery condition not yet verified",
+    "交货状态的流动应力曲线待验证"
+  ],
+  "Katalog {d} mm, Richtwert bei {rm} N/mm² {lim} mm": [
+    "Catalogo {d} mm, valore orientativo a {rm} N/mm²: {lim} mm",
+    "Katalog {d} mm, orientacijsko pri {rm} N/mm²: {lim} mm",
+    "Catalogue {d} mm, guideline at {rm} N/mm²: {lim} mm",
+    "目录 {d} mm，在 {rm} N/mm² 时参考值为 {lim} mm"
+  ],
+  "Flanschhöhe übersteigt die Mutterhöhe": [
+    "L'altezza flangia supera l'altezza dado",
+    "Višina prirobnice presega višino matice",
+    "Flange height exceeds nut height",
+    "法兰高度超过螺母高度"
+  ],
+  "Abstrecken, Bohrung Ø{d}, Wand {r} % dünner": [
+    "Stiratura, foro Ø{d}, parete più sottile del {r} %",
+    "Tanjšanje, izvrtina Ø{d}, stena tanjša za {r} %",
+    "Ironing, bore Ø{d}, wall {r} % thinner",
+    "减薄拉伸，孔径 Ø{d}，壁厚减薄 {r} %"
+  ],
+  "Kopf fertigstauchen mit Innenantrieb": [
+    "Ricalcatura finale testa con impronta interna",
+    "Končno nakrčevanje glave z notranjim pogonom",
+    "Finish-upset head with internal drive",
+    "带内驱动槽的头部终镦"
+  ],
+  "Napf rückwärts fließpressen ({n}/{total}) Ø{d} × {h}": [
+    "Estrudere il bicchiere all'indietro ({n}/{total}) Ø{d} × {h}",
+    "Votlo iztiskovati nazaj ({n}/{total}) Ø{d} × {h}",
+    "Backward-extrude cup ({n}/{total}) Ø{d} × {h}",
+    "杯形反挤压（{n}/{total}）Ø{d} × {h}"
+  ],
+  "Reduzieren {a} → {b} ({r} %), mit Vorstauchen": [
+    "Riduzione {a} → {b} ({r} %), con pre-ricalcatura",
+    "Reduciranje {a} → {b} ({r} %), s predhodnim nakrčevanjem",
+    "Reduce {a} → {b} ({r} %), with pre-upsetting",
+    "缩径 {a} → {b}（{r} %），结合预镦"
+  ],
+  "Vorwärtsfließpressen Schaft {a} → {b} ({r} %)": [
+    "Estrusione diretta gambo {a} → {b} ({r} %)",
+    "Iztiskovanje stebla naprej {a} → {b} ({r} %)",
+    "Forward-extrude shank {a} → {b} ({r} %)",
+    "杆部正挤压 {a} → {b}（{r} %）"
+  ],
+  "Zentrale Bohrung / beide Stirnseiten": [
+    "Foro centrale / entrambe le facce",
+    "Osrednja izvrtina / obe čelni strani",
+    "Central hole / both end faces",
+    "中心孔 / 两侧端面"
+  ],
+  "Fließkurve des Lieferzustands fehlt": [
+    "Manca la curva di flusso dello stato di fornitura",
+    "Manjka krivulja tečenja dobavnega stanja",
+    "Flow curve for delivery condition is missing",
+    "缺少交货状态的流动应力曲线"
+  ],
+  "Schlüsselweite und Höhe der Mutter": [
+    "Apertura chiave e altezza dado",
+    "Zev ključa in višina matice",
+    "Nut width across flats and height",
+    "螺母对边尺寸及高度"
+  ],
+  "Kopf (Ø und Höhe) oder Schaftlänge": [
+    "Testa (Ø e altezza) o lunghezza gambo",
+    "Glava (Ø in višina) ali dolžina stebla",
+    "Head (Ø and height) or shank length",
+    "头部（直径及高度）或杆部长度"
+  ],
+  "Pitch mindestens Matrizen-Außen-Ø": [
+    "Passo almeno pari al Ø esterno matrice",
+    "Razmik postaj najmanj enak zunanjemu Ø matrice",
+    "Pitch at least equal to die outside Ø",
+    "工位间距至少等于凹模外径"
+  ],
+  "Zusatzoperation noch festzulegen": [
+    "Operazione aggiuntiva da definire",
+    "Dodatni postopek je še treba določiti",
+    "Additional operation still to be defined",
+    "附加操作待确定"
+  ],
+  "Napf rückwärts fließpressen Ø{d} × {h}": [
+    "Estrudere il bicchiere all'indietro Ø{d} × {h}",
+    "Votlo iztiskovati nazaj Ø{d} × {h}",
+    "Backward-extrude cup Ø{d} × {h}",
+    "杯形反挤压 Ø{d} × {h}"
+  ],
+  "Planstauchen / Abschnitt richten": [
+    "Ricalcatura piana / raddrizzare lo spezzone",
+    "Čelno nakrčevanje / poravnava odrezka",
+    "Flat upsetting / straightening blank",
+    "平面镦粗 / 校直坯料"
+  ],
+  "Planung {n} /min, Katalog bis {max} /min": [
+    "Pianificazione {n} /min, catalogo fino a {max} /min",
+    "Načrtovano {n} /min, po katalogu do {max} /min",
+    "Planned {n} /min, catalogue up to {max} /min",
+    "计划 {n} /min，目录最大 {max} /min"
+  ],
+  "Planstauchen, Abschnitt richten": [
+    "Ricalcatura piana, raddrizzare lo spezzone",
+    "Čelno nakrčevanje, poravnati odrezek",
+    "Flat upset, straighten blank",
+    "平面镦粗、校直坯料"
+  ],
+  "Erfahrungswert aus dem Betrieb": [
+    "Valore basato sull'esperienza produttiva",
+    "Izkustvena vrednost iz proizvodnje",
+    "Value based on operating experience",
+    "生产经验值"
+  ],
+  "Napfboden / Bohrungsdurchbruch": [
+    "Fondo bicchiere / apertura foro",
+    "Dno votline / preboj izvrtine",
+    "Cup bottom / hole breakthrough",
+    "杯底 / 通孔口"
+  ],
+  "{v} ({r} × Bohrung, Sonderarmierung)": [
+    "{v} ({r} × foro, cerchiatura speciale)",
+    "{v} ({r} × izvrtina, posebna ojačitev)",
+    "{v} ({r} × bore, special reinforcement)",
+    "{v}（孔径的 {r} 倍，特殊预应力套）"
+  ],
+  "Lage am Teil noch festzulegen": [
+    "Posizione sul pezzo da definire",
+    "Mesto na izdelku je še treba določiti",
+    "Location on part still to be defined",
+    "零件上的操作部位待确定"
+  ],
+  "Automatenstahl, austenitisch": [
+    "acciaio automatico austenitico",
+    "avtomatno avstenitno jeklo",
+    "austenitic free-cutting steel",
+    "奥氏体易切削钢"
+  ],
+  "Sechskantkopf fertigstauchen": [
+    "Ricalcatura finale testa esagonale",
+    "Končno nakrčevanje šesterokotne glave",
+    "Finish-upset hex head",
+    "六角头终镦"
+  ],
+  "Zentrale Bohrung / Napfboden": [
+    "Foro centrale / fondo bicchiere",
+    "Osrednja izvrtina / dno votline",
+    "Central hole / cup bottom",
+    "中心孔 / 杯底"
+  ],
+  "Mutternkörper / Außenkontur": [
+    "Corpo dado / profilo esterno",
+    "Telo matice / zunanja kontura",
+    "Nut body / external contour",
+    "螺母主体 / 外轮廓"
+  ],
+  "Napf rückwärts fließpressen": [
+    "Estrudere il bicchiere all'indietro",
+    "Votlo iztiskovati nazaj",
+    "Backward-extrude cup",
+    "杯形反挤压"
+  ],
+  "Innenantrieb im Kopf / Bund": [
+    "Impronta interna nella testa / collare",
+    "Notranji pogon v glavi / obroču",
+    "Internal drive in head / collar",
+    "头部 / 台肩内的驱动槽"
+  ],
+  "Katalogproportion Jern Yao": [
+    "Proporzione di catalogo Jern Yao",
+    "Kataloško razmerje Jern Yao",
+    "Jern Yao catalogue proportion",
+    "Jern Yao 目录比例"
+  ],
+  "8.8 bis 10.9 nach Vergüten": [
+    "8.8–10.9 dopo bonifica",
+    "8.8 do 10.9 po poboljšanju",
+    "8.8 to 10.9 after quenching and tempering",
+    "调质后 8.8 至 10.9"
+  ],
+  "Kalibrieren / Fertigformen": [
+    "Calibratura / formatura finale",
+    "Kalibriranje / končno oblikovanje",
+    "Sizing / finish forming",
+    "校准 / 最终成形"
+  ],
+  "4.8 bis 5.8 ohne Vergüten": [
+    "4.8–5.8 senza bonifica",
+    "4.8 do 5.8 brez poboljšanja",
+    "4.8 to 5.8 without quenching and tempering",
+    "4.8 至 5.8，无需调质"
+  ],
+  "5.8 bis 6.8 ohne Vergüten": [
+    "5.8–6.8 senza bonifica",
+    "5.8 do 6.8 brez poboljšanja",
+    "5.8 to 6.8 without quenching and tempering",
+    "5.8 至 6.8，无需调质"
+  ],
+  "Napf vertiefen bis Butzen": [
+    "Approfondire il bicchiere fino al fondello",
+    "Poglobiti votlino do prebojnega ostanka",
+    "Deepen cup to piercing web",
+    "加深杯形孔至余底"
+  ],
+  "Lochen / Butzen abtrennen": [
+    "Forare / tranciare il fondello",
+    "Prebiti / odstraniti prebojni ostanek",
+    "Pierce / remove slug",
+    "冲孔 / 切除料芯"
+  ],
+  "Kalibrieren, Fertigformen": [
+    "Calibrare, formare a finire",
+    "Kalibrirati, končno oblikovati",
+    "Size, finish-form",
+    "校准、最终成形"
+  ],
+  "Flansch / Bund der Mutter": [
+    "Flangia / collare del dado",
+    "Prirobnica / obroč matice",
+    "Nut flange / collar",
+    "螺母法兰 / 台肩"
+  ],
+  "Zentrale Bohrung / Butzen": [
+    "Foro centrale / fondello",
+    "Osrednja izvrtina / prebojni ostanek",
+    "Central hole / slug",
+    "中心孔 / 冲孔料芯"
+  ],
+  "Aluminium, vorverfestigt": [
+    "Alluminio, pre-incrudito",
+    "Aluminij, predhodno utrjen",
+    "Aluminium, pre-hardened",
+    "预硬化铝"
+  ],
+  "Summe der Stationskräfte": [
+    "Somma delle forze di stazione",
+    "Vsota sil postaj",
+    "Sum of station forces",
+    "各工位力之和"
+  ],
+  "Zangenöffnung (Transfer)": [
+    "Apertura pinza (transfer)",
+    "Odprtina prijemala (prenos)",
+    "Gripper opening (transfer)",
+    "传送夹钳开口"
+  ],
+  "Kopf / Bund, Außenkontur": [
+    "Testa / collare, profilo esterno",
+    "Glava / obroč, zunanja kontura",
+    "Head / collar, external contour",
+    "头部 / 台肩，外轮廓"
+  ],
+  "Katalog ohne Wendeangabe": [
+    "Catalogo senza dato di ribaltamento",
+    "Katalog brez podatka o obračanju",
+    "Catalogue has no turnover specification",
+    "目录未给出翻转参数"
+  ],
+  "{v}; Sonderzange, Rückfrage": [
+    "{v}; pinza speciale, da confermare",
+    "{v}; posebno prijemalo, preveriti",
+    "{v}; special gripper, confirm with supplier",
+    "{v}；专用夹钳，须确认"
+  ],
+  "Reduzieren {a} → {b} ({r} %) und {operation}": [
+    "Riduzione {a} → {b} ({r} %) e {operation}",
+    "Reduciranje {a} → {b} ({r} %) in {operation}",
+    "Reduce {a} → {b} ({r} %) and {operation}",
+    "缩径 {a} → {b}（{r} %）并{operation}"
+  ],
+  "Abschnitt / Stirnflächen": [
+    "Spezzone / facce frontali",
+    "Odrezek / čelne površine",
+    "Blank / end faces",
+    "坯料 / 端面"
+  ],
+  "Teilegewicht (Erfahrung)": [
+    "Peso pezzo (esperienza)",
+    "Masa izdelka (izkušnje)",
+    "Part weight (experience)",
+    "零件重量（经验）"
+  ],
+  "Auswerfer Stempel (PKO)": [
+    "Espulsore punzone (PKO)",
+    "Izmetalnik pestiča (PKO)",
+    "Punch knockout (PKO)",
+    "冲头顶出器（PKO）"
+  ],
+  "Abstrecken der Napfwand": [
+    "Stiratura della parete del bicchiere",
+    "Tanjšanje stene votline",
+    "Ironing cup wall",
+    "杯壁减薄拉伸"
+  ],
+  "Ungültiger Zahlenwert: {key}": [
+    "Valore numerico non valido: {key}",
+    "Neveljavna številčna vrednost: {key}",
+    "Invalid numeric value: {key}",
+    "数值无效：{key}"
+  ],
+  "Napf im Körper / Schaft": [
+    "Bicchiere nel corpo / gambo",
+    "Votlina v telesu / steblu",
+    "Cup in body / shank",
+    "主体 / 杆部中的杯形孔"
+  ],
+  "Körper stauchen {a} → {b} ({n}/{total})": [
+    "Ricalcare il corpo {a} → {b} ({n}/{total})",
+    "Nakrčiti telo {a} → {b} ({n}/{total})",
+    "Upset body {a} → {b} ({n}/{total})",
+    "主体镦粗 {a} → {b}（{n}/{total}）"
+  ],
+  "begrenzt kaltumformbar": [
+    "formabilità a freddo limitata",
+    "omejena hladna preoblikovalnost",
+    "limited cold formability",
+    "冷成形性有限"
+  ],
+  "Auswerfer Matrize (KO)": [
+    "Espulsore matrice (KO)",
+    "Izmetalnik matrice (KO)",
+    "Die knockout (KO)",
+    "凹模顶出器（KO）"
+  ],
+  "Fertigkontur des Teils": [
+    "Profilo finale del pezzo",
+    "Končna kontura izdelka",
+    "Finished part contour",
+    "零件最终轮廓"
+  ],
+  "Teilbeschreibung fehlt": [
+    "Manca la descrizione del pezzo",
+    "Manjka opis izdelka",
+    "Part description is missing",
+    "缺少零件描述"
+  ],
+  "{f} t; Kraftprüfung offen": [
+    "{f} t; verifica forza da completare",
+    "{f} t; preverjanje sile še odprto",
+    "{f} t; force check pending",
+    "{f} t；成形力校核待完成"
+  ],
+  "Teillänge unter Kopf": [
+    "Lunghezza pezzo sotto testa",
+    "Dolžina izdelka pod glavo",
+    "Part length below head",
+    "头下长度"
+  ],
+  "Beidseitig vorlochen": [
+    "Preforare dai due lati",
+    "Predhodno luknjati z obeh strani",
+    "Pre-pierce from both sides",
+    "两侧预冲孔"
+  ],
+  "Produktmaß (Katalog)": [
+    "Dimensione prodotto (catalogo)",
+    "Dimenzija izdelka (katalog)",
+    "Product size (catalogue)",
+    "产品尺寸（目录）"
+  ],
+  "Vorwärtsfließpressen": [
+    "Estrusione diretta",
+    "Iztiskovanje naprej",
+    "Forward extrusion",
+    "正挤压"
+  ],
+  "Flansch fertigformen": [
+    "Formare la flangia a finire",
+    "Končno oblikovati prirobnico",
+    "Finish-form flange",
+    "法兰最终成形"
+  ],
+  "starke Verfestigung": [
+    "forte incrudimento",
+    "močno utrjevanje",
+    "strong work hardening",
+    "加工硬化强"
+  ],
+  "Kopf fertigstauchen": [
+    "Ricalcatura finale testa",
+    "Končno nakrčevanje glave",
+    "Finish-upset head",
+    "头部终镦"
+  ],
+  "Innenantrieb formen": [
+    "Formare l'impronta interna",
+    "Oblikovati notranji pogon",
+    "Form internal drive",
+    "成形内驱动槽"
+  ],
+  "Napf im Kopf / Bund": [
+    "Bicchiere nella testa / collare",
+    "Votlina v glavi / obroču",
+    "Cup in head / collar",
+    "头部 / 台肩中的杯形孔"
+  ],
+  "Körper stauchen {a} → {b}": [
+    "Ricalcare il corpo {a} → {b}",
+    "Nakrčiti telo {a} → {b}",
+    "Upset body {a} → {b}",
+    "主体镦粗 {a} → {b}"
+  ],
+  "Ø{d} mm größter Teil-Ø": [
+    "Ø{d} mm, massimo Ø pezzo",
+    "Ø{d} mm, največji Ø izdelka",
+    "Ø{d} mm maximum part Ø",
+    "零件最大直径 Ø{d} mm"
+  ],
+  "10.9 nach Vergüten": [
+    "10.9 dopo bonifica",
+    "10.9 po poboljšanju",
+    "10.9 after quenching and tempering",
+    "调质后 10.9"
+  ],
+  "Sechskant abgraten": [
+    "Tranciare l'esagono",
+    "Obrezati šesterokotnik",
+    "Trim hexagon",
+    "六角切边"
+  ],
+  "{v} t höchste Station": [
+    "{v} t alla stazione più sollecitata",
+    "{v} t na najbolj obremenjeni postaji",
+    "{v} t at highest-load station",
+    "最大单工位力 {v} t"
+  ],
+  "Kraftprüfung offen": [
+    "Verifica forza da completare",
+    "Preverjanje sile še odprto",
+    "Force check pending",
+    "成形力校核待完成"
+  ],
+  "{v}, mit Adapterhülse": [
+    "{v}, con bussola adattatrice",
+    "{v}, z adaptersko pušo",
+    "{v}, with adapter sleeve",
+    "{v}，带转接衬套"
+  ],
+  "Auslegungsvorgabe": [
+    "Criterio di dimensionamento",
+    "Zahteva za dimenzioniranje",
+    "Design requirement",
+    "设计要求"
+  ],
+  "8.8 nach Vergüten": [
+    "8.8 dopo bonifica",
+    "8.8 po poboljšanju",
+    "8.8 after quenching and tempering",
+    "调质后 8.8"
+  ],
+  "{v}; mit IS-Transfer": [
+    "{v}; con transfer IS",
+    "{v}; s prenosom IS",
+    "{v}; with IS transfer",
+    "{v}；采用 IS 传送"
+  ],
+  "{operation} mit Innenantrieb": [
+    "{operation} con impronta interna",
+    "{operation} z notranjim pogonom",
+    "{operation} with internal drive",
+    "{operation}并成形内驱动槽"
+  ],
+  "{f} t, Auslastung {r} %": [
+    "{f} t, utilizzo {r} %",
+    "{f} t, obremenitev {r} %",
+    "{f} t, utilisation {r} %",
+    "{f} t，负荷率 {r} %"
+  ],
+  "Matrizenaufnahme": [
+    "Sede matrice",
+    "Vpenjalo matrice",
+    "Die holder",
+    "凹模安装位"
+  ],
+  "Vorstauchen rund": [
+    "Pre-ricalcatura tonda",
+    "Predhodno okroglo nakrčevanje",
+    "Round pre-upsetting",
+    "圆形预镦"
+  ],
+  "Sechskant formen": [
+    "Formare l'esagono",
+    "Oblikovati šesterokotnik",
+    "Form hexagon",
+    "成形六角"
+  ],
+  "nicht im Katalog": [
+    "non nel catalogo",
+    "ni v katalogu",
+    "not in catalogue",
+    "目录未列"
+  ],
+  "Zwischenstauchen": [
+    "Ricalcatura intermedia",
+    "Vmesno nakrčevanje",
+    "Intermediate upsetting",
+    "中间镦粗"
+  ],
+  "Kraft noch offen": [
+    "Forza ancora da definire",
+    "Sila še ni določena",
+    "Force not yet determined",
+    "成形力待确定"
+  ],
+  "Maschinenfamilie": [
+    "Famiglia macchina",
+    "Družina strojev",
+    "Machine family",
+    "机型系列"
+  ],
+  "Erfahrungsregel": [
+    "Regola empirica",
+    "Izkustveno pravilo",
+    "Empirical rule",
+    "经验规则"
+  ],
+  "Näherungsmodell": [
+    "Modello approssimato",
+    "Približni model",
+    "Approximate model",
+    "近似模型"
+  ],
+  "Sonderarmierung": [
+    "Cerchiatura speciale",
+    "Posebna ojačitev",
+    "Special reinforcement",
+    "特殊预应力套"
+  ],
+  "Stempelaufnahme": [
+    "Sede punzone",
+    "Vpenjalo pestiča",
+    "Punch holder",
+    "冲头安装位"
+  ],
+  "Mutternwerkzeug": [
+    "Utensile per dadi",
+    "Orodje za matice",
+    "Nut tooling",
+    "螺母模具"
+  ],
+  "Körper stauchen": [
+    "Ricalcare il corpo",
+    "Nakrčiti telo",
+    "Upset body",
+    "主体镦粗"
+  ],
+  "Schaft / Körper": [
+    "Gambo / corpo",
+    "Steblo / telo",
+    "Shank / body",
+    "杆部 / 主体"
+  ],
+  "Abschnittlänge": [
+    "Lunghezza spezzone",
+    "Dolžina odrezka",
+    "Blank length",
+    "坯料长度"
+  ],
+  "Schneidbüchse": [
+    "Bussola di taglio",
+    "Rezalna puša",
+    "Cut-off die",
+    "切断衬套"
+  ],
+  "{n} (+1 Reserve)": [
+    "{n} (+1 riserva)",
+    "{n} (+1 rezerva)",
+    "{n} (+1 reserve)",
+    "{n}（+1 备用）"
+  ],
+  "{v} mm Teillänge": [
+    "{v} mm di lunghezza pezzo",
+    "dolžina izdelka {v} mm",
+    "{v} mm part length",
+    "零件长度 {v} mm"
+  ],
+  "{v} ({r} × Bohrung)": [
+    "{v} ({r} × foro)",
+    "{v} ({r} × izvrtina)",
+    "{v} ({r} × bore)",
+    "{v}（孔径的 {r} 倍）"
+  ],
+  "Planstauchen": [
+    "Ricalcatura piana",
+    "Čelno nakrčevanje",
+    "Flat upsetting",
+    "平面镦粗"
+  ],
+  "Mutterngröße": [
+    "Dimensione dado",
+    "Velikost matice",
+    "Nut size",
+    "螺母规格"
+  ],
+  "Katalog bis {v}": [
+    "Catalogo fino a {v}",
+    "Po katalogu do {v}",
+    "Catalogue up to {v}",
+    "目录最大 {v}"
+  ],
+  "Katalogwert": [
+    "Valore di catalogo",
+    "Kataloška vrednost",
+    "Catalogue value",
+    "目录值"
+  ],
+  "Vorstauchen": [
+    "Pre-ricalcatura",
+    "Predhodno nakrčevanje",
+    "Pre-upsetting",
+    "预镦"
+  ],
+  "Kopf / Bund": [
+    "Testa / collare",
+    "Glava / obroč",
+    "Head / collar",
+    "头部 / 台肩"
+  ],
+  "nicht nötig": [
+    "non necessario",
+    "ni potrebno",
+    "not required",
+    "无需"
+  ],
+  "Abschnitt-Ø": [
+    "Ø spezzone",
+    "Ø odrezka",
+    "Blank Ø",
+    "坯料直径"
+  ],
+  "Zusatzstufe": [
+    "Stadio aggiuntivo",
+    "Dodatna stopnja",
+    "Additional stage",
+    "附加工步"
+  ],
+  "Ausbringung": [
+    "Produzione",
+    "Proizvodna zmogljivost",
+    "Output rate",
+    "产量"
+  ],
+  "Mo-legiert": [
+    "legato al Mo",
+    "legirano z Mo",
+    "Mo-alloyed",
+    "含钼合金"
+  ],
+  "Reduzieren": [
+    "Riduzione",
+    "Reduciranje",
+    "Reduction",
+    "缩径"
+  ],
+  "Presskraft": [
+    "Forza di pressatura",
+    "Sila stiskanja",
+    "Press force",
+    "成形压力"
+  ],
+  "Wendelänge": [
+    "Lunghezza di ribaltamento",
+    "Dolžina za obračanje",
+    "Turnover length",
+    "翻转长度"
+  ],
+  "Draht-Ø d₀": [
+    "Ø filo d₀",
+    "Ø žice d₀",
+    "Wire Ø d₀",
+    "线材直径 d₀"
+  ],
+  "Abstrecken": [
+    "Stiratura",
+    "Tanjšanje stene",
+    "Ironing",
+    "减薄拉伸"
+  ],
+  "{v} (Vorgabe)": [
+    "{v} (specifica)",
+    "{v} (zahteva)",
+    "{v} (specified)",
+    "{v}（指定值）"
+  ],
+  "Identität": [
+    "Identità",
+    "Identiteta",
+    "Identity",
+    "标识"
+  ],
+  "Geometrie": [
+    "Geometria",
+    "Geometrija",
+    "Geometry",
+    "几何"
+  ],
+  "Richtwert": [
+    "Valore orientativo",
+    "Orientacijska vrednost",
+    "Guideline value",
+    "参考值"
+  ],
+  "Aluminium": [
+    "Alluminio",
+    "Aluminij",
+    "Aluminium",
+    "铝"
+  ],
+  "ohne Ring": [
+    "senza anello",
+    "brez obroča",
+    "no ring",
+    "无预应力套"
+  ],
+  "Stationen": [
+    "Stazioni",
+    "Postaje",
+    "Stations",
+    "工位"
+  ],
+  "Ø{a} bis {b} × {c}": [
+    "Ø{a}–{b} × {c}",
+    "Ø{a} do {b} × {c}",
+    "Ø{a} to {b} × {c}",
+    "Ø{a} 至 {b} × {c}"
+  ],
+  "Katalog {v}": [
+    "Catalogo {v}",
+    "Katalog {v}",
+    "Catalogue {v}",
+    "目录 {v}"
+  ],
+  "{a} bis {b} mm": [
+    "da {a} a {b} mm",
+    "{a} do {b} mm",
+    "{a} to {b} mm",
+    "{a} 至 {b} mm"
+  ],
+  "Lochen Ø{d}": [
+    "Forare Ø{d}",
+    "Prebiti Ø{d}",
+    "Pierce Ø{d}",
+    "冲孔 Ø{d}"
+  ],
+  "Planung {v}": [
+    "Pianificazione {v}",
+    "Načrtovanje {v}",
+    "Planning {v}",
+    "计划 {v}"
+  ],
+  "Messing": [
+    "Ottone",
+    "Medenina",
+    "Brass",
+    "黄铜"
+  ],
+  "2 Ringe": [
+    "2 anelli",
+    "2 obroča",
+    "2 rings",
+    "2 层预应力套"
+  ],
+  "{a} bis {b} g": [
+    "da {a} a {b} g",
+    "{a} do {b} g",
+    "{a} to {b} g",
+    "{a} 至 {b} g"
+  ],
+  "Kupfer": [
+    "Rame",
+    "Baker",
+    "Copper",
+    "铜"
+  ],
+  "1 Ring": [
+    "1 anello",
+    "1 obroč",
+    "1 ring",
+    "1 层预应力套"
+  ],
+  "Lochen": [
+    "Foratura per tranciatura",
+    "Prebijanje",
+    "Piercing",
+    "冲孔"
+  ],
+  "Modell": [
+    "Modello",
+    "Model",
+    "Model",
+    "型号"
+  ],
+  "Faktor": [
+    "Fattore",
+    "Faktor",
+    "Factor",
+    "系数"
+  ],
+  "ab {v} mm": [
+    "da {v} mm",
+    "od {v} mm",
+    "from {v} mm",
+    "从 {v} mm 起"
+  ],
+  "Pitch": [
+    "Passo",
+    "Razmik postaj",
+    "Station pitch",
+    "工位间距"
+  ],
+  "knapp": [
+    "al limite",
+    "mejno",
+    "marginal",
+    "临界"
+  ],
+  "offen": [
+    "da definire",
+    "odprto",
+    "pending",
+    "待确定"
+  ],
+  "bis {v}": [
+    "fino a {v}",
+    "do {v}",
+    "up to {v}",
+    "不超过 {v}"
+  ],
+  "nein": [
+    "no",
+    "ne",
+    "no",
+    "不满足"
+  ]
+}

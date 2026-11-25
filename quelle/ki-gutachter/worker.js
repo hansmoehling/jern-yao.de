@@ -1,4 +1,6 @@
 import { analyse, publicResult, loadKnowledge, MODEL } from './analysis.js';
+import I18N from '../i18n.js';
+const {t,normalizeLanguage}=I18N;
 
 const TTL = 30 * 86400;
 const MAX_FILE = 15 * 1024 * 1024;
@@ -62,10 +64,12 @@ async function enqueue(env, id) {
   await env.ANFRAGEN.sendBatch([{ body: { kind: 'intake_mail', id } }, { body: { kind: 'analysis', id } }]);
   await put(env, 'versandauftrag:' + id, { queuedAt: new Date().toISOString() });
 }
-async function intake(req, env, cors) {
-  await requireReady(env);
+async function intake(req, env, cors, locale) {
   const bytes = await readBounded(req, MAX_FILE + 128 * 1024);
   let form; try { form = await new Request(req.url, { method: 'POST', headers: req.headers, body: bytes }).formData(); } catch { throw new HttpError(400, 'Das Formular konnte nicht gelesen werden.'); }
+  const language = normalizeLanguage(form.get('language') || locale.value);
+  locale.value = language;
+  await requireReady(env);
   const email = txt(form.get('email'), 254);
   if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) throw new HttpError(400, 'Bitte geben Sie Ihre E-Mail-Adresse an.');
   const note = txt(form.get('notiz') || form.get('text'), 20000), name = txt(form.get('name'), 120), company = txt(form.get('firma'), 160);
@@ -81,38 +85,42 @@ async function intake(req, env, cors) {
   if (!note && !file) throw new HttpError(400, 'Bitte laden Sie eine Zeichnung hoch oder beschreiben Sie Ihr Teil.');
   const idem = txt(form.get('idempotency_key'), 160);
   if (idem && !/^[\w-]{8,160}$/.test(idem)) throw new HttpError(400, 'Die Anfragekennung ist ungültig.');
-  const fingerprint = await digest(JSON.stringify({ email, note, name, company, file }));
+  const fingerprint = await digest(JSON.stringify({ email, note, name, company, file, language }));
   const idemKey = idem ? 'idempotenz:' + await digest(email.toLowerCase() + ':' + idem) : null;
   if (idemKey) {
     const old = await get(env, idemKey);
     if (old) {
       if (old.fingerprint !== fingerprint) throw new HttpError(409, 'Diese Anfragekennung gehört bereits zu anderen Angaben. Bitte senden Sie eine neue Anfrage.');
       if (!await get(env, 'versandauftrag:' + old.id)) await enqueue(env, old.id);
-      return json({ id: old.id, token: await tokenFor(env, old.id), ...(await snapshot(env, old.id)) }, 200, cors);
+      const state = await snapshot(env, old.id);
+      if (!state.answer) state.language = language;
+      return json({ id: old.id, token: await tokenFor(env, old.id), ...state }, 200, cors);
     }
   }
   await throttle(req, env, 'intake', 10);
   const id = crypto.randomUUID(), createdAt = new Date().toISOString();
   if (file) { file.key = 'anfragen/' + id + '/original'; await env.DATEIEN.put(file.key, fileBytes, { httpMetadata: { contentType: file.type }, customMetadata: { expiresAt: String(Date.now() + TTL * 1000) } }); }
-  await put(env, 'anfrage:' + id, { id, createdAt, email, name, company, note, file });
+  await put(env, 'anfrage:' + id, { id, createdAt, email, name, company, note, file, language });
   await put(env, 'analyse:' + id, { status: 'queued', updatedAt: createdAt });
   await put(env, 'nachricht:' + id, { status: 'pending', updatedAt: createdAt });
   if (idemKey) await put(env, idemKey, { id, fingerprint });
   try { await enqueue(env, id); } catch { throw new HttpError(503, 'Die Übertragung wurde unterbrochen. Bitte senden Sie dieselbe Anfrage erneut.'); }
-  return json({ id, token: await tokenFor(env, id), status: 'queued', notificationStatus: 'pending' }, 202, cors);
+  return json({ id, token: await tokenFor(env, id), status: 'queued', notificationStatus: 'pending', language }, 202, cors);
 }
-async function chat(req, env, cors) {
-  if (!env.SPEICHER || !env.ANTHROPIC_API_KEY) throw new HttpError(503, 'Der Fachchat wird noch eingerichtet.');
+async function chat(req, env, cors, locale) {
   let body; try { body = JSON.parse(new TextDecoder().decode(await readBounded(req, 64000))); } catch (e) { if (e instanceof HttpError) throw e; throw new HttpError(400, 'Die Nachricht konnte nicht gelesen werden.'); }
+  if (!body || typeof body !== 'object' || Array.isArray(body)) throw new HttpError(400, 'Die Nachricht konnte nicht gelesen werden.');
+  if (typeof body.language === 'string') locale.value = normalizeLanguage(body.language);
+  if (!env.SPEICHER || !env.ANTHROPIC_API_KEY) throw new HttpError(503, 'Der Fachchat wird noch eingerichtet.');
   const message = txt(body.message, 8000);
   if (!message) throw new HttpError(400, 'Bitte schreiben Sie Ihre Frage.');
   let request = null, history = [];
-  if (body.requestId || body.token) { request = await authorised(env, body.requestId, body.token); history = await get(env, 'chat:' + request.id) || []; }
+  if (body.requestId || body.token) { request = await authorised(env, body.requestId, body.token); history = await get(env, 'chat:' + request.id) || []; if (typeof body.language !== 'string' && !locale.explicit) locale.value = normalizeLanguage(request.language); }
   else if (Array.isArray(body.history)) history = body.history.slice(-12).filter(x => x && ['user', 'assistant'].includes(x.role)).map(x => ({ role: x.role, content: txt(x.content || x.message, 4000) }));
   await throttle(req, env, 'chat', 40);
   const file = request?.file?.readable ? await readFile(env, request.file) : null;
   let result;
-  try { result = await analyse({ note: request?.note || '', message, history, file, filename: request?.file?.name, unreadableFile: !!request?.file && !request.file.readable }, env, { timeoutMs: 65000, maxRounds: 5 }); }
+  try { result = await analyse({ note: request?.note || '', message, history, file, filename: request?.file?.name, unreadableFile: !!request?.file && !request.file.readable, language: locale.value }, env, { timeoutMs: 65000, maxRounds: 5 }); }
   catch { throw new HttpError(503, 'Die Antwort konnte gerade nicht fertiggestellt werden. Ihre bisherige Anfrage bleibt erhalten. Bitte versuchen Sie es erneut.'); }
   if (request) {
     await put(env, 'chat:' + request.id, [...history, { role: 'user', content: message }, { role: 'assistant', content: result.answer }].slice(-20));
@@ -125,10 +133,11 @@ function b64(bytes) { let s = ''; for (let i = 0; i < bytes.length; i += 0x8000)
 async function notifyHans(env, record) {
   const current = await get(env, 'nachricht:' + record.id); if (current?.status === 'sent') return;
   const attachment = record.file ? await readFile(env, record.file) : null;
+  const language = normalizeLanguage(record.language);
   const response = await fetch('https://api.resend.com/emails', {
     method: 'POST', signal: AbortSignal.timeout(25000), headers: { Authorization: 'Bearer ' + env.RESEND_API_KEY, 'Content-Type': 'application/json', 'Idempotency-Key': 'jy-intake-' + record.id },
-    body: JSON.stringify({ from: env.ABSENDER, to: [env.EMPFAENGER], reply_to: record.email, subject: 'Neue Umformanfrage · ' + record.id,
-      text: ['Neue Anfrage eingegangen.', 'Kontakt: ' + record.email, record.name, record.company, '', record.note, '', record.file && !record.file.readable ? 'CAD-Datei im Anhang. Automatische Bildanalyse liest dieses Format nicht.' : 'Die technische Analyse läuft unabhängig von dieser Eingangsmitteilung.'].join('\n'),
+    body: JSON.stringify({ from: env.ABSENDER, to: [env.EMPFAENGER], reply_to: record.email, subject: t('Neue Umformanfrage', language) + ' · ' + record.id,
+      text: [t('Neue Anfrage eingegangen.', language), t('Kontakt:', language) + ' ' + record.email, record.name, record.company, '', record.note, '', t(record.file && !record.file.readable ? 'CAD-Datei im Anhang. Automatische Bildanalyse liest dieses Format nicht.' : 'Die technische Analyse läuft unabhängig von dieser Eingangsmitteilung.', language)].join('\n'),
       attachments: attachment ? [{ filename: record.file.name, content: b64(attachment.bytes) }] : undefined })
   });
   if (!response.ok) throw new Error('mail_provider_' + response.status);
@@ -139,8 +148,9 @@ async function queued(message, env) {
   const { id, kind } = message.body || {};
   if (!/^[a-f0-9-]{36}$/.test(id || '') || !['analysis', 'intake_mail'].includes(kind)) { message.ack(); return; }
   const key = (kind === 'analysis' ? 'analyse:' : 'nachricht:') + id;
+  let record;
   try {
-    const record = await get(env, 'anfrage:' + id);
+    record = await get(env, 'anfrage:' + id);
     if (!record) throw new Error('intake_not_yet_visible');
     if (Date.parse(record.createdAt) + TTL * 1000 < Date.now()) { message.ack(); return; }
     if (kind === 'intake_mail') await notifyHans(env, record);
@@ -149,7 +159,7 @@ async function queued(message, env) {
       if (['ready', 'needs_info'].includes(old?.status)) { message.ack(); return; }
       await put(env, key, { status: 'processing', updatedAt: new Date().toISOString() });
       const file = record.file?.readable ? await readFile(env, record.file) : null;
-      const result = await analyse({ note: record.note, file, filename: record.file?.name, unreadableFile: !!record.file && !record.file.readable }, env, { timeoutMs: 240000, maxRounds: 7 });
+      const result = await analyse({ note: record.note, file, filename: record.file?.name, unreadableFile: !!record.file && !record.file.readable, language: normalizeLanguage(record.language) }, env, { timeoutMs: 240000, maxRounds: 7 });
       const latest = await get(env, key);
       if (!['ready', 'needs_info'].includes(latest?.status)) await put(env, key, { status: result.questions.length ? 'needs_info' : 'ready', result, updatedAt: new Date().toISOString() });
     }
@@ -158,24 +168,26 @@ async function queued(message, env) {
     const final = (message.attempts || 1) >= 4;
     const latest = await get(env, key);
     if (kind === 'analysis' && ['ready', 'needs_info'].includes(latest?.status) || kind === 'intake_mail' && latest?.status === 'sent') { message.ack(); return; }
-    await put(env, key, { status: final ? 'failed' : kind === 'analysis' ? 'queued' : 'pending', updatedAt: new Date().toISOString(), ...(kind === 'analysis' && final ? { result: { answer: 'Die automatische Ausarbeitung konnte nicht abgeschlossen werden. Ihre Anfrage ist gespeichert.', questions: [], proposal: null, sources: [] } } : {}) });
+    const language = normalizeLanguage(record?.language);
+    await put(env, key, { status: final ? 'failed' : kind === 'analysis' ? 'queued' : 'pending', updatedAt: new Date().toISOString(), ...(kind === 'analysis' && final ? { result: { answer: t('Die automatische Ausarbeitung konnte nicht abgeschlossen werden. Ihre Anfrage ist gespeichert.', language), questions: [], proposal: null, sources: [], language } } : {}) });
     message.retry({ delaySeconds: 60 }); // Exhausted jobs reach the configured dead-letter queue.
   }
 }
 export default {
   async fetch(req, env) {
     const url = new URL(req.url), origin = req.headers.get('Origin');
+    const locale = { value: normalizeLanguage(url.searchParams.get('language')), explicit: url.searchParams.has('language') };
     const allowed = [...ORIGINS, ...String(env.ALLOWED_ORIGINS || '').split(',').map(x => x.trim()).filter(Boolean)];
     const cors = origin && allowed.includes(origin) ? { 'Access-Control-Allow-Origin': origin, Vary: 'Origin', 'Access-Control-Allow-Methods': 'GET, POST, OPTIONS', 'Access-Control-Allow-Headers': 'Content-Type' } : {};
-    if (origin && !allowed.includes(origin)) return json({ error: 'Diese Herkunft ist nicht freigegeben.' }, 403);
+    if (origin && !allowed.includes(origin)) return json({ error: t('Diese Herkunft ist nicht freigegeben.', locale.value), language: locale.value }, 403);
     if (req.method === 'OPTIONS') return new Response(null, { status: 204, headers: cors });
     try {
       if (url.pathname === '/health' && req.method === 'GET') return json(await readiness(env), 200, cors);
-      if (url.pathname === '/anfrage' && req.method === 'POST') return await intake(req, env, cors);
-      if (url.pathname === '/chat' && req.method === 'POST') return await chat(req, env, cors);
-      if (url.pathname === '/status' && req.method === 'GET') { const a = await authorised(env, url.searchParams.get('id'), url.searchParams.get('token')); return json(await snapshot(env, a.id), 200, cors); }
-      return json({ error: 'Nicht gefunden.' }, 404, cors);
-    } catch (e) { return json({ error: e instanceof HttpError ? e.message : 'Der Dienst konnte die Anfrage gerade nicht abschließen.' }, e.status || 503, cors); }
+      if (url.pathname === '/anfrage' && req.method === 'POST') return await intake(req, env, cors, locale);
+      if (url.pathname === '/chat' && req.method === 'POST') return await chat(req, env, cors, locale);
+      if (url.pathname === '/status' && req.method === 'GET') { const a = await authorised(env, url.searchParams.get('id'), url.searchParams.get('token')); const state = await snapshot(env, a.id); if (!state.answer) state.language = normalizeLanguage(a.language); return json(state, 200, cors); }
+      return json({ error: t('Nicht gefunden.', locale.value), language: locale.value }, 404, cors);
+    } catch (e) { return json({ error: t(e instanceof HttpError ? e.message : 'Der Dienst konnte die Anfrage gerade nicht abschließen.', locale.value), language: locale.value }, e.status || 503, cors); }
   },
   async queue(batch, env) { await Promise.all(batch.messages.map(message => queued(message, env))); }
 };

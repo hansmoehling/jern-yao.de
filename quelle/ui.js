@@ -3,6 +3,9 @@
 
   const $ = id => document.getElementById(id);
   const MAIL = 'info@jernyao.de';
+  const L=window.JYLocale;
+  const tr=text=>L.t(text);
+  let latestStatus=null;
   const MAX_BYTES = 15 * 1024 * 1024;
   const ALLOWED = /\.(pdf|png|jpe?g|webp|step|stp|dxf|dwg)$/i;
   const CAD = /\.(step|stp|dxf|dwg)$/i;
@@ -35,21 +38,21 @@
 
   function element(tag, text, className) {
     const node = document.createElement(tag);
-    if (text !== undefined && text !== null) node.textContent = String(text);
+    if (text !== undefined && text !== null) { const source=String(text); node.textContent = ['message-text','answer-text'].includes(className)?source:tr(source); if(!['message-text','answer-text'].includes(className))node.dataset.jySource=source; }
     if (className) node.className = className;
     return node;
   }
 
   function message(id, text, kind) {
     const node = $(id);
-    node.textContent = text || '';
+    node.textContent = tr(text || ''); node.dataset.jySource=text||'';
     node.className = 'form-message' + (kind ? ' ' + kind : '');
     node.hidden = !text;
   }
 
   function number(value, suffix) {
     return typeof value === 'number' && Number.isFinite(value)
-      ? value.toLocaleString('de-DE', { maximumFractionDigits: 2 }) + (suffix ? ' ' + suffix : '') : '';
+      ? value.toLocaleString(window.JYI18N.numberLocale(L.language), { maximumFractionDigits: 2 }) + (suffix ? ' ' + suffix : '') : '';
   }
 
   function readable(value) {
@@ -107,7 +110,7 @@
 
   function signature() {
     const file = selectedFile();
-    return JSON.stringify({ email: $('email').value.trim(), name: $('name').value.trim(), firma: $('company').value.trim(), notiz: $('description').value.trim(), file: file ? [file.name, file.size, file.lastModified] : null });
+    return JSON.stringify({ language:L.language, email: $('email').value.trim(), name: $('name').value.trim(), firma: $('company').value.trim(), notiz: $('description').value.trim(), file: file ? [file.name, file.size, file.lastModified] : null });
   }
 
   function updateSubmit() {
@@ -127,6 +130,7 @@
     updateSubmit();
   }
 
+  $('choose-file').addEventListener('click',()=>$('file').click());
   $('file').addEventListener('change', updateFile);
   $('remove-file').addEventListener('click', () => { $('file').value = ''; updateFile(); });
   const drop = $('drop-zone');
@@ -147,13 +151,19 @@
     try { $('file').files = event.dataTransfer.files; updateFile(); }
     catch (_) { message('file-error', 'Bitte wählen Sie die Datei über die Schaltfläche aus.', 'error'); }
   });
-  requestForm.addEventListener('input', updateSubmit);
+  requestForm.addEventListener('input',()=>{$('email').setCustomValidity('');$('consent').setCustomValidity('');updateSubmit();});
+  function validRequest(){
+    const email=$('email').value.trim();
+    $('email').setCustomValidity(tr(!email?'Bitte geben Sie Ihre E-Mail-Adresse ein.':!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)?'Bitte geben Sie eine gültige E-Mail-Adresse ein.':''));
+    $('consent').setCustomValidity($('consent').checked?'':tr('Bitte stimmen Sie der Verarbeitung Ihrer Anfrage zu.'));
+    return requestForm.reportValidity() && !!email && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email) && $('consent').checked;
+  }
 
   async function api(path, options) {
     const controller = new AbortController();
     const timer = window.setTimeout(() => controller.abort(), 90000);
     try {
-      const response = await fetch(apiBase + path, Object.assign({}, options, { signal: controller.signal, credentials: 'omit', cache: 'no-store' }));
+      const response = await fetch(apiBase + path + (path.includes('?')?'&':'?') + 'language=' + encodeURIComponent(L.language), Object.assign({}, options, { signal: controller.signal, credentials: 'omit', cache: 'no-store' }));
       let data;
       try { data = await response.json(); } catch (_) { data = null; }
       if (!response.ok) {
@@ -207,8 +217,28 @@
     if (!value) return;
     const row = element('div');
     row.appendChild(element('dt', label));
-    row.appendChild(element('dd', value));
-    if (detail) row.appendChild(element('dd', detail, 'small'));
+    const originalValue = element('dd');
+    originalValue.textContent = value;
+    originalValue.dataset.originalText = '';
+    row.appendChild(originalValue);
+    if (detail && typeof detail === 'object') {
+      const provenance = element('dd', null, 'small');
+      const labels = [detail.assumption ? 'Annahme' : '', detail.origin].filter(Boolean);
+      labels.forEach((text, index) => {
+        if (index) provenance.appendChild(element('span', ' · '));
+        provenance.appendChild(element('span', text));
+      });
+      if (detail.reference) {
+        if (labels.length) provenance.appendChild(element('span', ' · '));
+        const reference = element('span');
+        // Translate the complete reference template before combining it with
+        // provenance labels. Its quoted customer text must remain verbatim.
+        reference.textContent = tr(detail.reference);
+        reference.dataset.originalText = '';
+        provenance.appendChild(reference);
+      }
+      row.appendChild(provenance);
+    } else if (detail) row.appendChild(element('dd', detail, 'small'));
     list.appendChild(row);
   }
 
@@ -216,7 +246,9 @@
     if (!proposal || typeof proposal !== 'object') return;
     const fieldLabels = { material: 'Werkstoff', d0: 'Drahtdurchmesser', kD: 'Kopfdurchmesser', kSW: 'Kopfschlüsselweite', kH: 'Kopfhöhe', sD: 'Körperdurchmesser', sL: 'Körperlänge', iSW: 'Innenantrieb-Schlüsselweite', iT: 'Innenantriebstiefe', nD: 'Napfinnendurchmesser', nT: 'Napftiefe', mM: 'Gewinde-Nenndurchmesser', mSW: 'Mutternschlüsselweite', mH: 'Mutternhöhe', mLoch: 'Lochdurchmesser', mFlansch: 'Flanschdurchmesser', mFlanschH: 'Flanschhöhe', masse: 'Teilmasse', rm: 'Drahtzugfestigkeit', lStempel: 'Länge im Stempel', ko: 'Matrizenauswerferweg', pko: 'Stempelauswerferweg', matD: 'Matrizenaufnahme-Durchmesser', matL: 'Matrizenaufnahme-Länge', stD: 'Stempelaufnahme-Durchmesser', stL: 'Stempelaufnahme-Länge', stationen: 'Stationsvorgabe', zusatz: 'Zusatzstufen', ausbringung: 'Ausbringung' };
     const originLabels = { user_text: 'Ihre Beschreibung', drawing: 'Aus der Zeichnung gelesen', derived: 'Abgeleitet', assumption: 'Prozessannahme' };
-    const provenance = item => [item.assumption ? 'Annahme' : '', originLabels[item.origin] || '', readable(item.reference)].filter(Boolean).join(' · ');
+    const provenance = item => ({ assumption: !!item.assumption, origin: originLabels[item.origin] || '', reference: readable(item.reference) });
+    const materialModel=proposal.calculation&&proposal.calculation.materialModel;
+    if(materialModel){const basis=element('p',tr('Werkstoffmodell:')+' '+tr(materialModel.curveStatus==='missing'?'Fließkurve des Lieferzustands fehlt':'Näherungsmodell'),'small');parent.appendChild(basis);}
     const input = Array.isArray(proposal.input) ? proposal.input : [];
     if (input.length) {
       parent.appendChild(element('h3', 'Aus Ihren Angaben'));
@@ -236,7 +268,7 @@
       proposal.stages.forEach((stage, index) => {
         const li = element('li');
         li.appendChild(element('strong', 'Stadium ' + readable(stage.number || index + 1) + ' · ' + readable(stage.operation)));
-        const detail = [stage.force_t != null ? number(stage.force_t, 't') : '', readable(stage.rule)].filter(Boolean).join(' · ');
+        const detail = [stage.force_t != null ? number(stage.force_t, 't') : 'Kraft noch offen', readable(stage.rule)].filter(Boolean).join(' · ');
         if (detail) li.appendChild(element('div', detail, 'small'));
         list.appendChild(li);
       });
@@ -250,9 +282,10 @@
         row.appendChild(element('dt', readable(machine.model)));
         const statusLabels = { ok: 'Passend zur Vorauswahl', knapp: 'Einzelne Punkte vertiefen', offen: 'Angaben offen', nein: 'Grenze überschritten', suitable: 'Passend zur Vorauswahl' };
         row.appendChild(element('dd', statusLabels[machine.status] || readable(machine.status)));
-        const price = number(machine.priceEUR, 'EUR');
+        const price = typeof machine.priceEUR==='number' && machine.priceEUR>0?number(machine.priceEUR, 'EUR'):'';
         if (price) row.appendChild(element('dd', 'Richtpreis ' + price, 'small'));
         if (Array.isArray(machine.priceRangeEUR) && machine.priceRangeEUR.length === 2) row.appendChild(element('dd', 'Preisspanne ' + machine.priceRangeEUR.map(value => number(value, 'EUR')).join(' – '), 'small'));
+        if(machine.concept){const box=element('div');box.innerHTML=window.JYConcept.html(machine.concept,L.language);row.appendChild(box);}
         if (Array.isArray(machine.criteria) && machine.criteria.length) {
           const details = element('details'); details.appendChild(element('summary', 'Abgleich mit den Maschinendaten'));
           const list = element('ul', null, 'small');
@@ -280,11 +313,13 @@
   }
 
   function renderStatus(data) {
+    latestStatus=data;
     $('response').hidden = false;
     const labels = { queued: 'Anfrage eingegangen', processing: 'Ihr Konzept wird vorbereitet', needs_info: 'Eine Rückfrage zu Ihrem Teil', ready: 'Ihr erster Konzeptvorschlag', failed: 'Die technische Auswertung ist noch offen' };
     $('response-title').textContent = labels[data.status] || 'Ihre Anfrage';
     $('result-status').textContent = 'Anfrage ' + current.id;
     const content = $('result-content'); content.replaceChildren();
+    if(data.language && window.JYI18N.normalizeLanguage(data.language)!==L.language)content.appendChild(element('p',tr('Antwortsprache:')+' '+L.autonyms[window.JYI18N.normalizeLanguage(data.language)],'original-language'));
     if (typeof data.answer === 'string' && data.answer.trim()) content.appendChild(element('div', data.answer, 'answer-text'));
     else if (data.status === 'queued' || data.status === 'processing') content.appendChild(element('p', 'Ihre Unterlagen sind eingegangen. Die technische Auswertung folgt hier.'));
     else if (data.status === 'failed') content.appendChild(element('p', 'Die Anfrage bleibt erhalten. Sie können Hans Möhling unter Angabe der Anfragenummer direkt kontaktieren.'));
@@ -322,7 +357,7 @@
 
   requestForm.addEventListener('submit', async event => {
     event.preventDefault();
-    if (!apiBase || requestBusy || !requestForm.reportValidity()) return;
+    if (!apiBase || requestBusy || !validRequest()) return;
     const file = selectedFile();
     const note = $('description').value.trim();
     if (!file && !note) {
@@ -336,6 +371,7 @@
       idempotencyKey = typeof crypto.randomUUID === 'function' ? crypto.randomUUID() : Array.from(crypto.getRandomValues(new Uint8Array(24)), value => value.toString(16).padStart(2, '0')).join('');
     }
     const data = new FormData();
+    data.append('language',L.language);
     data.append('email', $('email').value.trim()); data.append('name', $('name').value.trim()); data.append('firma', $('company').value.trim()); data.append('notiz', note); data.append('idempotency_key', idempotencyKey);
     if (file) data.append('datei', file, file.name);
     requestBusy = true; updateSubmit(); message('request-message', 'Ihre Anfrage wird übertragen …');
@@ -358,6 +394,7 @@
     const article = element('article', null, 'message ' + role);
     article.appendChild(element('div', role === 'user' ? 'Sie' : 'Technischer Dialog', 'speaker'));
     article.appendChild(element('div', text, 'message-text'));
+    if(extra&&extra.language)article.appendChild(element('p',tr('Antwortsprache:')+' '+(L.autonyms[window.JYI18N.normalizeLanguage(extra.language)]||extra.language),'original-language'));
     if (extra) { listSection(article, 'Dazu noch eine Frage', extra.questions); sourcesSection(article, extra.sources); }
     $('messages').appendChild(article);
     $('messages').scrollTop = $('messages').scrollHeight;
@@ -366,11 +403,12 @@
 
   chatForm.addEventListener('submit', async event => {
     event.preventDefault();
+    $('chat-input').setCustomValidity($('chat-input').value.trim()?'':tr('Bitte schreiben Sie Ihre Frage oder Idee.'));
     if (!apiBase || chatBusy || !chatForm.reportValidity()) return;
     const text = $('chat-input').value.trim();
     if (!text) return;
     const priorHistory = history.slice(-12).map(item => ({ role: item.role, content: item.content.slice(0, 4000) }));
-    const body = { message: text, history: priorHistory };
+    const body = { message: text, history: priorHistory, language:L.language };
     if (current) { body.requestId = current.id; body.token = current.token; }
     // Keep the actual UTF-8 JSON below the service's 64 KB limit, including long
     // answers and languages with multibyte characters. Remove oldest pairs first.
@@ -389,6 +427,7 @@
     finally { chatBusy = false; updateSubmit(); }
   });
 
+  $('chat-input').addEventListener('input',()=>$('chat-input').setCustomValidity(''));
   document.querySelectorAll('[data-question]').forEach(button => button.addEventListener('click', () => {
     $('chat-input').value = button.dataset.question; $('chat-input').focus();
   }));
@@ -402,12 +441,13 @@
   $('refresh-status').addEventListener('click', () => { polls = 0; refreshStatus(true); });
   $('email-fallback').addEventListener('click', event => {
     const file = selectedFile();
-    const body = [$('name').value.trim(), $('company').value.trim(), $('email').value.trim(), '', $('description').value.trim(), file ? '\nZeichnung: ' + file.name + ' (bitte dieser E-Mail beifügen)' : ''].join('\n');
-    event.currentTarget.href = 'mailto:' + MAIL + '?subject=' + encodeURIComponent('Anfrage zur Kaltumformung') + '&body=' + encodeURIComponent(body.slice(0, 7000));
+    const body = [$('name').value.trim(), $('company').value.trim(), $('email').value.trim(), '', $('description').value.trim(), file ? '\n'+tr('Zeichnung:')+' '+file.name+' '+tr('(bitte dieser E-Mail beifügen)') : ''].join('\n');
+    event.currentTarget.href = 'mailto:' + MAIL + '?subject=' + encodeURIComponent(tr('Anfrage zur Kaltumformung')) + '&body=' + encodeURIComponent(body.slice(0, 7000));
   });
   document.querySelectorAll('a[href="#datenschutz"]').forEach(link => link.addEventListener('click', () => { $('datenschutz').open = true; }));
   window.addEventListener('pagehide', () => window.clearTimeout(pollTimer));
   $('availability').hidden = !!apiBase;
   $('email-fallback').hidden = !!apiBase;
-  updateSubmit();
+  window.addEventListener('jy-languagechange',()=>{$('email').setCustomValidity('');$('consent').setCustomValidity('');$('chat-input').setCustomValidity('');selectMode(mode,false);updateFile();updateSubmit();if(latestStatus)renderStatus(latestStatus);L.apply();});
+  updateSubmit(); L.apply();
 })();

@@ -31,3 +31,23 @@ python3 quelle/test/test_wissen.py                                       # priva
 Die Domain ist bereits GitHub Pages zugeordnet. Der Dienst läuft separat; ein Umzug der Domain ist für diese Architektur nicht notwendig. Zuerst den Dienst einschließlich Secrets, privatem Speicher, Löschregeln, Wissenssnapshot und Versand einrichten. Dann echte Testanfrage und Fachchat prüfen, die bestätigte API-Basis in `site-config.js` eintragen, neu bauen und den geprüften Stand veröffentlichen. Die API-Basis enthält keine Zugangsschlüssel.
 
 Der aktuelle Entwicklungsstand ist ohne aktive Konten getestet und noch nicht als vollständiger Livebetrieb freigegeben. Alte Version und neuer Entwurf werden getrennt gesichert.
+
+
+## Mehrsprachigkeit und Archiv
+
+`python quelle/bauen.py` baut Startseite, technische Auslegung und 404-Seite. Bei vorhandener `werkstoffe-recherche.json` wird vorher `werkstoffe_bauen.build()` ausgeführt. Die unveränderten Originalarchive bleiben unangetastet.
+
+`i18n-*.json` enthalten deutsche Originaltexte und je vier Übersetzungen in der Reihenfolge Italienisch, Slowenisch, Englisch, vereinfachtes Chinesisch. `bauen.build_i18n()` erzeugt daraus den browser- und servergeeigneten UMD/CJS-Katalog `i18n.js`. Vollständige Sätze und dynamische `{identifier}`-Vorlagen haben Vorrang vor Fachbegriffen. Zitierte Originalwerte, Werkstoffnamen und Zahlen bleiben erhalten. Nur Fachlabel-Platzhalter `field`, `feature`, `operation`, `location` werden ihrerseits übersetzt.
+
+`i18n-browser.js` verwaltet `?lang=de|it|sl|en|zh`, den lokal gespeicherten Sprachwunsch sowie `document.lang` (`zh-Hans`) und sichtbare Texte/Attribute. Nutzereingaben, Originalzitate und bereits empfangene KI-Antworten werden nicht umgeschrieben; die Antwortsprache ist ausgewiesen. Ein Sprachwechsel erzeugt keine versteckte KI-Anfrage. Neue Nachrichten übergeben die neue Sprache.
+
+`concept-ui.js` stellt den maschinenspezifischen Abschnitt und die qualitative Stadienfolge aus dem Rechenkern dar. `archiv-ui.js` enthält die technische Oberfläche; `archiv-vorlage.html` ihre Vorlage.
+
+Lokale Prüfungen ohne Netzwerk oder Browser:
+
+```
+node quelle/test/ui-vertrag.cjs
+node --test quelle/test/i18n.test.cjs quelle/test/archiv-ui.test.cjs
+```
+
+Die Tests prüfen Payloads/Idempotenz, fünf Sprachen, Wechsel und Rückwechsel, Originaltextschutz, Dateigrenzen, das qualitative Maschinenkonzept und offene Kräfte. Sie ersetzen keine visuelle Browserprüfung.

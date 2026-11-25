@@ -1,0 +1,644 @@
+{
+  "Bitte wählen Sie eine PDF-, Bild- oder CAD-Datei im angegebenen Format.": [
+    "Selezionate un file PDF, immagine o CAD nel formato indicato.",
+    "Izberite datoteko PDF, sliko ali CAD v navedenem formatu.",
+    "Please choose a PDF, image or CAD file in one of the listed formats.",
+    "请选择指定格式的 PDF、图片或 CAD 文件。"
+  ],
+  "Die ausgewählte Datei ist leer. Bitte wählen Sie die Zeichnung erneut aus.": [
+    "Il file selezionato è vuoto. Selezionate nuovamente il disegno.",
+    "Izbrana datoteka je prazna. Risbo izberite znova.",
+    "The selected file is empty. Please select the drawing again.",
+    "所选文件为空，请重新选择图纸。"
+  ],
+  "Diese Datei ist größer als 15 MB. Bitte verwenden Sie eine kleinere Datei oder beschreiben Sie Ihr Teil.": [
+    "Il file supera 15 MB. Usate un file più piccolo oppure descrivete il pezzo.",
+    "Datoteka je večja od 15 MB. Uporabite manjšo datoteko ali opišite izdelek.",
+    "This file exceeds 15 MB. Please use a smaller file or describe your part.",
+    "文件超过 15 MB。请使用较小的文件，或文字描述零件。"
+  ],
+  "Anfrage wird übertragen …": [
+    "Invio della richiesta …",
+    "Povpraševanje se prenaša …",
+    "Sending enquiry …",
+    "正在发送询盘……"
+  ],
+  "Ihre Anfrage wird übertragen …": [
+    "Invio della vostra richiesta …",
+    "Vaše povpraševanje se prenaša …",
+    "Your enquiry is being sent …",
+    "正在发送您的询盘……"
+  ],
+  "Anfrage eingegangen": [
+    "Richiesta ricevuta",
+    "Povpraševanje prejeto",
+    "Enquiry received",
+    "已收到询盘"
+  ],
+  "Antwort wird vorbereitet …": [
+    "Preparazione della risposta …",
+    "Odgovor se pripravlja …",
+    "Preparing the response …",
+    "正在准备答复……"
+  ],
+  "Die Antwort wird vorbereitet …": [
+    "La risposta è in preparazione …",
+    "Odgovor se pripravlja …",
+    "The response is being prepared …",
+    "正在准备答复……"
+  ],
+  "CAD-Anhang für Hans Möhling": [
+    "Allegato CAD per Hans Moehling",
+    "CAD-priloga za Hansa Moehlinga",
+    "CAD attachment for Hans Moehling",
+    "提供给 Hans Moehling 的 CAD 附件"
+  ],
+  "Bitte laden Sie eine Datei pro Anfrage hoch. Mehrseitige Zeichnungen können Sie als eine PDF zusammenfassen.": [
+    "Caricate un solo file per richiesta. Potete riunire i disegni multipagina in un unico PDF.",
+    "Naložite eno datoteko na povpraševanje. Večstranske risbe lahko združite v en PDF.",
+    "Please upload one file per enquiry. You can combine multi-page drawings into one PDF.",
+    "每份询盘请上传一个文件。多页图纸可合并为一个 PDF。"
+  ],
+  "Bitte wählen Sie die Datei über die Schaltfläche aus.": [
+    "Selezionate il file tramite il pulsante.",
+    "Datoteko izberite z gumbom.",
+    "Please select the file using the button.",
+    "请通过按钮选择文件。"
+  ],
+  "Der technische Dialog ist gerade nicht verfügbar. Bitte versuchen Sie es später oder schreiben Sie an": [
+    "Il dialogo tecnico non è al momento disponibile. Riprovate più tardi oppure scrivete a",
+    "Tehnični pogovor trenutno ni na voljo. Poskusite pozneje ali pišite na",
+    "The technical dialogue is currently unavailable. Please try later or email",
+    "技术对话暂不可用。请稍后重试，或发送邮件至"
+  ],
+  "Im Moment kommen viele Anfragen an. Bitte versuchen Sie es in wenigen Minuten erneut.": [
+    "Stiamo ricevendo molte richieste. Riprovate tra qualche minuto.",
+    "Trenutno prejemamo veliko povpraševanj. Poskusite znova čez nekaj minut.",
+    "We are receiving many enquiries. Please try again in a few minutes.",
+    "当前询盘较多，请几分钟后重试。"
+  ],
+  "Die Datei ist für die Übertragung zu groß. Bitte verwenden Sie eine Datei bis 15 MB.": [
+    "Il file è troppo grande per l'invio. Usate un file fino a 15 MB.",
+    "Datoteka je prevelika za prenos. Uporabite datoteko do 15 MB.",
+    "The file is too large to upload. Please use a file up to 15 MB.",
+    "文件太大，无法上传。请使用不超过 15 MB 的文件。"
+  ],
+  "Bitte prüfen Sie Ihre Angaben und das Dateiformat.": [
+    "Verificate i dati e il formato del file.",
+    "Preverite podatke in format datoteke.",
+    "Please check your information and the file format.",
+    "请检查输入信息和文件格式。"
+  ],
+  "Die Übertragung konnte nicht bestätigt werden. Bitte versuchen Sie es erneut.": [
+    "Non è stato possibile confermare l'invio. Riprovate.",
+    "Prenosa ni bilo mogoče potrditi. Poskusite znova.",
+    "The transfer could not be confirmed. Please try again.",
+    "无法确认传输结果，请重试。"
+  ],
+  "Die Antwort konnte nicht gelesen werden. Bitte versuchen Sie es erneut.": [
+    "Non è stato possibile leggere la risposta. Riprovate.",
+    "Odgovora ni bilo mogoče prebrati. Poskusite znova.",
+    "The response could not be read. Please try again.",
+    "无法读取答复，请重试。"
+  ],
+  "Die Antwort dauert länger als erwartet. Bitte versuchen Sie es erneut; dabei verwenden wir dieselbe Anfragenkennung.": [
+    "La risposta richiede più tempo del previsto. Riprovate: useremo lo stesso identificativo della richiesta.",
+    "Odgovor traja dlje od pričakovanega. Poskusite znova; uporabili bomo isto oznako povpraševanja.",
+    "The response is taking longer than expected. Please try again; we will use the same enquiry identifier.",
+    "答复时间超出预期。请重试，我们将使用相同的询盘标识。"
+  ],
+  "Die Verbindung konnte nicht hergestellt werden. Bitte prüfen Sie Ihre Internetverbindung und versuchen Sie es erneut.": [
+    "Impossibile stabilire la connessione. Verificate la connessione Internet e riprovate.",
+    "Povezave ni bilo mogoče vzpostaviti. Preverite internetno povezavo in poskusite znova.",
+    "The connection could not be established. Please check your internet connection and try again.",
+    "无法建立连接。请检查网络后重试。"
+  ],
+  "Grundlagen & Quellen": [
+    "Basi e fonti",
+    "Podlage in viri",
+    "Basis & sources",
+    "依据与来源"
+  ],
+  "Werkstoff": [
+    "Materiale",
+    "Material",
+    "Material",
+    "材料"
+  ],
+  "Drahtdurchmesser": [
+    "Diametro del filo",
+    "Premer žice",
+    "Wire diameter",
+    "线材直径"
+  ],
+  "Kopfdurchmesser": [
+    "Diametro della testa",
+    "Premer glave",
+    "Head diameter",
+    "头部直径"
+  ],
+  "Kopfschlüsselweite": [
+    "Larghezza chiave della testa",
+    "Zev ključa glave",
+    "Head width across flats",
+    "头部对边尺寸"
+  ],
+  "Kopfhöhe": [
+    "Altezza della testa",
+    "Višina glave",
+    "Head height",
+    "头部高度"
+  ],
+  "Körperdurchmesser": [
+    "Diametro del corpo",
+    "Premer telesa",
+    "Body diameter",
+    "本体直径"
+  ],
+  "Körperlänge": [
+    "Lunghezza del corpo",
+    "Dolžina telesa",
+    "Body length",
+    "本体长度"
+  ],
+  "Innenantrieb-Schlüsselweite": [
+    "Larghezza chiave dell'impronta",
+    "Zev ključa notranjega pogona",
+    "Internal drive width across flats",
+    "内驱动孔对边尺寸"
+  ],
+  "Innenantriebstiefe": [
+    "Profondità dell'impronta",
+    "Globina notranjega pogona",
+    "Internal drive depth",
+    "内驱动孔深度"
+  ],
+  "Napfinnendurchmesser": [
+    "Diametro interno della cavità",
+    "Notranji premer votline",
+    "Cup inside diameter",
+    "杯形腔内径"
+  ],
+  "Napftiefe": [
+    "Profondità della cavità",
+    "Globina votline",
+    "Cup depth",
+    "杯形腔深度"
+  ],
+  "Gewinde-Nenndurchmesser": [
+    "Diametro nominale della filettatura",
+    "Nazivni premer navoja",
+    "Nominal thread diameter",
+    "螺纹公称直径"
+  ],
+  "Mutternschlüsselweite": [
+    "Larghezza chiave del dado",
+    "Zev ključa matice",
+    "Nut width across flats",
+    "螺母对边尺寸"
+  ],
+  "Mutternhöhe": [
+    "Altezza del dado",
+    "Višina matice",
+    "Nut height",
+    "螺母高度"
+  ],
+  "Lochdurchmesser": [
+    "Diametro del foro",
+    "Premer luknje",
+    "Hole diameter",
+    "孔径"
+  ],
+  "Flanschdurchmesser": [
+    "Diametro della flangia",
+    "Premer prirobnice",
+    "Flange diameter",
+    "法兰直径"
+  ],
+  "Flanschhöhe": [
+    "Altezza della flangia",
+    "Višina prirobnice",
+    "Flange height",
+    "法兰高度"
+  ],
+  "Teilmasse": [
+    "Massa del pezzo",
+    "Masa izdelka",
+    "Part mass",
+    "零件质量"
+  ],
+  "Drahtzugfestigkeit": [
+    "Resistenza a trazione del filo",
+    "Natezna trdnost žice",
+    "Wire tensile strength",
+    "线材抗拉强度"
+  ],
+  "Länge im Stempel": [
+    "Lunghezza nel punzone",
+    "Dolžina v pestiču",
+    "Length in punch",
+    "冲头内长度"
+  ],
+  "Matrizenauswerferweg": [
+    "Corsa espulsore matrice",
+    "Hod izmetalnika matrice",
+    "Die kick-out stroke",
+    "凹模顶出行程"
+  ],
+  "Stempelauswerferweg": [
+    "Corsa espulsore punzone",
+    "Hod izmetalnika pestiča",
+    "Punch kick-out stroke",
+    "冲头顶出行程"
+  ],
+  "Matrizenaufnahme-Durchmesser": [
+    "Diametro alloggiamento matrice",
+    "Premer vpetja matrice",
+    "Die holder diameter",
+    "凹模安装直径"
+  ],
+  "Matrizenaufnahme-Länge": [
+    "Lunghezza alloggiamento matrice",
+    "Dolžina vpetja matrice",
+    "Die holder length",
+    "凹模安装长度"
+  ],
+  "Stempelaufnahme-Durchmesser": [
+    "Diametro alloggiamento punzone",
+    "Premer vpetja pestiča",
+    "Punch holder diameter",
+    "冲头安装直径"
+  ],
+  "Stempelaufnahme-Länge": [
+    "Lunghezza alloggiamento punzone",
+    "Dolžina vpetja pestiča",
+    "Punch holder length",
+    "冲头安装长度"
+  ],
+  "Stationsvorgabe": [
+    "Numero di stazioni richiesto",
+    "Zahtevano število postaj",
+    "Specified stations",
+    "指定工位数"
+  ],
+  "Zusatzstufen": [
+    "Fasi aggiuntive",
+    "Dodatne faze",
+    "Additional stages",
+    "附加工步"
+  ],
+  "Ausbringung": [
+    "Produzione oraria/minutaria",
+    "Produktivnost",
+    "Output rate",
+    "产出速度"
+  ],
+  "Ihre Beschreibung": [
+    "La vostra descrizione",
+    "Vaš opis",
+    "Your description",
+    "您的描述"
+  ],
+  "Aus der Zeichnung gelesen": [
+    "Letto dal disegno",
+    "Prebrano z risbe",
+    "Read from the drawing",
+    "从图纸读取"
+  ],
+  "Abgeleitet": [
+    "Derivato",
+    "Izpeljano",
+    "Derived",
+    "推导值"
+  ],
+  "Prozessannahme": [
+    "Ipotesi di processo",
+    "Procesna predpostavka",
+    "Process assumption",
+    "工艺假设"
+  ],
+  "Annahme": [
+    "Ipotesi",
+    "Predpostavka",
+    "Assumption",
+    "假设"
+  ],
+  "Aus Ihren Angaben": [
+    "Dai vostri dati",
+    "Iz vaših podatkov",
+    "From your information",
+    "根据您提供的信息"
+  ],
+  "Vorgeschlagener Drahtdurchmesser": [
+    "Diametro del filo proposto",
+    "Predlagani premer žice",
+    "Proposed wire diameter",
+    "建议线材直径"
+  ],
+  "Vorschlag zur Stadienfolge": [
+    "Sequenza di formatura proposta",
+    "Predlagano zaporedje faz",
+    "Proposed forming sequence",
+    "建议成形工步"
+  ],
+  "Stadium": [
+    "Fase",
+    "Faza",
+    "Stage",
+    "工步"
+  ],
+  "Maschinen zum Konzept": [
+    "Macchine per il processo",
+    "Stroji za koncept",
+    "Machines for the concept",
+    "适合方案的设备"
+  ],
+  "Passend zur Vorauswahl": [
+    "Compatibile con la preselezione",
+    "Ustrezno za predizbor",
+    "Suitable for the shortlist",
+    "符合初选条件"
+  ],
+  "Einzelne Punkte vertiefen": [
+    "Approfondire alcuni punti",
+    "Poglobiti posamezne točke",
+    "Review individual points",
+    "个别事项需进一步核实"
+  ],
+  "Angaben offen": [
+    "Dati da definire",
+    "Podatki še odprti",
+    "Information pending",
+    "信息待补充"
+  ],
+  "Grenze überschritten": [
+    "Limite superato",
+    "Meja presežena",
+    "Limit exceeded",
+    "超出限制"
+  ],
+  "Richtpreis": [
+    "Prezzo indicativo",
+    "Okvirna cena",
+    "Guide price",
+    "参考价格"
+  ],
+  "Preisspanne": [
+    "Fascia di prezzo",
+    "Cenovni razpon",
+    "Price range",
+    "价格区间"
+  ],
+  "Abgleich mit den Maschinendaten": [
+    "Confronto con i dati macchina",
+    "Primerjava s podatki stroja",
+    "Comparison with machine data",
+    "与设备参数核对"
+  ],
+  "Bedarf:": [
+    "Requisito:",
+    "Potreba:",
+    "Required:",
+    "需求："
+  ],
+  "Maschine:": [
+    "Macchina:",
+    "Stroj:",
+    "Machine:",
+    "设备："
+  ],
+  "Annahmen im Konzept": [
+    "Ipotesi del processo",
+    "Predpostavke koncepta",
+    "Concept assumptions",
+    "方案中的假设"
+  ],
+  "Punkte für die Vertiefung": [
+    "Punti da approfondire",
+    "Točke za poglobitev",
+    "Points to explore",
+    "需进一步研究的事项"
+  ],
+  "Berechnungsgrundlage": [
+    "Base di calcolo",
+    "Podlaga izračuna",
+    "Calculation basis",
+    "计算依据"
+  ],
+  "Verwendete Auslegungsregeln": [
+    "Regole di dimensionamento utilizzate",
+    "Uporabljena pravila zasnove",
+    "Applied design rules",
+    "所用设计规则"
+  ],
+  "Ihr Konzept wird vorbereitet": [
+    "Il vostro processo è in preparazione",
+    "Vaš koncept se pripravlja",
+    "Your concept is being prepared",
+    "正在准备您的方案"
+  ],
+  "Eine Rückfrage zu Ihrem Teil": [
+    "Una domanda sul vostro pezzo",
+    "Dodatno vprašanje o vašem izdelku",
+    "A question about your part",
+    "有关您零件的补充问题"
+  ],
+  "Ihr erster Konzeptvorschlag": [
+    "La prima proposta di processo",
+    "Vaš prvi predlog koncepta",
+    "Your initial concept proposal",
+    "初步方案建议"
+  ],
+  "Die technische Auswertung ist noch offen": [
+    "L'analisi tecnica è ancora da completare",
+    "Tehnična analiza še ni zaključena",
+    "Technical analysis is still pending",
+    "技术分析尚未完成"
+  ],
+  "Anfrage": [
+    "Richiesta",
+    "Povpraševanje",
+    "Enquiry",
+    "询盘"
+  ],
+  "Ihre Unterlagen sind eingegangen. Die technische Auswertung folgt hier.": [
+    "I documenti sono stati ricevuti. L'analisi tecnica sarà disponibile qui.",
+    "Dokumente smo prejeli. Tehnična analiza bo objavljena tukaj.",
+    "Your documents have been received. The technical analysis will appear here.",
+    "已收到您的资料。技术分析结果将在此显示。"
+  ],
+  "Die Anfrage bleibt erhalten. Sie können Hans Möhling unter Angabe der Anfragenummer direkt kontaktieren.": [
+    "La richiesta viene conservata. Potete contattare direttamente Hans Moehling indicando il numero della richiesta.",
+    "Povpraševanje ostane shranjeno. Hansa Moehlinga lahko kontaktirate neposredno in navedete številko povpraševanja.",
+    "Your enquiry is retained. You can contact Hans Moehling directly, quoting the enquiry number.",
+    "询盘仍会保留。您可提供询盘编号，直接联系 Hans Moehling。"
+  ],
+  "Das möchten wir noch wissen": [
+    "Ci servono ancora queste informazioni",
+    "Potrebujemo še naslednje podatke",
+    "What we still need to know",
+    "还需要了解的信息"
+  ],
+  "Hans Möhling wurde per E-Mail über Ihre Anfrage informiert.": [
+    "Hans Moehling è stato informato della vostra richiesta via e-mail.",
+    "Hans Moehling je bil o vašem povpraševanju obveščen po e-pošti.",
+    "Hans Moehling has been notified of your enquiry by email.",
+    "已通过邮件通知 Hans Moehling 您的询盘。"
+  ],
+  "Die Benachrichtigung an Hans Möhling ist noch in Bearbeitung.": [
+    "La notifica a Hans Moehling è ancora in elaborazione.",
+    "Obvestilo Hansu Moehlingu je še v obdelavi.",
+    "The notification to Hans Moehling is still being processed.",
+    "发送给 Hans Moehling 的通知仍在处理中。"
+  ],
+  "Ihre Anfrage ist gespeichert. Die E-Mail an Hans Möhling konnte noch nicht zugestellt werden.": [
+    "La richiesta è salvata. Non è stato ancora possibile recapitare l'e-mail a Hans Moehling.",
+    "Vaše povpraševanje je shranjeno. E-pošte Hansu Moehlingu še ni bilo mogoče dostaviti.",
+    "Your enquiry is saved. The email to Hans Moehling could not yet be delivered.",
+    "您的询盘已保存，但尚未能将邮件送达 Hans Moehling。"
+  ],
+  "Die Anfrage ist gespeichert. Der Stand der persönlichen Benachrichtigung liegt noch nicht vor.": [
+    "La richiesta è salvata. Lo stato della notifica personale non è ancora disponibile.",
+    "Povpraševanje je shranjeno. Stanje osebnega obvestila še ni na voljo.",
+    "The enquiry is saved. The personal notification status is not available yet.",
+    "询盘已保存，个人通知的状态尚不可用。"
+  ],
+  "Stand aktualisiert.": [
+    "Stato aggiornato.",
+    "Stanje osveženo.",
+    "Status updated.",
+    "状态已更新。"
+  ],
+  "Ihre bereits empfangene Anfrage bleibt bestehen.": [
+    "La richiesta già ricevuta resta registrata.",
+    "Vaše že prejeto povpraševanje ostane shranjeno.",
+    "Your previously received enquiry remains saved.",
+    "此前收到的询盘仍会保留。"
+  ],
+  "Bitte wählen Sie eine Zeichnung aus oder beschreiben Sie Ihr Teil mit wenigen Worten.": [
+    "Selezionate un disegno oppure descrivete il pezzo in poche parole.",
+    "Izberite risbo ali izdelek opišite z nekaj besedami.",
+    "Please select a drawing or briefly describe your part.",
+    "请选择图纸，或简要描述您的零件。"
+  ],
+  "Der Eingang konnte nicht eindeutig bestätigt werden. Bitte versuchen Sie es erneut.": [
+    "Non è stato possibile confermare con certezza la ricezione. Riprovate.",
+    "Prejema ni bilo mogoče nedvoumno potrditi. Poskusite znova.",
+    "Receipt could not be clearly confirmed. Please try again.",
+    "无法明确确认收件结果，请重试。"
+  ],
+  "Ihre Anfrage ist angekommen.": [
+    "La vostra richiesta è arrivata.",
+    "Vaše povpraševanje je prispelo.",
+    "Your enquiry has arrived.",
+    "已收到您的询盘。"
+  ],
+  "Sie": [
+    "Voi",
+    "Vi",
+    "You",
+    "您"
+  ],
+  "Technischer Dialog": [
+    "Dialogo tecnico",
+    "Tehnični pogovor",
+    "Technical dialogue",
+    "技术对话"
+  ],
+  "Dazu noch eine Frage": [
+    "Un'altra domanda",
+    "Še eno vprašanje",
+    "One more question",
+    "还需要确认一个问题"
+  ],
+  "Es liegt noch keine Antwort vor. Bitte versuchen Sie es erneut.": [
+    "Non è ancora disponibile una risposta. Riprovate.",
+    "Odgovor še ni na voljo. Poskusite znova.",
+    "There is no answer yet. Please try again.",
+    "尚无答复，请重试。"
+  ],
+  "Zeichnung:": [
+    "Disegno:",
+    "Risba:",
+    "Drawing:",
+    "图纸："
+  ],
+  "(bitte dieser E-Mail beifügen)": [
+    "(da allegare a questa e-mail)",
+    "(priložite tej e-pošti)",
+    "(please attach to this email)",
+    "（请附在此邮件中）"
+  ],
+  "Anfrage zur Kaltumformung": [
+    "Richiesta sulla formatura a freddo",
+    "Povpraševanje o hladnem preoblikovanju",
+    "Cold forming enquiry",
+    "冷成形询盘"
+  ],
+  "Kraft noch offen": [
+    "Forza ancora da determinare",
+    "Sila še ni določena",
+    "Force not yet determined",
+    "成形力尚未确定"
+  ],
+  "nicht belegt": [
+    "non documentato",
+    "ni dokazano",
+    "not substantiated",
+    "暂无依据"
+  ],
+  "Abschnitt Ø × Länge": [
+    "Spezzone Ø × lunghezza",
+    "Odrezek Ø × dolžina",
+    "Blank diameter × length",
+    "坯料直径 × 长度"
+  ],
+  "Stadienkonzept für diese Maschine": [
+    "Sequenza di formatura per questa macchina",
+    "Koncept faz za ta stroj",
+    "Forming concept for this machine",
+    "该设备的成形工步方案"
+  ],
+  "Benötigte Stationen": [
+    "Stazioni necessarie",
+    "Potrebne postaje",
+    "Required stations",
+    "所需工位"
+  ],
+  "Verfügbare Stationen": [
+    "Stazioni disponibili",
+    "Razpoložljive postaje",
+    "Available stations",
+    "可用工位"
+  ],
+  "Reserve": [
+    "Riserva",
+    "Rezerva",
+    "Reserve",
+    "预留工位"
+  ],
+  "Konzeptkandidat": [
+    "Candidato per il processo",
+    "Kandidat za koncept",
+    "Concept candidate",
+    "方案候选"
+  ],
+  "Nicht geeignet": [
+    "Non adatto",
+    "Ni ustrezno",
+    "Unsuitable",
+    "不适用"
+  ],
+  "Konzept noch unvollständig": [
+    "Processo ancora incompleto",
+    "Koncept še ni popoln",
+    "Concept still incomplete",
+    "方案尚不完整"
+  ],
+  "Originalangabe": [
+    "Indicazione originale",
+    "Izvirni podatek",
+    "Original statement",
+    "原始表述"
+  ]
+}

@@ -54,6 +54,7 @@ import assert from 'node:assert/strict';
 import worker,{tokenFor} from '../worker.js';
 import {screen,analyse,loadKnowledge,MODEL} from '../analysis.js';
 import machines from '../../maschinen.json' with {type:'json'};
+import Engine from '../../engine.js';
 
 class KV {
  constructor(entries={}){this.map=new Map(Object.entries(entries));}
@@ -82,6 +83,49 @@ const tool=(name,input={},id=name)=>({type:'tool_use',id,name,input});
 const final=(answer='Die Folge wurde berechnet.',questions=[])=>({type:'text',text:JSON.stringify({answer,questions,sourceIds:['engine','konzept']})});
 function fakeFetch(t,fn){const old=globalThis.fetch;globalThis.fetch=fn;t.after(()=>{globalThis.fetch=old;});}
 function message(body,attempts=1){return {body,attempts,acks:0,retries:0,ack(){this.acks++;},retry(){this.retries++;}};}
+
+test('catalog grade without a flow curve still returns geometry and machine concepts, never zero forces',()=>{
+ const i=input();i.material='C35EC';i.materialEvidence={origin:'user_text',quote:'C35EC',reference:'user material'};
+ const result=screen(i,{note:context.note.replace('C15C','C35EC')});
+ assert.equal(result.ok,true);
+ const p=result.proposal;assert.equal(p.input[0].value,'C35EC');
+ assert.ok(p.stages.length>0);assert.ok(p.calculation.values.L0>0);
+ assert.equal(p.calculation.materialModel.curveStatus,'missing');
+ assert.equal(p.calculation.values.Fmax_t,null);assert.equal(p.calculation.values.Fsum_t,null);
+ assert.ok(p.stages.every(s=>s.force_t===null&&s.pressure_N_mm2===null));
+ assert.ok(p.machines.length>0);
+ for(const m of p.machines){assert.equal(m.utilization,null);assert.equal(m.status,'offen');assert.equal(m.criteria.find(c=>c.criterion==='Presskraft').status,'offen');assert.equal(m.concept.status,'candidate');assert.ok(m.concept.stages.length>0);}
+ assert.ok(p.assumptions.some(x=>x.includes('Fließkurvenparameter')));
+ assert.ok(!p.assumptions.some(x=>/null|undefined|NaN/.test(x)));
+});
+
+test('exact grade identity or material number resolves; a shorter unverified grade is not substituted',()=>{
+ const i=input();i.material='1.1172';i.materialEvidence={origin:'user_text',quote:'1.1172',reference:'material number'};
+ const result=screen(i,{note:context.note.replace('C15C','1.1172')});
+ assert.equal(result.ok,true);assert.equal(result.proposal.input[0].value,'C35EC');
+ i.material='C35';i.materialEvidence.quote='C35';
+ const missing=screen(i,{note:context.note.replace('C15C','C35')});
+ assert.equal(missing.ok,false);assert.equal(missing.proposal,null);assert.equal(Engine.findMaterial('C35'),null);
+ assert.ok(missing.questions.some(q=>q.includes('C35')));
+});
+
+test('knowledge material index is compact; only an explicitly selected grade returns property evidence',async t=>{
+ let n=0;
+ fakeFetch(t,async(url,req)=>{
+  const body=JSON.parse(req.body);
+  if(n++===0)return reply(tool('projektwissen'));
+  const last=JSON.parse(body.messages.at(-1).content[0].content);
+  assert.equal(last.materials.length,Engine.WERKSTOFFE.length);
+  assert.ok(last.materials.every(m=>!Object.hasOwn(m,'properties')&&!Object.hasOwn(m,'Rm')));
+  if(n===2){assert.equal(last.selectedMaterial,null);return reply(tool('projektwissen',{material:'1.1172'},'selected'));}
+  assert.equal(last.selectedMaterial.id,'C35EC');assert.equal(last.selectedMaterial.curveStatus,'missing');
+  assert.equal(last.selectedMaterial.C,null);assert.equal(last.selectedMaterial.n,null);
+  assert.ok(last.selectedMaterial.properties.length>0);
+  assert.ok(last.selectedMaterial.properties.every(p=>p.sourceUrl&&p.condition&&p.product));
+  return reply(final('Die Werkstoffdaten beziehen sich auf den jeweils angegebenen Lieferzustand.'));
+ });
+ await analyse({message:'Welche Angaben liegen für 1.1172 vor?'},env());assert.equal(n,3);
+});
 
 test('Text intake is durable, queues mail and analysis independently, retry reuses identity',async()=>{
  const e=env(),first=await posted(e),again=await posted(e);
@@ -134,6 +178,9 @@ test('real engine returns only catalog machines, reproducible stages and explici
  const r=screen(input(),context,'snapshot-v1');
  assert.equal(r.ok,true);assert.ok(r.proposal.stages.length>0);assert.ok(r.proposal.machines.length>0);
  assert.ok(r.proposal.machines.every(m=>machines.some(x=>x.m===m.model)));
+ assert.ok(r.proposal.machines.every(m=>m.concept?.status==='candidate'));
+ assert.ok(r.proposal.machines.every(m=>m.concept.stages.length===r.proposal.stages.length));
+ assert.ok(r.proposal.machines.every(m=>m.concept.blank.diameter===r.proposal.calculation.values.d0));
  assert.equal(r.proposal.wireDiameter.value,8);assert.equal(r.proposal.wireDiameter.assumption,true);
  assert.equal(r.proposal.calculation.input.wst,1);
  assert.ok(r.proposal.calculationBasis.some(x=>x.includes('zeitliche Gesamtlast')));
@@ -158,7 +205,7 @@ test('units are normalized with original retained; invalid conversion and missin
  const c={note:context.note.replace('Schaftlänge 30 mm','Schaftlänge 3 cm')};
  const r=screen(i,c);assert.equal(r.ok,true);assert.equal(r.proposal.input.find(x=>x.field==='sL').originalUnit,'cm');
  i.values.sL=3;assert.equal(screen(i,c).ok,false);
- const j=input();j.material='C35';j.materialEvidence.quote='C35';assert.equal(screen(j,{note:context.note.replace('C15C','C35')}).ok,false);
+ const j=input();j.material='UNBEKANNTE-SORTE';j.materialEvidence.quote='UNBEKANNTE-SORTE';assert.equal(screen(j,{note:context.note.replace('C15C','UNBEKANNTE-SORTE')}).ok,false);
 });
 test('thin/negative walls do not reach unbounded stages, drawing evidence requires a real attachment',()=>{
  const i=input();i.values.nD=8;i.values.nT=10;

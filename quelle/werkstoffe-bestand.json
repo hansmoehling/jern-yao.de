@@ -1,0 +1,131 @@
+{
+  "source": "Rechenkern V1.1; bestehende unvalidierte Näherungsparameter, keine neu verifizierten Datenblattwerte",
+  "materials": [
+    {
+      "id": "C10C",
+      "Rm": 350,
+      "C": 740,
+      "n": 0.23,
+      "rho": 7.85,
+      "grp": "gut",
+      "hinweis": "4.8 bis 5.8 ohne Vergüten"
+    },
+    {
+      "id": "C15C",
+      "Rm": 390,
+      "C": 820,
+      "n": 0.21,
+      "rho": 7.85,
+      "grp": "gut",
+      "hinweis": "5.8 bis 6.8 ohne Vergüten"
+    },
+    {
+      "id": "19MnB4",
+      "Rm": 430,
+      "C": 850,
+      "n": 0.18,
+      "rho": 7.85,
+      "grp": "schwerer",
+      "hinweis": "8.8 nach Vergüten"
+    },
+    {
+      "id": "20MnB4",
+      "Rm": 430,
+      "C": 880,
+      "n": 0.17,
+      "rho": 7.85,
+      "grp": "schwerer",
+      "hinweis": "8.8 nach Vergüten"
+    },
+    {
+      "id": "23MnB4",
+      "Rm": 460,
+      "C": 920,
+      "n": 0.16,
+      "rho": 7.85,
+      "grp": "schwerer",
+      "hinweis": "8.8 bis 10.9 nach Vergüten"
+    },
+    {
+      "id": "33B2",
+      "Rm": 480,
+      "C": 990,
+      "n": 0.14,
+      "rho": 7.85,
+      "grp": "schwerer",
+      "hinweis": "10.9 nach Vergüten"
+    },
+    {
+      "id": "C45",
+      "Rm": 640,
+      "C": 1100,
+      "n": 0.15,
+      "rho": 7.85,
+      "grp": "schwer",
+      "hinweis": "begrenzt kaltumformbar"
+    },
+    {
+      "id": "1.4301 (A2)",
+      "Rm": 620,
+      "C": 1400,
+      "n": 0.45,
+      "rho": 7.9,
+      "grp": "rostfrei",
+      "hinweis": "starke Verfestigung"
+    },
+    {
+      "id": "1.4305 (A1)",
+      "Rm": 550,
+      "C": 1200,
+      "n": 0.4,
+      "rho": 7.9,
+      "grp": "rostfrei",
+      "hinweis": "Automatenstahl, austenitisch"
+    },
+    {
+      "id": "1.4571 (A4)",
+      "Rm": 580,
+      "C": 1350,
+      "n": 0.43,
+      "rho": 8,
+      "grp": "rostfrei",
+      "hinweis": "Mo-legiert"
+    },
+    {
+      "id": "CuZn37",
+      "Rm": 320,
+      "C": 650,
+      "n": 0.36,
+      "rho": 8.45,
+      "grp": "messing",
+      "hinweis": "Messing"
+    },
+    {
+      "id": "Cu-ETP",
+      "Rm": 220,
+      "C": 450,
+      "n": 0.45,
+      "rho": 8.94,
+      "grp": "kupfer",
+      "hinweis": "Kupfer"
+    },
+    {
+      "id": "AlMg3",
+      "Rm": 220,
+      "C": 420,
+      "n": 0.28,
+      "rho": 2.66,
+      "grp": "alu",
+      "hinweis": "Aluminium"
+    },
+    {
+      "id": "AlMgSi1",
+      "Rm": 300,
+      "C": 410,
+      "n": 0.18,
+      "rho": 2.7,
+      "grp": "alu",
+      "hinweis": "Aluminium, vorverfestigt"
+    }
+  ]
+}
