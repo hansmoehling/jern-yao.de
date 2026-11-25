@@ -145,6 +145,14 @@ Die folgenden dreizehn Katalogzeilen werden aus zwölf voneinander getrennten Li
 
 Die Tabellenwerte aus Dietrich werden als **veröffentlichte Literaturwerte** bezeichnet. Die Tabelle markiert nicht jeden Punkt als gemessen oder extrapoliert; daher wird keine durchgängige Messvalidierung bis zum Tabellenende behauptet. Es wird weder über das Tabellenende hinaus verlängert noch auf andere Lieferzustände übertragen.
 
+## Zusätzliche Quellenidentität: AISI 1010, gezogen
+
+Außerhalb der unveränderten 58 Möhling-Katalogidentitäten ist AISI 1010 als eigene Auswahl aufgenommen. [Rosochowska, Rosochowski und Olejnik (2009), Autorenmanuskript der University of Strathclyde](https://strathprints.strath.ac.uk/13927/1/Rosochowska_FiniteElementAnalysisod_ColdForwardExtrusionof_1010Steel_1_.pdf), nennen gezogenes Stabmaterial auf PDF-Seite 1, Gleichung 1 und Bild 5 auf Seite 2 sowie den gemessenen Bereich bis φ = 1,5 auf Seite 5. Das Manuskript ist frei lesbar; eine ausdrückliche offene Nachnutzungslizenz wurde nicht bestätigt.
+
+Der Swift-Fit lautet **kf = 680 · (0,1 + φ)^0,29 MPa**. Zustand: gezogen; Versuch: Rastegaev-Druckprobe bei Raumtemperatur, mittlere Dehnrate **0,0336 s⁻¹**. Eine genaue Temperaturzahl wird nicht behauptet. Der Modellanfangswert **348,745741 MPa** ist kein gemessener Rp0,2-Wert. Bei φ = 1,5 ergibt sich **779,298262 MPa**. Der Mittelwert über 0…1,5 beträgt **626,357956 MPa** aus dem exakten Integral `680 / 1,29 · [(0,1+b)^1,29 − (0,1+a)^1,29] / (b−a)`. Der Quellenparameter 0,1 bleibt erhalten; er ist kein nachträglich hinzugefügter Offset. Die separat im Papier beschriebene Extrapolation bis φ = 2,5 wird nicht übernommen.
+
+Ziehgrad und Wärmebehandlung sind nicht vollständig dokumentiert. Die Auswahl benennt daher den Literaturzustand und verlangt den Abgleich mit dem eingesetzten Material. Die Kurve wird weder C10C/C15C noch weichgeglühtem Draht zugeordnet. Produktionsgeschwindigkeit und Wärmeentfestigung sind nicht abgedeckt. Da die Quelle keine Dichte enthält, bleibt die Teilemasse ohne ergänzenden Nachweis offen; Abschnittsgeometrie und Kräfte benötigen keine Dichte. Werkstoffspezifische Umformgrenzen sind weiterhin vorläufig. Technisch wird die Identität über `materialIds` und `werkstoffe-ergaenzungen.json` geführt; Modell, Auswahl und Zustandsprüfung sind in Server und Client identisch.
+
 ## Umsetzung und Grenzen des Kraftansatzes
 
 1. **Zustand als Teil der Identität:** Normsorte, Werkstoffnummer, Produktform, GKZ/+AC/+A/O/T4/T6/+QT, vorheriges Ziehen und Wärmebehandlung getrennt speichern. Eine Kurve gehört zu einem solchen Profil und nicht bloß zum Dropdownnamen.

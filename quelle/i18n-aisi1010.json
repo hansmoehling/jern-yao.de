@@ -1,0 +1,38 @@
+{
+  "gezogen (Literaturzustand)": [
+    "trafilato (stato della fonte)",
+    "vlečeno (stanje iz literature)",
+    "drawn (literature condition)",
+    "拉拔态（文献状态）"
+  ],
+  "Belegte Fließkurve des gewählten Lieferzustands: Tabelleninterpolation, Hollomon k_f = C · φⁿ oder Swift k_f = C · (ε₀ + φ)ⁿ innerhalb des Quellenbereichs; mittlere Fließspannung durch Integration; keine Extrapolation": [
+    "Curva di scorrimento documentata per lo stato di fornitura scelto: interpolazione tabellare, Hollomon k_f = C · φⁿ o Swift k_f = C · (ε₀ + φ)ⁿ nel campo della fonte; tensione media calcolata per integrazione; nessuna estrapolazione",
+    "Dokumentirana krivulja tečenja za izbrano dobavno stanje: interpolacija tabele, Hollomon k_f = C · φⁿ ali Swift k_f = C · (ε₀ + φ)ⁿ v območju vira; povprečna napetost tečenja z integracijo; brez ekstrapolacije",
+    "Documented flow curve for the selected delivery condition: table interpolation, Hollomon k_f = C · φⁿ or Swift k_f = C · (ε₀ + φ)ⁿ within the source range; mean flow stress by integration; no extrapolation",
+    "所选交货状态的有据流动曲线：在来源范围内采用表格插值、Hollomon k_f = C · φⁿ 或 Swift k_f = C · (ε₀ + φ)ⁿ；通过积分计算平均流动应力；不外推"
+  ],
+  "Fließkurve: {curve}; gezogenes Stabmaterial, Raumtemperatur, mittlere Versuchsdehnrate {rate} s⁻¹. Ziehgrad und Wärmebehandlung sind nicht vollständig dokumentiert; dynamischer Einfluss bei Produktionsgeschwindigkeit nicht nachgewiesen.": [
+    "Curva di scorrimento: {curve}; barra trafilata, temperatura ambiente, velocità media di deformazione nella prova {rate} s⁻¹. Riduzione di trafilatura e trattamento termico non sono completamente documentati; effetto dinamico alla velocità di produzione non verificato.",
+    "Krivulja tečenja: {curve}; vlečena palica, sobna temperatura, povprečna hitrost deformacije pri preizkusu {rate} s⁻¹. Stopnja vlečenja in toplotna obdelava nista v celoti dokumentirani; dinamični vpliv pri proizvodni hitrosti ni preverjen.",
+    "Flow curve: {curve}; drawn bar, room temperature, mean test strain rate {rate} s⁻¹. Drawing reduction and heat-treatment history are not fully documented; dynamic effects at production speed are unverified.",
+    "流动曲线：{curve}；拉拔棒材，室温，试验平均应变率 {rate} s⁻¹。拉拔减面率与热处理历史未完整记录；尚未验证生产速度下的动态影响。"
+  ],
+  "Belegter Fließkurvenansatz {curve} für gezogenes Stabmaterial bei Raumtemperatur; mittlere Versuchsdehnrate 0,0336 s⁻¹, φ bis 1,5. Ziehgrad und Wärmebehandlung sind nicht vollständig dokumentiert; Übertragbarkeit auf die Drahtcharge bleibt zu prüfen.": [
+    "Modello documentato {curve} per barra trafilata a temperatura ambiente; velocità media di deformazione nella prova 0,0336 s⁻¹, φ fino a 1,5. Riduzione di trafilatura e trattamento termico non sono completamente documentati; occorre verificare l'applicabilità al lotto di filo.",
+    "Dokumentiran model {curve} za vlečeno palico pri sobni temperaturi; povprečna hitrost deformacije pri preizkusu 0,0336 s⁻¹, φ do 1,5. Stopnja vlečenja in toplotna obdelava nista v celoti dokumentirani; uporabnost za serijo žice je treba preveriti.",
+    "Documented flow model {curve} for drawn bar at room temperature; mean test strain rate 0.0336 s⁻¹, φ up to 1.5. Drawing reduction and heat-treatment history are not fully documented; applicability to the wire batch remains to be checked.",
+    "有据流动模型 {curve} 适用于室温拉拔棒材；试验平均应变率为 0.0336 s⁻¹，φ 最大为 1.5。拉拔减面率与热处理历史未完整记录；仍需核对其对实际线材批次的适用性。"
+  ],
+  "Prozessvorschlag: gezogenes Ausgangsmaterial einsetzen. Der Literaturzustand ist eine ausdrückliche Rechenannahme; Ziehgrad und tatsächliche Lieferdaten sind abzugleichen.": [
+    "Proposta di processo: utilizzare materiale iniziale trafilato. Lo stato della fonte è un'ipotesi di calcolo esplicita; occorre confrontare riduzione di trafilatura e dati effettivi di fornitura.",
+    "Predlog postopka: uporabiti vlečen vhodni material. Stanje iz literature je izrecna računska predpostavka; stopnjo vlečenja in dejanske dobavne podatke je treba primerjati.",
+    "Process proposal: use drawn starting material. The literature condition is an explicit calculation assumption; drawing reduction and actual delivery data must be compared.",
+    "工艺建议：采用拉拔态坯料。文献状态是明确的计算假设；需核对拉拔减面率及实际交货数据。"
+  ],
+  "Liegt AISI 1010 als gezogenes Ausgangsmaterial vor? Für diese Kurve benötigen wir den Lieferzustand und den Abgleich der Ziehhistorie mit dem Literaturzustand.": [
+    "Il materiale iniziale AISI 1010 è trafilato? Per questa curva servono lo stato di fornitura e il confronto della storia di trafilatura con lo stato della fonte.",
+    "Ali je vhodni material AISI 1010 vlečen? Za to krivuljo potrebujemo dobavno stanje in primerjavo zgodovine vlečenja s stanjem iz literature.",
+    "Is the AISI 1010 starting material drawn? This curve requires the delivery condition and a comparison of the drawing history with the literature condition.",
+    "AISI 1010 坯料是否为拉拔态？使用此曲线需要确认交货状态，并将拉拔历史与文献状态进行核对。"
+  ]
+}

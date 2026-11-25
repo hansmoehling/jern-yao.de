@@ -34,11 +34,29 @@ test('only approved wire-condition curves are selectable and all examples explic
   assert(allowed.length>0);assert.equal(p.f.elements.wst.options.length,allowed.length);assert(allowed.length<E.WERKSTOFFE.length);
   for(const option of p.f.elements.wst.options){
    const [index,curveId]=option.value.split('|'),material=E.WERKSTOFFE[Number(index)],curve=material.flowCurves.find(curve=>curve.id===curveId);
-   assert(curve?.eligible);assert(['literature','proxy'].includes(curve.approval));assert(curve.materialNumbers.includes(material.number));
-   assert(option.textContent.includes(I.t('weichgeglüht',language)));assert(option.textContent.includes(I.t('Literaturansatz',language)));
+   assert(curve?.eligible);assert(['literature','proxy'].includes(curve.approval));assert(material.number&&curve.materialNumbers?.includes(material.number)||curve.materialIds?.includes(material.id));
+   assert(option.textContent.includes(I.t(curve.state==='cold-drawn'?'gezogen (Literaturzustand)':'weichgeglüht',language)));assert(option.textContent.includes(I.t('Literaturansatz',language)));
    assert(!['C8C','23MnB4','33B2'].includes(material.id));
   }
   for(const example of p.examples){example.events.click();const cards=p.get('karten').innerHTML;assert(cards.includes(I.t('Stadienkonzept für diese Maschine',language)),language+' '+example.dataset.bsp);assert(!cards.includes('NaN'));assert.equal(E.WERKSTOFFE[Number(p.f.elements.wst.value.split('|')[0])].id,'C4C');assert(p.get('material-basis').textContent.includes(I.t('weichgeglüht',language)));assert(!p.get('kenn').innerHTML.includes(I.t('Kraft noch offen',language)),'all demonstration geometries stay within the selected C4C curve');}
+ }
+});
+
+test('AISI 1010 drawn selection is independent, translated and bounded in screen, print and mail',async()=>{
+ for(const language of I.supported){
+  const p=setup(language),index=E.WERKSTOFFE.findIndex(material=>material.id==='AISI 1010'),curve=E.WERKSTOFFE[index].flowCurves[0];
+  p.examples[0].events.click();p.f.elements.wst.value=index+'|'+curve.id;
+  for(const [key,value]of Object.entries({d0:8,kD:13,kH:5,sD:8,sL:30}))p.f.elements[key].value=String(value);
+  p.f.events.change();
+  const state=I.t('gezogen (Literaturzustand)',language),basis=p.get('material-basis').textContent;
+  assert(basis.includes('AISI 1010'));assert(basis.includes(state));assert(!basis.includes(I.t('weichgeglüht',language)));
+  assert(!p.get('kenn').innerHTML.includes(I.t('Kraft noch offen',language)));
+  assert(p.get('hinweise').innerHTML.includes('0.0336'));
+  if(language!=='de')assert(!/gezogenes|Ziehgrad|Wärmebehandlung|dynamischer Einfluss|Raumtemperatur/.test(p.get('hinweise').innerHTML));
+  p.get('drucken').events.click();assert(p.get('blatt').innerHTML.includes(state));
+  await p.get('senden').events.click();assert(new URL(p.context.location.href).searchParams.get('body').includes(state));
+  p.events['jy-languagechange']();assert.equal(p.f.elements.wst.value,index+'|'+curve.id);
+  p.f.elements.kD.value='18';p.f.events.change();assert(p.get('kenn').innerHTML.includes(I.t('Kraft noch offen',language)));
  }
 });
 

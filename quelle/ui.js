@@ -251,7 +251,7 @@
     if(materialModel){
       const curve=materialModel.selectedFlowCurve,status=proposal.calculation.materialStatus;
       const statuses={missing:'Kein belegter Fließkurvenansatz für diesen Werkstoff','state-missing':'Lieferzustand des Drahts fehlt','state-mismatch':'Lieferzustand passt nicht zur ausgewählten Fließkurve','selection-missing':'Belegten Fließkurvenansatz und Lieferzustand auswählen','temperature-mismatch':'Temperatur passt nicht zum Quellenbereich der Fließkurve','strain-outside-range':'Umformgrad außerhalb des belegten Fließkurvenbereichs'};
-      let description=curve?tr(curve.approval==='proxy'?'begründete Ersatzkurve':'Literaturansatz')+' · '+tr(curve.state==='soft-annealed'?'weichgeglüht':curve.state)+' · '+readable(curve.id):tr('Fließkurve des Lieferzustands fehlt');
+      let description=curve?tr(curve.approval==='proxy'?'begründete Ersatzkurve':'Literaturansatz')+' · '+tr(curve.state==='soft-annealed'?'weichgeglüht':curve.state==='cold-drawn'?'gezogen (Literaturzustand)':curve.state)+' · '+readable(curve.id):tr('Fließkurve des Lieferzustands fehlt');
       if(curve&&status?.flow!=='ready')description+=' · '+tr(statuses[status?.flow]||'Kraft noch offen');
       const basis=element('p',tr('Werkstoffmodell:')+' '+description,'small');basis.dataset.originalText='';parent.appendChild(basis);
     }
