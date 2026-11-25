@@ -1,0 +1,74 @@
+{
+  "Vormaterial und Vorzug eindeutig auswählen": [
+    "Selezionare chiaramente il materiale iniziale e la trafilatura.",
+    "Jasno izbrati vhodni material in predvlek.",
+    "Select the starting stock and drawing route explicitly.",
+    "请明确选择原料及预拉拔方式。"
+  ],
+  "Für Walzdraht mit Inline-Vorzug wird eine Fließkurve des Ausgangszustands vor dem Ziehen benötigt": [
+    "Per la vergella con trafilatura in linea serve la curva di flusso dello stato prima della trafilatura.",
+    "Za valjano žico s predvlekom v liniji je potrebna krivulja tečenja stanja pred vlečenjem.",
+    "Wire rod with inline drawing requires a flow curve for the state before drawing.",
+    "在线预拉拔的盘条需要拉拔前状态的流动应力曲线。"
+  ],
+  "Walzdraht-Ø vor dem Vorzug muss größer als der Draht-Ø an der Presse sein": [
+    "Il diametro della vergella prima della trafilatura deve superare il diametro del filo alla pressa.",
+    "Premer valjane žice pred predvlekom mora biti večji od premera žice na stiskalnici.",
+    "The wire rod diameter before drawing must exceed the wire diameter at the press.",
+    "预拉拔前的盘条直径必须大于进入压力机的线材直径。"
+  ],
+  "Inline-Zieheinrichtung, Durchmesserbereich und verfügbare Ziehkraft für diesen Vorzug bestätigen.": [
+    "Confermare l'unità di trafilatura in linea, il campo diametri e la forza disponibile per questa riduzione.",
+    "Potrditi napravo za predvlek v liniji, območje premerov in razpoložljivo vlečno silo.",
+    "Confirm the inline drawing unit, diameter range and available drawing force for this reduction.",
+    "确认此预拉拔所需的在线拉拔装置、直径范围及可用拉拔力。"
+  ],
+  "Zieheinrichtung noch zu bestätigen": [
+    "Unità di trafilatura da confermare",
+    "Vlečno napravo je treba še potrditi",
+    "Drawing unit still to be confirmed",
+    "拉拔装置尚待确认"
+  ],
+  "Drahtzugfestigkeit Rm nach dem Inline-Vorzug für die Abschnittprüfung ergänzen.": [
+    "Integrare la resistenza a trazione Rm dopo la trafilatura in linea per verificare il taglio.",
+    "Dopolniti natezno trdnost Rm po predvleku v liniji za preverjanje odreza.",
+    "Provide wire tensile strength Rm after inline drawing for the cut-off check.",
+    "补充在线预拉拔后的线材抗拉强度 Rm，以核查切断能力。"
+  ],
+  "Bitte den Inline-Vorzug als Prozessweg mit Ausgangs- und Enddurchmesser bestätigen.": [
+    "Confermare la trafilatura in linea con diametro iniziale e finale.",
+    "Potrdite predvlek v liniji z začetnim in končnim premerom.",
+    "Confirm the inline drawing route with its starting and final diameters.",
+    "请确认在线预拉拔工艺及其初始和最终直径。"
+  ],
+  "Bitte den Zustand des Walzdrahts vor dem Inline-Vorzug benennen.": [
+    "Indicare lo stato della vergella prima della trafilatura in linea.",
+    "Navedite stanje valjane žice pred predvlekom v liniji.",
+    "Specify the wire rod condition before inline drawing.",
+    "请说明在线预拉拔前盘条的状态。"
+  ],
+  "Eine Glühung nach dem Inline-Vorzug benötigt eine getrennte Zustands- und Fließkurvenauswahl.": [
+    "La ricottura dopo la trafilatura in linea richiede una selezione distinta dello stato e della curva di flusso.",
+    "Žarjenje po predvleku v liniji zahteva ločeno izbiro stanja in krivulje tečenja.",
+    "Annealing after inline drawing requires a separate condition and flow-curve selection.",
+    "在线预拉拔后退火需要单独选择材料状态及流动应力曲线。"
+  ],
+  "20MnB4: normalisierend warmgewalzter Ausgangszustand. Rechenkurve bei 25 °C und 0,1 s⁻¹; Druckmessung bis φ = 0,4, Hochdehnungsmodell durch Torsion und Härtevergleich gestützt. Anfangsbereich bis φ = 0,01 regularisiert; keine gemessene Streckgrenze.": [
+    "20MnB4: stato iniziale laminato a caldo normalizzante. Curva a 25 °C e 0,1 s⁻¹; prove di compressione fino a φ = 0,4, modello ad alta deformazione supportato da torsione e confronto di durezza. Tratto iniziale fino a φ = 0,01 regolarizzato; non è un limite di snervamento misurato.",
+    "20MnB4: normalizacijsko vroče valjano začetno stanje. Krivulja pri 25 °C in 0,1 s⁻¹; tlačne meritve do φ = 0,4, model za velike deformacije podprt s torzijo in primerjavo trdote. Začetni del do φ = 0,01 je regulariziran; ne gre za izmerjeno mejo tečenja.",
+    "20MnB4: normalized hot-rolled starting condition. Curve at 25 °C and 0.1 s⁻¹; compression measurements to φ = 0.4, high-strain model supported by torsion and hardness comparison. Initial segment to φ = 0.01 is regularized; it is not a measured yield strength.",
+    "20MnB4：正火轧制的初始状态。计算曲线对应 25 °C、0.1 s⁻¹；压缩试验至 φ = 0.4，高应变模型由扭转及硬度对比支持。φ = 0.01 以下采用起始段正则化，并非实测屈服强度。"
+  ],
+  "Inline-Vorzug: Vorverformung φv = 2 ln(DWalzdraht/dPresse); isotrope Fortsetzung kf(φv + φ). Quellenbereich gilt für die Gesamtdehnung. Ohne Zwischen- oder Nachglühung; Ziehkraft und Zieheinrichtung separat prüfen.": [
+    "Trafilatura in linea: predeformazione φv = 2 ln(Dvergella/dfilo); prosecuzione isotropa kf(φv + φ). Il campo della fonte vale per la deformazione totale. Senza ricottura intermedia o successiva; verificare separatamente forza e unità di trafilatura.",
+    "Predvlek v liniji: preddeformacija φv = 2 ln(DvaljanaŽica/dstiskalnica); izotropno nadaljevanje kf(φv + φ). Območje vira velja za skupno deformacijo. Brez vmesnega ali naknadnega žarjenja; vlečno silo in napravo preveriti ločeno.",
+    "Inline drawing: prestrain φv = 2 ln(Drod/dpress); isotropic continuation kf(φv + φ). The source range applies to total strain. No intermediate or subsequent annealing; check drawing force and unit separately.",
+    "在线预拉拔：预应变 φv = 2 ln(D盘条/d压力机入口)，按各向同性硬化延续 kf(φv + φ)。原始数据范围适用于总应变。无中间或后续退火；拉拔力及装置另行核查。"
+  ],
+  "Volumenkonstanz und isotrope Verfestigungsannahme": [
+    "Conservazione del volume e ipotesi di incrudimento isotropo",
+    "Ohranitev prostornine in predpostavka izotropnega utrjevanja",
+    "Volume conservation and isotropic hardening assumption",
+    "体积守恒及各向同性硬化假设"
+  ]
+}

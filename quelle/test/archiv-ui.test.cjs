@@ -11,17 +11,17 @@ class El{
  querySelectorAll(){return []}
  scrollIntoView(){}
 }
-function setup(language){
+function setup(language,engine=E){
  const ids=new Map();const get=id=>{if(!ids.has(id))ids.set(id,new El());return ids.get(id)};
  const f=get('f'),a=get('a');f.elements={};a.elements={};
- for(const key of ['typ','wst','rm','d0','kopfForm','kD','kSW','kH','sD','sL','iTyp','iSize','iSW','iT','iVol','nD','nT','nDurch','mM','mSW','mH','mLoch','mFlansch','mFlanschH','masse','lStempel','wenden','ko','pko','matD','matL','stD','stL','stationen','zusatz','ausbringung','zeichnung'])f.elements[key]=new El();
+ for(const key of ['typ','wst','rm','d0','wirePreparation','rodDiameter','kopfForm','kD','kSW','kH','sD','sL','iTyp','iSize','iSW','iT','iVol','nD','nT','nDurch','mM','mSW','mH','mLoch','mFlansch','mFlanschH','masse','lStempel','wenden','ko','pko','matD','matL','stD','stL','stationen','zusatz','ausbringung','zeichnung'])f.elements[key]=new El();
  for(const key of ['ok','email','name','firma','tel','nachricht'])a.elements[key]=new El();
- f.elements.typ.value='bolzen';f.elements.kopfForm.value='rund';f.elements.iTyp.value='none';
- f.reset=()=>{for(const [key,el]of Object.entries(f.elements)){if(key!=='wst')el.value='';el.checked=false;}f.elements.typ.value='bolzen';f.elements.kopfForm.value='rund';f.elements.iTyp.value='none'};
+ f.elements.typ.value='bolzen';f.elements.kopfForm.value='rund';f.elements.iTyp.value='none';f.elements.wirePreparation.value='as-supplied';
+ f.reset=()=>{for(const [key,el]of Object.entries(f.elements)){if(key!=='wst')el.value='';el.checked=false;}f.elements.typ.value='bolzen';f.elements.kopfForm.value='rund';f.elements.iTyp.value='none';f.elements.wirePreparation.value='as-supplied'};
  f.querySelector=selector=>({set checked(value){if(value)f.elements.typ.value=selector.match(/value=([^\]]+)/)[1]}});
  get('daten').textContent=JSON.stringify(machines);get('praxis').textContent=JSON.stringify(praxis);
  const examples=['m8','m6','mu','hu'].map(name=>{const el=new El();el.dataset.bsp=name;return el});
- const events={};const window={JYK:E,JYI18N:I,JYLocale:{language,t:s=>I.t(s,language),apply(){}},matchMedia:()=>({matches:false}),addEventListener:(name,fn)=>events[name]=fn,print(){}};
+ const events={};const window={JYK:engine,JYI18N:I,JYLocale:{language,t:s=>I.t(s,language),apply(){}},matchMedia:()=>({matches:false}),addEventListener:(name,fn)=>events[name]=fn,print(){}};
  const document={getElementById:get,createElement:()=>new El(),querySelectorAll:selector=>selector==='[data-bsp]'?examples:[]};
  const context={window,document,clearTimeout,setTimeout,location:{href:''},FormData,fetch:()=>{throw Error('Network forbidden in archive tests')}};
  vm.runInNewContext(fs.readFileSync(path.join(__dirname,'..','concept-ui.js'),'utf8'),context);
@@ -35,11 +35,13 @@ test('only approved wire-condition curves are selectable and all examples explic
   for(const option of p.f.elements.wst.options){
    const [index,curveId]=option.value.split('|'),material=E.WERKSTOFFE[Number(index)],curve=material.flowCurves.find(curve=>curve.id===curveId);
    assert(curve?.eligible);assert(['literature','proxy'].includes(curve.approval));assert(material.number&&curve.materialNumbers?.includes(material.number)||curve.materialIds?.includes(material.id));
-   assert(option.textContent.includes(I.t(curve.state==='cold-drawn'?'gezogen (Literaturzustand)':'weichgeglüht',language)));assert(option.textContent.includes(I.t('Literaturansatz',language)));
+   assert(option.textContent.includes(I.t(curve.state==='cold-drawn'?'gezogen':curve.state==='soft-annealed'?'weichgeglüht':curve.stateLabel||curve.state,language)));
+   assert(!option.textContent.includes(I.t('Literaturansatz',language)));assert(!option.textContent.includes(curve.id));assert(curve.sourceRefs.length,'internal evidence remains available');
    assert(!['C8C','23MnB4','33B2'].includes(material.id));
   }
   for(const example of p.examples){example.events.click();const cards=p.get('karten').innerHTML;assert(cards.includes(I.t('Stadienkonzept für diese Maschine',language)),language+' '+example.dataset.bsp);assert(!cards.includes('NaN'));assert.equal(E.WERKSTOFFE[Number(p.f.elements.wst.value.split('|')[0])].id,'C4C');assert(p.get('material-basis').textContent.includes(I.t('weichgeglüht',language)));assert(!p.get('kenn').innerHTML.includes(I.t('Kraft noch offen',language)),'all demonstration geometries stay within the selected C4C curve');}
  }
+ assert(!fs.readFileSync(path.join(__dirname,'..','archiv-vorlage.html'),'utf8').includes('id="hinweise"'),'the brown note block is removed');
 });
 
 test('AISI 1010 drawn selection is independent, translated and bounded in screen, print and mail',async()=>{
@@ -48,11 +50,9 @@ test('AISI 1010 drawn selection is independent, translated and bounded in screen
   p.examples[0].events.click();p.f.elements.wst.value=index+'|'+curve.id;
   for(const [key,value]of Object.entries({d0:8,kD:13,kH:5,sD:8,sL:30}))p.f.elements[key].value=String(value);
   p.f.events.change();
-  const state=I.t('gezogen (Literaturzustand)',language),basis=p.get('material-basis').textContent;
+  const state=I.t('gezogen',language),basis=p.get('material-basis').textContent;
   assert(basis.includes('AISI 1010'));assert(basis.includes(state));assert(!basis.includes(I.t('weichgeglüht',language)));
   assert(!p.get('kenn').innerHTML.includes(I.t('Kraft noch offen',language)));
-  assert(p.get('hinweise').innerHTML.includes('0.0336'));
-  if(language!=='de')assert(!/gezogenes|Ziehgrad|Wärmebehandlung|dynamischer Einfluss|Raumtemperatur/.test(p.get('hinweise').innerHTML));
   p.get('drucken').events.click();assert(p.get('blatt').innerHTML.includes(state));
   await p.get('senden').events.click();assert(new URL(p.context.location.href).searchParams.get('body').includes(state));
   p.events['jy-languagechange']();assert.equal(p.f.elements.wst.value,index+'|'+curve.id);
@@ -88,6 +88,59 @@ test('out-of-range curve values stay qualitative and unsupported dropdown inject
  p.f.elements.wst.value=String(missing);p.f.events.change();assert.equal(p.get('aus').hidden,true);assert.equal(p.get('drucken').disabled,true);
 });
 
+test('each machine shows its own open data and owner in five languages, print and mail',async()=>{
+ for(const language of I.supported){
+  const points=[{id:'wire-rm',owner:'Kunde / Drahtlieferant',detail:'Drahtzugfestigkeit'},{id:'machine-ko',owner:'Jern Yao',detail:'Auswerfer Matrize (KO)'}];
+  let selectedModels=[];
+  const engine={...E,waehle(...args){
+   const found=E.waehle(...args),rows=[...found.passend,...found.bedingt];selectedModels=rows.slice(0,2).map(row=>row.o.m);
+   for(const row of [...found.passend,...found.bedingt,...found.fast]){const index=selectedModels.indexOf(row.o.m);row.openPoints=index<0?[]:[points[index]];if(index>=0)row.gesamt='offen';}
+   return found;
+  }};
+  const p=setup(language,engine);p.examples[0].events.click();
+  const cards=p.get('karten').innerHTML.split(/<div class="karte(?: beste)?">/).slice(1);
+  for(let index=0;index<2;index++){
+   const card=cards.find(html=>html.includes('<span class="modell">'+selectedModels[index]+'</span>'));assert(card);
+   const start=card.indexOf('<div class="machine-open-points">'),end=card.indexOf('</ul></div>',start),section=card.slice(start,end);
+   assert(start>=0&&start<card.indexOf('<details>'),'open data are visible without opening details');
+   assert(section.includes(I.t('Noch zu klären',language)));assert(section.includes(I.t(points[index].owner,language)));assert(section.includes(I.t(points[index].detail,language)));
+   assert(!section.includes(I.t(points[1-index].detail,language)),'only this machine\'s missing data');
+   assert(card.includes(I.t('Klärung nötig',language)));assert(!card.includes(I.t('Daten fehlen',language)));
+  }
+  p.get('drucken').events.click();const print=p.get('blatt').innerHTML;
+  await p.get('senden').events.click();const mail=new URL(p.context.location.href).searchParams.get('body');
+  for(const point of points)for(const text of [print,mail])assert(text.includes(I.t(point.owner,language)+': '+I.t(point.detail,language)));
+ }
+});
+
+test('inline drawing keeps the starting condition, passes both diameters, and survives print, mail and locale changes',async()=>{
+ for(const language of I.supported){
+  let received;
+  const engine={...E,auslegen(input){received={...input};return E.auslegen(input);}};
+  const p=setup(language,engine);p.examples[0].events.click();
+  for(const [key,value]of Object.entries({d0:8,kD:13,kH:5,sD:8,sL:30}))p.f.elements[key].value=String(value);
+  p.f.events.change();const selected=p.f.elements.wst.value;
+  assert.equal(received.wirePreparation,'as-supplied');assert.equal(received.rodDiameter,undefined);
+  assert(p.get('rod-diameter-field').hidden);assert(p.f.elements.rodDiameter.disabled);
+  p.f.elements.wirePreparation.value='inline-drawing';p.f.elements.rodDiameter.value='8,4';p.f.events.change();
+  assert.equal(received.wirePreparation,'inline-drawing');assert.equal(received.rodDiameter,8.4);assert.equal(received.d0,8);
+  assert.equal(received.materialState,'soft-annealed');assert.equal(p.f.elements.wst.value,selected,'drawing is not a change of the starting condition');
+  assert(!p.get('rod-diameter-field').hidden);assert(!p.f.elements.rodDiameter.disabled);assert(!p.get('wire-strength-note').hidden);
+  const summary=p.get('inline-drawing-summary').textContent;
+  assert(summary.includes('→'));assert(summary.includes('φ'));assert(summary.includes((8.4).toLocaleString(I.numberLocale(language))));
+  assert(p.get('karten').innerHTML.includes(summary),'preparation is shown for each machine concept');
+  assert.equal((p.get('stufen').tBodies[0].innerHTML.match(/<tr>/g)||[]).length,1,'inline drawing is not a press station');
+  p.get('drucken').events.click();await p.get('senden').events.click();
+  for(const text of [p.get('blatt').innerHTML,new URL(p.context.location.href).searchParams.get('body')]){
+   assert(text.includes(I.t('Vormaterial / Vorzug',language)));assert(text.includes(I.t('Walzdraht mit Inline-Vorzug',language)));
+   assert(text.includes(I.t('Walzdraht-Ø vor dem Vorzug',language)));assert(text.includes(I.t('Draht-Ø an der Presse',language)));assert(text.includes(summary));
+  }
+  p.events['jy-languagechange']();assert.equal(p.f.elements.wirePreparation.value,'inline-drawing');assert.equal(p.f.elements.rodDiameter.value,'8,4');
+  p.f.elements.wirePreparation.value='as-supplied';p.f.events.change();assert.equal(received.rodDiameter,undefined,'stale rod diameter does not enter the no-drawing path');assert(p.get('inline-drawing-summary').hidden);
+  p.examples[0].events.click();assert.equal(p.f.elements.wirePreparation.value,'as-supplied');assert.equal(p.f.elements.rodDiameter.value,'');
+ }
+});
+
 test('complete rendered archive output has localized cards, figures, tooling, stages, rules and attributes before DOM translation',()=>{
  const visible=html=>html.replace(/<[^>]+>/g,' ').replace(/&(?:amp|lt|gt|quot);/g,' ');
  const german=/\b(?:bis|rund|Matrize|außen|ab|Stück|Stationen|berechnet|wünschenswert|Schneidbüchse|Teilepresse|Bolzenpresse|Knapp|Bedarf|Kriterium|Anfrage|Sonderausführungen|Prüfung|Vorgabe|Planung|Kraft noch offen)\b/u;
@@ -95,13 +148,13 @@ test('complete rendered archive output has localized cards, figures, tooling, st
   const p=setup(language);
   for(const example of p.examples){
    example.events.click();
-   const outputs=['kenn','hinweise','karten','regeln'].map(id=>p.get(id).innerHTML).concat(p.get('stufen').tBodies[0].innerHTML);
+   const outputs=['kenn','karten','regeln'].map(id=>p.get(id).innerHTML).concat(p.get('stufen').tBodies[0].innerHTML);
    for(const [i,html]of outputs.entries()){
     const titles=Array.from(html.matchAll(/\btitle="([^"]*)"/g),m=>m[1]).join(' ');
     if(language!=='de')assert(!german.test(visible(html)+' '+titles),language+' '+example.dataset.bsp+' output '+i+': '+(visible(html)+' '+titles).match(german));
     assert(!/\{(?:value|rate|hourly|maximum|catalogue|page|count|weight|power)\}/.test(html),'unfilled translation template');
    }
-   for(const id of ['kenn','hinweise','karten','regeln'])assert.equal(p.get(id).dataset.originalText,'','localized result is protected from second translation');
+   for(const id of ['kenn','karten','regeln'])assert.equal(p.get(id).dataset.originalText,'','localized result is protected from second translation');
    assert.equal(p.get('stufen').tBodies[0].dataset.originalText,'');
   }
  }
@@ -154,11 +207,11 @@ test('drive profile choices reach the result, each machine concept, print and ma
    assert(p.f.elements.iSize.options.some(option=>option.value===size));
    p.f.elements.iSize.value=size;p.f.elements.iT.value='3';p.f.elements.iSW.value='999';p.f.events.change();
    assert.equal(p.get('aus').hidden,false);
-   const figures=p.get('kenn').innerHTML,cards=p.get('karten').innerHTML,notes=p.get('hinweise').innerHTML;
+   const figures=p.get('kenn').innerHTML,cards=p.get('karten').innerHTML;
    assert(figures.includes(size));assert(figures.includes(I.t('nicht belegt',language)));
    assert(cards.includes(size));assert(cards.includes(I.t('Stadienkonzept für diese Maschine',language)));
-   assert(!/NaN|null|undefined/.test(figures+cards+notes));
-   if(language!=='de')assert(!german.test(figures+cards+notes),language+' '+family+' untranslated drive: '+(figures+cards+notes).match(german));
+   assert(!/NaN|null|undefined/.test(figures+cards));
+   if(language!=='de')assert(!german.test(figures+cards),language+' '+family+' untranslated drive: '+(figures+cards).match(german));
    p.get('drucken').events.click();assert(p.get('blatt').innerHTML.includes(size));
    await p.get('senden').events.click();assert(new URL(p.context.location.href).searchParams.get('body').includes(size));
    p.events['jy-languagechange']();assert.equal(p.f.elements.iSize.value,size,'locale update preserves drive selection');

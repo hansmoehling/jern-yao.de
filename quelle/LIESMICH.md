@@ -37,6 +37,12 @@ Inbetriebnahme vom 25.11.2026: Cloudflare-Dienst, versioniertes Projektwissen, A
 
 ## Mehrsprachigkeit und Manual
 
+Aktueller Ausbau: **15 auswählbare Identitäten mit 14 Kurvenprofilen**, darunter 14 Möhling-Katalogidentitäten und AISI 1010. Neu ist 20MnB4 im normalisierend warmgewalzten Zustand nach Komischke (ETH 2019); [Quellenprüfung und Modellgrenzen](20MnB4_Quellenpruefung.md). Die ältere Bestandsbeschreibung weiter unten beschreibt die bisherigen weichgeglühten Profile.
+
+Dropdowns nennen Sorte, Werkstoffnummer und Zustand; Quellen bleiben im Datenmodell. Der braune Hinweisblock unter der Grobauslegung entfällt. Maschinen führen stattdessen konkrete `openPoints` mit zuständigem Kunden/Drahtlieferanten, Jern Yao oder unserer Auslegung. Dieselben Angaben stehen in Fachchat, Druckblatt und Mailtext.
+
+`wirePreparation: inline-drawing` aktiviert Walzdraht mit Inline-Vorzug. `rodDiameter` gilt vor, `d0` und `rm` nach dem Ziehen. Die Engine integriert über die um `2 ln(rodDiameter/d0)` verschobene Fließkurve, begrenzt die Gesamtdehnung und weist die separate Zieheinrichtung vor den Pressenstadien aus. Ausgangszustand und Kurve müssen vor dem Ziehen passen; keine Zwischen- oder Nachglühung und kein Einsatz einer bereits gezogenen AISI-Kurve als Walzdrahtbasis. Die Modellannahme ist in den Konzeptdetails dokumentiert.
+
 `python quelle/bauen.py` baut Startseite, Manual, Weiterleitungen und 404-Seite. Bei vorhandener `werkstoffe-recherche.json` wird vorher `werkstoffe_bauen.build()` ausgeführt. Die unveränderten Originalarchive bleiben unangetastet.
 
 `i18n-*.json` enthalten deutsche Originaltexte und je vier Übersetzungen in der Reihenfolge Italienisch, Slowenisch, Englisch, vereinfachtes Chinesisch. `bauen.build_i18n()` erzeugt daraus den browser- und servergeeigneten UMD/CJS-Katalog `i18n.js`. Vollständige Sätze und dynamische `{identifier}`-Vorlagen haben Vorrang vor Fachbegriffen. Zitierte Originalwerte, Werkstoffnamen und Zahlen bleiben erhalten. Nur Fachlabel-Platzhalter `field`, `feature`, `operation`, `location` werden ihrerseits übersetzt.
