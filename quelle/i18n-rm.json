@@ -1,0 +1,104 @@
+{
+  "Kundenangabe": [
+    "Dato del cliente",
+    "Podatek naročnika",
+    "Customer input",
+    "客户提供值"
+  ],
+  "Vorläufiges Rm-Band aus Projektvorgabe": [
+    "Intervallo Rm provvisorio definito dal progetto",
+    "Začasno območje Rm po projektni zahtevi",
+    "Provisional Rm band from project instruction",
+    "项目要求规定的暂定抗拉强度范围"
+  ],
+  "Legacy-Richtwert aus Bestandsdaten": [
+    "Valore indicativo storico dai dati esistenti",
+    "Orientacijska vrednost iz obstoječih podatkov",
+    "Legacy guideline from existing data",
+    "现有历史数据中的参考值"
+  ],
+  "Vorläufiger Legacy-Richtwert; kein Herstellerwert für den weichgeglühten Zustand.": [
+    "Valore indicativo storico provvisorio; non è un dato del produttore per lo stato ricotto.",
+    "Začasna orientacijska vrednost iz obstoječih podatkov; ni podatek proizvajalca za mehko žarjeno stanje.",
+    "Provisional legacy guideline; not a manufacturer value for the soft-annealed condition.",
+    "暂用历史参考值，并非制造商提供的软化退火状态数值。"
+  ],
+  "Projektvorgabe 25.11.2026, Abschnitte 1.5 und 7.2": [
+    "Istruzione di progetto del 25.11.2026, sezioni 1.5 e 7.2",
+    "Projektna zahteva z dne 25.11.2026, poglavji 1.5 in 7.2",
+    "Project instruction of 25 November 2026, sections 1.5 and 7.2",
+    "2026年11月25日项目要求，第1.5和7.2节"
+  ],
+  "Rm = {rm} N/mm²: Kundenangabe für den Abschnittdraht.": [
+    "Rm = {rm} N/mm²: dato del cliente per il filo al taglio.",
+    "Rm = {rm} N/mm²: podatek naročnika za žico pri odrezu.",
+    "Rm = {rm} N/mm²: customer input for the wire at cutoff.",
+    "Rm = {rm} N/mm²：客户提供的切断处线材抗拉强度。"
+  ],
+  "Rm-Richtwert {rm} N/mm² aus Bestandsdaten; vorläufig für den gewählten Lieferzustand.": [
+    "Valore indicativo Rm {rm} N/mm² dai dati esistenti; provvisorio per lo stato di fornitura selezionato.",
+    "Orientacijska vrednost Rm {rm} N/mm² iz obstoječih podatkov; začasna za izbrano dobavno stanje.",
+    "Rm guideline {rm} N/mm² from existing data; provisional for the selected delivery condition.",
+    "现有数据中的Rm参考值为{rm} N/mm²，暂用于所选交货状态。"
+  ],
+  "Rm nach dem Inline-Vorzug ist noch offen; der Ausgangszustand genügt für die Abschnittprüfung nicht.": [
+    "Rm dopo la trafilatura in linea ancora da definire; lo stato iniziale non basta per verificare il taglio.",
+    "Rm po linijskem vlečenju še ni znan; začetno stanje ne zadošča za preverjanje odreza.",
+    "Rm after inline drawing remains unresolved; the initial condition is insufficient for the cutoff check.",
+    "在线拉拔后的Rm尚未确定；初始状态不足以用于切断校核。"
+  ],
+  "Für den gewählten Lieferzustand fehlt ein anwendbarer Rm-Wert oder ein plausibles Band.": [
+    "Per lo stato di fornitura selezionato manca un valore Rm applicabile o un intervallo plausibile.",
+    "Za izbrano dobavno stanje manjka uporabna vrednost Rm ali verjetno območje.",
+    "No applicable Rm value or plausible band is available for the selected delivery condition.",
+    "所选交货状态缺少适用的Rm数值或合理范围。"
+  ],
+  "Vorläufiges Rm-Band bis {max} N/mm²: Der Katalogdurchmesser fehlt.": [
+    "Intervallo Rm provvisorio fino a {max} N/mm²: manca il diametro di catalogo.",
+    "Začasno območje Rm do {max} N/mm²: kataloški premer manjka.",
+    "Provisional Rm band up to {max} N/mm²: the catalogue diameter is missing.",
+    "暂定Rm范围上限为{max} N/mm²：缺少目录规定的直径。"
+  ],
+  "Vorläufiges Rm-Band bis {max} N/mm²: Der feste Katalogdurchmesser wird überschritten.": [
+    "Intervallo Rm provvisorio fino a {max} N/mm²: il diametro limite di catalogo è superato.",
+    "Začasno območje Rm do {max} N/mm²: fiksni kataloški premer je presežen.",
+    "Provisional Rm band up to {max} N/mm²: the fixed catalogue diameter is exceeded.",
+    "暂定Rm范围上限为{max} N/mm²：超过目录规定的固定直径上限。"
+  ],
+  "Vorläufiges Rm-Band bis {max} N/mm²: Der Abschnitt-Ø hat an beiden Bandgrenzen denselben Prüfstatus.": [
+    "Intervallo Rm provvisorio fino a {max} N/mm²: il diametro di taglio ha lo stesso esito di verifica a entrambi gli estremi.",
+    "Začasno območje Rm do {max} N/mm²: preverjanje premera odreza ima na obeh mejah območja enak rezultat.",
+    "Provisional Rm band up to {max} N/mm²: the cutoff diameter has the same check status at both band limits.",
+    "暂定Rm范围上限为{max} N/mm²：切断直径在范围两端的校核状态相同。"
+  ],
+  "Vorläufiges Rm-Band bis {max} N/mm²: Der genaue Wert kann den Prüfstatus des Abschnitt-Ø ändern.": [
+    "Intervallo Rm provvisorio fino a {max} N/mm²: il valore esatto può cambiare l’esito della verifica del diametro di taglio.",
+    "Začasno območje Rm do {max} N/mm²: natančna vrednost lahko spremeni rezultat preverjanja premera odreza.",
+    "Provisional Rm band up to {max} N/mm²: the exact value can change the cutoff-diameter check status.",
+    "暂定Rm范围上限为{max} N/mm²：具体数值可能改变切断直径的校核状态。"
+  ],
+  "Rm-Band {min} bis {max} N/mm²: Der Katalogdurchmesser fehlt.": [
+    "Intervallo Rm da {min} a {max} N/mm²: manca il diametro di catalogo.",
+    "Območje Rm od {min} do {max} N/mm²: kataloški premer manjka.",
+    "Rm band from {min} to {max} N/mm²: the catalogue diameter is missing.",
+    "Rm范围为{min}至{max} N/mm²：缺少目录规定的直径。"
+  ],
+  "Rm-Band {min} bis {max} N/mm²: Der feste Katalogdurchmesser wird überschritten.": [
+    "Intervallo Rm da {min} a {max} N/mm²: il diametro limite di catalogo è superato.",
+    "Območje Rm od {min} do {max} N/mm²: fiksni kataloški premer je presežen.",
+    "Rm band from {min} to {max} N/mm²: the fixed catalogue diameter is exceeded.",
+    "Rm范围为{min}至{max} N/mm²：超过目录规定的固定直径上限。"
+  ],
+  "Rm-Band {min} bis {max} N/mm²: Der Abschnitt-Ø hat an beiden Bandgrenzen denselben Prüfstatus.": [
+    "Intervallo Rm da {min} a {max} N/mm²: il diametro di taglio ha lo stesso esito di verifica a entrambi gli estremi.",
+    "Območje Rm od {min} do {max} N/mm²: preverjanje premera odreza ima na obeh mejah območja enak rezultat.",
+    "Rm band from {min} to {max} N/mm²: the cutoff diameter has the same check status at both band limits.",
+    "Rm范围为{min}至{max} N/mm²：切断直径在范围两端的校核状态相同。"
+  ],
+  "Rm-Band {min} bis {max} N/mm²: Der genaue Wert kann den Prüfstatus des Abschnitt-Ø ändern.": [
+    "Intervallo Rm da {min} a {max} N/mm²: il valore esatto può cambiare l’esito della verifica del diametro di taglio.",
+    "Območje Rm od {min} do {max} N/mm²: natančna vrednost lahko spremeni rezultat preverjanja premera odreza.",
+    "Rm band from {min} to {max} N/mm²: the exact value can change the cutoff-diameter check status.",
+    "Rm范围为{min}至{max} N/mm²：具体数值可能改变切断直径的校核状态。"
+  ]
+}

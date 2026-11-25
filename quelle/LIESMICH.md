@@ -14,6 +14,14 @@ Krallenköpfe sind ausschließlich auf der Stempelseite auswählbar und serverse
 
 ## Bauen
 
+### Gestufter KVP-Ausbau
+
+`JY_CONFIGURATOR_VERSION = 'kvp-v1'` aktiviert auf dem Testfeld die nachvollziehbaren Vorbelegungen. `vorbelegung/rm.json` enthält vorläufige Rm-Richtwerte und Zustandsgrenzen; `rmPolicy: 'rm-v1'` schaltet sie im Rechenkern ausdrücklich ein. Ein tatsächlich eingegebener Rm bleibt Kundenangabe. C4C weichgeglüht verwendet zunächst ein Band bis 400 N/mm² ohne erfundenen Punktwert. Die Abschnittprüfung erzeugt eine Rm-Rückfrage nur bei ergebnisrelevanter Unsicherheit. Fließkurven bleiben davon unabhängig.
+
+`vorbelegung/draht.json` und `draht.js` liefern begründete Ausgangsvorschläge sowie dünnere und dickere Varianten. Die 0,1-mm-Schritte sind vorläufige Rechenvorgaben, keine behauptete Lager- oder Lieferantenliste. Eine Kataloggrenze kann einen dünneren Versuchsdraht nahelegen; sie bestätigt noch keine Prozessmachbarkeit. Stauchdraht will geglüht sein, Reduzierdraht braucht das weniger. Lieferzustand und Stadienkonzept müssen zusammenpassen.
+
+Der Zeichnungsscan bietet eine eigenständige Werkstoffwahl. Ohne Werkstoffangabe wird nur im freigegebenen Testfeld eine C4C-Annahme sichtbar verwendet. Die bekannte Hauptseite behält bis zu ihrer gesonderten Freigabe den bisherigen Build und das bisherige Dienstverhalten. Forschungsdateien, Auftrags-MD, Entscheidungen und Abnahmen werden im privaten Drive-Projekt geführt und nicht in das öffentliche Repository übernommen.
+
 ```
 python3 quelle/katalog/specs_parse.py <Ordner mit den Katalog-PDFs>     # Kataloge von https://www.jernyao.com/files/
 python3 quelle/katalog/daten_bauen.py <JernYao_Richtpreise_2026.csv>     # Preisliste aus dem Projektordner

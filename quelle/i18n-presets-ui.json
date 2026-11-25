@@ -1,0 +1,17 @@
+{
+  "Werkstoff für den Zeichnungsscan": ["Materiale per la lettura del disegno", "Material za branje risbe", "Material for drawing scan", "图纸扫描材料"],
+  "Aus der Zeichnung lesen": ["Leggere dal disegno", "Preberi iz risbe", "Read from the drawing", "从图纸读取"],
+  "Ihre Auswahl gilt, wenn die Zeichnung keinen Werkstoff nennt.": ["La selezione si applica se il disegno non specifica il materiale.", "Vaša izbira velja, če risba ne navaja materiala.", "Your selection applies if the drawing does not specify a material.", "图纸未注明材料时采用您的选择。"],
+  "Ohne Werkstoffangabe: Annahme C4C, weichgeglüht (vorläufig).": ["Senza indicazione del materiale: ipotesi C4C ricotto (provvisoria).", "Brez navedbe materiala: predpostavka C4C, mehko žarjen (začasno).", "If no material is specified: assume soft-annealed C4C (provisional).", "未注明材料时：暂按软化退火态 C4C 估算。"],
+  "Rm {value} N/mm² · {origin}": ["Rm {value} N/mm² · {origin}", "Rm {value} N/mm² · {origin}", "Rm {value} N/mm² · {origin}", "Rm {value} N/mm² · {origin}"],
+  "Rm bis 400 N/mm² · vorläufiges Praxisband für weichgeglühten Draht": ["Rm fino a 400 N/mm² · intervallo pratico provvisorio per filo ricotto", "Rm do 400 N/mm² · začasno praktično območje za mehko žarjeno žico", "Rm up to 400 N/mm² · provisional practical range for soft-annealed wire", "Rm 不高于 400 N/mm² · 软化退火线材的暂定经验范围"],
+  "Richtwert · vorläufig": ["Valore indicativo · provvisorio", "Orientacijska vrednost · začasno", "Reference value · provisional", "参考值 · 暂定"],
+  "Kundenangabe": ["Dato del cliente", "Podatek kupca", "Customer input", "客户输入"],
+  "Vorläufiges Praxisband": ["Intervallo pratico provvisorio", "Začasno praktično območje", "Provisional practical range", "暂定经验范围"],
+  "Draht-Ø vorschlagen": ["Proposta del diametro del filo", "Predlog premera žice", "Suggested wire diameter", "建议线径"],
+  "Eigenen Drahtdurchmesser eingeben": ["Inserire un altro diametro del filo", "Vnesi drug premer žice", "Enter a custom wire diameter", "输入自定线径"],
+  "Drahtdurchmesser aus Ihrer Eingabe": ["Diametro del filo da voi indicato", "Premer žice iz vašega vnosa", "Wire diameter from your input", "采用您输入的线径"],
+  "Drahtvorschlag · vorläufig": ["Proposta del filo · provvisoria", "Predlog žice · začasno", "Wire suggestion · provisional", "线材建议 · 暂定"],
+  "Herkunft Drahtdurchmesser": ["Origine del diametro del filo", "Izvor premera žice", "Wire diameter basis", "线径依据"],
+  "Herkunft Rm": ["Origine di Rm", "Izvor Rm", "Rm basis", "Rm 依据"]
+}

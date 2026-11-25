@@ -228,6 +228,8 @@
           <div class="parts-upload" id="parts-drop-zone"><label for="parts-file"><strong>Zeichnung auswählen oder hier ablegen</strong></label><p class="klein">PDF, PNG, JPG oder WebP für die KI-Analyse · bis 15 MB. CAD und TIFF können Sie als Original an Hans senden.</p><input id="parts-file" type="file" accept=".pdf,.png,.jpg,.jpeg,.webp,.tif,.tiff,.step,.stp,.dxf,.dwg,.igs,.iges" aria-describedby="parts-file-help parts-file-feedback"></div>
           <div id="parts-file-feedback" class="parts-file-feedback" role="status" aria-live="polite" aria-atomic="true" hidden><strong id="parts-file-state"></strong><span id="parts-file-name"></span><button type="button" id="parts-file-remove" class="knopf zwei" hidden>Datei entfernen</button></div>
           <label class="feld"><span>Angaben zur Zeichnung</span><textarea id="parts-drawing-note" rows="3" placeholder="Werkstoff, Maße oder Ergänzungen zur Zeichnung"></textarea></label>
+          <label id="drawing-material-field" class="feld" hidden><span>Werkstoff für den Zeichnungsscan</span><select id="drawing-material"><option value="">Aus der Zeichnung lesen</option></select></label>
+          <p id="drawing-material-origin" class="klein" hidden></p>
           <p id="parts-file-help" class="klein">Beim Zeichnungsscan liest die KI die Zeichnung und erläutert das Stadienkonzept. Der Scan kann einige Minuten dauern und versendet keine E-Mail.</p>
           <div class="knoepfe"><button type="button" id="parts-drawing-analyse" class="knopf" disabled>Zeichnung scannen</button><button type="button" id="parts-drawing-refresh" class="knopf zwei" hidden>Stand aktualisieren</button></div>
           <div id="parts-drawing-progress" class="geometry-progress" role="status" aria-live="polite" hidden><div class="geometry-dots" aria-hidden="true"><i style="--i:0"></i><i style="--i:1"></i><i style="--i:2"></i><i style="--i:3"></i><i style="--i:4"></i><i style="--i:5"></i><i style="--i:6"></i><i style="--i:7"></i></div><p>Die Zeichnungsanalyse benötigt etwas Zeit. Wir prüfen Maße, Umformschritte und passende Maschinen.</p></div>
@@ -238,11 +240,15 @@
           <p class="klein voll">Die Auswahl enthält Drähte mit belegtem Fließkurvenansatz. Weitere Werkstoffe oder Lieferzustände bitte über die Zeichnungsanfrage einreichen.</p>
           <a class="klein voll" data-language-link href="/">Anderen Werkstoff anfragen</a>
           <label class="feld voll"><span>Drahtzugfestigkeit Rm an der Presse in N/mm² (optional)</span><input type="text" inputmode="decimal" name="rm"></label>
+          <p id="rm-origin" class="klein voll" hidden></p>
           <label class="feld voll"><span>Vormaterial / Vorzug</span><select name="wirePreparation"><option value="as-supplied" selected>Draht im gewählten Lieferzustand</option><option value="inline-drawing">Walzdraht mit Inline-Vorzug</option></select></label>
           <p class="klein voll" id="inline-drawing-note" hidden>Der gewählte Lieferzustand gilt vor dem Vorzug. Inline-Vorzug umfasst keine Glühung.</p>
           <p class="klein voll" id="wire-strength-note" hidden>Die Drahtzugfestigkeit Rm gilt bei Inline-Vorzug nach dem Ziehen, am Eingang der Presse.</p>
           <label class="feld voll" id="rod-diameter-field" hidden><span><b>Walzdraht-Ø vor dem Vorzug</b> in mm</span><input type="text" inputmode="decimal" name="rodDiameter" disabled></label>
-          <label class="feld voll"><span><b>Draht-Ø an der Presse</b> in mm</span><input type="text" inputmode="decimal" name="d0" placeholder="z. B. 7,6"></label>
+          <label id="wire-candidates-field" class="feld voll" hidden><span>Draht-Ø vorschlagen</span><select id="wire-candidates"></select></label>
+          <label id="wire-custom-field" class="feld voll"><span><b>Draht-Ø an der Presse</b> in mm</span><input type="text" inputmode="decimal" name="d0" placeholder="z. B. 7,6"></label>
+          <p id="wire-origin" class="klein voll" hidden></p>
+          <p id="wire-process-note" class="klein voll" hidden></p>
         </div>
 
         <div id="geometry-panel" role="tabpanel" aria-labelledby="parts-geometry-tab" hidden>
@@ -410,7 +416,7 @@
   </div>
 </footer>
 
-<script src="/site-config.js"></script>
+<script src="/site-config.js?v=kvp-v1"></script>
 <script id="daten" type="application/json">/*DATEN*/</script>
 <script id="praxis" type="application/json">/*PRAXIS*/</script>
 <script>/*I18N*/</script>
@@ -422,6 +428,7 @@
 <script>/*GEOMETRY_MODEL*/</script>
 <script>/*GEOMETRY_WIZARD*/</script>
 <script>/*STANDARD_FAMILIES*/</script>
+<script>/*WIRE_DEFAULTS*/</script>
 <script>/*ARCHIVE_UI*/</script>
 </body>
 </html>

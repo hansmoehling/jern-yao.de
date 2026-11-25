@@ -1,6 +1,13 @@
 from pathlib import Path
-import json,importlib.util
+import json,importlib.util,re
 Q=Path(__file__).resolve().parent
+
+def embed_defaults(text, marker, path):
+    payload=json.dumps(json.loads((Q/path).read_text(encoding='utf-8')),ensure_ascii=False,separators=(',',':'))
+    pattern=r'/\*'+marker+r'_BEGIN\*/[\s\S]*?/\*'+marker+r'_END\*/'
+    text,count=re.subn(pattern,lambda _: '/*'+marker+'_BEGIN*/'+payload+'/*'+marker+'_END*/',text)
+    assert count==1,(marker,count)
+    return text
 
 def build_i18n():
     catalog={}
@@ -42,10 +49,11 @@ def build():
         spec=importlib.util.spec_from_file_location('materialbuild',Q/'werkstoffe_bauen.py')
         module=importlib.util.module_from_spec(spec);spec.loader.exec_module(module);module.build()
     build_i18n()
+    engine=embed_defaults((Q/'engine.js').read_text(encoding='utf-8-sig'),'RM_PRESETS','vorbelegung/rm.json')
     replacements={
         '/*DATEN*/':json.dumps(json.loads((Q/'maschinen.json').read_text(encoding='utf-8-sig')),ensure_ascii=False,separators=(',',':')),
         '/*PRAXIS*/':json.dumps(json.loads((Q/'praxis.json').read_text(encoding='utf-8-sig')),ensure_ascii=False,separators=(',',':')),
-        '/*ENGINE*/':(Q/'engine.js').read_text(encoding='utf-8-sig'),
+        '/*ENGINE*/':engine,
         '/*CONCEPT_UI*/':(Q/'concept-ui.js').read_text(encoding='utf-8-sig'),
         '/*ANSWER_FORMAT*/':(Q/'answer-format.js').read_text(encoding='utf-8-sig'),
         '/*I18N*/':(Q/'i18n.js').read_text(encoding='utf-8-sig'),
@@ -62,6 +70,7 @@ def build():
             values['/*GEOMETRY_MODEL*/']=(Q/'geometry-model.js').read_text(encoding='utf-8-sig')
             values['/*GEOMETRY_WIZARD*/']=(Q/'geometry-wizard.js').read_text(encoding='utf-8-sig')
             values['/*STANDARD_FAMILIES*/']=(Q/'standard-families.js').read_text(encoding='utf-8-sig')
+            values['/*WIRE_DEFAULTS*/']=embed_defaults((Q/'vorbelegung/draht.js').read_text(encoding='utf-8-sig'),'WIRE_PRESETS','vorbelegung/draht.json')
         for key,value in values.items():
             assert key in text,(source,key)
             text=text.replace(key,value)

@@ -1,0 +1,62 @@
+{
+  "Mutter: Drahtvorschlag aus {ratio} % der Schlüsselweite {acrossFlats} mm.": [
+    "Dado: diametro del filo proposto pari al {ratio} % della larghezza chiave di {acrossFlats} mm.",
+    "Matica: predlog premera žice iz {ratio} % širine ključa {acrossFlats} mm.",
+    "Nut: proposed wire diameter based on {ratio} % of the {acrossFlats} mm across-flats dimension.",
+    "螺母：建议线材直径按对边宽度 {acrossFlats} mm 的 {ratio} % 计算。"
+  ],
+  "Formteil: Ø {diameter} mm des längsten zylindrischen Segments.": [
+    "Pezzo sagomato: Ø {diameter} mm del segmento cilindrico più lungo.",
+    "Oblikovani del: Ø {diameter} mm najdaljšega valjastega segmenta.",
+    "Formed part: Ø {diameter} mm of the longest cylindrical segment.",
+    "成形件：采用最长圆柱段的直径 Ø {diameter} mm。"
+  ],
+  "Niet oder Stift: Draht-Ø entspricht dem Schaft-Ø {shaft} mm.": [
+    "Rivetto o perno: il diametro del filo corrisponde al diametro del gambo di {shaft} mm.",
+    "Kovica ali zatič: premer žice je enak premeru stebla {shaft} mm.",
+    "Rivet or pin: wire diameter equals the {shaft} mm shank diameter.",
+    "铆钉或销：线材直径等于杆部直径 {shaft} mm。"
+  ],
+  "Teilgewinde: Draht-Ø entspricht dem Schaft-Ø {shaft} mm.": [
+    "Filettatura parziale: il diametro del filo corrisponde al diametro del gambo di {shaft} mm.",
+    "Delni navoj: premer žice je enak premeru stebla {shaft} mm.",
+    "Partial thread: wire diameter equals the {shaft} mm shank diameter.",
+    "部分螺纹：线材直径等于杆部直径 {shaft} mm。"
+  ],
+  "Vollgewinde: aus Rollrohling Ø {shaft} mm mit {reduction} % Reduktionsansatz.": [
+    "Filettatura completa: da un grezzo da rullare di Ø {shaft} mm, ipotizzando una riduzione del {reduction} %.",
+    "Polni navoj: iz surovca za valjanje Ø {shaft} mm ob predpostavljeni redukciji {reduction} %.",
+    "Full thread: from a Ø {shaft} mm rolling blank, assuming {reduction} % area reduction.",
+    "全螺纹：由 Ø {shaft} mm 的滚丝毛坯直径推算，假设截面积减小 {reduction} %。"
+  ],
+  "Dünnerer Draht: mehr Staucharbeit prüfen": [
+    "Filo più sottile: verificare il maggiore lavoro di ricalcatura",
+    "Tanjša žica: preveriti večje delo nakrčevanja",
+    "Thinner wire: assess the additional upsetting work",
+    "较细线材：评估增加的镦粗工作量"
+  ],
+  "Stauchdraht will geglüht sein, Reduzierdraht braucht das weniger": [
+    "Il filo da ricalcare va ricotto; per il filo da ridurre la ricottura è meno determinante",
+    "Žica za nakrčevanje naj bo žarjena; pri žici za reduciranje je žarjenje manj odločilno",
+    "Upsetting wire should be annealed; annealing is less critical for reduction wire",
+    "镦粗用线材宜经退火；减径用线材对退火的依赖较小"
+  ],
+  "Mehr Aufstauchen: geglühten Draht vorsehen.": [
+    "Maggiore ricalcatura: prevedere filo ricotto.",
+    "Več nakrčevanja: predvideti žarjeno žico.",
+    "More upsetting: plan for annealed wire.",
+    "增加镦粗：应考虑使用退火线材。"
+  ],
+  "Mehr Reduzieren: Glühen ist weniger bestimmend; Lieferzustand mitführen.": [
+    "Maggiore riduzione: la ricottura è meno determinante; mantenere indicato lo stato di fornitura.",
+    "Več reduciranja: žarjenje je manj odločilno; ohraniti podatek o dobavnem stanju.",
+    "More reduction: annealing is less critical; retain the delivery condition.",
+    "增加减径：退火的影响较小；仍须保留交货状态信息。"
+  ],
+  "Dickerer Draht: Materialverteilung und Umformweg prüfen": [
+    "Filo più spesso: verificare la distribuzione del materiale e il percorso di formatura",
+    "Debelejša žica: preveriti razporeditev materiala in postopek preoblikovanja",
+    "Thicker wire: assess material distribution and the forming route",
+    "较粗线材：评估材料分配及成形工艺"
+  ]
+}

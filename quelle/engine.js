@@ -5,6 +5,11 @@
   'use strict';
 
   const G = 9.80665; // kN je t
+  // Source Node/Worker loads the canonical JSON; the browser build embeds it.
+  // Applying the policy still requires the explicit, versioned input flag.
+  const RM_PRESET_EMBEDDED = /*RM_PRESETS_BEGIN*/null/*RM_PRESETS_END*/;
+  const RM_PRESETS = RM_PRESET_EMBEDDED || (typeof require === 'function' ? require('./vorbelegung/rm.json') : null);
+  const RM_POLICY_VERSION = 'rm-v1';
 
   // Katalogidentitäten und Herstellerwerte werden von werkstoffe_bauen.py ergänzt.
   // Die 14 bestehenden C/n-Ansätze sind Näherungen, keine neu verifizierten Fließkurven.
@@ -146,6 +151,41 @@
   const pos = x => typeof x === 'number' && isFinite(x) && x > 0;
   const needsShaft = e => e && e.typ === 'bolzen';
   const missingShaft = e => needsShaft(e) && (!pos(e.sD) || !pos(e.sL));
+  function rmVorbelegung(e = {}) {
+    const material = Number.isInteger(e.wst) ? WERKSTOFFE[e.wst] : findMaterial(e.material);
+    const state = e.materialState || 'unknown';
+    const result = { version: RM_POLICY_VERSION, policyEnabled: e.rmPolicy === RM_POLICY_VERSION,
+      materialId: material?.id || null, state, unit: 'N/mm²', value: null, band: null,
+      status: 'missing', origin: 'unknown', source: null, conditionBasis: null,
+      appliesTo: 'cutoff-diameter', eligibleForForceCalculation: false,
+      wireStage: e.wirePreparation === 'inline-drawing' ? 'after-inline-drawing' : 'as-supplied' };
+    if (pos(e.rm)) return { ...result, value: e.rm, status: 'customer-value', origin: 'customer',
+      source: { kind: 'customer-input', reference: 'rm', verification: 'customer-declared', label: 'Kundenangabe' }, conditionBasis: 'customer-declared' };
+    if (!material || !RM_PRESETS || RM_PRESETS.policyVersion !== RM_POLICY_VERSION) return result;
+    if (e.wirePreparation === 'inline-drawing') return { ...result, status: 'post-drawing-missing' };
+    const entries = [...RM_PRESETS.presets, ...RM_PRESETS.bands].filter(entry => entry.materialId === material.id);
+    if (!entries.length) return result;
+    if (state === 'unknown') return { ...result, status: 'state-missing' };
+    const entry = entries.find(item => item.states.includes(state));
+    if (!entry) return { ...result, status: 'state-mismatch' };
+    return { ...result, value: pos(entry.value) ? entry.value : null,
+      band: entry.band ? { ...entry.band } : null, status: entry.band ? 'band' : 'guideline', origin: entry.origin,
+      source: { ...entry.source, policyReference: RM_PRESETS.source.id, label: entry.band ? 'Vorläufiges Rm-Band aus Projektvorgabe' : 'Legacy-Richtwert aus Bestandsdaten' },
+      conditionBasis: entry.conditionBasis, ...(entry.note ? { note: entry.note } : {}) };
+  }
+  // R-AB1 is constant below 400. A missing lower material bound therefore
+  // needs no invented point value: evaluate that constant region at 400.
+  function rmSensitivitaet(diameter, catalogDiameter, band) {
+    const statusAt = rm => diameter > catalogDiameter ? 'nein' : diameter <= 0.95 * catalogDiameter * Math.sqrt(400 / Math.max(rm, 400)) ? 'ok' : 'knapp';
+    if (!pos(diameter) || !pos(catalogDiameter)) return { status: 'offen', sensitive: null, endpoints: [] };
+    if (diameter > catalogDiameter) return { status: 'nein', sensitive: false, endpoints: [] };
+    if (!band || !pos(band.max) || band.min !== null && band.min !== undefined && (!pos(band.min) || band.min > band.max)) return { status: 'offen', sensitive: null, endpoints: [] };
+    const lower = band.min == null ? Math.min(400, band.max) : band.min;
+    const endpoints = [{ side: 'lower', rm: band.min ?? null, evaluationRm: lower, status: statusAt(lower) },
+      { side: 'upper', rm: band.max, evaluationRm: band.max, status: statusAt(band.max) }];
+    const sensitive = endpoints[0].status !== endpoints[1].status;
+    return { status: sensitive ? 'offen' : endpoints[0].status, sensitive, endpoints };
+  }
   // Qualitative Metadaten zur tatsächlich berechneten Operation; keine zusätzliche Stufe.
   const op = (name, location) => ({ name, location });
   const r1 = x => Math.round(x * 10) / 10;
@@ -340,10 +380,11 @@
       if (!volumeKnown) out.hinweise.push(drive.label + (pos(e.masse) ? ': Vertiefungsvolumen bleibt offen; Abschnitt wird aus der Teilemasse bestimmt.' : ': Vertiefungsvolumen aus Zeichnung oder CAD ergänzen; Teilvolumen und Abschnittlänge bleiben offen.'));
       if (drive.forceStatus === 'missing') out.hinweise.push(drive.label + ': Profilkontur, Restwand und Umformkraft anhand der Zeichnung und des Stempelkonzepts bestimmen.');
     }
-    const Rm = pos(e.rm) ? e.rm : m.Rm;
+    const rmPreset = e.rmPolicy === RM_POLICY_VERSION ? rmVorbelegung(e) : null;
+    const Rm = rmPreset ? rmPreset.value : pos(e.rm) ? e.rm : m.Rm;
     const gr = GRENZEN[m.grp] || GRENZEN.unbekannt;
-    out.werkstoff = { ...material, Rm, selectedFlowCurve: flow.curve, selectedMaterialState: e.materialState || 'unknown' };
-    out.materialStatus = { flow: flow.status, curveId: flow.curve?.id || null, tensile: pos(e.rm) ? 'user-value' : (m.rmStatus || 'legacy-estimate'), density: m.densityStatus || 'legacy-estimate' };
+    out.werkstoff = { ...material, Rm, selectedFlowCurve: flow.curve, selectedMaterialState: e.materialState || 'unknown', ...(rmPreset ? { rmStatus: rmPreset.status, rmVorbelegung: rmPreset } : {}) };
+    out.materialStatus = { flow: flow.status, curveId: flow.curve?.id || null, tensile: rmPreset ? rmPreset.status : pos(e.rm) ? 'user-value' : (m.rmStatus || 'legacy-estimate'), density: m.densityStatus || 'legacy-estimate' };
     if (!forceKnown) out.hinweise.push(flow.reason + '. Abschnitt und Stadien sind geometrisch ermittelt; Kraft und Werkzeugdruck bleiben offen.');
     else if (flow.curve.state === 'normalized-rolled') out.hinweise.push('20MnB4: normalisierend warmgewalzter Ausgangszustand. Rechenkurve bei 25 °C und 0,1 s⁻¹; Druckmessung bis φ = 0,4, Hochdehnungsmodell durch Torsion und Härtevergleich gestützt. Anfangsbereich bis φ = 0,01 regularisiert; keine gemessene Streckgrenze.');
     else if (flow.curve.state === 'cold-drawn') out.hinweise.push('Fließkurve: ' + flow.curve.id + '; gezogenes Stabmaterial, Raumtemperatur, mittlere Versuchsdehnrate ' + flow.curve.strainRatePerSecond + ' s⁻¹. Ziehgrad und Wärmebehandlung sind nicht vollständig dokumentiert; dynamischer Einfluss bei Produktionsgeschwindigkeit nicht nachgewiesen.');
@@ -691,7 +732,7 @@
       }
       else if (c === 'Abschnitt-Ø') {
         if (!pos(o.cd)) add('machine-cutoff-diameter', c, 'Jern Yao', 'Maximalen Abschnittdurchmesser der Maschine bestätigen.');
-        if (!pos(a.werkstoff.Rm)) add('wire-tensile-strength', c, 'Kunde / Drahtlieferant', a.vorzug ? 'Drahtzugfestigkeit Rm nach dem Inline-Vorzug für die Abschnittprüfung ergänzen.' : 'Drahtzugfestigkeit Rm im Lieferzustand aus dem Drahtzeugnis ergänzen.');
+        if (check.rmUncertaintyRelevant ?? !pos(a.werkstoff.Rm)) add('wire-tensile-strength', c, 'Kunde / Drahtlieferant', a.vorzug ? 'Drahtzugfestigkeit Rm nach dem Inline-Vorzug für die Abschnittprüfung ergänzen.' : 'Drahtzugfestigkeit Rm im Lieferzustand aus dem Drahtzeugnis ergänzen.');
       } else if (c === 'Abschnittlänge') {
         if (!pos(w.L0)) {
           if(a.qualitative)add('part-profile-volume',c,'Kunde',w.volumeReason||'Reale Profilflächen, Konturvolumen oder verwertbare Teilemasse ergänzen.');
@@ -731,7 +772,21 @@
     // Abschnitt-Ø
     // Katalogwert ist die Maschinengrenze; die Abminderung nach Festigkeit ist Richtwert und nur Hinweis (R-GR)
     const dMax = pos(Rm) ? o.cd * Math.sqrt(400 / Math.max(Rm, 400)) : null;
-    add('Abschnitt-Ø', !pos(o.cd) ? 'offen' : w.d0 > o.cd ? 'nein' : !pos(Rm) ? 'offen' : w.d0 <= 0.95 * dMax ? 'ok' : 'knapp', z(w.d0) + ' mm', !pos(o.cd) ? 'nicht im Katalog' : 'Katalog ' + zk(o.cd) + ' mm' + (dMax !== null && dMax < o.cd - 0.05 ? ', Richtwert bei ' + Rm + ' N/mm² ' + z(dMax) + ' mm' : !pos(Rm) ? '; Einfluss der Drahtzugfestigkeit offen' : ''), 'R-AB1');
+    const rmPreset = e.rmPolicy === RM_POLICY_VERSION ? a.werkstoff.rmVorbelegung : null;
+    const rmSensitivity = rmPreset && !pos(Rm) ? rmSensitivitaet(w.d0, o.cd, rmPreset.band) : null;
+    const cutoffStatus = !pos(o.cd) ? 'offen' : w.d0 > o.cd ? 'nein' : pos(Rm) ? w.d0 <= 0.95 * dMax ? 'ok' : 'knapp' : rmSensitivity?.status || 'offen';
+    add('Abschnitt-Ø', cutoffStatus, z(w.d0) + ' mm', !pos(o.cd) ? 'nicht im Katalog' : 'Katalog ' + zk(o.cd) + ' mm' + (dMax !== null && dMax < o.cd - 0.05 ? ', Richtwert bei ' + Rm + ' N/mm² ' + z(dMax) + ' mm' : !pos(Rm) && (!rmPreset || cutoffStatus === 'offen') ? '; Einfluss der Drahtzugfestigkeit offen' : ''), 'R-AB1');
+    if (rmPreset) {
+      const check = k[k.length - 1];
+      check.rmVorbelegung = rmPreset;
+      check.rmSensitivity = rmSensitivity;
+      check.rmUncertaintyRelevant = !pos(Rm) && (!rmPreset.band || rmSensitivity?.sensitive === true);
+      if (pos(Rm)) check.detail = rmPreset.origin === 'customer' ? 'Rm = ' + zk(Rm) + ' N/mm²: Kundenangabe für den Abschnittdraht.' : 'Rm-Richtwert ' + zk(Rm) + ' N/mm² aus Bestandsdaten; vorläufig für den gewählten Lieferzustand.';
+      else if (rmPreset.band) {
+        const band = rmPreset.band, label = band.min == null ? 'Vorläufiges Rm-Band bis ' + zk(band.max) : 'Rm-Band ' + zk(band.min) + ' bis ' + zk(band.max);
+        check.detail = label + ' N/mm²: ' + (!pos(o.cd) ? 'Der Katalogdurchmesser fehlt.' : w.d0 > o.cd ? 'Der feste Katalogdurchmesser wird überschritten.' : rmSensitivity.sensitive === false ? 'Der Abschnitt-Ø hat an beiden Bandgrenzen denselben Prüfstatus.' : 'Der genaue Wert kann den Prüfstatus des Abschnitt-Ø ändern.');
+      } else check.detail = rmPreset.status === 'post-drawing-missing' ? 'Rm nach dem Inline-Vorzug ist noch offen; der Ausgangszustand genügt für die Abschnittprüfung nicht.' : 'Für den gewählten Lieferzustand fehlt ein anwendbarer Rm-Wert oder ein plausibles Band.';
+    }
     // Abschnittlänge
     if (!pos(w.L0)) add('Abschnittlänge', 'offen', w.volumeReason||'Innenantriebsvolumen oder Teilemasse fehlt', o.cl ? o.cl.filter(Boolean).map(zk).join(' bis ') + ' mm' : 'nicht im Katalog', 'R-AB2');
     else if (o.cl && pos(o.cl[1])) {
@@ -896,6 +951,6 @@
     return result;
   }
 
-  const API = { WERKSTOFFE, GRENZEN, REGELN, FAMILIEN, PRAXIS_STANDARD, auslegen, pruefe, waehle, maschinenKonzept, planung, kf, kfm, selectFlow, G, findMaterial };
+  const API = { WERKSTOFFE, GRENZEN, REGELN, FAMILIEN, PRAXIS_STANDARD, RM_POLICY_VERSION, rmVorbelegung, rmSensitivitaet, auslegen, pruefe, waehle, maschinenKonzept, planung, kf, kfm, selectFlow, G, findMaterial };
   if (typeof module !== 'undefined' && module.exports) module.exports = API; else root.JYK = API;
 })(typeof globalThis !== 'undefined' ? globalThis : this);

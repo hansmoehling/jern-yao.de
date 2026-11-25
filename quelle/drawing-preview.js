@@ -4,10 +4,10 @@
   let apiBase='';
   try{const url=new URL(window.JY_API_BASE||'',window.location.href);if(window.JY_API_BASE&&(url.protocol==='https:'||url.protocol==='http:'&&['localhost','127.0.0.1','[::1]'].includes(url.hostname)))apiBase=url.href.replace(/\/$/,'');}catch(_){/* Keep unavailable configuration visible. */}
   const uuid=()=>typeof crypto.randomUUID==='function'?crypto.randomUUID():Array.from(crypto.getRandomValues(new Uint8Array(16)),value=>value.toString(16).padStart(2,'0')).join('');
-  async function fingerprint(file,note,language,policy){
+  async function fingerprint(file,note,language,policy,materialChoice=null){
     const bytes=file?await file.arrayBuffer():new Uint8Array();
     const hash=Array.from(new Uint8Array(await crypto.subtle.digest('SHA-256',bytes)),value=>value.toString(16).padStart(2,'0')).join('');
-    return JSON.stringify([hash,file?.name||'',note,language,policy]);
+    return JSON.stringify([hash,file?.name||'',note,language,policy,materialChoice]);
   }
   async function request(path,options={}){
     if(!apiBase)throw new Error('Die Zeichnungsanalyse ist gerade nicht verfügbar.');
@@ -47,9 +47,9 @@
     if(Array.isArray(data.sources)&&data.sources.length){parts.push('<h3>'+h('Grundlagen & Quellen')+'</h3><ul>');for(const source of data.sources){let url;try{const candidate=new URL(source.url);if(['https:','http:'].includes(candidate.protocol))url=candidate.href;}catch(_){}const label=escape(typeof source==='string'?source:source.label||source.id||'');parts.push('<li>'+(url?'<a target="_blank" rel="noopener noreferrer" href="'+escape(url)+'">'+label+'</a>':label)+'</li>');}parts.push('</ul>');}
     return parts.join('');
   }
-  function create({button,progress,status,result,refresh,getFile=()=>null,getGeometry,getNote=()=>'',showWhenEmpty=false,canChooseMachine,onChooseMachine,onInvalidate,onResult}){
+  function create({button,progress,status,result,refresh,getFile=()=>null,getGeometry,getNote=()=>'',getMaterialChoice=()=>null,showWhenEmpty=false,canChooseMachine,onChooseMachine,onInvalidate,onResult}){
     const geometryMode=typeof getGeometry==='function';
-    let version=0,lastFile,lastNote,lastGeometry,lastLanguage,timer=null,receipt=null,latest=null,busy=false,paused=false,polls=0,key='',signature='',error='';
+    let version=0,lastFile,lastNote,lastGeometry,lastMaterial,lastLanguage,timer=null,receipt=null,latest=null,busy=false,paused=false,polls=0,key='',signature='',error='';
     const terminal=data=>['ready','needs_info','failed'].includes(data?.status);
     const active=()=>busy||receipt&&!terminal(latest)&&!paused;
     function fileError(){const file=getFile();if(!file)return '';if(!/\.(pdf|png|jpe?g|webp)$/i.test(file.name))return 'Für die KI-Auswertung wählen Sie bitte eine PDF-, PNG-, JPG- oder WebP-Datei.';if(!file.size)return 'Die ausgewählte Datei ist leer. Bitte wählen Sie die Zeichnung erneut aus.';if(file.size>15*1024*1024)return 'Die Datei ist für die Übertragung zu groß. Bitte verwenden Sie eine Datei bis 15 MB.';return '';}
@@ -59,7 +59,7 @@
       status.textContent=tr(error||fileError()||(input&&!apiBase?'Die Zeichnungsanalyse ist gerade nicht verfügbar.':'')||(busy&&!receipt?(geometryMode?'Geometrie wird übertragen …':'Zeichnung wird übertragen …'):labels[latest?.status]||''));status.dataset.originalText='';status.hidden=!status.textContent;status.dataset.state=error||fileError()||latest?.status==='failed'?'error':'ready';
       result.hidden=!latest||!terminal(latest);result.dataset.originalText='';result.innerHTML=result.hidden?'':resultHTML(latest,canChooseMachine);
     }
-    function update(){const file=getFile(),note=getNote(),geometry=geometryMode?JSON.stringify(getGeometry()):null,language=L.language;if(file!==lastFile||note!==lastNote||geometry!==lastGeometry||language!==lastLanguage){version++;window.clearTimeout(timer);if(latest?.status==='failed'){signature='';key='';}receipt=latest=null;busy=false;paused=false;polls=0;error='';lastFile=file;lastNote=note;lastGeometry=geometry;lastLanguage=language;onInvalidate?.();}render();}
+    function update(){const file=getFile(),note=getNote(),geometry=geometryMode?JSON.stringify(getGeometry()):null,material=JSON.stringify(getMaterialChoice()),language=L.language;if(file!==lastFile||note!==lastNote||geometry!==lastGeometry||material!==lastMaterial||language!==lastLanguage){version++;window.clearTimeout(timer);if(latest?.status==='failed'){signature='';key='';}receipt=latest=null;busy=false;paused=false;polls=0;error='';lastFile=file;lastNote=note;lastGeometry=geometry;lastMaterial=material;lastLanguage=language;onInvalidate?.();}render();}
     function schedule(){window.clearTimeout(timer);if(receipt&&!terminal(latest)&&polls<75)timer=window.setTimeout(()=>poll(),4000);}
     async function poll(){
       if(!receipt||busy)return;const run=version,identity=receipt;busy=true;render();
@@ -69,14 +69,14 @@
     }
     async function start(){
       update();const geometry=geometryMode?getGeometry():null;if(active()||!apiBase||fileError()||!(geometryMode?geometry:getFile()))return;
-      const run=version,file=getFile(),note=getNote(),language=L.language,failed=latest?.status==='failed';receipt=latest=null;paused=false;busy=true;error='';render();
+      const run=version,file=getFile(),note=getNote(),materialChoice=getMaterialChoice(),language=L.language,failed=latest?.status==='failed';receipt=latest=null;paused=false;busy=true;error='';render();
       try{
         const policy=window.JY_SHOW_PRICES===false?'technical-only':'with-prices';
-        const current=geometryMode?JSON.stringify([geometry,note,language,policy]):await fingerprint(file,note,language,policy);if(run!==version)return;
+        const current=geometryMode?JSON.stringify([geometry,note,language,policy]):await fingerprint(file,note,language,policy,materialChoice);if(run!==version)return;
         if(signature!==current||failed){signature=current;key=uuid();}
         let body,headers;
         if(geometryMode){body=JSON.stringify({...geometry,note,language,idempotency_key:key,pricePolicy:policy});headers={'Content-Type':'application/json'};}
-        else{body=new FormData();body.append('datei',file,file.name);body.append('notiz',note);body.append('language',language);body.append('idempotency_key',key);if(policy==='technical-only')body.append('pricePolicy',policy);}
+        else{body=new FormData();body.append('datei',file,file.name);body.append('notiz',note);body.append('language',language);body.append('idempotency_key',key);if(materialChoice)body.append('materialChoice',JSON.stringify(materialChoice));if(policy==='technical-only')body.append('pricePolicy',policy);}
         const data=await request(geometryMode?'/geometry-preview':'/preview',{method:'POST',body,headers,language});if(run!==version)return;
         if(typeof data.id!=='string'||!data.id||typeof data.token!=='string'||!data.token||data.kind!=='preview')throw new Error('Der Eingang konnte nicht eindeutig bestätigt werden. Bitte versuchen Sie es erneut.');
         receipt={id:data.id,token:data.token};latest=data;onResult?.(data);polls=0;

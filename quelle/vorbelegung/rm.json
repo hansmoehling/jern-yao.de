@@ -1,0 +1,68 @@
+{
+  "schemaVersion": 1,
+  "policyVersion": "rm-v1",
+  "defaultEnabled": false,
+  "unit": "N/mm²",
+  "appliesTo": "cutoff-diameter",
+  "eligibleForForceCalculation": false,
+  "source": {
+    "id": "kvp-2026-11-25-rm",
+    "kind": "project-instruction",
+    "label": "Projektvorgabe 25.11.2026, Abschnitte 1.5 und 7.2",
+    "verification": "planning-policy"
+  },
+  "presets": [
+    {
+      "materialId": "C10C",
+      "states": ["soft-annealed"],
+      "value": 350,
+      "origin": "practice",
+      "source": {"kind": "legacyParameters", "reference": "C10C.legacyParameters.Rm", "verification": "unverified-guideline"},
+      "conditionBasis": "provisional-process-assumption"
+    },
+    {
+      "materialId": "C15C",
+      "states": ["soft-annealed"],
+      "value": 390,
+      "origin": "practice",
+      "source": {"kind": "legacyParameters", "reference": "C15C.legacyParameters.Rm", "verification": "unverified-guideline"},
+      "conditionBasis": "provisional-process-assumption"
+    },
+    {
+      "materialId": "20MnB4",
+      "states": ["normalized-rolled"],
+      "value": 430,
+      "origin": "practice",
+      "source": {"kind": "legacyParameters", "reference": "20MnB4.legacyParameters.Rm", "verification": "unverified-guideline"},
+      "conditionBasis": "provisional-process-assumption"
+    },
+    {
+      "materialId": "CuZn37",
+      "states": ["soft-annealed"],
+      "value": 320,
+      "origin": "practice",
+      "source": {"kind": "legacyParameters", "reference": "CuZn37.legacyParameters.Rm", "verification": "unverified-guideline"},
+      "conditionBasis": "provisional-process-assumption"
+    },
+    {
+      "materialId": "AlMgSi1",
+      "states": ["soft-annealed"],
+      "value": 300,
+      "origin": "practice",
+      "source": {"kind": "legacyParameters", "reference": "AlMgSi1.legacyParameters.Rm", "verification": "unverified-guideline"},
+      "conditionBasis": "provisional-process-assumption",
+      "note": "Vorläufiger Legacy-Richtwert; kein Herstellerwert für den weichgeglühten Zustand."
+    }
+  ],
+  "bands": [
+    {
+      "materialId": "C4C",
+      "states": ["soft-annealed"],
+      "materialGroup": "unalloyed-steel",
+      "band": {"min": null, "max": 400},
+      "origin": "assumption",
+      "source": {"kind": "project-instruction", "reference": "kvp-2026-11-25-rm:1.5,7.2", "verification": "provisional-bound"},
+      "conditionBasis": "selected-soft-annealed-state"
+    }
+  ]
+}

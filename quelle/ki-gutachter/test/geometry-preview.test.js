@@ -35,6 +35,25 @@ test('geometry idempotency includes normalized shape, material process, language
  const legacy=await post(e,payload({pricePolicy:'technical-only'}),LEGACY);assert.equal(legacy.httpStatus,202);assert.equal((await post(e,payload({pricePolicy:'with-prices'}),LEGACY)).httpStatus,409);
 });
 
+test('wire provenance remains bounded intake metadata through storage and identity without changing geometry facts',async()=>{
+ const assumption={d0:{origin:'assumption',provisional:true}},customer={d0:{origin:'customer'}};
+ const baseline=geometryContext(spec(),{d0:8});assert.equal(baseline.process.inputOrigins,undefined);
+ for(const inputOrigins of [assumption,customer]){
+  const result=geometryContext(spec(),{d0:8,inputOrigins});assert.equal(result.ok,true);assert.deepEqual(result.process.inputOrigins,inputOrigins);
+  assert.deepEqual(result.analysis,baseline.analysis,'provenance cannot grant numerical eligibility or change computed facts');
+ }
+ const e=environment(),r=await post(e,payload({inputOrigins:assumption}),LEGACY);assert.equal(r.httpStatus,202);
+ const record=await saved(e,r.id);assert.deepEqual(record.geometryProcess.inputOrigins,assumption);
+ assert.deepEqual(geometryContext(record.geometrySpec,record.geometryProcess).process.inputOrigins,assumption);
+ assert.equal((await post(e,payload({inputOrigins:customer}),LEGACY)).httpStatus,409,'same diameter with changed provenance is a different request');
+ const legacy=environment(),old=await post(legacy,payload(),PUBLIC);assert.equal((await saved(legacy,old.id)).geometryProcess.inputOrigins,undefined);
+ for(const inputOrigins of [null,[],{}, {rm:{origin:'customer'}}, {d0:{origin:'drawing'}}, {d0:{origin:'assumption',provisional:false}}, {d0:{origin:'customer',provisional:true}}, {d0:{origin:'assumption',provisional:true,reason:'verified by supplier'}}, {d0:{origin:'customer',evidence:{approved:true}}}]){
+  const rejected=geometryContext(spec(),{d0:8,inputOrigins});assert.equal(rejected.ok,false);assert.ok(rejected.errors.some(issue=>issue.code==='invalid_input_origin'));
+ }
+ const rejected=environment(),bad=await post(rejected,payload({inputOrigins:{d0:{origin:'assumption',provisional:true,reason:'trusted'}}}),LEGACY);
+ assert.equal(bad.httpStatus,400);assert.equal(rejected._jobs.length,0);
+});
+
 test('invalid geometry, trust flags, malformed process and oversized input cannot enqueue an analysis',async()=>{
  const invalid=[{geometrySpec:null},{geometrySpec:{...spec(),numericEligibility:{forces:true}}},{geometrySpec:{...spec(),elements:[{...spec().elements[0],length:-1}]}},{geometrySpec:{...spec(),elements:[{...spec().elements[0],approval:'trusted'}]}},{material:'Invented-grade'},{d0:'8'},{d0:null,wirePreparation:'inline-drawing',rodDiameter:9},{wirePreparation:'inline-drawing',d0:8,rodDiameter:7},{materialState:'hardened'},{material:'C10C',curveId:Engine.findMaterial('C15C').flowCurves[0].id},{idempotency_key:'short'}];
  for(const value of invalid){const e=environment(),r=await post(e,payload(value));assert.equal(r.httpStatus,400,JSON.stringify(value));assert.equal(e._jobs.length,0);assert.ok(![...e.SPEICHER.map.keys()].some(k=>k.startsWith('anfrage:')));}

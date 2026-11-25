@@ -1,0 +1,24 @@
+{
+  "schemaVersion": 1,
+  "policyVersion": "wire-v1",
+  "status": "provisional",
+  "unit": "mm",
+  "source": {
+    "kind": "project-instruction",
+    "reference": "2026-11-25, Abschnitt 7.3",
+    "verification": "engineering-default"
+  },
+  "wireStepMm": 0.1,
+  "wireStepSource": {
+    "kind": "engineering-default",
+    "verification": "provisional",
+    "confirmedStockSeries": false
+  },
+  "fullThreadAreaReduction": 0.1,
+  "nut": {
+    "minimumAcrossFlatsRatio": 0.75,
+    "targetAcrossFlatsRatio": 0.8,
+    "maximumAcrossFlatsRatio": 0.85,
+    "stepMm": 0.5
+  }
+}

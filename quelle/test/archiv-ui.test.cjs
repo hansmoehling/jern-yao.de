@@ -15,7 +15,7 @@ class El{
  focus(options){this.focusOptions=options;this.focused=true}
  click(){this.clicked=true}
 }
-function setup(language,engine=E,showPrices,apiOptions){
+function setup(language,engine=E,showPrices,apiOptions,staged=false){
  const ids=new Map();const get=id=>{if(!ids.has(id))ids.set(id,new El());return ids.get(id)};
  const f=get('f'),a=get('a');f.elements={};a.elements={};
  for(const key of ['typ','wst','rm','d0','wirePreparation','rodDiameter','standardKind','standardNorm','nutNorm','threadFamily','kopfForm','kD','kSW','kH','kVol','sD','sL','sArea','tipLength','tipDiameter','tipArea','iTyp','iSize','iSW','iT','iVol','mM','mSW','mH','mLoch','mFlansch','mFlanschH','masse','lStempel','wenden','ko','pko','matD','matL','stD','stL','stationen','zusatz','ausbringung'])f.elements[key]=new El();
@@ -28,6 +28,7 @@ function setup(language,engine=E,showPrices,apiOptions){
  const locale={language,t:s=>I.t(s,locale.language),apply(){}};
  const events={};const window={JYK:engine,JYI18N:I,JYLocale:locale,matchMedia:()=>({matches:false}),addEventListener:(name,fn)=>events[name]=fn,print(){this.printCount=(this.printCount||0)+1}};
  if(showPrices!==undefined)window.JY_SHOW_PRICES=showPrices;
+ if(staged){window.JY_CONFIGURATOR_VERSION='kvp-v1';window.JYWireDefaults=require('../vorbelegung/draht.js');}
  const document={getElementById:get,createElement:()=>new El(),querySelectorAll:selector=>selector==='[data-bsp]'?examples:[]};
  const networkRequests=[],answers=[],timers=new Map();let timerId=0;
  window.location={href:'https://jern-yao.de/manual/konfigurator-v1.html'};window.setTimeout=(fn,ms)=>{timers.set(++timerId,{fn,ms});return timerId};window.clearTimeout=id=>timers.delete(id);
@@ -223,6 +224,7 @@ test('constructed geometry uses its own volume, private KI request, selected mod
   p.answers.push({data:{id:'G1',token:'private-token',kind:'preview',status:'ready',answer:'Geometry concept',proposal:{machines:[{model,status:'offen',priceEUR:999}],stages:[]}}});
   await p.get('geometry-analyse').events.click();const preview=p.networkRequests[0],body=JSON.parse(preview.options.body);
   assert.equal(new URL(preview.url).pathname,'/geometry-preview');assert.equal(body.geometrySpec.elements[0].diameter,10);assert.equal(body.d0,8);assert.equal(body.language,language);assert.equal(body.pricePolicy,'technical-only');assert(!('datei' in body));assert(!('email' in body));
+  assert.equal(body.inputOrigins,undefined,'legacy geometry requests keep their existing shape');
   const button={dataset:{previewModel:model}};p.get('geometry-result').events.click({target:{closest:()=>button}});assert(!p.get('selected-machine').hidden);assert(p.a.elements.email.focused);
   p.get('drucken').events.click();assert(p.get('blatt').innerHTML.includes(model));assert(p.get('blatt').innerHTML.includes('Geometry concept'));assert(!p.get('blatt').innerHTML.includes('€'));
   p.a.elements.email.value='customer@example.invalid';p.a.elements.ok.checked=true;p.a.elements.nachricht.value='Unchanged note';
@@ -541,6 +543,88 @@ test('hex presets and custom widths remain usable, while changing profile or siz
  p.f.elements.iSize.value='T25';p.f.events.change();assert.equal(p.f.elements.iVol.value,'');
  p.f.elements.iVol.value='50';p.f.events.change();p.f.elements.iTyp.value='pz';p.f.events.change();assert.equal(p.f.elements.iVol.value,'');
  p.f.elements.iTyp.value='none';p.f.events.change();assert.equal(p.get('aus').hidden,false);assert(!p.get('kenn').innerHTML.includes('<dt>Internal drive</dt>'));
+});
+
+test('staged defaults preserve customer wire values and expose the thinner annealed-wire route in every language',()=>{
+ for(const language of I.supported){
+  let received;const p=setup(language,{...E,auslegen(e){received=e;return E.auslegen(e);}},true,undefined,true);
+  for(const [key,value]of Object.entries({sD:'5.27',sL:'30',kD:'10',kH:'6'}))p.f.elements[key].value=value;
+  p.f.events.change();assert.equal(received.d0,5.6);assert.equal(received.rmPolicy,E.RM_POLICY_VERSION);assert.equal(received.rm,undefined);
+  assert.equal(received.inputOrigins.d0.origin,'assumption');assert(!p.get('wire-candidates-field').hidden);assert(p.get('wire-custom-field').hidden);
+  assert(p.get('wire-process-note').textContent.includes(I.t('Stauchdraht will geglüht sein, Reduzierdraht braucht das weniger',language)));
+  const thinner=p.get('wire-candidates').options.find(o=>Number(o.value)>0&&Number(o.value)<5.6);assert(thinner);
+  p.get('wire-candidates').value=thinner.value;p.get('wire-candidates').events.change();assert.equal(received.d0,Number(thinner.value));
+  assert(p.get('wire-origin').textContent.includes(I.t('Mehr Aufstauchen: geglühten Draht vorsehen.',language)));
+  p.get('wire-candidates').value='custom';p.get('wire-candidates').events.change();assert(!p.get('wire-custom-field').hidden);
+  p.f.elements.d0.value='6.4';p.f.elements.d0.events.input();p.f.events.change();p.f.elements.sD.value='5.4';p.f.events.change();
+  assert.equal(received.d0,6.4);assert.equal(received.inputOrigins.d0.origin,'customer');
+  p.events['jy-languagechange']();assert.equal(received.d0,6.4);
+ }
+});
+
+test('staged geometry preserves wire provenance in requests, print and enquiry in five languages',async()=>{
+ for(const language of I.supported){
+  const p=setup(language,E,false,{},true);p.f.elements.typ.value='formteil';p.f.events.change();p.get('parts-geometry-tab').events.click();
+  const element={id:'E1',shape:'cylinder',operation:'add',side:'die',start:0,length:20,diameter:10,offsetX:0,offsetY:0};
+  p.geometryWizard.setElements([element]);assert.equal(p.f.elements.d0.value,'10');
+  p.answers.push({data:{id:'AUTO',token:'auto-token',kind:'preview',status:'ready',answer:'Concept'}});await p.get('geometry-analyse').events.click();
+  const automatic=JSON.parse(p.networkRequests[0].options.body);
+  assert.deepEqual(automatic.inputOrigins,{d0:{origin:'assumption',provisional:true}});assert.equal(automatic.inputOrigins.d0.reason,undefined);
+  p.get('drucken').events.click();
+  const originLabel=I.t('Herkunft Drahtdurchmesser',language),suggestionLabel=I.t('Drahtvorschlag · vorläufig',language);
+  assert(p.get('blatt').innerHTML.includes(originLabel));assert(p.get('blatt').innerHTML.includes(suggestionLabel));
+  p.answers.push({data:{id:'MAIL',token:'mail-token',kind:'enquiry',status:'received',notificationStatus:'sent'}});await sendMail(p);
+  const note=p.networkRequests.at(-1).options.body.get('notiz');assert(note.includes(originLabel));assert(note.includes(suggestionLabel));
+  p.get('wire-candidates').value='custom';p.get('wire-candidates').events.change();
+  assert.equal(p.f.elements.d0.value,'10');assert(p.get('geometry-result').hidden,'same diameter with changed provenance invalidates the previous analysis');
+  p.answers.push({data:{id:'CUSTOM',token:'custom-token',kind:'preview',status:'ready',answer:'Concept'}});await p.get('geometry-analyse').events.click();
+  const custom=JSON.parse(p.networkRequests.at(-1).options.body);assert.deepEqual(custom.inputOrigins,{d0:{origin:'customer'}});
+  assert.notEqual(custom.idempotency_key,automatic.idempotency_key);
+  p.geometryWizard.setElements([{...element,length:23}]);assert.equal(p.f.elements.d0.value,'10');
+  p.get('drucken').events.click();assert(p.get('blatt').innerHTML.includes(I.t('Drahtdurchmesser aus Ihrer Eingabe',language)));assert(!p.get('blatt').innerHTML.includes(suggestionLabel));
+ }
+});
+
+test('staged Rm defaults stay identifiable in display and exports and never become invented certificate inputs',()=>{
+ for(const language of I.supported){
+  let received;const p=setup(language,{...E,auslegen(e){received=e;return E.auslegen(e);}},true,undefined,true);
+  p.examples[1].events.click();assert.equal(received.rm,undefined);assert(p.get('rm-origin').textContent.includes('400'));
+  const a=E.auslegen(received),chosen=E.waehle(machines,a,received,praxis);assert(chosen.passend.length>0);
+  assert(!chosen.passend[0].openPoints.some(x=>x.id==='wire-tensile-strength'));
+  const variant=p.f.elements.wst.options.find(o=>o.textContent.startsWith('C10C'));p.f.elements.wst.value=variant.value;p.f.events.change();
+  assert.equal(received.rm,undefined);assert(p.f.elements.rm.placeholder.includes('350'));assert(p.get('rm-origin').textContent.includes(I.t('Richtwert · vorläufig',language)));
+  p.get('drucken').events.click();assert(p.get('blatt').innerHTML.includes(I.t('Herkunft Rm',language)));assert(p.get('blatt').innerHTML.includes(I.t('Richtwert · vorläufig',language)));
+  p.f.elements.rm.value='450';p.f.events.change();assert.equal(received.rm,450);assert(p.get('rm-origin').textContent.includes(I.t('Kundenangabe',language)));
+  p.f.elements.rm.value='';p.f.elements.wirePreparation.value='inline-drawing';p.f.elements.rodDiameter.value='6';p.f.events.change();
+  assert.equal(E.rmVorbelegung(received).value,null);assert(p.get('rm-origin').hidden,'pre-drawing reference must not be reused after inline drawing');
+  p.get('drucken').events.click();assert(!p.get('blatt').innerHTML.includes(I.t('Vorläufiges Praxisband',language)),'an unknown Rm must not be described as a known band');
+ }
+});
+
+test('staged ISO4014 input uses its plain shaft as the wire baseline and preserves an edited wire',()=>{
+ let received;const p=setup('de',{...E,auslegen(e){received=e;return E.auslegen(e);}},true,undefined,true);
+ for(const [key,value]of Object.entries({standardNorm:'ISO4014',sD:'6',sL:'50',kSW:'10',kH:'4'}))p.f.elements[key].value=value;
+ p.f.events.change();assert.equal(received.standardReference,'ISO4014');assert.equal(received.d0,6);
+ assert(p.get('wire-origin').textContent.includes('Teilgewinde'));assert(!p.get('wire-origin').textContent.includes('Vollgewinde'));
+ p.get('wire-candidates').value='custom';p.get('wire-candidates').events.change();p.f.elements.d0.value='6.2';p.f.elements.d0.events.input();p.f.events.change();
+ assert.equal(received.d0,6.2);assert.equal(received.inputOrigins.d0.origin,'customer');
+});
+
+test('drawing material selection is explicit, leaves the original note intact and invalidates a previous analysis',async()=>{
+ for(const language of I.supported){
+  const p=setup(language,E,true,{},true);p.f.elements.typ.value='formteil';p.f.events.change();
+  assert(!p.get('drawing-material-field').hidden);assert.equal(p.get('drawing-material').value,'');assert(p.get('drawing-material-origin').textContent.includes('C4C'));
+  const file=new Blob(['%PDF-1.4 test drawing'],{type:'application/pdf'});Object.defineProperty(file,'name',{value:'neutral.pdf'});p.get('parts-file').files=[file];p.get('parts-file').events.change();
+  p.get('parts-drawing-note').value='Original drawing note';p.get('parts-drawing-note').events.input();
+  const option=p.get('drawing-material').options.find(o=>o.textContent.startsWith('C10C'));p.get('drawing-material').value=option.value;p.get('drawing-material').events.change();
+  p.answers.push({data:{id:'job-1',token:'token-1',kind:'preview',status:'queued'}});await p.get('parts-drawing-analyse').events.click();
+  assert.equal(p.networkRequests.length,1);const first=p.networkRequests[0].options.body,choice=JSON.parse(first.get('materialChoice'));
+  assert.equal(choice.materialId,'C10C');assert.equal(choice.origin,'user_selection');assert.equal(first.get('notiz'),'Original drawing note');
+  p.get('drawing-material').value='';p.get('drawing-material').events.change();assert(p.get('parts-drawing-result').hidden);
+  p.answers.push({data:{id:'job-2',token:'token-2',kind:'preview',status:'queued'}});await p.get('parts-drawing-analyse').events.click();
+  const second=p.networkRequests[1].options.body;assert.equal(second.get('materialChoice'),null);assert.notEqual(second.get('idempotency_key'),first.get('idempotency_key'));
+  assert(p.networkRequests.every(r=>r.url.includes('/preview')),'material selection and analysis never send mail');
+ }
 });
 
 test('returning from the flange-nut builder never labels a standard nut calculation as ISO4161',()=>{

@@ -46,6 +46,16 @@ export function geometryContext(raw, supplied = {}) {
       else process[key] = supplied[key];
     }
   }
+  if (supplied.inputOrigins !== undefined) {
+    const origins = supplied.inputOrigins, wire = origins?.d0;
+    // Intake provenance only: it is never a verified source or permission to
+    // calculate forces. Free client reasons and evidence are not accepted.
+    if (!origins || typeof origins !== 'object' || Array.isArray(origins) || Object.keys(origins).some(key => key !== 'd0')
+      || !wire || typeof wire !== 'object' || Array.isArray(wire) || Object.keys(wire).some(key => !['origin', 'provisional'].includes(key))
+      || !['assumption', 'customer'].includes(wire.origin) || !(process.d0 > 0)
+      || (wire.origin === 'assumption' ? wire.provisional !== true : wire.provisional !== undefined)) issue('inputOrigins.d0', 'invalid_input_origin');
+    else process.inputOrigins = { d0: { origin: wire.origin, ...(wire.origin === 'assumption' ? { provisional: true } : {}) } };
+  }
   if (process.wirePreparation === 'inline-drawing' && !(process.rodDiameter > process.d0)) issue('rodDiameter', 'inline_drawing_diameters');
   if (errors.length) return { ok: false, errors };
   const material = process.material ? Engine.findMaterial(process.material) : null;

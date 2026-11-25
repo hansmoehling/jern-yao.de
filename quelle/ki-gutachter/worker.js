@@ -1,6 +1,8 @@
 import { analyse, publicResult, loadKnowledge, MODEL, providerFailure, recordServiceDiagnostic } from './analysis.js';
 import I18N from '../i18n.js';
 import { geometryContext } from './geometry-context.js';
+import {DRAWING_DEFAULTS_VERSION,validateMaterialChoice,materialText,CHOICE_ERROR} from './material-choice.js';
+import {prepareDecision,recordDecision} from './decision-log.js';
 const {t,normalizeLanguage}=I18N;
 
 const TTL = 30 * 86400;
@@ -8,6 +10,10 @@ const MAX_FILE = 15 * 1024 * 1024;
 const ORIGINS = ['https://jern-yao.de', 'https://jernyao.de', 'https://www.jernyao.de'];
 const TECHNICAL_ONLY='technical-only',WITH_PRICES='with-prices';
 const pricedOrigin=origin=>['https://jern-yao.de','https://www.jern-yao.de'].includes(origin);
+// Publication gate: main-site requests and old saved requests keep their
+// existing behaviour, regardless of a client-supplied version or Origin later.
+const packageOneOrigin=origin=>origin==='https://jern-yao.de';
+const storedFeatures=record=>packageOneOrigin(record?.siteOrigin)&&record?.featureVersion===DRAWING_DEFAULTS_VERSION?{featureVersion:DRAWING_DEFAULTS_VERSION,materialChoice:record.materialChoice||null}:{};
 const originPricePolicy=req=>pricedOrigin(req.headers.get('Origin'))?WITH_PRICES:TECHNICAL_ONLY;
 const storedPricePolicy=record=>record?.pricePolicy===WITH_PRICES&&pricedOrigin(record.siteOrigin)?WITH_PRICES:TECHNICAL_ONLY;
 // Client values may only restrict. A linked request also keeps its original
@@ -98,8 +104,11 @@ async function preview(req,env,cors,locale) {
   const idem=txt(form.get('idempotency_key'),160);
   if(!/^[\w-]{16,160}$/.test(idem))throw new HttpError(400,'Die Anfragekennung ist ungültig.');
   const siteOrigin=req.headers.get('Origin')||null,pricePolicy=requestPricePolicy(req,form.get('pricePolicy'));
+  let materialChoice=null;
+  if(packageOneOrigin(siteOrigin)){try{materialChoice=validateMaterialChoice(form.get('materialChoice'));}catch{throw new HttpError(400,materialText(CHOICE_ERROR,language));}}
+  const features=packageOneOrigin(siteOrigin)?{featureVersion:DRAWING_DEFAULTS_VERSION,...(materialChoice?{materialChoice}:{})}:{};
   const note=txt(form.get('notiz')||form.get('text'),20000),file={name:filename,type:EXT[ext],size:fileBytes.length,hash:await digest(fileBytes),readable:true};
-  const fingerprint=await digest(JSON.stringify({note,file,language,siteOrigin,pricePolicy}));
+  const fingerprint=await digest(JSON.stringify({note,file,language,siteOrigin,pricePolicy,...(materialChoice?{materialChoice}:{})}));
   // The opaque client key belongs only to this preview. Contact submissions use
   // their existing, separate namespace and are never triggered by this route.
   const idemKey='vorschau-idempotenz:'+await digest(siteOrigin+':'+idem),old=await get(env,idemKey);
@@ -116,7 +125,7 @@ async function preview(req,env,cors,locale) {
   const id=crypto.randomUUID(),createdAt=new Date().toISOString();
   file.key='anfragen/'+id+'/original';
   await env.DATEIEN.put(file.key,fileBytes,{httpMetadata:{contentType:file.type},customMetadata:{expiresAt:String(Date.now()+TTL*1000)}});
-  await put(env,'anfrage:'+id,{id,kind:'preview',createdAt,note,file,language,siteOrigin,pricePolicy});
+  await put(env,'anfrage:'+id,{id,kind:'preview',createdAt,note,file,language,siteOrigin,pricePolicy,...features});
   await put(env,'analyse:'+id,{status:'queued',updatedAt:createdAt});
   await put(env,'nachricht:'+id,{status:'not_requested',updatedAt:createdAt});
   await put(env,idemKey,{id,fingerprint});
@@ -180,7 +189,8 @@ async function intake(req, env, cors, locale) {
   if (!note && !file) throw new HttpError(400, 'Bitte laden Sie eine Zeichnung hoch oder beschreiben Sie Ihr Teil.');
   const idem = txt(form.get('idempotency_key'), 160);
   if (idem && !/^[\w-]{8,160}$/.test(idem)) throw new HttpError(400, 'Die Anfragekennung ist ungültig.');
-  const fingerprint = await digest(JSON.stringify({ email, note, name, company, file, language,siteOrigin,pricePolicy,...(subject?{subject}:{}) }));
+  const decision=packageOneOrigin(siteOrigin)?prepareDecision(form.get('decisionContext'),{hasFile:!!file}):null;
+  const fingerprint = await digest(JSON.stringify({ email, note, name, company, file, language,siteOrigin,pricePolicy,...(subject?{subject}:{}),...(decision?{decision}:{}) }));
   const idemKey = idem ? 'idempotenz:' + await digest(email.toLowerCase() + ':' + siteOrigin + ':' + idem) : null;
   if (idemKey) {
     const old = await get(env, idemKey);
@@ -199,6 +209,9 @@ async function intake(req, env, cors, locale) {
   await put(env, 'anfrage:' + id, { id, kind:'enquiry',createdAt, email, name, company, note, file, language,siteOrigin,pricePolicy,...(subject?{subject}:{}),consent:form.get('consent')==='true',consentSource:form.has('consent')?'submitted':'legacy-ui' });
   await put(env, 'nachricht:' + id, { status: 'pending', updatedAt: createdAt });
   if (idemKey) await put(env, idemKey, { id, fingerprint });
+  // Optional learning intake cannot prevent the explicitly requested email.
+  // No decision ID is attached to the customer record or public response.
+  if(decision){try{await recordDecision(env,decision);}catch(error){await recordServiceDiagnostic(env,error,'request');}}
   try { await enqueue(env, id); } catch { throw new HttpError(503, 'Die Übertragung wurde unterbrochen. Bitte senden Sie dieselbe Anfrage erneut.'); }
   return json({ id, token: await tokenFor(env, id), kind:'enquiry',status: 'received',analysisStatus:'not_requested', notificationStatus: 'pending', language,pricePolicy }, 202, cors);
 }
@@ -216,7 +229,7 @@ async function chat(req, env, cors, locale) {
   await throttle(req, env, 'chat', 40);
   const file = request?.file?.readable ? await readFile(env, request.file) : null;
   let result;
-  try { result = await analyse({ note: request?.note || '', message, history, file, filename: request?.file?.name, unreadableFile: !!request?.file && !request.file.readable, geometrySpec:request?.geometrySpec,geometryProcess:request?.geometryProcess, language: locale.value,pricePolicy }, env, { timeoutMs: 120000, maxRounds: 5 }); }
+  try { result = await analyse({ note: request?.note || '', message, history, file, filename: request?.file?.name, unreadableFile: !!request?.file && !request.file.readable, geometrySpec:request?.geometrySpec,geometryProcess:request?.geometryProcess, language: locale.value,pricePolicy,...storedFeatures(request) }, env, { timeoutMs: 120000, maxRounds: 5 }); }
   catch (error) { await recordServiceDiagnostic(env, error, 'chat'); throw new HttpError(503, 'Die Antwort konnte gerade nicht fertiggestellt werden. Ihre bisherige Anfrage bleibt erhalten. Bitte versuchen Sie es erneut.'); }
   if (request) {
     await put(env, 'chat:' + request.id, [...history, { role: 'user', content: message }, { role: 'assistant', content: result.answer }].slice(-20));
@@ -259,7 +272,7 @@ async function queued(message, env) {
       if (['ready', 'needs_info'].includes(old?.status)||isPreview&&old?.status==='failed') { message.ack(); return; }
       await put(env, key, { status: 'processing', updatedAt: new Date().toISOString() });
       const file = record.file?.readable ? await readFile(env, record.file) : null;
-      const result = await analyse({ note: record.note, file, filename: record.file?.name, unreadableFile: !!record.file && !record.file.readable, geometrySpec:record.geometrySpec,geometryProcess:record.geometryProcess, language: normalizeLanguage(record.language),pricePolicy:storedPricePolicy(record) }, env, { timeoutMs: 240000, maxRounds: 7 });
+      const result = await analyse({ note: record.note, file, filename: record.file?.name, unreadableFile: !!record.file && !record.file.readable, geometrySpec:record.geometrySpec,geometryProcess:record.geometryProcess, language: normalizeLanguage(record.language),pricePolicy:storedPricePolicy(record),...storedFeatures(record) }, env, { timeoutMs: 240000, maxRounds: 7 });
       const latest = await get(env, key);
       if (!['ready', 'needs_info'].includes(latest?.status)) await put(env, key, { status: result.questions.length ? 'needs_info' : 'ready', result, updatedAt: new Date().toISOString() });
     }
