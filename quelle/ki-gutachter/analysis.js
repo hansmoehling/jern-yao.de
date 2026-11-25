@@ -105,6 +105,14 @@ export async function loadKnowledge(env){
  return {version:'legacy-unversioned',status:rules&&cards?'legacy':'missing',rules:safeKnowledge(rules),cards:safeKnowledge(cards),createdAt:null};
 }
 function originalText(c){return [c.note,c.message,...(c.history||[]).filter(h=>h.role==='user').map(h=>h.content)].filter(Boolean).join('\n');}
+function withoutExplicitAnnealNegation(text){
+ // Only remove an explicit statement that annealing was NOT applied. Keep
+ // separate affirmative treatments and the original evidence untouched.
+ return text.replace(/(?<![\p{L}\p{N}_])(?:nicht\s+(?:(?:nach|weich)?gegl(?:ü|ue)ht)|not\s+(?:(?:re[ -]?|soft[ -]?)?annealed)|unannealed|non\s+(?:nuovamente\s+)?ricott[oa]|ni\s+(?:(?:ponovno|naknadno)\s+)?(?:mehko\s+)?[žz]arjen[ao]?|未(?:经|經)?(?:再|软化|軟化)?退火)(?![\p{L}\p{N}_])/giu,(match,offset,source)=>{
+  // A double negation (e.g. "not unannealed") is not an affirmative state.
+  return /(?:\b(?:nicht|keineswegs|nie|not|never|non|ni)\s*['"]?\s*|(?:并非|並非|不是))$/iu.test(source.slice(0,offset))?match:' ';
+ });
+}
 function factor(unit,target){
  const u=String(unit||'').trim().toLowerCase().replace(/\s/g,'');
  if(target==='mm')return {mm:1,cm:10,m:1000,in:25.4,inch:25.4,'"':25.4}[u];
@@ -151,8 +159,9 @@ function screenCore(input,context,knowledgeVersion='unknown'){
  const stateAssumption=stateEvidence?.origin==='assumption'&&annealed&&!conflicting&&!userStateConflict;
  const drawn=/gezogen|\bdrawn\b|trafilat[oa]|vle[čc]en|冷拉|冷拔/i.test(stateQuote);
  // Any later or ambiguous heat treatment invalidates the drawn source state.
- // A generic anneal is no safer to transfer than an explicitly soft anneal.
- const drawnConflict=/geglüht|geglueht|annealed|spheroidi[sz]ed|normalisiert|normali[sz]ed|rekristallisiert|recrystalli[sz]ed|ricott[oa]|sferoidizzat[oa]|normalizzat[oa]|ricristallizzat[oa]|[žz]arjen|normaliziran|rekristaliziran|退火|正火|球化|再结晶|再結晶|vergütet|quenched|tempered|bonificat[oa]|\+(?:QT|AC)\b|\bT[456789]\d?\b|时效|nicht\s+(?:kalt)?gezogen|not\s+(?:cold[ -]?)?drawn|non\s+trafilat[oa]|ni\s+(?:hladno\s+)?vle[čc]en|未(?:经|經)?(?:冷拉|冷拔)/i.test(originalText(context)+'\n'+stateQuote);
+ // Explicit "not annealed" statements must not create a positive anneal claim.
+ const drawnStateText=withoutExplicitAnnealNegation(originalText(context)+'\n'+stateQuote);
+ const drawnConflict=/geglüht|geglueht|annealed|spheroidi[sz]ed|normalisiert|normali[sz]ed|rekristallisiert|recrystalli[sz]ed|ricott[oa]|sferoidizzat[oa]|normalizzat[oa]|ricristallizzat[oa]|[žz]arjen|normaliziran|rekristaliziran|退火|正火|球化|再结晶|再結晶|vergütet|quenched|tempered|bonificat[oa]|\+(?:QT|AC)\b|\bT[456789]\d?\b|时效|nicht\s+(?:kalt)?gezogen|not\s+(?:cold[ -]?)?drawn|non\s+trafilat[oa]|ni\s+(?:hladno\s+)?vle[čc]en|未(?:经|經)?(?:冷拉|冷拔)/i.test(drawnStateText);
  const drawnAssumption=stateEvidence?.origin==='assumption'&&drawn&&!drawnConflict;
  e.curveId=str(input?.curveId,100);
  e.materialState=input?.materialState==='soft-annealed'&&(stateAssumption||stateSourceValid&&annealed&&!conflicting&&!userStateConflict)?'soft-annealed':input?.materialState==='cold-drawn'&&(drawnAssumption||stateSourceValid&&drawn&&!drawnConflict)?'cold-drawn':'unknown';
