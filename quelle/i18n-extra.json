@@ -1,0 +1,284 @@
+{
+  "Ihre Sprachwahl wird lokal im Browser gespeichert.": [
+    "La lingua scelta viene salvata localmente nel browser.",
+    "Izbrani jezik se shrani lokalno v brskalniku.",
+    "Your language preference is stored locally in your browser.",
+    "语言偏好将保存在您的浏览器本地。"
+  ],
+  "Diese Seite setzt keine Cookies und speichert keine technischen Eingaben. Nur Ihre Sprachwahl wird lokal gespeichert. Die Rechnung läuft vollständig im Browser. Eine Anfrage öffnet Ihr E-Mail-Programm; die Angaben dienen allein ihrer Bearbeitung. Beim Abruf fallen beim Hostinganbieter technisch bedingte Zugriffsprotokolle an (IP-Adresse, Zeitpunkt, abgerufene Seite).": [
+    "Questa pagina non imposta cookie e non salva i dati tecnici immessi. Viene salvata localmente soltanto la lingua scelta. Il calcolo avviene interamente nel browser. Una richiesta apre il vostro programma di posta; i dati servono soltanto alla sua elaborazione. Il fornitore di hosting registra accessi tecnici (indirizzo IP, orario, pagina richiesta).",
+    "Ta stran ne uporablja piškotkov in ne shranjuje tehničnih vnosov. Lokalno se shrani le izbrani jezik. Izračun poteka v celoti v brskalniku. Povpraševanje odpre vaš e-poštni program; podatki služijo le njegovi obdelavi. Ponudnik gostovanja beleži tehnične dostope (naslov IP, čas, zahtevana stran).",
+    "This page sets no cookies and does not store technical inputs. Only your language preference is stored locally. The calculation runs entirely in your browser. An enquiry opens your email program; the information is used only to process it. The hosting provider keeps technical access logs (IP address, time, requested page).",
+    "本页面不设置 Cookie，也不保存技术输入。仅语言偏好会保存在本地。计算完全在浏览器中进行。询盘会打开您的邮件程序，所提供信息仅用于处理询盘。托管服务商会记录技术访问日志（IP 地址、时间、访问页面）。"
+  ],
+  "Die Zeichnung bleibt auf Ihrem Rechner. Bitte hängen Sie sie der E-Mail an Hans Möhling selbst an.": [
+    "Il disegno resta sul vostro computer. Allegatelo voi stessi all'e-mail per Hans Moehling.",
+    "Risba ostane na vašem računalniku. Sami jo priložite e-pošti Hansu Moehlingu.",
+    "The drawing stays on your computer. Please attach it yourself to the email to Hans Moehling.",
+    "图纸保留在您的计算机上。请自行将其附加到发送给 Hans Moehling 的邮件中。"
+  ],
+  "Zur Anfrage": [
+    "Alla richiesta",
+    "Na povpraševanje",
+    "Go to enquiry",
+    "进入询盘"
+  ],
+  "Antwortsprache:": [
+    "Lingua della risposta:",
+    "Jezik odgovora:",
+    "Response language:",
+    "答复语言："
+  ],
+  "Werkstoffmodell:": [
+    "Modello del materiale:",
+    "Model materiala:",
+    "Material model:",
+    "材料模型："
+  ],
+  "Zeichnung hochladen, Maße beschreiben oder eine Frage stellen. Gemeinsam mit Hans Möhling zum Fertigungskonzept und zur passenden Jern-Yao-Presse.": [
+    "Caricate un disegno, descrivete le dimensioni o fate una domanda. Con Hans Moehling, verso il processo produttivo e la pressa Jern Yao adatta.",
+    "Naložite risbo, opišite mere ali zastavite vprašanje. Skupaj s Hansom Moehlingom do proizvodnega koncepta in ustrezne stiskalnice Jern Yao.",
+    "Upload a drawing, describe dimensions or ask a question. Work with Hans Moehling towards a manufacturing concept and the right Jern Yao machine.",
+    "上传图纸、描述尺寸或提出问题。与 Hans Moehling 一起制定制造方案，选择合适的 Jern Yao 设备。"
+  ],
+  "Grobe Stadienfolge, Werkzeuggröße und passende Jern-Yao-Mehrstufenpressen mit Richtpreis 2026.": [
+    "Sequenza preliminare, dimensioni utensili e presse multistazione Jern Yao adatte con prezzi indicativi 2026.",
+    "Okvirno zaporedje faz, velikost orodij in ustrezne večstopenjske stiskalnice Jern Yao z okvirno ceno 2026.",
+    "Preliminary forming sequence, tool size and suitable Jern Yao multi-station machines with 2026 guide prices.",
+    "初步工步方案、模具尺寸及适用的 Jern Yao 多工位成形机，附 2026 年参考价格。"
+  ],
+  "Bitte eine Zahl eingeben, z. B. 12,5": [
+    "Inserite un numero, ad esempio 12,5",
+    "Vnesite število, npr. 12,5",
+    "Please enter a number, for example 12.5",
+    "请输入数字，例如 12.5"
+  ],
+  "Es fehlen noch:": [
+    "Mancano ancora:",
+    "Manjka še:",
+    "Still missing:",
+    "还缺少："
+  ],
+  "Mit Draht-Ø und den Hüllmaßen des Teils erscheinen hier Stadienfolge, Werkzeuggröße und die passenden Modelle.": [
+    "Inserendo Ø del filo e ingombri del pezzo, qui appariranno sequenza, utensili e modelli adatti.",
+    "Ko vnesete Ø žice in zunanje mere izdelka, se tukaj pokažejo faze, velikosti orodij in ustrezni modeli.",
+    "With wire Ø and part envelope dimensions, the forming sequence, tool size and suitable models appear here.",
+    "输入线材直径和零件外形尺寸后，此处将显示工步、模具尺寸和适用机型。"
+  ],
+  "typisch": [
+    "tipico",
+    "tipično",
+    "typical",
+    "典型值"
+  ],
+  "Teileart:": [
+    "Tipo di pezzo:",
+    "Vrsta izdelka:",
+    "Part type:",
+    "零件类型："
+  ],
+  "Schraube/Bolzen": [
+    "Vite/perno",
+    "Vijak/sornik",
+    "Screw/bolt",
+    "螺钉/螺栓"
+  ],
+  "Formteil/Hülse": [
+    "Particolare/boccola",
+    "Oblikovanec/puša",
+    "Formed part/sleeve",
+    "异形件/套筒"
+  ],
+  "Rm des Drahtes": [
+    "Rm del filo",
+    "Rm žice",
+    "wire Rm",
+    "线材 Rm"
+  ],
+  "Masse": [
+    "Massa",
+    "Masa",
+    "Mass",
+    "质量"
+  ],
+  "Höhe": [
+    "Altezza",
+    "Višina",
+    "Height",
+    "高度"
+  ],
+  "Flansch": [
+    "Flangia",
+    "Prirobnica",
+    "Flange",
+    "法兰"
+  ],
+  "Kopf": [
+    "Testa",
+    "Glava",
+    "Head",
+    "头部"
+  ],
+  "Innenantrieb": [
+    "Impronta",
+    "Notranji pogon",
+    "Internal drive",
+    "内驱动孔"
+  ],
+  "Napf": [
+    "Cavità",
+    "Votlina",
+    "Cup",
+    "杯形腔"
+  ],
+  "gelocht": [
+    "forato",
+    "preluknjano",
+    "pierced",
+    "已冲孔"
+  ],
+  "im Stempel": [
+    "nel punzone",
+    "v pestiču",
+    "in the punch",
+    "位于冲头内"
+  ],
+  "mit 180°-Wendung": [
+    "con rotazione di 180°",
+    "z obračanjem za 180°",
+    "with 180° turning",
+    "带 180° 翻转"
+  ],
+  "Vorhandene Werkzeuge: Matrize": [
+    "Utensili esistenti: matrice",
+    "Obstoječa orodja: matrica",
+    "Existing tools: die",
+    "已有模具：凹模"
+  ],
+  "Stempel": [
+    "Punzone",
+    "Pestič",
+    "Punch",
+    "冲头"
+  ],
+  "Zusatzstufen (Kalibrieren, Kerben, Prägen, Beschneiden):": [
+    "Fasi aggiuntive (calibratura, intagli, coniatura, tranciatura):",
+    "Dodatne faze (kalibriranje, zarezovanje, vtiskovanje, obrezovanje):",
+    "Additional stages (sizing, notching, coining, trimming):",
+    "附加工步（校准、切槽、压印、切边）："
+  ],
+  "höchste Stationskraft": [
+    "forza massima per stazione",
+    "največja sila postaje",
+    "highest station force",
+    "最大单工位力"
+  ],
+  "Nennkraft ab": [
+    "forza nominale da",
+    "nazivna sila od",
+    "rated force from",
+    "公称力至少"
+  ],
+  "(bitte anhängen)": [
+    "(da allegare)",
+    "(priložite)",
+    "(please attach)",
+    "（请附上）"
+  ],
+  "S.": [
+    "pag.",
+    "str.",
+    "p.",
+    "页"
+  ],
+  "Diese Seite gibt es nicht. Weiter zum": [
+    "Questa pagina non esiste. Vai al",
+    "Ta stran ne obstaja. Nadaljujte na",
+    "This page does not exist. Go to the",
+    "此页面不存在。请前往"
+  ],
+  "Konfigurator": [
+    "Configuratore",
+    "Konfigurator",
+    "Configurator",
+    "选型工具"
+  ],
+  "oder zu": [
+    "oppure a",
+    "ali na",
+    "or to",
+    "或前往"
+  ],
+  "Datei auswählen": [
+    "Seleziona file",
+    "Izberite datoteko",
+    "Choose file",
+    "选择文件"
+  ],
+  "Bitte geben Sie Ihre E-Mail-Adresse ein.": [
+    "Inserite il vostro indirizzo e-mail.",
+    "Vnesite svoj e-poštni naslov.",
+    "Please enter your email address.",
+    "请输入您的电子邮箱。"
+  ],
+  "Bitte geben Sie eine gültige E-Mail-Adresse ein.": [
+    "Inserite un indirizzo e-mail valido.",
+    "Vnesite veljaven e-poštni naslov.",
+    "Please enter a valid email address.",
+    "请输入有效的电子邮箱。"
+  ],
+  "Bitte stimmen Sie der Verarbeitung Ihrer Anfrage zu.": [
+    "Acconsentite al trattamento della richiesta.",
+    "Soglašajte z obdelavo povpraševanja.",
+    "Please consent to the processing of your enquiry.",
+    "请同意处理您的询盘。"
+  ],
+  "Bitte schreiben Sie Ihre Frage oder Idee.": [
+    "Scrivete la vostra domanda o idea.",
+    "Napišite svoje vprašanje ali zamisel.",
+    "Please write your question or idea.",
+    "请输入您的问题或想法。"
+  ],
+  "z. B. 7,6": [
+    "ad es. 7,6",
+    "npr. 7,6",
+    "e.g. 7.6",
+    "例如 7.6"
+  ],
+  "Sprache": [
+    "Lingua",
+    "Jezik",
+    "Language",
+    "语言"
+  ],
+  "Vorschau.": [
+    "Anteprima.",
+    "Predogled.",
+    "Preview.",
+    "预览。"
+  ],
+  "Keine KI-Auswertung, keine Anfrageübertragung und kein automatischer E-Mail-Versand.": [
+    "Nessuna analisi IA, trasmissione di richieste o e-mail automatica.",
+    "Brez analize z umetno inteligenco, prenosa povpraševanj ali samodejne e-pošte.",
+    "No AI analysis, enquiry transmission or automatic email sending.",
+    "不进行人工智能分析，不传输询盘，也不自动发送邮件。"
+  ],
+  "bis": ["a", "do", "to", "至"],
+  "+1 Reserve": ["+1 di riserva", "+1 rezervna", "+1 spare", "+1 个备用工位"],
+  "wünschenswert {value} t": ["preferibili {value} t", "zaželeno {value} t", "preferred {value} t", "建议 {value} t"],
+  "Pitch ab {value}": ["Interasse da {value}", "Razmak postaj od {value}", "Station pitch from {value}", "工位间距至少 {value}"],
+  "außen Ø{value}": ["esterno Ø{value}", "zunanji Ø{value}", "outside Ø{value}", "外径 Ø{value}"],
+  "Abschnitt bis Ø{value}": ["Spezzone fino a Ø{value}", "Odrezek do Ø{value}", "Blank up to Ø{value}", "坯料最大直径 Ø{value}"],
+  "Matrize Ø{value}": ["Matrice Ø{value}", "Matrica Ø{value}", "Die Ø{value}", "凹模 Ø{value}"],
+  "rund {weight} t, Motor {power} kW": ["circa {weight} t, motore {power} kW", "približno {weight} t, motor {power} kW", "approx. {weight} t, motor {power} kW", "约 {weight} t，电机 {power} kW"],
+  "Planung ≈ {rate} /min, rund {hourly} Stück/h (Katalog bis {maximum})": ["Pianificazione ≈ {rate} /min, circa {hourly} pezzi/h (catalogo fino a {maximum})", "Načrtovano ≈ {rate} /min, približno {hourly} kosov/h (katalog do {maximum})", "Planning ≈ {rate} /min, approx. {hourly} parts/h (catalogue up to {maximum})", "计划产能 ≈ {rate} /min，约 {hourly} 件/小时（目录最高 {maximum}）"],
+  "Katalog {catalogue}, S. {page}": ["Catalogo {catalogue}, pag. {page}", "Katalog {catalogue}, str. {page}", "Catalogue {catalogue}, p. {page}", "目录 {catalogue}，第 {page} 页"],
+  "Knapp daneben ({count})": ["Quasi idonee ({count})", "Skoraj ustrezni ({count})", "Near misses ({count})", "接近要求（{count}）"],
+  "(Kalibrieren, Hohlteil)": ["(calibratura, pezzo cavo)", "(kalibriranje, votli del)", "(sizing, hollow part)", "（校形、空心件）"],
+  "Vorschau der technischen Auslegung. Der Anfrageversand ist hier deaktiviert.": [
+    "Anteprima del dimensionamento tecnico. L’invio delle richieste è disattivato.",
+    "Predogled tehnične zasnove. Pošiljanje povpraševanj je onemogočeno.",
+    "Preview of technical sizing. Sending enquiries is disabled here.",
+    "技术选型预览。此处已禁用询盘发送。"
+  ]
+}

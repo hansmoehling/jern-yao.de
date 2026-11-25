@@ -1,0 +1,18 @@
+<!doctype html>
+<html lang="de"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Manual · Jern Yao</title><meta name="robots" content="noindex, nofollow">
+<link rel="canonical" href="https://jern-yao.de/manual/konfigurator-v1.html"></head>
+<body><p><a id="manual-link" href="/manual/konfigurator-v1.html">Manual · Manuelle Auslegung</a></p>
+<script>
+(function () {
+  const target = '/manual/konfigurator-v1.html' + window.location.search + window.location.hash;
+  const labels = {de:'Manual · Manuelle Auslegung',it:'Manual · Dimensionamento manuale',sl:'Manual · Ročno dimenzioniranje',en:'Manual · Manual sizing',zh:'Manual · 手动选型'};
+  const language = (new URLSearchParams(window.location.search).get('lang') || 'de').toLowerCase().split('-')[0];
+  const link = document.getElementById('manual-link');
+  document.documentElement.lang = language === 'zh' ? 'zh-Hans' : (Object.hasOwn(labels, language) ? language : 'de');
+  link.textContent = labels[language] || labels.de; link.href = target;
+  window.location.replace(target);
+})();
+</script>
+<noscript><p>Manual: <a href="/manual/konfigurator-v1.html?lang=de">Deutsch</a> · <a href="/manual/konfigurator-v1.html?lang=it">Italiano</a> · <a href="/manual/konfigurator-v1.html?lang=sl">Slovenščina</a> · <a href="/manual/konfigurator-v1.html?lang=en">English</a> · <a href="/manual/konfigurator-v1.html?lang=zh">中文</a></p></noscript>
+</body></html>

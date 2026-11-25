@@ -1,0 +1,320 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Manual · Maschinenwahl und Richtpreis · Jern Yao</title>
+<meta name="robots" content="noindex, nofollow">
+<meta name="description" content="Manuelle Auslegung: Stadienfolge, Werkzeuggröße und passende Jern-Yao-Mehrstufenpressen mit Richtpreis 2026.">
+<link rel="stylesheet" href="https://jernyao.de/assets/fonts.css">
+<link rel="icon" href="https://jernyao.de/assets/logo.png">
+<style>
+  :root{
+    --paper:#ffffff; --ink:#171b24; --mid:#555b68; --navy:#0b3390; --navy-soft:#3a5cb0;
+    --hair:#dcdfe7; --band:#f5f6f9; --accent:#e05c00;
+    --ok:#1f7a4d; --ok-bg:#e8f4ee; --knapp:#9a6400; --knapp-bg:#fbf3e2; --nein:#a3262a; --nein-bg:#f9e9e9; --offen:#555b68; --offen-bg:#eef0f4;
+  }
+  @media (prefers-color-scheme: dark){
+    :root{
+      --paper:#10141f; --ink:#e7e9f0; --mid:#9aa1b0; --navy:#9db4ea; --navy-soft:#7e97d4; --hair:#2a3040; --band:#161b28; --accent:#f0863d;
+      --ok:#6fd3a0; --ok-bg:#16291f; --knapp:#f0c060; --knapp-bg:#2c2412; --nein:#f08a8d; --nein-bg:#2e1718; --offen:#9aa1b0; --offen-bg:#1c2130;
+      color-scheme: dark;
+    }
+    .mast img{ background:#fff; padding:3px 8px; border-radius:3px; }
+  }
+  *{ box-sizing:border-box; }
+  body{ margin:0; background:var(--paper); color:var(--ink); font-family:'Inter',system-ui,sans-serif; line-height:1.55;
+    padding-left:max(16px, env(safe-area-inset-left, 0px)); padding-right:max(16px, env(safe-area-inset-right, 0px)); }
+  .wrap{ max-width:1080px; margin:0 auto; }
+  a{ color:var(--navy); text-decoration:none; } a:hover{ text-decoration:underline; }
+  header{ border-bottom:1px solid var(--hair); }
+  .mast{ display:flex; justify-content:space-between; align-items:center; gap:16px; padding-block:18px; flex-wrap:wrap; }
+  .mast img{ height:30px; display:block; }
+  nav{ display:flex; gap:24px; flex-wrap:wrap; }
+  nav a{ font-size:12px; letter-spacing:.14em; text-transform:uppercase; color:var(--mid); font-weight:500; }
+  .testband{ background:var(--band); border-bottom:1px solid var(--hair); font-size:12.5px; color:var(--mid); padding:8px 0; }
+  h1{ font-family:'EB Garamond',Georgia,serif; font-weight:560; font-size:clamp(30px,4.4vw,44px); line-height:1.1; color:var(--navy); margin:0; text-wrap:balance; }
+  h2{ font-family:'EB Garamond',Georgia,serif; font-weight:560; font-size:clamp(22px,2.6vw,28px); color:var(--navy); margin:0; }
+  h3{ font-size:13px; letter-spacing:.12em; text-transform:uppercase; color:var(--mid); font-weight:500; margin:26px 0 10px; }
+  .hero{ padding-block:44px 26px; }
+  .subline{ font-family:'EB Garamond',Georgia,serif; font-style:italic; font-size:clamp(16px,2vw,19px); color:var(--mid); margin-top:10px; }
+  .lede{ max-width:68ch; margin-top:18px; font-size:15px; }
+  .rule{ width:44px; height:2px; background:var(--accent); margin-top:14px; }
+  .beispiele{ display:flex; gap:8px; flex-wrap:wrap; margin-top:18px; font-size:13px; align-items:center; color:var(--mid); }
+  .chip{ border:1px solid var(--hair); background:var(--paper); color:var(--navy); border-radius:16px; padding:4px 12px; font:inherit; cursor:pointer; }
+  .chip:hover{ border-color:var(--navy-soft); }
+
+  .grid{ display:grid; grid-template-columns: minmax(0,1fr) minmax(0,1.25fr); gap:36px; align-items:start; padding-bottom:40px; }
+  @media (max-width:900px){ .grid{ grid-template-columns:1fr; } }
+  form fieldset{ border:0; border-top:1px solid var(--hair); margin:0; padding:18px 0 6px; }
+  legend{ font-size:12px; letter-spacing:.14em; text-transform:uppercase; color:var(--mid); font-weight:500; padding:0 8px 0 0; }
+  .typen{ display:flex; gap:0; border:1px solid var(--hair); border-radius:6px; overflow:hidden; margin:6px 0 14px; }
+  .typen label{ flex:1; text-align:center; padding:8px 6px; font-size:14px; cursor:pointer; border-right:1px solid var(--hair); }
+  .typen label:last-child{ border-right:0; }
+  .typen input{ position:absolute; opacity:0; pointer-events:none; }
+  .typen label:has(input:checked){ background:var(--navy); color:#fff; }
+  @media (prefers-color-scheme: dark){ .typen label:has(input:checked){ color:#10141f; } }
+  .felder{ display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:10px 14px; }
+  .felder .voll{ grid-column:1 / -1; }
+  .feld{ display:flex; flex-direction:column; gap:3px; min-width:0; }
+  .feld span{ font-size:12.5px; color:var(--mid); }
+  .feld span b{ font-weight:500; color:var(--ink); }
+  input[type=text], input[type=number], input[type=email], input[type=tel], select, textarea{
+    font:inherit; font-size:15px; color:var(--ink); background:var(--paper); border:1px solid var(--hair); border-radius:5px; padding:7px 9px; width:100%; min-width:0;
+  }
+  input:focus, select:focus, textarea:focus{ outline:2px solid var(--navy-soft); outline-offset:0; border-color:transparent; }
+  input::placeholder{ color:#9aa1b0; }
+  .paar{ display:grid; grid-template-columns:1fr auto 1fr; gap:6px; align-items:center; }
+  .paar i{ font-style:normal; color:var(--mid); font-size:13px; }
+  .check{ display:flex; gap:8px; align-items:flex-start; font-size:14px; }
+  .check input{ margin-top:4px; }
+  .klein{ font-size:12.5px; color:var(--mid); }
+  [hidden]{ display:none !important; }
+
+  .ergebnis{ position:sticky; top:12px; }
+  @media (max-width:900px){ .ergebnis{ position:static; } }
+  .leer{ border:1px dashed var(--hair); border-radius:8px; padding:22px; color:var(--mid); font-size:14.5px; }
+  .kenn{ display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); border-top:1px solid var(--hair); border-left:1px solid var(--hair); margin:14px 0 0; }
+  @media (max-width:560px){ .kenn{ grid-template-columns:repeat(2,minmax(0,1fr)); } }
+  .kenn div{ background:var(--paper); padding:10px 12px; border-right:1px solid var(--hair); border-bottom:1px solid var(--hair); }
+  .kenn dt{ font-size:11.5px; color:var(--mid); letter-spacing:.04em; }
+  .kenn dd{ margin:2px 0 0; font-size:16px; font-variant-numeric:tabular-nums; }
+  .kenn dd small{ font-size:12px; color:var(--mid); }
+  table{ border-collapse:collapse; width:100%; font-size:13.5px; font-variant-numeric:tabular-nums; }
+  th{ text-align:left; font-weight:500; color:var(--mid); font-size:12px; border-bottom:1px solid var(--hair); padding:6px 8px; }
+  td{ border-bottom:1px solid var(--hair); padding:6px 8px; vertical-align:top; }
+  td.z{ text-align:right; white-space:nowrap; }
+  td.z small{ color:var(--mid); font-size:11.5px; }
+  .hinweise{ margin:10px 0 0; padding-left:18px; font-size:13.5px; color:var(--knapp); }
+  .karte{ border:1px solid var(--hair); border-radius:8px; padding:14px 16px; margin-bottom:12px; }
+  .karte.beste{ border-color:var(--navy-soft); box-shadow:0 0 0 1px var(--navy-soft) inset; }
+  .kopfzeile{ display:flex; justify-content:space-between; gap:12px; align-items:baseline; flex-wrap:wrap; }
+  .modell{ font-family:'EB Garamond',Georgia,serif; font-size:24px; font-weight:560; color:var(--navy); }
+  .fam{ font-size:12.5px; color:var(--mid); }
+  .preis{ text-align:right; }
+  .preis b{ font-size:21px; font-weight:500; font-variant-numeric:tabular-nums; }
+  .preis small{ display:block; font-size:12px; color:var(--mid); }
+  .marke{ display:inline-block; font-size:11px; letter-spacing:.08em; text-transform:uppercase; padding:2px 8px; border-radius:10px; margin-left:8px; vertical-align:middle; }
+  .m-ok{ background:var(--ok-bg); color:var(--ok); } .m-knapp{ background:var(--knapp-bg); color:var(--knapp); }
+  .m-nein{ background:var(--nein-bg); color:var(--nein); } .m-offen{ background:var(--offen-bg); color:var(--offen); }
+  .balken{ height:6px; background:var(--band); border-radius:3px; margin:10px 0 4px; position:relative; overflow:hidden; }
+  .balken i{ position:absolute; left:0; top:0; bottom:0; border-radius:3px; }
+  .balken::after{ content:''; position:absolute; left:65%; top:-2px; bottom:-2px; width:1px; background:var(--mid); opacity:.6; }
+  .kurz{ display:flex; gap:14px; flex-wrap:wrap; font-size:12.5px; color:var(--mid); }
+  details{ margin-top:8px; }
+  summary{ cursor:pointer; font-size:13px; color:var(--navy); }
+  .krit td:first-child{ white-space:nowrap; }
+  .st{ font-size:11px; padding:1px 7px; border-radius:9px; white-space:nowrap; }
+  .gruppe{ margin-top:20px; }
+  .knoepfe{ display:flex; gap:10px; flex-wrap:wrap; margin-top:14px; }
+  .knopf{ font:inherit; font-size:14.5px; border:1px solid var(--navy); background:var(--navy); color:#fff; border-radius:6px; padding:9px 16px; cursor:pointer; }
+  @media (prefers-color-scheme: dark){ .knopf{ color:#10141f; } }
+  .knopf.zwei{ background:transparent; color:var(--navy); }
+  .knopf:disabled{ opacity:.45; cursor:not-allowed; }
+  section.anfrage{ border-top:1px solid var(--hair); padding-block:36px 48px; }
+  .anfrage .felder{ max-width:720px; }
+  footer{ border-top:1px solid var(--hair); padding-block:22px 40px; font-size:12.5px; color:var(--mid); }
+  footer details{ margin-top:8px; } footer p{ max-width:80ch; }
+  #blatt{ display:none; }
+  @media print{
+    header, .testband, .hero, form, .ergebnis, section.anfrage, footer{ display:none !important; }
+    #blatt{ display:block; font-size:11pt; color:#000; }
+    #blatt h1{ font-size:20pt; color:#000; }
+    #blatt table{ font-size:9.5pt; }
+    body{ padding:0; }
+  }
+.languages{display:flex;flex-wrap:wrap;gap:5px;justify-content:flex-end;padding:12px 0}.languages button{font:inherit;font-size:.875rem;border:1px solid #a5b5cc;background:#fff;color:#102d66;padding:6px 10px;cursor:pointer}.languages button[aria-pressed="true"]{background:#102d66;color:white}.concept{border-left:3px solid #c74716;padding:12px 16px;margin:18px 0;background:#f3f6fa}.concept h4{margin:0 0 10px;font-size:1rem}.concept ol{padding-left:22px}.concept p{margin:8px 0}.original-language{font-size:.875rem;color:#526176}html[lang="zh-Hans"] h1,html[lang="zh-Hans"] h2{font-family:Inter,"Microsoft YaHei",sans-serif;line-height:1.25}
+.visually-hidden{position:absolute!important;width:1px!important;height:1px!important;padding:0!important;margin:-1px!important;overflow:hidden!important;clip:rect(0,0,0,0)!important;white-space:nowrap!important;border:0!important}.file-choose{font:inherit;border:1px solid #102d66;background:white;color:#102d66;padding:10px 16px;cursor:pointer}</style>
+
+</head>
+<body>
+<header><div class="wrap"><div class="languages" role="group" aria-label="Sprache"><button type="button" data-language="de" lang="de" aria-label="Deutsch">DE</button><button type="button" data-language="it" lang="it" aria-label="Italiano">IT</button><button type="button" data-language="sl" lang="sl" aria-label="Slovenščina">SL</button><button type="button" data-language="en" lang="en" aria-label="English">EN</button><button type="button" data-language="zh" lang="zh-Hans" aria-label="简体中文">中文</button></div></div>
+  <div class="wrap mast">
+    <a href="https://jernyao.de/"><img src="https://jernyao.de/assets/logo.png" alt="Jern Yao"></a>
+    <nav>
+      <a data-language-link href="/">Zur Anfrage</a><a href="#teil">Teil</a>
+      <a href="#ergebnis">Maschinen</a>
+      <a href="#anfrage">Anfrage</a>
+      <a href="https://jernyao.de/">jernyao.de</a>
+    </nav>
+  </div>
+</header>
+<div class="testband"><div class="wrap">Testfeld. Grobe Vorauslegung aus Katalogdaten und Erfahrungsregeln, unverbindlich. Verbindlich sind das Datenblatt des Modells und die Prüfung durch Hans Möhling.</div></div>
+
+<main class="wrap">
+  <div class="hero">
+    <h1>Manual · Vom Teil zur Maschine</h1>
+    <div class="subline">Stadienfolge, Presskraft, Werkzeuggröße und Auswerferwege grob ausgelegt, dazu die passenden Jern-Yao-Modelle mit Richtpreis 2026.</div>
+    <div class="rule"></div>
+    <p class="lede">Hüllmaße des Teils eintragen, gerechnet wird sofort im Browser. Gespeichert wird nichts. Wer seine Werkzeuge schon kennt, gibt Matrize, Stempel und Auswerferwege vor; sonst schätzt die Rechnung sie aus dem Teil.</p>
+    <div class="beispiele">Beispiele mit C4C, weichgeglüht:
+      <button type="button" class="chip" data-bsp="m8">M8-Flanschschraube</button>
+      <button type="button" class="chip" data-bsp="m6">M6-Zylinderschraube mit Innensechskant</button>
+      <button type="button" class="chip" data-bsp="mu">M10-Mutter</button>
+      <button type="button" class="chip" data-bsp="hu">Bundhülse, gelocht</button>
+    </div>
+  </div>
+
+  <div class="grid">
+    <form id="f" autocomplete="off" novalidate>
+      <fieldset id="teil">
+        <legend>1 · Teil</legend>
+        <div class="typen" role="radiogroup" aria-label="Teileart">
+          <label><input type="radio" name="typ" value="bolzen" checked>Schraube, Bolzen</label>
+          <label><input type="radio" name="typ" value="formteil">Formteil, Hülse</label>
+          <label><input type="radio" name="typ" value="mutter">Mutter</label>
+        </div>
+        <div class="felder">
+          <label class="feld voll"><span>Draht / Lieferzustand</span><select name="wst"></select></label>
+          <p class="klein voll">Die Auswahl enthält Drähte mit belegtem Fließkurvenansatz. Weitere Werkstoffe oder Lieferzustände bitte über die Zeichnungsanfrage einreichen.</p>
+          <a class="klein voll" data-language-link href="/">Anderen Werkstoff anfragen</a>
+          <label class="feld voll"><span>Drahtzugfestigkeit R<sub>m</sub> in N/mm² (optional)</span><input type="text" inputmode="decimal" name="rm"></label>
+          <label class="feld voll"><span><b>Draht-Ø d₀</b> in mm</span><input type="text" inputmode="decimal" name="d0" placeholder="z. B. 7,6"></label>
+        </div>
+
+        <div data-fuer="bolzen formteil">
+          <h3>Kopf oder Bund</h3>
+          <div class="felder">
+            <label class="feld voll"><span>Form</span>
+              <select name="kopfForm">
+                <option value="rund">rund, Zylinder- oder Flanschkopf</option>
+                <option value="sechskant">Sechskant, gestaucht</option>
+                <option value="abgratet">Sechskant, rund gestaucht und abgegratet</option>
+              </select></label>
+            <label class="feld"><span>Größter Ø in mm</span><input type="text" inputmode="decimal" name="kD"></label>
+            <label class="feld" data-kopf="sechskant abgratet"><span>Schlüsselweite in mm</span><input type="text" inputmode="decimal" name="kSW"></label>
+            <label class="feld"><span>Höhe in mm</span><input type="text" inputmode="decimal" name="kH"></label>
+          </div>
+          <h3>Schaft</h3>
+          <div class="felder">
+            <label class="feld"><span>Ø in mm (leer: wie Draht)</span><input type="text" inputmode="decimal" name="sD"></label>
+            <label class="feld"><span>Länge unter Kopf in mm</span><input type="text" inputmode="decimal" name="sL"></label>
+          </div>
+          <div data-fuer="bolzen">
+            <h3>Innenantrieb im Kopf</h3>
+            <div class="felder">
+              <label class="feld voll"><span>Antriebsprofil</span><select name="iTyp">
+                <option value="none">Kein Innenantrieb</option>
+                <option value="torx">Torx / Innensechsrund</option>
+                <option value="hex">Innensechskant</option>
+                <option value="ph">Kreuzschlitz Phillips (PH)</option>
+                <option value="pz">Kreuzschlitz Pozidriv (PZ)</option>
+              </select></label>
+              <label class="feld" data-antrieb="hex torx ph pz" hidden><span>Antriebsgröße</span><select name="iSize"></select></label>
+              <label class="feld" data-antrieb="hex torx ph pz" hidden><span>Tiefe in mm</span><input type="text" inputmode="decimal" name="iT"></label>
+              <label class="feld voll" id="drive-custom-hex" hidden><span>Eigene Schlüsselweite in mm</span><input type="text" inputmode="decimal" name="iSW"></label>
+            </div>
+            <details data-antrieb="torx ph pz" hidden><summary>Volumen aus Zeichnung / CAD (optional)</summary>
+              <div class="felder"><label class="feld voll"><span>Volumen der Antriebsvertiefung in mm³</span><input type="text" inputmode="decimal" name="iVol"></label></div>
+              <p class="klein">Die Profilgröße bestimmt die Antriebsform. Das verdrängte Volumen kommt aus der Zeichnung oder CAD; bis dahin bleibt die Abschnittlänge offen. Eine angegebene Teilmasse bestimmt die Abschnittlänge ebenfalls.</p>
+            </details>
+          </div>
+          <div data-fuer="formteil">
+            <h3>Napf oder Bohrung</h3>
+            <div class="felder">
+              <label class="feld"><span>Ø in mm</span><input type="text" inputmode="decimal" name="nD"></label>
+              <label class="feld"><span>Tiefe in mm</span><input type="text" inputmode="decimal" name="nT"></label>
+              <label class="check voll"><input type="checkbox" name="nDurch"> durchgehend, gelocht</label>
+            </div>
+          </div>
+        </div>
+
+        <div data-fuer="mutter" hidden>
+          <h3>Mutter</h3>
+          <div class="felder">
+            <label class="feld"><span>Gewinde M (Nenn-Ø) in mm</span><input type="text" inputmode="decimal" name="mM"></label>
+            <label class="feld"><span>Schlüsselweite in mm</span><input type="text" inputmode="decimal" name="mSW"></label>
+            <label class="feld"><span>Höhe in mm</span><input type="text" inputmode="decimal" name="mH"></label>
+            <label class="feld"><span>Loch-Ø in mm (leer: 0,84 × M)</span><input type="text" inputmode="decimal" name="mLoch"></label>
+            <label class="feld"><span>Flansch-Ø in mm</span><input type="text" inputmode="decimal" name="mFlansch"></label>
+            <label class="feld"><span>Flanschhöhe in mm</span><input type="text" inputmode="decimal" name="mFlanschH"></label>
+          </div>
+        </div>
+        <div class="felder" style="margin-top:12px">
+          <label class="feld voll"><span>Masse in g (optional, ersetzt das Volumen aus den Maßen)</span><input type="text" inputmode="decimal" name="masse"></label>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>2 · Werkzeug und Auswerfer</legend>
+        <div class="felder">
+          <label class="feld voll"><span><b>Werkzeugtrennkante</b>: Teillänge im Stempel in mm</span><input type="text" inputmode="decimal" name="lStempel"></label>
+          <label class="feld"><span><b>Auswerferweg Matrize</b> (KO) in mm</span><input type="text" inputmode="decimal" name="ko"></label>
+          <label class="feld"><span><b>Auswerferweg Stempel</b> (PKO) in mm</span><input type="text" inputmode="decimal" name="pko"></label>
+          <label class="check voll"><input type="checkbox" name="wenden"> Teil wird im Transfer um 180° gewendet</label>
+        </div>
+        <h3>Vorhandene Werkzeuge (optional)</h3>
+        <div class="felder">
+          <div class="feld"><span>Matrize Ø × Länge in mm</span><div class="paar"><input type="text" inputmode="decimal" name="matD" aria-label="Matrize Ø"><i>×</i><input type="text" inputmode="decimal" name="matL" aria-label="Matrize Länge"></div></div>
+          <div class="feld"><span>Stempel Ø × Länge in mm</span><div class="paar"><input type="text" inputmode="decimal" name="stD" aria-label="Stempel Ø"><i>×</i><input type="text" inputmode="decimal" name="stL" aria-label="Stempel Länge"></div></div>
+          <label class="feld"><span>Zusatzstufen: Kalibrieren, Kerben, Prägen, Beschneiden, unrunder Kopf</span><input type="text" inputmode="numeric" name="zusatz"></label>
+          <label class="feld"><span>Stationen (leer: aus der Stadienfolge)</span><input type="text" inputmode="numeric" name="stationen"></label>
+          <label class="feld"><span>Ausbringung in Stück/min</span><input type="text" inputmode="numeric" name="ausbringung"></label>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>3 · Zeichnung (optional)</legend>
+        <div class="feld"><span id="archive-file-types">PDF, Bild, DXF oder STEP</span><button type="button" class="file-choose" id="archive-choose-file" aria-describedby="archive-file-types archive-file-name">Datei auswählen</button><span id="archive-file-name" class="klein" data-original-text aria-live="polite"></span><input hidden aria-hidden="true" tabindex="-1" type="file" name="zeichnung" accept=".pdf,.png,.jpg,.jpeg,.tif,.tiff,.dxf,.dwg,.step,.stp,.igs,.iges"></div>
+        <p class="klein">Die Zeichnung bleibt auf Ihrem Rechner. Bitte hängen Sie sie der E-Mail an Hans Möhling selbst an.</p>
+      </fieldset>
+    </form>
+
+    <div class="ergebnis" id="ergebnis" aria-live="polite">
+      <div class="leer" id="leer">Mit Draht-Ø und den Hüllmaßen des Teils erscheinen hier Stadienfolge, Werkzeuggröße und die passenden Modelle. Ein Beispiel oben zeigt den Ablauf.</div>
+      <div id="aus" hidden>
+        <h2>Grobauslegung</h2><p class="klein" id="material-basis"></p>
+        <dl class="kenn" id="kenn"></dl>
+        <ul class="hinweise" id="hinweise"></ul>
+        <h3>Stadienfolge</h3>
+        <table id="stufen"><thead><tr><th>Station</th><th>Vorgang</th><th style="text-align:right">Kraft</th><th style="text-align:right">Druck N/mm²</th><th style="text-align:right">Matrize Ø min</th></tr></thead><tbody></tbody></table>
+        <div class="gruppe">
+          <h2>Passende Maschinen</h2>
+          <p class="klein" id="preisnote">Richtpreis 2026 in EUR, FOB Kaohsiung, Grundausstattung 2026, unverbindlich. Die Spanne zeigt die Unsicherheit der Ableitung. Die Planungsausbringung ist ein Erfahrungswert aus der Serienfertigung; der Katalog nennt die Höchstdrehzahl der Maschine.</p>
+          <div id="karten"></div>
+        </div>
+        <details id="regelbox"><summary>Rechenweg und Regeln</summary><table><tbody id="regeln"></tbody></table></details>
+      </div>
+    </div>
+  </div>
+
+  <section class="anfrage" id="anfrage">
+    <h2>Richtpreisangebot anfragen</h2>
+    <p class="lede" style="margin-top:10px">Die Anfrage geht mit allen Eingaben und dem Ergebnis an Hans Möhling. Die Antwort kommt persönlich, in der Regel am nächsten Werktag.</p>
+    <form id="a" autocomplete="on">
+      <div class="felder">
+        <label class="feld"><span>Name</span><input type="text" name="name" autocomplete="name"></label>
+        <label class="feld"><span>Firma</span><input type="text" name="firma" autocomplete="organization"></label>
+        <label class="feld"><span>E-Mail</span><input type="email" name="email" autocomplete="email"></label>
+        <label class="feld"><span>Telefon</span><input type="tel" name="tel" autocomplete="tel"></label>
+        <label class="feld voll"><span>Stückzahl im Jahr, Termin, Besonderheiten</span><textarea name="nachricht" rows="3"></textarea></label>
+        <label class="check voll"><input type="checkbox" name="ok"> Meine Angaben dürfen zur Bearbeitung der Anfrage verwendet werden.</label>
+      </div>
+      <div class="knoepfe">
+        <button type="button" class="knopf" id="senden" disabled>Anfrage senden</button>
+        <button type="button" class="knopf zwei" id="drucken" disabled>Anforderungsblatt drucken</button>
+      </div>
+      <p class="klein" id="sendehinweis">Ohne Server öffnet sich Ihr E-Mail-Programm mit dem fertigen Text an info@jernyao.de. Eine gewählte Zeichnung hängen Sie dort bitte an.</p>
+    </form>
+  </section>
+</main>
+
+<div id="blatt"></div>
+
+<footer>
+  <div class="wrap">
+    <div>Jern Yao Vertretung für den deutschen Sprachraum · Hans Möhling · <a href="mailto:info@jernyao.de">info@jernyao.de</a> · +49 171 10 700 10</div>
+    <details><summary>Impressum</summary><p>Hans Möhling · Exklusivvertretung Jern Yao Enterprises Co., Ltd. für Deutschland, Österreich und die Schweiz. E-Mail: jernyao@techno.parts · Telefon: +49 171 10 700 10</p></details>
+    <details><summary>Datenschutz</summary><p>Diese Seite setzt keine Cookies und speichert keine technischen Eingaben. Nur Ihre Sprachwahl wird lokal gespeichert. Die Rechnung läuft vollständig im Browser. Eine Anfrage öffnet Ihr E-Mail-Programm; die Angaben dienen allein ihrer Bearbeitung. Beim Abruf fallen beim Hostinganbieter technisch bedingte Zugriffsprotokolle an (IP-Adresse, Zeitpunkt, abgerufene Seite).</p></details>
+  </div>
+</footer>
+
+<script id="daten" type="application/json">/*DATEN*/</script>
+<script id="praxis" type="application/json">/*PRAXIS*/</script>
+<script>/*I18N*/</script>
+<script>/*I18N_BROWSER*/</script>
+<script>/*ENGINE*/</script>
+<script>/*CONCEPT_UI*/</script>
+<script>/*ARCHIVE_UI*/</script>
+</body>
+</html>

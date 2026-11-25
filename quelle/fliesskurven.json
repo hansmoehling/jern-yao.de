@@ -1,0 +1,755 @@
+{
+  "schemaVersion": 1,
+  "reviewedAt": "2026-11-25",
+  "purpose": "Literaturgestützter Rechenansatz für die technische Vorauslegung weichgeglühter Drähte; keine Chargenkennwerte.",
+  "units": {
+    "stress": "N/mm²",
+    "strain": "dimensionless natural strain"
+  },
+  "rules": {
+    "identity": "Nur exakt zugeordnete Werkstoffnummern; keine Namensnähe als Ersatzkurve.",
+    "state": "Der gewählte Ausgangszustand muss weichgeglüht sein. Vorverfestigte, vergütete oder T6-Zustände sind nicht abgedeckt.",
+    "range": "Keine automatische Extrapolation oberhalb phiMax. phiMin benennt bei Hollomon den Beginn der Potenzfunktion; ein gesondert dokumentierter linearer Anschluss deckt 0 bis phiMin ab.",
+    "tabulated": "Stückweise lineare Interpolation der veröffentlichten Tabellenwerte einschließlich des separat angegebenen Anfangswerts kf0.",
+    "rate": "Numerische Temperatur, Dehnrate und Chargenstreuung sind in den Literaturtabellen nicht belegt. Keine Geschwindigkeitsskalierung oder Wärmeentfestigung aus diesen Daten ableiten.",
+    "meanStress": "Mittelspannung aus dem Integral der definierten Kurve über das wirkliche Umformintervall; kein künstlicher phi-Offset.",
+    "approvalMeaning": "eligible/literature bedeutet geeignet für den dokumentierten Vorauslegungsansatz, nicht eine Freigabe für beliebigen Lieferzustand oder Serienprozess."
+  },
+  "sources": [
+    {
+      "id": "dietrich-2018-t31-1",
+      "title": "Dietrich: Praxis der Umformtechnik, 12. Auflage, 2018",
+      "locator": "Tabelle 31.1, Buch S.446 / PDF S.456",
+      "url": "https://doi.org/10.1007/978-3-658-19530-4",
+      "file": "Dietrich_Praxis_der_Umformtechnik_12_Auflage.pdf",
+      "evidence": "Tabellierte kf(phi)-Werte, separat kf0; Überschrift weichgeglüht / Kaltverformung. Keine Mess-/Extrapolationsmarkierung pro Tabellenpunkt."
+    },
+    {
+      "id": "dietrich-2018-t2-1-t31-2",
+      "title": "Dietrich: Praxis der Umformtechnik, 12. Auflage, 2018",
+      "locator": "Tabelle 2.1, Buch S.7 / PDF S.19; Tabelle 31.2, Buch S.447 / PDF S.457",
+      "url": "https://doi.org/10.1007/978-3-658-19530-4",
+      "file": "Dietrich_Praxis_der_Umformtechnik_12_Auflage.pdf",
+      "evidence": "Potenzansatz kf = C * phi^n, separat kf0; ausdrückliches Alt-/Neu-Namensmapping, einschließlich Cq15/C15C und Al99,5/EN AW-1050A."
+    },
+    {
+      "id": "dietrich-2018-t31-3",
+      "title": "Dietrich: Praxis der Umformtechnik, 12. Auflage, 2018",
+      "locator": "Tabelle 31.3, Buch S.449 / PDF S.459",
+      "url": "https://doi.org/10.1007/978-3-658-19530-4",
+      "file": "Dietrich_Praxis_der_Umformtechnik_12_Auflage.pdf",
+      "evidence": "Werkstoffidentitäten. C45EC-Konflikt mit Katalognummer ist nicht aufgelöst und wird nicht freigegeben."
+    },
+    {
+      "id": "tschaetsch-1997-c15",
+      "title": "Tschätsch: Praxiswissen Umformtechnik, 5. Auflage, 1997",
+      "locator": "Buch S.307 / PDF S.317",
+      "file": "Tschaetsch_Praxiswissen_Umformtechnik_1997.pdf",
+      "evidence": "Ck15/Cq15 weichgeglüht; kf0 280, C760, n0,165. Potenzkurve durchgezogen etwa phi0,1 bis 1,0, danach gestrichelt. Berechnung auf phi<=1,0 begrenzt."
+    },
+    {
+      "id": "tschaetsch-1997-34cr4",
+      "title": "Tschätsch: Praxiswissen Umformtechnik, 5. Auflage, 1997",
+      "locator": "Buch S.312 / PDF S.322",
+      "file": "Tschaetsch_Praxiswissen_Umformtechnik_1997.pdf",
+      "evidence": "34Cr4 weichgeglüht; kf0 410, C970, n0,118. Potenzkurve durchgezogen etwa phi0,1 bis 0,8, danach gestrichelt. Berechnung auf phi<=0,8 begrenzt."
+    },
+    {
+      "id": "tschaetsch-1997-al995",
+      "title": "Tschätsch: Praxiswissen Umformtechnik, 5. Auflage, 1997",
+      "locator": "Buch S.314 / PDF S.324",
+      "file": "Tschaetsch_Praxiswissen_Umformtechnik_1997.pdf",
+      "evidence": "Al99,5 weichgeglüht; kf0 60, C150, n0,222. Kurve durchgezogen bis etwa phi1,0, danach gestrichelt. Potenzansatz ab phi0,1, Berechnung auf phi<=1,0 begrenzt."
+    }
+  ],
+  "curves": [
+    {
+      "state": "soft-annealed",
+      "stateLabel": "weichgeglüht",
+      "temperature": "room",
+      "temperatureStatus": "qualitative-cold-forming-no-numeric-temperature",
+      "strainRateStatus": "not-reported",
+      "approval": "literature",
+      "eligible": true,
+      "evidenceClass": "typical-literature-curve",
+      "id": "dietrich2018-c4c-soft",
+      "name": "C4C",
+      "materialNumbers": [
+        "1.0303"
+      ],
+      "model": "tabulated",
+      "kf0": 250,
+      "phiMin": 0,
+      "phiMax": 1.6,
+      "interpolation": "piecewise-linear",
+      "points": [
+        [
+          0,
+          250
+        ],
+        [
+          0.1,
+          420
+        ],
+        [
+          0.2,
+          496
+        ],
+        [
+          0.4,
+          586
+        ],
+        [
+          0.6,
+          646
+        ],
+        [
+          0.8,
+          692
+        ],
+        [
+          1,
+          730
+        ],
+        [
+          1.2,
+          763
+        ],
+        [
+          1.4,
+          792
+        ],
+        [
+          1.6,
+          818
+        ]
+      ],
+      "sourceIds": [
+        "dietrich-2018-t31-1"
+      ]
+    },
+    {
+      "state": "soft-annealed",
+      "stateLabel": "weichgeglüht",
+      "temperature": "room",
+      "temperatureStatus": "qualitative-cold-forming-no-numeric-temperature",
+      "strainRateStatus": "not-reported",
+      "approval": "literature",
+      "eligible": true,
+      "evidenceClass": "typical-literature-curve",
+      "id": "dietrich2018-c15c-soft",
+      "name": "C15C",
+      "materialNumbers": [
+        "1.0234"
+      ],
+      "model": "hollomon",
+      "C": 760,
+      "n": 0.165,
+      "kf0": 280,
+      "phiMin": 0.1,
+      "phiMax": 1,
+      "startMode": "linear-to-phiMin",
+      "startBasis": "Explizite technische Näherung: linear zwischen separat belegtem kf0 bei phi0 und C*0,1^n. Kein neu gemessener Kurvenabschnitt.",
+      "rangeBasis": "Konservativ begrenzt auf den durchgezogen dargestellten Bereich des überprüften Tschätsch-Diagramms; gestrichelte Fortsetzung nicht verwendet.",
+      "sourceIds": [
+        "dietrich-2018-t2-1-t31-2",
+        "tschaetsch-1997-c15"
+      ]
+    },
+    {
+      "state": "soft-annealed",
+      "stateLabel": "weichgeglüht",
+      "temperature": "room",
+      "temperatureStatus": "qualitative-cold-forming-no-numeric-temperature",
+      "strainRateStatus": "not-reported",
+      "approval": "literature",
+      "eligible": true,
+      "evidenceClass": "typical-literature-curve",
+      "id": "dietrich2018-c15e2c-soft",
+      "name": "C15E2C",
+      "materialNumbers": [
+        "1.1132"
+      ],
+      "model": "tabulated",
+      "kf0": 280,
+      "phiMin": 0,
+      "phiMax": 1.6,
+      "interpolation": "piecewise-linear",
+      "points": [
+        [
+          0,
+          280
+        ],
+        [
+          0.1,
+          520
+        ],
+        [
+          0.2,
+          583
+        ],
+        [
+          0.4,
+          654
+        ],
+        [
+          0.6,
+          700
+        ],
+        [
+          0.8,
+          733
+        ],
+        [
+          1,
+          760
+        ],
+        [
+          1.2,
+          783
+        ],
+        [
+          1.4,
+          803
+        ],
+        [
+          1.6,
+          821
+        ]
+      ],
+      "sourceIds": [
+        "dietrich-2018-t31-1"
+      ]
+    },
+    {
+      "state": "soft-annealed",
+      "stateLabel": "weichgeglüht",
+      "temperature": "room",
+      "temperatureStatus": "qualitative-cold-forming-no-numeric-temperature",
+      "strainRateStatus": "not-reported",
+      "approval": "literature",
+      "eligible": true,
+      "evidenceClass": "typical-literature-curve",
+      "id": "dietrich2018-c35ec-soft",
+      "name": "C35EC",
+      "materialNumbers": [
+        "1.1172"
+      ],
+      "model": "tabulated",
+      "kf0": 340,
+      "phiMin": 0,
+      "phiMax": 1.6,
+      "interpolation": "piecewise-linear",
+      "points": [
+        [
+          0,
+          340
+        ],
+        [
+          0.1,
+          630
+        ],
+        [
+          0.2,
+          713
+        ],
+        [
+          0.4,
+          807
+        ],
+        [
+          0.6,
+          867
+        ],
+        [
+          0.8,
+          913
+        ],
+        [
+          1,
+          950
+        ],
+        [
+          1.2,
+          982
+        ],
+        [
+          1.4,
+          1008
+        ],
+        [
+          1.6,
+          1033
+        ]
+      ],
+      "sourceIds": [
+        "dietrich-2018-t31-1",
+        "dietrich-2018-t31-3"
+      ]
+    },
+    {
+      "state": "soft-annealed",
+      "stateLabel": "weichgeglüht",
+      "temperature": "room",
+      "temperatureStatus": "qualitative-cold-forming-no-numeric-temperature",
+      "strainRateStatus": "not-reported",
+      "approval": "literature",
+      "eligible": true,
+      "evidenceClass": "typical-literature-curve",
+      "id": "dietrich2018-34cr4-soft",
+      "name": "34Cr4",
+      "materialNumbers": [
+        "1.7033"
+      ],
+      "model": "hollomon",
+      "C": 970,
+      "n": 0.118,
+      "kf0": 410,
+      "phiMin": 0.1,
+      "phiMax": 0.8,
+      "startMode": "linear-to-phiMin",
+      "startBasis": "Explizite technische Näherung: linear zwischen separat belegtem kf0 bei phi0 und C*0,1^n. Kein neu gemessener Kurvenabschnitt.",
+      "rangeBasis": "Konservativ begrenzt auf den durchgezogen dargestellten Bereich des überprüften Tschätsch-Diagramms; gestrichelte Fortsetzung nicht verwendet.",
+      "sourceIds": [
+        "dietrich-2018-t2-1-t31-2",
+        "tschaetsch-1997-34cr4"
+      ]
+    },
+    {
+      "state": "soft-annealed",
+      "stateLabel": "weichgeglüht",
+      "temperature": "room",
+      "temperatureStatus": "qualitative-cold-forming-no-numeric-temperature",
+      "strainRateStatus": "not-reported",
+      "approval": "literature",
+      "eligible": true,
+      "evidenceClass": "typical-literature-curve",
+      "id": "dietrich2018-34crmo4-soft",
+      "name": "34CrMo4",
+      "materialNumbers": [
+        "1.7220"
+      ],
+      "model": "tabulated",
+      "kf0": 410,
+      "phiMin": 0,
+      "phiMax": 1.6,
+      "interpolation": "piecewise-linear",
+      "points": [
+        [
+          0,
+          410
+        ],
+        [
+          0.1,
+          730
+        ],
+        [
+          0.2,
+          808
+        ],
+        [
+          0.4,
+          893
+        ],
+        [
+          0.6,
+          947
+        ],
+        [
+          0.8,
+          998
+        ],
+        [
+          1,
+          1020
+        ],
+        [
+          1.2,
+          1048
+        ],
+        [
+          1.4,
+          1071
+        ],
+        [
+          1.6,
+          1092
+        ]
+      ],
+      "sourceIds": [
+        "dietrich-2018-t31-1"
+      ]
+    },
+    {
+      "state": "soft-annealed",
+      "stateLabel": "weichgeglüht",
+      "temperature": "room",
+      "temperatureStatus": "qualitative-cold-forming-no-numeric-temperature",
+      "strainRateStatus": "not-reported",
+      "approval": "literature",
+      "eligible": true,
+      "evidenceClass": "typical-literature-curve",
+      "id": "dietrich2018-42crmo4-soft",
+      "name": "42CrMo4",
+      "materialNumbers": [
+        "1.7225"
+      ],
+      "model": "tabulated",
+      "kf0": 420,
+      "phiMin": 0,
+      "phiMax": 1.6,
+      "interpolation": "piecewise-linear",
+      "points": [
+        [
+          0,
+          420
+        ],
+        [
+          0.1,
+          780
+        ],
+        [
+          0.2,
+          865
+        ],
+        [
+          0.4,
+          959
+        ],
+        [
+          0.6,
+          1019
+        ],
+        [
+          0.8,
+          1064
+        ],
+        [
+          1,
+          1100
+        ],
+        [
+          1.2,
+          1130
+        ],
+        [
+          1.4,
+          1156
+        ],
+        [
+          1.6,
+          1180
+        ]
+      ],
+      "sourceIds": [
+        "dietrich-2018-t31-1"
+      ]
+    },
+    {
+      "state": "soft-annealed",
+      "stateLabel": "weichgeglüht",
+      "temperature": "room",
+      "temperatureStatus": "qualitative-cold-forming-no-numeric-temperature",
+      "strainRateStatus": "not-reported",
+      "approval": "literature",
+      "eligible": true,
+      "evidenceClass": "typical-literature-curve",
+      "id": "dietrich2018-16mncr5-soft",
+      "name": "16MnCr5",
+      "materialNumbers": [
+        "1.7131"
+      ],
+      "model": "tabulated",
+      "kf0": 380,
+      "phiMin": 0,
+      "phiMax": 1.6,
+      "interpolation": "piecewise-linear",
+      "points": [
+        [
+          0,
+          380
+        ],
+        [
+          0.1,
+          630
+        ],
+        [
+          0.2,
+          702
+        ],
+        [
+          0.4,
+          780
+        ],
+        [
+          0.6,
+          832
+        ],
+        [
+          0.8,
+          869
+        ],
+        [
+          1,
+          900
+        ],
+        [
+          1.2,
+          926
+        ],
+        [
+          1.4,
+          948
+        ],
+        [
+          1.6,
+          968
+        ]
+      ],
+      "sourceIds": [
+        "dietrich-2018-t31-1"
+      ],
+      "sourceChoice": "Dietrich-Punktkurve gewählt. Abweichender Lange-Ansatz C810/n0,09 mit phi0,1–0,7 wird nicht eingemischt."
+    },
+    {
+      "state": "soft-annealed",
+      "stateLabel": "weichgeglüht",
+      "temperature": "room",
+      "temperatureStatus": "qualitative-cold-forming-no-numeric-temperature",
+      "strainRateStatus": "not-reported",
+      "approval": "literature",
+      "eligible": true,
+      "evidenceClass": "typical-literature-curve",
+      "id": "dietrich2018-cuzn37-soft",
+      "name": "CuZn37",
+      "materialNumbers": [
+        "2.0321"
+      ],
+      "model": "tabulated",
+      "kf0": 280,
+      "phiMin": 0,
+      "phiMax": 2,
+      "interpolation": "piecewise-linear",
+      "points": [
+        [
+          0,
+          280
+        ],
+        [
+          0.1,
+          325
+        ],
+        [
+          0.2,
+          438
+        ],
+        [
+          0.4,
+          592
+        ],
+        [
+          0.6,
+          706
+        ],
+        [
+          0.8,
+          799
+        ],
+        [
+          1,
+          880
+        ],
+        [
+          1.2,
+          952
+        ],
+        [
+          1.4,
+          1018
+        ],
+        [
+          1.6,
+          1078
+        ],
+        [
+          1.8,
+          1134
+        ],
+        [
+          2,
+          1188
+        ]
+      ],
+      "sourceIds": [
+        "dietrich-2018-t31-1"
+      ]
+    },
+    {
+      "state": "soft-annealed",
+      "stateLabel": "weichgeglüht",
+      "temperature": "room",
+      "temperatureStatus": "qualitative-cold-forming-no-numeric-temperature",
+      "strainRateStatus": "not-reported",
+      "approval": "literature",
+      "eligible": true,
+      "evidenceClass": "typical-literature-curve",
+      "id": "dietrich2018-aw1050a-soft",
+      "name": "Al99,5 / EN AW-1050A",
+      "materialNumbers": [
+        "3.0255"
+      ],
+      "model": "hollomon",
+      "C": 150,
+      "n": 0.222,
+      "kf0": 60,
+      "phiMin": 0.1,
+      "phiMax": 1,
+      "startMode": "linear-to-phiMin",
+      "startBasis": "Explizite technische Näherung: linear zwischen separat belegtem kf0 bei phi0 und C*0,1^n. Kein neu gemessener Kurvenabschnitt.",
+      "rangeBasis": "Konservativ begrenzt auf den durchgezogen dargestellten Bereich des überprüften Tschätsch-Diagramms; gestrichelte Fortsetzung nicht verwendet.",
+      "sourceIds": [
+        "dietrich-2018-t2-1-t31-2",
+        "tschaetsch-1997-al995"
+      ]
+    },
+    {
+      "state": "soft-annealed",
+      "stateLabel": "weichgeglüht",
+      "temperature": "room",
+      "temperatureStatus": "qualitative-cold-forming-no-numeric-temperature",
+      "strainRateStatus": "not-reported",
+      "approval": "literature",
+      "eligible": true,
+      "evidenceClass": "typical-literature-curve",
+      "id": "dietrich2018-aw6082-soft",
+      "name": "AlMgSi1 / EN AW-6082",
+      "materialNumbers": [
+        "3.2315",
+        "EN AW 6082"
+      ],
+      "model": "tabulated",
+      "kf0": 130,
+      "phiMin": 0,
+      "phiMax": 4,
+      "interpolation": "piecewise-linear",
+      "points": [
+        [
+          0,
+          130
+        ],
+        [
+          0.1,
+          165
+        ],
+        [
+          0.2,
+          189
+        ],
+        [
+          0.4,
+          217
+        ],
+        [
+          0.6,
+          235
+        ],
+        [
+          0.8,
+          249
+        ],
+        [
+          1,
+          260
+        ],
+        [
+          1.2,
+          270
+        ],
+        [
+          1.4,
+          278
+        ],
+        [
+          1.6,
+          285
+        ],
+        [
+          1.8,
+          292
+        ],
+        [
+          2,
+          298
+        ],
+        [
+          2.4,
+          309
+        ],
+        [
+          2.6,
+          314
+        ],
+        [
+          2.8,
+          318
+        ],
+        [
+          3,
+          323
+        ],
+        [
+          3.2,
+          327
+        ],
+        [
+          3.4,
+          331
+        ],
+        [
+          3.6,
+          335
+        ],
+        [
+          3.8,
+          338
+        ],
+        [
+          4,
+          342
+        ]
+      ],
+      "sourceIds": [
+        "dietrich-2018-t31-1",
+        "dietrich-2018-t2-1-t31-2"
+      ],
+      "sourceChoice": "Zwei Katalogzeilen derselben 6082-Identität, eine Literaturkurve. Weichgeglüht; ausdrücklich nicht T6."
+    }
+  ],
+  "excluded": [
+    {
+      "materialNumbers": [
+        "1.1192"
+      ],
+      "name": "C45EC",
+      "reason": "Katalog nennt 1.1192, Dietrich nennt für C45EC 1.1197. Identitätskonflikt vor Zuordnung klären."
+    },
+    {
+      "materialNumbers": [
+        "1.0214"
+      ],
+      "name": "C10C",
+      "reason": "Gefundene Ck10/C10E-Kurve ist kein direkter C10C-Nachweis; kein hinreichend belegter Proxy."
+    },
+    {
+      "name": "Borstähle einschließlich 20MnB4 und 23MnB4",
+      "reason": "Keine für die geprüften Katalogsorten belegte kalte Kurve. 27MnB4-Veröffentlichung enthält keine zugängliche vollständige Kurve für eine überprüfbare Übertragung; Ähnlichkeit von Chemie/Rm genügt nicht."
+    },
+    {
+      "materialNumbers": [
+        "3.3535"
+      ],
+      "name": "AlMg3",
+      "reason": "Lange nennt C390/n0,19 nur für phi0,2 bis1,0, ohne kf0; Verlauf für die erste Umformung nicht ausreichend belegt."
+    }
+  ]
+}

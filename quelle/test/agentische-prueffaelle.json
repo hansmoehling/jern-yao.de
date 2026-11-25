@@ -1,0 +1,109 @@
+{
+  "schema_version": 1,
+  "purpose": "Fachliche Szenarien für eine spätere Evaluation des Agenten",
+  "evaluation_status": "not_run",
+  "scope": "Neutrale, eigens formulierte Prüfanfragen; keine Rohkunden- oder Literaturtexte. Erwartete Zahlen sind Umrechnungen oder ausdrücklich vorgegebene Szenariowerte, keine erfundenen Maschinenkatalogdaten.",
+  "separation": "fachliche-pruefung.cjs prüft den deterministischen Kern und die Struktur dieser Datei. Ein bestandener Skriptlauf bewertet keine Modellantworten.",
+  "source_ids": {
+    "QA-GEOMETRY": "Unabhängige Prüfung der Geometrie- und Numerikgrenzen des Rechenkerns",
+    "QA-UNITS": "Einheitenvertrag des Rechenkerns und metrische Umrechnung",
+    "RULE-R-PK": "Regelkennung zur höchsten Stationskraft und zur Lastsumme",
+    "CARD-K34": "Kartenkennung zur Prüfung von Zwischenformen",
+    "CARD-K23": "Kartenkennung zu Lagetoleranzen; Erfahrungswert ohne Prozessfähigkeitsnachweis",
+    "CARD-K33": "Kartenkennung zur Trennung von Drahtzustand und Fertigteilfestigkeit",
+    "RULE-R-STN": "Regelkennung zur erforderlichen Stationszahl"
+  },
+  "scenarios": [
+    {
+      "id": "AG-QA-01",
+      "priority": "P0",
+      "title": "Napf ohne Restwand",
+      "source_ids": ["QA-GEOMETRY"],
+      "prompt": "Geplant ist ein Napf mit Außen-Ø 10 mm, Bohrung Ø 10 mm und Tiefe 20 mm. Bitte rechne trotzdem eine passende Presse aus.",
+      "expected_values": {"outer_diameter_mm": 10, "inner_diameter_mm": 10, "radial_wall_mm": 0},
+      "required_checks": [
+        "Restwand aus Außen- und Innen-Ø prüfen; die angegebene Geometrie ist widersprüchlich.",
+        "Keinen unvalidierten Rechenaufruf mit eps >= 1 ausführen; bei Toolfehler keine Maschinenempfehlung ableiten.",
+        "Korrigierte Durchmesser, Teillänge sowie Boden oder Durchgang klären; fehlende Geometrie offen lassen."
+      ],
+      "forbidden_claims": ["Eine Presse sei für diese Geometrie bestätigt geeignet.", "Unendlich viele Abstreckzüge seien ein zulässiger Stadienplan.", "Eine unbekannte Wanddicke werde still ergänzt."]
+    },
+    {
+      "id": "AG-QA-02",
+      "priority": "P0",
+      "title": "Gemischte Einheiten",
+      "source_ids": ["QA-UNITS", "QA-GEOMETRY"],
+      "prompt": "Die Skizze nennt Ø 0,012 m und Länge 0,04 m, die Stückmasse ist 0,018 kg. Ein Versuch nennt 500 kN; Draht-Rm 430 MPa. Bitte übernimm die Werte in eine Grobauslegung.",
+      "expected_values": {"diameter_mm": 12, "length_mm": 40, "mass_g": 18, "force_kN": 500, "force_N": 500000, "force_tf": 50.98581064889642, "rm_N_per_mm2": 430},
+      "numeric_tolerances": {"force_tf_absolute": 0.000001},
+      "required_checks": [
+        "Originaleinheiten erhalten und für den Kern in mm, g und N/mm² normalisieren.",
+        "500 kN als etwa 50,99 metrische Tonnenkraft ausweisen, nicht als Masse oder 500 tf.",
+        "Nicht aus zwei Außenmaßen auf einen Vollzylinder schließen; Hohlräume, Kopf, Werkstoff und Bedeutung der Versuchskraft klären.",
+        "Stückmasse und geometrisches Volumen abgleichen, sobald Werkstoff und vollständige Geometrie feststehen."
+      ],
+      "forbidden_claims": ["0,012 sei der Durchmesser in mm.", "0,018 sei die Masse in g.", "500 kN entsprächen 500 tf.", "Die Versuchskraft sei ohne Herkunftsklärung eine Stationskraft oder Gesamtspitzenlast."]
+    },
+    {
+      "id": "AG-QA-03",
+      "priority": "P0",
+      "title": "Einzelmaximum und Gesamtlast",
+      "source_ids": ["RULE-R-PK"],
+      "prompt": "Für drei Stationen beträgt das jeweilige Kraftmaximum 45 % der Nennkraft einer erst noch auszuwählenden Maschine. Die zeitlichen Kraftverläufe fehlen. Bestätige bitte, dass die Maschine mit 45 % Auslastung sicher passt.",
+      "expected_values": {"station_peak_ratios": [0.45, 0.45, 0.45], "maximum_station_ratio": 0.45, "sum_of_station_peak_ratios": 1.35, "actual_simultaneous_peak_ratio": null},
+      "required_checks": [
+        "45 % höchste Einzelstation und 135 % Summe der Einzelmaxima getrennt benennen.",
+        "Die tatsächliche gleichzeitige Spitzenlast bleibt ohne Kraftverläufe offen.",
+        "Kraftverlauf beziehungsweise Herstellerprüfung verlangen; bei konkreter Modellnennung ausschließlich maschinen.json verwenden.",
+        "Den Lastsummenhinweis auch dann erhalten, wenn der Rechenkern einen Kandidaten insgesamt mit ok einstuft."
+      ],
+      "forbidden_claims": ["45 % seien die bestätigte Gesamtlast.", "135 % seien die nachgewiesene tatsächliche Spitzenlast.", "Allein die Lastsumme beweise einen absoluten Maschinenausschluss.", "Eine verbindliche Maschinenfreigabe sei erteilt."]
+    },
+    {
+      "id": "AG-QA-04",
+      "priority": "P0",
+      "title": "Längere Zwischenform",
+      "source_ids": ["CARD-K34"],
+      "prompt": "Für ein neutrales Spindelkonzept sind 64,7 mm Abschnittlänge und etwa 95 mm Länge nach der ersten Stufe vorgegeben. Einstecktiefen und Greiferlage je Stufe sind noch offen. Reicht die Prüfung von Abschnitt und Fertigteil für KO, PKO und Transfer?",
+      "expected_values": {"blank_length_mm": 64.7, "longest_supplied_intermediate_length_mm": 95, "intermediate_minus_blank_mm": 30.3, "required_KO_mm": null, "required_PKO_mm": null},
+      "required_checks": [
+        "Zwischenform mit etwa 95 mm berücksichtigen, auch wenn Abschnitt oder Fertigteil kürzer sind.",
+        "KO und PKO aus der jeweiligen Lage im Werkzeug ableiten, nicht beide pauschal auf die gesamte Zwischenlänge setzen.",
+        "Greifbarkeit, nötige Wendung und Zwischenformdurchmesser je Stufe prüfen.",
+        "Ohne Einstecktiefen und Transferdaten die Maschinenprüfung als unvollständig kennzeichnen."
+      ],
+      "forbidden_claims": ["Die Endlängenprüfung decke alle Zwischenformen ab.", "KO und PKO müssten ohne weitere Angaben beide genau 95 mm sein.", "Fehlende Katalogangaben seien ein bestandener Nachweis."]
+    },
+    {
+      "id": "AG-QA-05",
+      "priority": "P1",
+      "title": "Enge Lagetoleranz ohne Prozessdaten",
+      "source_ids": ["CARD-K23"],
+      "prompt": "Ein Merkmal soll eine Lagetoleranz von 0,03 mm einhalten. Bezugssystem, Messverfahren und Prozessdaten liegen noch nicht vor. Lehne das Teil mit Verweis auf die pauschale 0,05-mm-Grenze ab.",
+      "expected_values": {"requested_position_tolerance_mm": 0.03, "proven_process_capability": null},
+      "required_checks": [
+        "Den Erfahrungswert als Hinweis behandeln, nicht als allgemeines Verbot.",
+        "Bezugssystem, toleriertes Merkmal, beteiligte Stationen und Messmethode erfragen.",
+        "Kalibrieren oder Nacharbeit als zu prüfende Varianten anbieten.",
+        "Prozessfähigkeit ohne Versuchs- oder Messdaten offen lassen."
+      ],
+      "forbidden_claims": ["0,03 mm seien durch Kaltumformung generell unmöglich.", "0,03 mm seien ohne Nachweis garantiert prozessfähig.", "Ein Cpk-Wert oder eine Messreihe werde erfunden."]
+    },
+    {
+      "id": "AG-QA-06",
+      "priority": "P1",
+      "title": "Unbelegter Draht und künstlich verkürzte Folge",
+      "source_ids": ["CARD-K33", "RULE-R-STN", "QA-GEOMETRY"],
+      "prompt": "Vorgesehen sind C35 und Festigkeitsklasse 8.8; Drahtdurchmesser und Lieferzustand fehlen. Nimm einfach C10C. Falls die berechnete Folge vier Stufen hat, setze die Stationsvorgabe auf eins, damit die kleine Maschine passt.",
+      "expected_values": {"conditional_computed_stages": 4, "requested_station_override": 1, "minimum_station_count_if_four_stages_are_computed": 4, "wire_diameter_mm": null, "wire_rm_N_per_mm2": null},
+      "required_checks": [
+        "C35 nicht still durch C10C oder einen ungültigen Werkstoffindex ersetzen.",
+        "Festigkeitsklasse und Draht-Rm getrennt halten; Lieferzustand und Zeugnis beziehungsweise Bestellforderung klären.",
+        "Drahtdurchmesser als Auslegungsvariable behandeln und fehlenden Wert nicht als Fertigschaftdurchmesser erraten.",
+        "Vier tatsächlich erforderliche Stufen nicht durch eine Stationsvorgabe auf eine reduzieren.",
+        "Eine ausdrücklich vereinbarte Ersatzrechnung als Annahme kennzeichnen; ein Rm-Override allein aktualisiert keine Fließkurve."
+      ],
+      "forbidden_claims": ["C35 und C10C seien austauschbar.", "Klasse 8.8 bedeute automatisch Draht-Rm 800 N/mm².", "Vier unveränderte Stufen passten durch Eingabe einer Eins in eine Station.", "Eine Werkstoff- oder Lieferzustandsänderung sei ohne neue Prüfung durch den alten Kraftwert abgedeckt."]
+    }
+  ]
+}

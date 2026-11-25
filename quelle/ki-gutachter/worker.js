@@ -1,165 +1,194 @@
-/* KI-Gutachter für den Konfigurator (Cloudflare Worker).
-   POST /anfrage   nimmt Anfrage und Zeichnung an, antwortet sofort und arbeitet im Hintergrund:
-                   Claude liest die Zeichnung, rechnet mit dem Rechenkern (Werkzeug grobauslegung) und schreibt
-                   Gutachten und Kundentext. Beides geht als Entwurf an Hans Möhling, nie direkt an den Kunden.
-   GET  /freigabe  zeigt den Entwurf mit Knopf; POST /freigabe sendet den Kundentext ab.
-   Wissen und Regeln liegen im KV-Speicher (Schlüssel «wissenskarten», «regeln»), nicht im Code. */
-import ENGINE from '../engine.js';
-import MASCHINEN from '../maschinen.json';
-import PRAXIS from '../praxis.json';
+import { analyse, publicResult, loadKnowledge, MODEL, providerFailure, recordServiceDiagnostic } from './analysis.js';
+import I18N from '../i18n.js';
+const {t,normalizeLanguage}=I18N;
 
-const E = ENGINE || globalThis.JYK;
-const HERKUNFT = ['https://jern-yao.de', 'https://jernyao.de', 'https://www.jernyao.de'];
-const TYPEN = { 'application/pdf': 'document', 'image/png': 'image', 'image/jpeg': 'image', 'image/webp': 'image', 'image/gif': 'image' };
-const MAX_BYTES = 15 * 1024 * 1024;
-
-export default {
-  async fetch(req, env, ctx) {
-    const url = new URL(req.url);
-    const origin = req.headers.get('Origin') || '';
-    const cors = { 'Access-Control-Allow-Origin': HERKUNFT.includes(origin) ? origin : HERKUNFT[0], 'Access-Control-Allow-Methods': 'POST, OPTIONS', 'Access-Control-Allow-Headers': 'Content-Type', 'Vary': 'Origin' };
-    if (req.method === 'OPTIONS') return new Response(null, { headers: cors });
-    if (url.pathname === '/anfrage' && req.method === 'POST') return anfrage(req, env, ctx, cors);
-    if (url.pathname === '/freigabe') return freigabe(req, url, env);
-    return new Response('Nicht gefunden', { status: 404 });
-  }
-};
-
-async function anfrage(req, env, ctx, cors) {
-  const json = (o, s = 200) => new Response(JSON.stringify(o), { status: s, headers: { ...cors, 'Content-Type': 'application/json' } });
-  let fd;
-  try { fd = await req.formData(); } catch { return json({ ok: false, fehler: 'Formular unlesbar' }, 400); }
-  const email = String(fd.get('email') || '').trim();
-  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) return json({ ok: false, fehler: 'E-Mail fehlt' }, 400);
-  const datei = fd.get('zeichnung');
-  if (datei && typeof datei === 'object' && datei.size > MAX_BYTES) return json({ ok: false, fehler: 'Zeichnung über 15 MB' }, 413);
-  // einfache Bremse: 10 Anfragen je Adresse und Tag
-  const ip = req.headers.get('CF-Connecting-IP') || 'unbekannt';
-  const rl = 'rl:' + ip + ':' + new Date().toISOString().slice(0, 10);
-  const n = +(await env.SPEICHER.get(rl) || 0);
-  if (n >= 10) return json({ ok: false, fehler: 'Zu viele Anfragen heute' }, 429);
-  await env.SPEICHER.put(rl, String(n + 1), { expirationTtl: 86400 });
-  const anf = {
-    id: crypto.randomUUID(), zeit: new Date().toISOString(), email,
-    betreff: String(fd.get('betreff') || 'Richtpreisanfrage').slice(0, 200),
-    text: String(fd.get('text') || '').slice(0, 20000),
-    eingaben: sicherJSON(fd.get('eingaben')),
-    datei: datei && typeof datei === 'object' && datei.size ? { name: datei.name, typ: datei.type, b64: b64(await datei.arrayBuffer()) } : null
-  };
-  ctx.waitUntil(bearbeiten(anf, env));
-  return json({ ok: true });
+const TTL = 30 * 86400;
+const MAX_FILE = 15 * 1024 * 1024;
+const ORIGINS = ['https://jern-yao.de', 'https://jernyao.de', 'https://www.jernyao.de'];
+const EXT = { pdf: 'application/pdf', png: 'image/png', jpg: 'image/jpeg', jpeg: 'image/jpeg', webp: 'image/webp', step: 'application/step', stp: 'application/step', dxf: 'image/vnd.dxf', dwg: 'image/vnd.dwg' };
+const enc = new TextEncoder();
+const json = (value, status = 200, cors = {}) => new Response(JSON.stringify(value), { status, headers: { ...cors, 'Content-Type': 'application/json; charset=utf-8', 'Cache-Control': 'no-store', 'Referrer-Policy': 'no-referrer', 'X-Content-Type-Options': 'nosniff' } });
+export class HttpError extends Error { constructor(status, message) { super(message); this.status = status; } }
+const txt = (v, max) => typeof v === 'string' ? v.trim().slice(0, max) : '';
+const get = async (env, key) => { const raw = await env.SPEICHER.get(key); return raw ? JSON.parse(raw) : null; };
+const put = (env, key, value) => env.SPEICHER.put(key, JSON.stringify(value), { expirationTtl: TTL });
+export async function digest(value) { return hex(await crypto.subtle.digest('SHA-256', typeof value === 'string' ? enc.encode(value) : value)); }
+function hex(b) { return Array.from(new Uint8Array(b), x => x.toString(16).padStart(2, '0')).join(''); }
+function secret(env) { return env.ZUGRIFF_SCHLUESSEL || env.FREIGABE_SCHLUESSEL; }
+export async function tokenFor(env, id) {
+  const key = await crypto.subtle.importKey('raw', enc.encode(secret(env)), { name: 'HMAC', hash: 'SHA-256' }, false, ['sign']);
+  return hex(await crypto.subtle.sign('HMAC', key, enc.encode('jy-request-v1:' + id)));
 }
-
-async function bearbeiten(anf, env) {
-  let gutachten = '', kundentext = '', fehler = '';
+function equal(a, b) { if (typeof a !== 'string' || a.length !== b.length) return false; let x = 0; for (let i = 0; i < a.length; i++) x |= a.charCodeAt(i) ^ b.charCodeAt(i); return x === 0; }
+function configured(env) { return { storage: !!env.SPEICHER, queue: !!env.ANFRAGEN, files: !!env.DATEIEN, model: !!env.ANTHROPIC_API_KEY && !!(env.MODELL || MODEL), mail: !!env.RESEND_API_KEY && !!env.EMPFAENGER && !!env.ABSENDER, access: typeof secret(env) === 'string' && secret(env).length >= 32 }; }
+async function readiness(env) {
+  const checks = configured(env); let knowledgeStatus = 'missing';
+  if (checks.storage) { try { knowledgeStatus = (await loadKnowledge(env)).status; } catch { knowledgeStatus = 'invalid'; } }
+  checks.knowledge = ['versioned', 'legacy'].includes(knowledgeStatus);
+  return { ready: Object.values(checks).every(Boolean), checks, knowledgeStatus, credentialsVerified: false, model: env.MODELL || MODEL };
+}
+async function requireReady(env) { if (!(await readiness(env)).ready) throw new HttpError(503, 'Der Anfragedienst wird noch eingerichtet. Bitte wenden Sie sich direkt an Hans.'); }
+async function readBounded(req, max) {
+  if (Number(req.headers.get('content-length')) > max) throw new HttpError(413, 'Die Anfrage ist zu groß.');
+  if (!req.body) return new Uint8Array();
+  const reader = req.body.getReader(), parts = []; let size = 0;
+  while (true) { const { value, done } = await reader.read(); if (done) break; size += value.length; if (size > max) { await reader.cancel(); throw new HttpError(413, 'Die Anfrage ist zu groß.'); } parts.push(value); }
+  const all = new Uint8Array(size); let at = 0; for (const part of parts) { all.set(part, at); at += part.length; } return all;
+}
+async function throttle(req, env, bucket, limit) {
+  // KV is an approximate daily limit. Use the Cloudflare WAF rate limiter for an atomic edge quota.
+  const key = 'rate:' + bucket + ':' + new Date().toISOString().slice(0, 10) + ':' + await digest(req.headers.get('CF-Connecting-IP') || 'unknown');
+  const n = Number(await env.SPEICHER.get(key) || 0);
+  if (n >= limit) throw new HttpError(429, 'Für heute sind zu viele Anfragen eingegangen. Bitte versuchen Sie es später erneut.');
+  await env.SPEICHER.put(key, String(n + 1), { expirationTtl: 86400 });
+}
+async function authorised(env, id, token) {
+  if (!secret(env) || !/^[a-f0-9-]{36}$/.test(id || '') || !equal(token, await tokenFor(env, id))) throw new HttpError(403, 'Dieser Anfragelink ist ungültig.');
+  const intake = await get(env, 'anfrage:' + id);
+  if (!intake || Date.parse(intake.createdAt) + TTL * 1000 < Date.now()) throw new HttpError(404, 'Diese Anfrage ist nicht mehr abrufbar.');
+  return intake;
+}
+async function snapshot(env, id) {
+  const [a, n] = await Promise.all([get(env, 'analyse:' + id), get(env, 'nachricht:' + id)]);
+  return { status: a?.status || 'queued', ...publicResult(a?.result), notificationStatus: n?.status || 'pending' };
+}
+function signatureOK(bytes, ext) {
+  const b = Array.from(bytes.slice(0, 16)), ascii = new TextDecoder().decode(bytes.slice(0, 16));
+  if (ext === 'pdf') return new TextDecoder().decode(bytes.slice(0, 1024)).includes('%PDF-');
+  if (ext === 'png') return b.slice(0, 8).join() === '137,80,78,71,13,10,26,10';
+  if (['jpg', 'jpeg'].includes(ext)) return b[0] === 255 && b[1] === 216 && b[2] === 255;
+  if (ext === 'webp') return ascii.startsWith('RIFF') && ascii.slice(8, 12) === 'WEBP';
+  return true; // CAD is not parsed or executed.
+}
+async function enqueue(env, id) {
+  await env.ANFRAGEN.sendBatch([{ body: { kind: 'intake_mail', id } }, { body: { kind: 'analysis', id } }]);
+  await put(env, 'versandauftrag:' + id, { queuedAt: new Date().toISOString() });
+}
+async function intake(req, env, cors, locale) {
+  const bytes = await readBounded(req, MAX_FILE + 128 * 1024);
+  let form; try { form = await new Request(req.url, { method: 'POST', headers: req.headers, body: bytes }).formData(); } catch { throw new HttpError(400, 'Das Formular konnte nicht gelesen werden.'); }
+  const language = normalizeLanguage(form.get('language') || locale.value);
+  locale.value = language;
+  await requireReady(env);
+  const email = txt(form.get('email'), 254);
+  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) throw new HttpError(400, 'Bitte geben Sie Ihre E-Mail-Adresse an.');
+  const note = txt(form.get('notiz') || form.get('text'), 20000), name = txt(form.get('name'), 120), company = txt(form.get('firma'), 160);
+  const upload = form.get('datei') || form.get('zeichnung'); let file = null, fileBytes;
+  if (upload && typeof upload === 'object' && upload.size) {
+    if (upload.size > MAX_FILE) throw new HttpError(413, 'Die Datei darf höchstens 15 MB groß sein.');
+    const filename = String(upload.name).split(/[\\/]/).pop().replace(/[\x00-\x1f\x7f]/g, '').slice(0, 160), ext = filename.split('.').pop().toLowerCase();
+    if (!EXT[ext]) throw new HttpError(415, 'Bitte laden Sie PDF, PNG, JPG, WebP oder eine STEP-, DXF- oder DWG-Datei hoch.');
+    fileBytes = new Uint8Array(await upload.arrayBuffer());
+    if (!signatureOK(fileBytes, ext)) throw new HttpError(415, 'Dateiendung und Dateiinhalt passen nicht zusammen.');
+    file = { name: filename, type: EXT[ext], size: fileBytes.length, hash: await digest(fileBytes), readable: ['pdf', 'png', 'jpg', 'jpeg', 'webp'].includes(ext) };
+  }
+  if (!note && !file) throw new HttpError(400, 'Bitte laden Sie eine Zeichnung hoch oder beschreiben Sie Ihr Teil.');
+  const idem = txt(form.get('idempotency_key'), 160);
+  if (idem && !/^[\w-]{8,160}$/.test(idem)) throw new HttpError(400, 'Die Anfragekennung ist ungültig.');
+  const fingerprint = await digest(JSON.stringify({ email, note, name, company, file, language }));
+  const idemKey = idem ? 'idempotenz:' + await digest(email.toLowerCase() + ':' + idem) : null;
+  if (idemKey) {
+    const old = await get(env, idemKey);
+    if (old) {
+      if (old.fingerprint !== fingerprint) throw new HttpError(409, 'Diese Anfragekennung gehört bereits zu anderen Angaben. Bitte senden Sie eine neue Anfrage.');
+      if (!await get(env, 'versandauftrag:' + old.id)) await enqueue(env, old.id);
+      const state = await snapshot(env, old.id);
+      if (!state.answer) state.language = language;
+      return json({ id: old.id, token: await tokenFor(env, old.id), ...state }, 200, cors);
+    }
+  }
+  await throttle(req, env, 'intake', 10);
+  const id = crypto.randomUUID(), createdAt = new Date().toISOString();
+  if (file) { file.key = 'anfragen/' + id + '/original'; await env.DATEIEN.put(file.key, fileBytes, { httpMetadata: { contentType: file.type }, customMetadata: { expiresAt: String(Date.now() + TTL * 1000) } }); }
+  await put(env, 'anfrage:' + id, { id, createdAt, email, name, company, note, file, language });
+  await put(env, 'analyse:' + id, { status: 'queued', updatedAt: createdAt });
+  await put(env, 'nachricht:' + id, { status: 'pending', updatedAt: createdAt });
+  if (idemKey) await put(env, idemKey, { id, fingerprint });
+  try { await enqueue(env, id); } catch { throw new HttpError(503, 'Die Übertragung wurde unterbrochen. Bitte senden Sie dieselbe Anfrage erneut.'); }
+  return json({ id, token: await tokenFor(env, id), status: 'queued', notificationStatus: 'pending', language }, 202, cors);
+}
+async function chat(req, env, cors, locale) {
+  let body; try { body = JSON.parse(new TextDecoder().decode(await readBounded(req, 64000))); } catch (e) { if (e instanceof HttpError) throw e; throw new HttpError(400, 'Die Nachricht konnte nicht gelesen werden.'); }
+  if (!body || typeof body !== 'object' || Array.isArray(body)) throw new HttpError(400, 'Die Nachricht konnte nicht gelesen werden.');
+  if (typeof body.language === 'string') locale.value = normalizeLanguage(body.language);
+  if (!env.SPEICHER || !env.ANTHROPIC_API_KEY) throw new HttpError(503, 'Der Fachchat wird noch eingerichtet.');
+  const message = txt(body.message, 8000);
+  if (!message) throw new HttpError(400, 'Bitte schreiben Sie Ihre Frage.');
+  let request = null, history = [];
+  if (body.requestId || body.token) { request = await authorised(env, body.requestId, body.token); history = await get(env, 'chat:' + request.id) || []; if (typeof body.language !== 'string' && !locale.explicit) locale.value = normalizeLanguage(request.language); }
+  else if (Array.isArray(body.history)) history = body.history.slice(-12).filter(x => x && ['user', 'assistant'].includes(x.role)).map(x => ({ role: x.role, content: txt(x.content || x.message, 4000) }));
+  await throttle(req, env, 'chat', 40);
+  const file = request?.file?.readable ? await readFile(env, request.file) : null;
+  let result;
+  try { result = await analyse({ note: request?.note || '', message, history, file, filename: request?.file?.name, unreadableFile: !!request?.file && !request.file.readable, language: locale.value }, env, { timeoutMs: 65000, maxRounds: 5 }); }
+  catch (error) { await recordServiceDiagnostic(env, error, 'chat'); throw new HttpError(503, 'Die Antwort konnte gerade nicht fertiggestellt werden. Ihre bisherige Anfrage bleibt erhalten. Bitte versuchen Sie es erneut.'); }
+  if (request) {
+    await put(env, 'chat:' + request.id, [...history, { role: 'user', content: message }, { role: 'assistant', content: result.answer }].slice(-20));
+    await put(env, 'analyse:' + request.id, { status: result.questions.length ? 'needs_info' : 'ready', result, updatedAt: new Date().toISOString() });
+  }
+  return json({ ...publicResult(result), status: result.questions.length ? 'needs_info' : 'ready' }, 200, cors);
+}
+async function readFile(env, file) { const object = await env.DATEIEN.get(file.key); if (!object) throw new Error('original_missing'); return { type: file.type, bytes: new Uint8Array(await object.arrayBuffer()) }; }
+function b64(bytes) { let s = ''; for (let i = 0; i < bytes.length; i += 0x8000) s += String.fromCharCode(...bytes.subarray(i, i + 0x8000)); return btoa(s); }
+async function notifyHans(env, record) {
+  const current = await get(env, 'nachricht:' + record.id); if (current?.status === 'sent') return;
+  const attachment = record.file ? await readFile(env, record.file) : null;
+  const language = normalizeLanguage(record.language);
+  const response = await fetch('https://api.resend.com/emails', {
+    method: 'POST', signal: AbortSignal.timeout(25000), headers: { Authorization: 'Bearer ' + env.RESEND_API_KEY, 'Content-Type': 'application/json', 'Idempotency-Key': 'jy-intake-' + record.id },
+    body: JSON.stringify({ from: env.ABSENDER, to: [env.EMPFAENGER], reply_to: record.email, subject: t('Neue Umformanfrage', language) + ' · ' + record.id,
+      text: [t('Neue Anfrage eingegangen.', language), t('Kontakt:', language) + ' ' + record.email, record.name, record.company, '', record.note, '', t(record.file && !record.file.readable ? 'CAD-Datei im Anhang. Automatische Bildanalyse liest dieses Format nicht.' : 'Die technische Analyse läuft unabhängig von dieser Eingangsmitteilung.', language)].join('\n'),
+      attachments: attachment ? [{ filename: record.file.name, content: b64(attachment.bytes) }] : undefined })
+  });
+  if (!response.ok) throw await providerFailure(response, 'resend');
+  const provider = await response.json();
+  await put(env, 'nachricht:' + record.id, { status: 'sent', providerId: provider.id, updatedAt: new Date().toISOString() });
+}
+async function queued(message, env) {
+  const { id, kind } = message.body || {};
+  if (!/^[a-f0-9-]{36}$/.test(id || '') || !['analysis', 'intake_mail'].includes(kind)) { message.ack(); return; }
+  const key = (kind === 'analysis' ? 'analyse:' : 'nachricht:') + id;
+  let record;
   try {
-    if (env.ANTHROPIC_API_KEY) ({ gutachten, kundentext } = await gutachter(anf, env));
-    else fehler = 'Kein KI-Schlüssel hinterlegt; Anfrage ohne Gutachten.';
-  } catch (e) { fehler = 'KI-Gutachten fehlgeschlagen: ' + e.message; }
-  const entwurf = { id: anf.id, email: anf.email, betreff: anf.betreff, kundentext, gesendet: false };
-  await env.SPEICHER.put('entwurf:' + anf.id, JSON.stringify(entwurf), { expirationTtl: 30 * 86400 });
-  const link = env.BASIS + '/freigabe?id=' + anf.id + '&sig=' + await signatur(env, anf.id);
-  const teile = [anf.text, '', '─── KI-Gutachten (Entwurf) ───', gutachten || fehler || '·', '', '─── Kundentext (Entwurf) ───', kundentext || '·', '', 'Freigeben und an ' + anf.email + ' senden: ' + link];
-  await mail(env, {
-    to: env.EMPFAENGER, subject: anf.betreff + ' · Entwurf', text: teile.join('\n'), replyTo: anf.email,
-    attachments: anf.datei ? [{ filename: anf.datei.name, content: anf.datei.b64 }] : undefined
-  });
-}
-
-async function gutachter(anf, env) {
-  const wissen = [await env.SPEICHER.get('wissenskarten') || '', await env.SPEICHER.get('regeln') || ''].join('\n\n');
-  const system = [
-    { type: 'text', text: 'Du bist der Gutachter für Mehrstufenpressen-Anfragen von Hans Möhling (Jern Yao, deutscher Sprachraum). Antworte auf Deutsch, sachlich, ohne Gedankenstriche. Was die Unterlagen nicht hergeben, bleibt offen.' },
-    { type: 'text', text: wissen, cache_control: { type: 'ephemeral' } }
-  ];
-  const inhalt = [];
-  if (anf.datei && TYPEN[anf.datei.typ]) inhalt.push({ type: TYPEN[anf.datei.typ], source: { type: 'base64', media_type: anf.datei.typ, data: anf.datei.b64 } });
-  inhalt.push({ type: 'text', text: 'Anfrage und Ergebnis der Browserrechnung:\n' + anf.text + '\n\nEingaben als JSON:\n' + JSON.stringify(anf.eingaben) +
-    (anf.datei && !TYPEN[anf.datei.typ] ? '\n\nDie Zeichnung ' + anf.datei.name + ' liegt in einem Format vor, das Du nicht lesen kannst.' : '') +
-    '\n\nAufgabe: Lies die Zeichnung, prüfe die Eingaben, rechne mit dem Werkzeug grobauslegung (auch mehrfach, mit korrigierten Maßen) und antworte mit genau zwei Abschnitten: «## Gutachten» für Hans Möhling und «## Kundentext» für den Kunden.' });
-  const tools = [{
-    name: 'grobauslegung',
-    description: 'Rechenkern des Konfigurators: Stadienfolge, Kräfte, Werkzeuggrößen, Auswerferwege und passende Jern-Yao-Modelle mit Richtpreis 2026. Maße in mm, Masse in g.',
-    input_schema: {
-      type: 'object', required: ['typ', 'wst', 'd0'],
-      properties: {
-        typ: { type: 'string', enum: ['bolzen', 'formteil', 'mutter'] },
-        wst: { type: 'integer', description: 'Index Werkstoff: ' + E.WERKSTOFFE.map((w, i) => i + '=' + w.id).join(', ') },
-        rm: { type: 'number' }, d0: { type: 'number' },
-        kopfForm: { type: 'string', enum: ['rund', 'sechskant', 'abgratet'] }, kD: { type: 'number' }, kSW: { type: 'number' }, kH: { type: 'number' },
-        sD: { type: 'number' }, sL: { type: 'number' }, iSW: { type: 'number' }, iT: { type: 'number' },
-        nD: { type: 'number' }, nT: { type: 'number' }, nDurch: { type: 'boolean' },
-        mM: { type: 'number' }, mSW: { type: 'number' }, mH: { type: 'number' }, mLoch: { type: 'number' }, mFlansch: { type: 'number' }, mFlanschH: { type: 'number' },
-        masse: { type: 'number' }, lStempel: { type: 'number' }, wenden: { type: 'boolean' },
-        vorgaben: { type: 'object', properties: { ko: { type: 'number' }, pko: { type: 'number' }, matD: { type: 'number' }, matL: { type: 'number' }, stD: { type: 'number' }, stL: { type: 'number' }, stationen: { type: 'number' }, zusatz: { type: 'number', description: 'Zusatzstufen: Kalibrieren, Kerben, Prägen, Beschneiden, unrunder Kopf' } } }
-      }
+    record = await get(env, 'anfrage:' + id);
+    if (!record) throw new Error('intake_not_yet_visible');
+    if (Date.parse(record.createdAt) + TTL * 1000 < Date.now()) { message.ack(); return; }
+    if (kind === 'intake_mail') await notifyHans(env, record);
+    else {
+      const old = await get(env, key);
+      if (['ready', 'needs_info'].includes(old?.status)) { message.ack(); return; }
+      await put(env, key, { status: 'processing', updatedAt: new Date().toISOString() });
+      const file = record.file?.readable ? await readFile(env, record.file) : null;
+      const result = await analyse({ note: record.note, file, filename: record.file?.name, unreadableFile: !!record.file && !record.file.readable, language: normalizeLanguage(record.language) }, env, { timeoutMs: 240000, maxRounds: 7 });
+      const latest = await get(env, key);
+      if (!['ready', 'needs_info'].includes(latest?.status)) await put(env, key, { status: result.questions.length ? 'needs_info' : 'ready', result, updatedAt: new Date().toISOString() });
     }
-  }];
-  const messages = [{ role: 'user', content: inhalt }];
-  for (let runde = 0; runde < 6; runde++) {
-    const r = await fetch('https://api.anthropic.com/v1/messages', {
-      method: 'POST',
-      headers: { 'x-api-key': env.ANTHROPIC_API_KEY, 'anthropic-version': '2023-06-01', 'content-type': 'application/json' },
-      body: JSON.stringify({ model: env.MODELL, max_tokens: 4000, system, tools, messages })
-    });
-    if (!r.ok) throw new Error('Claude ' + r.status + ' ' + (await r.text()).slice(0, 300));
-    const a = await r.json();
-    messages.push({ role: 'assistant', content: a.content });
-    if (a.stop_reason !== 'tool_use') {
-      const text = a.content.filter(b => b.type === 'text').map(b => b.text).join('\n');
-      const i = text.indexOf('## Kundentext');
-      return { gutachten: (i >= 0 ? text.slice(0, i) : text).replace('## Gutachten', '').trim(), kundentext: i >= 0 ? text.slice(i + 13).trim() : '' };
-    }
-    const ergebnisse = a.content.filter(b => b.type === 'tool_use').map(b => ({ type: 'tool_result', tool_use_id: b.id, content: JSON.stringify(rechnen(b.input)) }));
-    messages.push({ role: 'user', content: ergebnisse });
+    message.ack();
+  } catch (error) {
+    await recordServiceDiagnostic(env, error, 'queue');
+    const final = (message.attempts || 1) >= 4;
+    const latest = await get(env, key);
+    if (kind === 'analysis' && ['ready', 'needs_info'].includes(latest?.status) || kind === 'intake_mail' && latest?.status === 'sent') { message.ack(); return; }
+    const language = normalizeLanguage(record?.language);
+    await put(env, key, { status: final ? 'failed' : kind === 'analysis' ? 'queued' : 'pending', updatedAt: new Date().toISOString(), ...(kind === 'analysis' && final ? { result: { answer: t('Die automatische Ausarbeitung konnte nicht abgeschlossen werden. Ihre Anfrage ist gespeichert.', language), questions: [], proposal: null, sources: [], language } } : {}) });
+    message.retry({ delaySeconds: 60 }); // Exhausted jobs reach the configured dead-letter queue.
   }
-  throw new Error('zu viele Werkzeugrunden');
 }
-
-function rechnen(e) {
-  const a = E.auslegen(e);
-  if (a.fehlt.length) return { fehlt: a.fehlt };
-  const w = E.waehle(MASCHINEN, a, e, PRAXIS);
-  const kurz = r => ({ modell: r.o.m, gesamt: r.gesamt, richtpreis_eur: r.o.rp, spanne_eur: [r.o.lo, r.o.hi], auslastung: Math.round(r.ausl * 100), planung_stk_min: r.plan ? r.plan.aus : null, kriterien: r.k.map(k => k.krit + ': ' + k.status + ' (' + k.soll + ' / ' + k.ist + ')') });
-  return { stufen: a.stufen.map(s => ({ vorgang: s.v, kraft_t: +s.t.toFixed(1), matrize_min: Math.round(s.matD) })), werte: a.werte, hinweise: a.hinweise, passend: w.passend.slice(0, 3).map(kurz), bedingt: w.bedingt.slice(0, 3).map(kurz), knapp_daneben: w.fast.slice(0, 2).map(kurz) };
-}
-
-async function freigabe(req, url, env) {
-  const html = (t, s = 200) => new Response('<!doctype html><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><body style="font-family:system-ui;max-width:760px;margin:2rem auto;padding:0 1rem;line-height:1.5">' + t + '</body>', { status: s, headers: { 'Content-Type': 'text/html; charset=utf-8' } });
-  const id = url.searchParams.get('id') || '', sig = url.searchParams.get('sig') || '';
-  if (!id || sig !== await signatur(env, id)) return html('Link ungültig.', 403);
-  const roh = await env.SPEICHER.get('entwurf:' + id);
-  if (!roh) return html('Entwurf nicht mehr vorhanden.', 404);
-  const d = JSON.parse(roh);
-  if (req.method === 'GET') {
-    return html('<h2>' + esc(d.betreff) + '</h2><p>An ' + esc(d.email) + (d.gesendet ? ', <b>bereits gesendet</b>' : '') + '</p><form method="post"><textarea name="text" rows="22" style="width:100%">' + esc(d.kundentext) + '</textarea><p><button style="font-size:1rem;padding:.5rem 1rem">An den Kunden senden</button></p></form>');
-  }
-  if (req.method === 'POST') {
-    if (d.gesendet) return html('Bereits gesendet.');
-    const text = String((await req.formData()).get('text') || '').trim();
-    if (!text) return html('Kein Text.', 400);
-    await mail(env, { to: d.email, cc: [env.EMPFAENGER], subject: d.betreff.replace(/^Richtpreisanfrage/, 'Richtpreisangebot'), text, replyTo: env.EMPFAENGER });
-    d.gesendet = true; d.kundentext = text;
-    await env.SPEICHER.put('entwurf:' + id, JSON.stringify(d), { expirationTtl: 30 * 86400 });
-    return html('Gesendet an ' + esc(d.email) + '.');
-  }
-  return html('Methode nicht erlaubt.', 405);
-}
-
-async function mail(env, { to, cc, subject, text, replyTo, attachments }) {
-  const r = await fetch('https://api.resend.com/emails', {
-    method: 'POST',
-    headers: { Authorization: 'Bearer ' + env.RESEND_API_KEY, 'Content-Type': 'application/json' },
-    body: JSON.stringify({ from: env.ABSENDER, to: [to], cc, subject, text, reply_to: replyTo, attachments })
-  });
-  if (!r.ok) throw new Error('Mail ' + r.status + ' ' + (await r.text()).slice(0, 300));
-}
-
-async function signatur(env, id) {
-  const k = await crypto.subtle.importKey('raw', new TextEncoder().encode(env.FREIGABE_SCHLUESSEL), { name: 'HMAC', hash: 'SHA-256' }, false, ['sign']);
-  const s = await crypto.subtle.sign('HMAC', k, new TextEncoder().encode(id));
-  return [...new Uint8Array(s)].map(b => b.toString(16).padStart(2, '0')).join('').slice(0, 32);
-}
-function b64(buf) { let s = ''; const u = new Uint8Array(buf); for (let i = 0; i < u.length; i += 0x8000) s += String.fromCharCode.apply(null, u.subarray(i, i + 0x8000)); return btoa(s); }
-function sicherJSON(x) { try { return JSON.parse(String(x || '{}')); } catch { return {}; } }
-function esc(s) { return String(s).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c])); }
+export default {
+  async fetch(req, env) {
+    const url = new URL(req.url), origin = req.headers.get('Origin');
+    const locale = { value: normalizeLanguage(url.searchParams.get('language')), explicit: url.searchParams.has('language') };
+    const allowed = [...ORIGINS, ...String(env.ALLOWED_ORIGINS || '').split(',').map(x => x.trim()).filter(Boolean)];
+    const cors = origin && allowed.includes(origin) ? { 'Access-Control-Allow-Origin': origin, Vary: 'Origin', 'Access-Control-Allow-Methods': 'GET, POST, OPTIONS', 'Access-Control-Allow-Headers': 'Content-Type' } : {};
+    if (origin && !allowed.includes(origin)) return json({ error: t('Diese Herkunft ist nicht freigegeben.', locale.value), language: locale.value }, 403);
+    if (req.method === 'OPTIONS') return new Response(null, { status: 204, headers: cors });
+    try {
+      if (url.pathname === '/health' && req.method === 'GET') return json(await readiness(env), 200, cors);
+      if (url.pathname === '/anfrage' && req.method === 'POST') return await intake(req, env, cors, locale);
+      if (url.pathname === '/chat' && req.method === 'POST') return await chat(req, env, cors, locale);
+      if (url.pathname === '/status' && req.method === 'GET') { const a = await authorised(env, url.searchParams.get('id'), url.searchParams.get('token')); const state = await snapshot(env, a.id); if (!state.answer) state.language = normalizeLanguage(a.language); return json(state, 200, cors); }
+      return json({ error: t('Nicht gefunden.', locale.value), language: locale.value }, 404, cors);
+    } catch (e) { if (!(e instanceof HttpError)) await recordServiceDiagnostic(env, e, url.pathname === '/chat' ? 'chat' : 'request'); return json({ error: t(e instanceof HttpError ? e.message : 'Der Dienst konnte die Anfrage gerade nicht abschließen.', locale.value), language: locale.value }, e.status || 503, cors); }
+  },
+  async queue(batch, env) { await Promise.all(batch.messages.map(message => queued(message, env))); }
+};

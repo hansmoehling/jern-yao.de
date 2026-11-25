@@ -1,200 +1,459 @@
 (function () {
   'use strict';
-  const E = window.JYK;
-  const MASCHINEN = JSON.parse(document.getElementById('daten').textContent);
-  const PRAXIS = JSON.parse(document.getElementById('praxis').textContent);
-  const ENDPOINT = ''; // später: Empfangsdienst für Upload und KI-Gutachten, z. B. https://api.jernyao.de/anfrage
-  const MAIL = 'info@jernyao.de';
-  const FAMNAME = { JBF: 'Bolzenpresse', JBP: 'Teilepresse, Langhub', JNP: 'Teilepresse, Kurzhub', JPF: 'Teilepresse für Mutternteile', JNF: 'Mutternpresse', JNFR: 'Mutternpresse, Buchsenabschnitt', JNFP: 'Mutternpresse' };
-  const KATURL = 'https://www.jernyao.com/files/';
-  const f = document.getElementById('f'), a = document.getElementById('a');
+
   const $ = id => document.getElementById(id);
-  const fmt = (x, d = 1) => (x == null || !isFinite(x)) ? '·' : x.toLocaleString('de-DE', { maximumFractionDigits: d, minimumFractionDigits: 0 });
-  const eur = x => x ? x.toLocaleString('de-DE') + ' €' : 'auf Anfrage';
-  const num = v => { if (v == null) return undefined; const s = String(v).trim().replace(/\s/g, '').replace(',', '.'); if (!s) return undefined; const n = Number(s); return isFinite(n) ? n : NaN; };
-  const esc = s => String(s).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+  const MAIL = 'info@jernyao.de';
+  const L=window.JYLocale;
+  const tr=text=>L.t(text);
+  let latestStatus=null;
+  const MAX_BYTES = 15 * 1024 * 1024;
+  const ALLOWED = /\.(pdf|png|jpe?g|webp|step|stp|dxf|dwg)$/i;
+  const CAD = /\.(step|stp|dxf|dwg)$/i;
+  const requestForm = $('request-form');
+  const chatForm = $('chat-form');
+  const tabs = Array.from(document.querySelectorAll('[data-mode]'));
+  const history = [];
+  let mode = 'upload';
+  let current = null;
+  let requestBusy = false;
+  let chatBusy = false;
+  let pollTimer = null;
+  let polling = false;
+  let polls = 0;
+  let idempotencyKey = '';
+  let payloadSignature = '';
+  let sentSignature = '';
 
-  // Werkstoffliste
-  const sel = f.elements.wst;
-  E.WERKSTOFFE.forEach((w, i) => { const o = document.createElement('option'); o.value = i; o.textContent = w.id + ' · ' + w.hinweis; sel.appendChild(o); });
-  sel.value = 4; // 23MnB4
-
-  function typ() { return f.elements.typ.value; }
-  function sichtbar() {
-    const t = typ();
-    f.querySelectorAll('[data-fuer]').forEach(el => { el.hidden = !el.dataset.fuer.split(' ').includes(t); });
-    const k = f.elements.kopfForm.value;
-    f.querySelectorAll('[data-kopf]').forEach(el => { el.hidden = !el.dataset.kopf.split(' ').includes(k); });
-    f.elements.rm.placeholder = E.WERKSTOFFE[+sel.value].Rm + ' typisch';
+  // The deployment provides only the public service URL, never credentials.
+  const configuredBase = typeof window.JY_API_BASE === 'string' ? window.JY_API_BASE.trim() : '';
+  let apiBase = '';
+  if (configuredBase) {
+    try {
+      const url = new URL(configuredBase, window.location.href);
+      if (url.protocol === 'https:' || (url.protocol === 'http:' && ['localhost', '127.0.0.1', '[::1]'].includes(url.hostname))) {
+        apiBase = url.href.replace(/\/$/, '');
+      }
+    } catch (_) { /* Invalid configuration remains visibly unavailable. */ }
   }
 
-  function lesen() {
-    const g = n => num(f.elements[n] && f.elements[n].value);
-    const e = {
-      typ: typ(), wst: +sel.value, rm: g('rm'), d0: g('d0'),
-      kopfForm: f.elements.kopfForm.value, kD: g('kD'), kSW: g('kSW'), kH: g('kH'), sD: g('sD'), sL: g('sL'),
-      iSW: g('iSW'), iT: g('iT'), nD: g('nD'), nT: g('nT'), nDurch: f.elements.nDurch.checked,
-      mM: g('mM'), mSW: g('mSW'), mH: g('mH'), mLoch: g('mLoch'), mFlansch: g('mFlansch'), mFlanschH: g('mFlanschH'),
-      masse: g('masse'), lStempel: g('lStempel'), wenden: f.elements.wenden.checked,
-      vorgaben: { ko: g('ko'), pko: g('pko'), matD: g('matD'), matL: g('matL'), stD: g('stD'), stL: g('stL'), stationen: g('stationen'), zusatz: g('zusatz') },
-      soll: { ausbringung: g('ausbringung') }
-    };
-    if (e.typ !== 'bolzen') { e.iSW = e.iT = undefined; }
-    if (e.typ !== 'formteil') { e.nD = e.nT = undefined; e.nDurch = false; }
-    return e;
+  function element(tag, text, className) {
+    const node = document.createElement(tag);
+    if (text !== undefined && text !== null) { const source=String(text); node.textContent = ['message-text','answer-text'].includes(className)?source:tr(source); if(!['message-text','answer-text'].includes(className))node.dataset.jySource=source; }
+    if (className) node.className = className;
+    return node;
   }
 
-  function ungueltig() {
-    let bad = false;
-    f.querySelectorAll('input[inputmode]').forEach(el => {
-      const v = num(el.value);
-      const falsch = el.value.trim() !== '' && (!isFinite(v) || v < 0);
-      el.style.borderColor = falsch ? 'var(--nein)' : '';
-      el.title = falsch ? 'Bitte eine Zahl eingeben, z. B. 12,5' : '';
-      if (falsch) bad = true;
+  function message(id, text, kind) {
+    const node = $(id);
+    node.textContent = tr(text || ''); node.dataset.jySource=text||'';
+    node.className = 'form-message' + (kind ? ' ' + kind : '');
+    node.hidden = !text;
+  }
+
+  function number(value, suffix) {
+    return typeof value === 'number' && Number.isFinite(value)
+      ? value.toLocaleString(window.JYI18N.numberLocale(L.language), { maximumFractionDigits: 2 }) + (suffix ? ' ' + suffix : '') : '';
+  }
+
+  function readable(value) {
+    if (value == null) return '';
+    if (typeof value === 'string' || typeof value === 'number') return String(value);
+    if (Array.isArray(value)) return value.map(readable).filter(Boolean).join(', ');
+    if (typeof value === 'object') return readable(value.label || value.text || value.title || value.reference || value.value || '');
+    return '';
+  }
+
+  function selectMode(next, focus) {
+    mode = next;
+    tabs.forEach(tab => {
+      const selected = tab.dataset.mode === mode;
+      tab.setAttribute('aria-selected', String(selected));
+      tab.tabIndex = selected ? 0 : -1;
     });
-    return bad;
+    $('panel-anfrage').hidden = mode === 'chat';
+    $('panel-chat').hidden = mode !== 'chat';
+    $('panel-anfrage').setAttribute('aria-labelledby', mode === 'description' ? 'tab-description' : 'tab-upload');
+    $('upload-area').hidden = mode === 'description';
+    $('description-help').hidden = mode !== 'description';
+    $('description-label').textContent = mode === 'description' ? 'Beschreiben Sie Ihr Teil' : 'Was möchten Sie uns mitgeben? Optional zur Zeichnung';
+    $('description').placeholder = mode === 'description'
+      ? 'Zum Beispiel: Eine Hülse mit Bund, außen Ø 12 mm, innen Ø 6 mm, Länge 25 mm. Werkstoff und weitere Anforderungen sind noch offen.'
+      : 'Zum Beispiel Stückzahl, Werkstoff, gewünschter Termin oder eine Frage zum Teil.';
+    if (focus) (mode === 'chat' ? $('chat-input') : mode === 'description' ? $('description') : $('file')).focus();
   }
 
-  let letzte = null;
-  function rechnen() {
-    sichtbar();
-    if (ungueltig()) return;
-    const e = lesen();
-    const aus = E.auslegen(e);
-    if (aus.fehlt.length || !aus.stufen.length) { $('leer').hidden = false; $('aus').hidden = true; $('leer').textContent = aus.fehlt.length ? 'Es fehlen noch: ' + aus.fehlt.join(', ') + '.' : 'Mit Draht-Ø und den Hüllmaßen des Teils erscheinen hier Stadienfolge, Werkzeuggröße und die passenden Modelle.'; letzte = null; knoepfe(); return; }
-    const wahl = E.waehle(MASCHINEN, aus, e, PRAXIS);
-    letzte = { e, aus, wahl };
-    zeigen(e, aus, wahl);
-    knoepfe();
+  tabs.forEach((tab, index) => {
+    tab.addEventListener('click', () => selectMode(tab.dataset.mode, false));
+    tab.addEventListener('keydown', event => {
+      let next;
+      if (event.key === 'ArrowRight') next = (index + 1) % tabs.length;
+      else if (event.key === 'ArrowLeft') next = (index + tabs.length - 1) % tabs.length;
+      else if (event.key === 'Home') next = 0;
+      else if (event.key === 'End') next = tabs.length - 1;
+      else return;
+      event.preventDefault();
+      selectMode(tabs[next].dataset.mode, false);
+      tabs[next].focus();
+    });
+  });
+
+  function selectedFile() { return $('file').files[0] || null; }
+
+  function fileError() {
+    const file = selectedFile();
+    if (!file) return '';
+    if (!ALLOWED.test(file.name)) return 'Bitte wählen Sie eine PDF-, Bild- oder CAD-Datei im angegebenen Format.';
+    if (!file.size) return 'Die ausgewählte Datei ist leer. Bitte wählen Sie die Zeichnung erneut aus.';
+    if (file.size > MAX_BYTES) return 'Diese Datei ist größer als 15 MB. Bitte verwenden Sie eine kleinere Datei oder beschreiben Sie Ihr Teil.';
+    return '';
   }
 
-  function zeigen(e, aus, wahl) {
-    const w = aus.werte;
-    $('leer').hidden = true; $('aus').hidden = false;
-    // Platzhalter der Werkzeugfelder
-    f.elements.lStempel.placeholder = fmt(w.lStempel) + ' berechnet';
-    f.elements.ko.placeholder = fmt(w.lMatrize) + ' berechnet';
-    f.elements.pko.placeholder = fmt(w.lStempel) + ' berechnet';
-    f.elements.stationen.placeholder = String(aus.stufen.length);
-    f.elements.zusatz.placeholder = String(w.zusatzStandard) + (w.zusatzStandard ? ' (Kalibrieren, Hohlteil)' : '');
-    const kenn = [
-      ['Abschnitt', 'Ø' + fmt(w.d0) + ' × ' + fmt(w.L0) + ' mm'],
-      ['Masse Fertigteil', fmt(w.masse) + ' g'],
-      ['Stationen', w.stationen + ' <small>+1 Reserve</small>'],
-      ['Höchste Stationskraft', fmt(w.Fmax_t) + ' t'],
-      ['Nennkraft nötig', fmt(w.FN_muss_t, 0) + ' t <small>wünschenswert ' + fmt(w.FN_wunsch_t, 0) + ' t</small>'],
-      ['Summe aller Stationen', fmt(w.Fsum_t) + ' t'],
-      ['Auswerfer Matrize (KO)', fmt(w.ko) + ' mm' + (w.koVorgabe ? ' <small>Vorgabe</small>' : '')],
-      ['Auswerfer Stempel (PKO)', (w.pko > 0 ? fmt(w.pko) + ' mm' : 'nicht nötig') + (w.pkoVorgabe ? ' <small>Vorgabe</small>' : '')],
-      ['Matrize Ø × L', Math.round(w.matD.min) + ' bis ' + Math.round(w.matD.ideal) + ' × ' + Math.round(w.matL) + ' mm' + (e.typ !== 'mutter' ? ' <small>Pitch ab ' + Math.round(w.pitch) + '</small>' : '')],
-      ['Stempelaufnahme', w.stempelD ? 'Ø' + Math.round(w.stempelD) + ' mm' : '·'],
-      ['Schneidbüchse', 'Bohrung ' + fmt(w.buechse.bohrung, 2) + ' <small>außen Ø' + Math.round(w.buechse.aussen) + '</small>']
-    ];
-    if (e.typ !== 'mutter') kenn.splice(3, 0, ['Stauchverhältnis Kopf', w.sKopf ? fmt(w.sKopf, 2) : '·']);
-    $('kenn').innerHTML = kenn.map(([k, v]) => '<div><dt>' + k + '</dt><dd>' + v + '</dd></div>').join('');
-    $('hinweise').innerHTML = aus.hinweise.map(h => '<li>' + esc(h) + '</li>').join('');
-    $('stufen').tBodies[0].innerHTML = aus.stufen.map((s, i) => '<tr><td>' + (i + 1) + '</td><td>' + esc(s.v) + '</td><td class="z">' + fmt(s.t) + ' t</td><td class="z">' + (s.p ? fmt(s.p, 0) : '·') + '</td><td class="z">Ø' + Math.round(s.matD) + (s.arm ? '<br><small>' + s.arm + '</small>' : '') + '</td></tr>').join('');
-    // Karten
-    const k = [];
-    const karte = (r, beste) => {
-      const o = r.o, sp = (o.lo && o.hi) ? eur(o.lo) + ' bis ' + eur(o.hi) : '';
-      const farbe = r.ausl <= 0.65 ? 'var(--ok)' : r.ausl <= 0.8 ? 'var(--knapp)' : 'var(--nein)';
-      const marke = { ok: 'passt', knapp: 'knapp', offen: 'Daten fehlen', nein: 'passt nicht' }[r.gesamt];
-      const zeilen = r.k.map(x => '<tr><td>' + esc(x.krit) + '</td><td>' + esc(x.soll) + '</td><td>' + esc(x.ist) + '</td><td><span class="st m-' + x.status + '">' + { ok: 'ok', knapp: 'knapp', nein: 'nein', offen: 'offen' }[x.status] + '</span></td></tr>').join('');
-      const kat = o.kat ? '<a href="' + KATURL + o.kat + '.pdf#page=' + (o.s || 1) + '" target="_blank" rel="noopener">Katalog ' + o.kat + ', S. ' + (o.s || 1) + '</a>' : '';
-      return '<div class="karte' + (beste ? ' beste' : '') + '"><div class="kopfzeile"><div><span class="modell">' + o.m + '</span><span class="marke m-' + r.gesamt + '">' + marke + '</span><div class="fam">' + (FAMNAME[o.f] || o.f) + ' · ' + o.st + ' Stationen · ' + o.pw + ' t' + (o.sz ? ' · bis ' + o.sz : '') + '</div></div>' +
-        '<div class="preis"><b>' + eur(o.rp) + '</b><small>' + sp + '</small></div></div>' +
-        '<div class="balken" title="Auslastung der Nennkraft, Strich bei 65 %"><i style="width:' + Math.min(100, Math.round(r.ausl * 100)) + '%;background:' + farbe + '"></i></div>' +
-        '<div class="kurz"><span>Auslastung ' + Math.round(r.ausl * 100) + ' %</span><span>Abschnitt bis Ø' + o.cd + '</span><span>KO ' + (o.ko || '·') + (o.kor ? ' (' + o.kor + ')' : '') + '</span><span>PKO ' + (o.pko || '·') + '</span><span>Matrize Ø' + (o.die ? o.die[0] + ' × ' + o.die[1] : '·') + '</span>' + (o.wt ? '<span>rund ' + fmt(o.wt) + ' t, Motor ' + fmt(o.hp * 0.7457, 0) + ' kW</span>' : '') + (r.plan ? '<span title="Erfahrungswert aus der Serienfertigung; der Katalog nennt die Höchstdrehzahl">Planung ≈ ' + r.plan.aus + ' /min, rund ' + r.stundeProStk.toLocaleString('de-DE') + ' Stück/h (Katalog bis ' + o.out + ')</span>' : (o.out ? '<span>bis ' + o.out + ' /min</span>' : '')) + '</div>' +
-        '<details><summary>Prüfung im Einzelnen</summary><table class="krit"><thead><tr><th>Kriterium</th><th>Bedarf</th><th>Maschine</th><th></th></tr></thead><tbody>' + zeilen + '</tbody></table><p class="klein">' + kat + '</p></details></div>';
-    };
-    if (wahl.passend.length) { k.push(...wahl.passend.slice(0, 3).map((r, i) => karte(r, i === 0))); }
-    if (wahl.bedingt.length) { k.push('<h3>Bedingt geeignet</h3>'); k.push(...wahl.bedingt.slice(0, wahl.passend.length ? 2 : 4).map(r => karte(r, !wahl.passend.length))); }
-    if (!wahl.passend.length && !wahl.bedingt.length) k.push('<p>Kein Katalogmodell erfüllt alle Muss-Kriterien. Die Anfrage lohnt trotzdem: Sonderausführungen und Werkzeugkonzepte klärt Hans Möhling direkt mit Jern Yao.</p>');
-    if (wahl.fast.length) { k.push('<details><summary>Knapp daneben (' + Math.min(wahl.fast.length, 4) + ')</summary>' + wahl.fast.slice(0, 4).map(r => karte(r, false)).join('') + '</details>'); }
-    $('karten').innerHTML = k.join('');
-    $('regeln').innerHTML = aus.regelListe.map(id => { const r = E.REGELN[id]; return r ? '<tr><td>' + id + '</td><td>' + esc(r.t) + '<br><span class="klein">' + esc(r.art) + '</span></td></tr>' : ''; }).join('');
+  function signature() {
+    const file = selectedFile();
+    return JSON.stringify({ language:L.language, email: $('email').value.trim(), name: $('name').value.trim(), firma: $('company').value.trim(), notiz: $('description').value.trim(), file: file ? [file.name, file.size, file.lastModified] : null });
   }
 
-  function knoepfe() {
-    const ok = !!letzte && a.elements.ok.checked && /.+@.+\..+/.test(a.elements.email.value);
-    $('senden').disabled = !ok;
-    $('drucken').disabled = !letzte;
+  function updateSubmit() {
+    $('request-submit').disabled = !apiBase || requestBusy || !!fileError() || (sentSignature !== '' && sentSignature === signature());
+    $('request-submit').textContent = requestBusy ? 'Anfrage wird übertragen …' : sentSignature && sentSignature === signature() ? 'Anfrage eingegangen' : 'Anfrage senden';
+    $('chat-submit').disabled = !apiBase || chatBusy;
+    $('chat-submit').textContent = chatBusy ? 'Antwort wird vorbereitet …' : 'Frage senden';
   }
 
-  function zusammenfassung() {
-    const { e, aus, wahl } = letzte, w = aus.werte, m = aus.werkstoff;
-    const zeilen = [];
-    zeilen.push('Teileart: ' + { bolzen: 'Schraube/Bolzen', formteil: 'Formteil/Hülse', mutter: 'Mutter' }[e.typ]);
-    zeilen.push('Werkstoff: ' + m.id + ', Rm des Drahtes ' + m.Rm + ' N/mm²');
-    zeilen.push('Draht-Ø ' + fmt(w.d0) + ' mm, Abschnitt ' + fmt(w.L0) + ' mm, Masse ' + fmt(w.masse) + ' g');
-    if (e.typ === 'mutter') zeilen.push('Mutter M' + fmt(w.mM) + ', SW ' + fmt(e.mSW) + ', Höhe ' + fmt(e.mH) + (e.mFlansch ? ', Flansch Ø' + fmt(e.mFlansch) : ''));
-    else zeilen.push('Kopf ' + (f.elements.kopfForm.selectedOptions[0].textContent) + ' Ø' + fmt(e.kD) + (e.kSW ? ' SW ' + fmt(e.kSW) : '') + ' × ' + fmt(e.kH) + '; Schaft Ø' + fmt(e.sD || e.d0) + ' × ' + fmt(e.sL) + (e.iSW ? '; Innenantrieb SW ' + fmt(e.iSW) + ' × ' + fmt(e.iT) : '') + (e.nD ? '; Napf Ø' + fmt(e.nD) + ' × ' + fmt(e.nT) + (e.nDurch ? ' gelocht' : '') : ''));
-    zeilen.push('Werkzeugtrennkante: ' + fmt(w.lStempel) + ' mm im Stempel; KO ' + fmt(w.ko) + ' mm, PKO ' + fmt(w.pko) + ' mm' + (e.wenden ? ', mit 180°-Wendung' : ''));
-    const v = e.vorgaben;
-    if (v.matD || v.stD) zeilen.push('Vorhandene Werkzeuge: Matrize ' + (v.matD ? 'Ø' + v.matD + ' × ' + (v.matL || '?') : '·') + ', Stempel ' + (v.stD ? 'Ø' + v.stD + ' × ' + (v.stL || '?') : '·'));
-    if (v.zusatz != null && isFinite(v.zusatz)) zeilen.push('Zusatzstufen (Kalibrieren, Kerben, Prägen, Beschneiden): ' + v.zusatz);
-    if (e.soll.ausbringung) zeilen.push('Ausbringung: ' + e.soll.ausbringung + ' /min');
-    zeilen.push('');
-    zeilen.push('Grobauslegung: ' + w.stationen + ' Stationen (+1 Reserve), höchste Stationskraft ' + fmt(w.Fmax_t) + ' t, Nennkraft ab ' + fmt(w.FN_muss_t, 0) + ' t');
-    aus.stufen.forEach((s, i) => zeilen.push('  ' + (i + 1) + '. ' + s.v + ': ' + fmt(s.t) + ' t'));
-    zeilen.push('');
-    const top = [...wahl.passend.slice(0, 3), ...(wahl.passend.length ? [] : wahl.bedingt.slice(0, 3))];
-    zeilen.push('Vorauswahl:');
-    top.forEach(r => zeilen.push('  ' + r.o.m + ' (' + r.gesamt + '), Richtpreis 2026 ' + eur(r.o.rp) + ', Auslastung ' + Math.round(r.ausl * 100) + ' %' + (r.plan ? ', Planung rund ' + r.plan.aus + ' /min' : '')));
-    return zeilen.join('\n');
+  function updateFile() {
+    const file = selectedFile();
+    const error = fileError();
+    $('file-summary').hidden = !file;
+    $('file-name').textContent = file ? file.name + ' · ' + number(file.size / 1024 / 1024, 'MB') + (CAD.test(file.name) ? ' · CAD-Anhang für Hans Möhling' : '') : '';
+    message('file-error', error, 'error');
+    $('file').setAttribute('aria-invalid', String(!!error));
+    updateSubmit();
   }
 
-  async function senden() {
-    if (!letzte) return;
-    const z = f.elements.zeichnung.files[0];
-    const kopf = ['Name: ' + a.elements.name.value, 'Firma: ' + a.elements.firma.value, 'E-Mail: ' + a.elements.email.value, 'Telefon: ' + a.elements.tel.value].join('\n');
-    const text = kopf + '\n\n' + (a.elements.nachricht.value ? a.elements.nachricht.value + '\n\n' : '') + zusammenfassung() + (z ? '\n\nZeichnung: ' + z.name + ' (bitte anhängen)' : '');
-    const betreff = 'Richtpreisanfrage ' + ((letzte.wahl.passend[0] || letzte.wahl.bedingt[0] || {}).o || {}).m;
-    if (ENDPOINT) {
-      const fd = new FormData();
-      fd.append('betreff', betreff); fd.append('text', text); fd.append('eingaben', JSON.stringify(letzte.e)); fd.append('email', a.elements.email.value);
-      if (z) fd.append('zeichnung', z, z.name);
-      try {
-        const r = await fetch(ENDPOINT, { method: 'POST', body: fd });
-        if (r.ok) { $('sendehinweis').textContent = 'Danke. Die Anfrage ist angekommen; die Antwort kommt persönlich.'; return; }
-      } catch (err) { /* Rückfall auf E-Mail */ }
-    }
-    location.href = 'mailto:' + MAIL + '?subject=' + encodeURIComponent(betreff) + '&body=' + encodeURIComponent(text.replace(/\n/g, '\r\n'));
-  }
-
-  function drucken() {
-    if (!letzte) return;
-    const b = $('blatt');
-    b.innerHTML = '<h1>Anforderungsblatt Mehrstufenpresse</h1><p>' + new Date().toLocaleDateString('de-DE') + ' · Grobauslegung, unverbindlich · info@jernyao.de</p><pre style="white-space:pre-wrap;font:inherit">' + esc(zusammenfassung()) + '</pre>';
-    window.print();
-  }
-
-  const BSP = {
-    m8: { typ: 'bolzen', wst: '4', d0: '7,6', kopfForm: 'rund', kD: '17', kH: '6', sD: '7,2', sL: '40' },
-    m6: { typ: 'bolzen', wst: '5', d0: '5,6', kopfForm: 'rund', kD: '10', kH: '6', sD: '5,4', sL: '30', iSW: '5', iT: '3' },
-    mu: { typ: 'mutter', wst: '0', d0: '13', mM: '10', mSW: '16', mH: '8' },
-    hu: { typ: 'formteil', wst: '1', d0: '16', kopfForm: 'rund', kD: '24', kH: '5', sD: '16', sL: '30', nD: '10', nT: '20', nDurch: true }
-  };
-  document.querySelectorAll('[data-bsp]').forEach(btn => btn.addEventListener('click', () => {
-    f.reset(); a.elements.ok.checked = false;
-    const d = BSP[btn.dataset.bsp];
-    for (const [k, v] of Object.entries(d)) {
-      const el = f.elements[k];
-      if (k === 'typ') f.querySelector('input[name=typ][value=' + v + ']').checked = true;
-      else if (el && el.type === 'checkbox') el.checked = !!v;
-      else if (el) el.value = v;
-    }
-    rechnen();
-    if (window.matchMedia('(max-width:900px)').matches) $('ergebnis').scrollIntoView({ behavior: 'smooth' });
+  $('choose-file').addEventListener('click',()=>$('file').click());
+  $('file').addEventListener('change', updateFile);
+  $('remove-file').addEventListener('click', () => { $('file').value = ''; updateFile(); });
+  const drop = $('drop-zone');
+  ['dragenter', 'dragover'].forEach(name => drop.addEventListener(name, event => {
+    event.preventDefault();
+    drop.classList.add('dragover');
   }));
+  ['dragleave', 'drop'].forEach(name => drop.addEventListener(name, event => {
+    event.preventDefault();
+    drop.classList.remove('dragover');
+  }));
+  drop.addEventListener('drop', event => {
+    if (!event.dataTransfer || !event.dataTransfer.files.length) return;
+    if (event.dataTransfer.files.length !== 1) {
+      message('file-error', 'Bitte laden Sie eine Datei pro Anfrage hoch. Mehrseitige Zeichnungen können Sie als eine PDF zusammenfassen.', 'error');
+      return;
+    }
+    try { $('file').files = event.dataTransfer.files; updateFile(); }
+    catch (_) { message('file-error', 'Bitte wählen Sie die Datei über die Schaltfläche aus.', 'error'); }
+  });
+  requestForm.addEventListener('input',()=>{$('email').setCustomValidity('');$('consent').setCustomValidity('');updateSubmit();});
+  function validRequest(){
+    const email=$('email').value.trim();
+    $('email').setCustomValidity(tr(!email?'Bitte geben Sie Ihre E-Mail-Adresse ein.':!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)?'Bitte geben Sie eine gültige E-Mail-Adresse ein.':''));
+    $('consent').setCustomValidity($('consent').checked?'':tr('Bitte stimmen Sie der Verarbeitung Ihrer Anfrage zu.'));
+    return requestForm.reportValidity() && !!email && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email) && $('consent').checked;
+  }
 
-  let t = null;
-  f.addEventListener('input', () => { clearTimeout(t); t = setTimeout(rechnen, 120); });
-  f.addEventListener('change', rechnen);
-  a.addEventListener('input', knoepfe); a.addEventListener('change', knoepfe);
-  $('senden').addEventListener('click', senden);
-  $('drucken').addEventListener('click', drucken);
-  sichtbar(); rechnen();
+  async function api(path, options) {
+    const controller = new AbortController();
+    const timer = window.setTimeout(() => controller.abort(), 90000);
+    try {
+      const response = await fetch(apiBase + path + (path.includes('?')?'&':'?') + 'language=' + encodeURIComponent(L.language), Object.assign({}, options, { signal: controller.signal, credentials: 'omit', cache: 'no-store' }));
+      let data;
+      try { data = await response.json(); } catch (_) { data = null; }
+      if (!response.ok) {
+        const error = new Error(response.status === 503
+          ? 'Der technische Dialog ist gerade nicht verfügbar. Bitte versuchen Sie es später oder schreiben Sie an ' + MAIL + '.'
+          : response.status === 429
+          ? 'Im Moment kommen viele Anfragen an. Bitte versuchen Sie es in wenigen Minuten erneut.'
+          : response.status === 413
+          ? 'Die Datei ist für die Übertragung zu groß. Bitte verwenden Sie eine Datei bis 15 MB.'
+          : response.status === 400 || response.status === 415 || response.status === 422
+          ? 'Bitte prüfen Sie Ihre Angaben und das Dateiformat.'
+          : 'Die Übertragung konnte nicht bestätigt werden. Bitte versuchen Sie es erneut.');
+        error.status = response.status;
+        throw error;
+      }
+      if (!data || typeof data !== 'object') throw new Error('Die Antwort konnte nicht gelesen werden. Bitte versuchen Sie es erneut.');
+      return data;
+    } catch (error) {
+      if (error.name === 'AbortError') throw new Error('Die Antwort dauert länger als erwartet. Bitte versuchen Sie es erneut; dabei verwenden wir dieselbe Anfragenkennung.');
+      if (error instanceof TypeError) throw new Error('Die Verbindung konnte nicht hergestellt werden. Bitte prüfen Sie Ihre Internetverbindung und versuchen Sie es erneut.');
+      throw error;
+    } finally { window.clearTimeout(timer); }
+  }
+
+  function listSection(parent, title, values, className) {
+    const items = Array.isArray(values) ? values.map(readable).filter(Boolean) : [];
+    if (!items.length) return;
+    parent.appendChild(element('h3', title));
+    const list = element('ul', null, className);
+    items.forEach(value => list.appendChild(element('li', value)));
+    parent.appendChild(list);
+  }
+
+  function sourcesSection(parent, sources) {
+    if (!Array.isArray(sources) || !sources.length) return;
+    const list = element('ul', null, 'source-list');
+    sources.forEach(source => {
+      const label = typeof source === 'string' ? source : readable(source.label || source.id);
+      if (!label) return;
+      const li = element('li');
+      let url = null;
+      try { const candidate = new URL(source.url); if (['https:', 'http:'].includes(candidate.protocol)) url = candidate; } catch (_) { /* Plain reference is enough. */ }
+      if (url) { const link = element('a', label); link.href = url.href; link.target = '_blank'; link.rel = 'noopener noreferrer'; li.appendChild(link); }
+      else li.textContent = label;
+      list.appendChild(li);
+    });
+    if (list.children.length) { parent.appendChild(element('h3', 'Grundlagen & Quellen')); parent.appendChild(list); }
+  }
+
+  function factRow(list, label, value, detail) {
+    if (!value) return;
+    const row = element('div');
+    row.appendChild(element('dt', label));
+    const originalValue = element('dd');
+    originalValue.textContent = value;
+    originalValue.dataset.originalText = '';
+    row.appendChild(originalValue);
+    if (detail && typeof detail === 'object') {
+      const provenance = element('dd', null, 'small');
+      const labels = [detail.assumption ? 'Annahme' : '', detail.origin].filter(Boolean);
+      labels.forEach((text, index) => {
+        if (index) provenance.appendChild(element('span', ' · '));
+        provenance.appendChild(element('span', text));
+      });
+      if (detail.reference) {
+        if (labels.length) provenance.appendChild(element('span', ' · '));
+        const reference = element('span');
+        // Translate the complete reference template before combining it with
+        // provenance labels. Its quoted customer text must remain verbatim.
+        reference.textContent = tr(detail.reference);
+        reference.dataset.originalText = '';
+        provenance.appendChild(reference);
+      }
+      row.appendChild(provenance);
+    } else if (detail) row.appendChild(element('dd', detail, 'small'));
+    list.appendChild(row);
+  }
+
+  function renderProposal(parent, proposal) {
+    if (!proposal || typeof proposal !== 'object') return;
+    const fieldLabels = { material: 'Werkstoff', materialState:'Lieferzustand', curveId:'Fließkurvenansatz', d0: 'Drahtdurchmesser', kD: 'Kopfdurchmesser', kSW: 'Kopfschlüsselweite', kH: 'Kopfhöhe', sD: 'Körperdurchmesser', sL: 'Körperlänge', iSW: 'Innenantrieb-Schlüsselweite', iT: 'Innenantriebstiefe', nD: 'Napfinnendurchmesser', nT: 'Napftiefe', mM: 'Gewinde-Nenndurchmesser', mSW: 'Mutternschlüsselweite', mH: 'Mutternhöhe', mLoch: 'Lochdurchmesser', mFlansch: 'Flanschdurchmesser', mFlanschH: 'Flanschhöhe', masse: 'Teilmasse', rm: 'Drahtzugfestigkeit', lStempel: 'Länge im Stempel', ko: 'Matrizenauswerferweg', pko: 'Stempelauswerferweg', matD: 'Matrizenaufnahme-Durchmesser', matL: 'Matrizenaufnahme-Länge', stD: 'Stempelaufnahme-Durchmesser', stL: 'Stempelaufnahme-Länge', stationen: 'Stationsvorgabe', zusatz: 'Zusatzstufen', ausbringung: 'Ausbringung' };
+    const originLabels = { user_text: 'Ihre Beschreibung', drawing: 'Aus der Zeichnung gelesen', derived: 'Abgeleitet', assumption: 'Prozessannahme' };
+    const provenance = item => ({ assumption: !!item.assumption, origin: originLabels[item.origin] || '', reference: readable(item.reference) });
+    const materialModel=proposal.calculation&&proposal.calculation.materialModel;
+    if(materialModel){
+      const curve=materialModel.selectedFlowCurve,status=proposal.calculation.materialStatus;
+      const statuses={missing:'Kein belegter Fließkurvenansatz für diesen Werkstoff','state-missing':'Lieferzustand des Drahts fehlt','state-mismatch':'Lieferzustand passt nicht zur ausgewählten Fließkurve','selection-missing':'Belegten Fließkurvenansatz und Lieferzustand auswählen','temperature-mismatch':'Temperatur passt nicht zum Quellenbereich der Fließkurve','strain-outside-range':'Umformgrad außerhalb des belegten Fließkurvenbereichs'};
+      let description=curve?tr(curve.approval==='proxy'?'begründete Ersatzkurve':'Literaturansatz')+' · '+tr(curve.state==='soft-annealed'?'weichgeglüht':curve.state)+' · '+readable(curve.id):tr('Fließkurve des Lieferzustands fehlt');
+      if(curve&&status?.flow!=='ready')description+=' · '+tr(statuses[status?.flow]||'Kraft noch offen');
+      const basis=element('p',tr('Werkstoffmodell:')+' '+description,'small');basis.dataset.originalText='';parent.appendChild(basis);
+    }
+    const input = Array.isArray(proposal.input) ? proposal.input : [];
+    if (input.length) {
+      parent.appendChild(element('h3', 'Aus Ihren Angaben'));
+      const facts = element('dl', null, 'proposal-grid');
+      input.forEach(item => factRow(facts, fieldLabels[item.field] || readable(item.field), [item.field==='materialState'?tr(readable(item.value)):readable(item.value), item.unit === 'count' ? '' : readable(item.unit)].filter(Boolean).join(' '), provenance(item)));
+      parent.appendChild(facts);
+    }
+    const wire = proposal.wireDiameter;
+    if (wire && wire.value != null) {
+      const facts = element('dl', null, 'proposal-grid');
+      factRow(facts, 'Vorgeschlagener Drahtdurchmesser', readable(wire.value) + ' ' + readable(wire.unit || 'mm'), provenance(wire));
+      parent.appendChild(facts);
+    }
+    if (Array.isArray(proposal.stages) && proposal.stages.length) {
+      parent.appendChild(element('h3', 'Vorschlag zur Stadienfolge'));
+      const list = element('ol', null, 'stage-list');
+      proposal.stages.forEach((stage, index) => {
+        const li = element('li');
+        li.appendChild(element('strong', 'Stadium ' + readable(stage.number || index + 1) + ' · ' + readable(stage.operation)));
+        const detail = [stage.force_t != null ? number(stage.force_t, 't') : 'Kraft noch offen', readable(stage.rule)].filter(Boolean).join(' · ');
+        if (detail) li.appendChild(element('div', detail, 'small'));
+        list.appendChild(li);
+      });
+      parent.appendChild(list);
+    }
+    if (Array.isArray(proposal.machines) && proposal.machines.length) {
+      parent.appendChild(element('h3', 'Maschinen zum Konzept'));
+      const machines = element('dl', null, 'proposal-grid');
+      proposal.machines.forEach(machine => {
+        const row = element('div');
+        row.appendChild(element('dt', readable(machine.model)));
+        const statusLabels = { ok: 'Passend zur Vorauswahl', knapp: 'Einzelne Punkte vertiefen', offen: 'Angaben offen', nein: 'Grenze überschritten', suitable: 'Passend zur Vorauswahl' };
+        row.appendChild(element('dd', statusLabels[machine.status] || readable(machine.status)));
+        const price = typeof machine.priceEUR==='number' && machine.priceEUR>0?number(machine.priceEUR, 'EUR'):'';
+        if (price) row.appendChild(element('dd', 'Richtpreis ' + price, 'small'));
+        if (Array.isArray(machine.priceRangeEUR) && machine.priceRangeEUR.length === 2) row.appendChild(element('dd', 'Preisspanne ' + machine.priceRangeEUR.map(value => number(value, 'EUR')).join(' – '), 'small'));
+        if(machine.concept){const box=element('div');box.innerHTML=window.JYConcept.html(machine.concept,L.language);row.appendChild(box);}
+        if (Array.isArray(machine.criteria) && machine.criteria.length) {
+          const details = element('details'); details.appendChild(element('summary', 'Abgleich mit den Maschinendaten'));
+          const list = element('ul', null, 'small');
+          machine.criteria.forEach(criterion => list.appendChild(element('li', [readable(criterion.criterion), criterion.required != null ? 'Bedarf: ' + readable(criterion.required) : '', criterion.available != null ? 'Maschine: ' + readable(criterion.available) : '', readable(criterion.rule)].filter(Boolean).join(' · '))));
+          details.appendChild(list); row.appendChild(details);
+        }
+        machines.appendChild(row);
+      });
+      parent.appendChild(machines);
+    }
+    listSection(parent, 'Annahmen im Konzept', proposal.assumptions);
+    listSection(parent, 'Punkte für die Vertiefung', proposal.limits);
+    if (Array.isArray(proposal.calculationBasis) && proposal.calculationBasis.length) {
+      const details = element('details'); details.appendChild(element('summary', 'Berechnungsgrundlage'));
+      const list = element('ul', null, 'small');
+      proposal.calculationBasis.map(readable).filter(Boolean).forEach(value => list.appendChild(element('li', value)));
+      details.appendChild(list); parent.appendChild(details);
+    }
+    if (Array.isArray(proposal.rules) && proposal.rules.length) {
+      const details = element('details'); details.appendChild(element('summary', 'Verwendete Auslegungsregeln'));
+      const list = element('ul', null, 'source-list');
+      proposal.rules.forEach(rule => list.appendChild(element('li', [readable(rule.id), readable(rule.text), readable(rule.type)].filter(Boolean).join(' · '))));
+      details.appendChild(list); parent.appendChild(details);
+    }
+  }
+
+  function renderStatus(data) {
+    latestStatus=data;
+    $('response').hidden = false;
+    const labels = { queued: 'Anfrage eingegangen', processing: 'Ihr Konzept wird vorbereitet', needs_info: 'Eine Rückfrage zu Ihrem Teil', ready: 'Ihr erster Konzeptvorschlag', failed: 'Die technische Auswertung ist noch offen' };
+    $('response-title').textContent = labels[data.status] || 'Ihre Anfrage';
+    $('result-status').textContent = 'Anfrage ' + current.id;
+    const content = $('result-content'); content.replaceChildren();
+    if(data.language && window.JYI18N.normalizeLanguage(data.language)!==L.language)content.appendChild(element('p',tr('Antwortsprache:')+' '+L.autonyms[window.JYI18N.normalizeLanguage(data.language)],'original-language'));
+    if (typeof data.answer === 'string' && data.answer.trim()) content.appendChild(element('div', data.answer, 'answer-text'));
+    else if (data.status === 'queued' || data.status === 'processing') content.appendChild(element('p', 'Ihre Unterlagen sind eingegangen. Die technische Auswertung folgt hier.'));
+    else if (data.status === 'failed') content.appendChild(element('p', 'Die Anfrage bleibt erhalten. Sie können Hans Möhling unter Angabe der Anfragenummer direkt kontaktieren.'));
+    renderProposal(content, data.proposal);
+    listSection(content, 'Das möchten wir noch wissen', data.questions);
+    sourcesSection(content, data.sources);
+    const notification = { sent: 'Hans Möhling wurde per E-Mail über Ihre Anfrage informiert.', pending: 'Die Benachrichtigung an Hans Möhling ist noch in Bearbeitung.', failed: 'Ihre Anfrage ist gespeichert. Die E-Mail an Hans Möhling konnte noch nicht zugestellt werden.' };
+    $('notification').textContent = notification[data.notificationStatus] || 'Die Anfrage ist gespeichert. Der Stand der persönlichen Benachrichtigung liegt noch nicht vor.';
+  }
+
+  function schedulePoll() {
+    window.clearTimeout(pollTimer);
+    if (current && polls < 30) pollTimer = window.setTimeout(() => refreshStatus(false), 4000);
+  }
+
+  async function refreshStatus(manual) {
+    if (!current || polling) return;
+    polling = true;
+    $('refresh-status').disabled = true;
+    const identity = current;
+    try {
+      const data = await api('/status?' + new URLSearchParams({ id: identity.id, token: identity.token }).toString());
+      if (current !== identity) return;
+      renderStatus(data);
+      polls += 1;
+      if (!['ready', 'needs_info', 'failed'].includes(data.status)) schedulePoll();
+      if (manual) message('request-message', 'Stand aktualisiert.');
+    } catch (error) {
+      if (current !== identity) return;
+      polls += 1;
+      if (manual) message('request-message', error.message + ' Ihre bereits empfangene Anfrage bleibt bestehen.', 'error');
+      if (error.status !== 401 && error.status !== 403 && error.status !== 404) schedulePoll();
+    } finally { polling = false; $('refresh-status').disabled = false; }
+  }
+
+  requestForm.addEventListener('submit', async event => {
+    event.preventDefault();
+    if (!apiBase || requestBusy || !validRequest()) return;
+    const file = selectedFile();
+    const note = $('description').value.trim();
+    if (!file && !note) {
+      message('request-message', 'Bitte wählen Sie eine Zeichnung aus oder beschreiben Sie Ihr Teil mit wenigen Worten.', 'error');
+      $('description').focus(); return;
+    }
+    if (fileError()) { updateFile(); return; }
+    const nextSignature = signature();
+    if (nextSignature !== payloadSignature || !idempotencyKey) {
+      payloadSignature = nextSignature;
+      idempotencyKey = typeof crypto.randomUUID === 'function' ? crypto.randomUUID() : Array.from(crypto.getRandomValues(new Uint8Array(24)), value => value.toString(16).padStart(2, '0')).join('');
+    }
+    const data = new FormData();
+    data.append('language',L.language);
+    data.append('email', $('email').value.trim()); data.append('name', $('name').value.trim()); data.append('firma', $('company').value.trim()); data.append('notiz', note); data.append('idempotency_key', idempotencyKey);
+    if (file) data.append('datei', file, file.name);
+    requestBusy = true; updateSubmit(); message('request-message', 'Ihre Anfrage wird übertragen …');
+    try {
+      const result = await api('/anfrage', { method: 'POST', body: data });
+      if (typeof result.id !== 'string' || !result.id || typeof result.token !== 'string' || !result.token) throw new Error('Der Eingang konnte nicht eindeutig bestätigt werden. Bitte versuchen Sie es erneut.');
+      window.clearTimeout(pollTimer);
+      current = { id: result.id, token: result.token };
+      polls = 0;
+      sentSignature = nextSignature;
+      renderStatus(result);
+      message('request-message', 'Ihre Anfrage ist angekommen.', 'success');
+      $('response').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      schedulePoll();
+    } catch (error) { message('request-message', error.message, 'error'); }
+    finally { requestBusy = false; updateSubmit(); }
+  });
+
+  function appendChat(role, text, extra) {
+    const article = element('article', null, 'message ' + role);
+    article.appendChild(element('div', role === 'user' ? 'Sie' : 'Technischer Dialog', 'speaker'));
+    article.appendChild(element('div', text, 'message-text'));
+    if(extra&&extra.language)article.appendChild(element('p',tr('Antwortsprache:')+' '+(L.autonyms[window.JYI18N.normalizeLanguage(extra.language)]||extra.language),'original-language'));
+    if (extra) { renderProposal(article,extra.proposal);listSection(article, 'Dazu noch eine Frage', extra.questions); sourcesSection(article, extra.sources); }
+    $('messages').appendChild(article);
+    $('messages').scrollTop = $('messages').scrollHeight;
+    return article;
+  }
+
+  chatForm.addEventListener('submit', async event => {
+    event.preventDefault();
+    $('chat-input').setCustomValidity($('chat-input').value.trim()?'':tr('Bitte schreiben Sie Ihre Frage oder Idee.'));
+    if (!apiBase || chatBusy || !chatForm.reportValidity()) return;
+    const text = $('chat-input').value.trim();
+    if (!text) return;
+    const priorHistory = history.slice(-12).map(item => ({ role: item.role, content: item.content.slice(0, 4000) }));
+    const body = { message: text, history: priorHistory, language:L.language };
+    if (current) { body.requestId = current.id; body.token = current.token; }
+    // Keep the actual UTF-8 JSON below the service's 64 KB limit, including long
+    // answers and languages with multibyte characters. Remove oldest pairs first.
+    while (body.history.length && new TextEncoder().encode(JSON.stringify(body)).byteLength > 60000) body.history.splice(0, 2);
+    const bubble = appendChat('user', text);
+    chatBusy = true; updateSubmit(); message('chat-message', 'Die Antwort wird vorbereitet …');
+    try {
+      const response = await api('/chat', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body) });
+      if (typeof response.answer !== 'string' || !response.answer.trim()) throw new Error('Es liegt noch keine Antwort vor. Bitte versuchen Sie es erneut.');
+      history.push({ role: 'user', content: text }, { role: 'assistant', content: response.answer });
+      appendChat('assistant', response.answer, response);
+      if ($('chat-input').value.trim() === text) $('chat-input').value = '';
+      $('chat-examples').hidden = true;
+      message('chat-message', '');
+    } catch (error) { bubble.remove(); message('chat-message', error.message, 'error'); }
+    finally { chatBusy = false; updateSubmit(); }
+  });
+
+  $('chat-input').addEventListener('input',()=>$('chat-input').setCustomValidity(''));
+  document.querySelectorAll('[data-question]').forEach(button => button.addEventListener('click', () => {
+    $('chat-input').value = button.dataset.question; $('chat-input').focus();
+  }));
+  $('continue-chat').addEventListener('click', () => { selectMode('chat', true); $('panel-chat').scrollIntoView({ block: 'start' }); });
+  $('chat-to-request').addEventListener('click', () => {
+    const questions = history.filter(item => item.role === 'user').map(item => item.content);
+    if ($('chat-input').value.trim()) questions.push($('chat-input').value.trim());
+    if (questions.length && !$('description').value.trim()) $('description').value = questions.join('\n\n').slice(0, 12000);
+    selectMode('description', true); updateSubmit();
+  });
+  $('refresh-status').addEventListener('click', () => { polls = 0; refreshStatus(true); });
+  $('email-fallback').addEventListener('click', event => {
+    const file = selectedFile();
+    const body = [$('name').value.trim(), $('company').value.trim(), $('email').value.trim(), '', $('description').value.trim(), file ? '\n'+tr('Zeichnung:')+' '+file.name+' '+tr('(bitte dieser E-Mail beifügen)') : ''].join('\n');
+    event.currentTarget.href = 'mailto:' + MAIL + '?subject=' + encodeURIComponent(tr('Anfrage zur Kaltumformung')) + '&body=' + encodeURIComponent(body.slice(0, 7000));
+  });
+  document.querySelectorAll('a[href="#datenschutz"]').forEach(link => link.addEventListener('click', () => { $('datenschutz').open = true; }));
+  window.addEventListener('pagehide', () => window.clearTimeout(pollTimer));
+  $('availability').hidden = !!apiBase;
+  $('email-fallback').hidden = !!apiBase;
+  window.addEventListener('jy-languagechange',()=>{$('email').setCustomValidity('');$('consent').setCustomValidity('');$('chat-input').setCustomValidity('');selectMode(mode,false);updateFile();updateSubmit();if(latestStatus)renderStatus(latestStatus);L.apply();});
+  updateSubmit(); L.apply();
 })();

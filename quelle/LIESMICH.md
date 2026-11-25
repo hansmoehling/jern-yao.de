@@ -1,14 +1,20 @@
-# Konfigurator jern-yao.de
+# Agentische Auslegung auf jern-yao.de
 
-Testfeld für die Maschinenwahl mit Grobauslegung und Richtpreis 2026. Die Seite `index.html` im Wurzelordner wird gebaut, nicht von Hand bearbeitet.
+Zeichnung, Skizze oder Maßbeschreibung einreichen und Fertigungskonzepte im Fachdialog entwickeln. Der Rechenkern prüft Zahlen und Maschinen; der Dienst liest zuerst den versionierten Konzeptstand. Die Seite `index.html` wird gebaut, nicht von Hand bearbeitet. Die technische Oberfläche steht als **Manual** unter `manual/konfigurator-v1.html` und über `/manual/` bereit. Der alte Link `archiv/konfigurator-v1.html` leitet mit Query und Hash weiter; unveränderte historische Sicherungen bleiben unter `archiv/`.
 
 ## Bauen
 
 ```
 python3 quelle/katalog/specs_parse.py <Ordner mit den Katalog-PDFs>     # Kataloge von https://www.jernyao.com/files/
 python3 quelle/katalog/daten_bauen.py <JernYao_Richtpreise_2026.csv>     # Preisliste aus dem Projektordner
-python3 quelle/bauen.py                                                  # schreibt index.html
+python3 quelle/bauen.py                                                  # baut Startseite, Manual, Weiterleitungen und 404-Seite
 node quelle/test/faelle.js                                               # Referenzfälle und Prüffälle aus Stadienplänen
+node quelle/test/fachliche-pruefung.cjs                                   # numerische Regressionen mit Assertions
+node quelle/test/grenzen.cjs                                             # ungültige Geometrien / Laufzeitgrenzen
+node quelle/test/werkstoffe.cjs                                          # Werkstoffidentitäten und offene Kennwerte
+node quelle/test/ui-vertrag.cjs                                          # Formular und API-Vertrag
+node --test quelle/ki-gutachter/test/*.test.js quelle/test/*.test.cjs      # Dienst, Stadien, Antriebe und Sprachen
+python3 quelle/test/test_wissen.py                                       # private Fundstellen aus Laufzeitprojektion entfernen
 ```
 
 ## Dateien
@@ -16,4 +22,38 @@ node quelle/test/faelle.js                                               # Refer
 - `engine.js`: Rechenkern. Stadienfolge, Kräfte, Werkzeuggrößen, Maschinenprüfung. Jede Regel trägt eine Kennung; die Fundstellen stehen in `regeln.md` im Projektordner JernYao_Konfigurator.
 - `ui.js`, `vorlage.html`: Oberfläche.
 - `maschinen.json`: 329 Katalogmodelle mit Richtpreis und Spanne, dazu Schlittenhub, Motor, Gewicht und bei Teile- und Mutternpressen das Produktmaß ψ. Nur Katalogdaten und Richtpreise, keine Angebote. Der Leser `specs_parse.py` nimmt die Zellen aus den Tabellenlinien der PDFs; verbundene Zellen gelten für alle Modelle darunter. Gegenprobe: alle 329 Modelle stimmen mit dem Modellkonfigurator der Sammlung «Literatur» überein.
-- `ENDPOINT` in `ui.js`: leer, solange kein Empfangsdienst läuft. Dann öffnet die Anfrage das E-Mail-Programm.
+- `site-config.js`: öffentliche Dienstadresse `window.JY_API_BASE`. Leer lassen, bis Dienst und echter Übertragungsweg geprüft sind; die Oberfläche zeigt dann ausdrücklich den Einrichtungsstand und einen Mailkontakt.
+- `ki-gutachter/`: tatsächlicher Cloudflare-Dienst für Upload, Queue, KI-Tool-Loop, Status, Fachchat und unabhängige Eingangsbenachrichtigung an Hans; Einrichtung in dessen `LIESMICH.md`.
+- `wissen/`: Snapshot und Rücklauf. Private Quelldateien bleiben außerhalb dieses öffentlichen Repos; `wissen/LIESMICH.md` beschreibt den versionierten Weg.
+- `test/agentische-prueffaelle.json`: vorbereitete Testszenarien für echte Modellantworten. Ein bestandener Code-Test ersetzt diese Modellprüfung nicht.
+- `innenantriebe-quellen.md`, `Innenantriebe_inbetriebnahme_20261125.md`: Profilgrößen, fachliche Rechengrenzen und protokollierte Inbetriebnahme.
+
+## Veröffentlichung
+
+Die Domain ist GitHub Pages zugeordnet. Der Dienst läuft separat; ein Umzug der Domain ist für diese Architektur nicht notwendig. Nach Dienständerungen den kontrollierten Übertragungsweg prüfen, die bestätigte API-Basis in `site-config.js` eintragen, neu bauen und den geprüften Stand veröffentlichen. Die API-Basis enthält keine Zugangsschlüssel. Ein erfolgreicher Worker-Deploy ersetzt die Prüfung der anschließend veröffentlichten Startseite und Manual nicht.
+
+Inbetriebnahme vom 25.11.2026: Cloudflare-Dienst, versioniertes Projektwissen, Anthropic und Resend waren in der Vorschau verbunden. Eine eigens erstellte PDF-Testzeichnung wurde über den echten Upload gelesen und gerechnet; die unabhängige Vergleichsrechnung bestätigte Ø8 × 43,203 mm Abschnitt. Die parallele Eingangs-Mail mit Originalanhang wurde beim Versanddienst als zugestellt bestätigt. Die Innenantriebe des Manual wurden im Browser in allen fünf Sprachen geprüft. Dieser Nachweis dokumentiert den Dienst- und Vorschautest, nicht den separat auszuführenden Publish der Hauptdomain. Alte Version und neuer Quellstand werden getrennt gesichert.
+
+
+## Mehrsprachigkeit und Manual
+
+`python quelle/bauen.py` baut Startseite, Manual, Weiterleitungen und 404-Seite. Bei vorhandener `werkstoffe-recherche.json` wird vorher `werkstoffe_bauen.build()` ausgeführt. Die unveränderten Originalarchive bleiben unangetastet.
+
+`i18n-*.json` enthalten deutsche Originaltexte und je vier Übersetzungen in der Reihenfolge Italienisch, Slowenisch, Englisch, vereinfachtes Chinesisch. `bauen.build_i18n()` erzeugt daraus den browser- und servergeeigneten UMD/CJS-Katalog `i18n.js`. Vollständige Sätze und dynamische `{identifier}`-Vorlagen haben Vorrang vor Fachbegriffen. Zitierte Originalwerte, Werkstoffnamen und Zahlen bleiben erhalten. Nur Fachlabel-Platzhalter `field`, `feature`, `operation`, `location` werden ihrerseits übersetzt.
+
+`i18n-browser.js` verwaltet `?lang=de|it|sl|en|zh`, den lokal gespeicherten Sprachwunsch sowie `document.lang` (`zh-Hans`) und sichtbare Texte/Attribute. Nutzereingaben, Originalzitate und bereits empfangene KI-Antworten werden nicht umgeschrieben; die Antwortsprache ist ausgewiesen. Ein Sprachwechsel erzeugt keine versteckte KI-Anfrage. Neue Nachrichten übergeben die neue Sprache.
+
+`concept-ui.js` stellt den maschinenspezifischen Abschnitt und die qualitative Stadienfolge aus dem Rechenkern dar. `archiv-ui.js` enthält die technische Oberfläche; `archiv-vorlage.html` ihre Vorlage.
+
+Im Manual stehen Torx, Innensechskant, Phillips PH und Pozidriv PZ mit Größenwahl und eigener Tiefe zur Verfügung. Für Torx/PH/PZ bleibt die Abschnittlänge ohne Vertiefungsvolumen oder verwertbare Teilmasse offen; eine Profilnummer ist kein Geometriemaß. Ein CAD-Volumen erlaubt die Volumenbilanz, liefert aber noch keine profilabhängige Formkraft. Auswahl und Grenzen erscheinen auch in Maschinenkonzept, Druckblatt und E-Mail. Details und Primärquellen: [Innenantriebe](innenantriebe-quellen.md).
+
+Die Werkstoffauswahl im Manual zeigt ausschließlich freigegebene Kombinationen aus Drahtwerkstoff, Lieferzustand und Literaturkurve aus `fliesskurven.json`: derzeit zwölf Katalogzeilen mit elf Kurven für den weichgeglühten Zustand. Der vollständige Katalog bleibt für den Fachassistenten erhalten. `werkstoffe_bauen.py` ordnet Kurven ausschließlich über exakte Werkstoffnummern zu; alte C/n/Rm-Parameter bleiben nur als `legacyParameters` dokumentiert und liefern keine Kräfte oder Drahtzugfestigkeit. Rm kann ausdrücklich aus dem Drahtzeugnis eingegeben werden. Die vier Geometriebeispiele nennen jetzt C4C, weichgeglüht; frühere Borstahl-/Festigkeitsklassenangaben werden damit nicht fortgeschrieben. Die M8-Geometrie verwendet einen neuen Drahtversuch Ø8 mm, damit die Rechnung im belegten Kurvenbereich bleibt. Andere Werkstoffe und Lieferzustände können weiterhin über die Zeichnungsanfrage geprüft werden.
+
+Lokale Prüfungen ohne Netzwerk oder Browser:
+
+```
+node quelle/test/ui-vertrag.cjs
+node --test quelle/test/i18n.test.cjs quelle/test/archiv-ui.test.cjs
+```
+
+Die Tests prüfen Payloads/Idempotenz, fünf Sprachen, Wechsel und Rückwechsel, Originaltextschutz, Dateigrenzen, das qualitative Maschinenkonzept und offene Kräfte. Sie ersetzen keine visuelle Browserprüfung.
