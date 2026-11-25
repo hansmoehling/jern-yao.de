@@ -7,12 +7,13 @@ Zeichnung, Skizze oder Maßbeschreibung einreichen und Fertigungskonzepte im Fac
 ```
 python3 quelle/katalog/specs_parse.py <Ordner mit den Katalog-PDFs>     # Kataloge von https://www.jernyao.com/files/
 python3 quelle/katalog/daten_bauen.py <JernYao_Richtpreise_2026.csv>     # Preisliste aus dem Projektordner
-python3 quelle/bauen.py                                                  # schreibt index.html
+python3 quelle/bauen.py                                                  # baut Startseite, Archiv und 404-Seite
 node quelle/test/faelle.js                                               # Referenzfälle und Prüffälle aus Stadienplänen
 node quelle/test/fachliche-pruefung.cjs                                   # numerische Regressionen mit Assertions
 node quelle/test/grenzen.cjs                                             # ungültige Geometrien / Laufzeitgrenzen
+node quelle/test/werkstoffe.cjs                                          # Werkstoffidentitäten und offene Kennwerte
 node quelle/test/ui-vertrag.cjs                                          # Formular und API-Vertrag
-node --test quelle/ki-gutachter/test/*.test.js                            # Dienste mit kontrollierten Testantworten
+node --test quelle/ki-gutachter/test/*.test.js quelle/test/*.test.cjs      # Dienst, Stadien, Antriebe und Sprachen
 python3 quelle/test/test_wissen.py                                       # private Fundstellen aus Laufzeitprojektion entfernen
 ```
 
@@ -25,12 +26,13 @@ python3 quelle/test/test_wissen.py                                       # priva
 - `ki-gutachter/`: tatsächlicher Cloudflare-Dienst für Upload, Queue, KI-Tool-Loop, Status, Fachchat und unabhängige Eingangsbenachrichtigung an Hans; Einrichtung in dessen `LIESMICH.md`.
 - `wissen/`: Snapshot und Rücklauf. Private Quelldateien bleiben außerhalb dieses öffentlichen Repos; `wissen/LIESMICH.md` beschreibt den versionierten Weg.
 - `test/agentische-prueffaelle.json`: vorbereitete Testszenarien für echte Modellantworten. Ein bestandener Code-Test ersetzt diese Modellprüfung nicht.
+- `innenantriebe-quellen.md`, `Innenantriebe_inbetriebnahme_20261125.md`: Profilgrößen, fachliche Rechengrenzen und protokollierte Inbetriebnahme.
 
 ## Veröffentlichung
 
-Die Domain ist bereits GitHub Pages zugeordnet. Der Dienst läuft separat; ein Umzug der Domain ist für diese Architektur nicht notwendig. Zuerst den Dienst einschließlich Secrets, privatem Speicher, Löschregeln, Wissenssnapshot und Versand einrichten. Dann echte Testanfrage und Fachchat prüfen, die bestätigte API-Basis in `site-config.js` eintragen, neu bauen und den geprüften Stand veröffentlichen. Die API-Basis enthält keine Zugangsschlüssel.
+Die Domain ist GitHub Pages zugeordnet. Der Dienst läuft separat; ein Umzug der Domain ist für diese Architektur nicht notwendig. Nach Dienständerungen den kontrollierten Übertragungsweg prüfen, die bestätigte API-Basis in `site-config.js` eintragen, neu bauen und den geprüften Stand veröffentlichen. Die API-Basis enthält keine Zugangsschlüssel. Ein erfolgreicher Worker-Deploy ersetzt die Prüfung der anschließend veröffentlichten Startseite und Archivversion nicht.
 
-Der aktuelle Entwicklungsstand ist ohne aktive Konten getestet und noch nicht als vollständiger Livebetrieb freigegeben. Alte Version und neuer Entwurf werden getrennt gesichert.
+Inbetriebnahme vom 25.11.2026: Cloudflare-Dienst, versioniertes Projektwissen, Anthropic und Resend waren in der Vorschau verbunden. Eine eigens erstellte PDF-Testzeichnung wurde über den echten Upload gelesen und gerechnet; die unabhängige Vergleichsrechnung bestätigte Ø8 × 43,203 mm Abschnitt. Die parallele Eingangs-Mail mit Originalanhang wurde beim Versanddienst als zugestellt bestätigt. Die Archiv-Antriebe wurden im Browser in allen fünf Sprachen geprüft. Dieser Nachweis dokumentiert den Dienst- und Vorschautest, nicht den separat auszuführenden Publish der Hauptdomain. Alte Version und neuer Quellstand werden getrennt gesichert.
 
 
 ## Mehrsprachigkeit und Archiv
@@ -42,6 +44,8 @@ Der aktuelle Entwicklungsstand ist ohne aktive Konten getestet und noch nicht al
 `i18n-browser.js` verwaltet `?lang=de|it|sl|en|zh`, den lokal gespeicherten Sprachwunsch sowie `document.lang` (`zh-Hans`) und sichtbare Texte/Attribute. Nutzereingaben, Originalzitate und bereits empfangene KI-Antworten werden nicht umgeschrieben; die Antwortsprache ist ausgewiesen. Ein Sprachwechsel erzeugt keine versteckte KI-Anfrage. Neue Nachrichten übergeben die neue Sprache.
 
 `concept-ui.js` stellt den maschinenspezifischen Abschnitt und die qualitative Stadienfolge aus dem Rechenkern dar. `archiv-ui.js` enthält die technische Oberfläche; `archiv-vorlage.html` ihre Vorlage.
+
+Im Archiv stehen Torx, Innensechskant, Phillips PH und Pozidriv PZ mit Größenwahl und eigener Tiefe zur Verfügung. Für Torx/PH/PZ bleibt die Abschnittlänge ohne Vertiefungsvolumen oder verwertbare Teilmasse offen; eine Profilnummer ist kein Geometriemaß. Ein CAD-Volumen erlaubt die Volumenbilanz, liefert aber noch keine profilabhängige Formkraft. Auswahl und Grenzen erscheinen auch in Maschinenkonzept, Druckblatt und E-Mail. Details und Primärquellen: [Innenantriebe](innenantriebe-quellen.md).
 
 Lokale Prüfungen ohne Netzwerk oder Browser:
 

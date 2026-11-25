@@ -221,7 +221,7 @@ test('tool loop reads knowledge, runs actual engine, ignores model-invented prop
  fakeFetch(t,async(url,req)=>{
   assert.equal(url,'https://api.anthropic.com/v1/messages');const b=JSON.parse(req.body);
   assert.equal(b.model,MODEL);
-  if(calls++===0){assert.equal(b.tool_choice.name,'projektwissen');return reply(tool('projektwissen'));}
+  if(calls++===0){assert.deepEqual(b.tool_choice,{type:'auto'});assert.deepEqual(b.tools.map(x=>x.name),['projektwissen','grobauslegung','recherche']);return reply(tool('projektwissen'));}
   if(calls===2)return reply(tool('grobauslegung',input()));
   assert.ok(b.messages.at(-1).content[0].content.includes('Fmax'));
   return reply({type:'text',text:JSON.stringify({answer:'Die Stadienfolge ist berechnet.',questions:[],sourceIds:['engine'],proposal:{machines:[{model:'FAKE'}]}})});

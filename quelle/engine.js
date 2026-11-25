@@ -103,12 +103,40 @@
     return k * (1 + phi + 2 * MU * h / d);
   }
 
+  // Größenbezeichnungen sind keine Geometriemaße. Nur ein ideal prismatischer
+  // Innensechskant hat hier eine berechenbare Fläche; andere Profile benötigen
+  // das tatsächliche Vertiefungsvolumen aus Zeichnung/CAD (insbesondere PH/PZ).
+  function innenantrieb(e) {
+    const family = e.iTyp === undefined ? (pos(e.iSW) || pos(e.iT) ? 'hex' : 'none') : e.iTyp;
+    if (!['none', 'hex', 'torx', 'ph', 'pz'].includes(family)) return { error: 'Unbekannte Innenantriebsfamilie' };
+    if (family === 'none') return null;
+    if (e.typ === 'mutter') return { error: 'Innenantrieb ist für Bolzen und Formteile vorgesehen' };
+    if (!pos(e.iT)) return { error: 'Tiefe des Innenantriebs angeben' };
+    let size, label, area = null;
+    if (family === 'hex') {
+      if (!pos(e.iSW)) return { error: 'Schlüsselweite des Innensechskants angeben' };
+      size = 'SW' + e.iSW; label = 'Innensechskant SW ' + z(e.iSW) + ' mm'; area = sechskant(e.iSW);
+    } else {
+      size = String(e.iSize || '').trim().toUpperCase();
+      const valid = family === 'torx' ? /^T[1-9]\d{0,2}$/.test(size) : new RegExp('^' + family.toUpperCase() + '[0-4]$').test(size);
+      if (!valid) return { error: 'Gültige Größe des Innenantriebs angeben' };
+      label = family === 'torx' ? 'Torx ' + size : (family === 'ph' ? 'Kreuzschlitz Phillips ' : 'Kreuzschlitz Pozidriv ') + size;
+    }
+    const volume = pos(e.iVol) ? e.iVol : area === null ? null : area * e.iT;
+    return { family, size, label, depth: e.iT, area, volume,
+      volumeStatus: pos(e.iVol) ? 'drawing-value' : area === null ? 'missing' : 'prismatic-hex',
+      forceStatus: family === 'hex' ? 'legacy-estimate' : 'missing' };
+  }
+
   /* Eingaben:
      typ: 'bolzen' | 'mutter' | 'formteil'
      wst: Index in WERKSTOFFE; rm (optional, überschreibt)
      d0: Draht-Ø
      bolzen/formteil: kopfForm ('rund'|'sechskant'|'abgratet'), kD (Kopf/Bund-Ø), kSW (Schlüsselweite bei Sechskant), kH (Kopfhöhe),
-       sD (Schaft-Ø), sL (Schaftlänge), iSW (Innenantrieb SW), iT (Innenantrieb Tiefe),
+       sD (Schaft-Ø), sL (Schaftlänge), iTyp ('none'|'hex'|'torx'|'ph'|'pz'),
+       iSize ('T20'|'PH2'|'PZ2'), iSW (nur Innensechskant-SW), iT (Antriebstiefe),
+       iVol (optional: tatsächliches Vertiefungsvolumen aus Zeichnung/CAD, mm³),
+       ohne iTyp bleiben iSW/iT ein Innensechskant,
        nD (Napf/Bohrung Ø), nT (Napftiefe), nDurch (durchgehend)
      mutter: mSW, mH, mLoch (Loch-Ø), mFlansch (Ø oder 0), mFlanschH
      masse (g, optional, überschreibt Volumen für die Abschnittlänge)
@@ -124,8 +152,16 @@
     for (const [key, value] of Object.entries(e)) {
       if (typeof value === 'number' && (!Number.isFinite(value) || value < 0)) return invalid('Ungültiger Zahlenwert: ' + key);
     }
+    const drive = innenantrieb(e);
+    if (drive && drive.error) return invalid(drive.error);
+    out.antrieb = drive;
+    const volumeKnown = !drive || pos(drive.volume);
     const m = WERKSTOFFE[e.wst];
     const forceKnown = hasFlow(m);
+    if (drive) {
+      if (!volumeKnown) out.hinweise.push(drive.label + (pos(e.masse) ? ': Vertiefungsvolumen bleibt offen; Abschnitt wird aus der Teilemasse bestimmt.' : ': Vertiefungsvolumen aus Zeichnung oder CAD ergänzen; Teilvolumen und Abschnittlänge bleiben offen.'));
+      if (drive.forceStatus === 'missing') out.hinweise.push(drive.label + ': Profilkontur, Restwand und Umformkraft anhand der Zeichnung und des Stempelkonzepts bestimmen.');
+    }
     const Rm = pos(e.rm) ? e.rm : m.Rm;
     const gr = GRENZEN[m.grp] || GRENZEN.unbekannt;
     out.werkstoff = Object.assign({}, m, { Rm });
@@ -186,8 +222,15 @@
         } else Akopf = kreis(e.kD);
       }
       const Vkopf = Akopf * kopfH;
-      const Vi = (pos(e.iSW) && pos(e.iT)) ? sechskant(e.iSW) * e.iT : 0;
+      if (drive && !hatKopf) return invalid('Innenantrieb benötigt Kopf- oder Bundmaße');
+      if (drive && drive.depth >= kopfH + sL) return invalid('Innenantrieb benötigt einen positiven Restboden');
+      if (drive && drive.family === 'hex') {
+        const outside = drive.depth > kopfH ? Math.min(kopfD, sD) : kopfD;
+        if (e.iSW / Math.cos(Math.PI / 6) >= outside || (e.kopfForm !== 'rund' && pos(e.kSW) && e.iSW >= e.kSW)) return invalid('Innensechskant benötigt eine positive Restwand');
+      }
+      const Vi = drive && volumeKnown ? drive.volume : 0;
       const Vn = (pos(e.nD) && pos(e.nT)) ? kreis(e.nD) * e.nT : 0;
+      if (drive && Vn) return invalid('Innenantrieb und Napf: Lage und Überlappung der Hohlräume zuerst klären; Volumen nicht doppelt abziehen');
       const Vs = kreis(sD) * sL;
       V = Vkopf - kopfAbgr + Vs - Vi - Vn; // Fertigteil
       if (!pos(V)) return invalid('Geometrie ergibt kein positives Restvolumen; Maße und Einheiten prüfen');
@@ -239,7 +282,7 @@
         sKopf = (Vkopf) / (A0 * d0);
         phiKopf = Math.log(Akopf / A0);
         let n = sKopf <= 2.3 ? 1 : sKopf <= 4.5 ? 2 : sKopf <= 8.0 ? 3 : 4;
-        if (Vi && n < 2) { n = 2; R('R-ST2'); }
+        if (drive && n < 2) { n = 2; R('R-ST2'); }
         const dv = kopfD / d0;
         if (dv > 3.0) { n += 1; out.hinweise.push('Kopf-Ø ' + z(kopfD) + ' mm ist ' + dv.toFixed(1).replace('.', ',') + ' × d₀, über dem Richtwert 3 × d₀: eine Zwischenstufe eingeplant'); }
         else if (dv > 2.5) out.hinweise.push('Kopf-Ø über 2,5 × d₀: geführtes Stauchen nötig');
@@ -251,12 +294,15 @@
           let txt = fertig ? (e.kopfForm === 'sechskant' ? 'Sechskantkopf fertigstauchen' : 'Kopf fertigstauchen') : (i === 1 ? 'Vorstauchen' : 'Zwischenstauchen');
           const operations = [op(txt, 'Kopf / Bund')];
           let pStempel = null;
-          if (fertig && Vi) {
-            const epsI = sechskant(e.iSW) / Akopf;
-            const p = napfDruck(m, phiKopf, Math.min(Math.max(epsI, 0.05), 0.9), e.iT, e.iSW);
-            F += sechskant(e.iSW) * p; txt += ' mit Innenantrieb'; R('R-F3'); pStempel = p;
-            operations.push(op('Innenantrieb formen', 'Innenantrieb im Kopf / Bund'));
-            if (e.iT > 2 * e.iSW) out.hinweise.push('Innenantrieb tiefer als 2 × SW: Vorformen im vorigen Schlag nötig');
+          if (fertig && drive) {
+            if (drive.family === 'hex') {
+              const epsI = drive.area / Akopf;
+              const p = napfDruck(m, phiKopf, Math.min(Math.max(epsI, 0.05), 0.9), drive.depth, e.iSW);
+              F += drive.area * p; R('R-F3'); pStempel = p;
+              if (drive.depth > 2 * e.iSW) out.hinweise.push('Innenantrieb tiefer als 2 × SW: Vorformen im vorigen Schlag nötig');
+            } else F = null;
+            txt += ' mit ' + drive.label + ', Tiefe ' + z(drive.depth) + ' mm';
+            operations.push(op('Innenantrieb formen', drive.label + ', Tiefe ' + z(drive.depth) + ' mm; ' + (drive.depth > kopfH ? 'durch Kopf / Bund in den Schaft' : 'im Kopf / Bund')));
           }
           out.stufen.push({ v: txt, F, A, bohr: matBohrung, kopf: Math.sqrt(4 * A / Math.PI), r: 'R-F1', pStempel, operations });
         }
@@ -324,11 +370,13 @@
     let Vab0 = V + Vab;
     if (pos(e.masse)) {
       if (!pos(m.rho)) return invalid('Für die Abschnittberechnung aus Masse fehlt eine belegte Werkstoffdichte. Stattdessen geometrische Maße verwenden.');
+      if (!volumeKnown && e.masse / m.rho * 1000 >= V) return invalid('Angegebene Masse lässt kein positives Innenantriebsvolumen zu');
       Vab0 = e.masse / m.rho * 1000 + Vab; out.hinweise.push('Abschnitt aus der angegebenen Masse gerechnet');
     }
     if (!pos(Vab0) || !pos(V)) return invalid('Abschnitt- und Teilvolumen müssen positiv und endlich sein');
-    const L0 = Vab0 / A0;
-    out.werte.V = V; out.werte.Vabgang = Vab; out.werte.L0 = L0; out.werte.masse = pos(m.rho) ? V * m.rho / 1000 : null; out.werte.d0 = d0;
+    const L0 = volumeKnown || pos(e.masse) ? Vab0 / A0 : null;
+    const partVolume = volumeKnown ? V : pos(e.masse) ? e.masse / m.rho * 1000 : null;
+    out.werte.V = partVolume; out.werte.Vabgang = Vab; out.werte.L0 = L0; out.werte.masse = pos(e.masse) && !volumeKnown ? e.masse : pos(partVolume) && pos(m.rho) ? partVolume * m.rho / 1000 : null; out.werte.d0 = d0;
     out.werte.sKopf = sKopf; out.werte.phiKopf = phiKopf; out.werte.kopfD = kopfD; out.werte.Lteil = Lteil;
 
     // Stationen: Reduzieren bis 30 % läuft im Vorstauchschlag mit
@@ -341,17 +389,19 @@
     out.werte.stationen = pos(stationsVorgabe) ? Math.max(nStufen, Math.ceil(stationsVorgabe)) : nStufen;
     out.werte.stationenReserve = out.werte.stationen + 1;
     // Kräfte
-    out.stufen.forEach(s => { s.t = s.F / 1000 / G; });
+    out.stufen.forEach(s => { if (!forceKnown || !volumeKnown) s.F = null; s.t = s.F === null ? null : s.F / 1000 / G; });
     // Reduzieren-mit-Vorstauchen: Kraft zum ersten Stauchschlag addieren
     for (let i = 0; i < out.stufen.length; i++) {
-      if (out.stufen[i].mit && out.stufen[i + 1]) { out.stufen[i + 1].F += out.stufen[i].F; out.stufen[i + 1].t = out.stufen[i + 1].F / 1000 / G; out.stufen[i + 1].v = out.stufen[i].v.replace(', mit Vorstauchen', '') + ' und ' + out.stufen[i + 1].v; out.stufen[i + 1].operations = [...out.stufen[i].operations, ...out.stufen[i + 1].operations]; out.stufen.splice(i, 1); i--; }
+      if (out.stufen[i].mit && out.stufen[i + 1]) { out.stufen[i + 1].F = out.stufen[i + 1].F === null || out.stufen[i].F === null ? null : out.stufen[i + 1].F + out.stufen[i].F; out.stufen[i + 1].t = out.stufen[i + 1].F === null ? null : out.stufen[i + 1].F / 1000 / G; out.stufen[i + 1].v = out.stufen[i].v.replace(', mit Vorstauchen', '') + ' und ' + out.stufen[i + 1].v; out.stufen[i + 1].operations = [...out.stufen[i].operations, ...out.stufen[i + 1].operations]; out.stufen.splice(i, 1); i--; }
     }
-    const Fmax = Math.max(...out.stufen.map(s => s.F));
-    const Fsum = out.stufen.reduce((a, s) => a + s.F, 0);
-    if (!pos(L0) || forceKnown && (!pos(Fmax) || !pos(Fsum))) return invalid('Rechnung ergibt keine endlichen positiven Kräfte oder Abschnittlänge');
+    const allForcesKnown = out.stufen.every(s => s.F !== null);
+    const Fmax = allForcesKnown ? Math.max(...out.stufen.map(s => s.F)) : null;
+    const Fsum = allForcesKnown ? out.stufen.reduce((a, s) => a + s.F, 0) : null;
+    if (L0 !== null && !pos(L0) || allForcesKnown && (!pos(Fmax) || !pos(Fsum))) return invalid('Rechnung ergibt keine endlichen positiven Kräfte oder Abschnittlänge');
     R('R-PK');
-    out.werte.Fmax_t = forceKnown ? Fmax / 1000 / G : null; out.werte.Fsum_t = forceKnown ? Fsum / 1000 / G : null;
-    out.werte.FN_muss_t = forceKnown ? out.werte.Fmax_t / 0.80 : null; out.werte.FN_wunsch_t = forceKnown ? out.werte.Fmax_t / 0.65 : null;
+    out.werte.Fmax_t = allForcesKnown ? Fmax / 1000 / G : null; out.werte.Fsum_t = allForcesKnown ? Fsum / 1000 / G : null;
+    out.werte.FN_muss_t = allForcesKnown ? out.werte.Fmax_t / 0.80 : null; out.werte.FN_wunsch_t = allForcesKnown ? out.werte.Fmax_t / 0.65 : null;
+    out.werte.forceReason = [!forceKnown ? 'Fließkurve des Lieferzustands fehlt' : '', !volumeKnown ? 'Innenantriebsvolumen fehlt' : '', drive && drive.forceStatus === 'missing' ? 'Profilabhängige Umformkraft des Innenantriebs fehlt' : ''].filter(Boolean).join('; ') || null;
 
     // Werkzeuge
     R('R-MA'); R('R-SB'); R('R-PI'); R('R-KO'); R('R-PKO');
@@ -373,7 +423,7 @@
     // Werkzeugdruck und Armierung je Station
     R('R-PS'); R('R-AR');
     out.stufen.forEach((s, i) => {
-      if (!forceKnown) { s.F = s.t = s.p = s.pStempel = s.arm = null; return; }
+      if (!forceKnown || s.F === null) { s.F = s.t = s.p = s.pStempel = s.arm = null; return; }
       if (s.A) {
         s.p = s.F / s.A;
         s.arm = s.p <= 1000 ? 'ohne Ring' : s.p <= 1600 ? '1 Ring' : s.p <= 2160 ? '2 Ringe' : 'Sonderarmierung';
@@ -414,7 +464,8 @@
     const dMax = pos(Rm) ? o.cd * Math.sqrt(400 / Math.max(Rm, 400)) : null;
     add('Abschnitt-Ø', w.d0 > o.cd ? 'nein' : !pos(Rm) ? 'offen' : w.d0 <= 0.95 * dMax ? 'ok' : 'knapp', z(w.d0) + ' mm', 'Katalog ' + zk(o.cd) + ' mm' + (dMax !== null && dMax < o.cd - 0.05 ? ', Richtwert bei ' + Rm + ' N/mm² ' + z(dMax) + ' mm' : !pos(Rm) ? '; Einfluss der Drahtzugfestigkeit offen' : ''), 'R-AB1');
     // Abschnittlänge
-    if (o.cl) {
+    if (!pos(w.L0)) add('Abschnittlänge', 'offen', 'Innenantriebsvolumen oder Teilemasse fehlt', o.cl ? o.cl.filter(Boolean).map(zk).join(' bis ') + ' mm' : 'nicht im Katalog', 'R-AB2');
+    else if (o.cl) {
       const [lo, hi] = o.cl;
       const st = hi && w.L0 > hi ? 'nein' : lo && w.L0 < lo ? (w.L0 >= lo - 1 ? 'knapp' : 'nein') : 'ok';
       add('Abschnittlänge', st, z(w.L0) + ' mm', (lo ? zk(lo) + ' bis ' : 'bis ') + zk(hi) + ' mm' + (st === 'knapp' ? '; Mindestabschnitt nach Rückfrage rund 1 mm kürzer' : ''), 'R-AB2');
@@ -434,9 +485,9 @@
     } else add('Auswerfer Stempel (PKO)', 'ok', 'nicht nötig', pos(o.pko) ? zk(o.pko) + ' mm' : 'nicht im Katalog', 'R-PKO');
     // Presskraft
     const ausl = pos(w.Fmax_t) && pos(o.pw) ? w.Fmax_t / o.pw : null;
-    add('Presskraft', ausl === null ? 'offen' : ausl <= 0.65 ? 'ok' : ausl <= 1.0 ? 'knapp' : 'nein', ausl === null ? 'Fließkurve des Lieferzustands fehlt' : z(w.Fmax_t) + ' t höchste Station', zk(o.pw) + ' t' + (ausl === null ? '; Kraftprüfung offen' : ', Auslastung ' + Math.round(ausl * 100) + ' %' + (ausl > 0.8 && ausl <= 1 ? ', über der Auslegungsgrenze 80 %' : '')), 'R-PK');
+    add('Presskraft', ausl === null ? 'offen' : ausl <= 0.65 ? 'ok' : ausl <= 1.0 ? 'knapp' : 'nein', ausl === null ? w.forceReason || 'Kraft noch offen' : z(w.Fmax_t) + ' t höchste Station', zk(o.pw) + ' t' + (ausl === null ? '; Kraftprüfung offen' : ', Auslastung ' + Math.round(ausl * 100) + ' %' + (ausl > 0.8 && ausl <= 1 ? ', über der Auslegungsgrenze 80 %' : '')), 'R-PK');
     const auslSum = pos(w.Fsum_t) && pos(o.pw) ? w.Fsum_t / o.pw : null;
-    add('Summe der Stationskräfte', auslSum === null ? 'offen' : auslSum <= 1 ? 'ok' : 'knapp', auslSum === null ? 'Kraft noch offen' : z(w.Fsum_t) + ' t', auslSum === null ? 'Fließkurve des Lieferzustands fehlt' : Math.round(auslSum * 100) + ' % der Nennkraft, je nach Zeitversatz der Stationen', 'R-PK');
+    add('Summe der Stationskräfte', auslSum === null ? 'offen' : auslSum <= 1 ? 'ok' : 'knapp', auslSum === null ? 'Kraft noch offen' : z(w.Fsum_t) + ' t', auslSum === null ? w.forceReason || 'Kraft noch offen' : Math.round(auslSum * 100) + ' % der Nennkraft, je nach Zeitversatz der Stationen', 'R-PK');
     // Matrize
     if (o.die) {
       const vg = w.vorgaben || {};
@@ -520,11 +571,12 @@
     const required = Number.isInteger(w.stationen) && w.stationen > 0 ? w.stationen : null;
     const result = {
       blank: pos(w.d0) && pos(w.L0) ? { diameter: w.d0, length: w.L0, unit: 'mm' } : null,
+      drive: a && a.antrieb ? { ...a.antrieb } : null,
       requiredStations: required, availableStations: available,
       reserveStations: required !== null && available !== null ? Math.max(0, available - required) : null,
       stages: [], rationale: '', status: 'incomplete'
     };
-    if (!result.blank || !required || !available || !e || !a.werkstoff || a.fehlt && a.fehlt.length || !a.stufen || !a.stufen.length) {
+    if ((!result.blank && !(pos(w.d0) && result.drive && result.drive.volumeStatus === 'missing')) || !required || !available || !e || !a.werkstoff || a.fehlt && a.fehlt.length || !a.stufen || !a.stufen.length) {
       result.rationale = 'Für ein Maschinenkonzept fehlen eine vollständige Rechnung oder Maschinendaten.';
       return result;
     }
@@ -551,6 +603,8 @@
       };
     });
     result.rationale = 'Gleiche berechnete Basisfolge: ' + a.stufen.length + ' Umformstufen; ' + required + ' benötigte Stationen auf ' + available + ' Maschinenstationen; ' + result.reserveStations + ' frei als Reserve.';
+    if (!result.blank) result.rationale += ' Abschnittlänge offen: Innenantriebsvolumen oder Teilemasse ergänzen.';
+    if (result.drive) result.rationale += ' Innenantrieb: ' + result.drive.label + ', Tiefe ' + z(result.drive.depth) + ' mm.';
     if (required > a.stufen.length) result.rationale += ' Die Stationsvorgabe bindet weitere Plätze; deren Operationen sind noch festzulegen.';
     if (a.stufen.some(stage => stage.unassigned)) result.rationale += ' Zusatzoperationen und ihre Lage sind noch festzulegen.';
     return result;

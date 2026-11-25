@@ -1,4 +1,4 @@
-import { analyse, publicResult, loadKnowledge, MODEL } from './analysis.js';
+import { analyse, publicResult, loadKnowledge, MODEL, providerFailure, recordServiceDiagnostic } from './analysis.js';
 import I18N from '../i18n.js';
 const {t,normalizeLanguage}=I18N;
 
@@ -121,7 +121,7 @@ async function chat(req, env, cors, locale) {
   const file = request?.file?.readable ? await readFile(env, request.file) : null;
   let result;
   try { result = await analyse({ note: request?.note || '', message, history, file, filename: request?.file?.name, unreadableFile: !!request?.file && !request.file.readable, language: locale.value }, env, { timeoutMs: 65000, maxRounds: 5 }); }
-  catch { throw new HttpError(503, 'Die Antwort konnte gerade nicht fertiggestellt werden. Ihre bisherige Anfrage bleibt erhalten. Bitte versuchen Sie es erneut.'); }
+  catch (error) { await recordServiceDiagnostic(env, error, 'chat'); throw new HttpError(503, 'Die Antwort konnte gerade nicht fertiggestellt werden. Ihre bisherige Anfrage bleibt erhalten. Bitte versuchen Sie es erneut.'); }
   if (request) {
     await put(env, 'chat:' + request.id, [...history, { role: 'user', content: message }, { role: 'assistant', content: result.answer }].slice(-20));
     await put(env, 'analyse:' + request.id, { status: result.questions.length ? 'needs_info' : 'ready', result, updatedAt: new Date().toISOString() });
@@ -140,7 +140,7 @@ async function notifyHans(env, record) {
       text: [t('Neue Anfrage eingegangen.', language), t('Kontakt:', language) + ' ' + record.email, record.name, record.company, '', record.note, '', t(record.file && !record.file.readable ? 'CAD-Datei im Anhang. Automatische Bildanalyse liest dieses Format nicht.' : 'Die technische Analyse läuft unabhängig von dieser Eingangsmitteilung.', language)].join('\n'),
       attachments: attachment ? [{ filename: record.file.name, content: b64(attachment.bytes) }] : undefined })
   });
-  if (!response.ok) throw new Error('mail_provider_' + response.status);
+  if (!response.ok) throw await providerFailure(response, 'resend');
   const provider = await response.json();
   await put(env, 'nachricht:' + record.id, { status: 'sent', providerId: provider.id, updatedAt: new Date().toISOString() });
 }
@@ -164,7 +164,8 @@ async function queued(message, env) {
       if (!['ready', 'needs_info'].includes(latest?.status)) await put(env, key, { status: result.questions.length ? 'needs_info' : 'ready', result, updatedAt: new Date().toISOString() });
     }
     message.ack();
-  } catch {
+  } catch (error) {
+    await recordServiceDiagnostic(env, error, 'queue');
     const final = (message.attempts || 1) >= 4;
     const latest = await get(env, key);
     if (kind === 'analysis' && ['ready', 'needs_info'].includes(latest?.status) || kind === 'intake_mail' && latest?.status === 'sent') { message.ack(); return; }
@@ -187,7 +188,7 @@ export default {
       if (url.pathname === '/chat' && req.method === 'POST') return await chat(req, env, cors, locale);
       if (url.pathname === '/status' && req.method === 'GET') { const a = await authorised(env, url.searchParams.get('id'), url.searchParams.get('token')); const state = await snapshot(env, a.id); if (!state.answer) state.language = normalizeLanguage(a.language); return json(state, 200, cors); }
       return json({ error: t('Nicht gefunden.', locale.value), language: locale.value }, 404, cors);
-    } catch (e) { return json({ error: t(e instanceof HttpError ? e.message : 'Der Dienst konnte die Anfrage gerade nicht abschließen.', locale.value), language: locale.value }, e.status || 503, cors); }
+    } catch (e) { if (!(e instanceof HttpError)) await recordServiceDiagnostic(env, e, url.pathname === '/chat' ? 'chat' : 'request'); return json({ error: t(e instanceof HttpError ? e.message : 'Der Dienst konnte die Anfrage gerade nicht abschließen.', locale.value), language: locale.value }, e.status || 503, cors); }
   },
   async queue(batch, env) { await Promise.all(batch.messages.map(message => queued(message, env))); }
 };

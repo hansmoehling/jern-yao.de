@@ -5,3 +5,5 @@
 - `stand-beim-abruf.html` bewahrt den unveränderten früheren Abruf von jern-yao.de am 25.11.2026 (Rechenkern V1). SHA-256: `44079f7b8fdd3bb1a38f0d04c23371190e507154fbf1f7dae74ebfaaa9cbd05e`.
 
 Die beiden Originaldateien werden beim Neubau nicht überschrieben. Die aktuelle technische Auslegung enthält qualitative Konzepte je Maschine; fehlende Fließkurven führen zu offenen Kraftwerten, nicht zu Nullkräften. Die ursprünglichen Sicherungen dokumentieren ihren damaligen Stand und ihre damaligen externen Ressourcen.
+
+Die weiterentwickelte Archivoberfläche bietet Torx-, Innensechskant-, Phillips- und Pozidriv-Innenantriebe mit Größenwahl und Tiefe. Auswahl und Profilgrenzen stehen in allen fünf Sprachen auch im Maschinenkonzept, Druckblatt und Anfrageinhalt. Für Torx und Kreuzschlitz wird keine Sechskantfläche eingesetzt; [Quellen und Rechenumfang](../quelle/innenantriebe-quellen.md) sind dokumentiert.

@@ -12,14 +12,46 @@
   const $ = id => document.getElementById(id);
   const fmt = (x, d = 1) => (x == null || !isFinite(x)) ? tr('nicht belegt') : x.toLocaleString(window.JYI18N.numberLocale(L.language), { maximumFractionDigits: d, minimumFractionDigits: 0 });
   const rounded=x=>typeof x==='number'&&Number.isFinite(x)?Math.round(x):tr('nicht belegt');
-  const eur = x => x ? x.toLocaleString(window.JYI18N.numberLocale(L.language)) + ' €' : 'auf Anfrage';
+  const eur = x => x ? x.toLocaleString(window.JYI18N.numberLocale(L.language)) + ' €' : tr('auf Anfrage');
   const num = v => { if (v == null) return undefined; const s = String(v).trim().replace(/\s/g, '').replace(',', '.'); if (!s) return undefined; const n = Number(s); return isFinite(n) ? n : NaN; };
   const esc = s => String(s).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+  const h = s => esc(tr(s));
+  const msg = (key, values) => tr(key).replace(/\{(\w+)\}/g, (match, name) => Object.hasOwn(values, name) ? String(values[name]) : match);
+  const rendered = (node, html) => { node.dataset.originalText = ''; node.innerHTML = html; };
 
   // Werkstoffliste
   const sel = f.elements.wst;
   E.WERKSTOFFE.forEach((w, i) => { const o = document.createElement('option'); o.value = i; o.textContent = (w.sourceName || w.id) + (w.number ? ' · '+w.number : '') + ' · ' + tr(w.hinweis || (w.curveStatus==='missing'?'Fließkurve des Lieferzustands fehlt':'Näherungsmodell'));  sel.appendChild(o); });
   sel.value = Math.max(0,E.WERKSTOFFE.findIndex(w=>w.id==='23MnB4')); // stable grade identity
+
+  // Size designations only: tool dimensions are not recess areas or forming factors.
+  const DRIVE_SIZES = {
+    hex: ['1.5','2','2.5','3','4','5','6','7','8','10','12','custom'],
+    torx: [5,6,7,8,9,10,15,20,25,27,30,40,45,50,55,60].map(n=>'T'+n),
+    ph: [0,1,2,3,4].map(n=>'PH'+n), pz: [0,1,2,3,4].map(n=>'PZ'+n)
+  };
+  let driveFamily = null, driveSize = '';
+  function antriebAuswahl() {
+    const family=f.elements.iTyp.value || 'none', sizes=DRIVE_SIZES[family] || [], field=f.elements.iSize;
+    if(driveFamily!==family){
+      f.elements.iVol.value='';
+      const previous=field.value;
+      field.replaceChildren(...['',...sizes].map(value=>{const option=document.createElement('option');option.value=value;return option;}));
+      field.value=sizes.includes(previous)?previous:'';
+      driveFamily=family;
+    }
+    if(driveSize!==field.value){f.elements.iVol.value='';driveSize=field.value;}
+    Array.from(field.options).forEach(option=>{
+      option.dataset.originalText='';
+      option.textContent=!option.value?tr('Größe wählen'):option.value==='custom'?tr('Eigene Schlüsselweite'):family==='hex'?fmt(Number(option.value))+' mm':option.value;
+    });
+    f.querySelectorAll('[data-antrieb]').forEach(el=>{
+      el.hidden=typ()!=='bolzen'||!el.dataset.antrieb.split(' ').includes(family);
+      el.querySelectorAll('input,select').forEach(input=>input.disabled=el.hidden);
+    });
+    $('drive-custom-hex').hidden=typ()!=='bolzen'||family!=='hex'||field.value!=='custom';
+    f.elements.iSW.disabled=$('drive-custom-hex').hidden;
+  }
 
   function typ() { return f.elements.typ.value; }
   function sichtbar() {
@@ -27,6 +59,7 @@
     f.querySelectorAll('[data-fuer]').forEach(el => { el.hidden = !el.dataset.fuer.split(' ').includes(t); });
     const k = f.elements.kopfForm.value;
     f.querySelectorAll('[data-kopf]').forEach(el => { el.hidden = !el.dataset.kopf.split(' ').includes(k); });
+    antriebAuswahl();
     f.elements.rm.placeholder = E.WERKSTOFFE[+sel.value].Rm==null?tr('nicht belegt'):E.WERKSTOFFE[+sel.value].Rm+' '+tr('typisch');
   }
 
@@ -35,13 +68,18 @@
     const e = {
       typ: typ(), wst: +sel.value, rm: g('rm'), d0: g('d0'),
       kopfForm: f.elements.kopfForm.value, kD: g('kD'), kSW: g('kSW'), kH: g('kH'), sD: g('sD'), sL: g('sL'),
-      iSW: g('iSW'), iT: g('iT'), nD: g('nD'), nT: g('nT'), nDurch: f.elements.nDurch.checked,
+      iTyp: f.elements.iTyp.value || 'none', iSize: f.elements.iSize.value,
+      iSW: f.elements.iSize.value==='custom'?g('iSW'):num(f.elements.iSize.value), iT: g('iT'), iVol: g('iVol'),
+      nD: g('nD'), nT: g('nT'), nDurch: f.elements.nDurch.checked,
       mM: g('mM'), mSW: g('mSW'), mH: g('mH'), mLoch: g('mLoch'), mFlansch: g('mFlansch'), mFlanschH: g('mFlanschH'),
       masse: g('masse'), lStempel: g('lStempel'), wenden: f.elements.wenden.checked,
       vorgaben: { ko: g('ko'), pko: g('pko'), matD: g('matD'), matL: g('matL'), stD: g('stD'), stL: g('stL'), stationen: g('stationen'), zusatz: g('zusatz') },
       soll: { ausbringung: g('ausbringung') }
     };
-    if (e.typ !== 'bolzen') { e.iSW = e.iT = undefined; }
+    if(e.iTyp!=='hex')e.iSW=undefined;
+    if(e.iTyp==='hex'||e.iTyp==='none')e.iVol=undefined;
+    if(e.iTyp==='hex')e.iSize=undefined;
+    if (e.typ !== 'bolzen' || e.iTyp==='none') { e.iTyp='none'; e.iSize=e.iSW=e.iT=e.iVol=undefined; }
     if (e.typ !== 'formteil') { e.nD = e.nT = undefined; e.nDurch = false; }
     return e;
   }
@@ -49,10 +87,11 @@
   function ungueltig() {
     let bad = false;
     f.querySelectorAll('input[inputmode]').forEach(el => {
+      if(el.disabled)return;
       const v = num(el.value);
       const falsch = el.value.trim() !== '' && (!isFinite(v) || v < 0);
       el.style.borderColor = falsch ? 'var(--nein)' : '';
-      el.title = falsch ? 'Bitte eine Zahl eingeben, z. B. 12,5' : '';
+      el.title = falsch ? tr('Bitte eine Zahl eingeben, z. B. 12,5') : '';
       if (falsch) bad = true;
     });
     return bad;
@@ -64,7 +103,7 @@
     if (ungueltig()) {letzte=null;$('aus').hidden=true;knoepfe();L.apply();return;}
     const e = lesen();
     const aus = E.auslegen(e);
-    if (aus.fehlt.length || !aus.stufen.length) { $('leer').hidden = false; $('aus').hidden = true; $('leer').textContent = aus.fehlt.length ? 'Es fehlen noch: ' + aus.fehlt.join(', ') + '.' : 'Mit Draht-Ø und den Hüllmaßen des Teils erscheinen hier Stadienfolge, Werkzeuggröße und die passenden Modelle.'; letzte = null; knoepfe(); return; }
+    if (aus.fehlt.length || !aus.stufen.length) { $('leer').hidden = false; $('aus').hidden = true; $('leer').dataset.originalText=''; $('leer').textContent = aus.fehlt.length ? tr('Es fehlen noch:') + ' ' + aus.fehlt.map(tr).join(', ') + '.' : tr('Mit Draht-Ø und den Hüllmaßen des Teils erscheinen hier Stadienfolge, Werkzeuggröße und die passenden Modelle.'); letzte = null; knoepfe(); return; }
     const wahl = E.waehle(MASCHINEN, aus, e, PRAXIS);
     letzte = { e, aus, wahl };
     zeigen(e, aus, wahl); L.apply();
@@ -76,48 +115,49 @@
     const basis=document.getElementById('material-basis');if(basis)basis.textContent=(aus.werkstoff.sourceName||aus.werkstoff.id)+' · '+tr(aus.werkstoff.curveStatus==='missing'?'Fließkurve des Lieferzustands fehlt':'Näherungsmodell');
     $('leer').hidden = true; $('aus').hidden = false;
     // Platzhalter der Werkzeugfelder
-    f.elements.lStempel.placeholder = fmt(w.lStempel) + ' berechnet';
-    f.elements.ko.placeholder = fmt(w.lMatrize) + ' berechnet';
-    f.elements.pko.placeholder = fmt(w.lStempel) + ' berechnet';
+    f.elements.lStempel.placeholder = fmt(w.lStempel) + ' ' + tr('berechnet');
+    f.elements.ko.placeholder = fmt(w.lMatrize) + ' ' + tr('berechnet');
+    f.elements.pko.placeholder = fmt(w.lStempel) + ' ' + tr('berechnet');
     f.elements.stationen.placeholder = String(aus.stufen.length);
-    f.elements.zusatz.placeholder = String(w.zusatzStandard) + (w.zusatzStandard ? ' (Kalibrieren, Hohlteil)' : '');
+    f.elements.zusatz.placeholder = String(w.zusatzStandard) + (w.zusatzStandard ? ' '+tr('(Kalibrieren, Hohlteil)') : '');
     const kenn = [
       ['Abschnitt', 'Ø' + fmt(w.d0) + ' × ' + fmt(w.L0) + ' mm'],
       ['Masse Fertigteil', fmt(w.masse) + ' g'],
-      ['Stationen', w.stationen + ' <small>+1 Reserve</small>'],
-      ['Höchste Stationskraft', w.Fmax_t==null?'Kraft noch offen':fmt(w.Fmax_t) + ' t'],
-      ['Nennkraft nötig', w.FN_muss_t==null?'Kraft noch offen':fmt(w.FN_muss_t, 0) + ' t <small>wünschenswert ' + fmt(w.FN_wunsch_t, 0) + ' t</small>'],
-      ['Summe aller Stationen', w.Fsum_t==null?'Kraft noch offen':fmt(w.Fsum_t) + ' t'],
-      ['Auswerfer Matrize (KO)', fmt(w.ko) + ' mm' + (w.koVorgabe ? ' <small>Vorgabe</small>' : '')],
-      ['Auswerfer Stempel (PKO)', (w.pko > 0 ? fmt(w.pko) + ' mm' : 'nicht nötig') + (w.pkoVorgabe ? ' <small>Vorgabe</small>' : '')],
-      ['Matrize Ø × L', rounded(w.matD.min) + ' bis ' + rounded(w.matD.ideal) + ' × ' + rounded(w.matL) + ' mm' + (e.typ !== 'mutter' ? ' <small>Pitch ab ' + rounded(w.pitch) + '</small>' : '')],
+      ['Stationen', w.stationen + ' <small>'+h('+1 Reserve')+'</small>'],
+      ['Höchste Stationskraft', w.Fmax_t==null?h('Kraft noch offen'):fmt(w.Fmax_t) + ' t'],
+      ['Nennkraft nötig', w.FN_muss_t==null?h('Kraft noch offen'):fmt(w.FN_muss_t, 0) + ' t <small>'+esc(msg('wünschenswert {value} t',{value:fmt(w.FN_wunsch_t,0)}))+'</small>'],
+      ['Summe aller Stationen', w.Fsum_t==null?h('Kraft noch offen'):fmt(w.Fsum_t) + ' t'],
+      ['Auswerfer Matrize (KO)', fmt(w.ko) + ' mm' + (w.koVorgabe ? ' <small>'+h('Vorgabe')+'</small>' : '')],
+      ['Auswerfer Stempel (PKO)', (w.pko > 0 ? fmt(w.pko) + ' mm' : h('nicht nötig')) + (w.pkoVorgabe ? ' <small>'+h('Vorgabe')+'</small>' : '')],
+      ['Matrize Ø × L', rounded(w.matD.min) + ' '+h('bis')+' ' + rounded(w.matD.ideal) + ' × ' + rounded(w.matL) + ' mm' + (e.typ !== 'mutter' ? ' <small>'+esc(msg('Pitch ab {value}',{value:rounded(w.pitch)}))+'</small>' : '')],
       ['Stempelaufnahme', w.stempelD ? 'Ø' + rounded(w.stempelD) + ' mm' : '·'],
-      ['Schneidbüchse', 'Bohrung ' + fmt(w.buechse.bohrung, 2) + ' <small>außen Ø' + rounded(w.buechse.aussen) + '</small>']
+      ['Schneidbüchse', h('Bohrung')+' ' + fmt(w.buechse.bohrung, 2) + ' <small>'+esc(msg('außen Ø{value}',{value:rounded(w.buechse.aussen)}))+'</small>']
     ];
+    if(aus.antrieb)kenn.splice(1,0,['Innenantrieb',h(aus.antrieb.label)+(aus.antrieb.depth?' · '+fmt(aus.antrieb.depth)+' mm':'')]);
     if (e.typ !== 'mutter') kenn.splice(3, 0, ['Stauchverhältnis Kopf', w.sKopf ? fmt(w.sKopf, 2) : '·']);
-    $('kenn').innerHTML = kenn.map(([k, v]) => '<div><dt>' + k + '</dt><dd>' + v + '</dd></div>').join('');
-    $('hinweise').innerHTML = aus.hinweise.map(h => '<li>' + esc(h) + '</li>').join('');
-    $('stufen').tBodies[0].innerHTML = aus.stufen.map((s, i) => '<tr><td>' + (i + 1) + '</td><td>' + esc(s.v) + '</td><td class="z">' + (s.t==null?'Kraft noch offen':fmt(s.t)+' t') + '</td><td class="z">' + (s.p==null?tr('nicht belegt'):fmt(s.p,0)) + '</td><td class="z">Ø' + (s.matD==null?'nicht belegt':rounded(s.matD)) + (s.arm ? '<br><small>' + s.arm + '</small>' : '') + '</td></tr>').join('');
+    rendered($('kenn'),kenn.map(([k, v]) => '<div><dt>' + h(k) + '</dt><dd>' + v + '</dd></div>').join(''));
+    rendered($('hinweise'),aus.hinweise.map(note => '<li>' + h(note) + '</li>').join(''));
+    rendered($('stufen').tBodies[0],aus.stufen.map((s, i) => '<tr><td>' + (i + 1) + '</td><td>' + h(s.v) + '</td><td class="z">' + (s.t==null?h('Kraft noch offen'):fmt(s.t)+' t') + '</td><td class="z">' + (s.p==null?h('nicht belegt'):fmt(s.p,0)) + '</td><td class="z">Ø' + (s.matD==null?h('nicht belegt'):rounded(s.matD)) + (s.arm ? '<br><small>' + h(s.arm) + '</small>' : '') + '</td></tr>').join(''));
     // Karten
     const k = [];
     const karte = (r, beste) => {
-      const o = r.o, sp = (o.lo && o.hi) ? eur(o.lo) + ' bis ' + eur(o.hi) : '';
+      const o = r.o, sp = (o.lo && o.hi) ? eur(o.lo) + ' '+tr('bis')+' ' + eur(o.hi) : '';
       const farbe = r.ausl==null?'var(--offen)':r.ausl <= 0.65 ? 'var(--ok)' : r.ausl <= 0.8 ? 'var(--knapp)' : 'var(--nein)';
       const marke = { ok: 'passt', knapp: 'knapp', offen: 'Daten fehlen', nein: 'passt nicht' }[r.gesamt];
-      const zeilen = r.k.map(x => '<tr><td>' + esc(x.krit) + '</td><td>' + esc(x.soll) + '</td><td>' + esc(x.ist) + '</td><td><span class="st m-' + x.status + '">' + { ok: 'ok', knapp: 'knapp', nein: 'nein', offen: 'offen' }[x.status] + '</span></td></tr>').join('');
-      const kat = o.kat ? '<a href="' + KATURL + o.kat + '.pdf#page=' + (o.s || 1) + '" target="_blank" rel="noopener">Katalog ' + o.kat + ', S. ' + (o.s || 1) + '</a>' : '';
-      return '<div class="karte' + (beste ? ' beste' : '') + '"><div class="kopfzeile"><div><span class="modell">' + o.m + '</span><span class="marke m-' + r.gesamt + '">' + marke + '</span><div class="fam">' + (FAMNAME[o.f] || o.f) + ' · ' + o.st + ' Stationen · ' + o.pw + ' t' + (o.sz ? ' · bis ' + o.sz : '') + '</div></div>' +
-        '<div class="preis"><b>' + eur(o.rp) + '</b><small>' + sp + '</small></div></div>' +
-        (r.ausl==null?'':'<div class="balken" title="Auslastung der Nennkraft, Strich bei 65 %"><i style="width:' + Math.min(100, rounded(r.ausl * 100)) + '%;background:' + farbe + '"></i></div>') +
-        '<div class="kurz"><span>'+(r.ausl==null?'Kraft noch offen':'Auslastung '+rounded(r.ausl*100)+' %')+'</span><span>Abschnitt bis Ø' + o.cd + '</span><span>KO ' + (o.ko || '·') + (o.kor ? ' (' + o.kor + ')' : '') + '</span><span>PKO ' + (o.pko || '·') + '</span><span>Matrize Ø' + (o.die ? o.die[0] + ' × ' + o.die[1] : '·') + '</span>' + (o.wt ? '<span>rund ' + fmt(o.wt) + ' t, Motor ' + fmt(o.hp==null?null:o.hp*0.7457,0) + ' kW</span>' : '') + (r.plan ? '<span title="Erfahrungswert aus der Serienfertigung; der Katalog nennt die Höchstdrehzahl">Planung ≈ ' + r.plan.aus + ' /min, rund ' + r.stundeProStk.toLocaleString(window.JYI18N.numberLocale(L.language)) + ' Stück/h (Katalog bis ' + o.out + ')</span>' : (o.out ? '<span>bis ' + o.out + ' /min</span>' : '')) + '</div>' +
-        (E.maschinenKonzept?window.JYConcept.html(E.maschinenKonzept(aus,e,o,PRAXIS),L.language):'')+'<details><summary>Prüfung im Einzelnen</summary><table class="krit"><thead><tr><th>Kriterium</th><th>Bedarf</th><th>Maschine</th><th></th></tr></thead><tbody>' + zeilen + '</tbody></table><p class="klein">' + kat + '</p></details></div>';
+      const zeilen = r.k.map(x => '<tr><td>' + h(x.krit) + '</td><td>' + h(x.soll) + '</td><td>' + h(x.ist) + '</td><td><span class="st m-' + x.status + '">' + h({ ok: 'ok', knapp: 'knapp', nein: 'nein', offen: 'offen' }[x.status]) + '</span></td></tr>').join('');
+      const kat = o.kat ? '<a href="' + KATURL + o.kat + '.pdf#page=' + (o.s || 1) + '" target="_blank" rel="noopener">'+esc(msg('Katalog {catalogue}, S. {page}',{catalogue:o.kat,page:o.s||1}))+'</a>' : '';
+      return '<div class="karte' + (beste ? ' beste' : '') + '"><div class="kopfzeile"><div><span class="modell">' + esc(o.m) + '</span><span class="marke m-' + r.gesamt + '">' + h(marke) + '</span><div class="fam">' + h(FAMNAME[o.f] || o.f) + ' · ' + o.st + ' '+h('Stationen')+' · ' + fmt(o.pw) + ' t' + (o.sz ? ' · '+esc(msg('bis {v}',{v:o.sz})) : '') + '</div></div>' +
+        '<div class="preis"><b>' + esc(eur(o.rp)) + '</b><small>' + esc(sp) + '</small></div></div>' +
+        (r.ausl==null?'':'<div class="balken" title="'+h('Auslastung der Nennkraft, Strich bei 65 %')+'"><i style="width:' + Math.min(100, rounded(r.ausl * 100)) + '%;background:' + farbe + '"></i></div>') +
+        '<div class="kurz"><span>'+(r.ausl==null?h('Kraft noch offen'):h('Auslastung')+' '+rounded(r.ausl*100)+' %')+'</span><span>'+esc(msg('Abschnitt bis Ø{value}',{value:fmt(o.cd)}))+'</span><span>KO ' + (o.ko ? fmt(o.ko) : '·') + (o.kor ? ' (' + esc(o.kor) + ')' : '') + '</span><span>PKO ' + (o.pko ? fmt(o.pko) : '·') + '</span><span>'+esc(msg('Matrize Ø{value}',{value:o.die?fmt(o.die[0])+' × '+fmt(o.die[1]):'·'}))+'</span>' + (o.wt ? '<span>'+esc(msg('rund {weight} t, Motor {power} kW',{weight:fmt(o.wt),power:fmt(o.hp==null?null:o.hp*0.7457,0)}))+'</span>' : '') + (r.plan ? '<span title="'+h('Erfahrungswert aus der Serienfertigung; der Katalog nennt die Höchstdrehzahl')+'">'+esc(msg('Planung ≈ {rate} /min, rund {hourly} Stück/h (Katalog bis {maximum})',{rate:fmt(r.plan.aus),hourly:fmt(r.stundeProStk,0),maximum:fmt(o.out)}))+'</span>' : (o.out ? '<span>'+esc(msg('bis {v}',{v:fmt(o.out)}))+' /min</span>' : '')) + '</div>' +
+        (E.maschinenKonzept?window.JYConcept.html(E.maschinenKonzept(aus,e,o,PRAXIS),L.language):'')+'<details><summary>'+h('Prüfung im Einzelnen')+'</summary><table class="krit"><thead><tr><th>'+h('Kriterium')+'</th><th>'+h('Bedarf')+'</th><th>'+h('Maschine')+'</th><th></th></tr></thead><tbody>' + zeilen + '</tbody></table><p class="klein">' + kat + '</p></details></div>';
     };
     if (wahl.passend.length) { k.push(...wahl.passend.slice(0, 3).map((r, i) => karte(r, i === 0))); }
-    if (wahl.bedingt.length) { k.push('<h3>Bedingt geeignet</h3>'); k.push(...wahl.bedingt.slice(0, wahl.passend.length ? 2 : 4).map(r => karte(r, !wahl.passend.length))); }
-    if (!wahl.passend.length && !wahl.bedingt.length) k.push('<p>Kein Katalogmodell erfüllt alle Muss-Kriterien. Die Anfrage lohnt trotzdem: Sonderausführungen und Werkzeugkonzepte klärt Hans Möhling direkt mit Jern Yao.</p>');
-    if (wahl.fast.length) { k.push('<details><summary>Knapp daneben (' + Math.min(wahl.fast.length, 4) + ')</summary>' + wahl.fast.slice(0, 4).map(r => karte(r, false)).join('') + '</details>'); }
-    $('karten').innerHTML = k.join('');
-    $('regeln').innerHTML = aus.regelListe.map(id => { const r = E.REGELN[id]; return r ? '<tr><td>' + id + '</td><td>' + esc(r.t) + '<br><span class="klein">' + esc(r.art) + '</span></td></tr>' : ''; }).join('');
+    if (wahl.bedingt.length) { k.push('<h3>'+h('Bedingt geeignet')+'</h3>'); k.push(...wahl.bedingt.slice(0, wahl.passend.length ? 2 : 4).map(r => karte(r, !wahl.passend.length))); }
+    if (!wahl.passend.length && !wahl.bedingt.length) k.push('<p>'+h('Kein Katalogmodell erfüllt alle Muss-Kriterien. Die Anfrage lohnt trotzdem: Sonderausführungen und Werkzeugkonzepte klärt Hans Möhling direkt mit Jern Yao.')+'</p>');
+    if (wahl.fast.length) { k.push('<details><summary>'+esc(msg('Knapp daneben ({count})',{count:Math.min(wahl.fast.length,4)}))+'</summary>' + wahl.fast.slice(0, 4).map(r => karte(r, false)).join('') + '</details>'); }
+    rendered($('karten'),k.join(''));
+    rendered($('regeln'),aus.regelListe.map(id => { const r = E.REGELN[id]; return r ? '<tr><td>' + esc(id) + '</td><td>' + h(r.t) + '<br><span class="klein">' + h(r.art) + '</span></td></tr>' : ''; }).join(''));
   }
 
   function knoepfe() {
@@ -146,7 +186,12 @@
       field('Kopfdurchmesser', mm(e.kD)); field('Kopfhöhe', mm(e.kH));
       if (e.kSW) field('Kopfschlüsselweite', mm(e.kSW));
       field('Körperdurchmesser', mm(e.sD || e.d0)); field('Körperlänge', mm(e.sL));
-      if (e.iSW) {field('Innenantrieb-Schlüsselweite', mm(e.iSW));field('Innenantriebstiefe', mm(e.iT));}
+      if(aus.antrieb){
+        field('Innenantrieb',tr(aus.antrieb.label));
+        if(e.iSW)field('Innenantrieb-Schlüsselweite',mm(e.iSW));
+        field('Innenantriebstiefe',mm(e.iT));
+        if(e.iVol)field('Volumen der Antriebsvertiefung',fmt(e.iVol)+' mm³');
+      }
       if (e.nD) {field('Napfinnendurchmesser', mm(e.nD));field('Napftiefe', mm(e.nT));if(e.nDurch) lines.push(tr('durchgehend, gelocht'));}
     }
     field('Länge im Stempel', mm(w.lStempel)); field('Auswerfer Matrize (KO)', mm(w.ko)); field('Auswerfer Stempel (PKO)', mm(w.pko));
@@ -195,13 +240,14 @@
 
   const BSP = {
     m8: { typ: 'bolzen', wst: '4', d0: '7,6', kopfForm: 'rund', kD: '17', kH: '6', sD: '7,2', sL: '40' },
-    m6: { typ: 'bolzen', wst: '5', d0: '5,6', kopfForm: 'rund', kD: '10', kH: '6', sD: '5,4', sL: '30', iSW: '5', iT: '3' },
+    m6: { typ: 'bolzen', wst: '5', d0: '5,6', kopfForm: 'rund', kD: '10', kH: '6', sD: '5,4', sL: '30', iTyp:'hex', iSize:'5', iT: '3' },
     mu: { typ: 'mutter', wst: '0', d0: '13', mM: '10', mSW: '16', mH: '8' },
     hu: { typ: 'formteil', wst: '1', d0: '16', kopfForm: 'rund', kD: '24', kH: '5', sD: '16', sL: '30', nD: '10', nT: '20', nDurch: true }
   };
   document.querySelectorAll('[data-bsp]').forEach(btn => btn.addEventListener('click', () => {
     f.reset(); a.elements.ok.checked = false;
     const d = {...BSP[btn.dataset.bsp]};const grades={m8:'23MnB4',m6:'33B2',mu:'C10C',hu:'C15C'};d.wst=String(Math.max(0,E.WERKSTOFFE.findIndex(w=>w.id===grades[btn.dataset.bsp])));
+    f.elements.iTyp.value=d.iTyp||'none';antriebAuswahl();
     for (const [k, v] of Object.entries(d)) {
       const el = f.elements[k];
       if (k === 'typ') f.querySelector('input[name=typ][value=' + v + ']').checked = true;

@@ -191,9 +191,21 @@
           <div data-fuer="bolzen">
             <h3>Innenantrieb im Kopf</h3>
             <div class="felder">
-              <label class="feld"><span>Schlüsselweite in mm</span><input type="text" inputmode="decimal" name="iSW"></label>
-              <label class="feld"><span>Tiefe in mm</span><input type="text" inputmode="decimal" name="iT"></label>
+              <label class="feld voll"><span>Antriebsprofil</span><select name="iTyp">
+                <option value="none">Kein Innenantrieb</option>
+                <option value="torx">Torx / Innensechsrund</option>
+                <option value="hex">Innensechskant</option>
+                <option value="ph">Kreuzschlitz Phillips (PH)</option>
+                <option value="pz">Kreuzschlitz Pozidriv (PZ)</option>
+              </select></label>
+              <label class="feld" data-antrieb="hex torx ph pz" hidden><span>Antriebsgröße</span><select name="iSize"></select></label>
+              <label class="feld" data-antrieb="hex torx ph pz" hidden><span>Tiefe in mm</span><input type="text" inputmode="decimal" name="iT"></label>
+              <label class="feld voll" id="drive-custom-hex" hidden><span>Eigene Schlüsselweite in mm</span><input type="text" inputmode="decimal" name="iSW"></label>
             </div>
+            <details data-antrieb="torx ph pz" hidden><summary>Volumen aus Zeichnung / CAD (optional)</summary>
+              <div class="felder"><label class="feld voll"><span>Volumen der Antriebsvertiefung in mm³</span><input type="text" inputmode="decimal" name="iVol"></label></div>
+              <p class="klein">Die Profilgröße bestimmt die Antriebsform. Das verdrängte Volumen kommt aus der Zeichnung oder CAD; bis dahin bleibt die Abschnittlänge offen. Eine angegebene Teilmasse bestimmt die Abschnittlänge ebenfalls.</p>
+            </details>
           </div>
           <div data-fuer="formteil">
             <h3>Napf oder Bohrung</h3>
@@ -241,7 +253,7 @@
 
       <fieldset>
         <legend>3 · Zeichnung (optional)</legend>
-        <label class="feld"><span>PDF, Bild, DXF oder STEP</span><button type="button" class="file-choose" id="archive-choose-file">Datei auswählen</button><span id="archive-file-name" class="klein" data-original-text></span><input class="visually-hidden" tabindex="-1" type="file" name="zeichnung" accept=".pdf,.png,.jpg,.jpeg,.tif,.tiff,.dxf,.dwg,.step,.stp,.igs,.iges"></label>
+        <div class="feld"><span id="archive-file-types">PDF, Bild, DXF oder STEP</span><button type="button" class="file-choose" id="archive-choose-file" aria-describedby="archive-file-types archive-file-name">Datei auswählen</button><span id="archive-file-name" class="klein" data-original-text aria-live="polite"></span><input hidden aria-hidden="true" tabindex="-1" type="file" name="zeichnung" accept=".pdf,.png,.jpg,.jpeg,.tif,.tiff,.dxf,.dwg,.step,.stp,.igs,.iges"></div>
         <p class="klein">Die Zeichnung bleibt auf Ihrem Rechner. Bitte hängen Sie sie der E-Mail an Hans Möhling selbst an.</p>
       </fieldset>
     </form>

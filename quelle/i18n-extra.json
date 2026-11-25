@@ -263,6 +263,18 @@
     "No AI analysis, enquiry transmission or automatic email sending.",
     "不进行人工智能分析，不传输询盘，也不自动发送邮件。"
   ],
+  "bis": ["a", "do", "to", "至"],
+  "+1 Reserve": ["+1 di riserva", "+1 rezervna", "+1 spare", "+1 个备用工位"],
+  "wünschenswert {value} t": ["preferibili {value} t", "zaželeno {value} t", "preferred {value} t", "建议 {value} t"],
+  "Pitch ab {value}": ["Interasse da {value}", "Razmak postaj od {value}", "Station pitch from {value}", "工位间距至少 {value}"],
+  "außen Ø{value}": ["esterno Ø{value}", "zunanji Ø{value}", "outside Ø{value}", "外径 Ø{value}"],
+  "Abschnitt bis Ø{value}": ["Spezzone fino a Ø{value}", "Odrezek do Ø{value}", "Blank up to Ø{value}", "坯料最大直径 Ø{value}"],
+  "Matrize Ø{value}": ["Matrice Ø{value}", "Matrica Ø{value}", "Die Ø{value}", "凹模 Ø{value}"],
+  "rund {weight} t, Motor {power} kW": ["circa {weight} t, motore {power} kW", "približno {weight} t, motor {power} kW", "approx. {weight} t, motor {power} kW", "约 {weight} t，电机 {power} kW"],
+  "Planung ≈ {rate} /min, rund {hourly} Stück/h (Katalog bis {maximum})": ["Pianificazione ≈ {rate} /min, circa {hourly} pezzi/h (catalogo fino a {maximum})", "Načrtovano ≈ {rate} /min, približno {hourly} kosov/h (katalog do {maximum})", "Planning ≈ {rate} /min, approx. {hourly} parts/h (catalogue up to {maximum})", "计划产能 ≈ {rate} /min，约 {hourly} 件/小时（目录最高 {maximum}）"],
+  "Katalog {catalogue}, S. {page}": ["Catalogo {catalogue}, pag. {page}", "Katalog {catalogue}, str. {page}", "Catalogue {catalogue}, p. {page}", "目录 {catalogue}，第 {page} 页"],
+  "Knapp daneben ({count})": ["Quasi idonee ({count})", "Skoraj ustrezni ({count})", "Near misses ({count})", "接近要求（{count}）"],
+  "(Kalibrieren, Hohlteil)": ["(calibratura, pezzo cavo)", "(kalibriranje, votli del)", "(sizing, hollow part)", "（校形、空心件）"],
   "Vorschau der technischen Auslegung. Der Anfrageversand ist hier deaktiviert.": [
     "Anteprima del dimensionamento tecnico. L’invio delle richieste è disattivato.",
     "Predogled tehnične zasnove. Pošiljanje povpraševanj je onemogočeno.",

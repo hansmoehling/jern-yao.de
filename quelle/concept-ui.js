@@ -7,6 +7,7 @@ function html(concept,language='de'){
  const status={candidate:'Konzeptkandidat',unsuitable:'Nicht geeignet',incomplete:'Konzept noch unvollständig'};
  let out='<section class="concept"><h4>'+esc(tr('Stadienkonzept für diese Maschine'))+'</h4><p>'+esc(tr(status[concept.status]||'Konzept noch unvollständig'))+'</p>';
  if(concept.blank)out+='<p><strong>'+esc(tr('Abschnitt Ø × Länge'))+':</strong> '+esc(num(concept.blank.diameter))+' × '+esc(num(concept.blank.length))+' '+esc(concept.blank.unit||'mm')+'</p>';
+ if(concept.drive)out+='<p><strong>'+esc(tr('Innenantrieb'))+':</strong> '+esc(tr(concept.drive.label))+' · '+esc(tr('Tiefe'))+' '+esc(num(concept.drive.depth))+' mm</p>';
  out+='<p>'+esc(tr('Benötigte Stationen'))+': '+esc(num(concept.requiredStations))+' · '+esc(tr('Verfügbare Stationen'))+': '+esc(num(concept.availableStations))+' · '+esc(tr('Reserve'))+': '+esc(num(concept.reserveStations))+'</p>';
  if(Array.isArray(concept.stages)&&concept.stages.length){out+='<ol>';for(const stage of concept.stages){
   out+='<li><strong>'+esc(tr('Stadium'))+' '+esc(stage.number)+': '+esc(tr(stage.operation||''))+'</strong>';

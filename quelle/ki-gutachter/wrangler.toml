@@ -33,7 +33,7 @@ MODELL = "claude-opus-5-5"
 ALLOW_WEB_SEARCH = "true"
 RESEARCH_DOMAINS = "jernyao.com,saarstahl.com,lucefin.com"
 # Weitere eigene Frontend-Herkünfte bei Bedarf, kommasepariert:
-ALLOWED_ORIGINS = ""
+ALLOWED_ORIGINS = "https://jy-vorschau.ki-gutachter.workers.dev"
 
 # Keine Request-URLs mit Status-Token protokollieren.
 [observability]

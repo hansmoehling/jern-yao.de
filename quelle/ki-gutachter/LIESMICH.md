@@ -4,6 +4,8 @@ Der Worker nimmt eine Zeichnung, Skizze oder Beschreibung an. Er speichert den A
 
 Claude Opus 5.5 liest zuerst das freigegebene Projektwissen und kann dann mehrmals das echte Werkzeug für Geometrie, Stadienfolge und Katalogprüfung aufrufen. Das Ergebnis erscheint direkt im Fachchat. Das frühere Verfahren mit einer zwingenden internen Entwurfsfreigabe wurde für diesen Ablauf abgelöst. Es gibt keinen automatischen Versand einer KI-Antwort an Kunden.
 
+Die Modellrunden verwenden `tool_choice: {type: "auto"}`. Systemtext und Werkzeugdefinitionen bleiben während einer Ausarbeitung unverändert; zurückgegebene Thinking-Blöcke bleiben erhalten. Der Server erlaubt Rechnung und Recherche erst in einer späteren Runde, nachdem `projektwissen` gelesen wurde. Ein gleichzeitig mit dem Wissensaufruf gesendeter Rechenaufruf wird noch nicht ausgeführt. Vorzeitige Schlussantworten erhalten die gezielte Anforderung, zuerst das Projektwissen zu lesen.
+
 ## API für das Frontend
 
 - POST /anfrage: multipart mit email, name, firma, notiz, optional datei und idempotency_key. E-Mail sowie Datei **oder** Beschreibung sind nötig; keine technischen Pflichtfragen. Antwort HTTP 202 mit {id, token, status:"queued", notificationStatus:"pending"}. Derselbe unveränderte Retry bekommt die gespeicherte Identität; abweichender Inhalt zur gleichen Kennung HTTP 409.
@@ -48,28 +50,31 @@ Neue Quellenhinweise landen unter lernen:<uuid>, Status ungeprueft, mit URL, Abr
 - chat:<id>: Gesprächsverlauf, maximal 20 Einträge.
 - idempotenz:<hash>, versandauftrag:<id>: Wiederaufnahme desselben Eingangs.
 - rate:<bucket>:<day>:<IP-hash>: ungefähre tägliche Begrenzung, keine Roh-IP.
+- diagnose:last:chat / queue / request: letzte klassifizierte Dienststörung, private Aufbewahrung eine Stunde. Nur feste Fehlerklasse, Dienst, Status, Zeitpunkt und validierte Anbieter-Request-ID; keine Rohantwort, Zeichnung, Kontaktdaten oder Zugangsschlüssel.
 - Originaldatei: privates R2-Objekt anfragen/<id>/original. Keine öffentliche Downloadroute.
 
 KV-Einträge zu Anfragen haben 30 Tage TTL. Der Zugriff erlischt zusätzlich nach 30 Tagen ab createdAt. Das HMAC-Token ist ein Geheimnis; keine URLs mit Token, Formulardaten oder Modell-/Mail-Request-Bodies loggen. Secretrotation macht bisherige Tokens ungültig.
 
-**R2 löscht customMetadata.expiresAt nicht von selbst.** Vor Aktivierung im R2-Bucket unter Settings → Object lifecycle rules eine Regel für Präfix anfragen/ mit Löschung nach 30 Tagen einrichten und anschließend die tatsächliche Regel im Dashboard überprüfen. Ohne diese Einstellung bleibt die Datei liegen. Die Lifecycle-Löschung ist asynchron. Bei absichtlich verlängerten Untersuchungen zuerst eine passende dokumentierte Aufbewahrung festlegen.
+**R2 löscht customMetadata.expiresAt nicht von selbst.** Im eingerichteten Dienst wurde die Lifecycle-Regel für Präfix anfragen/ mit Löschung nach 30 Tagen aktiviert und überprüft. Bei einer Neuinstallation muss diese Regel im R2-Bucket unter Settings → Object lifecycle rules erneut eingerichtet und im Dashboard kontrolliert werden. Ohne Regel bleibt die Datei liegen. Die Lifecycle-Löschung ist asynchron. Die separat zugestellten E-Mail-Anhänge unterliegen nicht dieser R2-Regel.
 
 Cloudflare Queues trägt ausschließlich {kind,id}; die Originaldatei gehört nicht in die Queue. Mail und Analyse haben eigene Nachrichten, Batchgröße 1 und bis zu vier parallele Consumer. Drei Retries nach dem ersten Versuch, Verzögerung 60 Sekunden, danach jy-anfragen-dlq. Die Analyse ist auf sieben Modellrunden und 240 Sekunden begrenzt, der synchrone Chat auf fünf Runden und 65 Sekunden. Kein mehrminütiges fire-and-forget über waitUntil.
 
 KV ist eventual consistent: kurze Statusverzögerungen und gleichzeitig eintreffende identische Erstübertragungen sind nicht atomar abgesichert. Wiederholungen nach bestätigtem Speichern werden wiedererkannt. Resend erhält pro Anfrage einen Idempotency-Key (Anbieterfenster 24 Stunden); bereits als sent gespeicherte Nachrichten werden übersprungen. Vor einem manuellen DLQ-Replay nach längerer Pause Anbieterstatus prüfen. Keine Exactly-once-Zusage. Für harte globale Idempotenz/Quoten wäre ein Durable Object nötig.
 
-Die tägliche KV-Begrenzung (10 Eingänge, 40 Chats je IP-Hash) ist ebenfalls näherungsweise. Vor öffentlicher Aktivierung in Cloudflare eine WAF-Rate-Limit-Regel für /anfrage und /chat setzen; CORS allein ist kein Missbrauchsschutz. Limits auf eigenen Traffic abstimmen und API-Budget beim Anbieter setzen. Kosten hängen von Seitenzahl, Modell, Runden und Suche ab; es gibt hier keine unbestätigte Cent-Pauschale.
+Die tägliche KV-Begrenzung (10 Eingänge, 40 Chats je IP-Hash) ist ebenfalls näherungsweise. WAF-Limits für /anfrage und /chat sowie das API-Budget beim Anbieter sind separate Betriebseinstellungen und werden durch den Code nicht eingerichtet oder bestätigt. Limits auf den tatsächlichen Traffic abstimmen; CORS allein begrenzt keine Nutzung. Kosten hängen von Seitenzahl, Modell, Runden und Suche ab.
 
 ## Einrichtung und Aktivierung
 
-Dieser Checkout enthält keine Live-Zugangsdaten und wurde nicht deployed. Vor Aktivierung:
+Der Dienst wurde bereitgestellt. Die Anbieter-Zugänge liegen als verschlüsselte Cloudflare-Secrets außerhalb dieses Checkouts. Im kontrollierten Vorschautest vom 25.11.2026 wurden ein echter PDF-Upload, die Analyse mit dem aktiven Modell und der unabhängige Originalanhang-Versand durchlaufen. Der Versanddienst bestätigte die Zustellung. Einzelheiten zum neutralen Geometriefall stehen in [der Inbetriebnahme-Notiz](../Innenantriebe_inbetriebnahme_20261125.md). Ein positives `/health` bleibt trotzdem nur der oben beschriebene Konfigurationscheck.
 
-1. KV-Namespace SPEICHER, privaten R2-Bucket jy-anfragen und Queues jy-anfragen / jy-anfragen-dlq anlegen; KV-ID in wrangler.toml ersetzen. Ausreichenden Worker-/Queue-Tarif wählen.
+Für Neuinstallation oder Wiederherstellung:
+
+1. KV-Namespace SPEICHER, privaten R2-Bucket und Haupt-/Fehlerqueue anlegen beziehungsweise die vorhandenen Ressourcen wiederverwenden; Bindings in wrangler.toml kontrollieren. Ausreichenden Worker-/Queue-Tarif wählen.
 2. R2-Lifecycle wie oben tatsächlich einrichten. Bucket ohne Public URL betreiben.
 3. Als Secrets ANTHROPIC_API_KEY, RESEND_API_KEY und ZUGRIFF_SCHLUESSEL (mindestens 32 zufällige Zeichen) setzen. FREIGABE_SCHLUESSEL wird für die Migration noch gelesen. Keine Secrets in Repository oder ZIP.
 4. Resend-Absenderdomain verifizieren; EMPFAENGER ist die fest konfigurierte Hans-Adresse. Die KI darf keinen Empfänger setzen. Richtiges Empfängerpostfach vor Inbetriebnahme verifizieren.
 5. Den freigegebenen versionierten Wissenssnapshot synchronisieren. ALLOW_WEB_SEARCH und erlaubte Primärquellen-Domains prüfen.
-6. WAF-Regeln und Budget setzen. Worker bereitstellen, Health lesen und einen kontrollierten echten Test mit eigener Beispielzeichnung/Adresse durchführen: Eingang, Tokenzugriff, tatsächliche Mailannahme, KI-Runden, Rückfrage, Chatfortsetzung und Queue-Fehlerpfad.
+6. Betriebslimits und Budget prüfen. Worker bereitstellen, Health lesen und einen kontrollierten echten Test mit eigener Beispielzeichnung/Adresse durchführen: Eingang, Tokenzugriff, tatsächliche Mailzustellung, KI-Runden, Rückfrage und Chatfortsetzung. Queue-Fehlerpfad mit einer dafür vorgesehenen Testumgebung prüfen.
 7. Erst nach diesen Prüfungen JY_API_BASE in der Frontend-Konfiguration aktivieren und die Seite bauen. Ein fehlendes/noch nicht verbundenes Backend darf nicht als empfangene Anfrage dargestellt werden.
 
 ## Lokale Regression
@@ -86,4 +91,5 @@ Offizielle Schnittstellenquellen, geprüft am 25.11.2026:
 - [Queue-Laufzeit und Nachrichtengröße](https://developers.cloudflare.com/queues/platform/limits/)
 - [R2-Lifecycle-Verhalten](https://developers.cloudflare.com/r2/buckets/object-lifecycles/)
 - [Anthropic Tooldefinitionen](https://platform.claude.com/docs/en/agents-and-tools/tool-use/define-tools)
+- [Opus-5.5-Migration und Werkzeugwahl](https://platform.claude.com/docs/en/models/opus-5-5/migration-guide)
 - [Resend E-Mail-API und Idempotency-Key](https://resend.com/docs/api-reference/emails/send-email)

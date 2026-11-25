@@ -35,6 +35,8 @@ Zusätzliche Maschinenstationen erscheinen als **Reserve**. Sie erzeugen keine e
 
 Zur belastbaren Auslegung gehören anschließend die Bestätigung von Werkstoff und Lieferzustand, passende Fließdaten, Zeichnungsprüfung sowie die Prüfung von Zwischenformen, Werkzeugaufbau, Transfer und Prozessversuch.
 
+Die Archiv-Auslegung unterscheidet inzwischen Torx, Innensechskant, Phillips und Pozidriv. Profilgröße und Tiefe bleiben in der Maschinenfolge nachvollziehbar; unbekannte Vertiefungsvolumina und profilabhängige Kräfte werden nicht durch Sechskantwerte ersetzt. Die [technische Ergänzung zu Innenantrieben und Inbetriebnahme](Innenantriebe_inbetriebnahme_20261125.md) beschreibt das Modell, seine Grenzen und den kontrollierten PDF-Test des verbundenen Dienstes.
+
 ## Fünf Sprachen
 
 Die Oberfläche und technischen Auslegungstexte unterstützen **Deutsch, Italienisch, Slowenisch, Englisch und vereinfachtes Chinesisch**. Dazu gehören Regeln, Fehl- und Offenhinweise sowie Operationen, Positionen und Konzeptbegründungen. Dynamische Textschablonen erhalten Zahlen, Einheiten, Werkstoffnamen und Maschinenkennungen; freie Nutzereingaben werden nicht automatisch übersetzt.
