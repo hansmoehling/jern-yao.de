@@ -46,9 +46,14 @@ if (noDensity >= 0) {
 for (const m of E.WERKSTOFFE) {
   assert.equal(m.C, null, 'legacy C is never an active flow model');assert.equal(m.n, null, 'legacy n is never an active flow model');assert.equal(m.Rm,null,'unverified legacy wire Rm is not reused');
   assert.equal(m.manualEligible,!!m.flowCurves.length);
-  const expected=approvedCurves.filter(curve=>curve.materialNumbers.includes(m.number)).map(curve=>curve.id).sort();
+  const exactIdentity=curve=>!!m.number&&curve.materialNumbers?.includes(m.number)||curve.materialIds?.includes(m.id);
+  const expected=approvedCurves.filter(exactIdentity).map(curve=>curve.id).sort();
   assert.deepEqual(m.flowCurves.map(curve=>curve.id).sort(),expected,'the built catalogue must exactly match the approved source identities: '+m.id);
-  for(const curve of m.flowCurves){assert.equal(curve.eligible,true);assert(curve.materialNumbers.includes(m.number),'exact material identity');assert(curve.sourceIds.length>0);assert(curve.sourceRefs.length===curve.sourceIds.length);assert(curve.state);assert(curve.phiMax>curve.phiMin);}
+  for(const curve of m.flowCurves){assert.equal(curve.eligible,true);assert(exactIdentity(curve),'exact material identity');assert(curve.sourceIds.length>0);assert(curve.sourceRefs.length===curve.sourceIds.length);assert(curve.state);assert(curve.phiMax>curve.phiMin);}
   if (m.densityStatus === 'sourced') assert.ok(m.densitySource.sourceUrl);
 }
+const aisi=E.findMaterial('AISI 1010');
+assert(aisi.manualEligible);assert.equal(aisi.number,null);assert.equal(aisi.rho,null);assert.equal(aisi.densityStatus,'missing');
+assert.equal(aisi.flowCurves.length,1);assert.equal(aisi.flowCurves[0].state,'cold-drawn');
+assert.equal(E.findMaterial('C10C').flowCurves.some(curve=>curve.materialIds?.includes('AISI 1010')),false);
 console.log('PASS: 58 source identities, exact grade/curve lookup, approved Manual conditions, nullable forces, Rm isolation, geometric candidates and density restrictions');

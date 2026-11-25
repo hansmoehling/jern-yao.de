@@ -1,21 +1,29 @@
 {
   "schemaVersion": 1,
   "reviewedAt": "2026-11-25",
-  "purpose": "Literaturgestützter Rechenansatz für die technische Vorauslegung weichgeglühter Drähte; keine Chargenkennwerte.",
+  "purpose": "Literaturgestützte Rechenansätze für die technische Vorauslegung im jeweils dokumentierten Lieferzustand; keine Chargenkennwerte.",
   "units": {
     "stress": "N/mm²",
     "strain": "dimensionless natural strain"
   },
   "rules": {
-    "identity": "Nur exakt zugeordnete Werkstoffnummern; keine Namensnähe als Ersatzkurve.",
-    "state": "Der gewählte Ausgangszustand muss weichgeglüht sein. Vorverfestigte, vergütete oder T6-Zustände sind nicht abgedeckt.",
+    "identity": "Nur exakt zugeordnete Werkstoffnummern oder eigenständige Quellenidentitäten über materialIds; keine Namensnähe als Ersatzkurve.",
+    "state": "Der gewählte Ausgangszustand muss dem einzelnen Kurvenprofil entsprechen. Die meisten Profile gelten für weichgeglüht; AISI 1010 hat ein eigenes Profil für gezogenes Stabmaterial. Keine automatische Übertragung auf andere Ziehgrade, Wärmebehandlungen oder Zustände.",
     "range": "Keine automatische Extrapolation oberhalb phiMax. phiMin benennt bei Hollomon den Beginn der Potenzfunktion; ein gesondert dokumentierter linearer Anschluss deckt 0 bis phiMin ab.",
     "tabulated": "Stückweise lineare Interpolation der veröffentlichten Tabellenwerte einschließlich des separat angegebenen Anfangswerts kf0.",
-    "rate": "Numerische Temperatur, Dehnrate und Chargenstreuung sind in den Literaturtabellen nicht belegt. Keine Geschwindigkeitsskalierung oder Wärmeentfestigung aus diesen Daten ableiten.",
-    "meanStress": "Mittelspannung aus dem Integral der definierten Kurve über das wirkliche Umformintervall; kein künstlicher phi-Offset.",
+    "rate": "Temperatur, Dehnrate und Chargenstreuung gelten nur soweit im einzelnen Profil dokumentiert. AISI 1010 nennt die mittlere Versuchsdehnrate 0,0336 s⁻¹. Keine Geschwindigkeitsskalierung oder Wärmeentfestigung ohne entsprechendes Modell ableiten.",
+    "meanStress": "Mittelspannung aus dem Integral der definierten Kurve über das wirkliche Umformintervall; beim Swift-Modell ausschließlich der veröffentlichte epsilon0-Parameter, kein künstlicher phi-Offset.",
     "approvalMeaning": "eligible/literature bedeutet geeignet für den dokumentierten Vorauslegungsansatz, nicht eine Freigabe für beliebigen Lieferzustand oder Serienprozess."
   },
   "sources": [
+    {
+      "id": "rosochowska-2009-aisi1010-drawn",
+      "title": "M. Rosochowska, A. Rosochowski, L. Olejnik (2009): Finite element analysis of cold forward extrusion of 1010 steel",
+      "locator": "Autorenmanuskript PDF S.1 Material/Zustand, S.2 Gleichung 1 und Bild 5, S.5 gemessener Bereich bis phi 1,5",
+      "url": "https://strathprints.strath.ac.uk/13927/1/Rosochowska_FiniteElementAnalysisod_ColdForwardExtrusionof_1010Steel_1_.pdf",
+      "evidence": "AISI 1010 als gezogenes Stabmaterial; Rastegaev-Druckversuch bei Raumtemperatur und mittlerer Dehnrate 0,0336 s⁻¹. Swift-Fit kf=680*(0,1+phi)^0,29 MPa. Gemessen bis phi1,5; die im Papier separat beschriebene Extrapolation bis2,5 wird nicht übernommen. Ziehgrad und Wärmebehandlung nicht vollständig dokumentiert. Dichte nicht angegeben.",
+      "access": "Frei lesbares institutionelles Autorenmanuskript; keine ausdrücklich geprüfte offene Nachnutzungslizenz."
+    },
     {
       "id": "dietrich-2018-t31-1",
       "title": "Dietrich: Praxis der Umformtechnik, 12. Auflage, 2018",
@@ -78,6 +86,40 @@
     }
   ],
   "curves": [
+    {
+      "id": "rosochowska2009-aisi1010-drawn",
+      "name": "AISI 1010",
+      "materialIds": ["AISI 1010"],
+      "materialNumbers": [],
+      "state": "cold-drawn",
+      "stateLabel": "gezogen (Literaturzustand)",
+      "stateDetails": "Gezogenes Stabmaterial; Ziehgrad und Wärmebehandlung nicht vollständig dokumentiert. Keine weichgeglühte Kurve und keine EN-Äquivalenz.",
+      "temperature": "room",
+      "temperatureStatus": "room-temperature-no-numeric-temperature-reported",
+      "strainRatePerSecond": 0.0336,
+      "strainRateStatus": "reported-mean-compression-test-rate",
+      "testMethod": "Rastegaev-Druckversuch; wahre Druckdehnung nach Korrektur der elastischen Probensteifigkeit",
+      "approval": "literature",
+      "eligible": true,
+      "evidenceClass": "measured-compression-curve-fit",
+      "model": "swift",
+      "C": 680,
+      "epsilon0": 0.1,
+      "n": 0.29,
+      "kf0": 348.7457411141282,
+      "kf0Status": "computed-from-swift-model-not-measured-Rp02",
+      "phiMin": 0,
+      "phiMax": 1.5,
+      "rangeStatus": "measured-range-no-extrapolation",
+      "integration": "exact-swift-antiderivative",
+      "sourceIds": ["rosochowska-2009-aisi1010-drawn"],
+      "limitations": [
+        "Keine bestätigte Übertragbarkeit auf andere Ziehgrade oder auf weichgeglühten Draht.",
+        "Keine Dehnratenkorrektur für Produktionsgeschwindigkeit und keine Wärmeentfestigung.",
+        "kf0 ist aus dem Modell berechnet, keine gemessene Rp0,2.",
+        "Keine durch dieses Papier belegte Dichte."
+      ]
+    },
     {
       "state": "soft-annealed",
       "stateLabel": "weichgeglüht",

@@ -152,6 +152,44 @@ test('C10C uses its own compression-literature curve only after explicit state s
  assert.ok(r.proposal.input.find(x=>x.field==='materialState').assumption);
 });
 
+test('AISI 1010 drawn-state evidence works in five languages and cannot certify annealed or foreign-grade material',()=>{
+ const i=input();i.material='AISI 1010';i.materialEvidence={origin:'user_text',quote:'AISI 1010'};
+ i.curveId=Engine.findMaterial('AISI 1010').flowCurves[0].id;i.materialState='cold-drawn';
+ const c={note:context.note.replace('C15C','AISI 1010')};
+ assert.equal(screen(i,c).proposal.calculation.values.Fmax_t,null);
+ for(const quote of ['gezogener Stab','cold-drawn bar','barra trafilata','hladno vlečena palica','冷拉棒材']){
+  i.materialStateEvidence={origin:'user_text',quote};
+  assert.equal(screen(i,c).proposal.calculation.values.Fmax_t,null,'fabricated quotation');
+  const r=screen(i,{note:c.note+' '+quote});assert.equal(r.ok,true);assert.equal(r.proposal.calculation.materialStatus.flow,'ready');
+  const expected= Math.PI*169/4*680*Math.pow(.1+Math.log(169/64),.29)/.6/9806.65;
+  assert.ok(Math.abs(r.proposal.calculation.values.Fmax_t-expected)<1e-9);
+  assert.equal(r.proposal.input.find(item=>item.field==='materialState').value,'gezogen (Literaturzustand)');
+  assert.equal(r.proposal.calculation.values.masse,null);assert(r.proposal.assumptions.some(text=>text.includes('0,0336')));
+  assert(!r.proposal.assumptions.some(text=>text.includes('für weichgeglühten Draht')));
+ }
+ i.materialStateEvidence={origin:'assumption',quote:'Gezogenes Ausgangsmaterial als Prozessversuch verwenden.'};
+ const assumed=screen(i,c);assert(assumed.proposal.calculation.values.Fmax_t>0);assert(assumed.proposal.input.find(item=>item.field==='materialState').assumption);
+ for(const quote of ['weichgeglüht','soft annealed','ricotto','mehko žarjen','软化退火','nicht gezogen','not cold drawn','non trafilato','ni hladno vlečen','未经冷拉','vergütet'])assert.equal(screen(i,{note:c.note+' '+quote}).proposal.calculation.values.Fmax_t,null,quote);
+ i.materialState='soft-annealed';i.materialStateEvidence={origin:'assumption',quote:'weichgeglüht'};
+ assert.equal(screen(i,c).proposal.calculation.values.Fmax_t,null);
+ i.materialState='cold-drawn';i.materialStateEvidence={origin:'assumption',quote:'gezogen'};i.material='C10C';i.materialEvidence.quote='C10C';
+ assert.equal(screen(i,{note:context.note.replace('C15C','C10C')}).proposal.calculation.values.Fmax_t,null);
+});
+
+test('post-drawing anneal, spheroidizing and normalizing cannot reuse the drawn AISI 1010 curve',()=>{
+ const i=input();i.material='AISI 1010';i.materialEvidence={origin:'user_text',quote:'AISI 1010'};
+ i.curveId=Engine.findMaterial('AISI 1010').flowCurves[0].id;i.materialState='cold-drawn';
+ const c={note:context.note.replace('C15C','AISI 1010')};
+ for(const quote of ['cold-drawn then annealed','kaltgezogen, anschließend geglüht','cold-drawn, spheroidized','cold-drawn then normalized','gezogen, anschließend normalisiert','trafilato, poi ricotto','trafilato e sferoidizzato','vlečen, nato žarjen','vlečen in normaliziran','冷拉后退火','冷拔后球化','冷拉后正火']){
+  for(const origin of ['user_text','drawing']){
+   i.materialStateEvidence={origin,quote,page:1};
+   const r=screen(i,origin==='user_text'?{note:c.note+' '+quote}:{...c,file:{type:'application/pdf',bytes:new Uint8Array()}});
+   assert.equal(r.ok,true);assert.equal(r.proposal.calculation.materialStatus.flow,'state-missing',quote);
+   assert.equal(r.proposal.calculation.values.Fmax_t,null,quote);
+  }
+ }
+});
+
 test('exact grade identity or material number resolves; a shorter unverified grade is not substituted',()=>{
  const i=input();i.material='1.1172';i.materialEvidence={origin:'user_text',quote:'1.1172',reference:'material number'};
  const result=screen(i,{note:context.note.replace('C15C','1.1172')});

@@ -9690,5 +9690,82 @@
     ],
     "manualEligible": true,
     "curveSource": "dietrich2018-aw6082-soft"
+  },
+  {
+    "id": "AISI 1010",
+    "sourceName": "AISI 1010",
+    "number": null,
+    "standard": "AISI 1010 (Quellenbezeichnung)",
+    "aliases": [],
+    "catalogueSource": "https://strathprints.strath.ac.uk/13927/1/Rosochowska_FiniteElementAnalysisod_ColdForwardExtrusionof_1010Steel_1_.pdf",
+    "materialNotes": [
+      "Eigenständige Quellenidentität; keine Gleichsetzung mit C10C, C15C oder einer EN-Werkstoffnummer.",
+      "Kurve für gezogenes Stabmaterial. Ziehgrad und Wärmebehandlung sind nicht vollständig dokumentiert; keine weichgeglühte Kurve.",
+      "Dichte und Drahtzugfestigkeit sind nicht durch diese Quelle belegt. Teilemasse bleibt ohne gesonderten Dichtenachweis offen.",
+      "Werkstoffspezifische Umformgrenzen sind nicht freigegeben; Stadienaufteilung verwendet vorläufige Grenzen."
+    ],
+    "C": null,
+    "n": null,
+    "Rm": null,
+    "rho": null,
+    "grp": "unbekannt",
+    "rmStatus": "missing",
+    "densityStatus": "missing",
+    "densitySource": null,
+    "properties": [],
+    "hinweis": "Lieferzustand und Fließkurve ausdrücklich wählen",
+    "flowCurves": [
+      {
+        "id": "rosochowska2009-aisi1010-drawn",
+        "name": "AISI 1010",
+        "materialIds": [
+          "AISI 1010"
+        ],
+        "materialNumbers": [],
+        "state": "cold-drawn",
+        "stateLabel": "gezogen (Literaturzustand)",
+        "stateDetails": "Gezogenes Stabmaterial; Ziehgrad und Wärmebehandlung nicht vollständig dokumentiert. Keine weichgeglühte Kurve und keine EN-Äquivalenz.",
+        "temperature": "room",
+        "temperatureStatus": "room-temperature-no-numeric-temperature-reported",
+        "strainRatePerSecond": 0.0336,
+        "strainRateStatus": "reported-mean-compression-test-rate",
+        "testMethod": "Rastegaev-Druckversuch; wahre Druckdehnung nach Korrektur der elastischen Probensteifigkeit",
+        "approval": "literature",
+        "eligible": true,
+        "evidenceClass": "measured-compression-curve-fit",
+        "model": "swift",
+        "C": 680,
+        "epsilon0": 0.1,
+        "n": 0.29,
+        "kf0": 348.7457411141282,
+        "kf0Status": "computed-from-swift-model-not-measured-Rp02",
+        "phiMin": 0,
+        "phiMax": 1.5,
+        "rangeStatus": "measured-range-no-extrapolation",
+        "integration": "exact-swift-antiderivative",
+        "sourceIds": [
+          "rosochowska-2009-aisi1010-drawn"
+        ],
+        "limitations": [
+          "Keine bestätigte Übertragbarkeit auf andere Ziehgrade oder auf weichgeglühten Draht.",
+          "Keine Dehnratenkorrektur für Produktionsgeschwindigkeit und keine Wärmeentfestigung.",
+          "kf0 ist aus dem Modell berechnet, keine gemessene Rp0,2.",
+          "Keine durch dieses Papier belegte Dichte."
+        ],
+        "sourceRefs": [
+          {
+            "id": "rosochowska-2009-aisi1010-drawn",
+            "title": "M. Rosochowska, A. Rosochowski, L. Olejnik (2009): Finite element analysis of cold forward extrusion of 1010 steel",
+            "locator": "Autorenmanuskript PDF S.1 Material/Zustand, S.2 Gleichung 1 und Bild 5, S.5 gemessener Bereich bis phi 1,5",
+            "url": "https://strathprints.strath.ac.uk/13927/1/Rosochowska_FiniteElementAnalysisod_ColdForwardExtrusionof_1010Steel_1_.pdf",
+            "evidence": "AISI 1010 als gezogenes Stabmaterial; Rastegaev-Druckversuch bei Raumtemperatur und mittlerer Dehnrate 0,0336 s⁻¹. Swift-Fit kf=680*(0,1+phi)^0,29 MPa. Gemessen bis phi1,5; die im Papier separat beschriebene Extrapolation bis2,5 wird nicht übernommen. Ziehgrad und Wärmebehandlung nicht vollständig dokumentiert. Dichte nicht angegeben.",
+            "access": "Frei lesbares institutionelles Autorenmanuskript; keine ausdrücklich geprüfte offene Nachnutzungslizenz."
+          }
+        ]
+      }
+    ],
+    "manualEligible": true,
+    "curveStatus": "literature",
+    "curveSource": "rosochowska2009-aisi1010-drawn"
   }
 ]

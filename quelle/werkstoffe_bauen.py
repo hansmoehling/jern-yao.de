@@ -55,6 +55,7 @@ def build():
     legacy = json.loads((Q / "werkstoffe-bestand.json").read_text(encoding="utf-8"))["materials"]
     research = json.loads((Q / "werkstoffe-recherche.json").read_text(encoding="utf-8"))
     flow = json.loads((Q / "fliesskurven.json").read_text(encoding="utf-8"))
+    supplements = json.loads((Q / "werkstoffe-ergaenzungen.json").read_text(encoding="utf-8"))["materials"]
     assert flow["schemaVersion"] == 1
     sources = {item["id"]: item for item in flow["sources"]}
     approved = [curve for curve in flow["curves"] if curve.get("eligible") is True]
@@ -65,7 +66,9 @@ def build():
             assert curve.get("proxy", {}).get("rationale") and curve.get("proxy", {}).get("sourceMaterial"), curve["id"]
         assert curve.get("state") and curve.get("temperature") and curve.get("sourceIds"), curve["id"]
         assert all(source_id in sources for source_id in curve["sourceIds"]), curve["id"]
-        assert curve.get("model") in {"tabulated", "hollomon"}, curve["id"]
+        assert curve.get("model") in {"tabulated", "hollomon", "swift"}, curve["id"]
+        if curve["model"] == "swift":
+            assert curve["C"] > 0 and curve["n"] >= 0 and curve["epsilon0"] > 0, curve["id"]
         assert 0 <= curve["phiMin"] < curve["phiMax"], curve["id"]
     catalogue = research["materials"]
     assert len(catalogue) == 58, "Moehling source inventory must contain all 58 identities"
@@ -107,10 +110,21 @@ def build():
         materials.append(entry)
     identities = {(m["sourceName"], m.get("number")) for m in materials}
     assert all((m["name"], m.get("number")) in identities for m in catalogue)
+    # Additional source identities are deliberately outside the 58-grade catalogue.
+    # They cannot inherit an EN curve through a similar name or chemical composition.
+    for item in supplements:
+        assert not any(norm(item["id"]) == norm(m["id"]) for m in materials), item["id"]
+        assert not item.get("number"), "Supplemental identities need an explicit grade mapping, not an inferred EN number"
+        entry = copy.deepcopy(item)
+        entry.update(C=None, n=None, Rm=None, rho=None, grp="unbekannt", rmStatus="missing",
+                     densityStatus="missing", densitySource=None, properties=[],
+                     hinweis="Lieferzustand und Fließkurve ausdrücklich wählen")
+        materials.append(entry)
     assigned = set()
     for entry in materials:
         matches = [copy.deepcopy(curve) for curve in approved
-                   if entry.get("number") in curve.get("materialNumbers", [])]
+                   if entry.get("number") and entry["number"] in curve.get("materialNumbers", [])
+                   or entry["id"] in curve.get("materialIds", [])]
         for curve in matches:
             curve["sourceRefs"] = [copy.deepcopy(sources[source_id]) for source_id in curve["sourceIds"]]
             assigned.add(curve["id"])

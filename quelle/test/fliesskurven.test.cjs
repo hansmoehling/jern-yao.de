@@ -32,6 +32,28 @@ test('Hollomon uses documented kf0, explicit start segment and exact power integ
  assert.ok(Number.isNaN(E.kfm(m,0,1.001)));
 });
 
+test('AISI 1010 Swift source values, exact integral and measured bounds use the drawn profile only',()=>{
+ const m=curveMaterial('AISI 1010'),curve=m.flowCurve;
+ assert.equal(curve.model,'swift');assert.equal(curve.state,'cold-drawn');assert.equal(curve.strainRatePerSecond,.0336);
+ assert.deepEqual(curve.materialNumbers,[]);assert.deepEqual(curve.materialIds,['AISI 1010']);
+ assert.equal(m.rho,null);assert.equal(curve.kf0Status,'computed-from-swift-model-not-measured-Rp02');
+ // Source equation 1: sigma=680*(0.1+epsilon)^0.29 MPa. No measured yield stress is substituted.
+ close(E.kf(m,0),348.7457411141282);close(E.kf(m,1.5),779.298262008559);
+ close(E.kf({...m,flowCurve:{...curve,kf0:999}},0),348.7457411141282);
+ const primitive=phi=>680/1.29*Math.pow(.1+phi,1.29);
+ for(const [a,b]of [[0,1.5],[0,.1],[.2,.8]])close(E.kfm(m,a,b),(primitive(b)-primitive(a))/(b-a));
+ close(E.kfm(m,.5,.5),680*Math.pow(.6,.29));
+ close(E.kfm(m,.5,.5+1e-12),680*Math.pow(.6,.29),1e-8);
+ for(const phi of [-.001,1.50001]){assert(Number.isNaN(E.kf(m,phi)));assert(Number.isNaN(E.kfm(m,0,phi)));}
+ for(const patch of [{epsilon0:0},{epsilon0:NaN},{C:-1},{n:-.1}])assert.equal(E.selectFlow({...m,flowCurves:[{...curve,...patch}]},{curveId:curve.id,materialState:'cold-drawn'}).status,'missing');
+ const e={...bolt,wst:E.WERKSTOFFE.indexOf(material('AISI 1010')),curveId:curve.id,materialState:'cold-drawn'},a=E.auslegen(e);
+ const expectedKf=680*Math.pow(.1+Math.log(169/64),.29),expectedN=Math.PI*169/4*expectedKf/.6;
+ assert.equal(a.fehlt.length,0);assert.equal(a.materialStatus.flow,'ready');close(a.werte.L0,43.203125);
+ close(a.stufen[0].F,expectedN,1e-7);close(a.werte.Fmax_t,expectedN/9806.65);assert.equal(a.werte.masse,null);
+ assert(a.hinweise.some(note=>note.includes('gezogenes Stabmaterial')));assert(!a.hinweise.some(note=>note.includes('Lieferzustand weichgeglüht')));
+ for(const patch of [{materialState:'soft-annealed'},{curveId:material('C10C').flowCurves[0].id},{wst:E.WERKSTOFFE.indexOf(material('C10C'))},{kD:18}])assert.equal(E.auslegen({...e,...patch}).werte.Fmax_t,null);
+});
+
 test('independent one-stage C15C upsetting fixture checks force, pressure, blank and unit conversion',()=>{
  const e={...bolt,...selection('C15C')};const a=E.auslegen(e);
  assert.equal(a.fehlt.length,0);assert.equal(a.stufen.length,1);

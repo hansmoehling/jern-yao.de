@@ -1,0 +1,19 @@
+{
+  "purpose": "Zusätzliche, eigenständig belegte Werkstoffe außerhalb des unveränderten Möhling-Katalogs mit 58 Identitäten.",
+  "materials": [
+    {
+      "id": "AISI 1010",
+      "sourceName": "AISI 1010",
+      "number": null,
+      "standard": "AISI 1010 (Quellenbezeichnung)",
+      "aliases": [],
+      "catalogueSource": "https://strathprints.strath.ac.uk/13927/1/Rosochowska_FiniteElementAnalysisod_ColdForwardExtrusionof_1010Steel_1_.pdf",
+      "materialNotes": [
+        "Eigenständige Quellenidentität; keine Gleichsetzung mit C10C, C15C oder einer EN-Werkstoffnummer.",
+        "Kurve für gezogenes Stabmaterial. Ziehgrad und Wärmebehandlung sind nicht vollständig dokumentiert; keine weichgeglühte Kurve.",
+        "Dichte und Drahtzugfestigkeit sind nicht durch diese Quelle belegt. Teilemasse bleibt ohne gesonderten Dichtenachweis offen.",
+        "Werkstoffspezifische Umformgrenzen sind nicht freigegeben; Stadienaufteilung verwendet vorläufige Grenzen."
+      ]
+    }
+  ]
+}

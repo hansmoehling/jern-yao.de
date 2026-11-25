@@ -27,7 +27,7 @@
     .map(curve=>({value:index+'|'+curve.id,index,material,curve})));
   const variantByValue=new Map(variants.map(variant=>[variant.value,variant]));
   const selectedVariant=()=>variantByValue.get(sel.value)||null;
-  const conditionLabel=curve=>tr(curve.state==='soft-annealed'?'weichgeglüht':curve.state);
+  const conditionLabel=curve=>tr(curve.state==='soft-annealed'?'weichgeglüht':curve.state==='cold-drawn'?'gezogen (Literaturzustand)':curve.state);
   const modelLabel=curve=>tr(curve.approval==='proxy'?'begründete Ersatzkurve':'Literaturansatz');
   const materialLabel=variant=>(variant.material.sourceName||variant.material.id)+(variant.material.number?' · '+variant.material.number:'')+' · '+conditionLabel(variant.curve)+' · '+modelLabel(variant.curve);
   variants.forEach(variant=>{const option=document.createElement('option');option.value=variant.value;option.dataset.originalText='';option.textContent=materialLabel(variant);sel.appendChild(option);});
