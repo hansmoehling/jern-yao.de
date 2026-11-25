@@ -40,9 +40,10 @@
 
   // Regelwerk: Kennung, Aussage, Art. Öffentliche Kurzform; Fundstellen in regeln.md im Projektordner.
   const REGELN = {
+    'R-GR':  { t: 'Grundsatz: Umform-, Werkzeug- und Transportgrenzen sind tribologisch, werkstofflich und konstruktiv verschieblich und erscheinen als Hinweis («knapp»); ablehnen dürfen nur feste Maschinendaten (Stationen, Abschnitt-Ø und -länge, Auswerferwege, Wendelänge, Nennkraft)', art: 'Auslegungsvorgabe' },
     'R-VOL': { t: 'Volumenkonstanz: Abschnittvolumen = Teilvolumen + Abgang (Grat, Butzen)', art: 'Identität' },
-    'R-AB1': { t: 'Abschnitt-Ø der Maschine bei Festigkeit Rm über 400 N/mm²: d_max = d_Katalog · √(400/Rm)', art: 'Erfahrungswert aus Betriebsdaten' },
-    'R-AB2': { t: 'Abschnittlänge innerhalb des Katalogbereichs', art: 'Katalogwert' },
+    'R-AB1': { t: 'Abschnitt-Ø: Katalogwert als Maschinengrenze; über 400 N/mm² Richtwert d = d_Katalog · √(400/Rm), darüber Hinweis', art: 'Katalogwert und Erfahrungswert aus Betriebsdaten' },
+    'R-AB2': { t: 'Abschnittlänge innerhalb des Katalogbereichs; bis 1 mm unter dem Mindestabschnitt Hinweis (nach Rückfrage verkürzbar)', art: 'Katalogwert' },
     'R-ST1': { t: 'Stauchverhältnis s = Kopfvolumen / (A₀ · d₀); 1 Schlag bis 2,3; 2 Schläge bis 4,5; 3 Schläge bis 8,0; darüber 4', art: 'Erfahrungsregel' },
     'R-ST2': { t: 'Kopf mit Innenantrieb: Vorstauchen auch unter s = 2,3', art: 'Erfahrungsregel' },
     'R-ST3': { t: 'Größter Stauch-Ø frei 2,0 bis 2,5 · d₀, geführt bis 3 · d₀; darüber Zwischenstufe', art: 'Erfahrungsregel' },
@@ -56,17 +57,17 @@
     'R-F2':  { t: 'Fließpresskraft F = [A₀ · k_fm · (⅔α + (1 + 2μ/sin 2α) · φ) + π · d₀ · l · μ · k_f0] / 0,6; 2α = 30° beim Reduzieren, 90° beim Fließpressen, μ = 0,1', art: 'Näherungsmodell' },
     'R-F3':  { t: 'Napf- und Innenantriebsstempel: p = k_f · (1 + φ + 2μ·h/d), μ = 0,1, k_f bei aufsummiertem Umformgrad', art: 'Näherungsmodell' },
     'R-F4':  { t: 'Abgraten und Lochen: F = Schnittlänge · Dicke · 0,8 · k_f', art: 'Näherungsmodell' },
-    'R-PK':  { t: 'Presskraft: höchste Stationskraft bis 80 % der Nennkraft (muss), bis 65 % (wünschenswert)', art: 'Auslegungsvorgabe' },
+    'R-PK':  { t: 'Presskraft: höchste Stationskraft bis 65 % der Nennkraft gut, bis 80 % Auslegungsgrenze, darüber bis zur Nennkraft Hinweis; Summe aller Stationen als Nebenwert', art: 'Auslegungsvorgabe' },
     'R-STN': { t: 'Stationen: benötigte Stufen (muss), eine weitere als Vorformreserve (wünschenswert)', art: 'Auslegungsvorgabe' },
     'R-KA':  { t: 'Kalibrier- und Zusatzstufen (Kalibrieren, Kerben, Prägen, Beschneiden): eine Stufe je Vorgang, Hohlteile mit Napf ohne Angabe eine; Kraft F = A · k_f am Ende', art: 'Erfahrungsregel aus Stadienplänen; Kraft als Näherung' },
     'R-KO':  { t: 'Auswerferweg matrizenseitig ≥ Teillänge in der Matrize', art: 'Katalogwert' },
     'R-WE':  { t: 'Wendung um 180° im Transfer: ganze Teillänge höchstens der Klammerwert der Auswerferzeile', art: 'Katalogwert (Fußnote der Jern-Yao-Kataloge)' },
     'R-PR':  { t: 'Produktmaß ψ Ø × Länge der Teile- und Mutternpressen (JPF, JNF-L, JNFP-L, JNFR-L): darüber knapp, Rückfrage bei Jern Yao', art: 'Katalogwert' },
     'R-PKO': { t: 'Auswerferweg stempelseitig ≥ Teillänge im Stempel', art: 'Katalogwert' },
-    'R-MA':  { t: 'Matrize: Außen-Ø = 4,5 / 5 / 6 · größter Bohrungs-Ø (minimal, normal, ideal)', art: 'Erfahrungsregel Armierung, durch Katalogproportionen bestätigt' },
+    'R-MA':  { t: 'Matrize: Außen-Ø = 4,5 / 5 / 6 · größter Bohrungs-Ø (minimal, normal, ideal); darunter Hinweis auf Sonderarmierung', art: 'Erfahrungsregel Armierung, durch Katalogproportionen bestätigt' },
     'R-SB':  { t: 'Schneidbüchse: Bohrung 1,01 · d₀, Außen-Ø rund 3,3 · d₀', art: 'Werknorm, durch Katalogproportionen bestätigt' },
-    'R-SP':  { t: 'Stempelaufnahme rund 2,3 · Kopf-Ø', art: 'Katalogproportion Jern Yao' },
-    'R-OU':  { t: 'Kopf-Ø höchstens Stauch-Ø der Maschine', art: 'Katalogwert' },
+    'R-SP':  { t: 'Stempelaufnahme rund 2,3 · Kopf-Ø; darunter Hinweis', art: 'Katalogproportion Jern Yao' },
+    'R-OU':  { t: 'Zangenöffnung: größter Teil-Ø höchstens die Öffnung der Transferzange (Katalogzeile OPEN UPSET DIA.); darüber Hinweis, anderer Transfertyp oder Sonderzange', art: 'Katalogwert' },
     'R-PI':  { t: 'Pitch mindestens Matrizen-Außen-Ø', art: 'Geometrie' },
     'R-PS':  { t: 'Werkzeugdruck je Station: bis 2200 N/mm² für gehärtete Kaltarbeitsstähle, darüber nur mit Sonderwerkstoff und kurzem Stempel', art: 'Richtwert' },
     'R-AR':  { t: 'Armierung nach Werkzeugdruck: bis 1000 N/mm² ohne Ring, bis 1600 ein Ring, bis 2160 zwei Ringe, darüber Sonderarmierung', art: 'Richtwert' },
@@ -309,7 +310,7 @@
     // Stationen: Reduzieren bis 30 % läuft im Vorstauchschlag mit
     const stufenZaehlend = out.stufen.filter(s => !s.mit);
     const nStufen = stufenZaehlend.length;
-    R('R-STN');
+    R('R-STN'); R('R-GR');
     out.werte.stationen = pos(e.vorgaben && e.vorgaben.stationen) ? e.vorgaben.stationen : nStufen;
     out.werte.stationenReserve = out.werte.stationen + 1;
     // Kräfte
@@ -375,47 +376,52 @@
     P = P || PRAXIS_STANDARD;
     const w = a.werte, k = [];
     const add = (krit, status, soll, ist, r) => k.push({ krit, status, soll, ist, r });
+    const zk = x => String(x).replace('.', ','); // Katalogzahl mit Dezimalkomma
     const Rm = a.werkstoff.Rm;
     // Stationen
     add('Stationen', o.st >= w.stationenReserve ? 'ok' : o.st >= w.stationen ? 'knapp' : 'nein', w.stationen + ' (+1 Reserve)', o.st, 'R-STN');
     // Abschnitt-Ø
+    // Katalogwert ist die Maschinengrenze; die Abminderung nach Festigkeit ist Richtwert und nur Hinweis (R-GR)
     const dMax = o.cd * Math.sqrt(400 / Math.max(Rm, 400));
-    add('Abschnitt-Ø', w.d0 <= dMax ? (w.d0 <= 0.95 * dMax ? 'ok' : 'knapp') : 'nein', z(w.d0) + ' mm', z(dMax) + ' mm bei ' + Rm + ' N/mm²', 'R-AB1');
+    add('Abschnitt-Ø', w.d0 <= 0.95 * dMax ? 'ok' : w.d0 <= o.cd ? 'knapp' : 'nein', z(w.d0) + ' mm', 'Katalog ' + zk(o.cd) + ' mm' + (dMax < o.cd - 0.05 ? ', Richtwert bei ' + Rm + ' N/mm² ' + z(dMax) + ' mm' : ''), 'R-AB1');
     // Abschnittlänge
     if (o.cl) {
       const [lo, hi] = o.cl;
-      const st = (hi && w.L0 > hi) || (lo && w.L0 < lo) ? 'nein' : 'ok';
-      add('Abschnittlänge', st, z(w.L0) + ' mm', (lo ? lo + ' bis ' : 'bis ') + hi + ' mm', 'R-AB2');
+      const st = hi && w.L0 > hi ? 'nein' : lo && w.L0 < lo ? (w.L0 >= lo - 1 ? 'knapp' : 'nein') : 'ok';
+      add('Abschnittlänge', st, z(w.L0) + ' mm', (lo ? zk(lo) + ' bis ' : 'bis ') + zk(hi) + ' mm' + (st === 'knapp' ? '; Mindestabschnitt nach Rückfrage rund 1 mm kürzer' : ''), 'R-AB2');
     } else add('Abschnittlänge', 'offen', z(w.L0) + ' mm', 'nicht im Katalog', 'R-AB2');
     // Auswerfer matrizenseitig
-    if (pos(o.ko)) add('Auswerfer Matrize (KO)', w.ko <= o.ko ? (w.ko <= 0.95 * o.ko ? 'ok' : 'knapp') : 'nein', z(w.ko) + ' mm', o.ko + ' mm', 'R-KO');
+    if (pos(o.ko)) add('Auswerfer Matrize (KO)', w.ko <= o.ko ? (w.ko <= 0.95 * o.ko ? 'ok' : 'knapp') : 'nein', z(w.ko) + ' mm', zk(o.ko) + ' mm', 'R-KO');
     else add('Auswerfer Matrize (KO)', 'offen', z(w.ko) + ' mm', 'nicht im Katalog', 'R-KO');
     // Wendung um 180°: ganze Teillänge gegen den Klammerwert (Katalogfußnote)
     if (w.wenden) {
-      if (pos(o.kor)) add('Wendelänge', w.Lteil <= o.kor ? (w.Lteil <= 0.95 * o.kor ? 'ok' : 'knapp') : 'nein', z(w.Lteil) + ' mm Teillänge', 'bis ' + o.kor + ' mm', 'R-WE');
+      if (pos(o.kor)) add('Wendelänge', w.Lteil <= o.kor ? (w.Lteil <= 0.95 * o.kor ? 'ok' : 'knapp') : 'nein', z(w.Lteil) + ' mm Teillänge', 'bis ' + zk(o.kor) + ' mm', 'R-WE');
       else add('Wendelänge', 'offen', z(w.Lteil) + ' mm Teillänge', 'Katalog ohne Wendeangabe', 'R-WE');
     }
     // Auswerfer stempelseitig
     if (w.pko > 0) {
-      if (pos(o.pko)) add('Auswerfer Stempel (PKO)', w.pko <= o.pko ? (w.pko <= 0.95 * o.pko ? 'ok' : 'knapp') : 'nein', z(w.pko) + ' mm', o.pko + ' mm', 'R-PKO');
+      if (pos(o.pko)) add('Auswerfer Stempel (PKO)', w.pko <= o.pko ? (w.pko <= 0.95 * o.pko ? 'ok' : 'knapp') : 'nein', z(w.pko) + ' mm', zk(o.pko) + ' mm', 'R-PKO');
       else add('Auswerfer Stempel (PKO)', 'offen', z(w.pko) + ' mm', 'nicht im Katalog', 'R-PKO');
-    } else add('Auswerfer Stempel (PKO)', 'ok', 'nicht nötig', pos(o.pko) ? o.pko + ' mm' : 'nicht im Katalog', 'R-PKO');
+    } else add('Auswerfer Stempel (PKO)', 'ok', 'nicht nötig', pos(o.pko) ? zk(o.pko) + ' mm' : 'nicht im Katalog', 'R-PKO');
     // Presskraft
     const ausl = w.Fmax_t / o.pw;
-    add('Presskraft', ausl <= 0.65 ? 'ok' : ausl <= 0.80 ? 'knapp' : 'nein', z(w.Fmax_t) + ' t höchste Station', o.pw + ' t, Auslastung ' + Math.round(ausl * 100) + ' %', 'R-PK');
+    add('Presskraft', ausl <= 0.65 ? 'ok' : ausl <= 1.0 ? 'knapp' : 'nein', z(w.Fmax_t) + ' t höchste Station', zk(o.pw) + ' t, Auslastung ' + Math.round(ausl * 100) + ' %' + (ausl > 0.8 && ausl <= 1 ? ', über der Auslegungsgrenze 80 %' : ''), 'R-PK');
+    const auslSum = w.Fsum_t / o.pw;
+    add('Summe der Stationskräfte', auslSum <= 1 ? 'ok' : 'knapp', z(w.Fsum_t) + ' t', Math.round(auslSum * 100) + ' % der Nennkraft, je nach Zeitversatz der Stationen', 'R-PK');
     // Matrize
     if (o.die) {
       const vg = w.vorgaben || {};
       if (pos(vg.matD)) {
         const st = o.die[0] === vg.matD ? 'ok' : o.die[0] > vg.matD ? 'knapp' : 'nein';
-        add('Matrizenaufnahme', st === 'nein' || (pos(vg.matL) && vg.matL > o.die[1]) ? 'nein' : st, 'Ø' + vg.matD + (pos(vg.matL) ? ' × ' + vg.matL : '') + ' (Vorgabe)', 'Ø' + o.die[0] + ' × ' + o.die[1] + (st === 'knapp' ? ', mit Adapterhülse' : ''), 'R-MA');
+        add('Matrizenaufnahme', st === 'nein' || (pos(vg.matL) && vg.matL > o.die[1]) ? 'nein' : st, 'Ø' + vg.matD + (pos(vg.matL) ? ' × ' + vg.matL : '') + ' (Vorgabe)', 'Ø' + zk(o.die[0]) + ' × ' + zk(o.die[1]) + (st === 'knapp' ? ', mit Adapterhülse' : ''), 'R-MA');
       } else if (e.typ === 'mutter') {
-        add('Matrizenaufnahme', 'ok', 'Mutternwerkzeug', 'Ø' + o.die[0] + ' × ' + o.die[1], 'R-MA');
+        add('Matrizenaufnahme', 'ok', 'Mutternwerkzeug', 'Ø' + zk(o.die[0]) + ' × ' + zk(o.die[1]), 'R-MA');
       } else {
         const ratio = o.die[0] / w.matBohrung;
-        const st = ratio >= 5 ? 'ok' : ratio >= 4.5 ? 'knapp' : ratio >= 4.0 ? 'knapp' : 'nein';
+        // Unter 4,5 × Bohrung Hinweis auf Sonderarmierung (R-GR); nein nur, wenn die Aufnahme nicht größer ist als die Bohrung
+        const st = ratio >= 5 ? 'ok' : ratio > 1 ? 'knapp' : 'nein';
         const lst = o.die[1] >= w.matL ? st : (st === 'nein' ? 'nein' : 'knapp');
-        add('Matrizenaufnahme', lst, 'Ø' + Math.round(w.matD.min) + ' bis ' + Math.round(w.matD.ideal) + ' × ' + Math.round(w.matL), 'Ø' + o.die[0] + ' × ' + o.die[1] + ' (' + ratio.toFixed(1).replace('.', ',') + ' × Bohrung)', 'R-MA');
+        add('Matrizenaufnahme', lst, 'Ø' + Math.round(w.matD.min) + ' bis ' + Math.round(w.matD.ideal) + ' × ' + Math.round(w.matL), 'Ø' + zk(o.die[0]) + ' × ' + zk(o.die[1]) + ' (' + ratio.toFixed(1).replace('.', ',') + ' × Bohrung' + (ratio < 4.5 && ratio > 1 ? ', Sonderarmierung' : '') + ')', 'R-MA');
       }
     }
     // Stempel
@@ -423,25 +429,27 @@
       const vg = w.vorgaben || {};
       if (pos(vg.stD)) {
         const st = o.pun[0] === vg.stD ? 'ok' : o.pun[0] > vg.stD ? 'knapp' : 'nein';
-        add('Stempelaufnahme', st === 'nein' || (pos(vg.stL) && vg.stL > o.pun[1]) ? 'nein' : st, 'Ø' + vg.stD + (pos(vg.stL) ? ' × ' + vg.stL : '') + ' (Vorgabe)', 'Ø' + o.pun[0] + ' × ' + o.pun[1] + (st === 'knapp' ? ', mit Adapterhülse' : ''), 'R-SP');
+        add('Stempelaufnahme', st === 'nein' || (pos(vg.stL) && vg.stL > o.pun[1]) ? 'nein' : st, 'Ø' + vg.stD + (pos(vg.stL) ? ' × ' + vg.stL : '') + ' (Vorgabe)', 'Ø' + zk(o.pun[0]) + ' × ' + zk(o.pun[1]) + (st === 'knapp' ? ', mit Adapterhülse' : ''), 'R-SP');
       } else if (w.stempelD && e.typ !== 'mutter') {
-        add('Stempelaufnahme', o.pun[0] >= w.stempelD ? 'ok' : o.pun[0] >= 0.9 * w.stempelD ? 'knapp' : 'nein', 'Ø' + Math.round(w.stempelD), 'Ø' + o.pun[0] + ' × ' + o.pun[1], 'R-SP');
+        add('Stempelaufnahme', o.pun[0] >= w.stempelD ? 'ok' : o.pun[0] > w.kopfD ? 'knapp' : 'nein', 'Ø' + Math.round(w.stempelD), 'Ø' + zk(o.pun[0]) + ' × ' + zk(o.pun[1]), 'R-SP');
       }
     }
-    // Stauch-Ø
-    if (w.kopfD && e.typ !== 'mutter') {
-      if (pos(o.ou)) add('Stauch-Ø', w.kopfD <= o.ou ? 'ok' : 'nein', z(w.kopfD) + ' mm', o.ou + ' mm', 'R-OU');
+    // Zangenöffnung des Transfers: Katalogzeile OPEN UPSET DIA. (chinesisch «größte Öffnung der Zange», im Angebot «Finger open upset»)
+    // JNP-10 und JNP-13 nennen zwei Transfertypen (JS, IS); ou = JS, oi = IS. Transportgrenze, daher Hinweis (R-GR)
+    if (pos(o.ou) && w.Dmax) {
+      const zst = w.Dmax <= o.ou ? 'ok' : 'knapp';
+      add('Zangenöffnung (Transfer)', zst, 'Ø' + z(w.Dmax) + ' mm größter Teil-Ø', zk(o.ou) + ' mm' + (o.oi ? ' (JS), ' + zk(o.oi) + ' mm (IS)' : '') + (zst === 'knapp' ? (o.oi && w.Dmax <= o.oi ? '; mit IS-Transfer' : '; Sonderzange, Rückfrage') : ''), 'R-OU');
     }
     // Mutterngröße gegen Produktbereich des Katalogs
     if (e.typ === 'mutter' && w.mM) {
       const mk = o.sz && /^M(\d+(?:\.\d+)?)$/.exec(o.sz);
-      if (mk) add('Mutterngröße', w.mM <= +mk[1] ? 'ok' : 'nein', 'M' + w.mM, 'bis ' + o.sz, 'Katalog');
+      if (mk) add('Mutterngröße', w.mM <= +mk[1] ? 'ok' : 'knapp', 'M' + w.mM, 'bis ' + o.sz + (w.mM > +mk[1] ? ', Produktangabe des Katalogs, Rückfrage' : ''), 'Katalog');
       else add('Mutterngröße', 'offen', 'M' + w.mM, o.size || 'nicht im Katalog', 'Katalog');
     }
     // Produktmaß ψ der Teile- und Mutternpressen (Katalog)
-    if (o.ps && e.typ !== 'bolzen') add('Produktmaß (Katalog)', w.Dmax <= o.ps[0] && w.Lteil <= o.ps[1] ? 'ok' : 'knapp', 'Ø' + z(w.Dmax) + ' × ' + z(w.Lteil) + ' mm', 'ψ ' + o.ps[0] + ' × ' + o.ps[1] + ' mm', 'R-PR');
+    if (o.ps && e.typ !== 'bolzen') add('Produktmaß (Katalog)', w.Dmax <= o.ps[0] && w.Lteil <= o.ps[1] ? 'ok' : 'knapp', 'Ø' + z(w.Dmax) + ' × ' + z(w.Lteil) + ' mm', 'ψ ' + zk(o.ps[0]) + ' × ' + zk(o.ps[1]) + ' mm', 'R-PR');
     // Schaftlänge bei Bolzenpressen
-    if (e.typ === 'bolzen' && pos(o.ml) && pos(e.sL)) add('Teillänge unter Kopf', e.sL <= o.ml ? 'ok' : 'nein', z(e.sL) + ' mm', 'bis ' + o.ml + ' mm', 'Katalog');
+    if (e.typ === 'bolzen' && pos(o.ml) && pos(e.sL)) add('Teillänge unter Kopf', e.sL <= o.ml ? 'ok' : 'knapp', z(e.sL) + ' mm', 'bis ' + zk(o.ml) + ' mm' + (e.sL > o.ml ? ', Produktangabe des Katalogs, Rückfrage' : ''), 'Katalog');
     // Ausbringung: Planungswert aus der Praxis, Katalog als Obergrenze
     const plan = planung(o, P);
     if (e.soll && pos(e.soll.ausbringung) && pos(o.out)) {
@@ -453,10 +461,10 @@
     const gw = gk && P.groessen ? P.groessen[gk[1] + '-' + gk[2]] : null;
     if (gw && w.masse) add('Teilegewicht (Erfahrung)', w.masse >= gw[0] / 1.5 && w.masse <= gw[2] * 1.5 ? 'ok' : 'knapp', z(w.masse) + ' g', z(gw[0]) + ' bis ' + z(gw[2]) + ' g', 'R-GW', true);
     // Schneidbüchse (Nebenwert)
-    if (o.q) add('Schneidbüchse', o.q[0] >= w.buechse.aussen ? 'ok' : 'knapp', 'Ø' + z(w.buechse.aussen), 'Ø' + o.q[0] + ' × ' + o.q[1], 'R-SB', true);
-    if (pos(o.pi) && e.typ !== 'mutter') add('Pitch', o.pi >= w.pitch ? 'ok' : 'knapp', 'ab ' + Math.round(w.pitch) + ' mm', o.pi + ' mm', 'R-PI', true);
+    if (o.q) add('Schneidbüchse', o.q[0] >= w.buechse.aussen ? 'ok' : 'knapp', 'Ø' + z(w.buechse.aussen), 'Ø' + zk(o.q[0]) + ' × ' + zk(o.q[1]), 'R-SB', true);
+    if (pos(o.pi) && e.typ !== 'mutter') add('Pitch', o.pi >= w.pitch ? 'ok' : 'knapp', 'ab ' + Math.round(w.pitch) + ' mm', zk(o.pi) + ' mm', 'R-PI', true);
     const rang = { nein: 3, offen: 2, knapp: 1, ok: 0 };
-    const haupt = k.filter(x => !['Schneidbüchse', 'Pitch', 'Teilegewicht (Erfahrung)'].includes(x.krit));
+    const haupt = k.filter(x => !['Schneidbüchse', 'Pitch', 'Teilegewicht (Erfahrung)', 'Summe der Stationskräfte'].includes(x.krit));
     const schlecht = Math.max(...haupt.map(x => rang[x.status]));
     return { k, gesamt: ['ok', 'knapp', 'offen', 'nein'][schlecht], ausl, plan, stundeProStk: plan ? Math.round(plan.aus * 60 * P.nutzung / 10) * 10 : null };
   }
