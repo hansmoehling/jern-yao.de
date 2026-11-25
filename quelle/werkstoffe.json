@@ -4528,13 +4528,52 @@
     "Rm": null,
     "C": null,
     "n": null,
-    "rho": null,
+    "rho": 7.85,
     "grp": "gut",
     "hinweis": "Lieferzustand und Fließkurve ausdrücklich wählen",
     "curveStatus": "literature",
     "rmStatus": "missing",
-    "densityStatus": "missing",
-    "densitySource": null,
+    "densityStatus": "reference-steel-density",
+    "densitySource": {
+      "id": "reference-steel-density",
+      "property": "density",
+      "status": "group-reference-approximation",
+      "value": 7.85,
+      "unit": "g/cm3",
+      "valueType": "reference-calculation-density",
+      "sourceTitle": "ArcelorMittal Orange Book · Dimensions of sections · 2.1 Mass",
+      "sourceUrl": "https://orangebook.arcelormittal.com/index.php/explanatory-notes/welded-sections/dimensions-of-sections",
+      "evidence": "Der Hersteller verwendet 7850 kg/m³ ausdrücklich als Dichteannahme für die Massenberechnung von Stahlprofilen.",
+      "application": "Gesonderte technische Gruppenannahme für die unten genannten un- und niedriglegierten Stähle, nur falls die Katalogidentität bisher keine Dichte hat. Kein Dichtenachweis für die genaue Drahtsorte, ihren Lieferzustand oder die Charge; keine Übertragung von Festigkeitsdaten oder Fließkurven.",
+      "materialNumbers": [
+        "1.0303",
+        "1.0213",
+        "1.1172",
+        "1.1192",
+        "1.7003",
+        "1.7006",
+        "1.7033",
+        "1.7034",
+        "1.7035",
+        "1.7220",
+        "1.7225",
+        "1.6582",
+        "1.5508",
+        "1.5510",
+        "1.7077",
+        "1.1132",
+        "1.7016",
+        "1.7131",
+        "1.6523",
+        "1.5918"
+      ],
+      "materialIds": [
+        "AISI 1010"
+      ],
+      "eligibleForFlowCurve": false,
+      "eligibleForForceCalculation": false,
+      "retrievedAt": "2026-11-25"
+    },
     "properties": [
       {
         "property": "Rm",
@@ -4666,7 +4705,8 @@
       }
     ],
     "materialNotes": [
-      "Rm-Werte sind dokumentierte Obergrenzen, keine tatsächliche Chargenzugfestigkeit. Rp0,2 und Dichte in diesem geprüften Blatt nicht belegt."
+      "Rm-Werte sind dokumentierte Obergrenzen, keine tatsächliche Chargenzugfestigkeit. Rp0,2 und Dichte in diesem geprüften Blatt nicht belegt.",
+      "Gewicht mit Stahl-Bezugsdichte 7,85 g/cm³; Näherungswert, keine belegte Chargendichte."
     ],
     "catalogueSource": "https://moehling.com/de/produkte/materialien.html",
     "flowCurves": [
@@ -4758,13 +4798,52 @@
     "Rm": null,
     "C": null,
     "n": null,
-    "rho": null,
+    "rho": 7.85,
     "grp": "gut",
     "hinweis": "Fließkurve für den Lieferzustand offen",
     "curveStatus": "missing",
     "rmStatus": "missing",
-    "densityStatus": "missing",
-    "densitySource": null,
+    "densityStatus": "reference-steel-density",
+    "densitySource": {
+      "id": "reference-steel-density",
+      "property": "density",
+      "status": "group-reference-approximation",
+      "value": 7.85,
+      "unit": "g/cm3",
+      "valueType": "reference-calculation-density",
+      "sourceTitle": "ArcelorMittal Orange Book · Dimensions of sections · 2.1 Mass",
+      "sourceUrl": "https://orangebook.arcelormittal.com/index.php/explanatory-notes/welded-sections/dimensions-of-sections",
+      "evidence": "Der Hersteller verwendet 7850 kg/m³ ausdrücklich als Dichteannahme für die Massenberechnung von Stahlprofilen.",
+      "application": "Gesonderte technische Gruppenannahme für die unten genannten un- und niedriglegierten Stähle, nur falls die Katalogidentität bisher keine Dichte hat. Kein Dichtenachweis für die genaue Drahtsorte, ihren Lieferzustand oder die Charge; keine Übertragung von Festigkeitsdaten oder Fließkurven.",
+      "materialNumbers": [
+        "1.0303",
+        "1.0213",
+        "1.1172",
+        "1.1192",
+        "1.7003",
+        "1.7006",
+        "1.7033",
+        "1.7034",
+        "1.7035",
+        "1.7220",
+        "1.7225",
+        "1.6582",
+        "1.5508",
+        "1.5510",
+        "1.7077",
+        "1.1132",
+        "1.7016",
+        "1.7131",
+        "1.6523",
+        "1.5918"
+      ],
+      "materialIds": [
+        "AISI 1010"
+      ],
+      "eligibleForFlowCurve": false,
+      "eligibleForForceCalculation": false,
+      "retrievedAt": "2026-11-25"
+    },
     "properties": [
       {
         "property": "Rm",
@@ -5024,7 +5103,8 @@
       }
     ],
     "materialNotes": [
-      "Rm-Werte sind dokumentierte Obergrenzen, keine tatsächliche Chargenzugfestigkeit. Rp0,2 und Dichte in diesem geprüften Blatt nicht belegt."
+      "Rm-Werte sind dokumentierte Obergrenzen, keine tatsächliche Chargenzugfestigkeit. Rp0,2 und Dichte in diesem geprüften Blatt nicht belegt.",
+      "Gewicht mit Stahl-Bezugsdichte 7,85 g/cm³; Näherungswert, keine belegte Chargendichte."
     ],
     "catalogueSource": "https://moehling.com/de/produkte/materialien.html",
     "flowCurves": [],
@@ -5039,13 +5119,52 @@
     "Rm": null,
     "C": null,
     "n": null,
-    "rho": null,
+    "rho": 7.85,
     "grp": "schwer",
     "hinweis": "Lieferzustand und Fließkurve ausdrücklich wählen",
     "curveStatus": "literature",
     "rmStatus": "missing",
-    "densityStatus": "missing",
-    "densitySource": null,
+    "densityStatus": "reference-steel-density",
+    "densitySource": {
+      "id": "reference-steel-density",
+      "property": "density",
+      "status": "group-reference-approximation",
+      "value": 7.85,
+      "unit": "g/cm3",
+      "valueType": "reference-calculation-density",
+      "sourceTitle": "ArcelorMittal Orange Book · Dimensions of sections · 2.1 Mass",
+      "sourceUrl": "https://orangebook.arcelormittal.com/index.php/explanatory-notes/welded-sections/dimensions-of-sections",
+      "evidence": "Der Hersteller verwendet 7850 kg/m³ ausdrücklich als Dichteannahme für die Massenberechnung von Stahlprofilen.",
+      "application": "Gesonderte technische Gruppenannahme für die unten genannten un- und niedriglegierten Stähle, nur falls die Katalogidentität bisher keine Dichte hat. Kein Dichtenachweis für die genaue Drahtsorte, ihren Lieferzustand oder die Charge; keine Übertragung von Festigkeitsdaten oder Fließkurven.",
+      "materialNumbers": [
+        "1.0303",
+        "1.0213",
+        "1.1172",
+        "1.1192",
+        "1.7003",
+        "1.7006",
+        "1.7033",
+        "1.7034",
+        "1.7035",
+        "1.7220",
+        "1.7225",
+        "1.6582",
+        "1.5508",
+        "1.5510",
+        "1.7077",
+        "1.1132",
+        "1.7016",
+        "1.7131",
+        "1.6523",
+        "1.5918"
+      ],
+      "materialIds": [
+        "AISI 1010"
+      ],
+      "eligibleForFlowCurve": false,
+      "eligibleForForceCalculation": false,
+      "retrievedAt": "2026-11-25"
+    },
     "properties": [
       {
         "property": "Rm",
@@ -5192,7 +5311,9 @@
         "eligibleForForceCalculation": false
       }
     ],
-    "materialNotes": [],
+    "materialNotes": [
+      "Gewicht mit Stahl-Bezugsdichte 7,85 g/cm³; Näherungswert, keine belegte Chargendichte."
+    ],
     "catalogueSource": "https://moehling.com/de/produkte/materialien.html",
     "flowCurves": [
       {
@@ -5292,13 +5413,52 @@
     "Rm": null,
     "C": null,
     "n": null,
-    "rho": null,
+    "rho": 7.85,
     "grp": "schwer",
     "hinweis": "Fließkurve für den Lieferzustand offen",
     "curveStatus": "missing",
     "rmStatus": "missing",
-    "densityStatus": "missing",
-    "densitySource": null,
+    "densityStatus": "reference-steel-density",
+    "densitySource": {
+      "id": "reference-steel-density",
+      "property": "density",
+      "status": "group-reference-approximation",
+      "value": 7.85,
+      "unit": "g/cm3",
+      "valueType": "reference-calculation-density",
+      "sourceTitle": "ArcelorMittal Orange Book · Dimensions of sections · 2.1 Mass",
+      "sourceUrl": "https://orangebook.arcelormittal.com/index.php/explanatory-notes/welded-sections/dimensions-of-sections",
+      "evidence": "Der Hersteller verwendet 7850 kg/m³ ausdrücklich als Dichteannahme für die Massenberechnung von Stahlprofilen.",
+      "application": "Gesonderte technische Gruppenannahme für die unten genannten un- und niedriglegierten Stähle, nur falls die Katalogidentität bisher keine Dichte hat. Kein Dichtenachweis für die genaue Drahtsorte, ihren Lieferzustand oder die Charge; keine Übertragung von Festigkeitsdaten oder Fließkurven.",
+      "materialNumbers": [
+        "1.0303",
+        "1.0213",
+        "1.1172",
+        "1.1192",
+        "1.7003",
+        "1.7006",
+        "1.7033",
+        "1.7034",
+        "1.7035",
+        "1.7220",
+        "1.7225",
+        "1.6582",
+        "1.5508",
+        "1.5510",
+        "1.7077",
+        "1.1132",
+        "1.7016",
+        "1.7131",
+        "1.6523",
+        "1.5918"
+      ],
+      "materialIds": [
+        "AISI 1010"
+      ],
+      "eligibleForFlowCurve": false,
+      "eligibleForForceCalculation": false,
+      "retrievedAt": "2026-11-25"
+    },
     "properties": [
       {
         "property": "Rm",
@@ -5445,7 +5605,9 @@
         "eligibleForForceCalculation": false
       }
     ],
-    "materialNotes": [],
+    "materialNotes": [
+      "Gewicht mit Stahl-Bezugsdichte 7,85 g/cm³; Näherungswert, keine belegte Chargendichte."
+    ],
     "catalogueSource": "https://moehling.com/de/produkte/materialien.html",
     "flowCurves": [],
     "manualEligible": false
@@ -5459,16 +5621,56 @@
     "Rm": null,
     "C": null,
     "n": null,
-    "rho": null,
+    "rho": 7.85,
     "grp": "schwer",
     "hinweis": "Fließkurve für den Lieferzustand offen",
     "curveStatus": "missing",
     "rmStatus": "missing",
-    "densityStatus": "missing",
-    "densitySource": null,
+    "densityStatus": "reference-steel-density",
+    "densitySource": {
+      "id": "reference-steel-density",
+      "property": "density",
+      "status": "group-reference-approximation",
+      "value": 7.85,
+      "unit": "g/cm3",
+      "valueType": "reference-calculation-density",
+      "sourceTitle": "ArcelorMittal Orange Book · Dimensions of sections · 2.1 Mass",
+      "sourceUrl": "https://orangebook.arcelormittal.com/index.php/explanatory-notes/welded-sections/dimensions-of-sections",
+      "evidence": "Der Hersteller verwendet 7850 kg/m³ ausdrücklich als Dichteannahme für die Massenberechnung von Stahlprofilen.",
+      "application": "Gesonderte technische Gruppenannahme für die unten genannten un- und niedriglegierten Stähle, nur falls die Katalogidentität bisher keine Dichte hat. Kein Dichtenachweis für die genaue Drahtsorte, ihren Lieferzustand oder die Charge; keine Übertragung von Festigkeitsdaten oder Fließkurven.",
+      "materialNumbers": [
+        "1.0303",
+        "1.0213",
+        "1.1172",
+        "1.1192",
+        "1.7003",
+        "1.7006",
+        "1.7033",
+        "1.7034",
+        "1.7035",
+        "1.7220",
+        "1.7225",
+        "1.6582",
+        "1.5508",
+        "1.5510",
+        "1.7077",
+        "1.1132",
+        "1.7016",
+        "1.7131",
+        "1.6523",
+        "1.5918"
+      ],
+      "materialIds": [
+        "AISI 1010"
+      ],
+      "eligibleForFlowCurve": false,
+      "eligibleForForceCalculation": false,
+      "retrievedAt": "2026-11-25"
+    },
     "properties": [],
     "materialNotes": [
-      "Identität exakt aus dem Möehling-Katalog erhalten. In der begrenzten Primärquellenrecherche kein ausreichend zu Identität, Produkt und Lieferzustand passender numerischer Kennwert übernommen; fehlend bedeutet nicht null."
+      "Identität exakt aus dem Möehling-Katalog erhalten. In der begrenzten Primärquellenrecherche kein ausreichend zu Identität, Produkt und Lieferzustand passender numerischer Kennwert übernommen; fehlend bedeutet nicht null.",
+      "Gewicht mit Stahl-Bezugsdichte 7,85 g/cm³; Näherungswert, keine belegte Chargendichte."
     ],
     "catalogueSource": "https://moehling.com/de/produkte/materialien.html",
     "flowCurves": [],
@@ -5483,16 +5685,56 @@
     "Rm": null,
     "C": null,
     "n": null,
-    "rho": null,
+    "rho": 7.85,
     "grp": "schwer",
     "hinweis": "Fließkurve für den Lieferzustand offen",
     "curveStatus": "missing",
     "rmStatus": "missing",
-    "densityStatus": "missing",
-    "densitySource": null,
+    "densityStatus": "reference-steel-density",
+    "densitySource": {
+      "id": "reference-steel-density",
+      "property": "density",
+      "status": "group-reference-approximation",
+      "value": 7.85,
+      "unit": "g/cm3",
+      "valueType": "reference-calculation-density",
+      "sourceTitle": "ArcelorMittal Orange Book · Dimensions of sections · 2.1 Mass",
+      "sourceUrl": "https://orangebook.arcelormittal.com/index.php/explanatory-notes/welded-sections/dimensions-of-sections",
+      "evidence": "Der Hersteller verwendet 7850 kg/m³ ausdrücklich als Dichteannahme für die Massenberechnung von Stahlprofilen.",
+      "application": "Gesonderte technische Gruppenannahme für die unten genannten un- und niedriglegierten Stähle, nur falls die Katalogidentität bisher keine Dichte hat. Kein Dichtenachweis für die genaue Drahtsorte, ihren Lieferzustand oder die Charge; keine Übertragung von Festigkeitsdaten oder Fließkurven.",
+      "materialNumbers": [
+        "1.0303",
+        "1.0213",
+        "1.1172",
+        "1.1192",
+        "1.7003",
+        "1.7006",
+        "1.7033",
+        "1.7034",
+        "1.7035",
+        "1.7220",
+        "1.7225",
+        "1.6582",
+        "1.5508",
+        "1.5510",
+        "1.7077",
+        "1.1132",
+        "1.7016",
+        "1.7131",
+        "1.6523",
+        "1.5918"
+      ],
+      "materialIds": [
+        "AISI 1010"
+      ],
+      "eligibleForFlowCurve": false,
+      "eligibleForForceCalculation": false,
+      "retrievedAt": "2026-11-25"
+    },
     "properties": [],
     "materialNotes": [
-      "Identität exakt aus dem Möehling-Katalog erhalten. In der begrenzten Primärquellenrecherche kein ausreichend zu Identität, Produkt und Lieferzustand passender numerischer Kennwert übernommen; fehlend bedeutet nicht null."
+      "Identität exakt aus dem Möehling-Katalog erhalten. In der begrenzten Primärquellenrecherche kein ausreichend zu Identität, Produkt und Lieferzustand passender numerischer Kennwert übernommen; fehlend bedeutet nicht null.",
+      "Gewicht mit Stahl-Bezugsdichte 7,85 g/cm³; Näherungswert, keine belegte Chargendichte."
     ],
     "catalogueSource": "https://moehling.com/de/produkte/materialien.html",
     "flowCurves": [],
@@ -5507,13 +5749,52 @@
     "Rm": null,
     "C": null,
     "n": null,
-    "rho": null,
+    "rho": 7.85,
     "grp": "schwer",
     "hinweis": "Lieferzustand und Fließkurve ausdrücklich wählen",
     "curveStatus": "literature",
     "rmStatus": "missing",
-    "densityStatus": "missing",
-    "densitySource": null,
+    "densityStatus": "reference-steel-density",
+    "densitySource": {
+      "id": "reference-steel-density",
+      "property": "density",
+      "status": "group-reference-approximation",
+      "value": 7.85,
+      "unit": "g/cm3",
+      "valueType": "reference-calculation-density",
+      "sourceTitle": "ArcelorMittal Orange Book · Dimensions of sections · 2.1 Mass",
+      "sourceUrl": "https://orangebook.arcelormittal.com/index.php/explanatory-notes/welded-sections/dimensions-of-sections",
+      "evidence": "Der Hersteller verwendet 7850 kg/m³ ausdrücklich als Dichteannahme für die Massenberechnung von Stahlprofilen.",
+      "application": "Gesonderte technische Gruppenannahme für die unten genannten un- und niedriglegierten Stähle, nur falls die Katalogidentität bisher keine Dichte hat. Kein Dichtenachweis für die genaue Drahtsorte, ihren Lieferzustand oder die Charge; keine Übertragung von Festigkeitsdaten oder Fließkurven.",
+      "materialNumbers": [
+        "1.0303",
+        "1.0213",
+        "1.1172",
+        "1.1192",
+        "1.7003",
+        "1.7006",
+        "1.7033",
+        "1.7034",
+        "1.7035",
+        "1.7220",
+        "1.7225",
+        "1.6582",
+        "1.5508",
+        "1.5510",
+        "1.7077",
+        "1.1132",
+        "1.7016",
+        "1.7131",
+        "1.6523",
+        "1.5918"
+      ],
+      "materialIds": [
+        "AISI 1010"
+      ],
+      "eligibleForFlowCurve": false,
+      "eligibleForForceCalculation": false,
+      "retrievedAt": "2026-11-25"
+    },
     "properties": [
       {
         "property": "Rm",
@@ -5645,7 +5926,8 @@
       }
     ],
     "materialNotes": [
-      "Verifizierte Rm/Rp0,2-Daten betreffen DIN EN10083 +QT. Für Kaltstauchdraht EN10263 im weichen Zustand weiterhin kein daraus abgeleiteter Festigkeitswert freigegeben; HB nicht in Rm umgerechnet."
+      "Verifizierte Rm/Rp0,2-Daten betreffen DIN EN10083 +QT. Für Kaltstauchdraht EN10263 im weichen Zustand weiterhin kein daraus abgeleiteter Festigkeitswert freigegeben; HB nicht in Rm umgerechnet.",
+      "Gewicht mit Stahl-Bezugsdichte 7,85 g/cm³; Näherungswert, keine belegte Chargendichte."
     ],
     "catalogueSource": "https://moehling.com/de/produkte/materialien.html",
     "flowCurves": [
@@ -5707,13 +5989,52 @@
     "Rm": null,
     "C": null,
     "n": null,
-    "rho": null,
+    "rho": 7.85,
     "grp": "schwer",
     "hinweis": "Fließkurve für den Lieferzustand offen",
     "curveStatus": "missing",
     "rmStatus": "missing",
-    "densityStatus": "missing",
-    "densitySource": null,
+    "densityStatus": "reference-steel-density",
+    "densitySource": {
+      "id": "reference-steel-density",
+      "property": "density",
+      "status": "group-reference-approximation",
+      "value": 7.85,
+      "unit": "g/cm3",
+      "valueType": "reference-calculation-density",
+      "sourceTitle": "ArcelorMittal Orange Book · Dimensions of sections · 2.1 Mass",
+      "sourceUrl": "https://orangebook.arcelormittal.com/index.php/explanatory-notes/welded-sections/dimensions-of-sections",
+      "evidence": "Der Hersteller verwendet 7850 kg/m³ ausdrücklich als Dichteannahme für die Massenberechnung von Stahlprofilen.",
+      "application": "Gesonderte technische Gruppenannahme für die unten genannten un- und niedriglegierten Stähle, nur falls die Katalogidentität bisher keine Dichte hat. Kein Dichtenachweis für die genaue Drahtsorte, ihren Lieferzustand oder die Charge; keine Übertragung von Festigkeitsdaten oder Fließkurven.",
+      "materialNumbers": [
+        "1.0303",
+        "1.0213",
+        "1.1172",
+        "1.1192",
+        "1.7003",
+        "1.7006",
+        "1.7033",
+        "1.7034",
+        "1.7035",
+        "1.7220",
+        "1.7225",
+        "1.6582",
+        "1.5508",
+        "1.5510",
+        "1.7077",
+        "1.1132",
+        "1.7016",
+        "1.7131",
+        "1.6523",
+        "1.5918"
+      ],
+      "materialIds": [
+        "AISI 1010"
+      ],
+      "eligibleForFlowCurve": false,
+      "eligibleForForceCalculation": false,
+      "retrievedAt": "2026-11-25"
+    },
     "properties": [
       {
         "property": "Rm",
@@ -5845,7 +6166,8 @@
       }
     ],
     "materialNotes": [
-      "Verifizierte Rm/Rp0,2-Daten betreffen DIN EN10083 +QT. Für Kaltstauchdraht EN10263 im weichen Zustand weiterhin kein daraus abgeleiteter Festigkeitswert freigegeben; HB nicht in Rm umgerechnet."
+      "Verifizierte Rm/Rp0,2-Daten betreffen DIN EN10083 +QT. Für Kaltstauchdraht EN10263 im weichen Zustand weiterhin kein daraus abgeleiteter Festigkeitswert freigegeben; HB nicht in Rm umgerechnet.",
+      "Gewicht mit Stahl-Bezugsdichte 7,85 g/cm³; Näherungswert, keine belegte Chargendichte."
     ],
     "catalogueSource": "https://moehling.com/de/produkte/materialien.html",
     "flowCurves": [],
@@ -5860,13 +6182,52 @@
     "Rm": null,
     "C": null,
     "n": null,
-    "rho": null,
+    "rho": 7.85,
     "grp": "schwer",
     "hinweis": "Fließkurve für den Lieferzustand offen",
     "curveStatus": "missing",
     "rmStatus": "missing",
-    "densityStatus": "missing",
-    "densitySource": null,
+    "densityStatus": "reference-steel-density",
+    "densitySource": {
+      "id": "reference-steel-density",
+      "property": "density",
+      "status": "group-reference-approximation",
+      "value": 7.85,
+      "unit": "g/cm3",
+      "valueType": "reference-calculation-density",
+      "sourceTitle": "ArcelorMittal Orange Book · Dimensions of sections · 2.1 Mass",
+      "sourceUrl": "https://orangebook.arcelormittal.com/index.php/explanatory-notes/welded-sections/dimensions-of-sections",
+      "evidence": "Der Hersteller verwendet 7850 kg/m³ ausdrücklich als Dichteannahme für die Massenberechnung von Stahlprofilen.",
+      "application": "Gesonderte technische Gruppenannahme für die unten genannten un- und niedriglegierten Stähle, nur falls die Katalogidentität bisher keine Dichte hat. Kein Dichtenachweis für die genaue Drahtsorte, ihren Lieferzustand oder die Charge; keine Übertragung von Festigkeitsdaten oder Fließkurven.",
+      "materialNumbers": [
+        "1.0303",
+        "1.0213",
+        "1.1172",
+        "1.1192",
+        "1.7003",
+        "1.7006",
+        "1.7033",
+        "1.7034",
+        "1.7035",
+        "1.7220",
+        "1.7225",
+        "1.6582",
+        "1.5508",
+        "1.5510",
+        "1.7077",
+        "1.1132",
+        "1.7016",
+        "1.7131",
+        "1.6523",
+        "1.5918"
+      ],
+      "materialIds": [
+        "AISI 1010"
+      ],
+      "eligibleForFlowCurve": false,
+      "eligibleForForceCalculation": false,
+      "retrievedAt": "2026-11-25"
+    },
     "properties": [
       {
         "property": "Rm",
@@ -5998,7 +6359,8 @@
       }
     ],
     "materialNotes": [
-      "Verifizierte Rm/Rp0,2-Daten betreffen DIN EN10083 +QT. Für Kaltstauchdraht EN10263 im weichen Zustand weiterhin kein daraus abgeleiteter Festigkeitswert freigegeben; HB nicht in Rm umgerechnet."
+      "Verifizierte Rm/Rp0,2-Daten betreffen DIN EN10083 +QT. Für Kaltstauchdraht EN10263 im weichen Zustand weiterhin kein daraus abgeleiteter Festigkeitswert freigegeben; HB nicht in Rm umgerechnet.",
+      "Gewicht mit Stahl-Bezugsdichte 7,85 g/cm³; Näherungswert, keine belegte Chargendichte."
     ],
     "catalogueSource": "https://moehling.com/de/produkte/materialien.html",
     "flowCurves": [],
@@ -6013,13 +6375,52 @@
     "Rm": null,
     "C": null,
     "n": null,
-    "rho": null,
+    "rho": 7.85,
     "grp": "schwer",
     "hinweis": "Lieferzustand und Fließkurve ausdrücklich wählen",
     "curveStatus": "literature",
     "rmStatus": "missing",
-    "densityStatus": "missing",
-    "densitySource": null,
+    "densityStatus": "reference-steel-density",
+    "densitySource": {
+      "id": "reference-steel-density",
+      "property": "density",
+      "status": "group-reference-approximation",
+      "value": 7.85,
+      "unit": "g/cm3",
+      "valueType": "reference-calculation-density",
+      "sourceTitle": "ArcelorMittal Orange Book · Dimensions of sections · 2.1 Mass",
+      "sourceUrl": "https://orangebook.arcelormittal.com/index.php/explanatory-notes/welded-sections/dimensions-of-sections",
+      "evidence": "Der Hersteller verwendet 7850 kg/m³ ausdrücklich als Dichteannahme für die Massenberechnung von Stahlprofilen.",
+      "application": "Gesonderte technische Gruppenannahme für die unten genannten un- und niedriglegierten Stähle, nur falls die Katalogidentität bisher keine Dichte hat. Kein Dichtenachweis für die genaue Drahtsorte, ihren Lieferzustand oder die Charge; keine Übertragung von Festigkeitsdaten oder Fließkurven.",
+      "materialNumbers": [
+        "1.0303",
+        "1.0213",
+        "1.1172",
+        "1.1192",
+        "1.7003",
+        "1.7006",
+        "1.7033",
+        "1.7034",
+        "1.7035",
+        "1.7220",
+        "1.7225",
+        "1.6582",
+        "1.5508",
+        "1.5510",
+        "1.7077",
+        "1.1132",
+        "1.7016",
+        "1.7131",
+        "1.6523",
+        "1.5918"
+      ],
+      "materialIds": [
+        "AISI 1010"
+      ],
+      "eligibleForFlowCurve": false,
+      "eligibleForForceCalculation": false,
+      "retrievedAt": "2026-11-25"
+    },
     "properties": [
       {
         "property": "Rm",
@@ -6225,7 +6626,8 @@
       }
     ],
     "materialNotes": [
-      "Verifizierte Rm/Rp0,2-Daten betreffen DIN EN10083 +QT. Für Kaltstauchdraht EN10263 im weichen Zustand weiterhin kein daraus abgeleiteter Festigkeitswert freigegeben; HB nicht in Rm umgerechnet."
+      "Verifizierte Rm/Rp0,2-Daten betreffen DIN EN10083 +QT. Für Kaltstauchdraht EN10263 im weichen Zustand weiterhin kein daraus abgeleiteter Festigkeitswert freigegeben; HB nicht in Rm umgerechnet.",
+      "Gewicht mit Stahl-Bezugsdichte 7,85 g/cm³; Näherungswert, keine belegte Chargendichte."
     ],
     "catalogueSource": "https://moehling.com/de/produkte/materialien.html",
     "flowCurves": [
@@ -6317,13 +6719,52 @@
     "Rm": null,
     "C": null,
     "n": null,
-    "rho": null,
+    "rho": 7.85,
     "grp": "schwer",
     "hinweis": "Lieferzustand und Fließkurve ausdrücklich wählen",
     "curveStatus": "literature",
     "rmStatus": "missing",
-    "densityStatus": "missing",
-    "densitySource": null,
+    "densityStatus": "reference-steel-density",
+    "densitySource": {
+      "id": "reference-steel-density",
+      "property": "density",
+      "status": "group-reference-approximation",
+      "value": 7.85,
+      "unit": "g/cm3",
+      "valueType": "reference-calculation-density",
+      "sourceTitle": "ArcelorMittal Orange Book · Dimensions of sections · 2.1 Mass",
+      "sourceUrl": "https://orangebook.arcelormittal.com/index.php/explanatory-notes/welded-sections/dimensions-of-sections",
+      "evidence": "Der Hersteller verwendet 7850 kg/m³ ausdrücklich als Dichteannahme für die Massenberechnung von Stahlprofilen.",
+      "application": "Gesonderte technische Gruppenannahme für die unten genannten un- und niedriglegierten Stähle, nur falls die Katalogidentität bisher keine Dichte hat. Kein Dichtenachweis für die genaue Drahtsorte, ihren Lieferzustand oder die Charge; keine Übertragung von Festigkeitsdaten oder Fließkurven.",
+      "materialNumbers": [
+        "1.0303",
+        "1.0213",
+        "1.1172",
+        "1.1192",
+        "1.7003",
+        "1.7006",
+        "1.7033",
+        "1.7034",
+        "1.7035",
+        "1.7220",
+        "1.7225",
+        "1.6582",
+        "1.5508",
+        "1.5510",
+        "1.7077",
+        "1.1132",
+        "1.7016",
+        "1.7131",
+        "1.6523",
+        "1.5918"
+      ],
+      "materialIds": [
+        "AISI 1010"
+      ],
+      "eligibleForFlowCurve": false,
+      "eligibleForForceCalculation": false,
+      "retrievedAt": "2026-11-25"
+    },
     "properties": [
       {
         "property": "Rm",
@@ -6529,7 +6970,8 @@
       }
     ],
     "materialNotes": [
-      "Verifizierte Rm/Rp0,2-Daten betreffen DIN EN10083 +QT. Für Kaltstauchdraht EN10263 im weichen Zustand weiterhin kein daraus abgeleiteter Festigkeitswert freigegeben; HB nicht in Rm umgerechnet."
+      "Verifizierte Rm/Rp0,2-Daten betreffen DIN EN10083 +QT. Für Kaltstauchdraht EN10263 im weichen Zustand weiterhin kein daraus abgeleiteter Festigkeitswert freigegeben; HB nicht in Rm umgerechnet.",
+      "Gewicht mit Stahl-Bezugsdichte 7,85 g/cm³; Näherungswert, keine belegte Chargendichte."
     ],
     "catalogueSource": "https://moehling.com/de/produkte/materialien.html",
     "flowCurves": [
@@ -6621,13 +7063,52 @@
     "Rm": null,
     "C": null,
     "n": null,
-    "rho": null,
+    "rho": 7.85,
     "grp": "schwer",
     "hinweis": "Fließkurve für den Lieferzustand offen",
     "curveStatus": "missing",
     "rmStatus": "missing",
-    "densityStatus": "missing",
-    "densitySource": null,
+    "densityStatus": "reference-steel-density",
+    "densitySource": {
+      "id": "reference-steel-density",
+      "property": "density",
+      "status": "group-reference-approximation",
+      "value": 7.85,
+      "unit": "g/cm3",
+      "valueType": "reference-calculation-density",
+      "sourceTitle": "ArcelorMittal Orange Book · Dimensions of sections · 2.1 Mass",
+      "sourceUrl": "https://orangebook.arcelormittal.com/index.php/explanatory-notes/welded-sections/dimensions-of-sections",
+      "evidence": "Der Hersteller verwendet 7850 kg/m³ ausdrücklich als Dichteannahme für die Massenberechnung von Stahlprofilen.",
+      "application": "Gesonderte technische Gruppenannahme für die unten genannten un- und niedriglegierten Stähle, nur falls die Katalogidentität bisher keine Dichte hat. Kein Dichtenachweis für die genaue Drahtsorte, ihren Lieferzustand oder die Charge; keine Übertragung von Festigkeitsdaten oder Fließkurven.",
+      "materialNumbers": [
+        "1.0303",
+        "1.0213",
+        "1.1172",
+        "1.1192",
+        "1.7003",
+        "1.7006",
+        "1.7033",
+        "1.7034",
+        "1.7035",
+        "1.7220",
+        "1.7225",
+        "1.6582",
+        "1.5508",
+        "1.5510",
+        "1.7077",
+        "1.1132",
+        "1.7016",
+        "1.7131",
+        "1.6523",
+        "1.5918"
+      ],
+      "materialIds": [
+        "AISI 1010"
+      ],
+      "eligibleForFlowCurve": false,
+      "eligibleForForceCalculation": false,
+      "retrievedAt": "2026-11-25"
+    },
     "properties": [
       {
         "property": "Rm",
@@ -6833,7 +7314,8 @@
       }
     ],
     "materialNotes": [
-      "Verifizierte Rm/Rp0,2-Daten betreffen DIN EN10083 +QT. Für Kaltstauchdraht EN10263 im weichen Zustand weiterhin kein daraus abgeleiteter Festigkeitswert freigegeben; HB nicht in Rm umgerechnet."
+      "Verifizierte Rm/Rp0,2-Daten betreffen DIN EN10083 +QT. Für Kaltstauchdraht EN10263 im weichen Zustand weiterhin kein daraus abgeleiteter Festigkeitswert freigegeben; HB nicht in Rm umgerechnet.",
+      "Gewicht mit Stahl-Bezugsdichte 7,85 g/cm³; Näherungswert, keine belegte Chargendichte."
     ],
     "catalogueSource": "https://moehling.com/de/produkte/materialien.html",
     "flowCurves": [],
@@ -6848,16 +7330,56 @@
     "Rm": null,
     "C": null,
     "n": null,
-    "rho": null,
+    "rho": 7.85,
     "grp": "schwerer",
     "hinweis": "Fließkurve für den Lieferzustand offen",
     "curveStatus": "missing",
     "rmStatus": "missing",
-    "densityStatus": "missing",
-    "densitySource": null,
+    "densityStatus": "reference-steel-density",
+    "densitySource": {
+      "id": "reference-steel-density",
+      "property": "density",
+      "status": "group-reference-approximation",
+      "value": 7.85,
+      "unit": "g/cm3",
+      "valueType": "reference-calculation-density",
+      "sourceTitle": "ArcelorMittal Orange Book · Dimensions of sections · 2.1 Mass",
+      "sourceUrl": "https://orangebook.arcelormittal.com/index.php/explanatory-notes/welded-sections/dimensions-of-sections",
+      "evidence": "Der Hersteller verwendet 7850 kg/m³ ausdrücklich als Dichteannahme für die Massenberechnung von Stahlprofilen.",
+      "application": "Gesonderte technische Gruppenannahme für die unten genannten un- und niedriglegierten Stähle, nur falls die Katalogidentität bisher keine Dichte hat. Kein Dichtenachweis für die genaue Drahtsorte, ihren Lieferzustand oder die Charge; keine Übertragung von Festigkeitsdaten oder Fließkurven.",
+      "materialNumbers": [
+        "1.0303",
+        "1.0213",
+        "1.1172",
+        "1.1192",
+        "1.7003",
+        "1.7006",
+        "1.7033",
+        "1.7034",
+        "1.7035",
+        "1.7220",
+        "1.7225",
+        "1.6582",
+        "1.5508",
+        "1.5510",
+        "1.7077",
+        "1.1132",
+        "1.7016",
+        "1.7131",
+        "1.6523",
+        "1.5918"
+      ],
+      "materialIds": [
+        "AISI 1010"
+      ],
+      "eligibleForFlowCurve": false,
+      "eligibleForForceCalculation": false,
+      "retrievedAt": "2026-11-25"
+    },
     "properties": [],
     "materialNotes": [
-      "Herstellerprogramm bestätigt Identität, aber kein für Zustand/Abmessung verbindlicher Rm/Rp-Wert in den geprüften Primärquellen. Keine Werte benachbarter Borsorten übernommen."
+      "Herstellerprogramm bestätigt Identität, aber kein für Zustand/Abmessung verbindlicher Rm/Rp-Wert in den geprüften Primärquellen. Keine Werte benachbarter Borsorten übernommen.",
+      "Gewicht mit Stahl-Bezugsdichte 7,85 g/cm³; Näherungswert, keine belegte Chargendichte."
     ],
     "catalogueSource": "https://moehling.com/de/produkte/materialien.html",
     "flowCurves": [],
@@ -6872,16 +7394,56 @@
     "Rm": null,
     "C": null,
     "n": null,
-    "rho": null,
+    "rho": 7.85,
     "grp": "schwerer",
     "hinweis": "Fließkurve für den Lieferzustand offen",
     "curveStatus": "missing",
     "rmStatus": "missing",
-    "densityStatus": "missing",
-    "densitySource": null,
+    "densityStatus": "reference-steel-density",
+    "densitySource": {
+      "id": "reference-steel-density",
+      "property": "density",
+      "status": "group-reference-approximation",
+      "value": 7.85,
+      "unit": "g/cm3",
+      "valueType": "reference-calculation-density",
+      "sourceTitle": "ArcelorMittal Orange Book · Dimensions of sections · 2.1 Mass",
+      "sourceUrl": "https://orangebook.arcelormittal.com/index.php/explanatory-notes/welded-sections/dimensions-of-sections",
+      "evidence": "Der Hersteller verwendet 7850 kg/m³ ausdrücklich als Dichteannahme für die Massenberechnung von Stahlprofilen.",
+      "application": "Gesonderte technische Gruppenannahme für die unten genannten un- und niedriglegierten Stähle, nur falls die Katalogidentität bisher keine Dichte hat. Kein Dichtenachweis für die genaue Drahtsorte, ihren Lieferzustand oder die Charge; keine Übertragung von Festigkeitsdaten oder Fließkurven.",
+      "materialNumbers": [
+        "1.0303",
+        "1.0213",
+        "1.1172",
+        "1.1192",
+        "1.7003",
+        "1.7006",
+        "1.7033",
+        "1.7034",
+        "1.7035",
+        "1.7220",
+        "1.7225",
+        "1.6582",
+        "1.5508",
+        "1.5510",
+        "1.7077",
+        "1.1132",
+        "1.7016",
+        "1.7131",
+        "1.6523",
+        "1.5918"
+      ],
+      "materialIds": [
+        "AISI 1010"
+      ],
+      "eligibleForFlowCurve": false,
+      "eligibleForForceCalculation": false,
+      "retrievedAt": "2026-11-25"
+    },
     "properties": [],
     "materialNotes": [
-      "Herstellerprogramm bestätigt Identität, aber kein für Zustand/Abmessung verbindlicher Rm/Rp-Wert in den geprüften Primärquellen. Keine Werte benachbarter Borsorten übernommen."
+      "Herstellerprogramm bestätigt Identität, aber kein für Zustand/Abmessung verbindlicher Rm/Rp-Wert in den geprüften Primärquellen. Keine Werte benachbarter Borsorten übernommen.",
+      "Gewicht mit Stahl-Bezugsdichte 7,85 g/cm³; Näherungswert, keine belegte Chargendichte."
     ],
     "catalogueSource": "https://moehling.com/de/produkte/materialien.html",
     "flowCurves": [],
@@ -6896,13 +7458,52 @@
     "Rm": null,
     "C": null,
     "n": null,
-    "rho": null,
+    "rho": 7.85,
     "grp": "schwerer",
     "hinweis": "Fließkurve für den Lieferzustand offen",
     "curveStatus": "missing",
     "rmStatus": "missing",
-    "densityStatus": "missing",
-    "densitySource": null,
+    "densityStatus": "reference-steel-density",
+    "densitySource": {
+      "id": "reference-steel-density",
+      "property": "density",
+      "status": "group-reference-approximation",
+      "value": 7.85,
+      "unit": "g/cm3",
+      "valueType": "reference-calculation-density",
+      "sourceTitle": "ArcelorMittal Orange Book · Dimensions of sections · 2.1 Mass",
+      "sourceUrl": "https://orangebook.arcelormittal.com/index.php/explanatory-notes/welded-sections/dimensions-of-sections",
+      "evidence": "Der Hersteller verwendet 7850 kg/m³ ausdrücklich als Dichteannahme für die Massenberechnung von Stahlprofilen.",
+      "application": "Gesonderte technische Gruppenannahme für die unten genannten un- und niedriglegierten Stähle, nur falls die Katalogidentität bisher keine Dichte hat. Kein Dichtenachweis für die genaue Drahtsorte, ihren Lieferzustand oder die Charge; keine Übertragung von Festigkeitsdaten oder Fließkurven.",
+      "materialNumbers": [
+        "1.0303",
+        "1.0213",
+        "1.1172",
+        "1.1192",
+        "1.7003",
+        "1.7006",
+        "1.7033",
+        "1.7034",
+        "1.7035",
+        "1.7220",
+        "1.7225",
+        "1.6582",
+        "1.5508",
+        "1.5510",
+        "1.7077",
+        "1.1132",
+        "1.7016",
+        "1.7131",
+        "1.6523",
+        "1.5918"
+      ],
+      "materialIds": [
+        "AISI 1010"
+      ],
+      "eligibleForFlowCurve": false,
+      "eligibleForForceCalculation": false,
+      "retrievedAt": "2026-11-25"
+    },
     "properties": [
       {
         "property": "Rm",
@@ -7049,7 +7650,9 @@
         "eligibleForForceCalculation": false
       }
     ],
-    "materialNotes": [],
+    "materialNotes": [
+      "Gewicht mit Stahl-Bezugsdichte 7,85 g/cm³; Näherungswert, keine belegte Chargendichte."
+    ],
     "catalogueSource": "https://moehling.com/de/produkte/materialien.html",
     "flowCurves": [],
     "manualEligible": false
@@ -7063,13 +7666,52 @@
     "Rm": null,
     "C": null,
     "n": null,
-    "rho": null,
+    "rho": 7.85,
     "grp": "schwerer",
     "hinweis": "Lieferzustand und Fließkurve ausdrücklich wählen",
     "curveStatus": "literature",
     "rmStatus": "missing",
-    "densityStatus": "missing",
-    "densitySource": null,
+    "densityStatus": "reference-steel-density",
+    "densitySource": {
+      "id": "reference-steel-density",
+      "property": "density",
+      "status": "group-reference-approximation",
+      "value": 7.85,
+      "unit": "g/cm3",
+      "valueType": "reference-calculation-density",
+      "sourceTitle": "ArcelorMittal Orange Book · Dimensions of sections · 2.1 Mass",
+      "sourceUrl": "https://orangebook.arcelormittal.com/index.php/explanatory-notes/welded-sections/dimensions-of-sections",
+      "evidence": "Der Hersteller verwendet 7850 kg/m³ ausdrücklich als Dichteannahme für die Massenberechnung von Stahlprofilen.",
+      "application": "Gesonderte technische Gruppenannahme für die unten genannten un- und niedriglegierten Stähle, nur falls die Katalogidentität bisher keine Dichte hat. Kein Dichtenachweis für die genaue Drahtsorte, ihren Lieferzustand oder die Charge; keine Übertragung von Festigkeitsdaten oder Fließkurven.",
+      "materialNumbers": [
+        "1.0303",
+        "1.0213",
+        "1.1172",
+        "1.1192",
+        "1.7003",
+        "1.7006",
+        "1.7033",
+        "1.7034",
+        "1.7035",
+        "1.7220",
+        "1.7225",
+        "1.6582",
+        "1.5508",
+        "1.5510",
+        "1.7077",
+        "1.1132",
+        "1.7016",
+        "1.7131",
+        "1.6523",
+        "1.5918"
+      ],
+      "materialIds": [
+        "AISI 1010"
+      ],
+      "eligibleForFlowCurve": false,
+      "eligibleForForceCalculation": false,
+      "retrievedAt": "2026-11-25"
+    },
     "properties": [
       {
         "property": "Rm",
@@ -7329,7 +7971,8 @@
       }
     ],
     "materialNotes": [
-      "Rm-Werte sind dokumentierte Obergrenzen, keine tatsächliche Chargenzugfestigkeit. Rp0,2 und Dichte in diesem geprüften Blatt nicht belegt."
+      "Rm-Werte sind dokumentierte Obergrenzen, keine tatsächliche Chargenzugfestigkeit. Rp0,2 und Dichte in diesem geprüften Blatt nicht belegt.",
+      "Gewicht mit Stahl-Bezugsdichte 7,85 g/cm³; Näherungswert, keine belegte Chargendichte."
     ],
     "catalogueSource": "https://moehling.com/de/produkte/materialien.html",
     "flowCurves": [
@@ -7421,13 +8064,52 @@
     "Rm": null,
     "C": null,
     "n": null,
-    "rho": null,
+    "rho": 7.85,
     "grp": "schwerer",
     "hinweis": "Fließkurve für den Lieferzustand offen",
     "curveStatus": "missing",
     "rmStatus": "missing",
-    "densityStatus": "missing",
-    "densitySource": null,
+    "densityStatus": "reference-steel-density",
+    "densitySource": {
+      "id": "reference-steel-density",
+      "property": "density",
+      "status": "group-reference-approximation",
+      "value": 7.85,
+      "unit": "g/cm3",
+      "valueType": "reference-calculation-density",
+      "sourceTitle": "ArcelorMittal Orange Book · Dimensions of sections · 2.1 Mass",
+      "sourceUrl": "https://orangebook.arcelormittal.com/index.php/explanatory-notes/welded-sections/dimensions-of-sections",
+      "evidence": "Der Hersteller verwendet 7850 kg/m³ ausdrücklich als Dichteannahme für die Massenberechnung von Stahlprofilen.",
+      "application": "Gesonderte technische Gruppenannahme für die unten genannten un- und niedriglegierten Stähle, nur falls die Katalogidentität bisher keine Dichte hat. Kein Dichtenachweis für die genaue Drahtsorte, ihren Lieferzustand oder die Charge; keine Übertragung von Festigkeitsdaten oder Fließkurven.",
+      "materialNumbers": [
+        "1.0303",
+        "1.0213",
+        "1.1172",
+        "1.1192",
+        "1.7003",
+        "1.7006",
+        "1.7033",
+        "1.7034",
+        "1.7035",
+        "1.7220",
+        "1.7225",
+        "1.6582",
+        "1.5508",
+        "1.5510",
+        "1.7077",
+        "1.1132",
+        "1.7016",
+        "1.7131",
+        "1.6523",
+        "1.5918"
+      ],
+      "materialIds": [
+        "AISI 1010"
+      ],
+      "eligibleForFlowCurve": false,
+      "eligibleForForceCalculation": false,
+      "retrievedAt": "2026-11-25"
+    },
     "properties": [
       {
         "property": "Rm",
@@ -7480,7 +8162,8 @@
       }
     ],
     "materialNotes": [
-      "Rm-Minima gelten nach Vergütung bei 200 °C, nicht für weichgeglühten Draht. Die geprüfte Quelle verwendet EN10084; mechanische Kaltstauch-Lieferbedingungen EN10263 nicht daraus ersetzt."
+      "Rm-Minima gelten nach Vergütung bei 200 °C, nicht für weichgeglühten Draht. Die geprüfte Quelle verwendet EN10084; mechanische Kaltstauch-Lieferbedingungen EN10263 nicht daraus ersetzt.",
+      "Gewicht mit Stahl-Bezugsdichte 7,85 g/cm³; Näherungswert, keine belegte Chargendichte."
     ],
     "catalogueSource": "https://moehling.com/de/produkte/materialien.html",
     "flowCurves": [],
@@ -7495,13 +8178,52 @@
     "Rm": null,
     "C": null,
     "n": null,
-    "rho": null,
+    "rho": 7.85,
     "grp": "schwerer",
     "hinweis": "Lieferzustand und Fließkurve ausdrücklich wählen",
     "curveStatus": "literature",
     "rmStatus": "missing",
-    "densityStatus": "missing",
-    "densitySource": null,
+    "densityStatus": "reference-steel-density",
+    "densitySource": {
+      "id": "reference-steel-density",
+      "property": "density",
+      "status": "group-reference-approximation",
+      "value": 7.85,
+      "unit": "g/cm3",
+      "valueType": "reference-calculation-density",
+      "sourceTitle": "ArcelorMittal Orange Book · Dimensions of sections · 2.1 Mass",
+      "sourceUrl": "https://orangebook.arcelormittal.com/index.php/explanatory-notes/welded-sections/dimensions-of-sections",
+      "evidence": "Der Hersteller verwendet 7850 kg/m³ ausdrücklich als Dichteannahme für die Massenberechnung von Stahlprofilen.",
+      "application": "Gesonderte technische Gruppenannahme für die unten genannten un- und niedriglegierten Stähle, nur falls die Katalogidentität bisher keine Dichte hat. Kein Dichtenachweis für die genaue Drahtsorte, ihren Lieferzustand oder die Charge; keine Übertragung von Festigkeitsdaten oder Fließkurven.",
+      "materialNumbers": [
+        "1.0303",
+        "1.0213",
+        "1.1172",
+        "1.1192",
+        "1.7003",
+        "1.7006",
+        "1.7033",
+        "1.7034",
+        "1.7035",
+        "1.7220",
+        "1.7225",
+        "1.6582",
+        "1.5508",
+        "1.5510",
+        "1.7077",
+        "1.1132",
+        "1.7016",
+        "1.7131",
+        "1.6523",
+        "1.5918"
+      ],
+      "materialIds": [
+        "AISI 1010"
+      ],
+      "eligibleForFlowCurve": false,
+      "eligibleForForceCalculation": false,
+      "retrievedAt": "2026-11-25"
+    },
     "properties": [
       {
         "property": "Rm",
@@ -7570,7 +8292,8 @@
       }
     ],
     "materialNotes": [
-      "Rm-Minima gelten nach Vergütung bei 200 °C, nicht für weichgeglühten Draht. Die geprüfte Quelle verwendet EN10084; mechanische Kaltstauch-Lieferbedingungen EN10263 nicht daraus ersetzt."
+      "Rm-Minima gelten nach Vergütung bei 200 °C, nicht für weichgeglühten Draht. Die geprüfte Quelle verwendet EN10084; mechanische Kaltstauch-Lieferbedingungen EN10263 nicht daraus ersetzt.",
+      "Gewicht mit Stahl-Bezugsdichte 7,85 g/cm³; Näherungswert, keine belegte Chargendichte."
     ],
     "catalogueSource": "https://moehling.com/de/produkte/materialien.html",
     "flowCurves": [
@@ -7717,13 +8440,52 @@
     "Rm": null,
     "C": null,
     "n": null,
-    "rho": null,
+    "rho": 7.85,
     "grp": "schwerer",
     "hinweis": "Fließkurve für den Lieferzustand offen",
     "curveStatus": "missing",
     "rmStatus": "missing",
-    "densityStatus": "missing",
-    "densitySource": null,
+    "densityStatus": "reference-steel-density",
+    "densitySource": {
+      "id": "reference-steel-density",
+      "property": "density",
+      "status": "group-reference-approximation",
+      "value": 7.85,
+      "unit": "g/cm3",
+      "valueType": "reference-calculation-density",
+      "sourceTitle": "ArcelorMittal Orange Book · Dimensions of sections · 2.1 Mass",
+      "sourceUrl": "https://orangebook.arcelormittal.com/index.php/explanatory-notes/welded-sections/dimensions-of-sections",
+      "evidence": "Der Hersteller verwendet 7850 kg/m³ ausdrücklich als Dichteannahme für die Massenberechnung von Stahlprofilen.",
+      "application": "Gesonderte technische Gruppenannahme für die unten genannten un- und niedriglegierten Stähle, nur falls die Katalogidentität bisher keine Dichte hat. Kein Dichtenachweis für die genaue Drahtsorte, ihren Lieferzustand oder die Charge; keine Übertragung von Festigkeitsdaten oder Fließkurven.",
+      "materialNumbers": [
+        "1.0303",
+        "1.0213",
+        "1.1172",
+        "1.1192",
+        "1.7003",
+        "1.7006",
+        "1.7033",
+        "1.7034",
+        "1.7035",
+        "1.7220",
+        "1.7225",
+        "1.6582",
+        "1.5508",
+        "1.5510",
+        "1.7077",
+        "1.1132",
+        "1.7016",
+        "1.7131",
+        "1.6523",
+        "1.5918"
+      ],
+      "materialIds": [
+        "AISI 1010"
+      ],
+      "eligibleForFlowCurve": false,
+      "eligibleForForceCalculation": false,
+      "retrievedAt": "2026-11-25"
+    },
     "properties": [
       {
         "property": "Rm",
@@ -7792,7 +8554,8 @@
       }
     ],
     "materialNotes": [
-      "Rm-Minima gelten nach Vergütung bei 200 °C, nicht für weichgeglühten Draht. Die geprüfte Quelle verwendet EN10084; mechanische Kaltstauch-Lieferbedingungen EN10263 nicht daraus ersetzt."
+      "Rm-Minima gelten nach Vergütung bei 200 °C, nicht für weichgeglühten Draht. Die geprüfte Quelle verwendet EN10084; mechanische Kaltstauch-Lieferbedingungen EN10263 nicht daraus ersetzt.",
+      "Gewicht mit Stahl-Bezugsdichte 7,85 g/cm³; Näherungswert, keine belegte Chargendichte."
     ],
     "catalogueSource": "https://moehling.com/de/produkte/materialien.html",
     "flowCurves": [],
@@ -7807,13 +8570,52 @@
     "Rm": null,
     "C": null,
     "n": null,
-    "rho": null,
+    "rho": 7.85,
     "grp": "schwerer",
     "hinweis": "Fließkurve für den Lieferzustand offen",
     "curveStatus": "missing",
     "rmStatus": "missing",
-    "densityStatus": "missing",
-    "densitySource": null,
+    "densityStatus": "reference-steel-density",
+    "densitySource": {
+      "id": "reference-steel-density",
+      "property": "density",
+      "status": "group-reference-approximation",
+      "value": 7.85,
+      "unit": "g/cm3",
+      "valueType": "reference-calculation-density",
+      "sourceTitle": "ArcelorMittal Orange Book · Dimensions of sections · 2.1 Mass",
+      "sourceUrl": "https://orangebook.arcelormittal.com/index.php/explanatory-notes/welded-sections/dimensions-of-sections",
+      "evidence": "Der Hersteller verwendet 7850 kg/m³ ausdrücklich als Dichteannahme für die Massenberechnung von Stahlprofilen.",
+      "application": "Gesonderte technische Gruppenannahme für die unten genannten un- und niedriglegierten Stähle, nur falls die Katalogidentität bisher keine Dichte hat. Kein Dichtenachweis für die genaue Drahtsorte, ihren Lieferzustand oder die Charge; keine Übertragung von Festigkeitsdaten oder Fließkurven.",
+      "materialNumbers": [
+        "1.0303",
+        "1.0213",
+        "1.1172",
+        "1.1192",
+        "1.7003",
+        "1.7006",
+        "1.7033",
+        "1.7034",
+        "1.7035",
+        "1.7220",
+        "1.7225",
+        "1.6582",
+        "1.5508",
+        "1.5510",
+        "1.7077",
+        "1.1132",
+        "1.7016",
+        "1.7131",
+        "1.6523",
+        "1.5918"
+      ],
+      "materialIds": [
+        "AISI 1010"
+      ],
+      "eligibleForFlowCurve": false,
+      "eligibleForForceCalculation": false,
+      "retrievedAt": "2026-11-25"
+    },
     "properties": [
       {
         "property": "Rm",
@@ -7882,7 +8684,8 @@
       }
     ],
     "materialNotes": [
-      "Rm-Minima gelten nach Vergütung bei 200 °C, nicht für weichgeglühten Draht. Die geprüfte Quelle verwendet EN10084; mechanische Kaltstauch-Lieferbedingungen EN10263 nicht daraus ersetzt."
+      "Rm-Minima gelten nach Vergütung bei 200 °C, nicht für weichgeglühten Draht. Die geprüfte Quelle verwendet EN10084; mechanische Kaltstauch-Lieferbedingungen EN10263 nicht daraus ersetzt.",
+      "Gewicht mit Stahl-Bezugsdichte 7,85 g/cm³; Näherungswert, keine belegte Chargendichte."
     ],
     "catalogueSource": "https://moehling.com/de/produkte/materialien.html",
     "flowCurves": [],
@@ -11656,17 +12459,57 @@
     "materialNotes": [
       "Eigenständige Quellenidentität; keine Gleichsetzung mit C10C, C15C oder einer EN-Werkstoffnummer.",
       "Kurve für gezogenes Stabmaterial. Ziehgrad und Wärmebehandlung sind nicht vollständig dokumentiert; keine weichgeglühte Kurve.",
-      "Dichte und Drahtzugfestigkeit sind nicht durch diese Quelle belegt. Teilemasse bleibt ohne gesonderten Dichtenachweis offen.",
-      "Werkstoffspezifische Umformgrenzen sind nicht freigegeben; Stadienaufteilung verwendet vorläufige Grenzen."
+      "Dichte und Drahtzugfestigkeit sind nicht durch die Fließkurvenquelle belegt. Eine gesondert gekennzeichnete Stahl-Bezugsdichte dient ausschließlich der näherungsweisen Gewichts-/Volumenrechnung.",
+      "Werkstoffspezifische Umformgrenzen sind nicht freigegeben; Stadienaufteilung verwendet vorläufige Grenzen.",
+      "Gewicht mit Stahl-Bezugsdichte 7,85 g/cm³; Näherungswert, keine belegte Chargendichte."
     ],
     "C": null,
     "n": null,
     "Rm": null,
-    "rho": null,
+    "rho": 7.85,
     "grp": "unbekannt",
     "rmStatus": "missing",
-    "densityStatus": "missing",
-    "densitySource": null,
+    "densityStatus": "reference-steel-density",
+    "densitySource": {
+      "id": "reference-steel-density",
+      "property": "density",
+      "status": "group-reference-approximation",
+      "value": 7.85,
+      "unit": "g/cm3",
+      "valueType": "reference-calculation-density",
+      "sourceTitle": "ArcelorMittal Orange Book · Dimensions of sections · 2.1 Mass",
+      "sourceUrl": "https://orangebook.arcelormittal.com/index.php/explanatory-notes/welded-sections/dimensions-of-sections",
+      "evidence": "Der Hersteller verwendet 7850 kg/m³ ausdrücklich als Dichteannahme für die Massenberechnung von Stahlprofilen.",
+      "application": "Gesonderte technische Gruppenannahme für die unten genannten un- und niedriglegierten Stähle, nur falls die Katalogidentität bisher keine Dichte hat. Kein Dichtenachweis für die genaue Drahtsorte, ihren Lieferzustand oder die Charge; keine Übertragung von Festigkeitsdaten oder Fließkurven.",
+      "materialNumbers": [
+        "1.0303",
+        "1.0213",
+        "1.1172",
+        "1.1192",
+        "1.7003",
+        "1.7006",
+        "1.7033",
+        "1.7034",
+        "1.7035",
+        "1.7220",
+        "1.7225",
+        "1.6582",
+        "1.5508",
+        "1.5510",
+        "1.7077",
+        "1.1132",
+        "1.7016",
+        "1.7131",
+        "1.6523",
+        "1.5918"
+      ],
+      "materialIds": [
+        "AISI 1010"
+      ],
+      "eligibleForFlowCurve": false,
+      "eligibleForForceCalculation": false,
+      "retrievedAt": "2026-11-25"
+    },
     "properties": [],
     "hinweis": "Lieferzustand und Fließkurve ausdrücklich wählen",
     "flowCurves": [

@@ -9,7 +9,7 @@ const template = fs.readFileSync(path.join(__dirname, '..', 'vorlage.html'), 'ut
 // Network-contract tests with an intentionally small DOM double. These check
 // state, payloads and rendering data; they do not replace visual browser QA.
 class Element {
-  constructor(tag='div') { this.tagName=tag; this.children=[]; this.events={}; this.dataset={}; this.attributes={}; this.value=''; this.files=[]; this.hidden=false; this.disabled=false; this.textContent=''; this.className=''; this.classList={add(){},remove(){}}; }
+  constructor(tag='div') { this.tagName=tag; this.children=[]; this.events={}; this.dataset={}; this.attributes={}; this.value=''; this.files=[]; this.hidden=false; this.open=false; this.disabled=false; this.textContent=''; this.className=''; this.classList={add(){},remove(){}}; }
   addEventListener(name,fn){(this.events[name] ||= []).push(fn)}
   async emit(name,extra={}){for(const fn of this.events[name]||[]) await fn({preventDefault(){},currentTarget:this,...extra});await new Promise(setImmediate)}
   setCustomValidity(value){this.validationMessage=value}
@@ -28,12 +28,12 @@ function harness(base='https://api.example.test',language='de',showPrices) {
   nodes.get('consent').checked=true;
   nodes.get('daten').textContent=fs.readFileSync(path.join(__dirname,'..','maschinen.json'),'utf8');
   Object.defineProperty(nodes.get('file'),'value',{get(){return this._value||''},set(value){this._value=value;if(value==='')this.files=[]}});
-  const tabs=['upload','description','chat'].map(mode=>{const el=nodes.get('tab-'+mode);el.dataset.mode=mode;return el});
+  const tabs=['upload','chat'].map(mode=>{const el=nodes.get('tab-'+mode);el.dataset.mode=mode;return el});
   const questions=[new Element()];questions[0].dataset.question='Wie entsteht die Stadienfolge?';
   const requests=[]; const answers=[]; const events={}; const timers=new Map();let timerId=0;
-  const document={getElementById(id){assert(nodes.has(id),'unknown id '+id);return nodes.get(id)},createElement(tag){return new Element(tag)},querySelectorAll(selector){return selector==='[data-mode]'?tabs:selector==='[data-question]'?questions:[]}};
+  const document={getElementById(id){assert(nodes.has(id),'unknown id '+id);return nodes.get(id)},createElement(tag){return new Element(tag)},createTextNode(text){const node=new Element('#text');node.textContent=text;return node},querySelectorAll(selector){return selector==='[data-mode]'?tabs:selector==='[data-question]'?questions:[]}};
   const locale={language,t:text=>I18N.t(text,locale.language),apply(){},autonyms:{de:'Deutsch',it:'Italiano',sl:'Slovenščina',en:'English',zh:'简体中文'}};
-  const context={document,window:{JYI18N:I18N,JYLocale:locale,JYConcept:{html:()=>'<section>concept</section>'},JY_API_BASE:base,location:{href:'https://jern-yao.de/'},setTimeout(fn,delay){timers.set(++timerId,{fn,delay});return timerId},clearTimeout(id){timers.delete(id)},addEventListener(name,fn){(events[name] ||= []).push(fn)}},URL,URLSearchParams,FormData,AbortController,TextEncoder,crypto,TypeError,fetch:async(url,options)=>{requests.push({url,options});const answer=await answers.shift();if(answer instanceof Error)throw answer;if(!answer)throw new Error('Unmocked API call');return {ok:answer.ok!==false,status:answer.status||200,json:async()=>answer.data}}};
+  const context={document,window:{JYAnswerFormat:require('../answer-format.js'),JYI18N:I18N,JYLocale:locale,JYConcept:{html:()=>'<section>concept</section>'},JY_API_BASE:base,location:{href:'https://jern-yao.de/'},setTimeout(fn,delay){timers.set(++timerId,{fn,delay});return timerId},clearTimeout(id){timers.delete(id)},addEventListener(name,fn){(events[name] ||= []).push(fn)}},URL,URLSearchParams,FormData,AbortController,TextEncoder,crypto,TypeError,fetch:async(url,options)=>{requests.push({url,options});const answer=await answers.shift();if(answer instanceof Error)throw answer;if(!answer)throw new Error('Unmocked API call');return {ok:answer.ok!==false,status:answer.status||200,json:async()=>answer.data}}};
   if(showPrices!==undefined)context.window.JY_SHOW_PRICES=showPrices;
   vm.runInNewContext(source,context);
   return {nodes,tabs,questions,requests,answers,locale,events,timers,get:id=>nodes.get(id),async runTimer(delay=4000){const timer=[...timers].find(([,value])=>value.delay===delay);assert(timer,'expected scheduled timer '+delay);timers.delete(timer[0]);await timer[1].fn();await new Promise(setImmediate)}};
@@ -42,6 +42,52 @@ const flattened = node => node.textContent+' '+node.children.map(flattened).join
 const descendants = node => [node,...node.children.flatMap(descendants)];
 const quoteButtons = node => descendants(node).filter(item=>item.tagName==='button'&&item.className==='quote-button');
 (async()=>{
+  for(const language of I18N.supported){
+    const p=harness('https://api.example.test',language,false);
+    assert.equal(p.tabs.length,2);assert.equal(p.get('contact-details').open,false,'contact fields start collapsed');
+    assert.equal(p.get('request-submit').disabled,true,'plain notes cannot replace a drawing request');
+    p.get('email').value='test@example.invalid';p.get('description').value='Exzenter mit Kopf und Bohrung';
+    await p.get('request-form').emit('input');await p.get('request-form').emit('submit');
+    assert.equal(p.requests.length,0,'free text without drawing or chosen catalogue model cannot send');
+    assert.equal(p.get('request-message').textContent,I18N.t('Bitte wählen Sie für diese Anfrage eine Zeichnung aus. Ein konkretes Maschinenmodell können Sie auch ohne Zeichnung anfragen.',language));
+    p.get('contact-details').open=false;
+    const drawing=new File(['drawing'],'original.pdf',{type:'application/pdf'});
+    p.get('file').files=[drawing];await p.get('file').emit('change');
+    assert.equal(p.get('contact-details').open,false,'file selection does not expand contacts');
+    await p.get('open-contact').emit('click');
+    assert.equal(p.get('contact-details').open,true);assert.equal(p.get('email').focused,true);
+    assert.equal(p.requests.length,0,'opening the enquiry does not send mail or analyze');
+    assert.equal(p.get('file').files[0],drawing,'same file is retained for analysis and enquiry');
+    p.get('contact-details').open=false;p.answers.push({data:{id:'SIMPLE-FLOW',token:'private',kind:'preview',status:'ready',answer:'Concept'}});
+    await p.get('preview-start').emit('click');assert.equal(p.get('contact-details').open,false,'analysis never forces contact entry');
+    assert.equal(p.get('result-status').textContent,I18N.t('Zeichnung:',language)+' original.pdf');assert(!p.get('result-status').textContent.includes('SIMPLE-FLOW'));
+    const cad=new File(['CAD'],'part.step');p.get('file').files=[cad];await p.get('file').emit('change');
+    assert.equal(p.get('preview-actions').hidden,false,'CAD keeps the enquiry action');
+    assert.equal(p.get('preview-start').hidden,true);assert.equal(p.get('preview-privacy').hidden,true);assert.equal(p.get('open-contact').disabled,false);
+    await p.get('open-contact').emit('click');p.answers.push({data:{id:'CAD-MAIL',token:'private-mail',kind:'enquiry',status:'received',notificationStatus:'pending'}});
+    await p.get('request-form').emit('submit');assert.equal(p.requests.at(-1).options.body.get('datei').name,'part.step');assert.match(p.requests.at(-1).url,/\/anfrage\?/);
+  }
+  {
+    const p=harness();p.get('chat-input').value='Was ist Rückwärtsfließpressen?';p.answers.push({data:{answer:'Allgemeine Fachantwort'}});
+    await p.get('chat-form').emit('submit');assert.equal(p.requests.length,1,'general technical questions need no drawing');
+    await p.get('chat-to-request').emit('click');assert.equal(p.get('contact-details').open,true);assert.equal(p.get('email').focused,true);
+    assert.equal(p.get('request-submit').disabled,true,'chat transfer still needs drawing or an explicit model');assert.equal(p.requests.length,1);
+    p.get('chat-input').value='Angebot für JBF-10B2S';p.answers.push({data:{answer:'Modell',proposal:{machines:[{model:'JBF-10B2S',status:'offen'}]}}});await p.get('chat-form').emit('submit');
+    await quoteButtons(p.get('messages')).at(-1).emit('click');assert.equal(p.get('contact-details').open,true);assert.equal(p.get('request-submit').disabled,false);
+    p.get('description').value='Bitte ein Angebot mit Lieferzeit.';await p.get('request-form').emit('input');
+    assert.equal(p.get('selected-machine').hidden,false,'notes on a direct model enquiry retain its explicit selection');
+    p.get('email').value='test@example.invalid';p.answers.push({data:{id:'MACHINE-MAIL',token:'private',kind:'enquiry',status:'received',notificationStatus:'sent'}});
+    await p.get('request-form').emit('submit');const data=p.requests.at(-1).options.body;
+    assert.equal(data.has('datei'),false);assert.equal(data.get('notiz'),'Anfrage für JBF-10B2S\n\nBitte ein Angebot mit Lieferzeit.');
+  }
+  assert.equal((template.match(/type="file"/g)||[]).length,1,'one central file input');
+  assert(!template.includes('tab-description')&&!template.includes('data-mode="description"'));
+  assert.match(template,/<a data-language-link href="\/manual\/konfigurator-v1\.html">Expertenkonfigurator: Schrauben, Formteile, Muttern<\/a>/);
+  assert.match(template,/<details id="contact-details" class="contact-details">/,'native contacts start closed');
+  assert.match(template,/<details class="approach" id="ansatz"><summary>Wie die Auslegung arbeitet<\/summary>/);
+  assert(!template.includes('<aside class="approach"'));
+  assert(template.indexOf('id="response"')<template.indexOf('id="contact-details"'),'result precedes contact entry');
+  for(const marker of ['/*PROGRAMME_CSS*/','<!--PROGRAMME_SECTION-->'])assert.equal(template.split(marker).length,2);
   const waitForRequests=async(p,count)=>{for(let attempt=0;attempt<100&&p.requests.length<count;attempt++)await new Promise(resolve=>setTimeout(resolve,1));assert.equal(p.requests.length,count,'expected pending request');};
   {
     const p=harness();const a=new File(['A'],'same.pdf'),b=new File(['B'],'same.pdf');
@@ -56,9 +102,9 @@ const quoteButtons = node => descendants(node).filter(item=>item.tagName==='butt
     assert.equal(p.get('preview-start').disabled,true,'late A cleanup cannot unlock active B transfer');
     assert.equal(p.get('preview-progress').hidden,false);
     finishB({data:{id:'DRAWING-B',token:'token-b',kind:'preview',status:'ready',answer:'Result B'}});await pendingB;
-    assert(flattened(p.get('result-content')).includes('Result B'));assert.match(p.get('result-status').textContent,/DRAWING-B/);
+    assert(flattened(p.get('result-content')).includes('Result B'));assert.equal(p.get('result-status').textContent,'Zeichnung: same.pdf');
     p.get('file').files=[a];await p.get('file').emit('change');await p.get('preview-start').emit('click');
-    assert.equal(p.requests.length,2,'detached A receipt is reusable from content cache');assert.match(p.get('result-status').textContent,/DRAWING-A/);
+    assert.equal(p.requests.length,2,'detached A receipt is reusable from content cache');assert.equal(p.get('result-status').textContent,'Zeichnung: same.pdf');
   }
   {
     const p=harness();p.get('file').files=[new File(['A'],'part.pdf')];await p.get('file').emit('change');
@@ -179,14 +225,14 @@ const quoteButtons = node => descendants(node).filter(item=>item.tagName==='butt
     const count=p.requests.length;
     for(const bad of [new File(['CAD'],'part.step'),new File([],'empty.pdf'),new File(['X'],'part.exe')]){
       p.get('file').files=[bad];await p.get('file').emit('change');
-      assert.equal(p.get('preview-actions').hidden,true);assert.equal(p.get('preview-start').disabled,true);
+      assert.equal(p.get('preview-actions').hidden,!bad.name.endsWith('.step'));assert.equal(p.get('preview-start').hidden,true);assert.equal(p.get('preview-start').disabled,true);
       await p.get('preview-start').emit('click');assert.equal(p.requests.length,count,'CAD/invalid files cannot call preview');
       if(bad.name.endsWith('.step'))assert.equal(p.get('preview-cad-help').hidden,false);
     }
     await p.get('remove-file').emit('click');assert.equal(p.get('preview-actions').hidden,true);assert.equal(p.get('preview-cad-help').hidden,true);
   }
   {
-    const p=harness();p.get('email').value='customer@example.invalid';p.get('description').value='Mail only';
+    const p=harness();p.get('email').value='customer@example.invalid';p.get('description').value='Mail only';p.get('file').files=[new File(['drawing'],'part.pdf')];
     p.answers.push({data:{id:'ONLY-MAIL',token:'mail-private',kind:'enquiry',status:'received',analysisStatus:'not_requested',notificationStatus:'pending'}});
     await p.get('request-form').emit('submit');assert.equal(p.requests.length,1);assert.match(p.requests[0].url,/\/anfrage\?/);
     assert.equal(flattened(p.get('result-content')).trim(),'','mail-only request never renders an analysis promise');
@@ -251,8 +297,8 @@ const quoteButtons = node => descendants(node).filter(item=>item.tagName==='butt
     assert.equal(p.get('description').value,original,'existing description is not overwritten');
     assert.equal(p.get('selected-machine').textContent,line(models[0]));assert.equal(p.get('selected-machine').hidden,false);
     assert.equal(p.get('panel-anfrage').hidden,false);assert.equal(p.get('panel-chat').hidden,true);
-    assert.equal(p.get('upload-area').hidden,!drawing,'preserve the upload route when a file is selected');
-    assert.equal(p.get('panel-anfrage').scrollOptions.block,'start');assert.equal(p.get('email').focused,true);
+    assert.equal(p.get('upload-area').hidden,false,'the central upload remains available for every enquiry');
+    assert.equal(p.get('contact-details').open,true);assert.equal(p.get('contact-details').scrollOptions.block,'start');assert.equal(p.get('email').focused,true);
     assert.equal(p.get('file').files[0]||null,drawing,'selected file survives model selection');
     p.get('consent').checked=false;await p.get('request-form').emit('submit');
     assert.equal(p.requests.length,1,'selection cannot bypass missing email and consent');
@@ -310,7 +356,7 @@ const quoteButtons = node => descendants(node).filter(item=>item.tagName==='butt
     }
   }
   {
-    const p=harness();p.get('email').value='customer@example.invalid';p.get('description').value='Originalanfrage';
+    const p=harness();p.get('email').value='customer@example.invalid';p.get('description').value='Originalanfrage';p.get('file').files=[new File(['drawing'],'part.pdf')];
     p.answers.push({data:{id:'RESULT-QUOTE',token:'test-token',status:'ready',proposal:{machines:[{model:'JBF-10B2S',status:'offen'}]}}});
     await p.get('request-form').emit('submit');
     const buttons=quoteButtons(p.get('result-content'));assert.equal(buttons.length,1,'received analysis also offers a quote action');
@@ -337,7 +383,7 @@ const quoteButtons = node => descendants(node).filter(item=>item.tagName==='butt
         assert.equal(priceRows.length,priced?2:0,language+' '+channel+' fixed price and price range');
         if(!priced){assert(!text.includes(I18N.t('Richtpreis',language)));assert(!text.includes(I18N.t('Preisspanne',language)));}
       };
-      p.get('email').value='customer@example.invalid';p.get('description').value='Hülse Ø12, Länge 25 mm';
+      p.get('email').value='customer@example.invalid';p.get('description').value='Hülse Ø12, Länge 25 mm';p.get('file').files=[new File(['drawing'],'part.pdf')];
       p.answers.push({data:{id:'PRICE-POLICY',token:'test-token',status:'ready',answer:'Technical response',proposal}});
       await p.get('request-form').emit('submit');
       const form=p.requests[0].options.body;
@@ -383,7 +429,7 @@ const quoteButtons = node => descendants(node).filter(item=>item.tagName==='butt
     assert(!rendered.includes('inline-drawing'));assert(!rendered.includes('rodDiameter'));
   }
   for(const language of I18N.supported){
-    const translated=harness('https://api.example.test',language);translated.get('email').value='test@example.invalid';translated.get('description').value='Originaltext';translated.answers.push({data:{id:'LANG-'+language,token:'test',status:'queued'}});await translated.get('request-form').emit('submit');
+    const translated=harness('https://api.example.test',language);translated.get('email').value='test@example.invalid';translated.get('description').value='Originaltext';translated.get('file').files=[new File(['drawing'],'part.pdf')];translated.answers.push({data:{id:'LANG-'+language,token:'test',status:'queued'}});await translated.get('request-form').emit('submit');
     assert.equal(translated.requests[0].options.body.get('language'),language);assert.equal(new URL(translated.requests[0].url).searchParams.get('language'),language);assert.equal(translated.get('request-message').textContent,I18N.t('Ihre Anfrage ist angekommen.',language));
     translated.get('chat-input').value='Original question';translated.answers.push({data:{answer:'Model reply',language}});await translated.get('chat-form').emit('submit');assert.equal(JSON.parse(translated.requests.at(-1).options.body).language,language);
   }
@@ -394,9 +440,9 @@ const quoteButtons = node => descendants(node).filter(item=>item.tagName==='butt
   assert.equal(offline.get('chat-submit').disabled,true);
   assert.equal(offline.requests.length,0);
   await offline.tabs[1].emit('click');
-  assert.equal(offline.get('upload-area').hidden,true);
-  assert.equal(offline.get('description-help').hidden,false);
-  await offline.tabs[2].emit('click');
+
+
+
   assert.equal(offline.get('panel-anfrage').hidden,true);
   assert.equal(offline.get('panel-chat').hidden,false);
 
@@ -404,7 +450,7 @@ const quoteButtons = node => descendants(node).filter(item=>item.tagName==='butt
   await live.get('request-form').emit('submit');
   assert.equal(live.requests.length,0,'empty requests blocked');
   live.get('email').value='test@example.invalid';
-  live.get('description').value='Hülse Ø12, Bohrung Ø6, Länge25 mm; Werkstoff offen.';
+  live.get('description').value='Hülse Ø12, Bohrung Ø6, Länge25 mm; Werkstoff offen.';live.get('file').files=[new File(['drawing'],'part.pdf')];
   live.answers.push(new TypeError('Offline'));
   await live.get('request-form').emit('submit');
   assert.match(live.get('request-message').textContent,/Verbindung/);
@@ -412,7 +458,7 @@ const quoteButtons = node => descendants(node).filter(item=>item.tagName==='butt
   live.answers.push({data:{id:'DEMO-1',token:'test-token',status:'queued',notificationStatus:'pending'}});
   await live.get('request-form').emit('submit');
   assert.equal(live.requests[1].options.body.get('idempotency_key'),firstKey,'retry retains idempotency');
-  assert.equal(live.requests[1].options.body.has('datei'),false,'text-only request accepted');
+  assert.equal(live.requests[1].options.body.has('datei'),true,'drawing remains attached on retry');
   assert.equal(live.requests[1].options.body.has('eingaben'),false,'no engine data needed');
   assert.match(live.get('request-message').textContent,/angekommen/);
   assert.doesNotMatch(live.get('notification').textContent,/wurde per E-Mail/,'pending must not claim sent');
@@ -450,14 +496,14 @@ const quoteButtons = node => descendants(node).filter(item=>item.tagName==='butt
   assert(JSON.parse(longChat.requests.at(-1).options.body).history.length<12,'oldest history is bounded');
 
   const unconfirmed=harness();
-  unconfirmed.get('email').value='test@example.invalid';unconfirmed.get('description').value='Eine Hülse';
+  unconfirmed.get('email').value='test@example.invalid';unconfirmed.get('description').value='Eine Hülse';unconfirmed.get('file').files=[new File(['drawing'],'part.pdf')];
   unconfirmed.answers.push({data:{status:'queued'}});
   await unconfirmed.get('request-form').emit('submit');
   assert.doesNotMatch(unconfirmed.get('request-message').textContent,/angekommen/,'2xx without receipt must not claim success');
   assert.match(unconfirmed.get('request-message').textContent,/nicht eindeutig bestätigt/);
 
   const provenanceUI=harness('https://api.example.test','en');
-  provenanceUI.get('email').value='test@example.invalid';provenanceUI.get('description').value='Original';
+  provenanceUI.get('email').value='test@example.invalid';provenanceUI.get('description').value='Original';provenanceUI.get('file').files=[new File(['drawing'],'part.pdf')];
   provenanceUI.answers.push({data:{id:'PROVENANCE',token:'test-token',status:'queued'}});
   await provenanceUI.get('request-form').emit('submit');
   const originalQuote='Kopfdurchmesser  13 mm\nSchaft 30 mm';
@@ -476,7 +522,7 @@ const quoteButtons = node => descendants(node).filter(item=>item.tagName==='butt
     assert.equal(detail.children[0].textContent,I18N.t('Ihre Beschreibung',language),'origin label is localized separately');
   }
 
-  const unavailable=harness(); unavailable.get('email').value='test@example.invalid'; unavailable.get('description').value='Ein Teil';
+  const unavailable=harness(); unavailable.get('email').value='test@example.invalid'; unavailable.get('description').value='Ein Teil';unavailable.get('file').files=[new File(['drawing'],'part.pdf')];
   unavailable.answers.push({ok:false,status:503,data:{error:'not configured'}});
   await unavailable.get('request-form').emit('submit');
   assert.doesNotMatch(unavailable.get('request-message').textContent,/angekommen/);

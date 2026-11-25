@@ -2,6 +2,7 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import worker from '../worker.js';
 import Engine from '../../engine.js';
+import {coaxialDrawingTopology} from './topology-fixture.js';
 
 const PUBLIC='https://jernyao.de',LEGACY='https://jern-yao.de';
 class KV {
@@ -29,7 +30,7 @@ const reply=(...content)=>Response.json({content});
 const final=(answer='Die Zeichnung ist ausgewertet.',questions=[])=>({type:'text',text:JSON.stringify({answer,questions,sourceIds:['engine','konzept']})});
 function drawingInput(){
  const values={sD:8,sL:30,kD:13,kH:5};
- return {typ:'bolzen',material:'C15C',materialEvidence:{origin:'drawing',quote:'C15C',page:1,reference:'Zeichnung'},curveId:Engine.findMaterial('C15C').flowCurves[0].id,materialState:'soft-annealed',materialStateEvidence:{origin:'assumption',quote:'Weichgeglühten Draht einsetzen.'},values,evidence:Object.fromEntries(Object.entries(values).map(([key,value])=>[key,{origin:'drawing',quote:value+' mm',page:1,reference:'Maßlinie',originalValue:value,originalUnit:'mm'}]))};
+ return {typ:'bolzen',topology:coaxialDrawingTopology(),material:'C15C',materialEvidence:{origin:'drawing',quote:'C15C',page:1,reference:'Zeichnung'},curveId:Engine.findMaterial('C15C').flowCurves[0].id,materialState:'soft-annealed',materialStateEvidence:{origin:'assumption',quote:'Weichgeglühten Draht einsetzen.'},values,evidence:Object.fromEntries(Object.entries(values).map(([key,value])=>[key,{origin:'drawing',quote:value+' mm',page:1,reference:'Maßlinie',originalValue:value,originalUnit:'mm'}]))};
 }
 
 test('preview requires no contact or mail service, stores a private file, and queues only analysis',async t=>{

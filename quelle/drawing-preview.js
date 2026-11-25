@@ -26,7 +26,7 @@
   const h=value=>escape(tr(String(value??''))),readable=value=>typeof value==='string'||typeof value==='number'?String(value):'';
   function resultHTML(data,canChooseMachine){
     const proposal=data.proposal||{},parts=[];
-    if(data.answer)parts.push('<div class="preview-answer">'+escape(data.answer)+'</div>');
+    if(data.answer)parts.push('<div class="preview-answer formatted-answer">'+(window.JYAnswerFormat?window.JYAnswerFormat.html(data.answer):escape(data.answer))+'</div>');
     if(Array.isArray(proposal.input)&&proposal.input.length)parts.push('<h3>'+h('Aus Ihren Angaben')+'</h3><dl class="preview-facts">'+proposal.input.map(item=>'<div><dt>'+h(fieldLabels[item.field]||item.field)+'</dt><dd>'+escape(readable(item.value))+' '+escape(item.unit==='count'?'':readable(item.unit))+'</dd></div>').join('')+'</dl>');
     if(Array.isArray(proposal.stages)&&proposal.stages.length)parts.push('<h3>'+h('Vorschlag zur Stadienfolge')+'</h3><ol>'+proposal.stages.map(stage=>'<li>'+h(stage.operation)+(Number.isFinite(stage.force_t)?' · '+escape(stage.force_t.toLocaleString(window.JYI18N.numberLocale(L.language),{maximumFractionDigits:2}))+' t':' · '+h('Kraft noch offen'))+'</li>').join('')+'</ol>');
     if(Array.isArray(proposal.machines)&&proposal.machines.length){
@@ -44,18 +44,19 @@
     if(Array.isArray(data.sources)&&data.sources.length){parts.push('<h3>'+h('Grundlagen & Quellen')+'</h3><ul>');for(const source of data.sources){let url;try{const candidate=new URL(source.url);if(['https:','http:'].includes(candidate.protocol))url=candidate.href;}catch(_){}const label=escape(typeof source==='string'?source:source.label||source.id||'');parts.push('<li>'+(url?'<a target="_blank" rel="noopener noreferrer" href="'+escape(url)+'">'+label+'</a>':label)+'</li>');}parts.push('</ul>');}
     return parts.join('');
   }
-  function create({button,progress,status,result,refresh,getFile,getNote,canChooseMachine,onChooseMachine,onInvalidate,onResult}){
-    let version=0,lastFile,lastNote,timer=null,receipt=null,latest=null,busy=false,paused=false,polls=0,key='',signature='',error='';
+  function create({button,progress,status,result,refresh,getFile=()=>null,getGeometry,getNote=()=>'',canChooseMachine,onChooseMachine,onInvalidate,onResult}){
+    const geometryMode=typeof getGeometry==='function';
+    let version=0,lastFile,lastNote,lastGeometry,lastLanguage,timer=null,receipt=null,latest=null,busy=false,paused=false,polls=0,key='',signature='',error='';
     const terminal=data=>['ready','needs_info','failed'].includes(data?.status);
     const active=()=>busy||receipt&&!terminal(latest)&&!paused;
     function fileError(){const file=getFile();if(!file)return '';if(!/\.(pdf|png|jpe?g|webp)$/i.test(file.name))return 'Für die KI-Auswertung wählen Sie bitte eine PDF-, PNG-, JPG- oder WebP-Datei.';if(!file.size)return 'Die ausgewählte Datei ist leer. Bitte wählen Sie die Zeichnung erneut aus.';if(file.size>15*1024*1024)return 'Die Datei ist für die Übertragung zu groß. Bitte verwenden Sie eine Datei bis 15 MB.';return '';}
     function render(){
-      const file=getFile(),pending=!!active();button.hidden=!file;button.disabled=!file||!apiBase||!!fileError()||pending;progress.hidden=!pending;refresh.hidden=!receipt;refresh.disabled=busy;
-      const labels={queued:'Zeichnung zur Analyse angenommen.',processing:'Die Zeichnungsanalyse benötigt etwas Zeit. Wir prüfen Maße, Umformschritte und passende Maschinen.',ready:'Zeichnungsanalyse abgeschlossen.',needs_info:'Die Zeichnungsanalyse braucht noch Angaben.',failed:'Die Zeichnungsanalyse konnte nicht abgeschlossen werden. Bitte versuchen Sie es erneut.'};
-      status.textContent=tr(error||fileError()||(file&&!apiBase?'Die Zeichnungsanalyse ist gerade nicht verfügbar.':'')||(busy&&!receipt?'Zeichnung wird übertragen …':labels[latest?.status]||''));status.dataset.originalText='';status.hidden=!status.textContent;status.dataset.state=error||fileError()||latest?.status==='failed'?'error':'ready';
+      const file=getFile(),input=geometryMode?getGeometry():file,pending=!!active();button.hidden=geometryMode?false:!file;button.disabled=!input||!apiBase||!!fileError()||pending;progress.hidden=!pending;refresh.hidden=!receipt;refresh.disabled=busy;
+      const labels=geometryMode?{queued:'Geometrie zur Ausarbeitung angenommen.',processing:'Das Stadienkonzept wird ausgearbeitet. Das benötigt etwas Zeit.',ready:'Stadienkonzept ausgearbeitet.',needs_info:'Das Stadienkonzept braucht noch Angaben.',failed:'Das Stadienkonzept konnte nicht abgeschlossen werden. Bitte versuchen Sie es erneut.'}:{queued:'Zeichnung zur Analyse angenommen.',processing:'Die Zeichnungsanalyse benötigt etwas Zeit. Wir prüfen Maße, Umformschritte und passende Maschinen.',ready:'Zeichnungsanalyse abgeschlossen.',needs_info:'Die Zeichnungsanalyse braucht noch Angaben.',failed:'Die Zeichnungsanalyse konnte nicht abgeschlossen werden. Bitte versuchen Sie es erneut.'};
+      status.textContent=tr(error||fileError()||(input&&!apiBase?'Die Zeichnungsanalyse ist gerade nicht verfügbar.':'')||(busy&&!receipt?(geometryMode?'Geometrie wird übertragen …':'Zeichnung wird übertragen …'):labels[latest?.status]||''));status.dataset.originalText='';status.hidden=!status.textContent;status.dataset.state=error||fileError()||latest?.status==='failed'?'error':'ready';
       result.hidden=!latest||!terminal(latest);result.dataset.originalText='';result.innerHTML=result.hidden?'':resultHTML(latest,canChooseMachine);
     }
-    function update(){const file=getFile(),note=getNote();if(file!==lastFile||note!==lastNote){version++;window.clearTimeout(timer);receipt=latest=null;busy=false;paused=false;polls=0;error='';lastFile=file;lastNote=note;onInvalidate?.();}render();}
+    function update(){const file=getFile(),note=getNote(),geometry=geometryMode?JSON.stringify(getGeometry()):null,language=L.language;if(file!==lastFile||note!==lastNote||geometry!==lastGeometry||language!==lastLanguage){version++;window.clearTimeout(timer);if(latest?.status==='failed'){signature='';key='';}receipt=latest=null;busy=false;paused=false;polls=0;error='';lastFile=file;lastNote=note;lastGeometry=geometry;lastLanguage=language;onInvalidate?.();}render();}
     function schedule(){window.clearTimeout(timer);if(receipt&&!terminal(latest)&&polls<75)timer=window.setTimeout(()=>poll(),4000);}
     async function poll(){
       if(!receipt||busy)return;const run=version,identity=receipt;busy=true;render();
@@ -64,13 +65,16 @@
       finally{if(run===version){busy=false;paused=polls>=75&&!terminal(latest);if(paused&&!error)error='Die Auswertung läuft noch. Sie können den Stand erneut abrufen.';render();schedule();}}
     }
     async function start(){
-      update();if(active()||!apiBase||fileError()||!getFile())return;
+      update();const geometry=geometryMode?getGeometry():null;if(active()||!apiBase||fileError()||!(geometryMode?geometry:getFile()))return;
       const run=version,file=getFile(),note=getNote(),language=L.language,failed=latest?.status==='failed';receipt=latest=null;paused=false;busy=true;error='';render();
       try{
-        const current=await fingerprint(file,note,language,window.JY_SHOW_PRICES===false?'technical-only':'with-prices');if(run!==version)return;
+        const policy=window.JY_SHOW_PRICES===false?'technical-only':'with-prices';
+        const current=geometryMode?JSON.stringify([geometry,note,language,policy]):await fingerprint(file,note,language,policy);if(run!==version)return;
         if(signature!==current||failed){signature=current;key=uuid();}
-        const body=new FormData();body.append('datei',file,file.name);body.append('notiz',note);body.append('language',language);body.append('idempotency_key',key);if(window.JY_SHOW_PRICES===false)body.append('pricePolicy','technical-only');
-        const data=await request('/preview',{method:'POST',body,language});if(run!==version)return;
+        let body,headers;
+        if(geometryMode){body=JSON.stringify({...geometry,note,language,idempotency_key:key,pricePolicy:policy});headers={'Content-Type':'application/json'};}
+        else{body=new FormData();body.append('datei',file,file.name);body.append('notiz',note);body.append('language',language);body.append('idempotency_key',key);if(policy==='technical-only')body.append('pricePolicy',policy);}
+        const data=await request(geometryMode?'/geometry-preview':'/preview',{method:'POST',body,headers,language});if(run!==version)return;
         if(typeof data.id!=='string'||!data.id||typeof data.token!=='string'||!data.token||data.kind!=='preview')throw new Error('Der Eingang konnte nicht eindeutig bestätigt werden. Bitte versuchen Sie es erneut.');
         receipt={id:data.id,token:data.token};latest=data;onResult?.(data);polls=0;
       }catch(problem){if(run===version)error=problem.message;}

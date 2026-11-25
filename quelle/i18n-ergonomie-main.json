@@ -1,0 +1,86 @@
+{
+  "Zeichnung hochladen oder eine technische Frage stellen. Gemeinsam mit Hans Möhling zum Fertigungskonzept und zur passenden Jern-Yao-Presse.": [
+    "Caricate un disegno o ponete una domanda tecnica. Con Hans Möhling, dal pezzo al concetto produttivo e alla pressa Jern Yao adatta.",
+    "Naložite risbo ali postavite tehnično vprašanje. Skupaj s Hansom Möhlingom do proizvodnega koncepta in ustrezne stiskalnice Jern Yao.",
+    "Upload a drawing or ask a technical question. Develop a manufacturing concept and select the right Jern Yao press with Hans Möhling.",
+    "上传图纸或提出技术问题。与 Hans Möhling 一起制定制造方案并选择合适的 Jern Yao 成形压力机。"
+  ],
+  "Zeigen Sie uns, was Sie herstellen möchten. Aus Ihrer Zeichnung oder Skizze entwickeln wir den Weg zur passenden Fertigung.": [
+    "Mostrateci cosa desiderate produrre. Dal vostro disegno o schizzo sviluppiamo il percorso produttivo adatto.",
+    "Pokažite nam, kaj želite izdelovati. Na podlagi vaše risbe ali skice razvijemo ustrezen proizvodni postopek.",
+    "Show us what you want to manufacture. We develop a suitable production process from your drawing or sketch.",
+    "向我们展示您要制造的零件。我们根据您的图纸或草图制定合适的制造方案。"
+  ],
+  "KI-Auswertung und persönliche Anfrage an einem Ort.": [
+    "Analisi con IA e richiesta diretta in un unico punto.",
+    "Analiza z umetno inteligenco in neposredno povpraševanje na enem mestu.",
+    "AI analysis and a personal enquiry in one place.",
+    "AI 分析和人工咨询集中在一处。"
+  ],
+  "Standardteile im Expertenkonfigurator": [
+    "Componenti standard nel configuratore per esperti",
+    "Standardni deli v konfiguratorju za strokovnjake",
+    "Standard parts in the expert configurator",
+    "在专家配置器中设计标准件"
+  ],
+  "Für Formteile und abweichende Geometrien laden Sie eine Zeichnung hoch.": [
+    "Per pezzi sagomati e geometrie non standard, caricate un disegno.",
+    "Za oblikovane dele in nestandardne geometrije naložite risbo.",
+    "Upload a drawing for formed parts and non-standard geometries.",
+    "成形件和非标准几何形状请上传图纸。"
+  ],
+  "Fachfrage": [
+    "Domanda tecnica",
+    "Tehnično vprašanje",
+    "Technical question",
+    "技术问答"
+  ],
+  "Datei auswählen oder hier ablegen. Danach starten Sie die KI-Auswertung oder senden die Zeichnung an Hans.": [
+    "Selezionate un file o trascinatelo qui. Poi avviate l’analisi con IA oppure inviate il disegno a Hans.",
+    "Izberite datoteko ali jo spustite sem. Nato začnite analizo z umetno inteligenco ali pošljite risbo Hansu.",
+    "Choose a file or drop it here. Then start the AI analysis or send the drawing to Hans.",
+    "选择文件或将其拖放到此处，然后启动 AI 分析或将图纸发送给 Hans。"
+  ],
+  "Hinweise zur Zeichnung": [
+    "Note sul disegno",
+    "Opombe k risbi",
+    "Notes on the drawing",
+    "图纸补充说明"
+  ],
+  "Anfrage an Hans Möhling": [
+    "Richiesta a Hans Möhling",
+    "Povpraševanje Hansu Möhlingu",
+    "Enquiry to Hans Möhling",
+    "向 Hans Möhling 发送询问"
+  ],
+  "Bitte wählen Sie für diese Anfrage eine Zeichnung aus. Ein konkretes Maschinenmodell können Sie auch ohne Zeichnung anfragen.": [
+    "Selezionate un disegno per questa richiesta. Potete richiedere un modello specifico di macchina anche senza disegno.",
+    "Za to povpraševanje izberite risbo. Za določen model stroja lahko pošljete povpraševanje tudi brez risbe.",
+    "Please select a drawing for this enquiry. You can enquire about a specific machine model without a drawing.",
+    "请为本次询问选择图纸。询问具体机器型号时可以不附图纸。"
+  ],
+  "Wie die Auslegung arbeitet": [
+    "Come viene sviluppato il processo",
+    "Kako poteka načrtovanje",
+    "How the engineering process works",
+    "工程方案如何形成"
+  ],
+  "Wir lesen Geometrie und Werkstoff, entwickeln die Stadienfolge und gleichen sie mit den Maschinendaten ab. Fehlende Angaben fragen wir gezielt nach.": [
+    "Leggiamo la geometria e il materiale, sviluppiamo la sequenza di formatura e la confrontiamo con i dati delle macchine. Chiediamo in modo mirato le informazioni mancanti.",
+    "Razberemo geometrijo in material, razvijemo zaporedje preoblikovanja ter ga primerjamo s podatki o strojih. Za manjkajoče podatke postavimo konkretna vprašanja.",
+    "We read the geometry and material, develop the forming sequence and check it against the machine data. We ask specific questions about any missing information.",
+    "我们读取几何形状和材料信息，制定成形工序并与机器数据核对。对于缺少的信息，我们会提出具体问题。"
+  ],
+  "Allgemeine Fragen zu Umformverfahren, Werkzeugen oder Maschinen können Sie hier stellen. Für die Auslegung eines Formteils laden Sie bitte eine Zeichnung hoch.": [
+    "Qui potete porre domande generali su processi di formatura, utensili o macchine. Per progettare il processo di un pezzo sagomato, caricate un disegno.",
+    "Tukaj lahko postavite splošna vprašanja o postopkih preoblikovanja, orodjih ali strojih. Za načrtovanje oblikovanega dela naložite risbo.",
+    "Ask general questions about forming processes, tooling or machines here. Please upload a drawing to develop a process for a formed part.",
+    "您可以在这里提出有关成形工艺、模具或机器的一般问题。制定成形件的工艺方案时，请上传图纸。"
+  ],
+  "Was unterscheidet Vorwärts- und Rückwärtsfließpressen?": [
+    "Qual è la differenza tra estrusione diretta e inversa?",
+    "Kakšna je razlika med istosmernim in protismernim iztiskavanjem?",
+    "What is the difference between forward and backward extrusion?",
+    "正挤压和反挤压有什么区别？"
+  ]
+}

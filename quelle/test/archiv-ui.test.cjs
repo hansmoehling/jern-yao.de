@@ -1,6 +1,6 @@
 const test=require('node:test'),assert=require('node:assert/strict'),fs=require('node:fs'),path=require('node:path'),vm=require('node:vm');
 const I=require('../i18n.js'),E=require('../engine.js');
-const crypto=require('node:crypto').webcrypto,{File}=require('node:buffer');
+const crypto=require('node:crypto').webcrypto;
 const source=fs.readFileSync(path.join(__dirname,'..','archiv-ui.js'),'utf8');
 const machines=JSON.parse(fs.readFileSync(path.join(__dirname,'..','maschinen.json'),'utf8'));
 const praxis=JSON.parse(fs.readFileSync(path.join(__dirname,'..','praxis.json'),'utf8'));
@@ -17,16 +17,15 @@ class El{
 function setup(language,engine=E,showPrices,apiOptions){
  const ids=new Map();const get=id=>{if(!ids.has(id))ids.set(id,new El());return ids.get(id)};
  const f=get('f'),a=get('a');f.elements={};a.elements={};
- for(const key of ['typ','wst','rm','d0','wirePreparation','rodDiameter','kopfForm','kD','kSW','kH','sD','sL','iTyp','iSize','iSW','iT','iVol','nD','nT','nDurch','mM','mSW','mH','mLoch','mFlansch','mFlanschH','masse','lStempel','wenden','ko','pko','matD','matL','stD','stL','stationen','zusatz','ausbringung','zeichnung'])f.elements[key]=new El();
+ for(const key of ['typ','wst','rm','d0','wirePreparation','rodDiameter','standardKind','standardNorm','nutNorm','threadFamily','kopfForm','kD','kSW','kH','kVol','sD','sL','sArea','tipLength','tipDiameter','tipArea','iTyp','iSize','iSW','iT','iVol','mM','mSW','mH','mLoch','mFlansch','mFlanschH','masse','lStempel','wenden','ko','pko','matD','matL','stD','stL','stationen','zusatz','ausbringung'])f.elements[key]=new El();
  for(const key of ['ok','email','name','firma','tel','nachricht'])a.elements[key]=new El();
- Object.defineProperty(f.elements.zeichnung,'value',{get(){return this.fileValue||''},set(value){this.fileValue=value;if(value==='')this.files=[]}});
- f.elements.typ.value='bolzen';f.elements.kopfForm.value='rund';f.elements.iTyp.value='none';f.elements.wirePreparation.value='as-supplied';
+ f.elements.typ.value='bolzen';f.elements.kopfForm.value='rund';f.elements.iTyp.value='none';f.elements.wirePreparation.value='as-supplied';f.elements.standardKind.value='screw';f.elements.threadFamily.value='metric';
  f.reset=()=>{for(const [key,el]of Object.entries(f.elements)){if(key!=='wst')el.value='';el.checked=false;}f.elements.typ.value='bolzen';f.elements.kopfForm.value='rund';f.elements.iTyp.value='none';f.elements.wirePreparation.value='as-supplied'};
  f.querySelector=selector=>({set checked(value){if(value)f.elements.typ.value=selector.match(/value=([^\]]+)/)[1]}});
  get('daten').textContent=JSON.stringify(machines);get('praxis').textContent=JSON.stringify(praxis);
- const examples=['m8','m6','mu','hu'].map(name=>{const el=new El();el.dataset.bsp=name;return el});
+ const examples=['m8','m6','mu'].map(name=>{const el=new El();el.dataset.bsp=name;return el});
  const locale={language,t:s=>I.t(s,locale.language),apply(){}};
- const events={};const window={JYK:engine,JYI18N:I,JYLocale:locale,matchMedia:()=>({matches:false}),addEventListener:(name,fn)=>events[name]=fn,print(){}};
+ const events={};const window={JYK:engine,JYI18N:I,JYLocale:locale,matchMedia:()=>({matches:false}),addEventListener:(name,fn)=>events[name]=fn,print(){this.printCount=(this.printCount||0)+1}};
  if(showPrices!==undefined)window.JY_SHOW_PRICES=showPrices;
  const document={getElementById:get,createElement:()=>new El(),querySelectorAll:selector=>selector==='[data-bsp]'?examples:[]};
  const networkRequests=[],answers=[],timers=new Map();let timerId=0;
@@ -34,9 +33,12 @@ function setup(language,engine=E,showPrices,apiOptions){
  if(apiOptions)window.JY_API_BASE=apiOptions.base||'https://api.example.test';
  const context={window,document,clearTimeout,setTimeout,location:{href:''},FormData,URL,URLSearchParams,AbortController,crypto,TypeError,fetch:async(url,options)=>{networkRequests.push({url,options});if(!apiOptions)throw Error('Network forbidden in archive tests');let answer=answers.shift();if(typeof answer==='function')answer=await answer();if(answer instanceof Error)throw answer;if(!answer)throw Error('Unmocked request');return {ok:answer.ok!==false,status:answer.status||200,json:async()=>answer.data}}};
  vm.runInNewContext(fs.readFileSync(path.join(__dirname,'..','concept-ui.js'),'utf8'),context);
+ window.JYGeometry=require('../geometry-model.js');window.JYStandardFamilies=require('../standard-families.js');
+ vm.runInNewContext(fs.readFileSync(path.join(__dirname,'..','geometry-wizard.js'),'utf8'),context);
+ let geometryWizard;const createWizard=window.JYGeometryWizard.create;window.JYGeometryWizard.create=options=>(geometryWizard=createWizard(options));
  if(apiOptions)vm.runInNewContext(fs.readFileSync(path.join(__dirname,'..','drawing-preview.js'),'utf8'),context);
  vm.runInNewContext(source,context);
- return {get,f,a,examples,events,context,networkRequests,answers,timers};
+ return {get,f,a,examples,events,context,networkRequests,answers,timers,geometryWizard};
 }
 async function sendMail(p){if(!p.a.elements.email.value)p.a.elements.email.value='customer@example.invalid';p.a.elements.ok.checked=true;await p.get('senden').events.click();}
 test('only approved wire-condition curves are selectable and all examples explicitly use annealed C4C',()=>{
@@ -183,126 +185,89 @@ test('complete rendered archive output has localized cards, figures, tooling, st
  for(const expected of ['Station pitch from 36','Bore 8.08','outside Ø26'])assert(figures.includes(expected),'M8 figures: '+expected);
 });
 
-test('archive exposes only its translated custom file button, not the browser-native file widget',()=>{
+test('expert mode has three ordered entries and a structured-geometry concept without another upload',()=>{
  const html=fs.readFileSync(path.join(__dirname,'..','archiv-vorlage.html'),'utf8');
- const input=html.match(/<input\b[^>]*type="file"[^>]*>/)[0];
- assert(/\bhidden(?:\s|>)/.test(input));assert(input.includes('aria-hidden="true"'));assert(input.includes('tabindex="-1"'));
- assert(/\[hidden\]\s*\{\s*display:none !important/.test(html));
- assert(/id="archive-choose-file"[^>]*aria-describedby="archive-file-types archive-file-name"/.test(html));
- assert(/id="archive-file-status"[^>]*role="status"[^>]*aria-live="polite"[^>]*aria-atomic="true"[^>]*hidden/.test(html));
- assert(/type="button"[^>]*id="archive-remove-file"/.test(html));
- for(const language of I.supported)assert(I.t('Datei auswählen',language).length);
+ assert(html.includes('<h1>Expertenkonfigurator</h1>'));
+ assert(!/<input\b[^>]*type="file"/.test(html));assert(!/id="archive-(?:analyse|analysis-result|drawing-note|file-status|choose-file)"/.test(html));assert(!html.includes('data-bsp="hu"'));
+ for(const id of ['standard-drawing-route','special-drawing-route'])assert(new RegExp('<a[^>]*id="'+id+'"[^>]*data-language-link[^>]*href="/#einstieg"[^>]*>Zur Zeichnungsanalyse</a>').test(html),'central language-aware link '+id);
+ assert(source.includes('getGeometry:geometryInput'));assert(!source.includes("'/preview'"));
+ assert(html.indexOf('value="bolzen" form="f"')<html.indexOf('value="formteil" form="f"'));assert(html.indexOf('value="formteil" form="f"')<html.indexOf('value="mutter" form="f"'));
+ for(const language of I.supported){const p=setup(language,E,false,{});assert.equal(p.f.elements.zeichnung,undefined);assert.deepEqual(p.networkRequests,[]);assert(p.get('drucken').disabled);assert(p.get('senden').disabled);}
 });
-test('manual file feedback names the local file and size in five languages, survives language changes, and clears on removal or reset',()=>{
+
+test('empty form-part geometry bypasses the standard engine and clears stale selections and exports',async()=>{
  for(const language of I.supported){
-  const p=setup(language,E,false);p.examples[0].events.click();const figures=p.get('kenn').innerHTML;
-  assert(p.get('archive-file-status').hidden);p.get('archive-choose-file').events.click();assert(p.f.elements.zeichnung.clicked);
-  const drawing={name:'Original <Teil>  Zeichnung.PDF',size:1500000};p.f.elements.zeichnung.files=[drawing];p.f.elements.zeichnung.events.change();
-  assert.equal(p.get('archive-file-status').hidden,false);assert.equal(p.get('archive-file-status').dataset.state,'ready');
-  assert.equal(p.get('archive-file-state').textContent,I.t('Datei ausgewählt',language));assert.equal(p.get('archive-file-name').textContent,drawing.name);assert.equal(p.get('archive-file-name').innerHTML,'','filename is rendered as text');
-  assert.equal(p.get('archive-file-size').textContent,(1.5).toLocaleString(I.numberLocale(language),{maximumFractionDigits:1,minimumFractionDigits:0})+' MB');assert(p.get('archive-file-error').hidden);
-  if(language!=='de')assert.notEqual(I.t('Datei ausgewählt',language),'Datei ausgewählt');
-  const next=language==='en'?'de':'en';p.context.window.JYLocale.language=next;p.events['jy-languagechange']();
-  assert.equal(p.get('archive-file-state').textContent,I.t('Datei ausgewählt',next));assert.equal(p.get('archive-file-name').textContent,drawing.name);assert.equal(p.f.elements.zeichnung.files[0],drawing);
-  p.context.window.JYLocale.language=language;p.events['jy-languagechange']();assert.equal(p.get('kenn').innerHTML,figures,'file feedback leaves the calculation unchanged');
-  p.get('archive-remove-file').events.click();assert.equal(p.f.elements.zeichnung.files.length,0);assert(p.get('archive-file-status').hidden);assert.equal(p.get('archive-file-name').textContent,'');assert.equal(p.get('archive-file-size').textContent,'');assert(p.get('archive-choose-file').focused);
-  p.f.elements.zeichnung.files=[{name:'Große Zeichnung.step',size:25000000}];p.f.elements.zeichnung.events.change();assert.equal(p.get('archive-file-status').dataset.state,'ready','local manual adds no upload-size limit');assert.equal(p.get('archive-file-size').textContent,'25 MB');
-  p.examples[1].events.click();assert.equal(p.f.elements.zeichnung.files.length,0);assert(p.get('archive-file-status').hidden,'example reset cannot leave a stale file confirmation');
-  assert.equal(p.context.location.href,'');assert.deepEqual(p.networkRequests,[],'selection/removal never analyses, uploads or sends');
+  let calls=0;const engine={...E,auslegen(input){assert.notEqual(input.typ,'formteil','special geometry must never reach envelope-based calculation');calls++;return E.auslegen(input);}};
+  const p=setup(language,engine,false,{});p.examples[0].events.click();const previous=quoteModels(p)[0][1];requestModel(p,previous);p.get('drucken').events.click();assert(p.get('blatt').innerHTML.includes(previous));const printCount=p.context.window.printCount;
+  const before=calls;p.f.elements.typ.value='formteil';p.f.events.change();assert.equal(calls,before);
+  assert(p.get('standard-part-fields').hidden);assert(p.get('manual-tools').hidden);assert.equal(p.get('geometry-panel').hidden,false);assert(p.get('standard-drawing-note').hidden);assert(p.get('regelbox').hidden);assert.equal(p.get('anfrage').hidden,false);
+  assert(p.get('aus').hidden);assert(p.get('leer').hidden);assert(p.get('selected-machine').hidden);assert(p.get('drucken').disabled);assert(p.get('empty-visual').hidden);
+  for(const id of ['kenn','karten','regeln','blatt'])assert.equal(p.get(id).innerHTML,'','stale '+id+' is removed');assert.equal(p.get('stufen').tBodies[0].innerHTML,'');assert.equal(p.get('material-basis').textContent,'');
+  p.get('drucken').events.click();assert.equal(p.context.window.printCount,printCount,'old print output cannot be reopened');requestModel(p,previous);assert(p.get('selected-machine').hidden,'stale card actions cannot restore the old model');
+  p.a.elements.email.value='customer@example.invalid';p.a.elements.ok.checked=true;p.a.elements.nachricht.value='Nur eine Notiz zum Exzenter';p.a.events.input();assert(p.get('senden').disabled);
+  await p.get('senden').events.click();assert.equal(p.networkRequests.length,0);assert.equal(p.context.location.href,'','an empty geometric model cannot be submitted');
+  p.events['jy-languagechange']();assert.equal(calls,before);assert(p.get('drucken').disabled);
+  p.f.elements.typ.value='bolzen';p.f.events.change();assert.equal(p.get('standard-part-fields').hidden,false);assert.equal(p.get('manual-tools').hidden,false);assert(p.get('geometry-panel').hidden);assert.equal(p.get('aus').hidden,false,'supported standard calculation remains available');assert(p.get('selected-machine').hidden);
  }
 });
 
-test('unsupported manual file selections show a localized error and are removed from the input and mail, then recover cleanly',async()=>{
- const key='Dieses Dateiformat wird hier nicht unterstützt. Bitte wählen Sie ein angegebenes Format.';
+test('constructed geometry uses its own volume, private KI request, selected model and mail without file upload',async()=>{
  for(const language of I.supported){
-  const p=setup(language);p.examples[0].events.click();p.a.elements.email.value='customer@example.invalid';
-  p.f.elements.zeichnung.files=[{name:'Programm.exe',size:2048}];p.f.elements.zeichnung.events.change();
-  assert.equal(p.f.elements.zeichnung.files.length,0,'rejected file is actually removed');assert.equal(p.get('archive-file-status').dataset.state,'invalid');assert.equal(p.get('archive-file-status').hidden,false);
-  assert.equal(p.get('archive-file-state').textContent,I.t('Dateiauswahl prüfen',language));assert.equal(p.get('archive-file-name').textContent,'Programm.exe');assert.equal(p.get('archive-file-error').textContent,I.t(key,language));assert.equal(p.get('archive-file-error').hidden,false);
-  if(language!=='de')assert.notEqual(I.t(key,language),key);
-  p.events['jy-languagechange']();assert.equal(p.get('archive-file-status').dataset.state,'invalid','language refresh cannot turn rejection into success');
-  assert.equal(p.context.location.href,'');assert.deepEqual(p.networkRequests,[]);
-  await sendMail(p);assert(!new URL(p.context.location.href).searchParams.get('body').includes('Programm.exe'),'explicit mail request does not carry a rejected file');
-  p.f.elements.zeichnung.files=[{name:'Bauteil.iges',size:800}];p.f.elements.zeichnung.events.change();assert.equal(p.get('archive-file-status').dataset.state,'ready');assert(p.get('archive-file-error').hidden);assert.equal(p.get('archive-file-error').textContent,'');assert.equal(p.get('archive-file-size').textContent,'800 B');
-  p.f.elements.zeichnung.files=[{name:'Leer.pdf',size:0}];p.f.elements.zeichnung.events.change();assert.equal(p.f.elements.zeichnung.files.length,0);assert.equal(p.get('archive-file-status').dataset.state,'invalid');assert.equal(p.get('archive-file-error').textContent,I.t('Die ausgewählte Datei ist leer. Bitte wählen Sie die Zeichnung erneut aus.',language));
-  p.f.elements.zeichnung.files=[];p.f.elements.zeichnung.events.change();assert(p.get('archive-file-status').hidden,'empty selection removes stale feedback');
+  const engine={...E,auslegen(input){assert.notEqual(input.typ,'formteil');return E.auslegen(input);}};
+  const p=setup(language,engine,false,{});p.f.elements.typ.value='formteil';p.f.elements.d0.value='8';p.f.events.change();
+  const elements=[{id:'E1',shape:'cylinder',operation:'add',side:'die',start:0,length:20,diameter:10,offsetX:0,offsetY:0}];
+  p.geometryWizard.setElements(elements);assert.equal(p.get('drucken').disabled,false);assert(!p.get('geometry-analyse').disabled);assert(p.get('geometry-view').innerHTML.includes('mm³'));assert.equal(p.get('karten').innerHTML,'');
+  const model=machines.find(machine=>machine.f==='JNP').m;
+  p.answers.push({data:{id:'G1',token:'private-token',kind:'preview',status:'ready',answer:'Geometry concept',proposal:{machines:[{model,status:'offen',priceEUR:999}],stages:[]}}});
+  await p.get('geometry-analyse').events.click();const preview=p.networkRequests[0],body=JSON.parse(preview.options.body);
+  assert.equal(new URL(preview.url).pathname,'/geometry-preview');assert.equal(body.geometrySpec.elements[0].diameter,10);assert.equal(body.d0,8);assert.equal(body.language,language);assert.equal(body.pricePolicy,'technical-only');assert(!('datei' in body));assert(!('email' in body));
+  const button={dataset:{previewModel:model}};p.get('geometry-result').events.click({target:{closest:()=>button}});assert(!p.get('selected-machine').hidden);assert(p.a.elements.email.focused);
+  p.get('drucken').events.click();assert(p.get('blatt').innerHTML.includes(model));assert(p.get('blatt').innerHTML.includes('Geometry concept'));assert(!p.get('blatt').innerHTML.includes('€'));
+  p.a.elements.email.value='customer@example.invalid';p.a.elements.ok.checked=true;p.a.elements.nachricht.value='Unchanged note';
+  p.answers.push({data:{id:'M1',token:'mail-token',kind:'enquiry',status:'received',notificationStatus:'sent'}});await p.get('senden').events.click();
+  const mail=p.networkRequests.at(-1);assert.equal(new URL(mail.url).pathname,'/anfrage');assert(mail.options.body.get('betreff').includes(model));assert(mail.options.body.get('notiz').includes('E1'));assert(mail.options.body.get('notiz').includes('Unchanged note'));assert(!mail.options.body.has('datei'));
+  p.geometryWizard.setElements([{...elements[0],diameter:11}]);assert(p.get('selected-machine').hidden);assert(p.get('geometry-result').hidden);assert.equal(p.get('geometry-result').innerHTML,'');
  }
 });
 
-test('manual AI preview is explicit, contact-free and polls real progress/results in all five languages',async()=>{
+test('standard references set only shape and drive, flange nuts route to the parts builder, and profile fields follow the selected family',()=>{
+ let received;const p=setup('de',{...E,auslegen(input){received=input;return E.auslegen(input);}});p.examples[0].events.click();const diameter=p.f.elements.d0.value;
+ p.f.elements.standardNorm.value='ISO4762';p.f.elements.standardNorm.events.change();assert.equal(p.f.elements.kopfForm.value,'rund');assert.equal(p.f.elements.iTyp.value,'hex');assert.equal(p.f.elements.d0.value,diameter);assert.equal(received.standardReference,'ISO4762');
+ p.f.elements.standardKind.value='headless';p.f.elements.standardKind.events.change();assert.equal(p.f.elements.kH.value,'0');assert.equal(p.f.elements.kD.value,'0');assert(p.get('bolt-head').hidden);
+ p.f.elements.threadFamily.value='duo-taptite';p.f.elements.sArea.value='20';p.f.elements.tipLength.value='5';p.f.elements.tipArea.value='15';p.f.elements.tipDiameter.value='999';p.f.events.change();assert.equal(received.sArea,20);assert.equal(received.tipLength,5);assert.equal(received.tipArea,15);assert.equal(received.tipDiameter,undefined);
+ p.f.elements.threadFamily.value='metric';p.f.events.change();assert.equal(received.sArea,undefined);assert.equal(received.tipArea,undefined);assert.equal(received.tipLength,undefined);
+ p.f.elements.typ.value='mutter';p.f.events.change();p.f.elements.nutNorm.value='ISO4161';p.f.elements.nutNorm.events.change();assert.equal(p.f.elements.typ.value,'formteil');assert(!p.get('geometry-panel').hidden);assert(p.get('standard-part-fields').hidden);
+});
+
+test('profile and claw-head results remain qualitative without null station counts or invented reserve in exports',async()=>{
  for(const language of I.supported){
-  const p=setup(language,E,false,{}),file=new File(['%PDF drawing'], 'Zeichnung.pdf',{type:'application/pdf'});
-  p.get('archive-drawing-note').value='Originalnotiz';p.a.elements.nachricht.value='Separate Kontaktnotiz';p.f.elements.zeichnung.files=[file];p.f.elements.zeichnung.events.change();
-  assert.equal(p.networkRequests.length,0);assert.equal(p.get('archive-analyse').hidden,false);assert.equal(p.get('archive-analyse').disabled,false);
-  p.answers.push({data:{id:'PREVIEW-1',token:'private-preview-token',kind:'preview',status:'queued',notificationStatus:'not_requested'}});
-  await p.get('archive-analyse').events.click();
-  const upload=p.networkRequests[0],body=upload.options.body;assert.equal(new URL(upload.url).pathname,'/preview');assert.equal(body.get('datei').name,file.name);assert.equal(body.get('notiz'),'Originalnotiz');assert.equal(body.get('language'),language);assert.equal(body.get('pricePolicy'),'technical-only');assert(!body.has('email'));assert(!body.has('consent'));
-  assert.equal(p.get('archive-analysis-progress').hidden,false);assert.equal(p.get('archive-analyse').disabled,true);assert.equal(p.get('archive-analysis-result').hidden,true);
-  p.answers.push({data:{kind:'preview',status:'processing',notificationStatus:'not_requested'}});await p.get('archive-analysis-refresh').events.click();
-  assert.equal(p.get('archive-analysis-progress').hidden,false);assert.equal(p.get('archive-analysis-status').textContent,I.t('Die Zeichnungsanalyse benötigt etwas Zeit. Wir prüfen Maße, Umformschritte und passende Maschinen.',language));
-  p.answers.push({data:{kind:'preview',status:'ready',answer:'Original <Analyse>',questions:['Werkstoff?'],proposal:{input:[{field:'kD',value:13,unit:'mm'}],stages:[{number:1,operation:'Vorformen',force_t:8}],machines:[{model:'JBF-TEST',status:'offen',priceEUR:123456,openPoints:[{owner:'Jern Yao',detail:'Auswerfer Matrize (KO)'}]}]},sources:[{label:'Quelle',url:'javascript:alert(1)'}]}});
-  await p.get('archive-analysis-refresh').events.click();const result=p.get('archive-analysis-result').innerHTML;
-  assert.equal(p.get('archive-analysis-progress').hidden,true);assert.equal(p.get('archive-analyse').disabled,false);assert.equal(p.get('archive-analysis-result').hidden,false);
-  assert(result.includes('Original &lt;Analyse&gt;'));assert(result.includes('JBF-TEST'));assert(result.includes(I.t('Kopfdurchmesser',language)));assert(!result.includes('€'));assert(!result.includes('javascript:'));assert(!result.includes('private-preview-token'));
-  assert.equal(new URL(p.networkRequests[1].url).searchParams.get('token'),'private-preview-token');assert(p.networkRequests.every(request=>!request.url.includes('/anfrage')),'preview never sends an enquiry');assert.equal(p.context.location.href,'');
- }
- const html=fs.readFileSync(path.join(__dirname,'..','archiv-vorlage.html'),'utf8');assert(html.includes('prefers-reduced-motion:reduce'));assert.equal((html.match(/<i style="--i:/g)||[]).length,8);assert(/analysis-dots" aria-hidden="true"/.test(html));
-});
-
-test('manual preview rejects CAD and large files, retries with the same key, and distinguishes changed file bytes',async()=>{
- const p=setup('en',E,true,{});
- for(const file of [new File(['CAD'],'Teil.step'),new File([new Uint8Array(16*1024*1024)],'Teil.pdf')]){p.f.elements.zeichnung.files=[file];p.f.elements.zeichnung.events.change();assert.equal(p.get('archive-analyse').disabled,true);await p.get('archive-analyse').events.click();assert.equal(p.networkRequests.length,0);}
- const file=new File(['ABC'],'Gleich.pdf');p.f.elements.zeichnung.files=[file];p.f.elements.zeichnung.events.change();
- p.answers.push(new TypeError('Offline'));await p.get('archive-analyse').events.click();const key=p.networkRequests[0].options.body.get('idempotency_key');assert.equal(p.get('archive-analyse').disabled,false);assert.equal(p.get('archive-analysis-progress').hidden,true);
- p.answers.push({data:{id:'P1',token:'private',kind:'preview',status:'ready',answer:'Done'}});await p.get('archive-analyse').events.click();assert.equal(p.networkRequests[1].options.body.get('idempotency_key'),key);
- p.f.elements.zeichnung.files=[new File(['DEF'],'Gleich.pdf')];p.f.elements.zeichnung.events.change();assert(p.get('archive-analysis-result').hidden);
- p.answers.push({data:{id:'P2',token:'private2',kind:'preview',status:'ready',answer:'Changed'}});await p.get('archive-analyse').events.click();assert.notEqual(p.networkRequests[2].options.body.get('idempotency_key'),key,'same name and size with different bytes is a new analysis');
-});
-
-test('changing the selected file discards an obsolete in-flight preview response',async()=>{
- const p=setup('de',E,false,{});p.f.elements.zeichnung.files=[new File(['ABC'],'Alt.pdf')];p.f.elements.zeichnung.events.change();let resolve;
- p.answers.push(()=>new Promise(done=>resolve=done));const started=p.get('archive-analyse').events.click();
- while(!resolve)await new Promise(setImmediate);
- p.f.elements.zeichnung.files=[new File(['DEF'],'Neu.pdf')];p.f.elements.zeichnung.events.change();
- resolve({data:{id:'OLD',token:'old-token',kind:'preview',status:'ready',answer:'STALE RESULT'}});await started;
- assert(p.get('archive-analysis-result').hidden);assert(!p.get('archive-analysis-result').innerHTML.includes('STALE RESULT'));assert.equal(p.get('archive-analyse').disabled,false);assert(p.get('archive-analysis-progress').hidden);
-});
-
-test('manual server enquiry sends the actual drawing only after contact and consent, without starting AI',async()=>{
- for(const language of I.supported){
-  const p=setup(language,E,false,{});p.examples[0].events.click();const file=new File(['%PDF actual attachment'],'Anhang.pdf',{type:'application/pdf'});p.f.elements.zeichnung.files=[file];p.f.elements.zeichnung.events.change();p.a.elements.email.value='customer@example.invalid';p.a.elements.nachricht.value='Originalnotiz';
-  const model=quoteModels(p)[1][1];requestModel(p,model);assert.equal(p.networkRequests.length,0);
-  await p.get('senden').events.click();assert.equal(p.networkRequests.length,0,'consent is required');p.a.elements.ok.checked=true;p.a.elements.email.value='invalid';await p.get('senden').events.click();assert.equal(p.networkRequests.length,0,'valid contact is required');p.a.elements.email.value='customer@example.invalid';
-  p.answers.push({data:{id:'ENQUIRY-1',token:'private-mail-token',kind:'enquiry',status:'received',analysisStatus:'not_requested',notificationStatus:'pending'}});await p.get('senden').events.click();
-  const upload=p.networkRequests[0],body=upload.options.body;assert.equal(new URL(upload.url).pathname,'/anfrage');assert.equal(body.get('datei').name,file.name);assert.equal(body.get('consent'),'true');assert.equal(body.get('email'),'customer@example.invalid');assert.equal(body.get('language'),language);assert.equal(body.get('pricePolicy'),'technical-only');assert(body.get('notiz').includes(model));assert(body.get('notiz').includes('Originalnotiz'));assert(!body.get('notiz').includes(I.t('(bitte anhängen)',language)));assert(body.get('betreff').endsWith(model));
-  assert.equal(p.get('sendehinweis').textContent,I.t('Anfrage eingegangen. Die E-Mail an Hans Möhling wird versandt.',language));
-  p.answers.push({data:{kind:'enquiry',status:'received',analysisStatus:'not_requested',notificationStatus:'sent'}});await p.get('archive-mail-refresh').events.click();assert.equal(p.get('sendehinweis').textContent,I.t('Hans Möhling wurde per E-Mail über Ihre Anfrage informiert.',language));
-  assert(p.networkRequests.every(request=>!request.url.includes('/preview')));assert.equal(p.context.location.href,'');assert.equal(p.f.elements.zeichnung.files[0],file);
+  const p=setup(language);p.examples[0].events.click();p.f.elements.threadFamily.value='trilobular';p.f.elements.sArea.value='35';p.f.events.change();
+  assert.equal(p.get('stages-heading').textContent,I.t('Qualitative Operationsfolge',language));assert.equal(p.get('stage-column-heading').textContent,I.t('Arbeitsschritt',language));
+  assert(p.get('karten').innerHTML.includes(I.t('Arbeitsschritt',language)+' 1:'));assert(!p.get('karten').innerHTML.includes(I.t('Stadium',language)+' 1:'));
+  assert.equal(p.get('aus').hidden,false);assert(p.get('kenn').innerHTML.includes(I.t('Kraft noch offen',language)));assert(!p.get('kenn').innerHTML.includes('null'));assert(!p.get('kenn').innerHTML.includes(I.t('+1 Reserve',language)));
+  p.get('drucken').events.click();await sendMail(p);for(const text of [p.get('blatt').innerHTML,new URL(p.context.location.href).searchParams.get('body')]){assert(!text.includes('null'));assert(!text.includes('(+1 '+I.t('Reserve',language)+')'));assert(text.includes('35 mm²'));assert(text.includes(I.t('Qualitative Operationsfolge',language)));assert(text.includes(I.t('Arbeitsschritt',language)+' 1.'));}
+  p.f.elements.threadFamily.value='metric';p.f.elements.kopfForm.value='krallen';p.f.elements.kVol.value='900';p.f.events.change();assert.equal(p.get('aus').hidden,false);assert(p.get('kenn').innerHTML.includes(I.t('Kraft noch offen',language)));assert(!p.get('kenn').innerHTML.includes('null'));p.get('drucken').events.click();assert(p.get('blatt').innerHTML.includes('900 mm³'));
+  p.examples[0].events.click();assert.equal(p.get('stages-heading').textContent,I.t('Stadienfolge',language));assert.equal(p.get('stage-column-heading').textContent,I.t('Station',language));assert(p.get('karten').innerHTML.includes(I.t('Stadium',language)+' 1:'));
  }
 });
 
-test('blank manual fields support drawing analysis, catalogue-bound quote selection and a separate mail with the original file',async()=>{
- for(const language of I.supported){
-  const p=setup(language,E,false,{}),file=new File(['%PDF actual original'],'Original.pdf'),model=machines[0].m;
-  p.get('archive-drawing-note').value='C10C, Werkstoffzeugnis folgt';p.a.elements.nachricht.value='Jahresbedarf 50000';p.f.elements.zeichnung.files=[file];p.f.elements.zeichnung.events.change();assert.equal(p.f.elements.d0.value,'');assert.equal(p.get('drucken').disabled,true);
-  p.answers.push({data:{id:'P-EMPTY',token:'preview-private',kind:'preview',status:'ready',answer:'Zeichnung ausgewertet',proposal:{machines:[{model,status:'offen'}]}}});await p.get('archive-analyse').events.click();assert.equal(p.networkRequests[0].options.body.get('notiz'),'C10C, Werkstoffzeugnis folgt','AI only receives the explicit drawing note');
-  assert(p.get('archive-analysis-result').innerHTML.includes('data-preview-model="'+model+'"'));
-  assert(p.get('empty-visual').hidden,'AI machine matches also replace the empty gallery');
-  const choose=value=>p.get('archive-analysis-result').events.click({target:{closest:selector=>selector==='button[data-preview-model]'?{dataset:{previewModel:value}}:null}});
-  choose('INVENTED-MODEL');assert(p.get('selected-machine').hidden);choose(machines[1].m);assert(p.get('selected-machine').hidden,'catalogue models absent from this result cannot be selected');
-  choose(model);assert.equal(p.get('selected-machine').textContent,I.t('Anfrage für {model}',language).replace('{model}',model));assert(p.a.elements.email.focused);assert.equal(p.networkRequests.length,1,'quote button does not send');
-  p.a.elements.email.value='customer@example.invalid';p.a.elements.ok.checked=true;p.a.events.input();assert.equal(p.get('senden').disabled,false);assert.equal(p.get('drucken').disabled,true,'preview does not invent a manual calculation');
-  p.answers.push({data:{id:'E-EMPTY',token:'mail-private',kind:'enquiry',status:'received',notificationStatus:'sent'}});await p.get('senden').events.click();const mail=p.networkRequests[1].options.body;
-  assert.equal(new URL(p.networkRequests[1].url).pathname,'/anfrage');assert.equal(mail.get('datei').name,file.name);assert.equal(await mail.get('datei').text(),await file.text());assert(mail.get('betreff').endsWith(model));for(const expected of [model,'C10C, Werkstoffzeugnis folgt','Jahresbedarf 50000'])assert(mail.get('notiz').includes(expected));
-  p.get('archive-drawing-note').value='Werkstoff geändert';p.get('archive-drawing-note').events.input();assert(p.get('selected-machine').hidden);assert(p.get('archive-analysis-result').hidden,'new drawing answers clear the obsolete result and model choice');assert.equal(p.get('empty-visual').hidden,false,'cleared AI results restore the gallery if there are no manual matches');
- }
+test('reference steel density is identified in weight figures and exports but absent for separately sourced densities',async()=>{
+ const density='Gewicht mit Stahl-Bezugsdichte 7,85 g/cm³; Näherungswert';
+ const materials=E.WERKSTOFFE.map(material=>({...material,densityStatus:'reference-steel-density',rho:7.85}));
+ const p=setup('de',{...E,WERKSTOFFE:materials});p.examples[0].events.click();assert.equal(p.get('mass-basis').textContent,density);assert.equal(p.get('mass-basis').hidden,false);
+ p.get('drucken').events.click();await sendMail(p);assert(p.get('blatt').innerHTML.includes(density));assert(new URL(p.context.location.href).searchParams.get('body').includes(density));
+ materials.forEach(material=>material.densityStatus='verified');p.f.events.change();assert(p.get('mass-basis').hidden);assert.equal(p.get('mass-basis').textContent,'');
 });
 
-test('preview polling pauses its spinner after five minutes and can be refreshed without another upload',async()=>{
- const p=setup('de',E,false,{});p.f.elements.zeichnung.files=[new File(['ABC'],'Teil.pdf')];p.f.elements.zeichnung.events.change();p.answers.push({data:{id:'SLOW',token:'private',kind:'preview',status:'queued'}});await p.get('archive-analyse').events.click();
- for(let i=0;i<75;i++){const scheduled=[...p.timers.entries()].find(([,timer])=>timer.ms===4000);assert(scheduled,'poll '+i+' is scheduled');p.timers.delete(scheduled[0]);p.answers.push({data:{kind:'preview',status:'processing'}});await scheduled[1].fn();}
- assert.equal(p.get('archive-analysis-progress').hidden,true);assert.equal(p.get('archive-analysis-refresh').hidden,false);assert.equal(p.get('archive-analysis-refresh').disabled,false);assert(p.get('archive-analysis-status').textContent.includes('Stand erneut'));assert(![...p.timers.values()].some(timer=>timer.ms===4000));
- p.answers.push({data:{kind:'preview',status:'ready',answer:'Fertig'}});await p.get('archive-analysis-refresh').events.click();assert.equal(p.get('archive-analysis-result').hidden,false);assert.equal(p.networkRequests.filter(request=>new URL(request.url).pathname==='/preview').length,1);
+test('standard enquiry sends the chosen machine and calculation without a drawing or AI request, in both price modes and five languages',async()=>{
+ for(const language of I.supported)for(const prices of [true,false]){
+  const p=setup(language,E,prices,{});p.examples[0].events.click();p.a.elements.email.value='customer@example.invalid';p.a.elements.nachricht.value='Originalnotiz  unverändert';const model=quoteModels(p)[1][1];requestModel(p,model);assert.equal(p.networkRequests.length,0);
+  await p.get('senden').events.click();assert.equal(p.networkRequests.length,0,'consent remains required');p.a.elements.ok.checked=true;p.a.elements.email.value='invalid';await p.get('senden').events.click();assert.equal(p.networkRequests.length,0,'valid contact remains required');p.a.elements.email.value='customer@example.invalid';
+  p.answers.push({data:{id:'STANDARD',token:'private-mail-token',kind:'enquiry',status:'received',analysisStatus:'not_requested',notificationStatus:'pending'}});await p.get('senden').events.click();
+  const request=p.networkRequests[0],body=request.options.body;assert.equal(new URL(request.url).pathname,'/anfrage');assert.equal(body.get('consent'),'true');assert.equal(body.get('language'),language);assert.equal(body.get('pricePolicy'),prices?null:'technical-only');assert(!body.has('datei'));assert(!body.has('zeichnung'));
+  assert(body.get('notiz').includes(model));assert(body.get('notiz').includes('Originalnotiz  unverändert'));assert(body.get('notiz').includes(I.t('Höchste Stationskraft',language)));assert.equal(body.get('notiz').includes('€'),prices);assert.equal(body.get('betreff'),I.t(prices?'Richtpreisanfrage':'Maschinenanfrage',language)+' '+model);
+  p.answers.push({data:{kind:'enquiry',status:'received',analysisStatus:'not_requested',notificationStatus:'sent'}});await p.get('archive-mail-refresh').events.click();assert.equal(p.get('sendehinweis').textContent,I.t('Hans Möhling wurde per E-Mail über Ihre Anfrage informiert.',language));assert(p.networkRequests.every(request=>!request.url.includes('/preview')));assert.equal(p.context.location.href,'');
+ }
 });
 
 test('manual server mail retry preserves identity and incomplete receipts never claim acceptance',async()=>{
@@ -317,7 +282,6 @@ test('print and mail are fully localized before DOM translation, with identical 
   const p=setup(language);p.examples[0].events.click();
   p.a.elements.name.value='Original Name';p.a.elements.firma.value='Original Firma';p.a.elements.email.value='customer@example.invalid';
   const original='Kopfdurchmesser  13 mm\nOriginalnotiz bleibt unverändert';p.a.elements.nachricht.value=original;
-  p.f.elements.zeichnung.files=[{name:'Original_Zeichnung.pdf'}];
   p.get('drucken').events.click();
   const html=p.get('blatt').innerHTML;
   assert(html.includes('<h1>'+I.t('Anforderungsblatt Mehrstufenpresse',language)+'</h1>'));
@@ -332,8 +296,6 @@ test('print and mail are fully localized before DOM translation, with identical 
   assert(uri.searchParams.get('subject').startsWith(I.t('Richtpreisanfrage',language)));
   assert(body.includes(original.replace(/\n/g,'\r\n')),'customer note is preserved');
   assert(body.includes(summary.replace(/\n/g,'\r\n')),'mail and print summaries are identical');
-  assert(body.includes('Original_Zeichnung.pdf'));
-  assert(body.includes(I.t('(bitte anhängen)',language)));
   assert(!uri.searchParams.get('subject').includes('undefined'));
  }
 });

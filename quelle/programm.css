@@ -1,0 +1,13 @@
+#programm{padding:32px 0 42px;border-top:1px solid var(--line)}
+#programm .eyebrow{margin-bottom:12px}
+#programm h2{font-family:'EB Garamond',Georgia,serif;font-size:2.2rem;line-height:1.15;font-weight:500;margin-bottom:16px}
+#programm .section-lede{max-width:80ch;color:var(--muted)}
+#programm .tablewrap{overflow-x:auto;margin-top:24px}
+#programm table{width:100%;border-collapse:collapse;text-align:left;font-size:.9375rem}
+#programm th{font-weight:600;color:var(--muted);font-size:.8125rem}
+#programm td,#programm th{padding:16px 14px;border-bottom:1px solid var(--line);vertical-align:top}
+#programm td:first-child,#programm th:first-child{padding-left:0}
+#programm .series{font-weight:600;white-space:nowrap}
+#programm .sub{display:block;font-weight:400;font-size:.8125rem;color:var(--muted);margin-top:3px}
+#programm .note{font-size:.8125rem;color:var(--muted);margin-top:14px}
+@media(max-width:720px){#programm{padding:24px 0 30px}#programm table{min-width:740px}#programm h2{font-size:1.8rem}}

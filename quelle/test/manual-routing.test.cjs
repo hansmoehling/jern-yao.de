@@ -23,12 +23,11 @@ test('Manual is the built application and five-language navigation uses its new 
  const main=fs.readFileSync(path.join(root,'index.html'),'utf8'),manual=fs.readFileSync(path.join(root,'manual/konfigurator-v1.html'),'utf8');
  assert(main.includes('data-language-link href="/manual/konfigurator-v1.html">Manual · Manuelle Auslegung</a>'));
  assert(!main.includes('href="/archiv/konfigurator-v1.html"'));
- assert(manual.includes('<title>Manual · Maschinenwahl und Richtpreis · Jern Yao</title>'));
- assert(manual.includes('<h1>Manual · Vom Teil zur Maschine</h1>'));
+ assert(manual.includes('<title>Expertenkonfigurator · Jern Yao</title>'));
+ assert(manual.includes('<h1>Expertenkonfigurator</h1>'));
  assert(manual.includes('name="iTyp"'),'the real interactive sizing form was built');
  for(const language of I.supported){
-  for(const key of ['Manual · Manuelle Auslegung','Manual · Vom Teil zur Maschine','Manual · Maschinenwahl und Richtpreis · Jern Yao']){
-   assert(I.t(key,language).startsWith('Manual · '));
+  for(const key of ['Manual · Manuelle Auslegung','Expertenkonfigurator','Expertenkonfigurator · Jern Yao']){
    if(language!=='de')assert.notEqual(I.t(key,language),key);
   }
  }

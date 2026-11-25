@@ -47,14 +47,21 @@ def build():
         '/*PRAXIS*/':json.dumps(json.loads((Q/'praxis.json').read_text(encoding='utf-8-sig')),ensure_ascii=False,separators=(',',':')),
         '/*ENGINE*/':(Q/'engine.js').read_text(encoding='utf-8-sig'),
         '/*CONCEPT_UI*/':(Q/'concept-ui.js').read_text(encoding='utf-8-sig'),
+        '/*ANSWER_FORMAT*/':(Q/'answer-format.js').read_text(encoding='utf-8-sig'),
         '/*I18N*/':(Q/'i18n.js').read_text(encoding='utf-8-sig'),
         '/*I18N_BROWSER*/':(Q/'i18n-browser.js').read_text(encoding='utf-8-sig')
     }
     for source,target,ui,token in [('vorlage.html','index.html','ui.js','/*UI*/'),('archiv-vorlage.html','manual/konfigurator-v1.html','archiv-ui.js','/*ARCHIVE_UI*/')]:
         text=(Q/source).read_text(encoding='utf-8-sig')
         values={**replacements,token:(Q/ui).read_text(encoding='utf-8-sig')}
+        if source == 'vorlage.html':
+            values['/*PROGRAMME_CSS*/']=(Q/'programm.css').read_text(encoding='utf-8')
+            values['<!--PROGRAMME_SECTION-->']=(Q/'programm.html').read_text(encoding='utf-8')
         if source == 'archiv-vorlage.html':
             values['/*DRAWING_PREVIEW*/']=(Q/'drawing-preview.js').read_text(encoding='utf-8-sig')
+            values['/*GEOMETRY_MODEL*/']=(Q/'geometry-model.js').read_text(encoding='utf-8-sig')
+            values['/*GEOMETRY_WIZARD*/']=(Q/'geometry-wizard.js').read_text(encoding='utf-8-sig')
+            values['/*STANDARD_FAMILIES*/']=(Q/'standard-families.js').read_text(encoding='utf-8-sig')
         for key,value in values.items():
             assert key in text,(source,key)
             text=text.replace(key,value)

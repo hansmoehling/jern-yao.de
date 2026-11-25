@@ -1,0 +1,56 @@
+{
+  "Schaftendnapf / Halbhohlniet: Die Öffnung liegt am Schaftende und ist im Standardrechner nicht abgebildet.": [
+    "Cavità cieca all’estremità del gambo / rivetto semitubolare: l’apertura si trova all’estremità del gambo e non è rappresentata nel calcolatore per componenti standard.",
+    "Slepa votlina na koncu stebla / polvotla zakovica: odprtina je na koncu stebla in ni zajeta v kalkulatorju za standardne dele.",
+    "Shank-end blind cavity / semi-tubular rivet: the opening is at the shank end and is not represented in the standard-part calculator.",
+    "杆端盲孔 / 半空心铆钉：开口位于杆端，标准零件计算模型尚未涵盖此结构。"
+  ],
+  "Exzentrik / Achsenversatz ist im Standardrechner nicht abgebildet.": [
+    "L’eccentricità / il disassamento non è rappresentato nel calcolatore per componenti standard.",
+    "Ekscentričnost / zamik osi ni zajet v kalkulatorju za standardne dele.",
+    "Eccentricity / axis offset is not represented in the standard-part calculator.",
+    "标准零件计算模型尚未涵盖偏心 / 轴线偏移。"
+  ],
+  "Die Sonderkontur einschließlich ihres Beschnitts ist im Standardrechner nicht abgebildet.": [
+    "Il contorno speciale, compresa la relativa tranciatura, non è rappresentato nel calcolatore per componenti standard.",
+    "Posebna kontura, vključno z njenim obrezovanjem, ni zajeta v kalkulatorju za standardne dele.",
+    "The special contour, including its trimming operation, is not represented in the standard-part calculator.",
+    "标准零件计算模型尚未涵盖该特殊轮廓及其切边工序。"
+  ],
+  "Öffnungsseite oder Anordnung der Innenkontur ist im Standardrechner nicht abgebildet.": [
+    "Il lato di apertura o la disposizione del profilo interno non è rappresentato nel calcolatore per componenti standard.",
+    "Stran odprtine ali razporeditev notranje konture ni zajeta v kalkulatorju za standardne dele.",
+    "The opening side or arrangement of the internal contour is not represented in the standard-part calculator.",
+    "标准零件计算模型尚未涵盖该内轮廓的开口侧或布置方式。"
+  ],
+  "Nicht alle erforderlichen Sonderoperationen sind im Standardrechner abgebildet.": [
+    "Non tutte le operazioni speciali necessarie sono rappresentate nel calcolatore per componenti standard.",
+    "V kalkulatorju za standardne dele niso zajete vse potrebne posebne operacije.",
+    "The standard-part calculator does not represent all the required special operations.",
+    "标准零件计算模型尚未涵盖全部所需特殊工序。"
+  ],
+  "Für Sonderformen und Formteile benötigen wir eine Zeichnung oder ein Bild mit Ansichten und Schnitten. Reine Hüllmaße reichen für die Maschinenzuordnung nicht aus.": [
+    "Per geometrie speciali e pezzi sagomati serve un disegno o un’immagine con viste e sezioni. Le sole dimensioni d’ingombro non bastano per la selezione della macchina.",
+    "Za posebne oblike in oblikovane dele potrebujemo risbo ali sliko s pogledi in prerezi. Zgolj gabaritne mere ne zadostujejo za izbiro stroja.",
+    "Special geometries and formed parts require a drawing or image with views and sections. Overall dimensions alone are not sufficient for machine selection.",
+    "特殊形状及成形件需要提供包含视图和剖面的图纸或图片。仅凭外形尺寸不足以完成机型匹配。"
+  ],
+  "Bitte Achsenbezug, Öffnungsseite der Innenkonturen und erforderliche Form- und Trennoperationen an der Zeichnung eindeutig zuordnen.": [
+    "Indica chiaramente sul disegno la relazione tra gli assi, il lato di apertura dei profili interni e le operazioni di formatura e taglio necessarie.",
+    "Na risbi jasno označite medsebojni položaj osi, stran odprtin notranjih kontur ter potrebne operacije preoblikovanja in rezanja.",
+    "Clearly identify the relationship between the axes, the opening side of the internal contours and the required forming and cutting operations on the drawing.",
+    "请在图纸上明确标示轴线关系、内轮廓的开口侧以及所需的成形和切断工序。"
+  ],
+  "Die Topologiezuordnung widerspricht den Rechenfeldern. Öffnungsseite, Durchgang und vollständige Operationsfolge bitte zuerst klären.": [
+    "L’interpretazione della topologia è in conflitto con i campi di calcolo. Occorre prima chiarire il lato di apertura, la presenza di un foro passante e la sequenza completa delle operazioni.",
+    "Opredelitev topologije ni skladna s polji za izračun. Najprej razjasnite stran odprtine, ali je odprtina prehodna, in celotno zaporedje operacij.",
+    "The topology interpretation conflicts with the calculation fields. First clarify the opening side, whether the cavity is through or blind, and the complete operation sequence.",
+    "拓扑判定与计算字段存在冲突。请先明确开口侧、孔是否贯通以及完整工序顺序。"
+  ],
+  "Die Sondergeometrie benötigt ein eigenes Stadienkonzept mit vollständig zugeordneten Form- und Trennoperationen; eine numerische Maschinenzuordnung ist noch offen.": [
+    "La geometria speciale richiede un proprio piano delle stazioni con tutte le operazioni di formatura e taglio assegnate; la selezione della macchina su base numerica resta da definire.",
+    "Posebna geometrija zahteva lasten koncept preoblikovalnih stopenj z vsemi dodeljenimi operacijami preoblikovanja in rezanja; izbira stroja na podlagi numeričnega izračuna še ostaja odprta.",
+    "The special geometry requires a dedicated stage concept with all forming and cutting operations assigned; calculation-based machine selection remains unresolved.",
+    "该特殊几何形状需要独立的工位方案，并完整分配成形和切断工序；基于数值计算的机型匹配尚待确定。"
+  ]
+}

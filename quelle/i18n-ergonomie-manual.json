@@ -1,0 +1,56 @@
+{
+  "Standardteile konfigurieren · Jern Yao": [
+    "Configura componenti standard · Jern Yao",
+    "Konfiguriranje standardnih delov · Jern Yao",
+    "Configure standard parts · Jern Yao",
+    "配置标准零件 · Jern Yao"
+  ],
+  "Standardteile konfigurieren": [
+    "Configura componenti standard",
+    "Konfiguriranje standardnih delov",
+    "Configure standard parts",
+    "配置标准零件"
+  ],
+  "Standardschrauben, Bolzen und Muttern mit den angebotenen Formen direkt auslegen. Für Formteile und abweichende Geometrien laden Sie eine Zeichnung hoch.": [
+    "Dimensiona direttamente viti, perni e dadi standard con le forme disponibili. Per pezzi sagomati e geometrie diverse, carica un disegno.",
+    "Standardne vijake, sornike in matice lahko neposredno dimenzionirate z razpoložljivimi oblikami. Za oblikovane dele in drugačne geometrije naložite risbo.",
+    "Size standard screws, bolts and nuts directly using the available shapes. For formed parts and other geometries, upload a drawing.",
+    "使用提供的形状直接进行标准螺钉、螺栓和螺母的工艺设计。成形件及其他几何形状的零件请上传图纸。"
+  ],
+  "Formteil / Sondergeometrie": [
+    "Pezzo sagomato / geometria speciale",
+    "Oblikovan del / posebna geometrija",
+    "Formed part / special geometry",
+    "成形件 / 特殊几何形状"
+  ],
+  "Formteile, Exzenter und Halbhohlniete mit Napf am Schaftende bitte als Zeichnung einreichen. Die Standardfelder bilden diese Geometrien nicht eindeutig ab.": [
+    "Per pezzi sagomati, pezzi eccentrici e rivetti semitubolari con cavità cieca all’estremità del gambo, invia un disegno. I campi standard non descrivono queste geometrie in modo univoco.",
+    "Za oblikovane dele, ekscentrične dele in polvotle zakovice s slepo votlino na koncu stebla predložite risbo. Standardna polja teh geometrij ne opisujejo nedvoumno.",
+    "Please submit a drawing for formed parts, eccentric parts and semi-tubular rivets with a blind cavity at the shank end. The standard fields do not describe these geometries unambiguously.",
+    "成形件、偏心件及杆端带盲孔的半空心铆钉请提交图纸。标准输入字段无法明确描述这些几何形状。"
+  ],
+  "Abweichende Geometrie? Im Formteile-Baukasten aufbauen oder als Zeichnung einreichen.": [
+    "Geometria diversa? Costruiscila nel configuratore dei pezzi sagomati oppure invia un disegno.",
+    "Drugačna geometrija? Sestavite jo v sestavljalniku oblikovanih delov ali predložite risbo.",
+    "Different geometry? Build it in the formed-part builder or submit a drawing.",
+    "几何形状不同？请在成形件构建器中建模，或提交图纸。"
+  ],
+  "Zur Zeichnungsanalyse": [
+    "Vai all’analisi del disegno",
+    "Na analizo risbe",
+    "Go to drawing analysis",
+    "前往图纸分析"
+  ],
+  "Mit dieser Anfrage senden Sie Ihre Angaben und die berechnete Zusammenfassung an Hans Möhling.": [
+    "Con questa richiesta invii i tuoi dati e il riepilogo del calcolo a Hans Möhling.",
+    "S tem povpraševanjem pošljete svoje podatke in povzetek izračuna Hansu Möhlingu.",
+    "This enquiry sends your details and the calculation summary to Hans Möhling.",
+    "此询价会将您的信息和计算摘要发送给 Hans Möhling。"
+  ],
+  "Die Rechnung für Standardteile läuft im Browser. Erst mit „Anfrage an Hans senden“ werden Ihre Kontaktdaten, Notiz und berechnete Zusammenfassung über Resend an Hans Möhling übermittelt. Die Zeichnungsanalyse finden Sie auf der Hauptseite. Nur Ihre Sprachwahl wird lokal gespeichert. Beim Hosting fallen technische Zugriffsprotokolle an.": [
+    "Il calcolo dei componenti standard viene eseguito nel browser. I tuoi dati di contatto, la nota e il riepilogo del calcolo vengono trasmessi a Hans Möhling tramite Resend solo quando selezioni «Invia la richiesta a Hans». L’analisi del disegno si trova nella pagina principale. Solo la lingua scelta viene salvata localmente. Il servizio di hosting registra i log tecnici degli accessi.",
+    "Izračun za standardne dele poteka v brskalniku. Vaši kontaktni podatki, opomba in povzetek izračuna se prek storitve Resend posredujejo Hansu Möhlingu šele, ko izberete »Pošlji povpraševanje Hansu«. Analizo risbe najdete na glavni strani. Lokalno se shrani samo izbrani jezik. Pri gostovanju nastajajo tehnični dnevniki dostopov.",
+    "The calculation for standard parts runs in your browser. Your contact details, note and calculation summary are sent to Hans Möhling via Resend only when you select “Send enquiry to Hans”. Drawing analysis is available on the main page. Only your language choice is stored locally. The hosting service records technical access logs.",
+    "标准零件的计算在浏览器中运行。只有点击“向 Hans 发送询价”后，您的联系信息、备注和计算摘要才会通过 Resend 发送给 Hans Möhling。图纸分析位于主页。本地仅保存您的语言选择。托管服务会记录技术访问日志。"
+  ]
+}

@@ -2,6 +2,7 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import {screen} from '../analysis.js';
 import E from '../../engine.js';
+import {coaxialDrawingTopology} from './topology-fixture.js';
 
 function fixture(quote='normalisierend warmgewalzt'){
  const curve=E.findMaterial('20MnB4')?.flowCurves.find(curve=>curve.id==='komischke2019-20mnb4-normalized-rolled');
@@ -18,7 +19,7 @@ test('normalizing hot-rolled is an independently evidenced starting condition in
   for(const origin of ['user_text','drawing','assumption']){
    const {input,context,curve}=fixture(quote);input.materialStateEvidence={origin,quote,...(origin==='drawing'?{page:1}:{})};
    if(origin!=='user_text')context.note=context.note.replace(quote,'Ausgangszustand zur Auslegung');
-   if(origin==='drawing')context.file={type:'application/pdf',bytes:new Uint8Array()};
+   if(origin==='drawing'){context.file={type:'application/pdf',bytes:new Uint8Array()};input.topology=coaxialDrawingTopology();}
    const result=screen(input,context);assert.equal(result.ok,true,quote);const p=result.proposal;
    assert.equal(p.calculation.input.materialState,'normalized-rolled');assert.equal(p.calculation.materialStatus.flow,'ready');assert(p.calculation.values.Fmax_t>0);
    assert.equal(p.calculation.materialModel.selectedFlowCurve.id,curve.id);

@@ -1,0 +1,176 @@
+{
+  "Nicht unterstütztes Geometriefeld.": [
+    "Campo geometrico non supportato.",
+    "Nepodprto polje geometrije.",
+    "Unsupported geometry field.",
+    "不支持的几何字段。"
+  ],
+  "Geometriemaße müssen endlich sein und im zulässigen Bereich bis 1000 mm liegen.": [
+    "Le dimensioni geometriche devono essere finite e rientrare nell’intervallo ammesso fino a 1000 mm.",
+    "Geometrijske mere morajo biti končne in v dovoljenem območju do 1000 mm.",
+    "Geometry dimensions must be finite and within the permitted range up to 1000 mm.",
+    "几何尺寸必须为有限数值，并在最大 1000 mm 的允许范围内。"
+  ],
+  "Jedes Geometrieelement benötigt eine eindeutige Kennung.": [
+    "Ogni elemento geometrico richiede un identificativo univoco.",
+    "Vsak geometrijski element potrebuje enolično oznako.",
+    "Each geometry element requires a unique identifier.",
+    "每个几何元素都需要唯一标识。"
+  ],
+  "Stempel- oder Matrizenseite auswählen.": [
+    "Selezionare il lato punzone o matrice.",
+    "Izberite stran pestiča ali matrice.",
+    "Select the punch or die side.",
+    "请选择冲头侧或凹模侧。"
+  ],
+  "Der Abstand von der Trennkante darf einschließlich Länge 1000 mm nicht überschreiten.": [
+    "La distanza dalla linea di divisione, compresa la lunghezza, non deve superare 1000 mm.",
+    "Razdalja od delilnega roba skupaj z dolžino ne sme presegati 1000 mm.",
+    "The distance from the parting plane, including the element length, must not exceed 1000 mm.",
+    "距分模面的距离加上元素长度不得超过 1000 mm。"
+  ],
+  "Ein Geometriemodell ist erforderlich.": [
+    "È richiesto un modello geometrico.",
+    "Potreben je geometrijski model.",
+    "A geometry model is required.",
+    "需要几何模型。"
+  ],
+  "Nicht unterstützte Geometrieversion.": [
+    "Versione della geometria non supportata.",
+    "Nepodprta različica geometrije.",
+    "Unsupported geometry version.",
+    "不支持的几何模型版本。"
+  ],
+  "Die Werkzeugtrennkante muss als Koordinatenursprung festgelegt sein.": [
+    "La linea di divisione dell’utensile deve essere definita come origine delle coordinate.",
+    "Delilni rob orodja mora biti določen kot izhodišče koordinat.",
+    "The tool parting plane must be set as the coordinate origin.",
+    "必须将模具分模面设为坐标原点。"
+  ],
+  "Mindestens ein additiver Grundkörper ist erforderlich.": [
+    "È richiesto almeno un solido di base additivo.",
+    "Potreben je vsaj en osnovni dodajni volumen.",
+    "At least one additive base solid is required.",
+    "至少需要一个用于并集的基本实体。"
+  ],
+  "Beschnitt muss als Liste von Schnittebenen angegeben werden.": [
+    "La tranciatura deve essere definita come un elenco di piani di taglio.",
+    "Obrezovanje mora biti podano kot seznam rezalnih ravnin.",
+    "Trimming must be specified as a list of cutting planes.",
+    "切边必须以切割平面列表定义。"
+  ],
+  "Höchstens 32 Geometrie- und Beschnittelemente sind zulässig.": [
+    "Sono ammessi al massimo 32 elementi geometrici e di tranciatura.",
+    "Dovoljenih je največ 32 geometrijskih in obrezovalnih elementov.",
+    "A maximum of 32 geometry and trimming elements is permitted.",
+    "几何元素和切边元素合计最多允许 32 个。"
+  ],
+  "Ein gültiges Geometrieelement ist erforderlich.": [
+    "È richiesto un elemento geometrico valido.",
+    "Potreben je veljaven geometrijski element.",
+    "A valid geometry element is required.",
+    "需要有效的几何元素。"
+  ],
+  "Vereinigung oder Abzug auswählen.": [
+    "Selezionare unione o sottrazione.",
+    "Izberite združitev ali odštevanje.",
+    "Select union or subtraction.",
+    "请选择并集或差集。"
+  ],
+  "Zylinder, Kegelstumpf oder Sechskant auswählen.": [
+    "Selezionare cilindro, tronco di cono o esagono.",
+    "Izberite valj, prisekani stožec ali šestkotnik.",
+    "Select a cylinder, conical frustum or hexagon.",
+    "请选择圆柱、圆锥台或六角形。"
+  ],
+  "Eine gültige Schnittebene ist erforderlich.": [
+    "È richiesto un piano di taglio valido.",
+    "Potrebna je veljavna rezalna ravnina.",
+    "A valid cutting plane is required.",
+    "需要有效的切割平面。"
+  ],
+  "Der Schnittwinkel muss zwischen −360° und 360° liegen.": [
+    "L’angolo di taglio deve essere compreso tra −360° e 360°.",
+    "Rezalni kot mora biti med −360° in 360°.",
+    "The cutting angle must be between −360° and 360°.",
+    "切割角度必须介于 −360° 和 360° 之间。"
+  ],
+  "Abschnitt vorbereiten": [
+    "Preparare lo spezzone",
+    "Pripraviti odrezek",
+    "Prepare the cut-off blank",
+    "准备坯料"
+  ],
+  "Innenkontur formen; Werkzeugzugang und Austritt prüfen": [
+    "Formare il profilo interno; verificare l’accesso dell’utensile e l’uscita",
+    "Oblikovati notranjo konturo; preveriti dostop in izhod orodja",
+    "Form the internal contour; check tool access and exit",
+    "成形内部轮廓；检查模具进入及退出条件"
+  ],
+  "Außenkontur formen; Vorform und Materialverteilung festlegen": [
+    "Formare il profilo esterno; definire la preforma e la distribuzione del materiale",
+    "Oblikovati zunanjo konturo; določiti predobliko in razporeditev materiala",
+    "Form the external contour; define the preform and material distribution",
+    "成形外部轮廓；确定预成形和材料分配"
+  ],
+  "Exzentrische Kontur; Querkräfte, Werkzeugführung und Transfer prüfen": [
+    "Profilo eccentrico; verificare le forze trasversali, la guida degli utensili e il trasferimento",
+    "Ekscentrična kontura; preveriti prečne sile, vodenje orodja in prenos",
+    "Eccentric contour; check lateral forces, tool guidance and transfer",
+    "偏心轮廓；检查横向力、模具导向和传送"
+  ],
+  "Kontur beschneiden; Schneidspalt und Abfallabfuhr auslegen": [
+    "Tranciare il profilo; definire il gioco di taglio e l’evacuazione degli sfridi",
+    "Obrezati konturo; določiti rezalno režo in odvajanje odpadkov",
+    "Trim the contour; specify cutting clearance and scrap removal",
+    "切边轮廓；确定剪切间隙和废料排出方式"
+  ],
+  "Drahtdurchmesser und Dichte müssen als positive Werte mit korrekten Einheiten angegeben werden.": [
+    "Il diametro del filo e la densità devono essere valori positivi nelle unità corrette.",
+    "Premer žice in gostota morata biti pozitivni vrednosti v pravilnih enotah.",
+    "Wire diameter and density must be positive values in the correct units.",
+    "线材直径和密度必须以正确单位给出正值。"
+  ],
+  "Ungültige Genauigkeits- oder Rechenbudgetvorgabe.": [
+    "Impostazione della precisione o del limite di calcolo non valida.",
+    "Neveljavna nastavitev natančnosti ali računske omejitve.",
+    "Invalid accuracy or computation-budget setting.",
+    "精度或计算预算设置无效。"
+  ],
+  "Volumen des geometrischen Modells ohne nicht angegebene Radien, Fasen und Fertigungszugaben.": [
+    "Volume del modello geometrico senza raccordi, smussi e sovrametalli di lavorazione non specificati.",
+    "Volumen geometrijskega modela brez nenavedenih radijev, posnetij in proizvodnih dodatkov.",
+    "Volume of the geometry model, excluding unspecified radii, chamfers and manufacturing allowances.",
+    "几何模型体积不包含未定义的圆角、倒角和制造余量。"
+  ],
+  "Die Abschnittslänge enthält den modellierten Beschnitt; weitere Fertigungszugaben und Materialverluste sind noch festzulegen.": [
+    "La lunghezza dello spezzone comprende lo sfrido di tranciatura modellato; restano da definire ulteriori sovrametalli e perdite di materiale.",
+    "Dolžina odrezka vključuje modelirano obrezovanje; dodatne proizvodne dodatke in izgube materiala je treba še določiti.",
+    "The cut-off length includes the modelled trimming stock; further manufacturing allowances and material losses remain to be specified.",
+    "坯料长度包含已建模的切边余料；其他制造余量和材料损耗仍需确定。"
+  ],
+  "Das Volumen ist als geprüftes Intervall angegeben; ein exakter Einzelwert ist nicht freigegeben.": [
+    "Il volume è indicato come intervallo verificato; non è disponibile un valore singolo esatto.",
+    "Volumen je podan kot preverjen interval; natančna posamezna vrednost ni potrjena.",
+    "The volume is reported as a verified interval; no exact single value is approved.",
+    "体积以经过核验的区间表示，尚不能给出单一精确值。"
+  ],
+  "Die Grundkörper bilden kein zusammenhängendes Teil.": [
+    "I solidi di base non formano un pezzo connesso.",
+    "Osnovni volumni ne tvorijo povezanega dela.",
+    "The base solids do not form a connected part.",
+    "基本实体未形成连续的零件。"
+  ],
+  "Der zusammenhängende Materialverbund ist noch zu prüfen.": [
+    "La continuità del materiale deve ancora essere verificata.",
+    "Povezanost materiala je treba še preveriti.",
+    "The continuity of the material still needs to be checked.",
+    "仍需检查材料是否连续。"
+  ],
+  "Die Abzüge entfernen das gesamte Bauteilvolumen.": [
+    "Le sottrazioni eliminano l’intero volume del pezzo.",
+    "Odštevanja odstranijo celoten volumen izdelka.",
+    "The subtractions remove the entire part volume.",
+    "差集操作移除了零件的全部体积。"
+  ]
+}

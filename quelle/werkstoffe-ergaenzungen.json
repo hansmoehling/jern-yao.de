@@ -11,7 +11,7 @@
       "materialNotes": [
         "Eigenständige Quellenidentität; keine Gleichsetzung mit C10C, C15C oder einer EN-Werkstoffnummer.",
         "Kurve für gezogenes Stabmaterial. Ziehgrad und Wärmebehandlung sind nicht vollständig dokumentiert; keine weichgeglühte Kurve.",
-        "Dichte und Drahtzugfestigkeit sind nicht durch diese Quelle belegt. Teilemasse bleibt ohne gesonderten Dichtenachweis offen.",
+        "Dichte und Drahtzugfestigkeit sind nicht durch die Fließkurvenquelle belegt. Eine gesondert gekennzeichnete Stahl-Bezugsdichte dient ausschließlich der näherungsweisen Gewichts-/Volumenrechnung.",
         "Werkstoffspezifische Umformgrenzen sind nicht freigegeben; Stadienaufteilung verwendet vorläufige Grenzen."
       ]
     }

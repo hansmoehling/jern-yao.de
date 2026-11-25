@@ -120,6 +120,22 @@ def build():
                      densityStatus="missing", densitySource=None, properties=[],
                      hinweis="Lieferzustand und Fließkurve ausdrücklich wählen")
         materials.append(entry)
+    # An explicit group reference may fill a missing density only. It is never
+    # promoted to a grade/condition-specific property or a flow-curve approval.
+    for entry in materials:
+        if isinstance(entry.get("rho"), (int, float)) and entry["rho"] > 0:
+            continue
+        references = [reference for reference in research.get("densityReferences", [])
+                      if entry.get("number") in reference.get("materialNumbers", [])
+                      or entry["id"] in reference.get("materialIds", [])]
+        assert len(references) <= 1, "Ambiguous density reference: " + entry["id"]
+        if references:
+            reference = references[0]
+            assert reference["status"] == "group-reference-approximation" and reference.get("sourceUrl")
+            rho, source = density({"properties": [reference]})
+            assert rho is not None
+            entry.update(rho=rho, densityStatus="reference-steel-density", densitySource=copy.deepcopy(source))
+            entry["materialNotes"].append("Gewicht mit Stahl-Bezugsdichte 7,85 g/cm³; Näherungswert, keine belegte Chargendichte.")
     assigned = set()
     for entry in materials:
         matches = [copy.deepcopy(curve) for curve in approved

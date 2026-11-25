@@ -36,7 +36,7 @@ test('AISI 1010 Swift source values, exact integral and measured bounds use the 
  const m=curveMaterial('AISI 1010'),curve=m.flowCurve;
  assert.equal(curve.model,'swift');assert.equal(curve.state,'cold-drawn');assert.equal(curve.strainRatePerSecond,.0336);
  assert.deepEqual(curve.materialNumbers,[]);assert.deepEqual(curve.materialIds,['AISI 1010']);
- assert.equal(m.rho,null);assert.equal(curve.kf0Status,'computed-from-swift-model-not-measured-Rp02');
+ assert.equal(m.rho,7.85);assert.equal(m.densityStatus,'reference-steel-density');assert.equal(m.densitySource.eligibleForFlowCurve,false);assert.equal(curve.kf0Status,'computed-from-swift-model-not-measured-Rp02');
  // Source equation 1: sigma=680*(0.1+epsilon)^0.29 MPa. No measured yield stress is substituted.
  close(E.kf(m,0),348.7457411141282);close(E.kf(m,1.5),779.298262008559);
  close(E.kf({...m,flowCurve:{...curve,kf0:999}},0),348.7457411141282);
@@ -49,7 +49,7 @@ test('AISI 1010 Swift source values, exact integral and measured bounds use the 
  const e={...bolt,wst:E.WERKSTOFFE.indexOf(material('AISI 1010')),curveId:curve.id,materialState:'cold-drawn'},a=E.auslegen(e);
  const expectedKf=680*Math.pow(.1+Math.log(169/64),.29),expectedN=Math.PI*169/4*expectedKf/.6;
  assert.equal(a.fehlt.length,0);assert.equal(a.materialStatus.flow,'ready');close(a.werte.L0,43.203125);
- close(a.stufen[0].F,expectedN,1e-7);close(a.werte.Fmax_t,expectedN/9806.65);assert.equal(a.werte.masse,null);
+ close(a.stufen[0].F,expectedN,1e-7);close(a.werte.Fmax_t,expectedN/9806.65);close(a.werte.masse,a.werte.V*7.85/1000);
  assert(a.hinweise.some(note=>note.includes('gezogenes Stabmaterial')));assert(!a.hinweise.some(note=>note.includes('Lieferzustand weichgeglüht')));
  for(const patch of [{materialState:'soft-annealed'},{curveId:material('C10C').flowCurves[0].id},{wst:E.WERKSTOFFE.indexOf(material('C10C'))},{kD:18}])assert.equal(E.auslegen({...e,...patch}).werte.Fmax_t,null);
 });

@@ -3,6 +3,7 @@ import assert from 'node:assert/strict';
 import worker from '../worker.js';
 import {analyse,publicResult,screen} from '../analysis.js';
 import Engine from '../../engine.js';
+import {coaxialDrawingTopology} from './topology-fixture.js';
 
 const LEGACY='https://jern-yao.de',PUBLIC='https://jernyao.de',WWW='https://www.jernyao.de';
 const TECH='technical-only',FULL='with-prices';
@@ -48,7 +49,7 @@ function sizingMock(t,technical){
   if(technical){assertNoPrices(body.messages);assert.match(body.system,/keinerlei Maschinenpreise/);}
   if(n++===0)return reply(tool('projektwissen',{material:'C15C'}));
   const result=JSON.parse(body.messages.at(-1).content[0].content);
-  if(n===2){if(technical)assertNoPrices(result);else assert.match(result.rules,/987654/);return reply(tool('grobauslegung',input()));}
+  if(n===2){if(technical)assertNoPrices(result);else assert.match(result.rules,/987654/);const sizing=input();if(body.messages[0].content.some(x=>['image','document'].includes(x.type)))sizing.topology=coaxialDrawingTopology();return reply(tool('grobauslegung',sizing));}
   assert.equal(result.ok,true);assert.ok(result.proposal.stages.length>0);assert.ok(result.proposal.machines.length>0);
   if(technical)assertNoPrices(result);else assert.ok(result.proposal.machines.some(m=>m.priceEUR>0));
   return reply(final('Die Stadienfolge und die technischen Maschinenkandidaten sind berechnet.'));

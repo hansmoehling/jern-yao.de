@@ -1,6 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {analyse} from '../analysis.js';
+import {coaxialDrawingTopology} from './topology-fixture.js';
 
 const env=()=>({ANTHROPIC_API_KEY:'test-only',SPEICHER:{async get(key){return {regeln:'R-ST1: Geometrie prüfen.',wissenskarten:'K23: Erfahrung ersetzt keinen Nachweis.'}[key]||null;}}});
 const tool=(name,id=name)=>({type:'tool_use',name,id,input:{}});
@@ -108,12 +109,12 @@ test('closing nudge obtains a targeted question from the drawing without another
 
 test('a later invalid variant cannot erase the last successfully checked engine calculation',async t=>{
  let calls=0;
- const values={sD:8,sL:30,kD:13,kH:5},input={typ:'bolzen',material:'C15C',materialEvidence:{origin:'drawing',quote:'C15C',page:1,reference:'Werkstoffangabe'},values,evidence:Object.fromEntries(Object.entries(values).map(([field,value])=>[field,{origin:'drawing',quote:value+' mm',originalValue:value,originalUnit:'mm',page:1,reference:'Maßlinie'}]))};
+ const values={sD:8,sL:30,kD:13,kH:5},input={typ:'bolzen',topology:coaxialDrawingTopology(),material:'C15C',materialEvidence:{origin:'drawing',quote:'C15C',page:1,reference:'Werkstoffangabe'},values,evidence:Object.fromEntries(Object.entries(values).map(([field,value])=>[field,{origin:'drawing',quote:value+' mm',originalValue:value,originalUnit:'mm',page:1,reference:'Maßlinie'}]))};
  fetchMock(t,async(url,request)=>{
   const b=JSON.parse(request.body);calls++;
   if(calls===1)return Response.json({content:[tool('projektwissen')]});
   if(calls===2)return Response.json({content:[{...tool('grobauslegung'),input}]});
-  if(calls===3){assert.equal(JSON.parse(b.messages.at(-1).content[0].content).ok,true);return Response.json({content:[tool('grobauslegung','bad-variant')]});}
+  if(calls===3){assert.equal(JSON.parse(b.messages.at(-1).content[0].content).ok,true);return Response.json({content:[{...tool('grobauslegung','bad-variant'),input:{topology:coaxialDrawingTopology()}}]});}
   if(calls===4){const failed=JSON.parse(b.messages.at(-1).content[0].content);assert.equal(failed.ok,false);assert.equal(failed.lastSuccessfulCalculationRetained,true);}
   return Response.json({content:[]});
  });

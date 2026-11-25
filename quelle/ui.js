@@ -69,6 +69,14 @@
     node.hidden = !text;
   }
 
+  function answerNode(text, className) {
+    const node = element('div', null, className);
+    node.className += ' formatted-answer'; node.dataset.originalText = '';
+    if (window.JYAnswerFormat) window.JYAnswerFormat.appendTo(node, text, document);
+    else node.textContent = text;
+    return node;
+  }
+
   function number(value, suffix) {
     return typeof value === 'number' && Number.isFinite(value)
       ? value.toLocaleString(window.JYI18N.numberLocale(L.language), { maximumFractionDigits: 2 }) + (suffix ? ' ' + suffix : '') : '';
@@ -83,7 +91,7 @@
   }
 
   function selectMode(next, focus) {
-    mode = next;
+    mode = next === 'chat' ? 'chat' : 'upload';
     tabs.forEach(tab => {
       const selected = tab.dataset.mode === mode;
       tab.setAttribute('aria-selected', String(selected));
@@ -91,14 +99,8 @@
     });
     $('panel-anfrage').hidden = mode === 'chat';
     $('panel-chat').hidden = mode !== 'chat';
-    $('panel-anfrage').setAttribute('aria-labelledby', mode === 'description' ? 'tab-description' : 'tab-upload');
-    $('upload-area').hidden = mode === 'description';
-    $('description-help').hidden = mode !== 'description';
-    $('description-label').textContent = mode === 'description' ? 'Beschreiben Sie Ihr Teil' : 'Was möchten Sie uns mitgeben? Optional zur Zeichnung';
-    $('description').placeholder = mode === 'description'
-      ? 'Zum Beispiel: Eine Hülse mit Bund, außen Ø 12 mm, innen Ø 6 mm, Länge 25 mm. Werkstoff und weitere Anforderungen sind noch offen.'
-      : 'Zum Beispiel Stückzahl, Werkstoff, gewünschter Termin oder eine Frage zum Teil.';
-    if (focus) (mode === 'chat' ? $('chat-input') : mode === 'description' ? $('description') : $('file')).focus();
+    $('panel-anfrage').setAttribute('aria-labelledby', 'tab-upload');
+    if (focus) (mode === 'chat' ? $('chat-input') : $('choose-file')).focus();
   }
 
   tabs.forEach((tab, index) => {
@@ -121,12 +123,14 @@
   function syncPreviewInput() {
     const file = selectedFile(), note = $('description').value.trim();
     if (file === previewInputFile && note === previewInputNote) return;
+    const fileChanged = file !== previewInputFile;
     previewInputFile = file; previewInputNote = note; previewRevision += 1;
     const hadAnalysis = previewBusy || !!current;
     previewBusy = false;
     window.clearTimeout(pollTimer); pollTimer = null; polling = null; polls = 0;
     current = null; latestStatus = null;
-    selectedMachine = ''; renderSelectedMachine();
+    if (fileChanged || hadAnalysis) selectedMachine = '';
+    renderSelectedMachine();
     $('response').hidden = true; $('result-content').replaceChildren();
     $('refresh-status').disabled = false; setPreviewProgress(false, false);
     if (hadAnalysis) {
@@ -151,6 +155,14 @@
     node.hidden = !selectedMachine;
   }
 
+  function openContact() {
+    selectMode('upload', false);
+    $('contact-details').open = true;
+    updateSubmit();
+    $('contact-details').scrollIntoView({ behavior: 'smooth', block: 'start' });
+    $('email').focus({ preventScroll: true });
+  }
+
   function chooseMachine(model) {
     if (!catalogueModels.has(model)) return;
     selectedMachine = model;
@@ -159,11 +171,8 @@
     }
     previewInputFile = selectedFile(); previewInputNote = $('description').value.trim();
     renderSelectedMachine();
-    selectMode(selectedFile() ? 'upload' : 'description', false);
-    updateSubmit();
+    openContact();
     L.apply();
-    $('panel-anfrage').scrollIntoView({ behavior: 'smooth', block: 'start' });
-    $('email').focus({ preventScroll: true });
   }
 
   function fileError() {
@@ -181,12 +190,16 @@
   }
 
   function updateSubmit() {
-    $('request-submit').disabled = !apiBase || requestBusy || previewBusy || !!fileError() || (sentSignature !== '' && sentSignature === signature());
+    const file = selectedFile(), valid = !!file && !fileError(), modelRequest = catalogueModels.has(selectedMachine);
+    $('request-submit').disabled = !apiBase || requestBusy || previewBusy || !!fileError() || (!file && !modelRequest) || (sentSignature !== '' && sentSignature === signature());
+    $('request-file-help').hidden = !!file || modelRequest;
     $('request-submit').textContent = requestBusy ? 'Anfrage wird übertragen …' : sentSignature && sentSignature === signature() ? 'Anfrage eingegangen' : 'Anfrage senden';
     $('chat-submit').disabled = !apiBase || chatBusy;
     $('chat-submit').textContent = chatBusy ? 'Antwort wird vorbereitet …' : 'Frage senden';
-    const file = selectedFile(), valid = !!file && !fileError();
-    $('preview-actions').hidden = !valid || CAD.test(file.name);
+    $('preview-actions').hidden = !valid;
+    $('preview-start').hidden = !valid || CAD.test(file.name);
+    $('preview-privacy').hidden = !valid || CAD.test(file.name);
+    $('open-contact').disabled = !valid || requestBusy;
     $('preview-cad-help').hidden = !valid || !CAD.test(file.name);
     $('preview-start').disabled = !apiBase || requestBusy || previewBusy || !valid || CAD.test(file.name);
     const previewLabel = previewBusy ? 'KI-Auswertung läuft …' : 'Zeichnung mit KI auswerten';
@@ -211,6 +224,7 @@
   }
 
   $('choose-file').addEventListener('click',()=>$('file').click());
+  $('open-contact').addEventListener('click', openContact);
   $('file').addEventListener('change', updateFile);
   $('remove-file').addEventListener('click', () => { $('file').value = ''; updateFile(); });
   const drop = $('drop-zone');
@@ -233,6 +247,7 @@
   });
   requestForm.addEventListener('input',()=>{syncPreviewInput();$('email').setCustomValidity('');$('consent').setCustomValidity('');updateSubmit();});
   function validRequest(){
+    $('contact-details').open = true;
     const email=$('email').value.trim();
     $('email').setCustomValidity(tr(!email?'Bitte geben Sie Ihre E-Mail-Adresse ein.':!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)?'Bitte geben Sie eine gültige E-Mail-Adresse ein.':''));
     $('consent').setCustomValidity($('consent').checked?'':tr('Bitte stimmen Sie der Verarbeitung Ihrer Anfrage zu.'));
@@ -426,11 +441,11 @@
     const labels = { queued: 'Anfrage eingegangen', processing: 'Ihr Konzept wird vorbereitet', needs_info: 'Eine Rückfrage zu Ihrem Teil', ready: 'Ihr erster Konzeptvorschlag', failed: 'Die technische Auswertung ist noch offen' };
     if (preview && ['ready', 'needs_info', 'failed'].includes(data.status)) message('preview-message', data.status === 'failed' ? 'Die KI-Auswertung konnte nicht abgeschlossen werden.' : labels[data.status], data.status === 'failed' ? 'error' : 'success');
     $('response-title').textContent = tr(preview && data.status === 'queued' ? 'Ihre KI-Auswertung' : labels[data.status] || 'Ihre Anfrage');
-    $('result-status').textContent = tr(preview ? 'Auswertung' : 'Anfrage') + ' ' + current.id + (preview && current.fileName ? ' · ' + current.fileName : '');
+    $('result-status').textContent = preview ? tr('Zeichnung:') + ' ' + (current.fileName || '') : tr('Anfrage') + ' ' + current.id;
     $('result-status').dataset.originalText = '';
     const content = $('result-content'); content.replaceChildren();
     if(data.language && window.JYI18N.normalizeLanguage(data.language)!==L.language)content.appendChild(element('p',tr('Antwortsprache:')+' '+L.autonyms[window.JYI18N.normalizeLanguage(data.language)],'original-language'));
-    if (typeof data.answer === 'string' && data.answer.trim()) content.appendChild(element('div', data.answer, 'answer-text'));
+    if (typeof data.answer === 'string' && data.answer.trim()) content.appendChild(answerNode(data.answer, 'answer-text'));
     else if (data.status === 'queued' || data.status === 'processing') content.appendChild(element('p', preview ? 'Die Zeichnung wird ausgewertet. Das Ergebnis erscheint hier.' : 'Ihre Unterlagen sind eingegangen. Die technische Auswertung folgt hier.'));
     else if (data.status === 'failed') content.appendChild(element('p', preview ? 'Die KI-Auswertung konnte nicht abgeschlossen werden.' : 'Die Anfrage bleibt erhalten. Sie können Hans Möhling unter Angabe der Anfragenummer direkt kontaktieren.'));
     renderProposal(content, data.proposal);
@@ -511,9 +526,9 @@
     if (!apiBase || requestBusy || previewBusy || !validRequest()) return;
     const file = selectedFile();
     const note = requestNote();
-    if (!file && !note) {
-      message('request-message', 'Bitte wählen Sie eine Zeichnung aus oder beschreiben Sie Ihr Teil mit wenigen Worten.', 'error');
-      $('description').focus(); return;
+    if (!file && !catalogueModels.has(selectedMachine)) {
+      message('request-message', 'Bitte wählen Sie für diese Anfrage eine Zeichnung aus. Ein konkretes Maschinenmodell können Sie auch ohne Zeichnung anfragen.', 'error');
+      $('choose-file').focus(); return;
     }
     if (fileError()) { updateFile(); return; }
     const nextSignature = signature();
@@ -596,7 +611,7 @@
   function appendChat(role, text, extra) {
     const article = element('article', null, 'message ' + role);
     article.appendChild(element('div', role === 'user' ? 'Sie' : 'Technischer Dialog', 'speaker'));
-    article.appendChild(element('div', text, 'message-text'));
+    article.appendChild(role === 'assistant' ? answerNode(text, 'message-text') : element('div', text, 'message-text'));
     if(extra&&extra.language)article.appendChild(element('p',tr('Antwortsprache:')+' '+(L.autonyms[window.JYI18N.normalizeLanguage(extra.language)]||extra.language),'original-language'));
     if (extra) { renderProposal(article,extra.proposal);listSection(article, 'Dazu noch eine Frage', extra.questions); sourcesSection(article, extra.sources); }
     $('messages').appendChild(article);
@@ -642,7 +657,7 @@
     const questions = history.filter(item => item.role === 'user').map(item => item.content);
     if ($('chat-input').value.trim()) questions.push($('chat-input').value.trim());
     if (questions.length && !$('description').value.trim()) $('description').value = questions.join('\n\n').slice(0, 12000);
-    selectMode('description', true); updateSubmit();
+    syncPreviewInput(); openContact();
   });
   $('refresh-status').addEventListener('click', () => { polls = 0; if (current) current.pollPaused = false; return refreshStatus(true); });
   $('request-refresh').addEventListener('click', () => { enquiryPolls = 0; return refreshEnquiry(true); });

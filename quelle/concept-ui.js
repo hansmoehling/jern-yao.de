@@ -18,7 +18,7 @@ function html(concept,language='de'){
  const preparation=preparationText(concept.preparation,language);
  if(preparation){out+='<p>'+esc(preparation)+'</p>';if(typeof concept.preparation.assumption==='string')out+='<p class="small">'+esc(tr(concept.preparation.assumption))+'</p>';}
  if(Array.isArray(concept.stages)&&concept.stages.length){out+='<ol>';for(const stage of concept.stages){
-  out+='<li><strong>'+esc(tr('Stadium'))+' '+esc(stage.number)+': '+esc(tr(stage.operation||''))+'</strong>';
+  out+='<li><strong>'+esc(tr(concept.status==='incomplete'||stage.kind==='unassigned'?'Arbeitsschritt':'Stadium'))+' '+esc(stage.number)+': '+esc(tr(stage.operation||''))+'</strong>';
   if(stage.location)out+='<div>'+esc(tr(stage.location))+'</div>';
   if(Array.isArray(stage.operations)&&stage.operations.length>1)out+='<ul>'+stage.operations.map(op=>'<li>'+esc(tr(op.name||''))+(op.location?' · '+esc(tr(op.location)):'')+'</li>').join('')+'</ul>';
   out+='</li>';

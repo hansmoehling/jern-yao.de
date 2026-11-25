@@ -1,4 +1,5 @@
 import test from 'node:test';
+import {coaxialDrawingTopology} from './topology-fixture.js';
 
 test('native web search integrates only cited primary results and enforces one two-use search turn',async t=>{
  const e=env();e.ALLOW_WEB_SEARCH='true';e.RESEARCH_DOMAINS='saarstahl.com';let outer=0,searches=0;
@@ -27,7 +28,8 @@ test('hole within a wide head is valid despite a thinner shaft; hex wall uses fl
  const i=input();i.typ='formteil';i.values={sD:6,sL:20,kD:12,kH:10,nD:8,nT:5};
  const labels={sD:'Schaft',sL:'Länge',kD:'Kopf',kH:'Höhe',nD:'Napf',nT:'Tiefe'};
  i.evidence=Object.fromEntries(Object.entries(i.values).map(([k,v])=>[k,{origin:'user_text',quote:labels[k]+' '+v+' mm',originalValue:v,originalUnit:'mm',reference:'ignored internal reference'}]));
- const c={note:'C15C '+Object.values(i.evidence).map(x=>x.quote).join('; ')};
+ const c={note:'C15C '+Object.values(i.evidence).map(x=>x.quote).join('; '),file:{type:'application/pdf',bytes:new Uint8Array()}};
+ i.topology=coaxialDrawingTopology({cavityOpening:'head-end'});
  assert.equal(screen(i,c).ok,true);
  i.kopfForm='sechskant';i.values.kSW=7;i.evidence.kSW={origin:'user_text',quote:'SW 7 mm',originalValue:7,originalUnit:'mm',reference:'SW'};
  assert.equal(screen(i,{note:c.note+' SW 7 mm'}).ok,false);
@@ -106,6 +108,7 @@ test('force curve needs explicit sourced state or a visible non-conflicting proc
 
 test('negated drawing states cannot release soft-annealed force through a quoted affirmative substring',()=>{
  const i=input();i.curveId=Engine.findMaterial('C15C').flowCurves[0].id;i.materialState='soft-annealed';
+ i.topology=coaxialDrawingTopology();
  for(const state of ['unannealed','non ricotta','ni mehko žarjen','未经退火','未软化退火']){
   i.materialStateEvidence={origin:'drawing',page:1,quote:'soft annealed / '+state};
   const r=screen(i,{...context,file:{type:'application/pdf',bytes:new Uint8Array()}});
@@ -164,7 +167,7 @@ test('AISI 1010 drawn-state evidence works in five languages and cannot certify 
   const expected= Math.PI*169/4*680*Math.pow(.1+Math.log(169/64),.29)/.6/9806.65;
   assert.ok(Math.abs(r.proposal.calculation.values.Fmax_t-expected)<1e-9);
   assert.equal(r.proposal.input.find(item=>item.field==='materialState').value,'gezogen (Literaturzustand)');
-  assert.equal(r.proposal.calculation.values.masse,null);assert(r.proposal.assumptions.some(text=>text.includes('0,0336')));
+  assert.ok(r.proposal.calculation.values.masse>0);assert.equal(r.proposal.calculation.materialStatus.density,'reference-steel-density');assert(r.proposal.assumptions.some(text=>text.includes('0,0336')));
   assert(!r.proposal.assumptions.some(text=>text.includes('für weichgeglühten Draht')));
  }
  i.materialStateEvidence={origin:'assumption',quote:'Gezogenes Ausgangsmaterial als Prozessversuch verwenden.'};
@@ -183,6 +186,7 @@ test('post-drawing anneal, spheroidizing and normalizing cannot reuse the drawn 
  for(const quote of ['cold-drawn then annealed','kaltgezogen, anschließend geglüht','cold-drawn, spheroidized','cold-drawn then normalized','gezogen, anschließend normalisiert','trafilato, poi ricotto','trafilato e sferoidizzato','vlečen, nato žarjen','vlečen in normaliziran','冷拉后退火','冷拔后球化','冷拉后正火']){
   for(const origin of ['user_text','drawing']){
    i.materialStateEvidence={origin,quote,page:1};
+   if(origin==='drawing')i.topology=coaxialDrawingTopology();else delete i.topology;
    const r=screen(i,origin==='user_text'?{note:c.note+' '+quote}:{...c,file:{type:'application/pdf',bytes:new Uint8Array()}});
    assert.equal(r.ok,true);assert.equal(r.proposal.calculation.materialStatus.flow,'state-missing',quote);
    assert.equal(r.proposal.calculation.values.Fmax_t,null,quote);
@@ -198,6 +202,7 @@ test('explicitly negated annealing preserves a sourced drawn state without erasi
  for(const quote of positive){
   for(const origin of ['user_text','drawing']){
    i.materialStateEvidence={origin,quote,page:1};
+   if(origin==='drawing')i.topology=coaxialDrawingTopology();else delete i.topology;
    const r=screen(i,origin==='user_text'?{note:c.note+' '+quote}:{...c,file:{type:'application/pdf',bytes:new Uint8Array()}});
    assert.equal(r.proposal.calculation.materialStatus.flow,'ready',quote);
    assert.ok(Math.abs(r.proposal.calculation.values.Fmax_t-15.647838583338958)<1e-9,quote);
@@ -205,6 +210,7 @@ test('explicitly negated annealing preserves a sourced drawn state without erasi
   }
  }
  // Neither negation alone nor a forged quote supplies the missing drawn state.
+ delete i.topology;
  for(const quote of ['nicht nachgeglüht','not annealed after manufacture','unannealed']){
   i.materialStateEvidence={origin:'user_text',quote};assert.equal(screen(i,{note:c.note+' '+quote}).proposal.calculation.values.Fmax_t,null,quote);
  }
@@ -333,6 +339,7 @@ test('thin/negative walls do not reach unbounded stages, drawing evidence requir
  assert.equal(screen(i,{note:context.note+' nD 8 mm nT 10 mm'}).ok,false);
  const j=input();j.evidence.kH={origin:'drawing',reference:'Seite 1',quote:'5 mm',originalValue:5,originalUnit:'mm',page:1};
  assert.equal(screen(j,context).ok,false);
+ j.topology=coaxialDrawingTopology();
  const valid=screen(j,{...context,file:{type:'application/pdf',bytes:new Uint8Array()}});
  assert.equal(valid.ok,true);assert.equal(valid.proposal.drawingInterpretation,true);
 });

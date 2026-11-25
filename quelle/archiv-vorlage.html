@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Manual · Maschinenwahl und Richtpreis · Jern Yao</title>
+<title>Expertenkonfigurator · Jern Yao</title>
 <meta name="robots" content="noindex, nofollow">
 <meta name="description" content="Manuelle Auslegung: Stadienfolge, Werkzeuggröße und passende Jern-Yao-Mehrstufenpressen mit Richtpreis 2026.">
 <link rel="stylesheet" href="https://jernyao.de/assets/fonts.css">
@@ -53,6 +53,31 @@
   .typen label:last-child{ border-right:0; }
   .typen input{ position:absolute; opacity:0; pointer-events:none; }
   .typen label:has(input:checked){ background:var(--navy); color:#fff; }
+  .entry-cards{ margin:24px 0 28px; display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); border:0; overflow:visible; gap:12px; }
+  .entry-cards label{ border:1px solid var(--hair); border-radius:8px; padding:20px 10px; font-size:19px; font-weight:600; }
+  .entry-cards label:last-child{ border-right:1px solid var(--hair); }
+  .entry-cards label:focus-within{ outline:2px solid var(--navy-soft); outline-offset:3px; }
+  .entry-cards small{ display:block; font-size:12px; font-weight:400; margin-top:5px; }
+  .geometry-shell{ border:1px solid var(--hair); border-radius:8px; margin-block:18px; padding:16px; }
+  .geometry-steps{ display:flex; flex-wrap:wrap; gap:6px; margin:0 0 18px; }
+  .geometry-steps button{ font:inherit; font-size:12px; padding:7px 9px; border:1px solid var(--hair); color:var(--ink); background:var(--paper); border-radius:5px; cursor:pointer; }
+  .geometry-steps button[aria-current="step"]{ background:var(--navy); color:var(--paper); border-color:var(--navy); }
+  .geometry-element{ border:1px solid var(--hair); border-radius:6px; padding:12px; margin:12px 0; }
+  .geometry-element header{ display:flex; justify-content:space-between; align-items:center; gap:8px; margin-bottom:10px; padding-bottom:7px; font-size:14px; }
+  .geometry-element button{ font:inherit; font-size:12px; background:var(--paper); border:1px solid var(--hair); color:var(--ink); border-radius:4px; padding:5px 8px; cursor:pointer; }
+  .geometry-sketch svg{ display:block; width:100%; height:auto; background:#f5f8fc; border-radius:6px; }
+  .geometry-measures{ display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); margin:10px 0; gap:8px; }
+  .geometry-measures div{ padding:8px; background:var(--band); border-radius:4px; }
+  .geometry-measures dt{ font-size:12px; color:var(--mid); }.geometry-measures dd{ margin:3px 0 0; font-size:16px; }
+  .geometry-summary{ margin:12px 0; padding-left:20px; font-size:13px; }
+  .geometry-issues{ font-size:13px; padding:10px 14px; background:var(--knapp-bg); color:var(--knapp); border-radius:5px; }
+  .geometry-result{ font-size:14px; }.geometry-result .preview-answer{ white-space:pre-wrap; }
+  .geometry-progress{ display:flex; align-items:center; gap:14px; padding:14px; background:var(--band); border-radius:6px; margin:12px 0; }
+  .geometry-dots{ width:36px; height:36px; position:relative; flex:none; animation:geometry-spin 2s linear infinite; }
+  .geometry-dots i{ position:absolute; left:15px; top:15px; width:6px; height:6px; border-radius:50%; background:var(--navy); transform:rotate(calc(var(--i)*45deg)) translateY(-14px); opacity:calc(.3 + var(--i)*.1); }
+  @keyframes geometry-spin{to{transform:rotate(360deg)}}
+  @media(prefers-reduced-motion:reduce){.geometry-dots{animation:none}}
+  @media(max-width:560px){.entry-cards{gap:6px}.entry-cards label{padding:15px 5px;font-size:15px}.entry-cards small{font-size:10px}.geometry-shell{padding:10px}}
   @media (prefers-color-scheme: dark){ .typen label:has(input:checked){ color:#10141f; } }
   .felder{ display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:10px 14px; }
   .felder .voll{ grid-column:1 / -1; }
@@ -70,31 +95,9 @@
   .check input{ margin-top:4px; }
   .klein{ font-size:12.5px; color:var(--mid); }
   [hidden]{ display:none !important; }
-  .archive-file-status{ display:flex; align-items:flex-start; justify-content:space-between; gap:16px; margin:14px 0; padding:16px; border:2px solid var(--ok); border-radius:7px; background:var(--ok-bg); color:var(--ok); }
-  .archive-file-status[data-state=invalid]{ border-color:var(--nein); background:var(--nein-bg); color:var(--nein); }
-  .archive-file-status strong{ display:block; font-size:15px; }
-  .archive-file-status #archive-file-name{ display:block; margin-top:5px; font-size:16px; font-weight:600; color:var(--ink); overflow-wrap:anywhere; }
-  .archive-file-status #archive-file-size{ display:block; font-size:14px; color:var(--mid); }
-  .archive-file-status p{ margin:8px 0 0; font-size:14px; }
-  .archive-file-status > div{ min-width:0; }
-  .file-remove{ flex-shrink:0; border:1px solid currentColor; border-radius:4px; background:var(--paper); color:var(--ink); padding:7px 10px; font:inherit; font-size:13px; cursor:pointer; }
-  .file-remove:focus-visible{ outline:2px solid var(--navy-soft); outline-offset:3px; }
-  .manual-analysis{ margin:16px 0; }
-  .analysis-progress{ display:flex; gap:18px; align-items:center; margin:16px 0; padding:16px; border:1px solid var(--hair); border-radius:7px; background:var(--band); }
-  .analysis-progress p{ margin:0; font-size:14px; }
-  .analysis-dots{ display:block; position:relative; flex:0 0 48px; width:48px; height:48px; animation:analysis-orbit 1.8s linear infinite; }
-  .analysis-dots i{ position:absolute; left:50%; top:50%; width:7px; height:7px; margin:-3.5px; border-radius:50%; background:var(--navy); transform:rotate(calc(var(--i)*45deg)) translateY(-18px); opacity:calc(.3 + var(--i)*.1); }
-  @keyframes analysis-orbit{ to{ transform:rotate(360deg); } }
-  @media(prefers-reduced-motion:reduce){ .analysis-dots{ animation:none; } }
-  #archive-analysis-status{ margin:12px 0; font-size:14px; }
-  #archive-analysis-status[data-state=error]{ color:var(--nein); }
-  #archive-analysis-result{ margin-top:18px; border-top:2px solid var(--navy); padding-top:16px; overflow-wrap:anywhere; }
-  .preview-answer{ white-space:pre-wrap; }
-  .preview-facts{ margin:14px 0; font-size:14px; }
-  .preview-facts > div{ border-bottom:1px solid var(--hair); padding:7px 0; }
-  .preview-facts dt{ color:var(--mid); }.preview-facts dd{ margin:3px 0 0; }
-  .preview-machine{ padding:14px 0; border-bottom:1px solid var(--hair); }.preview-machine h4{ margin:0 0 8px; font-size:18px; }
-  @media(max-width:560px){ .archive-file-status{ flex-direction:column; gap:12px; } .file-remove{ min-height:44px; } }
+  .drawing-route{ margin:14px 0; padding:16px; border-left:3px solid var(--navy); border-radius:5px; background:var(--band); }
+  .drawing-route p{ margin:0 0 12px; font-size:14px; }
+
 
   .ergebnis{ position:sticky; top:12px; }
   @media (max-width:900px){ .ergebnis{ position:static; } }
@@ -170,7 +173,8 @@
     body{ padding:0; }
   }
 .languages{display:flex;flex-wrap:wrap;gap:5px;justify-content:flex-end;padding:12px 0}.languages button{font:inherit;font-size:.875rem;border:1px solid #a5b5cc;background:#fff;color:#102d66;padding:6px 10px;cursor:pointer}.languages button[aria-pressed="true"]{background:#102d66;color:white}.concept{border-left:3px solid #c74716;padding:12px 16px;margin:18px 0;background:#f3f6fa}.concept h4{margin:0 0 10px;font-size:1rem}.concept ol{padding-left:22px}.concept p{margin:8px 0}.original-language{font-size:.875rem;color:#526176}html[lang="zh-Hans"] h1,html[lang="zh-Hans"] h2{font-family:Inter,"Microsoft YaHei",sans-serif;line-height:1.25}
-.visually-hidden{position:absolute!important;width:1px!important;height:1px!important;padding:0!important;margin:-1px!important;overflow:hidden!important;clip:rect(0,0,0,0)!important;white-space:nowrap!important;border:0!important}.file-choose{font:inherit;border:1px solid #102d66;background:white;color:#102d66;padding:10px 16px;cursor:pointer}</style>
+.visually-hidden{position:absolute!important;width:1px!important;height:1px!important;padding:0!important;margin:-1px!important;overflow:hidden!important;clip:rect(0,0,0,0)!important;white-space:nowrap!important;border:0!important}.formatted-answer{white-space:normal!important}.formatted-answer p{margin:0 0 12px}.formatted-answer ul,.formatted-answer ol{margin:8px 0 14px;padding-left:24px}.formatted-answer li{margin:4px 0}.formatted-answer>:last-child{margin-bottom:0}
+</style>
 
 </head>
 <body>
@@ -185,31 +189,31 @@
     </nav>
   </div>
 </header>
-<div class="testband"><div class="wrap">Testfeld. Grobe Vorauslegung aus Katalogdaten und Erfahrungsregeln, unverbindlich. Verbindlich sind das Datenblatt des Modells und die Prüfung durch Hans Möhling.</div></div>
 
 <main class="wrap">
   <div class="hero">
-    <h1>Manual · Vom Teil zur Maschine</h1>
+    <h1>Expertenkonfigurator</h1>
     <div class="subline">Stadienfolge, Presskraft, Werkzeuggröße und Auswerferwege grob ausgelegt, dazu die passenden Jern-Yao-Modelle mit Richtpreis 2026.</div>
     <div class="rule"></div>
-    <p class="lede">Hüllmaße des Teils eintragen, gerechnet wird sofort im Browser. Gespeichert wird nichts. Wer seine Werkzeuge schon kennt, gibt Matrize, Stempel und Auswerferwege vor; sonst schätzt die Rechnung sie aus dem Teil.</p>
+    <p class="lede">Schrauben und Muttern direkt auslegen. Formteile aus Körpern und Aussparungen aufbauen und ein Stadienkonzept ableiten.</p>
     <div class="beispiele">Beispiele mit C4C, weichgeglüht:
       <button type="button" class="chip" data-bsp="m8">M8-Flanschschraube</button>
       <button type="button" class="chip" data-bsp="m6">M6-Zylinderschraube mit Innensechskant</button>
       <button type="button" class="chip" data-bsp="mu">M10-Mutter</button>
-      <button type="button" class="chip" data-bsp="hu">Bundhülse, gelocht</button>
     </div>
+  </div>
+
+  <div class="typen entry-cards" role="radiogroup" aria-label="Teileart">
+    <label><input type="radio" name="typ" value="bolzen" form="f" checked>Schrauben<small>Bolzen und Schrauben</small></label>
+    <label><input type="radio" name="typ" value="formteil" form="f">Formteile<small>Parts Former</small></label>
+    <label><input type="radio" name="typ" value="mutter" form="f">Muttern<small>Klassische Muttern</small></label>
   </div>
 
   <div class="grid">
     <form id="f" autocomplete="off" novalidate>
       <fieldset id="teil">
         <legend>1 · Teil</legend>
-        <div class="typen" role="radiogroup" aria-label="Teileart">
-          <label><input type="radio" name="typ" value="bolzen" checked>Schraube, Bolzen</label>
-          <label><input type="radio" name="typ" value="formteil">Formteil, Hülse</label>
-          <label><input type="radio" name="typ" value="mutter">Mutter</label>
-        </div>
+        <div id="standard-drawing-note" class="drawing-route"><p>Abweichende Geometrie? Im Formteile-Baukasten aufbauen oder als Zeichnung einreichen.</p><a id="standard-drawing-route" class="knopf zwei" data-language-link href="/#einstieg">Zur Zeichnungsanalyse</a></div>
         <div class="felder">
           <label class="feld voll"><span>Draht / Lieferzustand</span><select name="wst"></select></label>
           <p class="klein voll">Die Auswahl enthält Drähte mit belegtem Fließkurvenansatz. Weitere Werkstoffe oder Lieferzustände bitte über die Zeichnungsanfrage einreichen.</p>
@@ -222,7 +226,25 @@
           <label class="feld voll"><span><b>Draht-Ø an der Presse</b> in mm</span><input type="text" inputmode="decimal" name="d0" placeholder="z. B. 7,6"></label>
         </div>
 
-        <div data-fuer="bolzen formteil">
+        <div id="geometry-panel" hidden>
+          <div id="geometry-wizard" class="geometry-shell"></div>
+          <label class="feld"><span>Ergänzungen zum Stadienkonzept</span><textarea id="geometry-note" rows="3"></textarea></label>
+          <div class="knoepfe"><button type="button" class="knopf" id="geometry-analyse" disabled>Stadienkonzept mit KI ausarbeiten</button><button type="button" class="knopf zwei" id="geometry-refresh" hidden>Stand aktualisieren</button></div>
+          <div id="geometry-progress" class="geometry-progress" hidden><div class="geometry-dots" aria-hidden="true"><i style="--i:0"></i><i style="--i:1"></i><i style="--i:2"></i><i style="--i:3"></i><i style="--i:4"></i><i style="--i:5"></i><i style="--i:6"></i><i style="--i:7"></i></div><p>Das Stadienkonzept wird ausgearbeitet. Wir prüfen Geometrie, Umformschritte und passende Maschinen.</p></div>
+          <p id="geometry-status" role="status" aria-live="polite" hidden></p>
+          <div id="geometry-result" class="geometry-result" hidden></div>
+          <p class="klein"><a id="special-drawing-route" data-language-link href="/#einstieg">Zur Zeichnungsanalyse</a></p>
+        </div>
+
+        <div id="standard-part-fields">
+
+        <div data-fuer="bolzen">
+          <div class="felder">
+            <label class="feld voll"><span>Teilefamilie</span><select name="standardKind" id="standard-kind"><option value="screw">Schraube</option><option value="rivet">Niet</option><option value="pin">Bolzen</option><option value="headless">Kopfloses Teil</option></select></label>
+            <label class="feld voll" id="standard-norm-field"><span>Normfamilie</span><select name="standardNorm" id="standard-norm"></select></label>
+            <label class="feld voll"><span>Gewindefamilie</span><select name="threadFamily"><option value="metric">Metrisches Gewinde</option><option value="trilobular">Trilobulares Gewinde</option><option value="duo-taptite">Duo-Taptite</option><option value="self-tapping">Schneidgewinde</option><option value="thermoplastic">Thermoplast</option></select></label>
+          </div>
+          <div id="bolt-head">
           <h3>Kopf oder Bund</h3>
           <div class="felder">
             <label class="feld voll"><span>Form</span>
@@ -230,18 +252,26 @@
                 <option value="rund">rund, Zylinder- oder Flanschkopf</option>
                 <option value="sechskant">Sechskant, gestaucht</option>
                 <option value="abgratet">Sechskant, rund gestaucht und abgegratet</option>
+                <option value="none">Ohne Kopf</option>
+                <option value="krallen">Krallenkopf / Umspritz-Mitnahmeprofil</option>
               </select></label>
             <label class="feld"><span>Größter Ø in mm</span><input type="text" inputmode="decimal" name="kD"></label>
             <label class="feld" data-kopf="sechskant abgratet"><span>Schlüsselweite in mm</span><input type="text" inputmode="decimal" name="kSW"></label>
             <label class="feld"><span>Höhe in mm</span><input type="text" inputmode="decimal" name="kH"></label>
+            <label class="feld voll" data-kopf="krallen"><span>Kopf-Außenkonturvolumen ohne Innenantrieb in mm³ (optional)</span><input type="text" inputmode="decimal" name="kVol"></label>
+          </div>
           </div>
           <h3>Schaft</h3>
           <div class="felder">
-            <label class="feld"><span>Ø in mm (leer: wie Draht)</span><input type="text" inputmode="decimal" name="sD"></label>
-            <label class="feld"><span>Länge unter Kopf in mm</span><input type="text" inputmode="decimal" name="sL"></label>
+            <label class="feld"><span>Schaft- / Hüll-Ø in mm</span><input type="text" inputmode="decimal" name="sD"></label>
+            <label class="feld"><span>Gesamtschaftlänge in mm</span><input type="text" inputmode="decimal" name="sL"></label>
+            <label class="feld voll" data-thread="trilobular duo-taptite" hidden><span>Rohling-Querschnittsfläche in mm²</span><input type="text" inputmode="decimal" name="sArea"></label>
+            <label class="feld" data-thread="duo-taptite self-tapping thermoplastic" hidden><span>Spitzenlänge in mm (in Gesamtschaftlänge enthalten)</span><input type="text" inputmode="decimal" name="tipLength"></label>
+            <label class="feld" data-thread="self-tapping thermoplastic" hidden><span>End-Ø der konischen Spitze in mm</span><input type="text" inputmode="decimal" name="tipDiameter"></label>
+            <label class="feld" data-thread="duo-taptite" hidden><span>Querschnittsfläche des Spitzenabschnitts in mm²</span><input type="text" inputmode="decimal" name="tipArea"></label>
           </div>
           <div data-fuer="bolzen">
-            <h3>Innenantrieb im Kopf</h3>
+            <h3>Innenantrieb</h3>
             <div class="felder">
               <label class="feld voll"><span>Antriebsprofil</span><select name="iTyp">
                 <option value="none">Kein Innenantrieb</option>
@@ -259,33 +289,26 @@
               <p class="klein">Die Profilgröße bestimmt die Antriebsform. Das verdrängte Volumen kommt aus der Zeichnung oder CAD; bis dahin bleibt die Abschnittlänge offen. Eine angegebene Teilmasse bestimmt die Abschnittlänge ebenfalls.</p>
             </details>
           </div>
-          <div data-fuer="formteil">
-            <h3>Napf oder Bohrung</h3>
-            <div class="felder">
-              <label class="feld"><span>Ø in mm</span><input type="text" inputmode="decimal" name="nD"></label>
-              <label class="feld"><span>Tiefe in mm</span><input type="text" inputmode="decimal" name="nT"></label>
-              <label class="check voll"><input type="checkbox" name="nDurch"> durchgehend, gelocht</label>
-            </div>
-          </div>
         </div>
 
         <div data-fuer="mutter" hidden>
           <h3>Mutter</h3>
           <div class="felder">
+            <label class="feld voll"><span>Normfamilie</span><select name="nutNorm" id="nut-norm"></select></label>
             <label class="feld"><span>Gewinde M (Nenn-Ø) in mm</span><input type="text" inputmode="decimal" name="mM"></label>
             <label class="feld"><span>Schlüsselweite in mm</span><input type="text" inputmode="decimal" name="mSW"></label>
             <label class="feld"><span>Höhe in mm</span><input type="text" inputmode="decimal" name="mH"></label>
             <label class="feld"><span>Loch-Ø in mm (leer: 0,84 × M)</span><input type="text" inputmode="decimal" name="mLoch"></label>
-            <label class="feld"><span>Flansch-Ø in mm</span><input type="text" inputmode="decimal" name="mFlansch"></label>
-            <label class="feld"><span>Flanschhöhe in mm</span><input type="text" inputmode="decimal" name="mFlanschH"></label>
           </div>
+          <p class="klein">Flanschmuttern werden im Formteil-Baukasten ausgelegt.</p><button type="button" id="flange-nut-route" class="knopf zwei">Flanschmutter als Formteil</button>
         </div>
         <div class="felder" style="margin-top:12px">
           <label class="feld voll"><span>Masse in g (optional, ersetzt das Volumen aus den Maßen)</span><input type="text" inputmode="decimal" name="masse"></label>
         </div>
+        </div>
       </fieldset>
 
-      <fieldset>
+      <fieldset id="manual-tools">
         <legend>2 · Werkzeug und Auswerfer</legend>
         <div class="felder">
           <label class="feld voll"><span><b>Werkzeugtrennkante</b>: Teillänge im Stempel in mm</span><input type="text" inputmode="decimal" name="lStempel"></label>
@@ -303,26 +326,11 @@
         </div>
       </fieldset>
 
-      <fieldset>
-        <legend>3 · Zeichnung (optional)</legend>
-        <div class="feld"><span id="archive-file-types">PDF, Bild, DXF oder STEP</span><button type="button" class="file-choose" id="archive-choose-file" aria-describedby="archive-file-types archive-file-name">Datei auswählen</button><input hidden aria-hidden="true" tabindex="-1" type="file" name="zeichnung" accept=".pdf,.png,.jpg,.jpeg,.webp,.tif,.tiff,.dxf,.dwg,.step,.stp,.igs,.iges"></div>
-        <div id="archive-file-status" class="archive-file-status" role="status" aria-live="polite" aria-atomic="true" hidden>
-          <div><strong id="archive-file-state" data-original-text></strong><span id="archive-file-name" data-original-text></span><span id="archive-file-size" data-original-text></span><p id="archive-file-error" data-original-text hidden></p></div>
-          <button type="button" class="file-remove" id="archive-remove-file">Datei entfernen</button>
-        </div>
-        <div class="manual-analysis">
-          <label class="feld" for="archive-drawing-note"><span>Angaben zur Zeichnung</span><textarea id="archive-drawing-note" name="drawingNote" rows="3" maxlength="12000" placeholder="Zum Beispiel Werkstoff, fehlende Maße oder Antworten auf Rückfragen."></textarea></label>
-          <button type="button" class="knopf" id="archive-analyse" hidden>Zeichnung mit KI auswerten</button>
-          <div id="archive-analysis-progress" class="analysis-progress" hidden><span class="analysis-dots" aria-hidden="true"><i style="--i:0"></i><i style="--i:1"></i><i style="--i:2"></i><i style="--i:3"></i><i style="--i:4"></i><i style="--i:5"></i><i style="--i:6"></i><i style="--i:7"></i></span><p>Die Zeichnungsanalyse benötigt etwas Zeit. Wir prüfen Maße, Umformschritte und passende Maschinen.</p></div>
-          <p id="archive-analysis-status" role="status" aria-live="polite" hidden></p>
-          <button type="button" class="knopf zwei" id="archive-analysis-refresh" hidden>Stand aktualisieren</button>
-          <div id="archive-analysis-result" aria-label="Analyseergebnis" hidden></div>
-        </div>
-        <p class="klein">Für die KI-Auswertung wird die Datei erst nach Ihrem Klick übertragen. Die Anfrage an Hans Möhling senden Sie separat.</p>
-      </fieldset>
+
     </form>
 
     <div class="ergebnis" id="ergebnis" aria-live="polite">
+      <div id="geometry-view" hidden></div>
       <div class="leer" id="leer">Mit Draht-Ø und den Hüllmaßen des Teils erscheinen hier Stadienfolge, Werkzeuggröße und die passenden Modelle. Ein Beispiel oben zeigt den Ablauf.</div>
       <div id="empty-visual" class="empty-visual" hidden>
         <h2>Vom Fertigteil zum Umformkonzept.</h2>
@@ -335,9 +343,10 @@
       <div id="aus" hidden>
         <h2>Grobauslegung</h2><p class="klein" id="material-basis"></p>
         <dl class="kenn" id="kenn"></dl>
+        <p class="klein" id="mass-basis" hidden></p>
         <p class="klein" id="inline-drawing-summary" hidden></p>
-        <h3>Stadienfolge</h3>
-        <table id="stufen"><thead><tr><th>Station</th><th>Vorgang</th><th style="text-align:right">Kraft</th><th style="text-align:right">Druck N/mm²</th><th style="text-align:right">Matrize Ø min</th></tr></thead><tbody></tbody></table>
+        <h3 id="stages-heading">Stadienfolge</h3>
+        <table id="stufen"><thead><tr><th id="stage-column-heading">Station</th><th>Vorgang</th><th style="text-align:right">Kraft</th><th style="text-align:right">Druck N/mm²</th><th style="text-align:right">Matrize Ø min</th></tr></thead><tbody></tbody></table>
         <div class="gruppe">
           <h2>Passende Maschinen</h2>
           <p class="klein" id="preisnote">Richtpreis 2026 in EUR, FOB Kaohsiung, Grundausstattung 2026, unverbindlich. Die Spanne zeigt die Unsicherheit der Ableitung. Die Planungsausbringung ist ein Erfahrungswert aus der Serienfertigung; der Katalog nennt die Höchstdrehzahl der Maschine.</p>
@@ -351,7 +360,7 @@
   <section class="anfrage" id="anfrage">
     <p id="selected-machine" class="klein" role="status" aria-live="polite" hidden></p>
     <h2>Richtpreisangebot anfragen</h2>
-    <p class="lede" style="margin-top:10px">Mit dieser Anfrage senden Sie Ihre Angaben und die Zeichnung an Hans Möhling. Eine neue KI-Auswertung wird dabei nicht gestartet.</p>
+    <p class="lede" style="margin-top:10px">Mit dieser Anfrage senden Sie Ihre Angaben und die berechnete Zusammenfassung an Hans Möhling.</p>
     <form id="a" autocomplete="on">
       <div class="felder">
         <label class="feld"><span>Name</span><input type="text" name="name" autocomplete="name"></label>
@@ -377,7 +386,7 @@
   <div class="wrap">
     <div>Jern Yao Vertretung für den deutschen Sprachraum · Hans Möhling · <a href="mailto:info@jernyao.de">info@jernyao.de</a> · +49 171 10 700 10</div>
     <details><summary>Impressum</summary><p>Hans Möhling · Exklusivvertretung Jern Yao Enterprises Co., Ltd. für Deutschland, Österreich und die Schweiz. E-Mail: jernyao@techno.parts · Telefon: +49 171 10 700 10</p></details>
-    <details><summary>Datenschutz</summary><p>Die manuelle Rechnung läuft im Browser. Für die optionale KI-Auswertung wird Ihre Zeichnung im privaten Cloudflare-Speicher bis zu 30 Tage gespeichert und von Anthropic verarbeitet. Eine Anfrage übermittelt Ihre Kontaktangaben und die Zeichnung über Resend an Hans Möhling. Nur Ihre Sprachwahl wird lokal gespeichert. Beim Hosting fallen technische Zugriffsprotokolle an.</p></details>
+    <details><summary>Datenschutz</summary><p>Die Geometrieberechnung läuft im Browser. Mit „Stadienkonzept mit KI ausarbeiten“ werden die Geometrie, Werkstoffangaben und Ergänzungen zur KI-Auswertung übertragen. Erst mit „Anfrage an Hans senden“ werden Ihre Kontaktdaten, Notiz und Zusammenfassung über Resend an Hans Möhling übermittelt. Die Zeichnungsanalyse finden Sie auf der Hauptseite. Nur Ihre Sprachwahl wird lokal gespeichert. Beim Hosting fallen technische Zugriffsprotokolle an.</p></details>
   </div>
 </footer>
 
@@ -388,7 +397,11 @@
 <script>/*I18N_BROWSER*/</script>
 <script>/*ENGINE*/</script>
 <script>/*CONCEPT_UI*/</script>
+<script>/*ANSWER_FORMAT*/</script>
 <script>/*DRAWING_PREVIEW*/</script>
+<script>/*GEOMETRY_MODEL*/</script>
+<script>/*GEOMETRY_WIZARD*/</script>
+<script>/*STANDARD_FAMILIES*/</script>
 <script>/*ARCHIVE_UI*/</script>
 </body>
 </html>

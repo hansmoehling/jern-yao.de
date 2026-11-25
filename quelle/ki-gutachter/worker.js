@@ -1,5 +1,6 @@
 import { analyse, publicResult, loadKnowledge, MODEL, providerFailure, recordServiceDiagnostic } from './analysis.js';
 import I18N from '../i18n.js';
+import { geometryContext } from './geometry-context.js';
 const {t,normalizeLanguage}=I18N;
 
 const TTL = 30 * 86400;
@@ -35,9 +36,9 @@ async function readiness(env) {
   return { ready: Object.values(checks).every(Boolean), checks, knowledgeStatus, credentialsVerified: false, model: env.MODELL || MODEL };
 }
 async function requireReady(env) { if (!Object.entries(configured(env)).filter(([name])=>name!=='model').every(([,ready])=>ready)) throw new HttpError(503, 'Der Anfragedienst wird noch eingerichtet. Bitte wenden Sie sich direkt an Hans.'); }
-async function requirePreviewReady(env) {
+async function requirePreviewReady(env,{geometry=false}={}) {
   const {checks}=await readiness(env);
-  if (!Object.entries(checks).filter(([name])=>name!=='mail').every(([,ready])=>ready)) throw new HttpError(503, 'Die Zeichnungsanalyse wird noch eingerichtet. Bitte versuchen Sie es später erneut.');
+  if (!Object.entries(checks).filter(([name])=>name!=='mail'&&(!geometry||name!=='files')).every(([,ready])=>ready)) throw new HttpError(503, 'Die Zeichnungsanalyse wird noch eingerichtet. Bitte versuchen Sie es später erneut.');
 }
 async function readBounded(req, max) {
   if (Number(req.headers.get('content-length')) > max) throw new HttpError(413, 'Die Anfrage ist zu groß.');
@@ -122,6 +123,38 @@ async function preview(req,env,cors,locale) {
   try{await enqueuePreview(env,id);}catch{throw new HttpError(503,'Die Übertragung wurde unterbrochen. Bitte senden Sie dieselbe Anfrage erneut.');}
   return json({id,token:await tokenFor(env,id),kind:'preview',status:'queued',notificationStatus:'not_requested',language,pricePolicy},202,cors);
 }
+async function geometryPreview(req,env,cors,locale) {
+  let body;try{body=JSON.parse(new TextDecoder().decode(await readBounded(req,64000)));}catch(error){if(error instanceof HttpError)throw error;throw new HttpError(400,'Die Nachricht konnte nicht gelesen werden.');}
+  if(!body||typeof body!=='object'||Array.isArray(body))throw new HttpError(400,'Die Nachricht konnte nicht gelesen werden.');
+  const language=normalizeLanguage(body.language||locale.value);locale.value=language;
+  await requirePreviewReady(env,{geometry:true});
+  const geometry=geometryContext(body.geometrySpec,body);
+  if(!geometry.ok)return json({error:t('Bitte die strukturierte Geometrie und den Drahtprozess prüfen.',language),issues:geometry.errors,language},400,cors);
+  const idem=txt(body.idempotency_key,160);
+  if(!/^[\w-]{16,160}$/.test(idem))throw new HttpError(400,'Die Anfragekennung ist ungültig.');
+  const siteOrigin=req.headers.get('Origin')||null,pricePolicy=requestPricePolicy(req,body.pricePolicy),note=txt(body.note,20000);
+  const geometrySpec=geometry.spec,geometryProcess=geometry.process;
+  const fingerprint=await digest(JSON.stringify({geometrySpec,geometryProcess,note,language,siteOrigin,pricePolicy}));
+  const idemKey='geometrie-idempotenz:'+await digest(siteOrigin+':'+idem),old=await get(env,idemKey);
+  if(old){
+    if(old.fingerprint!==fingerprint)throw new HttpError(409,'Diese Anfragekennung gehört bereits zu anderen Angaben. Bitte senden Sie eine neue Anfrage.');
+    const saved=await get(env,'anfrage:'+old.id);
+    if(saved?.kind!=='preview'||saved.previewSource!=='structured_geometry')throw new HttpError(503,'Die Vorschau konnte gerade nicht geladen werden. Bitte versuchen Sie es erneut.');
+    if(!await get(env,'vorschauauftrag:'+old.id))await enqueuePreview(env,old.id);
+    const state=await snapshot(env,old.id,requestPricePolicy(req,pricePolicy,saved));if(!state.answer)state.language=language;
+    return json({id:old.id,token:await tokenFor(env,old.id),...state,kind:'preview',previewSource:'structured_geometry',notificationStatus:'not_requested'},200,cors);
+  }
+  // Geometry and file previews share the same cost budget. A second route must
+  // not double the number of newly accepted analysis jobs.
+  await throttle(req,env,'preview',10);
+  const id=crypto.randomUUID(),createdAt=new Date().toISOString();
+  await put(env,'anfrage:'+id,{id,kind:'preview',previewSource:'structured_geometry',createdAt,note,geometrySpec,geometryProcess,language,siteOrigin,pricePolicy});
+  await put(env,'analyse:'+id,{status:'queued',updatedAt:createdAt});
+  await put(env,'nachricht:'+id,{status:'not_requested',updatedAt:createdAt});
+  await put(env,idemKey,{id,fingerprint});
+  try{await enqueuePreview(env,id);}catch{throw new HttpError(503,'Die Übertragung wurde unterbrochen. Bitte senden Sie dieselbe Anfrage erneut.');}
+  return json({id,token:await tokenFor(env,id),kind:'preview',previewSource:'structured_geometry',status:'queued',notificationStatus:'not_requested',language,pricePolicy},202,cors);
+}
 async function intake(req, env, cors, locale) {
   const bytes = await readBounded(req, MAX_FILE + 128 * 1024);
   let form; try { form = await new Request(req.url, { method: 'POST', headers: req.headers, body: bytes }).formData(); } catch { throw new HttpError(400, 'Das Formular konnte nicht gelesen werden.'); }
@@ -183,7 +216,7 @@ async function chat(req, env, cors, locale) {
   await throttle(req, env, 'chat', 40);
   const file = request?.file?.readable ? await readFile(env, request.file) : null;
   let result;
-  try { result = await analyse({ note: request?.note || '', message, history, file, filename: request?.file?.name, unreadableFile: !!request?.file && !request.file.readable, language: locale.value,pricePolicy }, env, { timeoutMs: 65000, maxRounds: 5 }); }
+  try { result = await analyse({ note: request?.note || '', message, history, file, filename: request?.file?.name, unreadableFile: !!request?.file && !request.file.readable, geometrySpec:request?.geometrySpec,geometryProcess:request?.geometryProcess, language: locale.value,pricePolicy }, env, { timeoutMs: 65000, maxRounds: 5 }); }
   catch (error) { await recordServiceDiagnostic(env, error, 'chat'); throw new HttpError(503, 'Die Antwort konnte gerade nicht fertiggestellt werden. Ihre bisherige Anfrage bleibt erhalten. Bitte versuchen Sie es erneut.'); }
   if (request) {
     await put(env, 'chat:' + request.id, [...history, { role: 'user', content: message }, { role: 'assistant', content: result.answer }].slice(-20));
@@ -226,7 +259,7 @@ async function queued(message, env) {
       if (['ready', 'needs_info'].includes(old?.status)||isPreview&&old?.status==='failed') { message.ack(); return; }
       await put(env, key, { status: 'processing', updatedAt: new Date().toISOString() });
       const file = record.file?.readable ? await readFile(env, record.file) : null;
-      const result = await analyse({ note: record.note, file, filename: record.file?.name, unreadableFile: !!record.file && !record.file.readable, language: normalizeLanguage(record.language),pricePolicy:storedPricePolicy(record) }, env, { timeoutMs: 240000, maxRounds: 7 });
+      const result = await analyse({ note: record.note, file, filename: record.file?.name, unreadableFile: !!record.file && !record.file.readable, geometrySpec:record.geometrySpec,geometryProcess:record.geometryProcess, language: normalizeLanguage(record.language),pricePolicy:storedPricePolicy(record) }, env, { timeoutMs: 240000, maxRounds: 7 });
       const latest = await get(env, key);
       if (!['ready', 'needs_info'].includes(latest?.status)) await put(env, key, { status: result.questions.length ? 'needs_info' : 'ready', result, updatedAt: new Date().toISOString() });
     }
@@ -237,7 +270,7 @@ async function queued(message, env) {
     const latest = await get(env, key);
     if (isAnalysis && ['ready', 'needs_info'].includes(latest?.status) || kind === 'intake_mail' && latest?.status === 'sent') { message.ack(); return; }
     const language = normalizeLanguage(record?.language);
-    await put(env, key, { status: final ? 'failed' : isAnalysis ? 'queued' : 'pending', updatedAt: new Date().toISOString(), ...(isAnalysis && final ? { result: { answer: t(isPreview?'Die Zeichnung konnte nicht vollständig ausgewertet werden. Bitte prüfen Sie die Datei oder ergänzen Sie eine lesbare PDF-/Bildansicht.':'Die automatische Ausarbeitung konnte nicht abgeschlossen werden. Ihre Anfrage ist gespeichert.', language), questions: [], proposal: null, sources: [], language } } : {}) });
+    await put(env, key, { status: final ? 'failed' : isAnalysis ? 'queued' : 'pending', updatedAt: new Date().toISOString(), ...(isAnalysis && final ? { result: { answer: t(record?.previewSource==='structured_geometry'?'Die strukturierte Geometrie konnte nicht vollständig ausgearbeitet werden. Ihre Eingaben bleiben gespeichert.':isPreview?'Die Zeichnung konnte nicht vollständig ausgewertet werden. Bitte prüfen Sie die Datei oder ergänzen Sie eine lesbare PDF-/Bildansicht.':'Die automatische Ausarbeitung konnte nicht abgeschlossen werden. Ihre Anfrage ist gespeichert.', language), questions: [], proposal: null, sources: [], language } } : {}) });
     if(isPreview&&final){message.ack();return;}
     message.retry({ delaySeconds: 60 }); // Exhausted jobs reach the configured dead-letter queue.
   }
@@ -254,8 +287,9 @@ export default {
       if (url.pathname === '/health' && req.method === 'GET') return json(await readiness(env), 200, cors);
       if (url.pathname === '/anfrage' && req.method === 'POST') return await intake(req, env, cors, locale);
       if (url.pathname === '/preview' && req.method === 'POST') return await preview(req, env, cors, locale);
+      if (url.pathname === '/geometry-preview' && req.method === 'POST') return await geometryPreview(req, env, cors, locale);
       if (url.pathname === '/chat' && req.method === 'POST') return await chat(req, env, cors, locale);
-      if (url.pathname === '/status' && req.method === 'GET') { const a = await authorised(env, url.searchParams.get('id'), url.searchParams.get('token')); const state = await snapshot(env, a.id,requestPricePolicy(req,url.searchParams.get('pricePolicy'),a),a.kind); if (!state.answer) state.language = normalizeLanguage(a.language); return json({...state,...(a.kind==='preview'?{kind:'preview',notificationStatus:'not_requested'}:{})}, 200, cors); }
+      if (url.pathname === '/status' && req.method === 'GET') { const a = await authorised(env, url.searchParams.get('id'), url.searchParams.get('token')); const state = await snapshot(env, a.id,requestPricePolicy(req,url.searchParams.get('pricePolicy'),a),a.kind); if (!state.answer) state.language = normalizeLanguage(a.language); return json({...state,...(a.kind==='preview'?{kind:'preview',notificationStatus:'not_requested',...(a.previewSource==='structured_geometry'?{previewSource:a.previewSource}:{})}:{})}, 200, cors); }
       return json({ error: t('Nicht gefunden.', locale.value), language: locale.value }, 404, cors);
     } catch (e) { if (!(e instanceof HttpError)) await recordServiceDiagnostic(env, e, url.pathname === '/chat' ? 'chat' : 'request'); return json({ error: t(e instanceof HttpError ? e.message : 'Der Dienst konnte die Anfrage gerade nicht abschließen.', locale.value), language: locale.value }, e.status || 503, cors); }
   },

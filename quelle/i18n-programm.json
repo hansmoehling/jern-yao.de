@@ -1,0 +1,110 @@
+{
+  "Das Programm": [
+    "Il programma",
+    "Program",
+    "The range",
+    "產品系列"
+  ],
+  "Drei Baureihen, ein Prinzip": [
+    "Tre serie, un principio",
+    "Tri serije, eno načelo",
+    "Three series, one principle",
+    "三大系列,同一原則"
+  ],
+  "Vom zweistufigen Schraubenrohling bis zum siebenstufigen Umformteil: jede Baureihe deckt ihren Bereich in fein gestuften Maschinengrößen ab, durchgehend metrisch projektiert.": [
+    "Dal grezzo a due stazioni al pezzo stampato a sette stazioni: ogni serie copre il suo campo in taglie macchina finemente graduate, progettate interamente in metrico.",
+    "Od dvostopenjskega surovca vijaka do sedemstopenjskega preoblikovanca: vsaka serija pokriva svoje področje v fino stopnjevanih velikostih strojev, dosledno metrično projektirano.",
+    "From the two-die screw blank to the seven-die formed part: each series covers its field in finely graduated machine sizes, metrically engineered throughout.",
+    "從二模螺絲胚到七模成型件:各系列以精細分級的機型涵蓋其範圍,全程公制設計。"
+  ],
+  "Baureihe": [
+    "Serie",
+    "Serija",
+    "Series",
+    "系列"
+  ],
+  "Stationen": [
+    "Stazioni",
+    "Stopnje",
+    "Dies",
+    "模數"
+  ],
+  "Abschnitt-Ø": [
+    "Ø di taglio",
+    "Premer odreza",
+    "Cut-off Ø",
+    "最大切斷直徑"
+  ],
+  "Produktbereich": [
+    "Campo",
+    "Področje",
+    "Product range",
+    "範圍"
+  ],
+  "Hubzahl": [
+    "Colpi",
+    "Hodi",
+    "Stroke rate",
+    "產能"
+  ],
+  "Bolt Formers": [
+    "Bolt Formers",
+    "Bolt Formers",
+    "Bolt Formers",
+    "螺栓成型機"
+  ],
+  "M3–M30, Abschnittlänge bis 480 mm": [
+    "M3–M30, lunghezza di taglio fino a 480 mm",
+    "M3–M30, dolžina odreza do 480 mm",
+    "M3–M30, cut-off length up to 480 mm",
+    "M3–M30,切斷長度至 480 mm"
+  ],
+  "bis 300 min": [
+    "fino a 300 min",
+    "do 300 min",
+    "up to 300 min",
+    "至 300 min"
+  ],
+  "Parts Formers": [
+    "Parts Formers",
+    "Parts Formers",
+    "Parts Formers",
+    "零件成型機"
+  ],
+  "Abschnittlänge bis 450 mm, Presskraft bis 930 t": [
+    "Lunghezza di taglio fino a 450 mm, forza fino a 930 t",
+    "Dolžina odreza do 450 mm, sila stiskanja do 930 t",
+    "Cut-off length up to 450 mm, forging force up to 930 t",
+    "切斷長度至 450 mm,壓造力至 930 噸"
+  ],
+  "bis 320 min": [
+    "fino a 320 min",
+    "do 320 min",
+    "up to 320 min",
+    "至 320 min"
+  ],
+  "Nut Formers": [
+    "Nut Formers",
+    "Nut Formers",
+    "Nut Formers",
+    "螺帽成型機"
+  ],
+  "M3–M33, auch Long-Stroke": [
+    "M3–M33, anche versioni long-stroke",
+    "M3–M33, tudi long-stroke izvedbe",
+    "M3–M33, long-stroke versions available",
+    "M3–M33,亦有長衝程機型"
+  ],
+  "bis 450 min": [
+    "fino a 450 min",
+    "do 450 min",
+    "up to 450 min",
+    "至 450 min"
+  ],
+  "Spannweiten nach Werksangaben; verbindlich ist das Datenblatt des jeweiligen Modells. Datenblätter auf Anfrage.": [
+    "Valori secondo dati di fabbrica; fa fede la scheda tecnica del singolo modello. Schede tecniche su richiesta.",
+    "Razponi po podatkih tovarne; zavezujoč je podatkovni list posameznega modela. Podatkovni listi na zahtevo.",
+    "Ranges as per works data; the datasheet of the individual model is binding. Datasheets on request.",
+    "規格依原廠資料;以各機型之型錄為準。型錄備索。"
+  ]
+}

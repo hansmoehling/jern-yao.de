@@ -3,6 +3,25 @@
   "retrievedAt": "2026-11-25",
   "scope": "Alle 58 Katalogzeilen unverändert; Eigenschaftswerte sind zustands-/produktbezogene Herstellerangaben, keine Chargenprüfung und keine Fließkurvenfreigabe.",
   "catalogueUrl": "https://moehling.com/de/produkte/materialien.html",
+  "densityReferences": [
+    {
+      "id": "reference-steel-density",
+      "property": "density",
+      "status": "group-reference-approximation",
+      "value": 7.85,
+      "unit": "g/cm3",
+      "valueType": "reference-calculation-density",
+      "sourceTitle": "ArcelorMittal Orange Book · Dimensions of sections · 2.1 Mass",
+      "sourceUrl": "https://orangebook.arcelormittal.com/index.php/explanatory-notes/welded-sections/dimensions-of-sections",
+      "evidence": "Der Hersteller verwendet 7850 kg/m³ ausdrücklich als Dichteannahme für die Massenberechnung von Stahlprofilen.",
+      "application": "Gesonderte technische Gruppenannahme für die unten genannten un- und niedriglegierten Stähle, nur falls die Katalogidentität bisher keine Dichte hat. Kein Dichtenachweis für die genaue Drahtsorte, ihren Lieferzustand oder die Charge; keine Übertragung von Festigkeitsdaten oder Fließkurven.",
+      "materialNumbers": ["1.0303", "1.0213", "1.1172", "1.1192", "1.7003", "1.7006", "1.7033", "1.7034", "1.7035", "1.7220", "1.7225", "1.6582", "1.5508", "1.5510", "1.7077", "1.1132", "1.7016", "1.7131", "1.6523", "1.5918"],
+      "materialIds": ["AISI 1010"],
+      "eligibleForFlowCurve": false,
+      "eligibleForForceCalculation": false,
+      "retrievedAt": "2026-11-25"
+    }
+  ],
   "materials": [
     {
       "name": "C4C",

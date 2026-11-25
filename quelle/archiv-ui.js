@@ -18,27 +18,6 @@
   const h = s => esc(tr(s));
   const msg = (key, values) => tr(key).replace(/\{(\w+)\}/g, (match, name) => Object.hasOwn(values, name) ? String(values[name]) : match);
   const rendered = (node, html) => { node.dataset.originalText = ''; node.innerHTML = html; };
-  const drawingFormats=/\.(pdf|png|jpg|jpeg|webp|tif|tiff|dxf|dwg|step|stp|igs|iges)$/i;
-  let rejectedDrawing=null,drawingPreview=null;
-  function zeichnungStatus() {
-    const file=f.elements.zeichnung.files[0]||rejectedDrawing?.file,invalid=!!rejectedDrawing;
-    const box=$('archive-file-status');box.hidden=!file;box.dataset.state=invalid?'invalid':'ready';
-    const values={
-      'archive-file-state':file?tr(invalid?'Dateiauswahl prüfen':'Datei ausgewählt'):'',
-      'archive-file-name':file?.name||'',
-      'archive-file-size':file&&Number.isFinite(file.size)?(file.size>=1e6?fmt(file.size/1e6,1)+' MB':file.size>=1000?fmt(file.size/1000,1)+' kB':fmt(file.size,0)+' B'):'',
-      'archive-file-error':invalid?tr(rejectedDrawing.error):''
-    };
-    for(const [id,value]of Object.entries(values)){const node=$(id);node.dataset.originalText='';node.textContent=value;}
-    $('archive-file-error').hidden=!invalid;
-    drawingPreview?.update();
-  }
-  function zeichnungGeaendert() {
-    const file=f.elements.zeichnung.files[0];rejectedDrawing=null;
-    const error=file&&!drawingFormats.test(file.name)?'Dieses Dateiformat wird hier nicht unterstützt. Bitte wählen Sie ein angegebenes Format.':file?.size===0?'Die ausgewählte Datei ist leer. Bitte wählen Sie die Zeichnung erneut aus.':'';
-    if(error){rejectedDrawing={file,error};f.elements.zeichnung.value='';}
-    zeichnungStatus();
-  }
 
   // Manual exposes only reviewed material/condition/curve combinations.
   // Catalogue identities without a curve remain available to the drawing assistant.
@@ -54,6 +33,7 @@
   const materialIdentity=variant=>(variant.material.sourceName||variant.material.id)+(variant.material.number?' · '+variant.material.number:'');
   const materialLabel=variant=>materialIdentity(variant)+' · '+conditionLabel(variant.curve);
   const optionLabel=variant=>['soft-annealed','normalized-rolled'].includes(variant.curve.state)?materialIdentity(variant):materialLabel(variant);
+  const densityNotice=variant=>variant?.material.densityStatus==='reference-steel-density'?tr('Gewicht mit Stahl-Bezugsdichte 7,85 g/cm³; Näherungswert'):'';
   variants.forEach(variant=>{const option=document.createElement('option');option.value=variant.value;option.dataset.originalText='';option.textContent=optionLabel(variant);sel.appendChild(option);});
   sel.value=variants.find(variant=>variant.material.id==='C4C'&&variant.curve.state==='soft-annealed')?.value||'';
 
@@ -87,11 +67,36 @@
   }
 
   function typ() { return f.elements.typ.value; }
+  const THREAD_LABELS={'metric':'Metrisches Gewinde','trilobular':'Trilobulares Gewinde','duo-taptite':'Duo-Taptite','self-tapping':'Schneidgewinde','thermoplastic':'Thermoplast'};
+  let standardKind=null;
+  function standardAuswahl(){
+    const kind=f.elements.standardKind?.value||'screw';
+    const fill=(field,family)=>{if(!field)return;const previous=field.value;const choices=window.JYStandardFamilies?.getFamilies(family)||[];field.replaceChildren(...['',...choices.map(item=>item.id)].map(id=>{const option=document.createElement('option');option.value=id;option.dataset.originalText='';option.textContent=id?tr(choices.find(item=>item.id===id).label):tr('Ohne Normvorgabe');return option;}));field.value=choices.some(item=>item.id===previous)?previous:'';};
+    if(standardKind!==kind){fill(f.elements.standardNorm,kind);standardKind=kind;}
+    const family=(window.JYStandardFamilies?.getFamilies(kind)||[]).find(item=>item.id===f.elements.standardNorm?.value);
+    if(family&&((family.headForm&&family.headForm!==f.elements.kopfForm.value)||(family.driveFamily&&family.driveFamily!==f.elements.iTyp.value)))f.elements.standardNorm.value='';
+    fill(f.elements.nutNorm,'nut');
+    $('standard-norm-field').hidden=['rivet','pin'].includes(kind);$('bolt-head').hidden=kind==='headless';
+  }
+  function normAnwenden(){
+    const kind=f.elements.standardKind?.value||'screw',id=f.elements.standardNorm?.value;
+    const family=(window.JYStandardFamilies?.getFamilies(kind)||[]).find(item=>item.id===id);
+    if(family?.headForm)f.elements.kopfForm.value=family.headForm;
+    if(family?.driveFamily)f.elements.iTyp.value=family.driveFamily;
+    if(kind==='headless'||family?.headForm==='none'){f.elements.kopfForm.value='none';for(const key of ['kD','kH','kSW'])f.elements[key].value='0';}
+    antriebAuswahl();
+  }
+  const formteilmodus=()=>typ()==='formteil';
   function sichtbar() {
     const t = typ();
+    standardAuswahl();
+    const special=formteilmodus();
+    $('standard-part-fields').hidden=special;$('manual-tools').hidden=special;$('standard-drawing-note').hidden=special;$('geometry-panel').hidden=!special;$('geometry-view').hidden=!special;$('regelbox').hidden=special;$('anfrage').hidden=false;
     f.querySelectorAll('[data-fuer]').forEach(el => { el.hidden = !el.dataset.fuer.split(' ').includes(t); });
     const k = f.elements.kopfForm.value;
     f.querySelectorAll('[data-kopf]').forEach(el => { el.hidden = !el.dataset.kopf.split(' ').includes(k); });
+    const thread=f.elements.threadFamily?.value||'metric';
+    f.querySelectorAll('[data-thread]').forEach(el=>{el.hidden=!el.dataset.thread.split(' ').includes(thread);el.querySelectorAll('input').forEach(input=>input.disabled=el.hidden);});
     antriebAuswahl();
     const inlineDrawing=f.elements.wirePreparation.value==='inline-drawing';
     $('rod-diameter-field').hidden=!inlineDrawing;$('inline-drawing-note').hidden=!inlineDrawing;$('wire-strength-note').hidden=!inlineDrawing;
@@ -104,28 +109,33 @@
     const variant=selectedVariant();
     const e = {
       typ: typ(), wst: variant?.index, curveId: variant?.curve.id, materialState:variant?.curve.state, rm: g('rm'), d0: g('d0'),
+      standardKind:f.elements.standardKind?.value||'screw',standardReference:typ()==='mutter'?f.elements.nutNorm?.value:f.elements.standardNorm?.value,threadFamily:f.elements.threadFamily?.value||'metric',
       wirePreparation:f.elements.wirePreparation.value||'as-supplied',rodDiameter:f.elements.wirePreparation.value==='inline-drawing'?g('rodDiameter'):undefined,
-      kopfForm: f.elements.kopfForm.value, kD: g('kD'), kSW: g('kSW'), kH: g('kH'), sD: g('sD'), sL: g('sL'),
+      kopfForm: f.elements.kopfForm.value, kD: g('kD'), kSW: g('kSW'), kH: g('kH'), kVol:f.elements.kopfForm.value==='krallen'?g('kVol'):undefined,sD: g('sD'), sL: g('sL'),
       iTyp: f.elements.iTyp.value || 'none', iSize: f.elements.iSize.value,
       iSW: f.elements.iSize.value==='custom'?g('iSW'):num(f.elements.iSize.value), iT: g('iT'), iVol: g('iVol'),
-      nD: g('nD'), nT: g('nT'), nDurch: f.elements.nDurch.checked,
-      mM: g('mM'), mSW: g('mSW'), mH: g('mH'), mLoch: g('mLoch'), mFlansch: g('mFlansch'), mFlanschH: g('mFlanschH'),
+      mM: g('mM'), mSW: g('mSW'), mH: g('mH'), mLoch: g('mLoch'),
       masse: g('masse'), lStempel: g('lStempel'), wenden: f.elements.wenden.checked,
       vorgaben: { ko: g('ko'), pko: g('pko'), matD: g('matD'), matL: g('matL'), stD: g('stD'), stL: g('stL'), stationen: g('stationen'), zusatz: g('zusatz') },
       soll: { ausbringung: g('ausbringung') }
     };
+    if(e.typ==='bolzen'){
+      if(['trilobular','duo-taptite'].includes(e.threadFamily))e.sArea=g('sArea');
+      if(['duo-taptite','self-tapping','thermoplastic'].includes(e.threadFamily))e.tipLength=g('tipLength');
+      if(e.threadFamily==='duo-taptite')e.tipArea=g('tipArea');
+      if(['self-tapping','thermoplastic'].includes(e.threadFamily))e.tipDiameter=g('tipDiameter');
+    }
     if(e.iTyp!=='hex')e.iSW=undefined;
     if(e.iTyp==='hex'||e.iTyp==='none')e.iVol=undefined;
     if(e.iTyp==='hex')e.iSize=undefined;
     if (e.typ !== 'bolzen' || e.iTyp==='none') { e.iTyp='none'; e.iSize=e.iSW=e.iT=e.iVol=undefined; }
-    if (e.typ !== 'formteil') { e.nD = e.nT = undefined; e.nDurch = false; }
     return e;
   }
 
   function ungueltig() {
     let bad = false;
     f.querySelectorAll('input[inputmode]').forEach(el => {
-      if(el.disabled)return;
+      if(el.disabled||el.closest?.('#geometry-wizard'))return;
       const v = num(el.value);
       const falsch = el.value.trim() !== '' && (!isFinite(v) || v < 0);
       el.style.borderColor = falsch ? 'var(--nein)' : '';
@@ -135,27 +145,44 @@
     return bad;
   }
 
-  let letzte = null, angefragtesModell = null,previewSelectedModel=null,previewHasMachines=false,mailBusy=false,mailKey='',mailSignature='',mailReceipt=null,mailTimer=null,mailPolls=0;
+  let letzte = null, angefragtesModell = null,lastType=null,mailBusy=false,mailKey='',mailSignature='',mailReceipt=null,mailTimer=null,mailPolls=0;
+  let geometryWizard=null,geometryPreview=null,geometryCalculation=null,geometryResult=null,geometrySelectedModel=null;
+  const geometryNote=()=>[...(geometryWizard?.featureSummary()||[]),$('geometry-note').value.trim()].filter(Boolean).join('\n');
+  const geometryMachines=()=>geometryResult?.proposal?.machines?.filter(machine=>MASCHINEN.some(item=>item.m===machine.model))||[];
+  function geometryInput(){
+    if(!formteilmodus()||!geometryCalculation?.valid||!geometryWizard)return null;
+    const variant=selectedVariant(),e=lesen();
+    return {geometrySpec:geometryWizard.getSpec(),geometryFeatures:geometryWizard.getFeatures(),material:variant?.material.id,materialState:variant?.curve.state,curveId:variant?.curve.id,wirePreparation:e.wirePreparation,rodDiameter:e.rodDiameter,d0:e.d0,rm:e.rm};
+  }
   const maschinenFunde=wahl=>wahl?[...wahl.passend.slice(0,3),...wahl.bedingt.slice(0,wahl.passend.length?2:4),...wahl.fast.slice(0,4)]:[];
   const angefragteMaschine=()=>maschinenFunde(letzte?.wahl).find(result=>result.o.m===angefragtesModell);
   function anfrageAuswahlZeigen() {
     const node=$('selected-machine');
-    const model=previewSelectedModel||angefragtesModell;
+    const model=formteilmodus()?geometrySelectedModel:angefragtesModell;
     node.dataset.originalText='';node.hidden=!model;
     node.textContent=model?msg('Anfrage für {model}',{model}):'';
   }
-  function anfrageAuswahlLoeschen() { angefragtesModell=null;anfrageAuswahlZeigen(); }
+  function anfrageAuswahlLoeschen() { angefragtesModell=null;geometrySelectedModel=null;anfrageAuswahlZeigen(); }
   function rechnen() {
     sichtbar();
-    if (ungueltig()) {letzte=null;anfrageAuswahlLoeschen();$('aus').hidden=true;$('empty-visual').hidden=previewHasMachines;knoepfe();L.apply();return;}
+    if(lastType!==typ()){lastType=typ();anfrageAuswahlLoeschen();}
+    if(formteilmodus()){
+      letzte=null;$('aus').hidden=true;$('leer').hidden=true;$('empty-visual').hidden=true;
+      for(const id of ['kenn','karten','regeln','blatt'])rendered($(id),'');
+      rendered($('stufen').tBodies[0],'');$('material-basis').textContent='';$('inline-drawing-summary').textContent='';$('inline-drawing-summary').hidden=true;
+      const variant=selectedVariant();
+      geometryCalculation=geometryWizard?.refresh({wireDiameterMm:num(f.elements.d0.value),densityGcm3:variant?.material.rho,densityStatus:variant?.material.densityStatus})||null;
+      geometryPreview?.update();knoepfe();L.apply();return;
+    }
+    if (ungueltig()) {letzte=null;anfrageAuswahlLoeschen();$('aus').hidden=true;$('empty-visual').hidden=false;knoepfe();L.apply();return;}
     const e = lesen();
     if(angefragtesModell&&JSON.stringify(e)!==JSON.stringify(letzte?.e))anfrageAuswahlLoeschen();
     const aus = E.auslegen(e);
-    if (aus.fehlt.length || !aus.stufen.length) { $('leer').hidden = false; $('aus').hidden = true; $('empty-visual').hidden=previewHasMachines; $('leer').dataset.originalText=''; $('leer').textContent = aus.fehlt.length ? tr('Es fehlen noch:') + ' ' + aus.fehlt.map(tr).join(', ') + '.' : tr('Mit Draht-Ø und den Hüllmaßen des Teils erscheinen hier Stadienfolge, Werkzeuggröße und die passenden Modelle.'); letzte = null; anfrageAuswahlLoeschen(); knoepfe(); return; }
+    if (aus.fehlt.length || !aus.stufen.length) { $('leer').hidden = false; $('aus').hidden = true; $('empty-visual').hidden=false; $('leer').dataset.originalText=''; $('leer').textContent = aus.fehlt.length ? tr('Es fehlen noch:') + ' ' + aus.fehlt.map(tr).join(', ') + '.' : tr('Mit Draht-Ø und den Hüllmaßen des Teils erscheinen hier Stadienfolge, Werkzeuggröße und die passenden Modelle.'); letzte = null; anfrageAuswahlLoeschen(); knoepfe(); return; }
     const wahl = E.waehle(MASCHINEN, aus, e, PRAXIS);
     letzte = { e, aus, wahl };
     if(angefragtesModell&&!angefragteMaschine())angefragtesModell=null;
-    anfrageAuswahlZeigen();$('empty-visual').hidden=previewHasMachines||maschinenFunde(wahl).length>0;
+    anfrageAuswahlZeigen();$('empty-visual').hidden=maschinenFunde(wahl).length>0;
     zeigen(e, aus, wahl); L.apply();
     knoepfe();
   }
@@ -163,6 +190,7 @@
   function zeigen(e, aus, wahl) {
     const w = aus.werte;
     const variant=selectedVariant(),basis=document.getElementById('material-basis');
+    const massBasis=$('mass-basis');massBasis.dataset.originalText='';massBasis.textContent=densityNotice(variant);massBasis.hidden=!massBasis.textContent;
     if(basis){basis.dataset.originalText='';basis.textContent=variant?materialLabel(variant)+' · '+tr('Raumtemperatur')+' · φ '+fmt(variant.curve.phiMin,2)+'–'+fmt(variant.curve.phiMax,2):tr('Fließkurve des Lieferzustands fehlt');}
     if(basis&&typeof aus.vorzug?.assumption==='string')basis.textContent+=' · '+tr(aus.vorzug.assumption);
     const preparationSummary=$('inline-drawing-summary'),preparationText=window.JYConcept.preparationText(aus.vorzug,L.language);
@@ -172,12 +200,12 @@
     f.elements.lStempel.placeholder = fmt(w.lStempel) + ' ' + tr('berechnet');
     f.elements.ko.placeholder = fmt(w.lMatrize) + ' ' + tr('berechnet');
     f.elements.pko.placeholder = fmt(w.lStempel) + ' ' + tr('berechnet');
-    f.elements.stationen.placeholder = String(aus.stufen.length);
+    f.elements.stationen.placeholder = w.stationen==null?tr('nicht belegt'):String(aus.stufen.length);
     f.elements.zusatz.placeholder = String(w.zusatzStandard) + (w.zusatzStandard ? ' '+tr('(Kalibrieren, Hohlteil)') : '');
     const kenn = [
       ['Abschnitt', 'Ø' + fmt(w.d0) + ' × ' + fmt(w.L0) + ' mm'],
       ['Masse Fertigteil', fmt(w.masse) + ' g'],
-      ['Stationen', w.stationen + ' <small>'+h('+1 Reserve')+'</small>'],
+      ['Stationen', w.stationen==null?h('nicht belegt'):w.stationen + ' <small>'+h('+1 Reserve')+'</small>'],
       ['Höchste Stationskraft', w.Fmax_t==null?h('Kraft noch offen'):fmt(w.Fmax_t) + ' t'],
       ['Nennkraft nötig', w.FN_muss_t==null?h('Kraft noch offen'):fmt(w.FN_muss_t, 0) + ' t <small>'+esc(msg('wünschenswert {value} t',{value:fmt(w.FN_wunsch_t,0)}))+'</small>'],
       ['Summe aller Stationen', w.Fsum_t==null?h('Kraft noch offen'):fmt(w.Fsum_t) + ' t'],
@@ -190,6 +218,7 @@
     if(aus.antrieb)kenn.splice(1,0,['Innenantrieb',h(aus.antrieb.label)+(aus.antrieb.depth?' · '+fmt(aus.antrieb.depth)+' mm':'')]);
     if (e.typ !== 'mutter') kenn.splice(3, 0, ['Stauchverhältnis Kopf', w.sKopf ? fmt(w.sKopf, 2) : '·']);
     rendered($('kenn'),kenn.map(([k, v]) => '<div><dt>' + h(k) + '</dt><dd>' + v + '</dd></div>').join(''));
+    for(const [id,text]of [['stages-heading',aus.qualitative?'Qualitative Operationsfolge':'Stadienfolge'],['stage-column-heading',aus.qualitative?'Arbeitsschritt':'Station']]){$(id).dataset.originalText='';$(id).textContent=tr(text);}
     rendered($('stufen').tBodies[0],aus.stufen.map((s, i) => '<tr><td>' + (i + 1) + '</td><td>' + h(s.v) + '</td><td class="z">' + (s.t==null?h('Kraft noch offen'):fmt(s.t)+' t') + '</td><td class="z">' + (s.p==null?h('nicht belegt'):fmt(s.p,0)) + '</td><td class="z">Ø' + (s.matD==null?h('nicht belegt'):rounded(s.matD)) + (s.arm ? '<br><small>' + h(s.arm) + '</small>' : '') + '</td></tr>').join(''));
     // Karten
     const k = [];
@@ -222,13 +251,35 @@
   }
 
   function knoepfe() {
-    const content=!!letzte||!!f.elements.zeichnung.files[0]||!!a.elements.nachricht.value.trim()||!!$('archive-drawing-note').value.trim();
+    const content=formteilmodus()?!!geometryCalculation?.valid:!!letzte;
     const ok = content && a.elements.ok.checked && /.+@.+\..+/.test(a.elements.email.value);
     $('senden').disabled = !ok||mailBusy;
-    $('drucken').disabled = !letzte;
+    $('drucken').disabled = !content;
   }
 
+  function geometrySummary(){
+    const variant=selectedVariant(),e=lesen(),result=geometryCalculation,lines=[tr('Formteile'),...geometryWizard.summary()];
+    const value=(single,bounds,unit)=>single!=null?fmt(single,3)+' '+unit:Array.isArray(bounds)?fmt(bounds[0],3)+'–'+fmt(bounds[1],3)+' '+unit:tr('nicht belegt');
+    if(geometrySelectedModel)lines.unshift(msg('Anfrage für {model}',{model:geometrySelectedModel}),'');
+    if(variant)lines.push(tr('Werkstoff')+': '+materialLabel(variant));
+    lines.push(tr('Vormaterial / Vorzug')+': '+preparationLabel(e.wirePreparation),tr('Draht-Ø an der Presse')+': '+fmt(e.d0)+' mm');
+    if(e.wirePreparation==='inline-drawing')lines.push(tr('Walzdraht-Ø vor dem Vorzug')+': '+fmt(e.rodDiameter)+' mm');
+    if(e.rm)lines.push(tr('Drahtzugfestigkeit Rm an der Presse')+': '+fmt(e.rm)+' N/mm²');
+    const complete=geometryWizard.isComplete();
+    lines.push(tr(complete?'Volumen':'Volumen der Grundgeometrie')+': '+value(result.volumeMm3,result.volumeBoundsMm3,'mm³'),tr('Masse Fertigteil')+': '+(complete?value(result.massG,result.massBoundsG,'g'):tr('Kontur noch unvollständig')),tr('Abschnittlänge')+': '+(complete?value(result.blankLengthMm,result.blankLengthBoundsMm,'mm'):tr('Kontur noch unvollständig')));
+    if(complete&&densityNotice(variant))lines.push(densityNotice(variant));
+    if($('geometry-note').value.trim())lines.push('',tr('Ergänzungen zum Stadienkonzept')+': '+$('geometry-note').value);
+    if(geometryResult?.answer)lines.push('',geometryResult.answer);
+    for(const stage of geometryResult?.proposal?.stages||[])lines.push(tr(stage.operation));
+    for(const machine of geometryMachines().filter(m=>!geometrySelectedModel||m.model===geometrySelectedModel)){
+      lines.push(machine.model+(showPrices&&Number.isFinite(machine.priceEUR)?' · '+eur(machine.priceEUR):''));
+      for(const stage of machine.concept?.stages||[])lines.push('  '+stage.number+'. '+tr(stage.operation||'')+(stage.location?' · '+tr(stage.location):''));
+      if(machine.concept?.rationale)lines.push(tr(machine.concept.rationale));
+    }
+    return lines.join('\n');
+  }
   function zusammenfassung() {
+    if(formteilmodus())return geometrySummary();
     const { e, aus, wahl } = letzte, w = aus.werte, m = aus.werkstoff;
     const lines = [];
     const field = (label, value) => lines.push(tr(label).replace(/[:：]$/, '') + ': ' + value);
@@ -237,6 +288,8 @@
     const selected=angefragteMaschine();
     if(selected)lines.push(msg('Anfrage für {model}',{model:selected.o.m}),'');
     field('Teileart', tr({ bolzen: 'Schraube/Bolzen', formteil: 'Formteil/Hülse', mutter: 'Mutter' }[e.typ]));
+    if(e.standardReference)field('Normfamilie',e.standardReference);
+    if(e.typ==='bolzen')field('Gewindefamilie',tr(THREAD_LABELS[e.threadFamily]||e.threadFamily));
     field('Werkstoff', (m.sourceName || m.id) + (m.number ? ' · ' + m.number : ''));
     field('Vormaterial / Vorzug',preparationLabel(e.wirePreparation));
     if(e.wirePreparation==='inline-drawing')field('Walzdraht-Ø vor dem Vorzug',mm(e.rodDiameter));
@@ -249,21 +302,26 @@
     if(preparationText){lines.push(preparationText);if(typeof aus.vorzug.assumption==='string')lines.push(tr(aus.vorzug.assumption));}
     field('Abschnitt Ø × Länge', mm(w.d0) + ' × ' + mm(w.L0));
     field('Masse Fertigteil', fmt(w.masse) + ' g');
+    if(densityNotice(variant))lines.push(densityNotice(variant));
     if (e.typ === 'mutter') {
       field('Mutter', 'M' + fmt(w.mM)); field('Mutternschlüsselweite', mm(e.mSW)); field('Mutternhöhe', mm(e.mH));
       if (e.mFlansch) field('Flanschdurchmesser', mm(e.mFlansch));
     } else {
-      field('Form', tr({rund:'rund, Zylinder- oder Flanschkopf',sechskant:'Sechskant, gestaucht',abgratet:'Sechskant, rund gestaucht und abgegratet'}[e.kopfForm] || e.kopfForm));
+      field('Form', tr({rund:'rund, Zylinder- oder Flanschkopf',sechskant:'Sechskant, gestaucht',abgratet:'Sechskant, rund gestaucht und abgegratet',none:'Ohne Kopf',krallen:'Krallenkopf / Umspritz-Mitnahmeprofil'}[e.kopfForm] || e.kopfForm));
       field('Kopfdurchmesser', mm(e.kD)); field('Kopfhöhe', mm(e.kH));
       if (e.kSW) field('Kopfschlüsselweite', mm(e.kSW));
       field('Körperdurchmesser', mm(e.sD || e.d0)); field('Körperlänge', mm(e.sL));
+      if(e.kVol!=null)field('Kopf-Außenkonturvolumen',fmt(e.kVol)+' mm³');
+      if(e.sArea!=null)field('Rohling-Querschnittsfläche',fmt(e.sArea)+' mm²');
+      if(e.tipLength!=null)field('Spitzenlänge',mm(e.tipLength));
+      if(e.tipArea!=null)field('Querschnittsfläche des Spitzenabschnitts',fmt(e.tipArea)+' mm²');
+      if(e.tipDiameter!=null)field('End-Ø der konischen Spitze',mm(e.tipDiameter));
       if(aus.antrieb){
         field('Innenantrieb',tr(aus.antrieb.label));
         if(e.iSW)field('Innenantrieb-Schlüsselweite',mm(e.iSW));
         field('Innenantriebstiefe',mm(e.iT));
         if(e.iVol)field('Volumen der Antriebsvertiefung',fmt(e.iVol)+' mm³');
       }
-      if (e.nD) {field('Napfinnendurchmesser', mm(e.nD));field('Napftiefe', mm(e.nT));if(e.nDurch) lines.push(tr('durchgehend, gelocht'));}
     }
     field('Länge im Stempel', mm(w.lStempel)); field('Auswerfer Matrize (KO)', mm(w.ko)); field('Auswerfer Stempel (PKO)', mm(w.pko));
     if (e.wenden) lines.push(tr('Teil wird im Transfer um 180° gewendet'));
@@ -273,9 +331,10 @@
     if(v.zusatz!=null&&isFinite(v.zusatz))field('Zusatzstufen',fmt(v.zusatz,0));
     if(e.soll.ausbringung)field('Ausbringung',fmt(e.soll.ausbringung,0)+' /min');
     lines.push('',tr('Grobauslegung'));
-    field('Stationen',fmt(w.stationen,0)+' (+1 '+tr('Reserve')+')');
+    field('Stationen',fmt(w.stationen,0)+(w.stationen==null?'':' (+1 '+tr('Reserve')+')'));
     field('Höchste Stationskraft',force(w.Fmax_t));field('Nennkraft nötig',force(w.FN_muss_t));
-    aus.stufen.forEach((stage,index)=>lines.push('  '+(index+1)+'. '+tr(stage.v)+': '+force(stage.t)));
+    if(aus.qualitative)lines.push(tr('Qualitative Operationsfolge'));
+    aus.stufen.forEach((stage,index)=>lines.push('  '+(aus.qualitative?tr('Arbeitsschritt')+' ':'')+(index+1)+'. '+tr(stage.v)+': '+force(stage.t)));
     lines.push('',tr('Vorauswahl:'));
     const top=selected?[selected]:[...wahl.passend.slice(0,3),...(wahl.passend.length?[]:wahl.bedingt.slice(0,3))];
     const status={ok:'passt',knapp:'knapp',offen:'Klärung nötig',nein:'passt nicht'};
@@ -301,22 +360,19 @@
   async function senden() {
     if(mailBusy)return;
     rechnen();
-    if (!letzte&&!f.elements.zeichnung.files[0]&&!a.elements.nachricht.value.trim()&&!$('archive-drawing-note').value.trim()) return;
+    if(formteilmodus()?!geometryCalculation?.valid:!letzte)return;
     const email=a.elements.email.value.trim(),consent=a.elements.ok.checked,contactName=a.elements.name.value,company=a.elements.firma.value,language=L.language;
     if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)||!consent){$('sendehinweis').dataset.originalText='';$('sendehinweis').textContent=tr(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)?'Bitte geben Sie eine gültige E-Mail-Adresse ein.':'Bitte stimmen Sie der Verarbeitung Ihrer Anfrage zu.');(!consent?a.elements.ok:a.elements.email).focus();return;}
-    const z = f.elements.zeichnung.files[0];
     const kopf = [tr('Name')+': '+a.elements.name.value,tr('Firma')+': '+a.elements.firma.value,tr('E-Mail')+': '+a.elements.email.value,tr('Telefon')+': '+a.elements.tel.value].join('\n');
-    const drawingNote=$('archive-drawing-note').value;
-    const text = kopf + '\n\n' + (previewSelectedModel?msg('Anfrage für {model}',{model:previewSelectedModel})+'\n\n':'') + (drawingNote?tr('Angaben zur Zeichnung')+': '+drawingNote+'\n\n':'') + (a.elements.nachricht.value ? a.elements.nachricht.value + '\n\n' : '') + (letzte?zusammenfassung():'') + (z ? '\n\n'+tr('Zeichnung:')+' '+z.name+(window.JYDrawingPreview?.apiBase?'':' '+tr('(bitte anhängen)')) : '');
-    const betreff = (tr(showPrices?'Richtpreisanfrage':'Maschinenanfrage')+' '+(previewSelectedModel||(angefragteMaschine() || letzte?.wahl.passend[0] || letzte?.wahl.bedingt[0])?.o.m || '')).trim();
+    const text = kopf + '\n\n' + (a.elements.nachricht.value ? a.elements.nachricht.value + '\n\n' : '') + zusammenfassung();
+    const betreff = (tr(showPrices?'Richtpreisanfrage':'Maschinenanfrage')+' '+(formteilmodus()?(geometrySelectedModel||''):((angefragteMaschine() || letzte.wahl.passend[0] || letzte.wahl.bedingt[0])?.o.m || ''))).trim();
     const api=window.JYDrawingPreview;
     if(api?.apiBase){
       mailBusy=true;knoepfe();$('sendehinweis').dataset.originalText='';$('sendehinweis').textContent=tr('Ihre Anfrage wird übertragen …');
       try {
-        if(z&&z.size>15*1024*1024)throw new Error('Die Datei ist für die Übertragung zu groß. Bitte verwenden Sie eine Datei bis 15 MB.');
-        const signature=await api.fingerprint(z,JSON.stringify([email,contactName,company,text]),language,showPrices?'with-prices':'technical-only');
+        const signature=await api.fingerprint(null,JSON.stringify([email,contactName,company,text]),language,showPrices?'with-prices':'technical-only');
         if(signature!==mailSignature){mailSignature=signature;mailKey=api.uuid();}
-        const fd=new FormData();fd.append('email',email);fd.append('name',contactName);fd.append('firma',company);fd.append('notiz',text);fd.append('betreff',betreff);fd.append('consent','true');fd.append('language',language);fd.append('idempotency_key',mailKey);if(!showPrices)fd.append('pricePolicy','technical-only');if(z)fd.append('datei',z,z.name);
+        const fd=new FormData();fd.append('email',email);fd.append('name',contactName);fd.append('firma',company);fd.append('notiz',text);fd.append('betreff',betreff);fd.append('consent','true');fd.append('language',language);fd.append('idempotency_key',mailKey);if(!showPrices)fd.append('pricePolicy','technical-only');
         const receipt=await api.request('/anfrage',{method:'POST',body:fd,language});
         if(receipt.kind!=='enquiry'||receipt.status!=='received'||typeof receipt.id!=='string'||!receipt.id||typeof receipt.token!=='string'||!receipt.token)throw new Error('Der Eingang konnte nicht eindeutig bestätigt werden. Bitte versuchen Sie es erneut.');
         window.clearTimeout(mailTimer);mailReceipt={id:receipt.id,token:receipt.token};mailPolls=0;versandStatus(receipt);if(receipt.notificationStatus==='pending')mailTimer=window.setTimeout(versandAktualisieren,4000);
@@ -329,7 +385,7 @@
 
   function drucken() {
     rechnen();
-    if (!letzte) return;
+    if(formteilmodus()?!geometryCalculation?.valid:!letzte)return;
     const b = $('blatt');
     b.dataset.originalText = ''; // This export is already localized once; preserve its numbers and identifiers.
     b.innerHTML = '<h1>'+esc(tr('Anforderungsblatt Mehrstufenpresse'))+'</h1><p>' + new Date().toLocaleDateString(window.JYI18N.numberLocale(L.language)) + ' · '+esc(tr('Grobauslegung, unverbindlich'))+' · info@jernyao.de</p><pre style="white-space:pre-wrap;font:inherit">' + esc(zusammenfassung()) + '</pre>';
@@ -339,18 +395,19 @@
   const BSP = {
     m8: { typ: 'bolzen', d0: '8', kopfForm: 'rund', kD: '17', kH: '6', sD: '7,2', sL: '40' },
     m6: { typ: 'bolzen', d0: '5,6', kopfForm: 'rund', kD: '10', kH: '6', sD: '5,4', sL: '30', iTyp:'hex', iSize:'5', iT: '3' },
-    mu: { typ: 'mutter', d0: '13', mM: '10', mSW: '16', mH: '8' },
-    hu: { typ: 'formteil', d0: '16', kopfForm: 'rund', kD: '24', kH: '5', sD: '16', sL: '30', nD: '10', nT: '20', nDurch: true }
+    mu: { typ: 'mutter', d0: '13', mM: '10', mSW: '16', mH: '8' }
   };
   document.querySelectorAll('[data-bsp]').forEach(btn => btn.addEventListener('click', () => {
     f.reset(); a.elements.ok.checked = false;
-    rejectedDrawing=null;zeichnungStatus();
+    if(f.elements.standardKind)f.elements.standardKind.value='screw';
+    if(f.elements.threadFamily)f.elements.threadFamily.value='metric';
+    if(f.elements.standardNorm)f.elements.standardNorm.value='';if(f.elements.nutNorm)f.elements.nutNorm.value='';
     f.elements.wirePreparation.value='as-supplied';
     const d = {...BSP[btn.dataset.bsp]};d.wst=variants.find(variant=>variant.material.id==='C4C'&&variant.curve.state==='soft-annealed')?.value||'';
     f.elements.iTyp.value=d.iTyp||'none';antriebAuswahl();
     for (const [k, v] of Object.entries(d)) {
       const el = f.elements[k];
-      if (k === 'typ') f.querySelector('input[name=typ][value=' + v + ']').checked = true;
+      if (k === 'typ') f.elements.typ.value=v;
       else if (el && el.type === 'checkbox') el.checked = !!v;
       else if (el) el.value = v;
     }
@@ -361,13 +418,18 @@
   let t = null;
   f.addEventListener('input', () => { if(angefragtesModell&&JSON.stringify(lesen())!==JSON.stringify(letzte?.e))anfrageAuswahlLoeschen();clearTimeout(t); t = setTimeout(rechnen, 120); });
   f.addEventListener('change', rechnen);
+  document.querySelectorAll('input[name="typ"]').forEach(input=>input.addEventListener('change',rechnen));
+  f.elements.standardKind?.addEventListener('change',()=>{standardKind=null;standardAuswahl();if(f.elements.standardKind.value==='headless')normAnwenden();else if(f.elements.kopfForm.value==='none')f.elements.kopfForm.value='rund';rechnen();});
+  f.elements.standardNorm?.addEventListener('change',()=>{normAnwenden();rechnen();});
+  $('flange-nut-route').addEventListener('click',()=>{f.elements.typ.value='formteil';rechnen();$('geometry-wizard').scrollIntoView({behavior:window.matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth',block:'start'});});
+  f.elements.nutNorm?.addEventListener('change',()=>{if(window.JYStandardFamilies?.get(f.elements.nutNorm.value)?.route==='formteil'){f.elements.typ.value='formteil';rechnen();$('geometry-wizard').scrollIntoView({behavior:window.matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth',block:'start'});}});
   $('karten').addEventListener('click', event => {
     const requestButton=event.target.closest('button[data-request-model]');
     if(requestButton){
       const model=requestButton.dataset.requestModel;
       rechnen();
       if(!maschinenFunde(letzte?.wahl).some(result=>result.o.m===model))return;
-      previewSelectedModel=null;angefragtesModell=model;anfrageAuswahlZeigen();
+      angefragtesModell=model;anfrageAuswahlZeigen();
       a.elements.email.focus({preventScroll:true});
       $('anfrage').scrollIntoView({behavior:window.matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth',block:'start'});
       return;
@@ -379,15 +441,13 @@
     details.querySelector('summary').focus({ preventScroll: true });
     details.scrollIntoView({ behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth', block: 'start' });
   });
-  a.addEventListener('input',()=>{knoepfe();drawingPreview?.update();}); a.addEventListener('change',()=>{knoepfe();drawingPreview?.update();});
-  $('archive-choose-file').addEventListener('click',()=>f.elements.zeichnung.click());
-  f.elements.zeichnung.addEventListener('change',zeichnungGeaendert);
-  $('archive-drawing-note').addEventListener('input',()=>{drawingPreview?.update();knoepfe();});
-  $('archive-remove-file').addEventListener('click',()=>{f.elements.zeichnung.value='';rejectedDrawing=null;zeichnungStatus();$('archive-choose-file').focus();});
+  a.addEventListener('input',knoepfe); a.addEventListener('change',knoepfe);
   $('senden').addEventListener('click', senden);
   $('archive-mail-refresh').addEventListener('click',()=>{mailPolls=0;window.clearTimeout(mailTimer);return versandAktualisieren();});
   $('drucken').addEventListener('click', drucken);
-  if(window.JYDrawingPreview)drawingPreview=window.JYDrawingPreview.create({button:$('archive-analyse'),progress:$('archive-analysis-progress'),status:$('archive-analysis-status'),result:$('archive-analysis-result'),refresh:$('archive-analysis-refresh'),getFile:()=>f.elements.zeichnung.files[0]||null,getNote:()=>$('archive-drawing-note').value.trim(),canChooseMachine:model=>MASCHINEN.some(machine=>machine.m===model),onChooseMachine:model=>{previewSelectedModel=model;angefragtesModell=null;anfrageAuswahlZeigen();a.elements.email.focus({preventScroll:true});$('anfrage').scrollIntoView({behavior:window.matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth',block:'start'});},onResult:data=>{previewHasMachines=Array.isArray(data.proposal?.machines)&&data.proposal.machines.length>0;$('empty-visual').hidden=previewHasMachines||maschinenFunde(letzte?.wahl).length>0;},onInvalidate:()=>{previewHasMachines=false;previewSelectedModel=null;anfrageAuswahlZeigen();$('empty-visual').hidden=maschinenFunde(letzte?.wahl).length>0;}});
-  window.addEventListener('jy-languagechange',()=>{Array.from(sel.options).forEach(option=>{const variant=variantByValue.get(option.value);if(variant)option.textContent=optionLabel(variant);});zeichnungStatus();sichtbar();rechnen();L.apply();});
-  zeichnungStatus(); sichtbar(); rechnen(); L.apply();
+  geometryWizard=window.JYGeometryWizard?.create({root:$('geometry-wizard'),view:$('geometry-view'),translate:tr,evaluate:(spec,options)=>window.JYGeometry?.evaluate(spec,options),onChange(){geometrySelectedModel=null;anfrageAuswahlZeigen();rechnen();}})||null;
+  if(window.JYDrawingPreview?.apiBase&&geometryWizard)geometryPreview=window.JYDrawingPreview.create({button:$('geometry-analyse'),progress:$('geometry-progress'),status:$('geometry-status'),result:$('geometry-result'),refresh:$('geometry-refresh'),getGeometry:geometryInput,getNote:geometryNote,canChooseMachine:model=>MASCHINEN.some(machine=>machine.m===model),onInvalidate(){geometryResult=null;geometrySelectedModel=null;anfrageAuswahlZeigen();},onResult(data){geometryResult=data;knoepfe();},onChooseMachine(model){if(!geometryMachines().some(machine=>machine.model===model))return;geometrySelectedModel=model;anfrageAuswahlZeigen();a.elements.email.focus({preventScroll:true});$('anfrage').scrollIntoView({behavior:window.matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth',block:'start'});}});
+  $('geometry-note').addEventListener('input',()=>{geometryPreview?.update();knoepfe();});
+  window.addEventListener('jy-languagechange',()=>{Array.from(sel.options).forEach(option=>{const variant=variantByValue.get(option.value);if(variant)option.textContent=optionLabel(variant);});standardKind=null;geometryWizard?.rerender();sichtbar();rechnen();L.apply();});
+  sichtbar(); rechnen(); L.apply();
 })();
