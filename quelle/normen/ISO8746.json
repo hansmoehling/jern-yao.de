@@ -1,0 +1,755 @@
+{
+  "schemaVersion": 1,
+  "id": "ISO8746",
+  "version": "2026-11-26",
+  "edition": "1997",
+  "label": "ISO8746 · Halbrundkerbnagel (Maßbasis1997)",
+  "datasetKind": "part-standard",
+  "funktion": "stift",
+  "klasse": "bolzen",
+  "kopfTyp": "kugelabschnitt",
+  "antrieb": null,
+  "threadFamily": "none",
+  "schaftende": "voll",
+  "feldzuordnung": {
+    "sD": "d_nominal",
+    "sL": "l_nominal",
+    "kD": "dk",
+    "kH": "k"
+  },
+  "groessen": {
+    "2": {
+      "vorbelegung": {
+        "sD": 2,
+        "kD": 3.5,
+        "kH": 1.2
+      },
+      "roh": {
+        "d_nominal": 2,
+        "dk": 3.5,
+        "k": 1.2,
+        "r": 1.9,
+        "d2": 2.15
+      },
+      "coverage": "documented",
+      "geometryStatus": "partial",
+      "missingGeometryFields": [
+        "length",
+        "grooveProfile",
+        "expandedDiameterAtSelectedLength"
+      ],
+      "nachLaenge": {}
+    },
+    "3": {
+      "vorbelegung": {
+        "sD": 3,
+        "kD": 5.2,
+        "kH": 1.8
+      },
+      "roh": {
+        "d_nominal": 3,
+        "dk": 5.2,
+        "k": 1.8,
+        "r": 2.8,
+        "d2": 3.2
+      },
+      "coverage": "documented",
+      "geometryStatus": "partial",
+      "missingGeometryFields": [
+        "length",
+        "grooveProfile",
+        "expandedDiameterAtSelectedLength"
+      ],
+      "nachLaenge": {}
+    },
+    "4": {
+      "vorbelegung": {
+        "sD": 4,
+        "kD": 7,
+        "kH": 2.4
+      },
+      "roh": {
+        "d_nominal": 4,
+        "dk": 7,
+        "k": 2.4,
+        "r": 3.8,
+        "d2": 4.25
+      },
+      "coverage": "documented",
+      "geometryStatus": "partial",
+      "missingGeometryFields": [
+        "length",
+        "grooveProfile",
+        "expandedDiameterAtSelectedLength"
+      ],
+      "nachLaenge": {}
+    },
+    "5": {
+      "vorbelegung": {
+        "sD": 5,
+        "kD": 8.8,
+        "kH": 3
+      },
+      "roh": {
+        "d_nominal": 5,
+        "dk": 8.8,
+        "k": 3,
+        "r": 4.6,
+        "d2": 5.25
+      },
+      "coverage": "documented",
+      "geometryStatus": "partial",
+      "missingGeometryFields": [
+        "length",
+        "grooveProfile",
+        "expandedDiameterAtSelectedLength"
+      ],
+      "nachLaenge": {}
+    },
+    "6": {
+      "vorbelegung": {
+        "sD": 6,
+        "kD": 10.5,
+        "kH": 3.6
+      },
+      "roh": {
+        "d_nominal": 6,
+        "dk": 10.5,
+        "k": 3.6,
+        "r": 5.7,
+        "d2": 6.3
+      },
+      "coverage": "documented",
+      "geometryStatus": "partial",
+      "missingGeometryFields": [
+        "length",
+        "grooveProfile",
+        "expandedDiameterAtSelectedLength"
+      ],
+      "nachLaenge": {}
+    },
+    "1.4": {
+      "vorbelegung": {
+        "sD": 1.4,
+        "kD": 2.4,
+        "kH": 0.8
+      },
+      "roh": {
+        "d_nominal": 1.4,
+        "dk": 2.4,
+        "k": 0.8,
+        "r": 1.4,
+        "d2": 1.5
+      },
+      "coverage": "documented",
+      "geometryStatus": "partial",
+      "missingGeometryFields": [
+        "length",
+        "grooveProfile",
+        "expandedDiameterAtSelectedLength"
+      ],
+      "nachLaenge": {}
+    },
+    "1.6": {
+      "vorbelegung": {
+        "sD": 1.6,
+        "kD": 2.8,
+        "kH": 1
+      },
+      "roh": {
+        "d_nominal": 1.6,
+        "dk": 2.8,
+        "k": 1,
+        "r": 1.6,
+        "d2": 1.7
+      },
+      "coverage": "documented",
+      "geometryStatus": "partial",
+      "missingGeometryFields": [
+        "length",
+        "grooveProfile",
+        "expandedDiameterAtSelectedLength"
+      ],
+      "nachLaenge": {}
+    },
+    "2.5": {
+      "vorbelegung": {
+        "sD": 2.5,
+        "kD": 4.4,
+        "kH": 1.5
+      },
+      "roh": {
+        "d_nominal": 2.5,
+        "dk": 4.4,
+        "k": 1.5,
+        "r": 2.4,
+        "d2": 2.7
+      },
+      "coverage": "documented",
+      "geometryStatus": "partial",
+      "missingGeometryFields": [
+        "length",
+        "grooveProfile",
+        "expandedDiameterAtSelectedLength"
+      ],
+      "nachLaenge": {}
+    }
+  },
+  "fields": {
+    "2": {
+      "d_nominal": {
+        "nominal": 2,
+        "unit": "mm",
+        "sourceRefs": [
+          "reyher"
+        ],
+        "status": "single-source",
+        "verification": "historical-dimension-table",
+        "edition": "1997",
+        "note": "Historischer Tabellenwert; zweite unabhängige Bestätigung und aktuelle Edition fehlen."
+      },
+      "dk": {
+        "nominal": 3.5,
+        "unit": "mm",
+        "sourceRefs": [
+          "reyher"
+        ],
+        "status": "single-source",
+        "verification": "historical-dimension-table",
+        "edition": "1997",
+        "note": "Historischer Tabellenwert; zweite unabhängige Bestätigung und aktuelle Edition fehlen."
+      },
+      "k": {
+        "nominal": 1.2,
+        "unit": "mm",
+        "sourceRefs": [
+          "reyher"
+        ],
+        "status": "single-source",
+        "verification": "historical-dimension-table",
+        "edition": "1997",
+        "note": "Historischer Tabellenwert; zweite unabhängige Bestätigung und aktuelle Edition fehlen."
+      },
+      "r": {
+        "nominal": 1.9,
+        "unit": "mm",
+        "sourceRefs": [
+          "reyher"
+        ],
+        "status": "single-source",
+        "verification": "historical-dimension-table",
+        "edition": "1997",
+        "note": "Historischer Tabellenwert; zweite unabhängige Bestätigung und aktuelle Edition fehlen."
+      },
+      "d2": {
+        "nominal": 2.15,
+        "unit": "mm",
+        "sourceRefs": [
+          "reyher"
+        ],
+        "status": "single-source",
+        "verification": "historical-dimension-table",
+        "edition": "1997",
+        "note": "Aufweitungsmaß für Stahl; Gültigkeitsbereich je Länge noch nicht verifiziert. Kein allgemeiner Rohdraht-Ø.",
+        "dependsOn": [
+          "laenge",
+          "werkstoff"
+        ]
+      }
+    },
+    "3": {
+      "d_nominal": {
+        "nominal": 3,
+        "unit": "mm",
+        "sourceRefs": [
+          "reyher"
+        ],
+        "status": "single-source",
+        "verification": "historical-dimension-table",
+        "edition": "1997",
+        "note": "Historischer Tabellenwert; zweite unabhängige Bestätigung und aktuelle Edition fehlen."
+      },
+      "dk": {
+        "nominal": 5.2,
+        "unit": "mm",
+        "sourceRefs": [
+          "reyher"
+        ],
+        "status": "single-source",
+        "verification": "historical-dimension-table",
+        "edition": "1997",
+        "note": "Historischer Tabellenwert; zweite unabhängige Bestätigung und aktuelle Edition fehlen."
+      },
+      "k": {
+        "nominal": 1.8,
+        "unit": "mm",
+        "sourceRefs": [
+          "reyher"
+        ],
+        "status": "single-source",
+        "verification": "historical-dimension-table",
+        "edition": "1997",
+        "note": "Historischer Tabellenwert; zweite unabhängige Bestätigung und aktuelle Edition fehlen."
+      },
+      "r": {
+        "nominal": 2.8,
+        "unit": "mm",
+        "sourceRefs": [
+          "reyher"
+        ],
+        "status": "single-source",
+        "verification": "historical-dimension-table",
+        "edition": "1997",
+        "note": "Historischer Tabellenwert; zweite unabhängige Bestätigung und aktuelle Edition fehlen."
+      },
+      "d2": {
+        "nominal": 3.2,
+        "unit": "mm",
+        "sourceRefs": [
+          "reyher"
+        ],
+        "status": "single-source",
+        "verification": "historical-dimension-table",
+        "edition": "1997",
+        "note": "Aufweitungsmaß für Stahl; Gültigkeitsbereich je Länge noch nicht verifiziert. Kein allgemeiner Rohdraht-Ø.",
+        "dependsOn": [
+          "laenge",
+          "werkstoff"
+        ]
+      }
+    },
+    "4": {
+      "d_nominal": {
+        "nominal": 4,
+        "unit": "mm",
+        "sourceRefs": [
+          "reyher"
+        ],
+        "status": "single-source",
+        "verification": "historical-dimension-table",
+        "edition": "1997",
+        "note": "Historischer Tabellenwert; zweite unabhängige Bestätigung und aktuelle Edition fehlen."
+      },
+      "dk": {
+        "nominal": 7,
+        "unit": "mm",
+        "sourceRefs": [
+          "reyher"
+        ],
+        "status": "single-source",
+        "verification": "historical-dimension-table",
+        "edition": "1997",
+        "note": "Historischer Tabellenwert; zweite unabhängige Bestätigung und aktuelle Edition fehlen."
+      },
+      "k": {
+        "nominal": 2.4,
+        "unit": "mm",
+        "sourceRefs": [
+          "reyher"
+        ],
+        "status": "single-source",
+        "verification": "historical-dimension-table",
+        "edition": "1997",
+        "note": "Historischer Tabellenwert; zweite unabhängige Bestätigung und aktuelle Edition fehlen."
+      },
+      "r": {
+        "nominal": 3.8,
+        "unit": "mm",
+        "sourceRefs": [
+          "reyher"
+        ],
+        "status": "single-source",
+        "verification": "historical-dimension-table",
+        "edition": "1997",
+        "note": "Historischer Tabellenwert; zweite unabhängige Bestätigung und aktuelle Edition fehlen."
+      },
+      "d2": {
+        "nominal": 4.25,
+        "unit": "mm",
+        "sourceRefs": [
+          "reyher"
+        ],
+        "status": "single-source",
+        "verification": "historical-dimension-table",
+        "edition": "1997",
+        "note": "Aufweitungsmaß für Stahl; Gültigkeitsbereich je Länge noch nicht verifiziert. Kein allgemeiner Rohdraht-Ø.",
+        "dependsOn": [
+          "laenge",
+          "werkstoff"
+        ]
+      }
+    },
+    "5": {
+      "d_nominal": {
+        "nominal": 5,
+        "unit": "mm",
+        "sourceRefs": [
+          "reyher"
+        ],
+        "status": "single-source",
+        "verification": "historical-dimension-table",
+        "edition": "1997",
+        "note": "Historischer Tabellenwert; zweite unabhängige Bestätigung und aktuelle Edition fehlen."
+      },
+      "dk": {
+        "nominal": 8.8,
+        "unit": "mm",
+        "sourceRefs": [
+          "reyher"
+        ],
+        "status": "single-source",
+        "verification": "historical-dimension-table",
+        "edition": "1997",
+        "note": "Historischer Tabellenwert; zweite unabhängige Bestätigung und aktuelle Edition fehlen."
+      },
+      "k": {
+        "nominal": 3,
+        "unit": "mm",
+        "sourceRefs": [
+          "reyher"
+        ],
+        "status": "single-source",
+        "verification": "historical-dimension-table",
+        "edition": "1997",
+        "note": "Historischer Tabellenwert; zweite unabhängige Bestätigung und aktuelle Edition fehlen."
+      },
+      "r": {
+        "nominal": 4.6,
+        "unit": "mm",
+        "sourceRefs": [
+          "reyher"
+        ],
+        "status": "single-source",
+        "verification": "historical-dimension-table",
+        "edition": "1997",
+        "note": "Historischer Tabellenwert; zweite unabhängige Bestätigung und aktuelle Edition fehlen."
+      },
+      "d2": {
+        "nominal": 5.25,
+        "unit": "mm",
+        "sourceRefs": [
+          "reyher"
+        ],
+        "status": "single-source",
+        "verification": "historical-dimension-table",
+        "edition": "1997",
+        "note": "Aufweitungsmaß für Stahl; Gültigkeitsbereich je Länge noch nicht verifiziert. Kein allgemeiner Rohdraht-Ø.",
+        "dependsOn": [
+          "laenge",
+          "werkstoff"
+        ]
+      }
+    },
+    "6": {
+      "d_nominal": {
+        "nominal": 6,
+        "unit": "mm",
+        "sourceRefs": [
+          "reyher"
+        ],
+        "status": "single-source",
+        "verification": "historical-dimension-table",
+        "edition": "1997",
+        "note": "Historischer Tabellenwert; zweite unabhängige Bestätigung und aktuelle Edition fehlen."
+      },
+      "dk": {
+        "nominal": 10.5,
+        "unit": "mm",
+        "sourceRefs": [
+          "reyher"
+        ],
+        "status": "single-source",
+        "verification": "historical-dimension-table",
+        "edition": "1997",
+        "note": "Historischer Tabellenwert; zweite unabhängige Bestätigung und aktuelle Edition fehlen."
+      },
+      "k": {
+        "nominal": 3.6,
+        "unit": "mm",
+        "sourceRefs": [
+          "reyher"
+        ],
+        "status": "single-source",
+        "verification": "historical-dimension-table",
+        "edition": "1997",
+        "note": "Historischer Tabellenwert; zweite unabhängige Bestätigung und aktuelle Edition fehlen."
+      },
+      "r": {
+        "nominal": 5.7,
+        "unit": "mm",
+        "sourceRefs": [
+          "reyher"
+        ],
+        "status": "single-source",
+        "verification": "historical-dimension-table",
+        "edition": "1997",
+        "note": "Historischer Tabellenwert; zweite unabhängige Bestätigung und aktuelle Edition fehlen."
+      },
+      "d2": {
+        "nominal": 6.3,
+        "unit": "mm",
+        "sourceRefs": [
+          "reyher"
+        ],
+        "status": "single-source",
+        "verification": "historical-dimension-table",
+        "edition": "1997",
+        "note": "Aufweitungsmaß für Stahl; Gültigkeitsbereich je Länge noch nicht verifiziert. Kein allgemeiner Rohdraht-Ø.",
+        "dependsOn": [
+          "laenge",
+          "werkstoff"
+        ]
+      }
+    },
+    "1.4": {
+      "d_nominal": {
+        "nominal": 1.4,
+        "unit": "mm",
+        "sourceRefs": [
+          "reyher"
+        ],
+        "status": "single-source",
+        "verification": "historical-dimension-table",
+        "edition": "1997",
+        "note": "Historischer Tabellenwert; zweite unabhängige Bestätigung und aktuelle Edition fehlen."
+      },
+      "dk": {
+        "nominal": 2.4,
+        "unit": "mm",
+        "sourceRefs": [
+          "reyher"
+        ],
+        "status": "single-source",
+        "verification": "historical-dimension-table",
+        "edition": "1997",
+        "note": "Historischer Tabellenwert; zweite unabhängige Bestätigung und aktuelle Edition fehlen."
+      },
+      "k": {
+        "nominal": 0.8,
+        "unit": "mm",
+        "sourceRefs": [
+          "reyher"
+        ],
+        "status": "single-source",
+        "verification": "historical-dimension-table",
+        "edition": "1997",
+        "note": "Historischer Tabellenwert; zweite unabhängige Bestätigung und aktuelle Edition fehlen."
+      },
+      "r": {
+        "nominal": 1.4,
+        "unit": "mm",
+        "sourceRefs": [
+          "reyher"
+        ],
+        "status": "single-source",
+        "verification": "historical-dimension-table",
+        "edition": "1997",
+        "note": "Historischer Tabellenwert; zweite unabhängige Bestätigung und aktuelle Edition fehlen."
+      },
+      "d2": {
+        "nominal": 1.5,
+        "unit": "mm",
+        "sourceRefs": [
+          "reyher"
+        ],
+        "status": "single-source",
+        "verification": "historical-dimension-table",
+        "edition": "1997",
+        "note": "Aufweitungsmaß für Stahl; Gültigkeitsbereich je Länge noch nicht verifiziert. Kein allgemeiner Rohdraht-Ø.",
+        "dependsOn": [
+          "laenge",
+          "werkstoff"
+        ]
+      }
+    },
+    "1.6": {
+      "d_nominal": {
+        "nominal": 1.6,
+        "unit": "mm",
+        "sourceRefs": [
+          "reyher"
+        ],
+        "status": "single-source",
+        "verification": "historical-dimension-table",
+        "edition": "1997",
+        "note": "Historischer Tabellenwert; zweite unabhängige Bestätigung und aktuelle Edition fehlen."
+      },
+      "dk": {
+        "nominal": 2.8,
+        "unit": "mm",
+        "sourceRefs": [
+          "reyher"
+        ],
+        "status": "single-source",
+        "verification": "historical-dimension-table",
+        "edition": "1997",
+        "note": "Historischer Tabellenwert; zweite unabhängige Bestätigung und aktuelle Edition fehlen."
+      },
+      "k": {
+        "nominal": 1,
+        "unit": "mm",
+        "sourceRefs": [
+          "reyher"
+        ],
+        "status": "single-source",
+        "verification": "historical-dimension-table",
+        "edition": "1997",
+        "note": "Historischer Tabellenwert; zweite unabhängige Bestätigung und aktuelle Edition fehlen."
+      },
+      "r": {
+        "nominal": 1.6,
+        "unit": "mm",
+        "sourceRefs": [
+          "reyher"
+        ],
+        "status": "single-source",
+        "verification": "historical-dimension-table",
+        "edition": "1997",
+        "note": "Historischer Tabellenwert; zweite unabhängige Bestätigung und aktuelle Edition fehlen."
+      },
+      "d2": {
+        "nominal": 1.7,
+        "unit": "mm",
+        "sourceRefs": [
+          "reyher"
+        ],
+        "status": "single-source",
+        "verification": "historical-dimension-table",
+        "edition": "1997",
+        "note": "Aufweitungsmaß für Stahl; Gültigkeitsbereich je Länge noch nicht verifiziert. Kein allgemeiner Rohdraht-Ø.",
+        "dependsOn": [
+          "laenge",
+          "werkstoff"
+        ]
+      }
+    },
+    "2.5": {
+      "d_nominal": {
+        "nominal": 2.5,
+        "unit": "mm",
+        "sourceRefs": [
+          "reyher"
+        ],
+        "status": "single-source",
+        "verification": "historical-dimension-table",
+        "edition": "1997",
+        "note": "Historischer Tabellenwert; zweite unabhängige Bestätigung und aktuelle Edition fehlen."
+      },
+      "dk": {
+        "nominal": 4.4,
+        "unit": "mm",
+        "sourceRefs": [
+          "reyher"
+        ],
+        "status": "single-source",
+        "verification": "historical-dimension-table",
+        "edition": "1997",
+        "note": "Historischer Tabellenwert; zweite unabhängige Bestätigung und aktuelle Edition fehlen."
+      },
+      "k": {
+        "nominal": 1.5,
+        "unit": "mm",
+        "sourceRefs": [
+          "reyher"
+        ],
+        "status": "single-source",
+        "verification": "historical-dimension-table",
+        "edition": "1997",
+        "note": "Historischer Tabellenwert; zweite unabhängige Bestätigung und aktuelle Edition fehlen."
+      },
+      "r": {
+        "nominal": 2.4,
+        "unit": "mm",
+        "sourceRefs": [
+          "reyher"
+        ],
+        "status": "single-source",
+        "verification": "historical-dimension-table",
+        "edition": "1997",
+        "note": "Historischer Tabellenwert; zweite unabhängige Bestätigung und aktuelle Edition fehlen."
+      },
+      "d2": {
+        "nominal": 2.7,
+        "unit": "mm",
+        "sourceRefs": [
+          "reyher"
+        ],
+        "status": "single-source",
+        "verification": "historical-dimension-table",
+        "edition": "1997",
+        "note": "Aufweitungsmaß für Stahl; Gültigkeitsbereich je Länge noch nicht verifiziert. Kein allgemeiner Rohdraht-Ø.",
+        "dependsOn": [
+          "laenge",
+          "werkstoff"
+        ]
+      }
+    }
+  },
+  "status": "partial",
+  "coverage": "documented",
+  "pruefdatum": "2026-11-26",
+  "normstatus": {
+    "edition": "1997",
+    "status": "withdrawn",
+    "sourceRefs": [
+      "iso-status"
+    ]
+  },
+  "currentEdition": {
+    "edition": "2025",
+    "status": "current",
+    "sourceRefs": [
+      "iso-status"
+    ],
+    "dimensionCoverage": "unresearched",
+    "note": "Technisch überarbeitete Ausgabe. Die ältere Tabelle wird nicht als aktuelle Maßtabelle ausgegeben."
+  },
+  "quellen": [
+    {
+      "id": "iso-status",
+      "url": "https://www.iso.org/committee/45446/x/catalogue/",
+      "titel": "ISO/TC2 Katalog: Editionen und Status",
+      "abgerufen": "2026-11-26",
+      "scope": "edition-status"
+    },
+    {
+      "id": "reyher",
+      "url": "https://www.reyher.de/fileadmin/user_upload/Downloadbereich/Reyher_2019-EN_Technische_Informationen_ks.pdf",
+      "titel": "REYHER technische Informationen2020, TI118–120",
+      "abgerufen": "2026-11-26",
+      "scope": "legacy-dimensions"
+    }
+  ],
+  "lengthDependentFields": [
+    "sL",
+    "d2"
+  ],
+  "laengen": {
+    "values": [],
+    "unit": "mm",
+    "coverage": "unresearched",
+    "status": "missing",
+    "sourceRefs": [],
+    "note": "Durchmesser-Längen-Zuordnung und Aufweitungsmaß je Länge fehlen."
+  },
+  "gaps": [
+    "Aktuelle Maße 2025 nicht im zugänglichen Vorschauauszug enthalten.",
+    "Exaktes Kerbprofil und längenabhängige Aufweitung bleiben offen.",
+    "Weitere Größen sind ohne Tabellenbeleg unresearched, nicht ausgeschlossen."
+  ],
+  "hinweise": [
+    "Kerben werden nicht als Materialabtrag oder zusätzliche frei erfundene Volumina modelliert."
+  ],
+  "variants": [
+    {
+      "id": "A",
+      "label": "Fasenende (1997)",
+      "sizeData": {}
+    },
+    {
+      "id": "B",
+      "label": "Einführende (1997)",
+      "sizeData": {}
+    }
+  ]
+}

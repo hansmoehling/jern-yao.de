@@ -1,0 +1,759 @@
+{
+  "schemaVersion": 1,
+  "id": "ISO1051",
+  "version": "2026-11-26",
+  "edition": "1999",
+  "label": "ISO1051 · Nietschaft-Durchmesserreihen",
+  "datasetKind": "rivet-size-series",
+  "funktion": "niet",
+  "klasse": "bolzen",
+  "kopfTyp": null,
+  "antrieb": null,
+  "threadFamily": "none",
+  "schaftende": "voll",
+  "feldzuordnung": {
+    "sD": "d_nominal"
+  },
+  "groessen": {
+    "1": {
+      "vorbelegung": {
+        "sD": 1
+      },
+      "roh": {
+        "d_nominal": 1
+      },
+      "series": "hauptreihe",
+      "coverage": "documented",
+      "geometryStatus": "partial",
+      "missingGeometryFields": [
+        "partStandard",
+        "headGeometry",
+        "length"
+      ]
+    },
+    "2": {
+      "vorbelegung": {
+        "sD": 2
+      },
+      "roh": {
+        "d_nominal": 2
+      },
+      "series": "hauptreihe",
+      "coverage": "documented",
+      "geometryStatus": "partial",
+      "missingGeometryFields": [
+        "partStandard",
+        "headGeometry",
+        "length"
+      ]
+    },
+    "3": {
+      "vorbelegung": {
+        "sD": 3
+      },
+      "roh": {
+        "d_nominal": 3
+      },
+      "series": "hauptreihe",
+      "coverage": "documented",
+      "geometryStatus": "partial",
+      "missingGeometryFields": [
+        "partStandard",
+        "headGeometry",
+        "length"
+      ]
+    },
+    "4": {
+      "vorbelegung": {
+        "sD": 4
+      },
+      "roh": {
+        "d_nominal": 4
+      },
+      "series": "hauptreihe",
+      "coverage": "documented",
+      "geometryStatus": "partial",
+      "missingGeometryFields": [
+        "partStandard",
+        "headGeometry",
+        "length"
+      ]
+    },
+    "5": {
+      "vorbelegung": {
+        "sD": 5
+      },
+      "roh": {
+        "d_nominal": 5
+      },
+      "series": "hauptreihe",
+      "coverage": "documented",
+      "geometryStatus": "partial",
+      "missingGeometryFields": [
+        "partStandard",
+        "headGeometry",
+        "length"
+      ]
+    },
+    "6": {
+      "vorbelegung": {
+        "sD": 6
+      },
+      "roh": {
+        "d_nominal": 6
+      },
+      "series": "hauptreihe",
+      "coverage": "documented",
+      "geometryStatus": "partial",
+      "missingGeometryFields": [
+        "partStandard",
+        "headGeometry",
+        "length"
+      ]
+    },
+    "7": {
+      "vorbelegung": {
+        "sD": 7
+      },
+      "roh": {
+        "d_nominal": 7
+      },
+      "series": "nebenreihe",
+      "coverage": "documented",
+      "geometryStatus": "partial",
+      "missingGeometryFields": [
+        "partStandard",
+        "headGeometry",
+        "length"
+      ]
+    },
+    "8": {
+      "vorbelegung": {
+        "sD": 8
+      },
+      "roh": {
+        "d_nominal": 8
+      },
+      "series": "hauptreihe",
+      "coverage": "documented",
+      "geometryStatus": "partial",
+      "missingGeometryFields": [
+        "partStandard",
+        "headGeometry",
+        "length"
+      ]
+    },
+    "10": {
+      "vorbelegung": {
+        "sD": 10
+      },
+      "roh": {
+        "d_nominal": 10
+      },
+      "series": "hauptreihe",
+      "coverage": "documented",
+      "geometryStatus": "partial",
+      "missingGeometryFields": [
+        "partStandard",
+        "headGeometry",
+        "length"
+      ]
+    },
+    "12": {
+      "vorbelegung": {
+        "sD": 12
+      },
+      "roh": {
+        "d_nominal": 12
+      },
+      "series": "hauptreihe",
+      "coverage": "documented",
+      "geometryStatus": "partial",
+      "missingGeometryFields": [
+        "partStandard",
+        "headGeometry",
+        "length"
+      ]
+    },
+    "14": {
+      "vorbelegung": {
+        "sD": 14
+      },
+      "roh": {
+        "d_nominal": 14
+      },
+      "series": "nebenreihe",
+      "coverage": "documented",
+      "geometryStatus": "partial",
+      "missingGeometryFields": [
+        "partStandard",
+        "headGeometry",
+        "length"
+      ]
+    },
+    "16": {
+      "vorbelegung": {
+        "sD": 16
+      },
+      "roh": {
+        "d_nominal": 16
+      },
+      "series": "hauptreihe",
+      "coverage": "documented",
+      "geometryStatus": "partial",
+      "missingGeometryFields": [
+        "partStandard",
+        "headGeometry",
+        "length"
+      ]
+    },
+    "18": {
+      "vorbelegung": {
+        "sD": 18
+      },
+      "roh": {
+        "d_nominal": 18
+      },
+      "series": "nebenreihe",
+      "coverage": "documented",
+      "geometryStatus": "partial",
+      "missingGeometryFields": [
+        "partStandard",
+        "headGeometry",
+        "length"
+      ]
+    },
+    "20": {
+      "vorbelegung": {
+        "sD": 20
+      },
+      "roh": {
+        "d_nominal": 20
+      },
+      "series": "hauptreihe",
+      "coverage": "documented",
+      "geometryStatus": "partial",
+      "missingGeometryFields": [
+        "partStandard",
+        "headGeometry",
+        "length"
+      ]
+    },
+    "22": {
+      "vorbelegung": {
+        "sD": 22
+      },
+      "roh": {
+        "d_nominal": 22
+      },
+      "series": "nebenreihe",
+      "coverage": "documented",
+      "geometryStatus": "partial",
+      "missingGeometryFields": [
+        "partStandard",
+        "headGeometry",
+        "length"
+      ]
+    },
+    "24": {
+      "vorbelegung": {
+        "sD": 24
+      },
+      "roh": {
+        "d_nominal": 24
+      },
+      "series": "hauptreihe",
+      "coverage": "documented",
+      "geometryStatus": "partial",
+      "missingGeometryFields": [
+        "partStandard",
+        "headGeometry",
+        "length"
+      ]
+    },
+    "27": {
+      "vorbelegung": {
+        "sD": 27
+      },
+      "roh": {
+        "d_nominal": 27
+      },
+      "series": "nebenreihe",
+      "coverage": "documented",
+      "geometryStatus": "partial",
+      "missingGeometryFields": [
+        "partStandard",
+        "headGeometry",
+        "length"
+      ]
+    },
+    "30": {
+      "vorbelegung": {
+        "sD": 30
+      },
+      "roh": {
+        "d_nominal": 30
+      },
+      "series": "hauptreihe",
+      "coverage": "documented",
+      "geometryStatus": "partial",
+      "missingGeometryFields": [
+        "partStandard",
+        "headGeometry",
+        "length"
+      ]
+    },
+    "33": {
+      "vorbelegung": {
+        "sD": 33
+      },
+      "roh": {
+        "d_nominal": 33
+      },
+      "series": "nebenreihe",
+      "coverage": "documented",
+      "geometryStatus": "partial",
+      "missingGeometryFields": [
+        "partStandard",
+        "headGeometry",
+        "length"
+      ]
+    },
+    "36": {
+      "vorbelegung": {
+        "sD": 36
+      },
+      "roh": {
+        "d_nominal": 36
+      },
+      "series": "hauptreihe",
+      "coverage": "documented",
+      "geometryStatus": "partial",
+      "missingGeometryFields": [
+        "partStandard",
+        "headGeometry",
+        "length"
+      ]
+    },
+    "1.2": {
+      "vorbelegung": {
+        "sD": 1.2
+      },
+      "roh": {
+        "d_nominal": 1.2
+      },
+      "series": "hauptreihe",
+      "coverage": "documented",
+      "geometryStatus": "partial",
+      "missingGeometryFields": [
+        "partStandard",
+        "headGeometry",
+        "length"
+      ]
+    },
+    "1.6": {
+      "vorbelegung": {
+        "sD": 1.6
+      },
+      "roh": {
+        "d_nominal": 1.6
+      },
+      "series": "hauptreihe",
+      "coverage": "documented",
+      "geometryStatus": "partial",
+      "missingGeometryFields": [
+        "partStandard",
+        "headGeometry",
+        "length"
+      ]
+    },
+    "2.5": {
+      "vorbelegung": {
+        "sD": 2.5
+      },
+      "roh": {
+        "d_nominal": 2.5
+      },
+      "series": "hauptreihe",
+      "coverage": "documented",
+      "geometryStatus": "partial",
+      "missingGeometryFields": [
+        "partStandard",
+        "headGeometry",
+        "length"
+      ]
+    },
+    "1.4": {
+      "vorbelegung": {
+        "sD": 1.4
+      },
+      "roh": {
+        "d_nominal": 1.4
+      },
+      "series": "nebenreihe",
+      "coverage": "documented",
+      "geometryStatus": "partial",
+      "missingGeometryFields": [
+        "partStandard",
+        "headGeometry",
+        "length"
+      ]
+    },
+    "3.5": {
+      "vorbelegung": {
+        "sD": 3.5
+      },
+      "roh": {
+        "d_nominal": 3.5
+      },
+      "series": "nebenreihe",
+      "coverage": "documented",
+      "geometryStatus": "partial",
+      "missingGeometryFields": [
+        "partStandard",
+        "headGeometry",
+        "length"
+      ]
+    }
+  },
+  "fields": {
+    "1": {
+      "d_nominal": {
+        "nominal": 1,
+        "sourceRefs": [
+          "iso-table"
+        ],
+        "status": "single-source",
+        "verification": "single-publication",
+        "note": "Einzelwert aus Originalvorschau; zweite unabhängige Wertetabelle fehlt. Reihenlage aus PDF-Layout; keine Kopfform-/Längennorm.",
+        "unit": "mm"
+      }
+    },
+    "2": {
+      "d_nominal": {
+        "nominal": 2,
+        "sourceRefs": [
+          "iso-table"
+        ],
+        "status": "single-source",
+        "verification": "single-publication",
+        "note": "Einzelwert aus Originalvorschau; zweite unabhängige Wertetabelle fehlt. Reihenlage aus PDF-Layout; keine Kopfform-/Längennorm.",
+        "unit": "mm"
+      }
+    },
+    "3": {
+      "d_nominal": {
+        "nominal": 3,
+        "sourceRefs": [
+          "iso-table"
+        ],
+        "status": "single-source",
+        "verification": "single-publication",
+        "note": "Einzelwert aus Originalvorschau; zweite unabhängige Wertetabelle fehlt. Reihenlage aus PDF-Layout; keine Kopfform-/Längennorm.",
+        "unit": "mm"
+      }
+    },
+    "4": {
+      "d_nominal": {
+        "nominal": 4,
+        "sourceRefs": [
+          "iso-table"
+        ],
+        "status": "single-source",
+        "verification": "single-publication",
+        "note": "Einzelwert aus Originalvorschau; zweite unabhängige Wertetabelle fehlt. Reihenlage aus PDF-Layout; keine Kopfform-/Längennorm.",
+        "unit": "mm"
+      }
+    },
+    "5": {
+      "d_nominal": {
+        "nominal": 5,
+        "sourceRefs": [
+          "iso-table"
+        ],
+        "status": "single-source",
+        "verification": "single-publication",
+        "note": "Einzelwert aus Originalvorschau; zweite unabhängige Wertetabelle fehlt. Reihenlage aus PDF-Layout; keine Kopfform-/Längennorm.",
+        "unit": "mm"
+      }
+    },
+    "6": {
+      "d_nominal": {
+        "nominal": 6,
+        "sourceRefs": [
+          "iso-table"
+        ],
+        "status": "single-source",
+        "verification": "single-publication",
+        "note": "Einzelwert aus Originalvorschau; zweite unabhängige Wertetabelle fehlt. Reihenlage aus PDF-Layout; keine Kopfform-/Längennorm.",
+        "unit": "mm"
+      }
+    },
+    "7": {
+      "d_nominal": {
+        "nominal": 7,
+        "sourceRefs": [
+          "iso-table"
+        ],
+        "status": "single-source",
+        "verification": "single-publication",
+        "note": "Einzelwert aus Originalvorschau; zweite unabhängige Wertetabelle fehlt. Reihenlage aus PDF-Layout; keine Kopfform-/Längennorm.",
+        "unit": "mm"
+      }
+    },
+    "8": {
+      "d_nominal": {
+        "nominal": 8,
+        "sourceRefs": [
+          "iso-table"
+        ],
+        "status": "single-source",
+        "verification": "single-publication",
+        "note": "Einzelwert aus Originalvorschau; zweite unabhängige Wertetabelle fehlt. Reihenlage aus PDF-Layout; keine Kopfform-/Längennorm.",
+        "unit": "mm"
+      }
+    },
+    "10": {
+      "d_nominal": {
+        "nominal": 10,
+        "sourceRefs": [
+          "iso-table"
+        ],
+        "status": "single-source",
+        "verification": "single-publication",
+        "note": "Einzelwert aus Originalvorschau; zweite unabhängige Wertetabelle fehlt. Reihenlage aus PDF-Layout; keine Kopfform-/Längennorm.",
+        "unit": "mm"
+      }
+    },
+    "12": {
+      "d_nominal": {
+        "nominal": 12,
+        "sourceRefs": [
+          "iso-table"
+        ],
+        "status": "single-source",
+        "verification": "single-publication",
+        "note": "Einzelwert aus Originalvorschau; zweite unabhängige Wertetabelle fehlt. Reihenlage aus PDF-Layout; keine Kopfform-/Längennorm.",
+        "unit": "mm"
+      }
+    },
+    "14": {
+      "d_nominal": {
+        "nominal": 14,
+        "sourceRefs": [
+          "iso-table"
+        ],
+        "status": "single-source",
+        "verification": "single-publication",
+        "note": "Einzelwert aus Originalvorschau; zweite unabhängige Wertetabelle fehlt. Reihenlage aus PDF-Layout; keine Kopfform-/Längennorm.",
+        "unit": "mm"
+      }
+    },
+    "16": {
+      "d_nominal": {
+        "nominal": 16,
+        "sourceRefs": [
+          "iso-table"
+        ],
+        "status": "single-source",
+        "verification": "single-publication",
+        "note": "Einzelwert aus Originalvorschau; zweite unabhängige Wertetabelle fehlt. Reihenlage aus PDF-Layout; keine Kopfform-/Längennorm.",
+        "unit": "mm"
+      }
+    },
+    "18": {
+      "d_nominal": {
+        "nominal": 18,
+        "sourceRefs": [
+          "iso-table"
+        ],
+        "status": "single-source",
+        "verification": "single-publication",
+        "note": "Einzelwert aus Originalvorschau; zweite unabhängige Wertetabelle fehlt. Reihenlage aus PDF-Layout; keine Kopfform-/Längennorm.",
+        "unit": "mm"
+      }
+    },
+    "20": {
+      "d_nominal": {
+        "nominal": 20,
+        "sourceRefs": [
+          "iso-table"
+        ],
+        "status": "single-source",
+        "verification": "single-publication",
+        "note": "Einzelwert aus Originalvorschau; zweite unabhängige Wertetabelle fehlt. Reihenlage aus PDF-Layout; keine Kopfform-/Längennorm.",
+        "unit": "mm"
+      }
+    },
+    "22": {
+      "d_nominal": {
+        "nominal": 22,
+        "sourceRefs": [
+          "iso-table"
+        ],
+        "status": "single-source",
+        "verification": "single-publication",
+        "note": "Einzelwert aus Originalvorschau; zweite unabhängige Wertetabelle fehlt. Reihenlage aus PDF-Layout; keine Kopfform-/Längennorm.",
+        "unit": "mm"
+      }
+    },
+    "24": {
+      "d_nominal": {
+        "nominal": 24,
+        "sourceRefs": [
+          "iso-table"
+        ],
+        "status": "single-source",
+        "verification": "single-publication",
+        "note": "Einzelwert aus Originalvorschau; zweite unabhängige Wertetabelle fehlt. Reihenlage aus PDF-Layout; keine Kopfform-/Längennorm.",
+        "unit": "mm"
+      }
+    },
+    "27": {
+      "d_nominal": {
+        "nominal": 27,
+        "sourceRefs": [
+          "iso-table"
+        ],
+        "status": "single-source",
+        "verification": "single-publication",
+        "note": "Einzelwert aus Originalvorschau; zweite unabhängige Wertetabelle fehlt. Reihenlage aus PDF-Layout; keine Kopfform-/Längennorm.",
+        "unit": "mm"
+      }
+    },
+    "30": {
+      "d_nominal": {
+        "nominal": 30,
+        "sourceRefs": [
+          "iso-table"
+        ],
+        "status": "single-source",
+        "verification": "single-publication",
+        "note": "Einzelwert aus Originalvorschau; zweite unabhängige Wertetabelle fehlt. Reihenlage aus PDF-Layout; keine Kopfform-/Längennorm.",
+        "unit": "mm"
+      }
+    },
+    "33": {
+      "d_nominal": {
+        "nominal": 33,
+        "sourceRefs": [
+          "iso-table"
+        ],
+        "status": "single-source",
+        "verification": "single-publication",
+        "note": "Einzelwert aus Originalvorschau; zweite unabhängige Wertetabelle fehlt. Reihenlage aus PDF-Layout; keine Kopfform-/Längennorm.",
+        "unit": "mm"
+      }
+    },
+    "36": {
+      "d_nominal": {
+        "nominal": 36,
+        "sourceRefs": [
+          "iso-table"
+        ],
+        "status": "single-source",
+        "verification": "single-publication",
+        "note": "Einzelwert aus Originalvorschau; zweite unabhängige Wertetabelle fehlt. Reihenlage aus PDF-Layout; keine Kopfform-/Längennorm.",
+        "unit": "mm"
+      }
+    },
+    "1.2": {
+      "d_nominal": {
+        "nominal": 1.2,
+        "sourceRefs": [
+          "iso-table"
+        ],
+        "status": "single-source",
+        "verification": "single-publication",
+        "note": "Einzelwert aus Originalvorschau; zweite unabhängige Wertetabelle fehlt. Reihenlage aus PDF-Layout; keine Kopfform-/Längennorm.",
+        "unit": "mm"
+      }
+    },
+    "1.6": {
+      "d_nominal": {
+        "nominal": 1.6,
+        "sourceRefs": [
+          "iso-table"
+        ],
+        "status": "single-source",
+        "verification": "single-publication",
+        "note": "Einzelwert aus Originalvorschau; zweite unabhängige Wertetabelle fehlt. Reihenlage aus PDF-Layout; keine Kopfform-/Längennorm.",
+        "unit": "mm"
+      }
+    },
+    "2.5": {
+      "d_nominal": {
+        "nominal": 2.5,
+        "sourceRefs": [
+          "iso-table"
+        ],
+        "status": "single-source",
+        "verification": "single-publication",
+        "note": "Einzelwert aus Originalvorschau; zweite unabhängige Wertetabelle fehlt. Reihenlage aus PDF-Layout; keine Kopfform-/Längennorm.",
+        "unit": "mm"
+      }
+    },
+    "1.4": {
+      "d_nominal": {
+        "nominal": 1.4,
+        "sourceRefs": [
+          "iso-table"
+        ],
+        "status": "single-source",
+        "verification": "single-publication",
+        "note": "Einzelwert aus Originalvorschau; zweite unabhängige Wertetabelle fehlt. Reihenlage aus PDF-Layout; keine Kopfform-/Längennorm.",
+        "unit": "mm"
+      }
+    },
+    "3.5": {
+      "d_nominal": {
+        "nominal": 3.5,
+        "sourceRefs": [
+          "iso-table"
+        ],
+        "status": "single-source",
+        "verification": "single-publication",
+        "note": "Einzelwert aus Originalvorschau; zweite unabhängige Wertetabelle fehlt. Reihenlage aus PDF-Layout; keine Kopfform-/Längennorm.",
+        "unit": "mm"
+      }
+    }
+  },
+  "quellen": [
+    {
+      "id": "iso-table",
+      "url": "https://cdn.standards.iteh.ai/samples/31084/9f83dc20c6ff4d09824161490425926a/ISO-1051-1999.pdf",
+      "titel": "ISO1051:1999 Originalvorschau",
+      "scope": "standard-dimensions",
+      "abgerufen": "2026-11-26"
+    },
+    {
+      "id": "iso-status",
+      "url": "https://www.iso.org/standard/31084.html",
+      "titel": "ISO1051:1999, 2024 bestätigt",
+      "scope": "edition-status",
+      "abgerufen": "2026-11-26"
+    }
+  ],
+  "status": "partial",
+  "coverage": "documented",
+  "pruefdatum": "2026-11-26",
+  "gaps": [
+    "Zweite unabhängige Bestätigung der einzelnen Durchmesser und Zuordnung Haupt-/Nebenreihe fehlt."
+  ],
+  "hinweise": [
+    "Fehlende Größe/Länge kennzeichnet eine Datenlücke, keinen Normausschluss."
+  ],
+  "normstatus": {
+    "edition": "1999",
+    "status": "current",
+    "confirmed": 2024,
+    "sourceRefs": [
+      "iso-status"
+    ]
+  },
+  "scope": {
+    "blindRivets": false,
+    "headDimensions": false,
+    "lengthDimensions": false
+  }
+}

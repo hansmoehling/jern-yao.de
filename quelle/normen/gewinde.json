@@ -1,0 +1,845 @@
+{
+  "schemaVersion": 1,
+  "datasetKind": "thread-dimensions",
+  "version": "2026-11-26",
+  "unit": "mm",
+  "toleranceSystem": "ISO 965, 6g external / 6H internal; dated source tables retained",
+  "modelAssumptions": {
+    "rollBlank": "Midpoint of 6g pitch-diameter limits, rounded to 0.01 mm. Process starting value; tooling, material and coating can change it.",
+    "nutHole": "Midpoint of 6H minor-diameter limits, rounded to 0.01 mm. Cutting-tap blank assumption; not a forming-tap recommendation."
+  },
+  "rows": {
+    "M3": {
+      "coarse": 0.5,
+      "pitches": {
+        "0.5": {
+          "d2min": 2.58,
+          "d2max": 2.655,
+          "es": -0.02,
+          "Td2": 0.075,
+          "sourceRefs": [
+            "bossardMetric2015",
+            "roymech",
+            "amesExt"
+          ],
+          "status": "crosschecked-import",
+          "D1min": 2.459,
+          "D1max": 2.599,
+          "gap": null,
+          "internalSourceRefs": [
+            "iteh965_1_2013"
+          ],
+          "internalStatus": "primary-table-derived",
+          "internalDerivation": "ISO basic internal minor diameter + ISO 965-1:2013 Table 2 grade 6 TD1 (pitch dependent). Second independent table for each fine-pitch combination remains open."
+        }
+      }
+    },
+    "M4": {
+      "coarse": 0.7,
+      "pitches": {
+        "0.7": {
+          "d2min": 3.433,
+          "d2max": 3.523,
+          "es": -0.022,
+          "Td2": 0.09,
+          "sourceRefs": [
+            "bossardMetric2015",
+            "roymech",
+            "amesExt"
+          ],
+          "status": "crosschecked-import",
+          "D1min": 3.242,
+          "D1max": 3.422,
+          "gap": null,
+          "internalSourceRefs": [
+            "iteh965_1_2013"
+          ],
+          "internalStatus": "primary-table-derived",
+          "internalDerivation": "ISO basic internal minor diameter + ISO 965-1:2013 Table 2 grade 6 TD1 (pitch dependent). Second independent table for each fine-pitch combination remains open."
+        }
+      }
+    },
+    "M5": {
+      "coarse": 0.8,
+      "pitches": {
+        "0.8": {
+          "d2min": 4.361,
+          "d2max": 4.456,
+          "es": -0.024,
+          "Td2": 0.095,
+          "sourceRefs": [
+            "bossardMetric2015",
+            "roymech",
+            "amesExt"
+          ],
+          "status": "crosschecked-import",
+          "D1min": 4.134,
+          "D1max": 4.334,
+          "gap": null,
+          "internalSourceRefs": [
+            "iteh965_1_2013"
+          ],
+          "internalStatus": "primary-table-derived",
+          "internalDerivation": "ISO basic internal minor diameter + ISO 965-1:2013 Table 2 grade 6 TD1 (pitch dependent). Second independent table for each fine-pitch combination remains open."
+        }
+      }
+    },
+    "M6": {
+      "coarse": 1.0,
+      "pitches": {
+        "1": {
+          "d2min": 5.212,
+          "d2max": 5.324,
+          "es": -0.026,
+          "Td2": 0.112,
+          "sourceRefs": [
+            "bossardMetric2015",
+            "roymech",
+            "amesExt"
+          ],
+          "status": "crosschecked-import",
+          "D1min": 4.917,
+          "D1max": 5.153,
+          "gap": null,
+          "internalSourceRefs": [
+            "iteh965_1_2013"
+          ],
+          "internalStatus": "primary-table-derived",
+          "internalDerivation": "ISO basic internal minor diameter + ISO 965-1:2013 Table 2 grade 6 TD1 (pitch dependent). Second independent table for each fine-pitch combination remains open."
+        }
+      }
+    },
+    "M8": {
+      "coarse": 1.25,
+      "pitches": {
+        "1.25": {
+          "d2min": 7.042,
+          "d2max": 7.16,
+          "es": -0.028,
+          "Td2": 0.118,
+          "sourceRefs": [
+            "bossardMetric2015",
+            "roymech",
+            "amesExt"
+          ],
+          "status": "crosschecked-import",
+          "D1min": 6.647,
+          "D1max": 6.912,
+          "gap": null,
+          "internalSourceRefs": [
+            "iteh965_1_2013"
+          ],
+          "internalStatus": "primary-table-derived",
+          "internalDerivation": "ISO basic internal minor diameter + ISO 965-1:2013 Table 2 grade 6 TD1 (pitch dependent). Second independent table for each fine-pitch combination remains open."
+        },
+        "1": {
+          "d2min": 7.212,
+          "d2max": 7.324,
+          "es": -0.026,
+          "Td2": 0.112,
+          "sourceRefs": [
+            "roymech",
+            "amesExt"
+          ],
+          "status": "crosschecked-import",
+          "D1min": 6.917,
+          "D1max": 7.153,
+          "gap": null,
+          "internalSourceRefs": [
+            "iteh965_1_2013"
+          ],
+          "internalStatus": "primary-table-derived",
+          "internalDerivation": "ISO basic internal minor diameter + ISO 965-1:2013 Table 2 grade 6 TD1 (pitch dependent). Second independent table for each fine-pitch combination remains open."
+        }
+      }
+    },
+    "M10": {
+      "coarse": 1.5,
+      "pitches": {
+        "1.5": {
+          "d2min": 8.862,
+          "d2max": 8.994,
+          "es": -0.032,
+          "Td2": 0.132,
+          "sourceRefs": [
+            "bossardMetric2015",
+            "roymech",
+            "amesExt"
+          ],
+          "status": "crosschecked-import",
+          "D1min": 8.376,
+          "D1max": 8.676,
+          "gap": null,
+          "internalSourceRefs": [
+            "iteh965_1_2013"
+          ],
+          "internalStatus": "primary-table-derived",
+          "internalDerivation": "ISO basic internal minor diameter + ISO 965-1:2013 Table 2 grade 6 TD1 (pitch dependent). Second independent table for each fine-pitch combination remains open."
+        },
+        "1.25": {
+          "d2min": 9.042,
+          "d2max": 9.16,
+          "es": -0.028,
+          "Td2": 0.118,
+          "sourceRefs": [
+            "roymech",
+            "amesExt"
+          ],
+          "status": "crosschecked-import",
+          "D1min": 8.647,
+          "D1max": 8.912,
+          "gap": null,
+          "internalSourceRefs": [
+            "iteh965_1_2013"
+          ],
+          "internalStatus": "primary-table-derived",
+          "internalDerivation": "ISO basic internal minor diameter + ISO 965-1:2013 Table 2 grade 6 TD1 (pitch dependent). Second independent table for each fine-pitch combination remains open."
+        },
+        "1": {
+          "d2min": 9.212,
+          "d2max": 9.324,
+          "es": -0.026,
+          "Td2": 0.112,
+          "sourceRefs": [
+            "roymech",
+            "amesExt"
+          ],
+          "status": "crosschecked-import",
+          "D1min": 8.917,
+          "D1max": 9.153,
+          "gap": null,
+          "internalSourceRefs": [
+            "iteh965_1_2013"
+          ],
+          "internalStatus": "primary-table-derived",
+          "internalDerivation": "ISO basic internal minor diameter + ISO 965-1:2013 Table 2 grade 6 TD1 (pitch dependent). Second independent table for each fine-pitch combination remains open."
+        },
+        "0.75": {
+          "d2min": 9.391,
+          "d2max": 9.491,
+          "es": -0.022,
+          "Td2": 0.1,
+          "sourceRefs": [
+            "roymech",
+            "amesExt"
+          ],
+          "status": "crosschecked-import",
+          "D1min": 9.188,
+          "D1max": 9.378,
+          "gap": null,
+          "internalSourceRefs": [
+            "iteh965_1_2013"
+          ],
+          "internalStatus": "primary-table-derived",
+          "internalDerivation": "ISO basic internal minor diameter + ISO 965-1:2013 Table 2 grade 6 TD1 (pitch dependent). Second independent table for each fine-pitch combination remains open."
+        }
+      }
+    },
+    "M12": {
+      "coarse": 1.75,
+      "pitches": {
+        "1.75": {
+          "d2min": 10.679,
+          "d2max": 10.829,
+          "es": -0.034,
+          "Td2": 0.15,
+          "sourceRefs": [
+            "bossardMetric2015",
+            "roymech",
+            "amesExt"
+          ],
+          "status": "crosschecked-import",
+          "D1min": 10.106,
+          "D1max": 10.441,
+          "gap": null,
+          "internalSourceRefs": [
+            "iteh965_1_2013"
+          ],
+          "internalStatus": "primary-table-derived",
+          "internalDerivation": "ISO basic internal minor diameter + ISO 965-1:2013 Table 2 grade 6 TD1 (pitch dependent). Second independent table for each fine-pitch combination remains open."
+        },
+        "1.5": {
+          "d2min": 10.854,
+          "d2max": 10.994,
+          "es": -0.032,
+          "Td2": 0.14,
+          "sourceRefs": [
+            "roymech",
+            "amesExt"
+          ],
+          "status": "crosschecked-import",
+          "D1min": 10.376,
+          "D1max": 10.676,
+          "gap": null,
+          "internalSourceRefs": [
+            "iteh965_1_2013"
+          ],
+          "internalStatus": "primary-table-derived",
+          "internalDerivation": "ISO basic internal minor diameter + ISO 965-1:2013 Table 2 grade 6 TD1 (pitch dependent). Second independent table for each fine-pitch combination remains open."
+        },
+        "1.25": {
+          "d2min": 11.028,
+          "d2max": 11.16,
+          "es": -0.028,
+          "Td2": 0.132,
+          "sourceRefs": [
+            "roymech",
+            "amesExt"
+          ],
+          "status": "crosschecked-import",
+          "D1min": 10.647,
+          "D1max": 10.912,
+          "gap": null,
+          "internalSourceRefs": [
+            "iteh965_1_2013"
+          ],
+          "internalStatus": "primary-table-derived",
+          "internalDerivation": "ISO basic internal minor diameter + ISO 965-1:2013 Table 2 grade 6 TD1 (pitch dependent). Second independent table for each fine-pitch combination remains open."
+        },
+        "1": {
+          "d2min": 11.206,
+          "d2max": 11.324,
+          "es": -0.026,
+          "Td2": 0.118,
+          "sourceRefs": [
+            "roymech",
+            "amesExt"
+          ],
+          "status": "crosschecked-import",
+          "D1min": 10.917,
+          "D1max": 11.153,
+          "gap": null,
+          "internalSourceRefs": [
+            "iteh965_1_2013"
+          ],
+          "internalStatus": "primary-table-derived",
+          "internalDerivation": "ISO basic internal minor diameter + ISO 965-1:2013 Table 2 grade 6 TD1 (pitch dependent). Second independent table for each fine-pitch combination remains open."
+        }
+      }
+    },
+    "M14": {
+      "coarse": 2.0,
+      "pitches": {
+        "2": {
+          "d2min": 12.503,
+          "d2max": 12.663,
+          "es": -0.038,
+          "Td2": 0.16,
+          "sourceRefs": [
+            "bossardMetric2015",
+            "roymech",
+            "amesExt"
+          ],
+          "status": "crosschecked-import",
+          "D1min": 11.835,
+          "D1max": 12.21,
+          "gap": null,
+          "internalSourceRefs": [
+            "iteh965_1_2013"
+          ],
+          "internalStatus": "primary-table-derived",
+          "internalDerivation": "ISO basic internal minor diameter + ISO 965-1:2013 Table 2 grade 6 TD1 (pitch dependent). Second independent table for each fine-pitch combination remains open."
+        },
+        "1.5": {
+          "d2min": 12.854,
+          "d2max": 12.994,
+          "es": -0.032,
+          "Td2": 0.14,
+          "sourceRefs": [
+            "roymech",
+            "amesExt"
+          ],
+          "status": "crosschecked-import",
+          "D1min": 12.376,
+          "D1max": 12.676,
+          "gap": null,
+          "internalSourceRefs": [
+            "iteh965_1_2013"
+          ],
+          "internalStatus": "primary-table-derived",
+          "internalDerivation": "ISO basic internal minor diameter + ISO 965-1:2013 Table 2 grade 6 TD1 (pitch dependent). Second independent table for each fine-pitch combination remains open."
+        }
+      }
+    },
+    "M16": {
+      "coarse": 2.0,
+      "pitches": {
+        "2": {
+          "d2min": 14.503,
+          "d2max": 14.663,
+          "es": -0.038,
+          "Td2": 0.16,
+          "sourceRefs": [
+            "bossardMetric2015",
+            "roymech",
+            "amesExt"
+          ],
+          "status": "crosschecked-import",
+          "D1min": 13.835,
+          "D1max": 14.21,
+          "gap": null,
+          "internalSourceRefs": [
+            "iteh965_1_2013"
+          ],
+          "internalStatus": "primary-table-derived",
+          "internalDerivation": "ISO basic internal minor diameter + ISO 965-1:2013 Table 2 grade 6 TD1 (pitch dependent). Second independent table for each fine-pitch combination remains open."
+        },
+        "1.5": {
+          "d2min": 14.854,
+          "d2max": 14.994,
+          "es": -0.032,
+          "Td2": 0.14,
+          "sourceRefs": [
+            "roymech",
+            "amesExt"
+          ],
+          "status": "crosschecked-import",
+          "D1min": 14.376,
+          "D1max": 14.676,
+          "gap": null,
+          "internalSourceRefs": [
+            "iteh965_1_2013"
+          ],
+          "internalStatus": "primary-table-derived",
+          "internalDerivation": "ISO basic internal minor diameter + ISO 965-1:2013 Table 2 grade 6 TD1 (pitch dependent). Second independent table for each fine-pitch combination remains open."
+        }
+      }
+    },
+    "M18": {
+      "coarse": 2.5,
+      "pitches": {
+        "1.5": {
+          "d2min": 16.854,
+          "d2max": 16.994,
+          "es": -0.032,
+          "Td2": 0.14,
+          "sourceRefs": [
+            "roymech",
+            "amesExt"
+          ],
+          "status": "crosschecked-import",
+          "D1min": 16.376,
+          "D1max": 16.676,
+          "gap": null,
+          "internalSourceRefs": [
+            "iteh965_1_2013"
+          ],
+          "internalStatus": "primary-table-derived",
+          "internalDerivation": "ISO basic internal minor diameter + ISO 965-1:2013 Table 2 grade 6 TD1 (pitch dependent). Second independent table for each fine-pitch combination remains open."
+        },
+        "2.5": {
+          "d2min": 16.164,
+          "d2max": 16.334,
+          "es": -0.042,
+          "Td2": 0.17,
+          "D1min": 15.294,
+          "D1max": 15.744,
+          "sourceRefs": [
+            "bossardMetric2015",
+            "roymech",
+            "amesExt"
+          ],
+          "status": "crosschecked-import",
+          "gap": null,
+          "internalSourceRefs": [
+            "iteh965_1_2013"
+          ],
+          "internalStatus": "primary-table-derived",
+          "internalDerivation": "ISO basic internal minor diameter + ISO 965-1:2013 Table 2 grade 6 TD1 (pitch dependent). Second independent table for each fine-pitch combination remains open."
+        }
+      }
+    },
+    "M20": {
+      "coarse": 2.5,
+      "pitches": {
+        "2.5": {
+          "d2min": 18.164,
+          "d2max": 18.334,
+          "es": -0.042,
+          "Td2": 0.17,
+          "sourceRefs": [
+            "bossardMetric2015",
+            "roymech",
+            "amesExt"
+          ],
+          "status": "crosschecked-import",
+          "D1min": 17.294,
+          "D1max": 17.744,
+          "gap": null,
+          "internalSourceRefs": [
+            "iteh965_1_2013"
+          ],
+          "internalStatus": "primary-table-derived",
+          "internalDerivation": "ISO basic internal minor diameter + ISO 965-1:2013 Table 2 grade 6 TD1 (pitch dependent). Second independent table for each fine-pitch combination remains open."
+        },
+        "1.5": {
+          "d2min": 18.854,
+          "d2max": 18.994,
+          "es": -0.032,
+          "Td2": 0.14,
+          "sourceRefs": [
+            "roymech",
+            "amesExt"
+          ],
+          "status": "crosschecked-import",
+          "D1min": 18.376,
+          "D1max": 18.676,
+          "gap": null,
+          "internalSourceRefs": [
+            "iteh965_1_2013"
+          ],
+          "internalStatus": "primary-table-derived",
+          "internalDerivation": "ISO basic internal minor diameter + ISO 965-1:2013 Table 2 grade 6 TD1 (pitch dependent). Second independent table for each fine-pitch combination remains open."
+        },
+        "1": {
+          "d2min": 19.206,
+          "d2max": 19.324,
+          "es": -0.026,
+          "Td2": 0.118,
+          "sourceRefs": [
+            "roymech",
+            "amesExt"
+          ],
+          "status": "crosschecked-import",
+          "D1min": 18.917,
+          "D1max": 19.153,
+          "gap": null,
+          "internalSourceRefs": [
+            "iteh965_1_2013"
+          ],
+          "internalStatus": "primary-table-derived",
+          "internalDerivation": "ISO basic internal minor diameter + ISO 965-1:2013 Table 2 grade 6 TD1 (pitch dependent). Second independent table for each fine-pitch combination remains open."
+        }
+      }
+    },
+    "M22": {
+      "coarse": 2.5,
+      "pitches": {
+        "2.5": {
+          "d2min": 20.164,
+          "d2max": 20.334,
+          "es": -0.042,
+          "Td2": 0.17,
+          "sourceRefs": [
+            "bossardMetric2015",
+            "roymech",
+            "amesExt"
+          ],
+          "status": "crosschecked-import",
+          "D1min": 19.294,
+          "D1max": 19.744,
+          "gap": null,
+          "internalSourceRefs": [
+            "iteh965_1_2013"
+          ],
+          "internalStatus": "primary-table-derived",
+          "internalDerivation": "ISO basic internal minor diameter + ISO 965-1:2013 Table 2 grade 6 TD1 (pitch dependent). Second independent table for each fine-pitch combination remains open."
+        },
+        "1.5": {
+          "d2min": 20.854,
+          "d2max": 20.994,
+          "es": -0.032,
+          "Td2": 0.14,
+          "sourceRefs": [
+            "roymech",
+            "amesExt"
+          ],
+          "status": "crosschecked-import",
+          "D1min": 20.376,
+          "D1max": 20.676,
+          "gap": null,
+          "internalSourceRefs": [
+            "iteh965_1_2013"
+          ],
+          "internalStatus": "primary-table-derived",
+          "internalDerivation": "ISO basic internal minor diameter + ISO 965-1:2013 Table 2 grade 6 TD1 (pitch dependent). Second independent table for each fine-pitch combination remains open."
+        }
+      }
+    },
+    "M24": {
+      "coarse": 3.0,
+      "pitches": {
+        "3": {
+          "d2min": 21.803,
+          "d2max": 22.003,
+          "es": -0.048,
+          "Td2": 0.2,
+          "sourceRefs": [
+            "bossardMetric2015",
+            "roymech",
+            "amesExt"
+          ],
+          "status": "crosschecked-import",
+          "D1min": 20.752,
+          "D1max": 21.252,
+          "gap": null,
+          "internalSourceRefs": [
+            "iteh965_1_2013"
+          ],
+          "internalStatus": "primary-table-derived",
+          "internalDerivation": "ISO basic internal minor diameter + ISO 965-1:2013 Table 2 grade 6 TD1 (pitch dependent). Second independent table for each fine-pitch combination remains open."
+        },
+        "2": {
+          "d2min": 22.493,
+          "d2max": 22.663,
+          "es": -0.038,
+          "Td2": 0.17,
+          "sourceRefs": [
+            "roymech",
+            "amesExt"
+          ],
+          "status": "crosschecked-import",
+          "D1min": 21.835,
+          "D1max": 22.21,
+          "gap": null,
+          "internalSourceRefs": [
+            "iteh965_1_2013"
+          ],
+          "internalStatus": "primary-table-derived",
+          "internalDerivation": "ISO basic internal minor diameter + ISO 965-1:2013 Table 2 grade 6 TD1 (pitch dependent). Second independent table for each fine-pitch combination remains open."
+        }
+      }
+    },
+    "M27": {
+      "coarse": 3.0,
+      "pitches": {
+        "3": {
+          "d2min": 24.803,
+          "d2max": 25.003,
+          "es": -0.048,
+          "Td2": 0.2,
+          "sourceRefs": [
+            "bossardMetric2015",
+            "roymech",
+            "amesExt"
+          ],
+          "status": "crosschecked-import",
+          "D1min": 23.752,
+          "D1max": 24.252,
+          "gap": null,
+          "internalSourceRefs": [
+            "iteh965_1_2013"
+          ],
+          "internalStatus": "primary-table-derived",
+          "internalDerivation": "ISO basic internal minor diameter + ISO 965-1:2013 Table 2 grade 6 TD1 (pitch dependent). Second independent table for each fine-pitch combination remains open."
+        },
+        "2": {
+          "d2min": 25.493,
+          "d2max": 25.663,
+          "es": -0.038,
+          "Td2": 0.17,
+          "sourceRefs": [
+            "roymech",
+            "amesExt"
+          ],
+          "status": "crosschecked-import",
+          "D1min": 24.835,
+          "D1max": 25.21,
+          "gap": null,
+          "internalSourceRefs": [
+            "iteh965_1_2013"
+          ],
+          "internalStatus": "primary-table-derived",
+          "internalDerivation": "ISO basic internal minor diameter + ISO 965-1:2013 Table 2 grade 6 TD1 (pitch dependent). Second independent table for each fine-pitch combination remains open."
+        }
+      }
+    },
+    "M30": {
+      "coarse": 3.5,
+      "pitches": {
+        "3.5": {
+          "d2min": 27.462,
+          "d2max": 27.674,
+          "es": -0.053,
+          "Td2": 0.212,
+          "sourceRefs": [
+            "bossardMetric2015",
+            "roymech",
+            "amesExt"
+          ],
+          "status": "crosschecked-import",
+          "D1min": 26.211,
+          "D1max": 26.771,
+          "gap": null,
+          "internalSourceRefs": [
+            "iteh965_1_2013"
+          ],
+          "internalStatus": "primary-table-derived",
+          "internalDerivation": "ISO basic internal minor diameter + ISO 965-1:2013 Table 2 grade 6 TD1 (pitch dependent). Second independent table for each fine-pitch combination remains open."
+        },
+        "2": {
+          "d2min": 28.493,
+          "d2max": 28.663,
+          "es": -0.038,
+          "Td2": 0.17,
+          "sourceRefs": [
+            "roymech",
+            "amesExt"
+          ],
+          "status": "crosschecked-import",
+          "D1min": 27.835,
+          "D1max": 28.21,
+          "gap": null,
+          "internalSourceRefs": [
+            "iteh965_1_2013"
+          ],
+          "internalStatus": "primary-table-derived",
+          "internalDerivation": "ISO basic internal minor diameter + ISO 965-1:2013 Table 2 grade 6 TD1 (pitch dependent). Second independent table for each fine-pitch combination remains open."
+        },
+        "1.5": {
+          "d2min": 28.844,
+          "d2max": 28.994,
+          "es": -0.032,
+          "Td2": 0.15,
+          "sourceRefs": [
+            "roymech",
+            "amesExt"
+          ],
+          "status": "crosschecked-import",
+          "D1min": 28.376,
+          "D1max": 28.676,
+          "gap": null,
+          "internalSourceRefs": [
+            "iteh965_1_2013"
+          ],
+          "internalStatus": "primary-table-derived",
+          "internalDerivation": "ISO basic internal minor diameter + ISO 965-1:2013 Table 2 grade 6 TD1 (pitch dependent). Second independent table for each fine-pitch combination remains open."
+        }
+      }
+    },
+    "M33": {
+      "coarse": 3.5,
+      "pitches": {
+        "2": {
+          "d2min": 31.493,
+          "d2max": 31.663,
+          "es": -0.038,
+          "Td2": 0.17,
+          "sourceRefs": [
+            "roymech",
+            "amesExt"
+          ],
+          "status": "crosschecked-import",
+          "D1min": 30.835,
+          "D1max": 31.21,
+          "gap": null,
+          "internalSourceRefs": [
+            "iteh965_1_2013"
+          ],
+          "internalStatus": "primary-table-derived",
+          "internalDerivation": "ISO basic internal minor diameter + ISO 965-1:2013 Table 2 grade 6 TD1 (pitch dependent). Second independent table for each fine-pitch combination remains open."
+        },
+        "3.5": {
+          "d2min": 30.462,
+          "d2max": 30.674,
+          "es": -0.053,
+          "Td2": 0.212,
+          "D1min": 29.211,
+          "D1max": 29.771,
+          "sourceRefs": [
+            "bossardMetric2015",
+            "roymech",
+            "amesExt"
+          ],
+          "status": "crosschecked-import",
+          "gap": null,
+          "internalSourceRefs": [
+            "iteh965_1_2013"
+          ],
+          "internalStatus": "primary-table-derived",
+          "internalDerivation": "ISO basic internal minor diameter + ISO 965-1:2013 Table 2 grade 6 TD1 (pitch dependent). Second independent table for each fine-pitch combination remains open."
+        }
+      }
+    },
+    "M3.5": {
+      "coarse": 0.6,
+      "pitches": {
+        "0.6": {
+          "d2min": 3.004,
+          "d2max": 3.089,
+          "sourceRefs": [
+            "roymech",
+            "iteh965_1_2013"
+          ],
+          "status": "derived",
+          "derivation": "ISO basic pitch diameter rounded to 0.001 mm, supplied fundamental deviation and grade-6 tolerance. Independent complete limit table still missing.",
+          "D1min": 2.85,
+          "D1max": 3.01,
+          "internalSourceRefs": [
+            "iteh965_1_2013"
+          ],
+          "internalStatus": "primary-table-derived",
+          "internalDerivation": "ISO basic internal minor diameter + ISO 965-1:2013 Table 2 grade 6 TD1 (pitch dependent). Second independent table for each fine-pitch combination remains open.",
+          "gap": null
+        }
+      }
+    },
+    "M7": {
+      "coarse": 1.0,
+      "pitches": {
+        "1": {
+          "d2min": 6.212,
+          "d2max": 6.324,
+          "sourceRefs": [
+            "roymech",
+            "iteh965_1_2013"
+          ],
+          "status": "derived",
+          "derivation": "ISO basic pitch diameter rounded to 0.001 mm, supplied fundamental deviation and grade-6 tolerance. Independent complete limit table still missing.",
+          "D1min": 5.917,
+          "D1max": 6.153,
+          "internalSourceRefs": [
+            "iteh965_1_2013"
+          ],
+          "internalStatus": "primary-table-derived",
+          "internalDerivation": "ISO basic internal minor diameter + ISO 965-1:2013 Table 2 grade 6 TD1 (pitch dependent). Second independent table for each fine-pitch combination remains open.",
+          "gap": null
+        }
+      }
+    }
+  },
+  "sourceMeta": {
+    "roymech": {
+      "id": "roymech",
+      "url": "https://roymech.org/Useful_Tables/Screws/Thread_tol.html",
+      "titel": "Roymech - ISO metric thread tolerances (Tabellen es/EI, Td2, Steigungsreihen)",
+      "abgerufen": "2026-11-25"
+    },
+    "amesExt": {
+      "id": "amesExt",
+      "url": "https://amesweb.info/Screws/metric-external-thread-dimensions-chart.aspx",
+      "titel": "AmesWeb - Metric External Thread Dimensions Chart (ASME B1.13M, 6g)",
+      "abgerufen": "2026-11-25"
+    },
+    "iteh965_1_2013": {
+      "id": "iteh965_1_2013",
+      "url": "https://cdn.standards.iteh.ai/samples/57778/765c17fc0f7946ff850db22b43920f09/ISO-965-1-2013.pdf",
+      "titel": "ISO 965-1:2013 Vorschau-Sample (iTeh): Tabelle 1 (Grundabmaße), Tabellen 2-4; Tabelle 5 (Td2) nicht im Sample",
+      "abgerufen": "2026-11-25"
+    },
+    "bossardMetric2015": {
+      "url": "https://www.bossard.com/-/media/bossard-group/website/documents/technical-resources-old/metric-iso-threads.pdf",
+      "title": "Bossard Metric ISO threads, F-en-2015.12",
+      "edition": "2015-12",
+      "checked": "2026-11-26",
+      "scope": "Coarse thread limits, external 6g and internal 6H; no claim of complete ISO 965:2026 verification.",
+      "accessStatus": "Search-index excerpt only; live URL returned 404 on 2026-11-26. Not counted as a live table verification."
+    }
+  },
+  "TD1Grade6": {
+    "0.5": 0.14,
+    "0.6": 0.16,
+    "0.7": 0.18,
+    "0.75": 0.19,
+    "0.8": 0.2,
+    "1": 0.236,
+    "1.25": 0.265,
+    "1.5": 0.3,
+    "1.75": 0.335,
+    "2": 0.375,
+    "2.5": 0.45,
+    "3": 0.5,
+    "3.5": 0.56,
+    "4": 0.6
+  }
+}

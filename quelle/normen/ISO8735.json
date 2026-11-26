@@ -1,0 +1,1083 @@
+{
+  "schemaVersion": 1,
+  "id": "ISO8735",
+  "version": "2026-11-26",
+  "edition": "1997",
+  "label": "ISO8735 · Zylinderstift mit Innengewinde",
+  "datasetKind": "part-standard",
+  "funktion": "stift",
+  "klasse": "bolzen",
+  "kopfTyp": null,
+  "antrieb": null,
+  "threadFamily": "internal-metric",
+  "schaftende": "voll",
+  "feldzuordnung": {
+    "sD": "d_nominal",
+    "sL": "l_nominal"
+  },
+  "groessen": {
+    "6": {
+      "vorbelegung": {
+        "sD": 6
+      },
+      "roh": {
+        "d_nominal": 6,
+        "a": 0.8,
+        "c": 2.1,
+        "internalThreadDiameter": 4,
+        "P": 0.7,
+        "d3": 4.3,
+        "t1": 6,
+        "t2_min": 10
+      },
+      "internalThread": "M4",
+      "coverage": "documented",
+      "geometryStatus": "partial",
+      "missingGeometryFields": [
+        "length",
+        "selectedForm",
+        "boreBottomShape"
+      ],
+      "nachLaenge": {}
+    },
+    "8": {
+      "vorbelegung": {
+        "sD": 8
+      },
+      "roh": {
+        "d_nominal": 8,
+        "a": 1,
+        "c": 2.6,
+        "internalThreadDiameter": 5,
+        "P": 0.8,
+        "d3": 5.3,
+        "t1": 8,
+        "t2_min": 12
+      },
+      "internalThread": "M5",
+      "coverage": "documented",
+      "geometryStatus": "partial",
+      "missingGeometryFields": [
+        "length",
+        "selectedForm",
+        "boreBottomShape"
+      ],
+      "nachLaenge": {}
+    },
+    "10": {
+      "vorbelegung": {
+        "sD": 10
+      },
+      "roh": {
+        "d_nominal": 10,
+        "a": 1.2,
+        "c": 3,
+        "internalThreadDiameter": 6,
+        "P": 1,
+        "d3": 6.4,
+        "t1": 10,
+        "t2_min": 16
+      },
+      "internalThread": "M6",
+      "coverage": "documented",
+      "geometryStatus": "partial",
+      "missingGeometryFields": [
+        "length",
+        "selectedForm",
+        "boreBottomShape"
+      ],
+      "nachLaenge": {}
+    },
+    "12": {
+      "vorbelegung": {
+        "sD": 12
+      },
+      "roh": {
+        "d_nominal": 12,
+        "a": 1.6,
+        "c": 3.8,
+        "internalThreadDiameter": 6,
+        "P": 1,
+        "d3": 6.4,
+        "t1": 12,
+        "t2_min": 20
+      },
+      "internalThread": "M6",
+      "coverage": "documented",
+      "geometryStatus": "partial",
+      "missingGeometryFields": [
+        "length",
+        "selectedForm",
+        "boreBottomShape"
+      ],
+      "nachLaenge": {}
+    },
+    "16": {
+      "vorbelegung": {
+        "sD": 16
+      },
+      "roh": {
+        "d_nominal": 16,
+        "a": 2,
+        "c": 4.6,
+        "internalThreadDiameter": 8,
+        "P": 1.25,
+        "d3": 8.4,
+        "t1": 16,
+        "t2_min": 25
+      },
+      "internalThread": "M8",
+      "coverage": "documented",
+      "geometryStatus": "partial",
+      "missingGeometryFields": [
+        "length",
+        "selectedForm",
+        "boreBottomShape"
+      ],
+      "nachLaenge": {}
+    },
+    "20": {
+      "vorbelegung": {
+        "sD": 20
+      },
+      "roh": {
+        "d_nominal": 20,
+        "a": 2.5,
+        "c": 6,
+        "internalThreadDiameter": 10,
+        "P": 1.5,
+        "d3": 10.5,
+        "t1": 18,
+        "t2_min": 28
+      },
+      "internalThread": "M10",
+      "coverage": "documented",
+      "geometryStatus": "partial",
+      "missingGeometryFields": [
+        "length",
+        "selectedForm",
+        "boreBottomShape"
+      ],
+      "nachLaenge": {}
+    },
+    "25": {
+      "vorbelegung": {
+        "sD": 25
+      },
+      "roh": {
+        "d_nominal": 25,
+        "a": 3,
+        "c": 6,
+        "internalThreadDiameter": 16,
+        "P": 2,
+        "d3": 17,
+        "t1": 24,
+        "t2_min": 35
+      },
+      "internalThread": "M16",
+      "coverage": "documented",
+      "geometryStatus": "partial",
+      "missingGeometryFields": [
+        "length",
+        "selectedForm",
+        "boreBottomShape"
+      ],
+      "nachLaenge": {}
+    },
+    "30": {
+      "vorbelegung": {
+        "sD": 30
+      },
+      "roh": {
+        "d_nominal": 30,
+        "a": 4,
+        "c": 7,
+        "internalThreadDiameter": 20,
+        "P": 2.5,
+        "d3": 21,
+        "t1": 30,
+        "t2_min": 40
+      },
+      "internalThread": "M20",
+      "coverage": "documented",
+      "geometryStatus": "partial",
+      "missingGeometryFields": [
+        "length",
+        "selectedForm",
+        "boreBottomShape"
+      ],
+      "nachLaenge": {}
+    },
+    "40": {
+      "vorbelegung": {
+        "sD": 40
+      },
+      "roh": {
+        "d_nominal": 40,
+        "a": 5,
+        "c": 8,
+        "internalThreadDiameter": 20,
+        "P": 2.5,
+        "d3": 21,
+        "t1": 30,
+        "t2_min": 40
+      },
+      "internalThread": "M20",
+      "coverage": "documented",
+      "geometryStatus": "partial",
+      "missingGeometryFields": [
+        "length",
+        "selectedForm",
+        "boreBottomShape"
+      ],
+      "nachLaenge": {}
+    }
+  },
+  "fields": {
+    "6": {
+      "d_nominal": {
+        "nominal": 6,
+        "sourceRefs": [
+          "iso-preview",
+          "emiliana"
+        ],
+        "status": "verified",
+        "verification": "original-standard-and-catalog-agree",
+        "note": "ISO-Vorschau und Herstellerkatalog stimmen überein.",
+        "unit": "mm"
+      },
+      "a": {
+        "nominal": 0.8,
+        "sourceRefs": [
+          "iso-preview"
+        ],
+        "status": "single-source",
+        "verification": "single-publication",
+        "note": "Originalvorschau; zweite eindeutige Bestätigung fehlt.",
+        "unit": "mm"
+      },
+      "c": {
+        "nominal": 2.1,
+        "sourceRefs": [
+          "iso-preview"
+        ],
+        "status": "single-source",
+        "verification": "single-publication",
+        "note": "Originalvorschau; zweite eindeutige Bestätigung fehlt.",
+        "unit": "mm"
+      },
+      "internalThreadDiameter": {
+        "nominal": 4,
+        "sourceRefs": [
+          "iso-preview",
+          "emiliana"
+        ],
+        "status": "verified",
+        "verification": "original-standard-and-catalog-agree",
+        "note": "ISO-Vorschau und Herstellerkatalog stimmen überein.",
+        "unit": "mm"
+      },
+      "P": {
+        "nominal": 0.7,
+        "sourceRefs": [
+          "iso-preview"
+        ],
+        "status": "single-source",
+        "verification": "single-publication",
+        "note": "Originalvorschau; zweite eindeutige Bestätigung fehlt.",
+        "unit": "mm"
+      },
+      "d3": {
+        "nominal": 4.3,
+        "sourceRefs": [
+          "iso-preview"
+        ],
+        "status": "single-source",
+        "verification": "single-publication",
+        "note": "Originalvorschau; zweite eindeutige Bestätigung fehlt.",
+        "unit": "mm"
+      },
+      "t1": {
+        "nominal": 6,
+        "sourceRefs": [
+          "iso-preview"
+        ],
+        "status": "single-source",
+        "verification": "single-publication",
+        "note": "Originalvorschau; zweite eindeutige Bestätigung fehlt.",
+        "unit": "mm"
+      },
+      "t2_min": {
+        "sourceRefs": [
+          "iso-preview"
+        ],
+        "status": "single-source",
+        "verification": "single-publication",
+        "note": "Originalvorschau; zweite eindeutige Bestätigung fehlt.",
+        "unit": "mm",
+        "min": 10
+      }
+    },
+    "8": {
+      "d_nominal": {
+        "nominal": 8,
+        "sourceRefs": [
+          "iso-preview",
+          "emiliana"
+        ],
+        "status": "verified",
+        "verification": "original-standard-and-catalog-agree",
+        "note": "ISO-Vorschau und Herstellerkatalog stimmen überein.",
+        "unit": "mm"
+      },
+      "a": {
+        "nominal": 1,
+        "sourceRefs": [
+          "iso-preview"
+        ],
+        "status": "single-source",
+        "verification": "single-publication",
+        "note": "Originalvorschau; zweite eindeutige Bestätigung fehlt.",
+        "unit": "mm"
+      },
+      "c": {
+        "nominal": 2.6,
+        "sourceRefs": [
+          "iso-preview"
+        ],
+        "status": "single-source",
+        "verification": "single-publication",
+        "note": "Originalvorschau; zweite eindeutige Bestätigung fehlt.",
+        "unit": "mm"
+      },
+      "internalThreadDiameter": {
+        "nominal": 5,
+        "sourceRefs": [
+          "iso-preview",
+          "emiliana"
+        ],
+        "status": "verified",
+        "verification": "original-standard-and-catalog-agree",
+        "note": "ISO-Vorschau und Herstellerkatalog stimmen überein.",
+        "unit": "mm"
+      },
+      "P": {
+        "nominal": 0.8,
+        "sourceRefs": [
+          "iso-preview"
+        ],
+        "status": "single-source",
+        "verification": "single-publication",
+        "note": "Originalvorschau; zweite eindeutige Bestätigung fehlt.",
+        "unit": "mm"
+      },
+      "d3": {
+        "nominal": 5.3,
+        "sourceRefs": [
+          "iso-preview"
+        ],
+        "status": "single-source",
+        "verification": "single-publication",
+        "note": "Originalvorschau; zweite eindeutige Bestätigung fehlt.",
+        "unit": "mm"
+      },
+      "t1": {
+        "nominal": 8,
+        "sourceRefs": [
+          "iso-preview"
+        ],
+        "status": "single-source",
+        "verification": "single-publication",
+        "note": "Originalvorschau; zweite eindeutige Bestätigung fehlt.",
+        "unit": "mm"
+      },
+      "t2_min": {
+        "sourceRefs": [
+          "iso-preview"
+        ],
+        "status": "single-source",
+        "verification": "single-publication",
+        "note": "Originalvorschau; zweite eindeutige Bestätigung fehlt.",
+        "unit": "mm",
+        "min": 12
+      }
+    },
+    "10": {
+      "d_nominal": {
+        "nominal": 10,
+        "sourceRefs": [
+          "iso-preview",
+          "emiliana"
+        ],
+        "status": "verified",
+        "verification": "original-standard-and-catalog-agree",
+        "note": "ISO-Vorschau und Herstellerkatalog stimmen überein.",
+        "unit": "mm"
+      },
+      "a": {
+        "nominal": 1.2,
+        "sourceRefs": [
+          "iso-preview"
+        ],
+        "status": "single-source",
+        "verification": "single-publication",
+        "note": "Originalvorschau; zweite eindeutige Bestätigung fehlt.",
+        "unit": "mm"
+      },
+      "c": {
+        "nominal": 3,
+        "sourceRefs": [
+          "iso-preview",
+          "emiliana"
+        ],
+        "status": "conflict",
+        "verification": "preview-extraction-conflict",
+        "note": "PDF-Textextraktion widerspricht Katalogwert; Originalabbildung muss manuell geprüft werden.",
+        "unit": "mm",
+        "alternatives": [
+          {
+            "nominal": 2,
+            "sourceRefs": [
+              "iso-preview"
+            ]
+          }
+        ]
+      },
+      "internalThreadDiameter": {
+        "nominal": 6,
+        "sourceRefs": [
+          "iso-preview",
+          "emiliana"
+        ],
+        "status": "verified",
+        "verification": "original-standard-and-catalog-agree",
+        "note": "ISO-Vorschau und Herstellerkatalog stimmen überein.",
+        "unit": "mm"
+      },
+      "P": {
+        "nominal": 1,
+        "sourceRefs": [
+          "iso-preview"
+        ],
+        "status": "single-source",
+        "verification": "single-publication",
+        "note": "Originalvorschau; zweite eindeutige Bestätigung fehlt.",
+        "unit": "mm"
+      },
+      "d3": {
+        "nominal": 6.4,
+        "sourceRefs": [
+          "iso-preview"
+        ],
+        "status": "single-source",
+        "verification": "single-publication",
+        "note": "Originalvorschau; zweite eindeutige Bestätigung fehlt.",
+        "unit": "mm"
+      },
+      "t1": {
+        "nominal": 10,
+        "sourceRefs": [
+          "iso-preview",
+          "emiliana"
+        ],
+        "status": "conflict",
+        "verification": "preview-extraction-conflict",
+        "note": "PDF-Textextraktion widerspricht Katalogwert; Originalabbildung muss manuell geprüft werden.",
+        "unit": "mm",
+        "alternatives": [
+          {
+            "nominal": 12,
+            "sourceRefs": [
+              "iso-preview"
+            ]
+          }
+        ]
+      },
+      "t2_min": {
+        "sourceRefs": [
+          "iso-preview"
+        ],
+        "status": "single-source",
+        "verification": "single-publication",
+        "note": "Originalvorschau; zweite eindeutige Bestätigung fehlt.",
+        "unit": "mm",
+        "min": 16
+      }
+    },
+    "12": {
+      "d_nominal": {
+        "nominal": 12,
+        "sourceRefs": [
+          "iso-preview",
+          "emiliana"
+        ],
+        "status": "verified",
+        "verification": "original-standard-and-catalog-agree",
+        "note": "ISO-Vorschau und Herstellerkatalog stimmen überein.",
+        "unit": "mm"
+      },
+      "a": {
+        "nominal": 1.6,
+        "sourceRefs": [
+          "iso-preview"
+        ],
+        "status": "single-source",
+        "verification": "single-publication",
+        "note": "Originalvorschau; zweite eindeutige Bestätigung fehlt.",
+        "unit": "mm"
+      },
+      "c": {
+        "nominal": 3.8,
+        "sourceRefs": [
+          "iso-preview"
+        ],
+        "status": "single-source",
+        "verification": "single-publication",
+        "note": "Originalvorschau; zweite eindeutige Bestätigung fehlt.",
+        "unit": "mm"
+      },
+      "internalThreadDiameter": {
+        "nominal": 6,
+        "sourceRefs": [
+          "iso-preview",
+          "emiliana"
+        ],
+        "status": "verified",
+        "verification": "original-standard-and-catalog-agree",
+        "note": "ISO-Vorschau und Herstellerkatalog stimmen überein.",
+        "unit": "mm"
+      },
+      "P": {
+        "nominal": 1,
+        "sourceRefs": [
+          "iso-preview"
+        ],
+        "status": "single-source",
+        "verification": "single-publication",
+        "note": "Originalvorschau; zweite eindeutige Bestätigung fehlt.",
+        "unit": "mm"
+      },
+      "d3": {
+        "nominal": 6.4,
+        "sourceRefs": [
+          "iso-preview"
+        ],
+        "status": "single-source",
+        "verification": "single-publication",
+        "note": "Originalvorschau; zweite eindeutige Bestätigung fehlt.",
+        "unit": "mm"
+      },
+      "t1": {
+        "nominal": 12,
+        "sourceRefs": [
+          "iso-preview"
+        ],
+        "status": "single-source",
+        "verification": "single-publication",
+        "note": "Originalvorschau; zweite eindeutige Bestätigung fehlt.",
+        "unit": "mm"
+      },
+      "t2_min": {
+        "sourceRefs": [
+          "iso-preview"
+        ],
+        "status": "single-source",
+        "verification": "single-publication",
+        "note": "Originalvorschau; zweite eindeutige Bestätigung fehlt.",
+        "unit": "mm",
+        "min": 20
+      }
+    },
+    "16": {
+      "d_nominal": {
+        "nominal": 16,
+        "sourceRefs": [
+          "iso-preview",
+          "emiliana"
+        ],
+        "status": "verified",
+        "verification": "original-standard-and-catalog-agree",
+        "note": "ISO-Vorschau und Herstellerkatalog stimmen überein.",
+        "unit": "mm"
+      },
+      "a": {
+        "nominal": 2,
+        "sourceRefs": [
+          "iso-preview"
+        ],
+        "status": "single-source",
+        "verification": "single-publication",
+        "note": "Originalvorschau; zweite eindeutige Bestätigung fehlt.",
+        "unit": "mm"
+      },
+      "c": {
+        "nominal": 4.6,
+        "sourceRefs": [
+          "iso-preview"
+        ],
+        "status": "single-source",
+        "verification": "single-publication",
+        "note": "Originalvorschau; zweite eindeutige Bestätigung fehlt.",
+        "unit": "mm"
+      },
+      "internalThreadDiameter": {
+        "nominal": 8,
+        "sourceRefs": [
+          "iso-preview",
+          "emiliana"
+        ],
+        "status": "verified",
+        "verification": "original-standard-and-catalog-agree",
+        "note": "ISO-Vorschau und Herstellerkatalog stimmen überein.",
+        "unit": "mm"
+      },
+      "P": {
+        "nominal": 1.25,
+        "sourceRefs": [
+          "iso-preview"
+        ],
+        "status": "single-source",
+        "verification": "single-publication",
+        "note": "Originalvorschau; zweite eindeutige Bestätigung fehlt.",
+        "unit": "mm"
+      },
+      "d3": {
+        "nominal": 8.4,
+        "sourceRefs": [
+          "iso-preview"
+        ],
+        "status": "single-source",
+        "verification": "single-publication",
+        "note": "Originalvorschau; zweite eindeutige Bestätigung fehlt.",
+        "unit": "mm"
+      },
+      "t1": {
+        "nominal": 16,
+        "sourceRefs": [
+          "iso-preview"
+        ],
+        "status": "single-source",
+        "verification": "single-publication",
+        "note": "Originalvorschau; zweite eindeutige Bestätigung fehlt.",
+        "unit": "mm"
+      },
+      "t2_min": {
+        "sourceRefs": [
+          "iso-preview"
+        ],
+        "status": "single-source",
+        "verification": "single-publication",
+        "note": "Originalvorschau; zweite eindeutige Bestätigung fehlt.",
+        "unit": "mm",
+        "min": 25
+      }
+    },
+    "20": {
+      "d_nominal": {
+        "nominal": 20,
+        "sourceRefs": [
+          "iso-preview",
+          "emiliana"
+        ],
+        "status": "verified",
+        "verification": "original-standard-and-catalog-agree",
+        "note": "ISO-Vorschau und Herstellerkatalog stimmen überein.",
+        "unit": "mm"
+      },
+      "a": {
+        "nominal": 2.5,
+        "sourceRefs": [
+          "iso-preview"
+        ],
+        "status": "single-source",
+        "verification": "single-publication",
+        "note": "Originalvorschau; zweite eindeutige Bestätigung fehlt.",
+        "unit": "mm"
+      },
+      "c": {
+        "nominal": 6,
+        "sourceRefs": [
+          "iso-preview"
+        ],
+        "status": "single-source",
+        "verification": "single-publication",
+        "note": "Originalvorschau; zweite eindeutige Bestätigung fehlt.",
+        "unit": "mm"
+      },
+      "internalThreadDiameter": {
+        "nominal": 10,
+        "sourceRefs": [
+          "iso-preview",
+          "emiliana"
+        ],
+        "status": "verified",
+        "verification": "original-standard-and-catalog-agree",
+        "note": "ISO-Vorschau und Herstellerkatalog stimmen überein.",
+        "unit": "mm"
+      },
+      "P": {
+        "nominal": 1.5,
+        "sourceRefs": [
+          "iso-preview"
+        ],
+        "status": "single-source",
+        "verification": "single-publication",
+        "note": "Originalvorschau; zweite eindeutige Bestätigung fehlt.",
+        "unit": "mm"
+      },
+      "d3": {
+        "nominal": 10.5,
+        "sourceRefs": [
+          "iso-preview"
+        ],
+        "status": "single-source",
+        "verification": "single-publication",
+        "note": "Originalvorschau; zweite eindeutige Bestätigung fehlt.",
+        "unit": "mm"
+      },
+      "t1": {
+        "nominal": 18,
+        "sourceRefs": [
+          "iso-preview"
+        ],
+        "status": "single-source",
+        "verification": "single-publication",
+        "note": "Originalvorschau; zweite eindeutige Bestätigung fehlt.",
+        "unit": "mm"
+      },
+      "t2_min": {
+        "sourceRefs": [
+          "iso-preview"
+        ],
+        "status": "single-source",
+        "verification": "single-publication",
+        "note": "Originalvorschau; zweite eindeutige Bestätigung fehlt.",
+        "unit": "mm",
+        "min": 28
+      }
+    },
+    "25": {
+      "d_nominal": {
+        "nominal": 25,
+        "sourceRefs": [
+          "iso-preview",
+          "emiliana"
+        ],
+        "status": "verified",
+        "verification": "original-standard-and-catalog-agree",
+        "note": "ISO-Vorschau und Herstellerkatalog stimmen überein.",
+        "unit": "mm"
+      },
+      "a": {
+        "nominal": 3,
+        "sourceRefs": [
+          "iso-preview"
+        ],
+        "status": "single-source",
+        "verification": "single-publication",
+        "note": "Originalvorschau; zweite eindeutige Bestätigung fehlt.",
+        "unit": "mm"
+      },
+      "c": {
+        "nominal": 6,
+        "sourceRefs": [
+          "iso-preview"
+        ],
+        "status": "single-source",
+        "verification": "single-publication",
+        "note": "Originalvorschau; zweite eindeutige Bestätigung fehlt.",
+        "unit": "mm"
+      },
+      "internalThreadDiameter": {
+        "nominal": 16,
+        "sourceRefs": [
+          "iso-preview",
+          "emiliana"
+        ],
+        "status": "verified",
+        "verification": "original-standard-and-catalog-agree",
+        "note": "ISO-Vorschau und Herstellerkatalog stimmen überein.",
+        "unit": "mm"
+      },
+      "P": {
+        "nominal": 2,
+        "sourceRefs": [
+          "iso-preview"
+        ],
+        "status": "single-source",
+        "verification": "single-publication",
+        "note": "Originalvorschau; zweite eindeutige Bestätigung fehlt.",
+        "unit": "mm"
+      },
+      "d3": {
+        "nominal": 17,
+        "sourceRefs": [
+          "iso-preview"
+        ],
+        "status": "single-source",
+        "verification": "single-publication",
+        "note": "Originalvorschau; zweite eindeutige Bestätigung fehlt.",
+        "unit": "mm"
+      },
+      "t1": {
+        "nominal": 24,
+        "sourceRefs": [
+          "iso-preview"
+        ],
+        "status": "single-source",
+        "verification": "single-publication",
+        "note": "Originalvorschau; zweite eindeutige Bestätigung fehlt.",
+        "unit": "mm"
+      },
+      "t2_min": {
+        "sourceRefs": [
+          "iso-preview"
+        ],
+        "status": "single-source",
+        "verification": "single-publication",
+        "note": "Originalvorschau; zweite eindeutige Bestätigung fehlt.",
+        "unit": "mm",
+        "min": 35
+      }
+    },
+    "30": {
+      "d_nominal": {
+        "nominal": 30,
+        "sourceRefs": [
+          "iso-preview",
+          "emiliana"
+        ],
+        "status": "verified",
+        "verification": "original-standard-and-catalog-agree",
+        "note": "ISO-Vorschau und Herstellerkatalog stimmen überein.",
+        "unit": "mm"
+      },
+      "a": {
+        "nominal": 4,
+        "sourceRefs": [
+          "iso-preview"
+        ],
+        "status": "single-source",
+        "verification": "single-publication",
+        "note": "Originalvorschau; zweite eindeutige Bestätigung fehlt.",
+        "unit": "mm"
+      },
+      "c": {
+        "nominal": 7,
+        "sourceRefs": [
+          "iso-preview"
+        ],
+        "status": "single-source",
+        "verification": "single-publication",
+        "note": "Originalvorschau; zweite eindeutige Bestätigung fehlt.",
+        "unit": "mm"
+      },
+      "internalThreadDiameter": {
+        "nominal": 20,
+        "sourceRefs": [
+          "iso-preview",
+          "emiliana"
+        ],
+        "status": "verified",
+        "verification": "original-standard-and-catalog-agree",
+        "note": "ISO-Vorschau und Herstellerkatalog stimmen überein.",
+        "unit": "mm"
+      },
+      "P": {
+        "nominal": 2.5,
+        "sourceRefs": [
+          "iso-preview"
+        ],
+        "status": "single-source",
+        "verification": "single-publication",
+        "note": "Originalvorschau; zweite eindeutige Bestätigung fehlt.",
+        "unit": "mm"
+      },
+      "d3": {
+        "nominal": 21,
+        "sourceRefs": [
+          "iso-preview"
+        ],
+        "status": "single-source",
+        "verification": "single-publication",
+        "note": "Originalvorschau; zweite eindeutige Bestätigung fehlt.",
+        "unit": "mm"
+      },
+      "t1": {
+        "nominal": 30,
+        "sourceRefs": [
+          "iso-preview"
+        ],
+        "status": "single-source",
+        "verification": "single-publication",
+        "note": "Originalvorschau; zweite eindeutige Bestätigung fehlt.",
+        "unit": "mm"
+      },
+      "t2_min": {
+        "sourceRefs": [
+          "iso-preview"
+        ],
+        "status": "single-source",
+        "verification": "single-publication",
+        "note": "Originalvorschau; zweite eindeutige Bestätigung fehlt.",
+        "unit": "mm",
+        "min": 40
+      }
+    },
+    "40": {
+      "d_nominal": {
+        "nominal": 40,
+        "sourceRefs": [
+          "iso-preview",
+          "emiliana"
+        ],
+        "status": "verified",
+        "verification": "original-standard-and-catalog-agree",
+        "note": "ISO-Vorschau und Herstellerkatalog stimmen überein.",
+        "unit": "mm"
+      },
+      "a": {
+        "nominal": 5,
+        "sourceRefs": [
+          "iso-preview"
+        ],
+        "status": "single-source",
+        "verification": "single-publication",
+        "note": "Originalvorschau; zweite eindeutige Bestätigung fehlt.",
+        "unit": "mm"
+      },
+      "c": {
+        "nominal": 8,
+        "sourceRefs": [
+          "iso-preview"
+        ],
+        "status": "single-source",
+        "verification": "single-publication",
+        "note": "Originalvorschau; zweite eindeutige Bestätigung fehlt.",
+        "unit": "mm"
+      },
+      "internalThreadDiameter": {
+        "nominal": 20,
+        "sourceRefs": [
+          "iso-preview",
+          "emiliana"
+        ],
+        "status": "verified",
+        "verification": "original-standard-and-catalog-agree",
+        "note": "ISO-Vorschau und Herstellerkatalog stimmen überein.",
+        "unit": "mm"
+      },
+      "P": {
+        "nominal": 2.5,
+        "sourceRefs": [
+          "iso-preview"
+        ],
+        "status": "single-source",
+        "verification": "single-publication",
+        "note": "Originalvorschau; zweite eindeutige Bestätigung fehlt.",
+        "unit": "mm"
+      },
+      "d3": {
+        "nominal": 21,
+        "sourceRefs": [
+          "iso-preview"
+        ],
+        "status": "single-source",
+        "verification": "single-publication",
+        "note": "Originalvorschau; zweite eindeutige Bestätigung fehlt.",
+        "unit": "mm"
+      },
+      "t1": {
+        "nominal": 30,
+        "sourceRefs": [
+          "iso-preview"
+        ],
+        "status": "single-source",
+        "verification": "single-publication",
+        "note": "Originalvorschau; zweite eindeutige Bestätigung fehlt.",
+        "unit": "mm"
+      },
+      "t2_min": {
+        "sourceRefs": [
+          "iso-preview"
+        ],
+        "status": "single-source",
+        "verification": "single-publication",
+        "note": "Originalvorschau; zweite eindeutige Bestätigung fehlt.",
+        "unit": "mm",
+        "min": 40
+      }
+    }
+  },
+  "quellen": [
+    {
+      "id": "iso-status",
+      "url": "https://www.iso.org/committee/45446/x/catalogue/",
+      "titel": "ISO/TC2 Katalog",
+      "scope": "edition-status",
+      "abgerufen": "2026-11-26"
+    },
+    {
+      "id": "iso-preview",
+      "url": "https://cdn.standards.iteh.ai/samples/21794/c05b20bcac5d473392b455774fb06cc3/ISO-8735-1997.pdf",
+      "titel": "ISO8735:1997 Originalvorschau",
+      "scope": "standard-dimensions",
+      "abgerufen": "2026-11-26"
+    },
+    {
+      "id": "emiliana",
+      "url": "https://www.bulloneriaemiliana.it/assets/uploads/download/pdf/55769d6a4b353.pdf",
+      "titel": "Bulloneria Emiliana Katalog2014 ISO8735",
+      "scope": "dimensions",
+      "abgerufen": "2026-11-26"
+    },
+    {
+      "id": "wegertseder",
+      "url": "https://www.schrauben-lexikon.de/norm/ISO_8735.asp",
+      "titel": "Wegertseder ISO8735 / DIN7979 Gegenprüfung",
+      "scope": "dimensions",
+      "abgerufen": "2026-11-26"
+    }
+  ],
+  "status": "partial",
+  "coverage": "documented",
+  "pruefdatum": "2026-11-26",
+  "lengthDependentFields": [
+    "sL"
+  ],
+  "laengen": {
+    "values": [],
+    "unit": "mm",
+    "coverage": "unresearched",
+    "status": "missing",
+    "sourceRefs": [],
+    "note": "Normlängenmatrix je Durchmesser nicht verifiziert."
+  },
+  "gaps": [
+    "DIN7979-Handelstabellen nicht als unveränderte ISO8735-Tabelle übernommen.",
+    "Maße c/t1 bei d10 in Textextraktion widersprüchlich.",
+    "Aktuelle längenabhängige Bohrgeometrie und Formauswahl unvollständig."
+  ],
+  "hinweise": [
+    "Fehlende Größe/Länge kennzeichnet eine Datenlücke, keinen Normausschluss."
+  ],
+  "normstatus": {
+    "edition": "1997",
+    "status": "current",
+    "sourceRefs": [
+      "iso-status"
+    ]
+  },
+  "variants": [
+    {
+      "id": "A",
+      "label": "Durchgehärtet",
+      "sizeData": {}
+    },
+    {
+      "id": "B",
+      "label": "Einsatzgehärtet",
+      "sizeData": {}
+    }
+  ]
+}

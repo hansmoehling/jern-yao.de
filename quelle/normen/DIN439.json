@@ -1,0 +1,2530 @@
+{
+  "schemaVersion": 1,
+  "version": "2026-11-26.1",
+  "id": "DIN439",
+  "edition": "catalog-undated",
+  "label": "Niedrige Sechskantmutter, Form B mit Fase",
+  "funktion": "mutter",
+  "klasse": "mutter",
+  "kopfTyp": "sechskant",
+  "alias": [],
+  "feldzuordnung": {
+    "mSW": "s_nom",
+    "mH": "m_catalog"
+  },
+  "groessen": {
+    "M5": {
+      "vorbelegung": {
+        "mSW": 8,
+        "mH": 2.7
+      },
+      "roh": {
+        "d_nom": 5,
+        "P": 0.8,
+        "s_nom": 8,
+        "m_catalog": 2.7,
+        "e_catalog": 8.79
+      },
+      "thread": {
+        "id": "M5x0.8",
+        "diameter": 5,
+        "pitch": 0.8,
+        "sourceRefs": [
+          "iso4032_2023"
+        ]
+      },
+      "geometryStatus": "dimensioned",
+      "missingGeometryFields": []
+    },
+    "M6": {
+      "vorbelegung": {
+        "mSW": 10,
+        "mH": 3.2
+      },
+      "roh": {
+        "d_nom": 6,
+        "P": 1,
+        "s_nom": 10,
+        "m_catalog": 3.2,
+        "e_catalog": 11.05
+      },
+      "thread": {
+        "id": "M6x1",
+        "diameter": 6,
+        "pitch": 1,
+        "sourceRefs": [
+          "iso4032_2023"
+        ]
+      },
+      "geometryStatus": "dimensioned",
+      "missingGeometryFields": []
+    },
+    "M8": {
+      "vorbelegung": {
+        "mSW": 13,
+        "mH": 4
+      },
+      "roh": {
+        "d_nom": 8,
+        "P": 1.25,
+        "s_nom": 13,
+        "m_catalog": 4,
+        "e_catalog": 14.38
+      },
+      "thread": {
+        "id": "M8x1.25",
+        "diameter": 8,
+        "pitch": 1.25,
+        "sourceRefs": [
+          "iso4032_2023"
+        ]
+      },
+      "geometryStatus": "dimensioned",
+      "missingGeometryFields": []
+    },
+    "M10": {
+      "vorbelegung": {
+        "mSW": 17,
+        "mH": 5
+      },
+      "roh": {
+        "d_nom": 10,
+        "P": 1.5,
+        "s_nom": 17,
+        "m_catalog": 5,
+        "e_catalog": 18.9
+      },
+      "thread": {
+        "id": "M10x1.5",
+        "diameter": 10,
+        "pitch": 1.5,
+        "sourceRefs": [
+          "iso4032_2023"
+        ]
+      },
+      "geometryStatus": "dimensioned",
+      "missingGeometryFields": []
+    },
+    "M12": {
+      "vorbelegung": {
+        "mSW": 19,
+        "mH": 6
+      },
+      "roh": {
+        "d_nom": 12,
+        "P": 1.75,
+        "s_nom": 19,
+        "m_catalog": 6,
+        "e_catalog": 21.1
+      },
+      "thread": {
+        "id": "M12x1.75",
+        "diameter": 12,
+        "pitch": 1.75,
+        "sourceRefs": [
+          "iso4032_2023"
+        ]
+      },
+      "geometryStatus": "dimensioned",
+      "missingGeometryFields": []
+    },
+    "M14": {
+      "vorbelegung": {
+        "mSW": 22,
+        "mH": 7
+      },
+      "roh": {
+        "d_nom": 14,
+        "P": 2,
+        "s_nom": 22,
+        "m_catalog": 7,
+        "e_catalog": 24.49
+      },
+      "thread": {
+        "id": "M14x2",
+        "diameter": 14,
+        "pitch": 2,
+        "sourceRefs": [
+          "iso4032_2023"
+        ]
+      },
+      "geometryStatus": "dimensioned",
+      "missingGeometryFields": []
+    },
+    "M16": {
+      "vorbelegung": {
+        "mSW": 24,
+        "mH": 8
+      },
+      "roh": {
+        "d_nom": 16,
+        "P": 2,
+        "s_nom": 24,
+        "m_catalog": 8,
+        "e_catalog": 26.75
+      },
+      "thread": {
+        "id": "M16x2",
+        "diameter": 16,
+        "pitch": 2,
+        "sourceRefs": [
+          "iso4032_2023"
+        ]
+      },
+      "geometryStatus": "dimensioned",
+      "missingGeometryFields": []
+    },
+    "M18": {
+      "vorbelegung": {
+        "mSW": 27,
+        "mH": 9
+      },
+      "roh": {
+        "d_nom": 18,
+        "P": 2.5,
+        "s_nom": 27,
+        "m_catalog": 9,
+        "e_catalog": 29.56
+      },
+      "thread": {
+        "id": "M18x2.5",
+        "diameter": 18,
+        "pitch": 2.5,
+        "sourceRefs": [
+          "iso4032_2023"
+        ]
+      },
+      "geometryStatus": "dimensioned",
+      "missingGeometryFields": []
+    },
+    "M20": {
+      "vorbelegung": {
+        "mSW": 30,
+        "mH": 10
+      },
+      "roh": {
+        "d_nom": 20,
+        "P": 2.5,
+        "s_nom": 30,
+        "m_catalog": 10,
+        "e_catalog": 32.95
+      },
+      "thread": {
+        "id": "M20x2.5",
+        "diameter": 20,
+        "pitch": 2.5,
+        "sourceRefs": [
+          "iso4032_2023"
+        ]
+      },
+      "geometryStatus": "dimensioned",
+      "missingGeometryFields": []
+    },
+    "M22": {
+      "vorbelegung": {
+        "mSW": 32,
+        "mH": 11
+      },
+      "roh": {
+        "d_nom": 22,
+        "P": 2.5,
+        "s_nom": 32,
+        "m_catalog": 11,
+        "e_catalog": 35.03
+      },
+      "thread": {
+        "id": "M22x2.5",
+        "diameter": 22,
+        "pitch": 2.5,
+        "sourceRefs": [
+          "iso4032_2023"
+        ]
+      },
+      "geometryStatus": "dimensioned",
+      "missingGeometryFields": []
+    },
+    "M24": {
+      "vorbelegung": {
+        "mSW": 36,
+        "mH": 12
+      },
+      "roh": {
+        "d_nom": 24,
+        "P": 3,
+        "s_nom": 36,
+        "m_catalog": 12,
+        "e_catalog": 39.55
+      },
+      "thread": {
+        "id": "M24x3",
+        "diameter": 24,
+        "pitch": 3,
+        "sourceRefs": [
+          "iso4032_2023"
+        ]
+      },
+      "geometryStatus": "dimensioned",
+      "missingGeometryFields": []
+    },
+    "M27": {
+      "vorbelegung": {
+        "mSW": 41,
+        "mH": 13.5
+      },
+      "roh": {
+        "d_nom": 27,
+        "P": 3,
+        "s_nom": 41,
+        "m_catalog": 13.5,
+        "e_catalog": 45.2
+      },
+      "thread": {
+        "id": "M27x3",
+        "diameter": 27,
+        "pitch": 3,
+        "sourceRefs": [
+          "iso4032_2023"
+        ]
+      },
+      "geometryStatus": "dimensioned",
+      "missingGeometryFields": []
+    },
+    "M30": {
+      "vorbelegung": {
+        "mSW": 46,
+        "mH": 15
+      },
+      "roh": {
+        "d_nom": 30,
+        "P": 3.5,
+        "s_nom": 46,
+        "m_catalog": 15,
+        "e_catalog": 50.85
+      },
+      "thread": {
+        "id": "M30x3.5",
+        "diameter": 30,
+        "pitch": 3.5,
+        "sourceRefs": [
+          "iso4032_2023"
+        ]
+      },
+      "geometryStatus": "dimensioned",
+      "missingGeometryFields": []
+    },
+    "M8x0.75": {
+      "vorbelegung": {
+        "mSW": 13,
+        "mH": 4
+      },
+      "roh": {
+        "d_nom": 8,
+        "P": 0.75,
+        "s_nom": 13,
+        "m_catalog": 4,
+        "e_catalog": 14.38
+      },
+      "thread": {
+        "id": "M8x0.75",
+        "diameter": 8,
+        "pitch": 0.75,
+        "sourceRefs": [
+          "lederer439"
+        ]
+      },
+      "geometryStatus": "dimensioned",
+      "missingGeometryFields": []
+    },
+    "M8x1": {
+      "vorbelegung": {
+        "mSW": 13,
+        "mH": 4
+      },
+      "roh": {
+        "d_nom": 8,
+        "P": 1,
+        "s_nom": 13,
+        "m_catalog": 4,
+        "e_catalog": 14.38
+      },
+      "thread": {
+        "id": "M8x1",
+        "diameter": 8,
+        "pitch": 1,
+        "sourceRefs": [
+          "lederer439"
+        ]
+      },
+      "geometryStatus": "dimensioned",
+      "missingGeometryFields": []
+    },
+    "M10x0.75": {
+      "vorbelegung": {
+        "mSW": 17,
+        "mH": 5
+      },
+      "roh": {
+        "d_nom": 10,
+        "P": 0.75,
+        "s_nom": 17,
+        "m_catalog": 5,
+        "e_catalog": 18.9
+      },
+      "thread": {
+        "id": "M10x0.75",
+        "diameter": 10,
+        "pitch": 0.75,
+        "sourceRefs": [
+          "lederer439"
+        ]
+      },
+      "geometryStatus": "dimensioned",
+      "missingGeometryFields": []
+    },
+    "M10x1": {
+      "vorbelegung": {
+        "mSW": 17,
+        "mH": 5
+      },
+      "roh": {
+        "d_nom": 10,
+        "P": 1,
+        "s_nom": 17,
+        "m_catalog": 5,
+        "e_catalog": 18.9
+      },
+      "thread": {
+        "id": "M10x1",
+        "diameter": 10,
+        "pitch": 1,
+        "sourceRefs": [
+          "lederer439"
+        ]
+      },
+      "geometryStatus": "dimensioned",
+      "missingGeometryFields": []
+    },
+    "M10x1.25": {
+      "vorbelegung": {
+        "mSW": 17,
+        "mH": 5
+      },
+      "roh": {
+        "d_nom": 10,
+        "P": 1.25,
+        "s_nom": 17,
+        "m_catalog": 5,
+        "e_catalog": 18.9
+      },
+      "thread": {
+        "id": "M10x1.25",
+        "diameter": 10,
+        "pitch": 1.25,
+        "sourceRefs": [
+          "lederer439"
+        ]
+      },
+      "geometryStatus": "dimensioned",
+      "missingGeometryFields": []
+    },
+    "M12x1": {
+      "vorbelegung": {
+        "mSW": 19,
+        "mH": 6
+      },
+      "roh": {
+        "d_nom": 12,
+        "P": 1,
+        "s_nom": 19,
+        "m_catalog": 6,
+        "e_catalog": 21.1
+      },
+      "thread": {
+        "id": "M12x1",
+        "diameter": 12,
+        "pitch": 1,
+        "sourceRefs": [
+          "lederer439"
+        ]
+      },
+      "geometryStatus": "dimensioned",
+      "missingGeometryFields": []
+    },
+    "M12x1.25": {
+      "vorbelegung": {
+        "mSW": 19,
+        "mH": 6
+      },
+      "roh": {
+        "d_nom": 12,
+        "P": 1.25,
+        "s_nom": 19,
+        "m_catalog": 6,
+        "e_catalog": 21.1
+      },
+      "thread": {
+        "id": "M12x1.25",
+        "diameter": 12,
+        "pitch": 1.25,
+        "sourceRefs": [
+          "lederer439"
+        ]
+      },
+      "geometryStatus": "dimensioned",
+      "missingGeometryFields": []
+    },
+    "M12x1.5": {
+      "vorbelegung": {
+        "mSW": 19,
+        "mH": 6
+      },
+      "roh": {
+        "d_nom": 12,
+        "P": 1.5,
+        "s_nom": 19,
+        "m_catalog": 6,
+        "e_catalog": 21.1
+      },
+      "thread": {
+        "id": "M12x1.5",
+        "diameter": 12,
+        "pitch": 1.5,
+        "sourceRefs": [
+          "lederer439"
+        ]
+      },
+      "geometryStatus": "dimensioned",
+      "missingGeometryFields": []
+    },
+    "M14x1.5": {
+      "vorbelegung": {
+        "mSW": 22,
+        "mH": 7
+      },
+      "roh": {
+        "d_nom": 14,
+        "P": 1.5,
+        "s_nom": 22,
+        "m_catalog": 7,
+        "e_catalog": 24.49
+      },
+      "thread": {
+        "id": "M14x1.5",
+        "diameter": 14,
+        "pitch": 1.5,
+        "sourceRefs": [
+          "lederer439"
+        ]
+      },
+      "geometryStatus": "dimensioned",
+      "missingGeometryFields": []
+    },
+    "M16x1.5": {
+      "vorbelegung": {
+        "mSW": 24,
+        "mH": 8
+      },
+      "roh": {
+        "d_nom": 16,
+        "P": 1.5,
+        "s_nom": 24,
+        "m_catalog": 8,
+        "e_catalog": 26.75
+      },
+      "thread": {
+        "id": "M16x1.5",
+        "diameter": 16,
+        "pitch": 1.5,
+        "sourceRefs": [
+          "lederer439"
+        ]
+      },
+      "geometryStatus": "dimensioned",
+      "missingGeometryFields": []
+    },
+    "M18x1.5": {
+      "vorbelegung": {
+        "mSW": 27,
+        "mH": 9
+      },
+      "roh": {
+        "d_nom": 18,
+        "P": 1.5,
+        "s_nom": 27,
+        "m_catalog": 9,
+        "e_catalog": 29.56
+      },
+      "thread": {
+        "id": "M18x1.5",
+        "diameter": 18,
+        "pitch": 1.5,
+        "sourceRefs": [
+          "lederer439"
+        ]
+      },
+      "geometryStatus": "dimensioned",
+      "missingGeometryFields": []
+    },
+    "M20x1.5": {
+      "vorbelegung": {
+        "mSW": 30,
+        "mH": 10
+      },
+      "roh": {
+        "d_nom": 20,
+        "P": 1.5,
+        "s_nom": 30,
+        "m_catalog": 10,
+        "e_catalog": 32.95
+      },
+      "thread": {
+        "id": "M20x1.5",
+        "diameter": 20,
+        "pitch": 1.5,
+        "sourceRefs": [
+          "lederer439"
+        ]
+      },
+      "geometryStatus": "dimensioned",
+      "missingGeometryFields": []
+    },
+    "M20x2": {
+      "vorbelegung": {
+        "mSW": 30,
+        "mH": 10
+      },
+      "roh": {
+        "d_nom": 20,
+        "P": 2,
+        "s_nom": 30,
+        "m_catalog": 10,
+        "e_catalog": 32.95
+      },
+      "thread": {
+        "id": "M20x2",
+        "diameter": 20,
+        "pitch": 2,
+        "sourceRefs": [
+          "lederer439"
+        ]
+      },
+      "geometryStatus": "dimensioned",
+      "missingGeometryFields": []
+    },
+    "M22x1.5": {
+      "vorbelegung": {
+        "mSW": 32,
+        "mH": 11
+      },
+      "roh": {
+        "d_nom": 22,
+        "P": 1.5,
+        "s_nom": 32,
+        "m_catalog": 11,
+        "e_catalog": 35.03
+      },
+      "thread": {
+        "id": "M22x1.5",
+        "diameter": 22,
+        "pitch": 1.5,
+        "sourceRefs": [
+          "lederer439"
+        ]
+      },
+      "geometryStatus": "dimensioned",
+      "missingGeometryFields": []
+    },
+    "M24x1.5": {
+      "vorbelegung": {
+        "mSW": 36,
+        "mH": 12
+      },
+      "roh": {
+        "d_nom": 24,
+        "P": 1.5,
+        "s_nom": 36,
+        "m_catalog": 12,
+        "e_catalog": 39.55
+      },
+      "thread": {
+        "id": "M24x1.5",
+        "diameter": 24,
+        "pitch": 1.5,
+        "sourceRefs": [
+          "lederer439"
+        ]
+      },
+      "geometryStatus": "dimensioned",
+      "missingGeometryFields": []
+    },
+    "M24x2": {
+      "vorbelegung": {
+        "mSW": 36,
+        "mH": 12
+      },
+      "roh": {
+        "d_nom": 24,
+        "P": 2,
+        "s_nom": 36,
+        "m_catalog": 12,
+        "e_catalog": 39.55
+      },
+      "thread": {
+        "id": "M24x2",
+        "diameter": 24,
+        "pitch": 2,
+        "sourceRefs": [
+          "lederer439"
+        ]
+      },
+      "geometryStatus": "dimensioned",
+      "missingGeometryFields": []
+    },
+    "M27x1.5": {
+      "vorbelegung": {
+        "mSW": 41,
+        "mH": 13.5
+      },
+      "roh": {
+        "d_nom": 27,
+        "P": 1.5,
+        "s_nom": 41,
+        "m_catalog": 13.5,
+        "e_catalog": 45.2
+      },
+      "thread": {
+        "id": "M27x1.5",
+        "diameter": 27,
+        "pitch": 1.5,
+        "sourceRefs": [
+          "lederer439"
+        ]
+      },
+      "geometryStatus": "dimensioned",
+      "missingGeometryFields": []
+    },
+    "M27x2": {
+      "vorbelegung": {
+        "mSW": 41,
+        "mH": 13.5
+      },
+      "roh": {
+        "d_nom": 27,
+        "P": 2,
+        "s_nom": 41,
+        "m_catalog": 13.5,
+        "e_catalog": 45.2
+      },
+      "thread": {
+        "id": "M27x2",
+        "diameter": 27,
+        "pitch": 2,
+        "sourceRefs": [
+          "lederer439"
+        ]
+      },
+      "geometryStatus": "dimensioned",
+      "missingGeometryFields": []
+    },
+    "M30x1.5": {
+      "vorbelegung": {
+        "mSW": 46,
+        "mH": 15
+      },
+      "roh": {
+        "d_nom": 30,
+        "P": 1.5,
+        "s_nom": 46,
+        "m_catalog": 15,
+        "e_catalog": 50.85
+      },
+      "thread": {
+        "id": "M30x1.5",
+        "diameter": 30,
+        "pitch": 1.5,
+        "sourceRefs": [
+          "lederer439"
+        ]
+      },
+      "geometryStatus": "dimensioned",
+      "missingGeometryFields": []
+    },
+    "M30x2": {
+      "vorbelegung": {
+        "mSW": 46,
+        "mH": 15
+      },
+      "roh": {
+        "d_nom": 30,
+        "P": 2,
+        "s_nom": 46,
+        "m_catalog": 15,
+        "e_catalog": 50.85
+      },
+      "thread": {
+        "id": "M30x2",
+        "diameter": 30,
+        "pitch": 2,
+        "sourceRefs": [
+          "lederer439"
+        ]
+      },
+      "geometryStatus": "dimensioned",
+      "missingGeometryFields": []
+    }
+  },
+  "fields": {
+    "M5": {
+      "P": {
+        "nominal": 0.8,
+        "sourceRefs": [
+          "iso4032_2023"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "s_nom": {
+        "nominal": 8,
+        "sourceRefs": [
+          "lederer439"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "m_catalog": {
+        "value": 2.7,
+        "sourceRefs": [
+          "lederer439"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "e_catalog": {
+        "value": 8.79,
+        "sourceRefs": [
+          "lederer439"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "d_nom": {
+        "nominal": 5,
+        "sourceRefs": [
+          "lederer439"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      }
+    },
+    "M6": {
+      "P": {
+        "nominal": 1,
+        "sourceRefs": [
+          "iso4032_2023"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "s_nom": {
+        "nominal": 10,
+        "sourceRefs": [
+          "lederer439"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "m_catalog": {
+        "value": 3.2,
+        "sourceRefs": [
+          "lederer439"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "e_catalog": {
+        "value": 11.05,
+        "sourceRefs": [
+          "lederer439"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "d_nom": {
+        "nominal": 6,
+        "sourceRefs": [
+          "lederer439"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      }
+    },
+    "M8": {
+      "P": {
+        "nominal": 1.25,
+        "sourceRefs": [
+          "iso4032_2023"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "s_nom": {
+        "nominal": 13,
+        "sourceRefs": [
+          "lederer439"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "m_catalog": {
+        "value": 4,
+        "sourceRefs": [
+          "lederer439"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "e_catalog": {
+        "value": 14.38,
+        "sourceRefs": [
+          "lederer439"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "d_nom": {
+        "nominal": 8,
+        "sourceRefs": [
+          "lederer439"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      }
+    },
+    "M10": {
+      "P": {
+        "nominal": 1.5,
+        "sourceRefs": [
+          "iso4032_2023"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "s_nom": {
+        "nominal": 17,
+        "sourceRefs": [
+          "lederer439"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "m_catalog": {
+        "value": 5,
+        "sourceRefs": [
+          "lederer439"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "e_catalog": {
+        "value": 18.9,
+        "sourceRefs": [
+          "lederer439"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "d_nom": {
+        "nominal": 10,
+        "sourceRefs": [
+          "lederer439"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      }
+    },
+    "M12": {
+      "P": {
+        "nominal": 1.75,
+        "sourceRefs": [
+          "iso4032_2023"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "s_nom": {
+        "nominal": 19,
+        "sourceRefs": [
+          "lederer439"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "m_catalog": {
+        "value": 6,
+        "sourceRefs": [
+          "lederer439"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "e_catalog": {
+        "value": 21.1,
+        "sourceRefs": [
+          "lederer439"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "d_nom": {
+        "nominal": 12,
+        "sourceRefs": [
+          "lederer439"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      }
+    },
+    "M14": {
+      "P": {
+        "nominal": 2,
+        "sourceRefs": [
+          "iso4032_2023"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "s_nom": {
+        "nominal": 22,
+        "sourceRefs": [
+          "lederer439"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "m_catalog": {
+        "value": 7,
+        "sourceRefs": [
+          "lederer439"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "e_catalog": {
+        "value": 24.49,
+        "sourceRefs": [
+          "lederer439"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "d_nom": {
+        "nominal": 14,
+        "sourceRefs": [
+          "lederer439"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      }
+    },
+    "M16": {
+      "P": {
+        "nominal": 2,
+        "sourceRefs": [
+          "iso4032_2023"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "s_nom": {
+        "nominal": 24,
+        "sourceRefs": [
+          "lederer439"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "m_catalog": {
+        "value": 8,
+        "sourceRefs": [
+          "lederer439"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "e_catalog": {
+        "value": 26.75,
+        "sourceRefs": [
+          "lederer439"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "d_nom": {
+        "nominal": 16,
+        "sourceRefs": [
+          "lederer439"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      }
+    },
+    "M18": {
+      "P": {
+        "nominal": 2.5,
+        "sourceRefs": [
+          "iso4032_2023"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "s_nom": {
+        "nominal": 27,
+        "sourceRefs": [
+          "lederer439"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "m_catalog": {
+        "value": 9,
+        "sourceRefs": [
+          "lederer439"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "e_catalog": {
+        "value": 29.56,
+        "sourceRefs": [
+          "lederer439"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "d_nom": {
+        "nominal": 18,
+        "sourceRefs": [
+          "lederer439"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      }
+    },
+    "M20": {
+      "P": {
+        "nominal": 2.5,
+        "sourceRefs": [
+          "iso4032_2023"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "s_nom": {
+        "nominal": 30,
+        "sourceRefs": [
+          "lederer439"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "m_catalog": {
+        "value": 10,
+        "sourceRefs": [
+          "lederer439"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "e_catalog": {
+        "value": 32.95,
+        "sourceRefs": [
+          "lederer439"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "d_nom": {
+        "nominal": 20,
+        "sourceRefs": [
+          "lederer439"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      }
+    },
+    "M22": {
+      "P": {
+        "nominal": 2.5,
+        "sourceRefs": [
+          "iso4032_2023"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "s_nom": {
+        "nominal": 32,
+        "sourceRefs": [
+          "lederer439"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "m_catalog": {
+        "value": 11,
+        "sourceRefs": [
+          "lederer439"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "e_catalog": {
+        "value": 35.03,
+        "sourceRefs": [
+          "lederer439"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "d_nom": {
+        "nominal": 22,
+        "sourceRefs": [
+          "lederer439"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      }
+    },
+    "M24": {
+      "P": {
+        "nominal": 3,
+        "sourceRefs": [
+          "iso4032_2023"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "s_nom": {
+        "nominal": 36,
+        "sourceRefs": [
+          "lederer439"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "m_catalog": {
+        "value": 12,
+        "sourceRefs": [
+          "lederer439"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "e_catalog": {
+        "value": 39.55,
+        "sourceRefs": [
+          "lederer439"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "d_nom": {
+        "nominal": 24,
+        "sourceRefs": [
+          "lederer439"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      }
+    },
+    "M27": {
+      "P": {
+        "nominal": 3,
+        "sourceRefs": [
+          "iso4032_2023"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "s_nom": {
+        "nominal": 41,
+        "sourceRefs": [
+          "lederer439"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "m_catalog": {
+        "value": 13.5,
+        "sourceRefs": [
+          "lederer439"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "e_catalog": {
+        "value": 45.2,
+        "sourceRefs": [
+          "lederer439"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "d_nom": {
+        "nominal": 27,
+        "sourceRefs": [
+          "lederer439"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      }
+    },
+    "M30": {
+      "P": {
+        "nominal": 3.5,
+        "sourceRefs": [
+          "iso4032_2023"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "s_nom": {
+        "nominal": 46,
+        "sourceRefs": [
+          "lederer439"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "m_catalog": {
+        "value": 15,
+        "sourceRefs": [
+          "lederer439"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "e_catalog": {
+        "value": 50.85,
+        "sourceRefs": [
+          "lederer439"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "d_nom": {
+        "nominal": 30,
+        "sourceRefs": [
+          "lederer439"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      }
+    },
+    "M8x0.75": {
+      "P": {
+        "nominal": 0.75,
+        "sourceRefs": [
+          "lederer439"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "s_nom": {
+        "nominal": 13,
+        "sourceRefs": [
+          "lederer439"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "m_catalog": {
+        "value": 4,
+        "sourceRefs": [
+          "lederer439"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "e_catalog": {
+        "value": 14.38,
+        "sourceRefs": [
+          "lederer439"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "d_nom": {
+        "nominal": 8,
+        "sourceRefs": [
+          "lederer439"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      }
+    },
+    "M8x1": {
+      "P": {
+        "nominal": 1,
+        "sourceRefs": [
+          "lederer439"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "s_nom": {
+        "nominal": 13,
+        "sourceRefs": [
+          "lederer439"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "m_catalog": {
+        "value": 4,
+        "sourceRefs": [
+          "lederer439"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "e_catalog": {
+        "value": 14.38,
+        "sourceRefs": [
+          "lederer439"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "d_nom": {
+        "nominal": 8,
+        "sourceRefs": [
+          "lederer439"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      }
+    },
+    "M10x0.75": {
+      "P": {
+        "nominal": 0.75,
+        "sourceRefs": [
+          "lederer439"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "s_nom": {
+        "nominal": 17,
+        "sourceRefs": [
+          "lederer439"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "m_catalog": {
+        "value": 5,
+        "sourceRefs": [
+          "lederer439"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "e_catalog": {
+        "value": 18.9,
+        "sourceRefs": [
+          "lederer439"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "d_nom": {
+        "nominal": 10,
+        "sourceRefs": [
+          "lederer439"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      }
+    },
+    "M10x1": {
+      "P": {
+        "nominal": 1,
+        "sourceRefs": [
+          "lederer439"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "s_nom": {
+        "nominal": 17,
+        "sourceRefs": [
+          "lederer439"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "m_catalog": {
+        "value": 5,
+        "sourceRefs": [
+          "lederer439"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "e_catalog": {
+        "value": 18.9,
+        "sourceRefs": [
+          "lederer439"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "d_nom": {
+        "nominal": 10,
+        "sourceRefs": [
+          "lederer439"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      }
+    },
+    "M10x1.25": {
+      "P": {
+        "nominal": 1.25,
+        "sourceRefs": [
+          "lederer439"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "s_nom": {
+        "nominal": 17,
+        "sourceRefs": [
+          "lederer439"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "m_catalog": {
+        "value": 5,
+        "sourceRefs": [
+          "lederer439"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "e_catalog": {
+        "value": 18.9,
+        "sourceRefs": [
+          "lederer439"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "d_nom": {
+        "nominal": 10,
+        "sourceRefs": [
+          "lederer439"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      }
+    },
+    "M12x1": {
+      "P": {
+        "nominal": 1,
+        "sourceRefs": [
+          "lederer439"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "s_nom": {
+        "nominal": 19,
+        "sourceRefs": [
+          "lederer439"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "m_catalog": {
+        "value": 6,
+        "sourceRefs": [
+          "lederer439"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "e_catalog": {
+        "value": 21.1,
+        "sourceRefs": [
+          "lederer439"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "d_nom": {
+        "nominal": 12,
+        "sourceRefs": [
+          "lederer439"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      }
+    },
+    "M12x1.25": {
+      "P": {
+        "nominal": 1.25,
+        "sourceRefs": [
+          "lederer439"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "s_nom": {
+        "nominal": 19,
+        "sourceRefs": [
+          "lederer439"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "m_catalog": {
+        "value": 6,
+        "sourceRefs": [
+          "lederer439"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "e_catalog": {
+        "value": 21.1,
+        "sourceRefs": [
+          "lederer439"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "d_nom": {
+        "nominal": 12,
+        "sourceRefs": [
+          "lederer439"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      }
+    },
+    "M12x1.5": {
+      "P": {
+        "nominal": 1.5,
+        "sourceRefs": [
+          "lederer439"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "s_nom": {
+        "nominal": 19,
+        "sourceRefs": [
+          "lederer439"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "m_catalog": {
+        "value": 6,
+        "sourceRefs": [
+          "lederer439"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "e_catalog": {
+        "value": 21.1,
+        "sourceRefs": [
+          "lederer439"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "d_nom": {
+        "nominal": 12,
+        "sourceRefs": [
+          "lederer439"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      }
+    },
+    "M14x1.5": {
+      "P": {
+        "nominal": 1.5,
+        "sourceRefs": [
+          "lederer439"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "s_nom": {
+        "nominal": 22,
+        "sourceRefs": [
+          "lederer439"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "m_catalog": {
+        "value": 7,
+        "sourceRefs": [
+          "lederer439"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "e_catalog": {
+        "value": 24.49,
+        "sourceRefs": [
+          "lederer439"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "d_nom": {
+        "nominal": 14,
+        "sourceRefs": [
+          "lederer439"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      }
+    },
+    "M16x1.5": {
+      "P": {
+        "nominal": 1.5,
+        "sourceRefs": [
+          "lederer439"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "s_nom": {
+        "nominal": 24,
+        "sourceRefs": [
+          "lederer439"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "m_catalog": {
+        "value": 8,
+        "sourceRefs": [
+          "lederer439"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "e_catalog": {
+        "value": 26.75,
+        "sourceRefs": [
+          "lederer439"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "d_nom": {
+        "nominal": 16,
+        "sourceRefs": [
+          "lederer439"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      }
+    },
+    "M18x1.5": {
+      "P": {
+        "nominal": 1.5,
+        "sourceRefs": [
+          "lederer439"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "s_nom": {
+        "nominal": 27,
+        "sourceRefs": [
+          "lederer439"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "m_catalog": {
+        "value": 9,
+        "sourceRefs": [
+          "lederer439"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "e_catalog": {
+        "value": 29.56,
+        "sourceRefs": [
+          "lederer439"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "d_nom": {
+        "nominal": 18,
+        "sourceRefs": [
+          "lederer439"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      }
+    },
+    "M20x1.5": {
+      "P": {
+        "nominal": 1.5,
+        "sourceRefs": [
+          "lederer439"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "s_nom": {
+        "nominal": 30,
+        "sourceRefs": [
+          "lederer439"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "m_catalog": {
+        "value": 10,
+        "sourceRefs": [
+          "lederer439"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "e_catalog": {
+        "value": 32.95,
+        "sourceRefs": [
+          "lederer439"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "d_nom": {
+        "nominal": 20,
+        "sourceRefs": [
+          "lederer439"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      }
+    },
+    "M20x2": {
+      "P": {
+        "nominal": 2,
+        "sourceRefs": [
+          "lederer439"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "s_nom": {
+        "nominal": 30,
+        "sourceRefs": [
+          "lederer439"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "m_catalog": {
+        "value": 10,
+        "sourceRefs": [
+          "lederer439"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "e_catalog": {
+        "value": 32.95,
+        "sourceRefs": [
+          "lederer439"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "d_nom": {
+        "nominal": 20,
+        "sourceRefs": [
+          "lederer439"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      }
+    },
+    "M22x1.5": {
+      "P": {
+        "nominal": 1.5,
+        "sourceRefs": [
+          "lederer439"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "s_nom": {
+        "nominal": 32,
+        "sourceRefs": [
+          "lederer439"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "m_catalog": {
+        "value": 11,
+        "sourceRefs": [
+          "lederer439"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "e_catalog": {
+        "value": 35.03,
+        "sourceRefs": [
+          "lederer439"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "d_nom": {
+        "nominal": 22,
+        "sourceRefs": [
+          "lederer439"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      }
+    },
+    "M24x1.5": {
+      "P": {
+        "nominal": 1.5,
+        "sourceRefs": [
+          "lederer439"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "s_nom": {
+        "nominal": 36,
+        "sourceRefs": [
+          "lederer439"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "m_catalog": {
+        "value": 12,
+        "sourceRefs": [
+          "lederer439"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "e_catalog": {
+        "value": 39.55,
+        "sourceRefs": [
+          "lederer439"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "d_nom": {
+        "nominal": 24,
+        "sourceRefs": [
+          "lederer439"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      }
+    },
+    "M24x2": {
+      "P": {
+        "nominal": 2,
+        "sourceRefs": [
+          "lederer439"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "s_nom": {
+        "nominal": 36,
+        "sourceRefs": [
+          "lederer439"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "m_catalog": {
+        "value": 12,
+        "sourceRefs": [
+          "lederer439"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "e_catalog": {
+        "value": 39.55,
+        "sourceRefs": [
+          "lederer439"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "d_nom": {
+        "nominal": 24,
+        "sourceRefs": [
+          "lederer439"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      }
+    },
+    "M27x1.5": {
+      "P": {
+        "nominal": 1.5,
+        "sourceRefs": [
+          "lederer439"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "s_nom": {
+        "nominal": 41,
+        "sourceRefs": [
+          "lederer439"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "m_catalog": {
+        "value": 13.5,
+        "sourceRefs": [
+          "lederer439"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "e_catalog": {
+        "value": 45.2,
+        "sourceRefs": [
+          "lederer439"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "d_nom": {
+        "nominal": 27,
+        "sourceRefs": [
+          "lederer439"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      }
+    },
+    "M27x2": {
+      "P": {
+        "nominal": 2,
+        "sourceRefs": [
+          "lederer439"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "s_nom": {
+        "nominal": 41,
+        "sourceRefs": [
+          "lederer439"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "m_catalog": {
+        "value": 13.5,
+        "sourceRefs": [
+          "lederer439"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "e_catalog": {
+        "value": 45.2,
+        "sourceRefs": [
+          "lederer439"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "d_nom": {
+        "nominal": 27,
+        "sourceRefs": [
+          "lederer439"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      }
+    },
+    "M30x1.5": {
+      "P": {
+        "nominal": 1.5,
+        "sourceRefs": [
+          "lederer439"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "s_nom": {
+        "nominal": 46,
+        "sourceRefs": [
+          "lederer439"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "m_catalog": {
+        "value": 15,
+        "sourceRefs": [
+          "lederer439"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "e_catalog": {
+        "value": 50.85,
+        "sourceRefs": [
+          "lederer439"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "d_nom": {
+        "nominal": 30,
+        "sourceRefs": [
+          "lederer439"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      }
+    },
+    "M30x2": {
+      "P": {
+        "nominal": 2,
+        "sourceRefs": [
+          "lederer439"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "s_nom": {
+        "nominal": 46,
+        "sourceRefs": [
+          "lederer439"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "m_catalog": {
+        "value": 15,
+        "sourceRefs": [
+          "lederer439"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "e_catalog": {
+        "value": 50.85,
+        "sourceRefs": [
+          "lederer439"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "d_nom": {
+        "nominal": 30,
+        "sourceRefs": [
+          "lederer439"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      }
+    }
+  },
+  "sourceMeta": {
+    "lederer439": {
+      "url": "https://www.lederer-online.com/fileadmin/users/redakteur/redakteur_upload/DIN439.pdf",
+      "title": "Lederer DIN439 product dimensions",
+      "locator": "Printed pages 58 (coarse), 59 (fine pitch, form B)",
+      "kind": "supplier-product-catalog",
+      "edition": null,
+      "accessed": "2026-11-26"
+    },
+    "iso4032_2023": {
+      "url": "https://cdn.standards.iteh.ai/samples/75016/5b1f83bd2dc44fc199973e9957a75086/ISO-4032-2023.pdf",
+      "title": "ISO 4032:2023",
+      "locator": "Tables 1–2, printed page 3",
+      "kind": "standard",
+      "edition": "2023",
+      "accessed": "2026-11-26"
+    }
+  },
+  "sourceStatus": "per-value",
+  "coverage": {
+    "diameterMin": 5,
+    "diameterMax": 30,
+    "unit": "mm",
+    "status": "partial",
+    "missingSizes": [
+      "M7"
+    ],
+    "missingReason": "Keine ausgewerteten Maßnachweise für diese Größen; keine Aussage über Herstellbarkeit oder Lieferbarkeit."
+  },
+  "editionStatus": "edition-unverified",
+  "threadSeries": "coarse-and-documented-fine",
+  "form": "B",
+  "coverageNotes": [
+    "Form B; Form A ist keine ungeprüfte Gleichsetzung. Grenzmaße und Normausgabe im Katalog nicht ausgewiesen."
+  ],
+  "defaultPolicy": "Dokumentierte Kataloghöhe oder ausgewiesenes Höchstmaß als vorläufige Außenhülle; kein vollständiges Fertigteilmodell."
+}

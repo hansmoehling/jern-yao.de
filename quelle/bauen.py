@@ -49,7 +49,15 @@ def build():
         spec=importlib.util.spec_from_file_location('materialbuild',Q/'werkstoffe_bauen.py')
         module=importlib.util.module_from_spec(spec);spec.loader.exec_module(module);module.build()
     build_i18n()
+    norms=[]
+    for file in sorted((Q/'normen').glob('*.json')):
+        value=json.loads(file.read_text(encoding='utf-8-sig'))
+        if isinstance(value,dict) and value.get('id') and 'groessen' in value:
+            norms.append(value)
+    norm_library={'schemaVersion':1,'version':'2026-11-26','families':norms,'threads':json.loads((Q/'normen/gewinde.json').read_text(encoding='utf-8')),'materials':json.loads((Q/'vorbelegung/werkstoff.json').read_text(encoding='utf-8'))}
+    (Q/'normen/index.json').write_text(json.dumps({'schemaVersion':1,'version':norm_library['version'],'families':[{'id':n['id'],'edition':n.get('edition'),'file':n['id']+'.json','sizes':len(n.get('groessen',{}))} for n in norms]},ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
     engine=embed_defaults((Q/'engine.js').read_text(encoding='utf-8-sig'),'RM_PRESETS','vorbelegung/rm.json')
+    engine=embed_defaults((Q/'nut-model.js').read_text(encoding='utf-8'),'NUT_THREADS','normen/gewinde.json')+'\n'+engine
     replacements={
         '/*DATEN*/':json.dumps(json.loads((Q/'maschinen.json').read_text(encoding='utf-8-sig')),ensure_ascii=False,separators=(',',':')),
         '/*PRAXIS*/':json.dumps(json.loads((Q/'praxis.json').read_text(encoding='utf-8-sig')),ensure_ascii=False,separators=(',',':')),
@@ -70,6 +78,7 @@ def build():
             values['/*GEOMETRY_MODEL*/']=(Q/'geometry-model.js').read_text(encoding='utf-8-sig')
             values['/*GEOMETRY_WIZARD*/']=(Q/'geometry-wizard.js').read_text(encoding='utf-8-sig')
             values['/*STANDARD_FAMILIES*/']=(Q/'standard-families.js').read_text(encoding='utf-8-sig')
+            values['/*NORM_LIBRARY*/']='window.JY_NORM_DATA='+json.dumps(norm_library,ensure_ascii=False,separators=(',',':')).replace('</','<\\/')+';\n'+'\n'.join((Q/'normen'/file).read_text(encoding='utf-8') for file in ['resolver.js','library.js','ui.js'])
             values['/*WIRE_DEFAULTS*/']=embed_defaults((Q/'vorbelegung/draht.js').read_text(encoding='utf-8-sig'),'WIRE_PRESETS','vorbelegung/draht.json')
         for key,value in values.items():
             assert key in text,(source,key)

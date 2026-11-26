@@ -183,6 +183,12 @@
   }
 .languages{display:flex;flex-wrap:wrap;gap:5px;justify-content:flex-end;padding:12px 0}.languages button{font:inherit;font-size:.875rem;border:1px solid #a5b5cc;background:#fff;color:#102d66;padding:6px 10px;cursor:pointer}.languages button[aria-pressed="true"]{background:#102d66;color:white}.concept{border-left:3px solid #c74716;padding:12px 16px;margin:18px 0;background:#f3f6fa}.concept h4{margin:0 0 10px;font-size:1rem}.concept ol{padding-left:22px}.concept p{margin:8px 0}.original-language{font-size:.875rem;color:#526176}html[lang="zh-Hans"] h1,html[lang="zh-Hans"] h2{font-family:Inter,"Microsoft YaHei",sans-serif;line-height:1.25}
 .visually-hidden{position:absolute!important;width:1px!important;height:1px!important;padding:0!important;margin:-1px!important;overflow:hidden!important;clip:rect(0,0,0,0)!important;white-space:nowrap!important;border:0!important}.formatted-answer{white-space:normal!important}.formatted-answer p{margin:0 0 12px}.formatted-answer ul,.formatted-answer ol{margin:8px 0 14px;padding-left:24px}.formatted-answer li{margin:4px 0}.formatted-answer>:last-child{margin-bottom:0}
+  #norm-picker{padding:20px;background:#eaf2fa;border:1px solid #cad8e8;border-radius:8px;margin-bottom:20px}
+  #norm-picker .feld span{font-size:14px}#norm-picker select{font-size:16px;padding:10px}
+  .norm-intro,.norm-reference{font-size:16px;line-height:1.5}.norm-reference{font-weight:600;color:var(--navy)}
+  .norm-override{display:flex;align-items:center;justify-content:space-between;gap:10px;margin:8px 0;font-size:14px;flex-wrap:wrap}
+  .norm-missing{font-size:14px}.norm-overrides .klein{font-size:14px}
+  #norm-dimensions>summary{font-size:16px;font-weight:600;padding:12px 0}
 </style>
 
 </head>
@@ -223,6 +229,7 @@
       <fieldset id="teil">
         <legend>1 · Teil</legend>
         <p id="calculation-method-note"><strong>Programmrechnung:</strong> Die Stadienberechnung erfolgt durch ein Berechnungsprogramm, nicht durch KI. Grundlage sind Ihre Eingaben und hinterlegte Umformregeln.</p>
+        <div id="norm-picker" hidden></div>
         <div id="parts-tabs" class="parts-tabs" role="tablist" aria-label="Formteil auslegen" hidden><button type="button" id="parts-drawing-tab" role="tab" aria-controls="parts-drawing-panel" aria-selected="true">Zeichnung scannen</button><button type="button" id="parts-geometry-tab" role="tab" aria-controls="geometry-panel" aria-selected="false" tabindex="-1">Teil aufbauen</button></div>
         <div id="parts-drawing-panel" role="tabpanel" aria-labelledby="parts-drawing-tab" hidden>
           <div class="parts-upload" id="parts-drop-zone"><label for="parts-file"><strong>Zeichnung auswählen oder hier ablegen</strong></label><p class="klein">PDF, PNG, JPG oder WebP für die KI-Analyse · bis 15 MB. CAD und TIFF können Sie als Original an Hans senden.</p><input id="parts-file" type="file" accept=".pdf,.png,.jpg,.jpeg,.webp,.tif,.tiff,.step,.stp,.dxf,.dwg,.igs,.iges" aria-describedby="parts-file-help parts-file-feedback"></div>
@@ -261,6 +268,7 @@
         </div>
 
         <div id="standard-part-fields">
+        <details id="norm-dimensions" open><summary>Maße und Geometrie bearbeiten</summary>
 
         <div data-fuer="bolzen">
           <div class="felder">
@@ -279,10 +287,19 @@
                 <option value="abgratet">Sechskant, rund gestaucht und abgegratet</option>
                 <option value="none">Ohne Kopf</option>
                 <option value="krallen">Krallenkopf / Umspritz-Mitnahmeprofil</option>
+                <option value="kugelabschnitt">Halbrundkopf</option>
+                <option value="linse">Linsenkopf</option>
+                <option value="kegelstumpf">Senkkopf</option>
+                <option value="linsensenk">Linsensenkkopf</option>
+                <option value="sechskant_bund">Sechskant mit Bund</option>
               </select></label>
-            <label class="feld" data-kopf="rund sechskant abgratet krallen"><span>Größter Ø in mm</span><input type="text" inputmode="decimal" name="kD"></label>
-            <label class="feld" data-kopf="sechskant abgratet"><span>Schlüsselweite in mm</span><input type="text" inputmode="decimal" name="kSW"></label>
-            <label class="feld" data-kopf="rund sechskant abgratet krallen"><span>Höhe in mm</span><input type="text" inputmode="decimal" name="kH"></label>
+            <label class="feld" data-kopf="rund sechskant abgratet krallen kugelabschnitt linse kegelstumpf linsensenk sechskant_bund"><span>Größter Ø in mm</span><input type="text" inputmode="decimal" name="kD"></label>
+            <label class="feld" data-kopf="sechskant abgratet sechskant_bund"><span>Schlüsselweite in mm</span><input type="text" inputmode="decimal" name="kSW"></label>
+            <label class="feld" data-kopf="rund sechskant abgratet krallen kugelabschnitt linse kegelstumpf linsensenk sechskant_bund"><span>Höhe in mm</span><input type="text" inputmode="decimal" name="kH"></label>
+            <label class="feld" data-kopf="linse"><span>Zylindrischer Kopfrand in mm</span><input type="text" inputmode="decimal" name="kC"></label>
+            <label class="feld" data-kopf="linsensenk"><span>Wölbungshöhe in mm</span><input type="text" inputmode="decimal" name="capHeight"></label>
+            <label class="feld" data-kopf="sechskant_bund"><span>Bund-Ø in mm</span><input type="text" inputmode="decimal" name="flangeDiameter"></label>
+            <label class="feld" data-kopf="sechskant_bund"><span>Bundhöhe in mm</span><input type="text" inputmode="decimal" name="flangeHeight"></label>
             <label class="feld voll" data-kopf="krallen"><span>Kopf-Außenkonturvolumen ohne Innenantrieb in mm³ (optional)</span><input type="text" inputmode="decimal" name="kVol"></label>
           </div>
           </div>
@@ -314,22 +331,36 @@
               <p class="klein">Die Profilgröße bestimmt die Antriebsform. Das verdrängte Volumen kommt aus der Zeichnung oder CAD; bis dahin bleibt die Abschnittlänge offen. Eine angegebene Teilmasse bestimmt die Abschnittlänge ebenfalls.</p>
             </details>
           </div>
+          <h3>Schaftende</h3>
+          <div class="felder">
+            <label class="feld voll"><span>Ausführung am freien Schaftende</span><select name="schaftende"><option value="voll">Voll</option><option value="halbhohl">Halbhohl / Sackloch</option><option value="rohr">Durchgangsloch</option></select></label>
+            <label class="feld" data-shaft-end="halbhohl rohr"><span>Bohrungs-Ø am Schaftende in mm</span><input name="d_b" type="text" inputmode="decimal"></label>
+            <label class="feld" data-shaft-end="halbhohl"><span>Gesamttiefe einschließlich Bohrungsgrund in mm</span><input name="t_b" type="text" inputmode="decimal"></label>
+            <label class="feld" data-shaft-end="halbhohl"><span>Bohrungsgrund</span><select name="bottomShape"><option value="cone">Kegelgrund</option><option value="flat">Flach</option></select></label>
+            <label class="feld" data-shaft-end="halbhohl"><span>Grundwinkel in Grad</span><select name="bottomAngle"><option value="120">120°</option><option value="90">90°</option><option value="118">118°</option><option value="135">135°</option></select></label>
+          </div>
+          <p class="klein" id="shaft-end-note" hidden>Die Tiefe schließt den Kegelgrund ein. 120° ist eine änderbare Prozessannahme, kein Normmaß.</p>
         </div>
 
         <div data-fuer="mutter" hidden>
           <h3>Mutter</h3>
           <div class="felder">
             <label class="feld voll"><span>Normfamilie</span><select name="nutNorm" id="nut-norm"></select></label>
+            <label class="feld voll"><span>Mutterform</span><select name="nutShape"><option value="hex">Sechskant</option><option value="square">Vierkant</option><option value="cap">Hutmutter</option></select></label>
             <label class="feld"><span>Gewinde M (Nenn-Ø) in mm</span><input type="text" inputmode="decimal" name="mM"></label>
             <label class="feld"><span>Schlüsselweite in mm</span><input type="text" inputmode="decimal" name="mSW"></label>
             <label class="feld"><span>Höhe in mm</span><input type="text" inputmode="decimal" name="mH"></label>
-            <label class="feld"><span>Loch-Ø in mm (leer: 0,84 × M)</span><input type="text" inputmode="decimal" name="mLoch"></label>
+            <label class="feld"><span>Loch-Ø in mm (leer: aus 6H)</span><input type="text" inputmode="decimal" name="mLoch"></label>
+            <label class="check voll"><input type="checkbox" name="nutFlange"> Mit Bund</label>
+            <label class="feld" data-nut-flange hidden><span>Bund-Ø in mm</span><input type="text" inputmode="decimal" name="mFlansch"></label>
+            <label class="feld" data-nut-flange hidden><span>Bundhöhe in mm</span><input type="text" inputmode="decimal" name="mFlanschH"></label>
           </div>
-          <p class="klein">Flanschmuttern werden im Formteil-Baukasten ausgelegt.</p><button type="button" id="flange-nut-route" class="knopf zwei">Flanschmutter als Formteil</button>
+          <p class="klein" id="nut-flange-note" hidden>Bundhöhe als zylindrische Ersatzkontur. Die Norm-Mindestdicke am Messkreis beschreibt nicht die vollständige Bundkontur.</p>
         </div>
         <div class="felder" style="margin-top:12px">
           <label class="feld voll"><span>Masse in g (optional, ersetzt das Volumen aus den Maßen)</span><input type="text" inputmode="decimal" name="masse"></label>
         </div>
+        </details>
         </div>
       </fieldset>
 
@@ -428,6 +459,7 @@
 <script>/*GEOMETRY_MODEL*/</script>
 <script>/*GEOMETRY_WIZARD*/</script>
 <script>/*STANDARD_FAMILIES*/</script>
+<script>/*NORM_LIBRARY*/</script>
 <script>/*WIRE_DEFAULTS*/</script>
 <script>/*ARCHIVE_UI*/</script>
 </body>

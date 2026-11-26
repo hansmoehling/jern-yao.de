@@ -1,0 +1,1433 @@
+{
+  "schemaVersion": 1,
+  "version": "2026-11-26.1",
+  "id": "ISO10511",
+  "edition": "2012",
+  "label": "Klemmmutter mit nichtmetallischem Einsatz",
+  "funktion": "mutter",
+  "klasse": "mutter",
+  "kopfTyp": "sechskant",
+  "alias": [],
+  "feldzuordnung": {
+    "mSW": "s_nom",
+    "mH": "h_max"
+  },
+  "groessen": {
+    "M5": {
+      "vorbelegung": {
+        "mSW": 8,
+        "mH": 5
+      },
+      "roh": {
+        "d_nom": 5,
+        "P": 0.8,
+        "s_nom": 8,
+        "s_min": 7.78,
+        "e_min": 8.79,
+        "h_max": 5,
+        "h_min": 4.52,
+        "m_min": 2.45
+      },
+      "thread": {
+        "id": "M5x0.8",
+        "diameter": 5,
+        "pitch": 0.8,
+        "sourceRefs": [
+          "iso10511_2012"
+        ]
+      },
+      "geometryStatus": "partial",
+      "missingGeometryFields": [
+        "insertSeatDiameter",
+        "insertSeatDepth",
+        "insertOuterProfile"
+      ]
+    },
+    "M6": {
+      "vorbelegung": {
+        "mSW": 10,
+        "mH": 6
+      },
+      "roh": {
+        "d_nom": 6,
+        "P": 1,
+        "s_nom": 10,
+        "s_min": 9.78,
+        "e_min": 11.05,
+        "h_max": 6,
+        "h_min": 5.52,
+        "m_min": 2.9
+      },
+      "thread": {
+        "id": "M6x1",
+        "diameter": 6,
+        "pitch": 1,
+        "sourceRefs": [
+          "iso10511_2012"
+        ]
+      },
+      "geometryStatus": "partial",
+      "missingGeometryFields": [
+        "insertSeatDiameter",
+        "insertSeatDepth",
+        "insertOuterProfile"
+      ]
+    },
+    "M8": {
+      "vorbelegung": {
+        "mSW": 13,
+        "mH": 6.76
+      },
+      "roh": {
+        "d_nom": 8,
+        "P": 1.25,
+        "s_nom": 13,
+        "s_min": 12.73,
+        "e_min": 14.38,
+        "h_max": 6.76,
+        "h_min": 6.18,
+        "m_min": 3.7
+      },
+      "thread": {
+        "id": "M8x1.25",
+        "diameter": 8,
+        "pitch": 1.25,
+        "sourceRefs": [
+          "iso10511_2012"
+        ]
+      },
+      "geometryStatus": "partial",
+      "missingGeometryFields": [
+        "insertSeatDiameter",
+        "insertSeatDepth",
+        "insertOuterProfile"
+      ]
+    },
+    "M10": {
+      "vorbelegung": {
+        "mSW": 16,
+        "mH": 8.56
+      },
+      "roh": {
+        "d_nom": 10,
+        "P": 1.5,
+        "s_nom": 16,
+        "s_min": 15.73,
+        "e_min": 17.77,
+        "h_max": 8.56,
+        "h_min": 7.98,
+        "m_min": 4.7
+      },
+      "thread": {
+        "id": "M10x1.5",
+        "diameter": 10,
+        "pitch": 1.5,
+        "sourceRefs": [
+          "iso10511_2012"
+        ]
+      },
+      "geometryStatus": "partial",
+      "missingGeometryFields": [
+        "insertSeatDiameter",
+        "insertSeatDepth",
+        "insertOuterProfile"
+      ]
+    },
+    "M12": {
+      "vorbelegung": {
+        "mSW": 18,
+        "mH": 10.23
+      },
+      "roh": {
+        "d_nom": 12,
+        "P": 1.75,
+        "s_nom": 18,
+        "s_min": 17.73,
+        "e_min": 20.03,
+        "h_max": 10.23,
+        "h_min": 9.53,
+        "m_min": 5.7
+      },
+      "thread": {
+        "id": "M12x1.75",
+        "diameter": 12,
+        "pitch": 1.75,
+        "sourceRefs": [
+          "iso10511_2012"
+        ]
+      },
+      "geometryStatus": "partial",
+      "missingGeometryFields": [
+        "insertSeatDiameter",
+        "insertSeatDepth",
+        "insertOuterProfile"
+      ]
+    },
+    "M14": {
+      "vorbelegung": {
+        "mSW": 21,
+        "mH": 11.32
+      },
+      "roh": {
+        "d_nom": 14,
+        "P": 2,
+        "s_nom": 21,
+        "s_min": 20.67,
+        "e_min": 23.35,
+        "h_max": 11.32,
+        "h_min": 10.22,
+        "m_min": 6.42
+      },
+      "thread": {
+        "id": "M14x2",
+        "diameter": 14,
+        "pitch": 2,
+        "sourceRefs": [
+          "iso10511_2012"
+        ]
+      },
+      "geometryStatus": "partial",
+      "missingGeometryFields": [
+        "insertSeatDiameter",
+        "insertSeatDepth",
+        "insertOuterProfile"
+      ]
+    },
+    "M16": {
+      "vorbelegung": {
+        "mSW": 24,
+        "mH": 12.42
+      },
+      "roh": {
+        "d_nom": 16,
+        "P": 2,
+        "s_nom": 24,
+        "s_min": 23.67,
+        "e_min": 26.75,
+        "h_max": 12.42,
+        "h_min": 11.32,
+        "m_min": 7.42
+      },
+      "thread": {
+        "id": "M16x2",
+        "diameter": 16,
+        "pitch": 2,
+        "sourceRefs": [
+          "iso10511_2012"
+        ]
+      },
+      "geometryStatus": "partial",
+      "missingGeometryFields": [
+        "insertSeatDiameter",
+        "insertSeatDepth",
+        "insertOuterProfile"
+      ]
+    },
+    "M20": {
+      "vorbelegung": {
+        "mSW": 30,
+        "mH": 14.9
+      },
+      "roh": {
+        "d_nom": 20,
+        "P": 2.5,
+        "s_nom": 30,
+        "s_min": 29.16,
+        "e_min": 32.95,
+        "h_max": 14.9,
+        "h_min": 13.1,
+        "m_min": 9.1
+      },
+      "thread": {
+        "id": "M20x2.5",
+        "diameter": 20,
+        "pitch": 2.5,
+        "sourceRefs": [
+          "iso10511_2012"
+        ]
+      },
+      "geometryStatus": "partial",
+      "missingGeometryFields": [
+        "insertSeatDiameter",
+        "insertSeatDepth",
+        "insertOuterProfile"
+      ]
+    },
+    "M24": {
+      "vorbelegung": {
+        "mSW": 36,
+        "mH": 17.8
+      },
+      "roh": {
+        "d_nom": 24,
+        "P": 3,
+        "s_nom": 36,
+        "s_min": 35,
+        "e_min": 39.55,
+        "h_max": 17.8,
+        "h_min": 16,
+        "m_min": 10.9
+      },
+      "thread": {
+        "id": "M24x3",
+        "diameter": 24,
+        "pitch": 3,
+        "sourceRefs": [
+          "iso10511_2012"
+        ]
+      },
+      "geometryStatus": "partial",
+      "missingGeometryFields": [
+        "insertSeatDiameter",
+        "insertSeatDepth",
+        "insertOuterProfile"
+      ]
+    },
+    "M30": {
+      "vorbelegung": {
+        "mSW": 46,
+        "mH": 22.2
+      },
+      "roh": {
+        "d_nom": 30,
+        "P": 3.5,
+        "s_nom": 46,
+        "s_min": 45,
+        "e_min": 50.85,
+        "h_max": 22.2,
+        "h_min": 20.1,
+        "m_min": 13.9
+      },
+      "thread": {
+        "id": "M30x3.5",
+        "diameter": 30,
+        "pitch": 3.5,
+        "sourceRefs": [
+          "iso10511_2012"
+        ]
+      },
+      "geometryStatus": "partial",
+      "missingGeometryFields": [
+        "insertSeatDiameter",
+        "insertSeatDepth",
+        "insertOuterProfile"
+      ]
+    }
+  },
+  "fields": {
+    "M5": {
+      "P": {
+        "nominal": 0.8,
+        "sourceRefs": [
+          "iso10511_2012"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "s_nom": {
+        "nominal": 8,
+        "sourceRefs": [
+          "iso10511_2012",
+          "stainlessfix10511"
+        ],
+        "status": "verified",
+        "verification": "independent-source-agreement",
+        "unit": "mm"
+      },
+      "s_min": {
+        "min": 7.78,
+        "sourceRefs": [
+          "iso10511_2012"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "e_min": {
+        "min": 8.79,
+        "sourceRefs": [
+          "iso10511_2012"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "h_max": {
+        "max": 5,
+        "sourceRefs": [
+          "iso10511_2012",
+          "stainlessfix10511"
+        ],
+        "status": "verified",
+        "verification": "independent-source-agreement",
+        "unit": "mm"
+      },
+      "h_min": {
+        "min": 4.52,
+        "sourceRefs": [
+          "iso10511_2012"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "m_min": {
+        "min": 2.45,
+        "sourceRefs": [
+          "iso10511_2012"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "d_nom": {
+        "nominal": 5,
+        "sourceRefs": [
+          "iso10511_2012"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "insertSeatDiameter": {
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "unit": "mm",
+        "note": "Detailmaß im ausgewerteten Nachweis nicht festgelegt; Kunden-/Herstellerzeichnung erforderlich."
+      },
+      "insertSeatDepth": {
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "unit": "mm",
+        "note": "Detailmaß im ausgewerteten Nachweis nicht festgelegt; Kunden-/Herstellerzeichnung erforderlich."
+      },
+      "insertOuterProfile": {
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "unit": "mm",
+        "note": "Detailmaß im ausgewerteten Nachweis nicht festgelegt; Kunden-/Herstellerzeichnung erforderlich."
+      }
+    },
+    "M6": {
+      "P": {
+        "nominal": 1,
+        "sourceRefs": [
+          "iso10511_2012"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "s_nom": {
+        "nominal": 10,
+        "sourceRefs": [
+          "iso10511_2012",
+          "stainlessfix10511"
+        ],
+        "status": "verified",
+        "verification": "independent-source-agreement",
+        "unit": "mm"
+      },
+      "s_min": {
+        "min": 9.78,
+        "sourceRefs": [
+          "iso10511_2012"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "e_min": {
+        "min": 11.05,
+        "sourceRefs": [
+          "iso10511_2012"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "h_max": {
+        "max": 6,
+        "sourceRefs": [
+          "iso10511_2012",
+          "stainlessfix10511"
+        ],
+        "status": "verified",
+        "verification": "independent-source-agreement",
+        "unit": "mm"
+      },
+      "h_min": {
+        "min": 5.52,
+        "sourceRefs": [
+          "iso10511_2012"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "m_min": {
+        "min": 2.9,
+        "sourceRefs": [
+          "iso10511_2012"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "d_nom": {
+        "nominal": 6,
+        "sourceRefs": [
+          "iso10511_2012"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "insertSeatDiameter": {
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "unit": "mm",
+        "note": "Detailmaß im ausgewerteten Nachweis nicht festgelegt; Kunden-/Herstellerzeichnung erforderlich."
+      },
+      "insertSeatDepth": {
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "unit": "mm",
+        "note": "Detailmaß im ausgewerteten Nachweis nicht festgelegt; Kunden-/Herstellerzeichnung erforderlich."
+      },
+      "insertOuterProfile": {
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "unit": "mm",
+        "note": "Detailmaß im ausgewerteten Nachweis nicht festgelegt; Kunden-/Herstellerzeichnung erforderlich."
+      }
+    },
+    "M8": {
+      "P": {
+        "nominal": 1.25,
+        "sourceRefs": [
+          "iso10511_2012"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "s_nom": {
+        "nominal": 13,
+        "sourceRefs": [
+          "iso10511_2012",
+          "stainlessfix10511"
+        ],
+        "status": "verified",
+        "verification": "independent-source-agreement",
+        "unit": "mm"
+      },
+      "s_min": {
+        "min": 12.73,
+        "sourceRefs": [
+          "iso10511_2012"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "e_min": {
+        "min": 14.38,
+        "sourceRefs": [
+          "iso10511_2012"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "h_max": {
+        "max": 6.76,
+        "sourceRefs": [
+          "iso10511_2012",
+          "stainlessfix10511"
+        ],
+        "status": "verified",
+        "verification": "independent-source-agreement",
+        "unit": "mm"
+      },
+      "h_min": {
+        "min": 6.18,
+        "sourceRefs": [
+          "iso10511_2012"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "m_min": {
+        "min": 3.7,
+        "sourceRefs": [
+          "iso10511_2012"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "d_nom": {
+        "nominal": 8,
+        "sourceRefs": [
+          "iso10511_2012"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "insertSeatDiameter": {
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "unit": "mm",
+        "note": "Detailmaß im ausgewerteten Nachweis nicht festgelegt; Kunden-/Herstellerzeichnung erforderlich."
+      },
+      "insertSeatDepth": {
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "unit": "mm",
+        "note": "Detailmaß im ausgewerteten Nachweis nicht festgelegt; Kunden-/Herstellerzeichnung erforderlich."
+      },
+      "insertOuterProfile": {
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "unit": "mm",
+        "note": "Detailmaß im ausgewerteten Nachweis nicht festgelegt; Kunden-/Herstellerzeichnung erforderlich."
+      }
+    },
+    "M10": {
+      "P": {
+        "nominal": 1.5,
+        "sourceRefs": [
+          "iso10511_2012"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "s_nom": {
+        "nominal": 16,
+        "sourceRefs": [
+          "iso10511_2012",
+          "stainlessfix10511"
+        ],
+        "status": "verified",
+        "verification": "independent-source-agreement",
+        "unit": "mm"
+      },
+      "s_min": {
+        "min": 15.73,
+        "sourceRefs": [
+          "iso10511_2012"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "e_min": {
+        "min": 17.77,
+        "sourceRefs": [
+          "iso10511_2012",
+          "stainlessfix10511"
+        ],
+        "status": "conflict",
+        "verification": "primary-record-preferred",
+        "unit": "mm",
+        "note": "Produktkatalog zeigt abweichende DIN-Schlüsselweiten-Eckmaße; Originaltabelle ISO 10511:2012 bleibt ausgewählt.",
+        "sourceValues": [
+          {
+            "value": 17.77,
+            "sourceRef": "iso10511_2012"
+          },
+          {
+            "value": 18.9,
+            "sourceRef": "stainlessfix10511"
+          }
+        ]
+      },
+      "h_max": {
+        "max": 8.56,
+        "sourceRefs": [
+          "iso10511_2012",
+          "stainlessfix10511"
+        ],
+        "status": "verified",
+        "verification": "independent-source-agreement",
+        "unit": "mm"
+      },
+      "h_min": {
+        "min": 7.98,
+        "sourceRefs": [
+          "iso10511_2012"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "m_min": {
+        "min": 4.7,
+        "sourceRefs": [
+          "iso10511_2012"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "d_nom": {
+        "nominal": 10,
+        "sourceRefs": [
+          "iso10511_2012"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "insertSeatDiameter": {
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "unit": "mm",
+        "note": "Detailmaß im ausgewerteten Nachweis nicht festgelegt; Kunden-/Herstellerzeichnung erforderlich."
+      },
+      "insertSeatDepth": {
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "unit": "mm",
+        "note": "Detailmaß im ausgewerteten Nachweis nicht festgelegt; Kunden-/Herstellerzeichnung erforderlich."
+      },
+      "insertOuterProfile": {
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "unit": "mm",
+        "note": "Detailmaß im ausgewerteten Nachweis nicht festgelegt; Kunden-/Herstellerzeichnung erforderlich."
+      }
+    },
+    "M12": {
+      "P": {
+        "nominal": 1.75,
+        "sourceRefs": [
+          "iso10511_2012"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "s_nom": {
+        "nominal": 18,
+        "sourceRefs": [
+          "iso10511_2012",
+          "stainlessfix10511"
+        ],
+        "status": "verified",
+        "verification": "independent-source-agreement",
+        "unit": "mm"
+      },
+      "s_min": {
+        "min": 17.73,
+        "sourceRefs": [
+          "iso10511_2012"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "e_min": {
+        "min": 20.03,
+        "sourceRefs": [
+          "iso10511_2012",
+          "stainlessfix10511"
+        ],
+        "status": "conflict",
+        "verification": "primary-record-preferred",
+        "unit": "mm",
+        "note": "Produktkatalog zeigt abweichende DIN-Schlüsselweiten-Eckmaße; Originaltabelle ISO 10511:2012 bleibt ausgewählt.",
+        "sourceValues": [
+          {
+            "value": 20.03,
+            "sourceRef": "iso10511_2012"
+          },
+          {
+            "value": 21.1,
+            "sourceRef": "stainlessfix10511"
+          }
+        ]
+      },
+      "h_max": {
+        "max": 10.23,
+        "sourceRefs": [
+          "iso10511_2012",
+          "stainlessfix10511"
+        ],
+        "status": "verified",
+        "verification": "independent-source-agreement",
+        "unit": "mm"
+      },
+      "h_min": {
+        "min": 9.53,
+        "sourceRefs": [
+          "iso10511_2012"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "m_min": {
+        "min": 5.7,
+        "sourceRefs": [
+          "iso10511_2012"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "d_nom": {
+        "nominal": 12,
+        "sourceRefs": [
+          "iso10511_2012"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "insertSeatDiameter": {
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "unit": "mm",
+        "note": "Detailmaß im ausgewerteten Nachweis nicht festgelegt; Kunden-/Herstellerzeichnung erforderlich."
+      },
+      "insertSeatDepth": {
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "unit": "mm",
+        "note": "Detailmaß im ausgewerteten Nachweis nicht festgelegt; Kunden-/Herstellerzeichnung erforderlich."
+      },
+      "insertOuterProfile": {
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "unit": "mm",
+        "note": "Detailmaß im ausgewerteten Nachweis nicht festgelegt; Kunden-/Herstellerzeichnung erforderlich."
+      }
+    },
+    "M14": {
+      "P": {
+        "nominal": 2,
+        "sourceRefs": [
+          "iso10511_2012"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "s_nom": {
+        "nominal": 21,
+        "sourceRefs": [
+          "iso10511_2012",
+          "stainlessfix10511"
+        ],
+        "status": "verified",
+        "verification": "independent-source-agreement",
+        "unit": "mm"
+      },
+      "s_min": {
+        "min": 20.67,
+        "sourceRefs": [
+          "iso10511_2012"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "e_min": {
+        "min": 23.35,
+        "sourceRefs": [
+          "iso10511_2012",
+          "stainlessfix10511"
+        ],
+        "status": "conflict",
+        "verification": "primary-record-preferred",
+        "unit": "mm",
+        "note": "Produktkatalog zeigt abweichende DIN-Schlüsselweiten-Eckmaße; Originaltabelle ISO 10511:2012 bleibt ausgewählt.",
+        "sourceValues": [
+          {
+            "value": 23.35,
+            "sourceRef": "iso10511_2012"
+          },
+          {
+            "value": 24.49,
+            "sourceRef": "stainlessfix10511"
+          }
+        ]
+      },
+      "h_max": {
+        "max": 11.32,
+        "sourceRefs": [
+          "iso10511_2012",
+          "stainlessfix10511"
+        ],
+        "status": "verified",
+        "verification": "independent-source-agreement",
+        "unit": "mm"
+      },
+      "h_min": {
+        "min": 10.22,
+        "sourceRefs": [
+          "iso10511_2012"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "m_min": {
+        "min": 6.42,
+        "sourceRefs": [
+          "iso10511_2012"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "d_nom": {
+        "nominal": 14,
+        "sourceRefs": [
+          "iso10511_2012"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "insertSeatDiameter": {
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "unit": "mm",
+        "note": "Detailmaß im ausgewerteten Nachweis nicht festgelegt; Kunden-/Herstellerzeichnung erforderlich."
+      },
+      "insertSeatDepth": {
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "unit": "mm",
+        "note": "Detailmaß im ausgewerteten Nachweis nicht festgelegt; Kunden-/Herstellerzeichnung erforderlich."
+      },
+      "insertOuterProfile": {
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "unit": "mm",
+        "note": "Detailmaß im ausgewerteten Nachweis nicht festgelegt; Kunden-/Herstellerzeichnung erforderlich."
+      }
+    },
+    "M16": {
+      "P": {
+        "nominal": 2,
+        "sourceRefs": [
+          "iso10511_2012"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "s_nom": {
+        "nominal": 24,
+        "sourceRefs": [
+          "iso10511_2012",
+          "stainlessfix10511"
+        ],
+        "status": "verified",
+        "verification": "independent-source-agreement",
+        "unit": "mm"
+      },
+      "s_min": {
+        "min": 23.67,
+        "sourceRefs": [
+          "iso10511_2012"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "e_min": {
+        "min": 26.75,
+        "sourceRefs": [
+          "iso10511_2012"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "h_max": {
+        "max": 12.42,
+        "sourceRefs": [
+          "iso10511_2012",
+          "stainlessfix10511"
+        ],
+        "status": "verified",
+        "verification": "independent-source-agreement",
+        "unit": "mm"
+      },
+      "h_min": {
+        "min": 11.32,
+        "sourceRefs": [
+          "iso10511_2012"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "m_min": {
+        "min": 7.42,
+        "sourceRefs": [
+          "iso10511_2012"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "d_nom": {
+        "nominal": 16,
+        "sourceRefs": [
+          "iso10511_2012"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "insertSeatDiameter": {
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "unit": "mm",
+        "note": "Detailmaß im ausgewerteten Nachweis nicht festgelegt; Kunden-/Herstellerzeichnung erforderlich."
+      },
+      "insertSeatDepth": {
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "unit": "mm",
+        "note": "Detailmaß im ausgewerteten Nachweis nicht festgelegt; Kunden-/Herstellerzeichnung erforderlich."
+      },
+      "insertOuterProfile": {
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "unit": "mm",
+        "note": "Detailmaß im ausgewerteten Nachweis nicht festgelegt; Kunden-/Herstellerzeichnung erforderlich."
+      }
+    },
+    "M20": {
+      "P": {
+        "nominal": 2.5,
+        "sourceRefs": [
+          "iso10511_2012"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "s_nom": {
+        "nominal": 30,
+        "sourceRefs": [
+          "iso10511_2012",
+          "stainlessfix10511"
+        ],
+        "status": "verified",
+        "verification": "independent-source-agreement",
+        "unit": "mm"
+      },
+      "s_min": {
+        "min": 29.16,
+        "sourceRefs": [
+          "iso10511_2012"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "e_min": {
+        "min": 32.95,
+        "sourceRefs": [
+          "iso10511_2012"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "h_max": {
+        "max": 14.9,
+        "sourceRefs": [
+          "iso10511_2012",
+          "stainlessfix10511"
+        ],
+        "status": "verified",
+        "verification": "independent-source-agreement",
+        "unit": "mm"
+      },
+      "h_min": {
+        "min": 13.1,
+        "sourceRefs": [
+          "iso10511_2012"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "m_min": {
+        "min": 9.1,
+        "sourceRefs": [
+          "iso10511_2012"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "d_nom": {
+        "nominal": 20,
+        "sourceRefs": [
+          "iso10511_2012"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "insertSeatDiameter": {
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "unit": "mm",
+        "note": "Detailmaß im ausgewerteten Nachweis nicht festgelegt; Kunden-/Herstellerzeichnung erforderlich."
+      },
+      "insertSeatDepth": {
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "unit": "mm",
+        "note": "Detailmaß im ausgewerteten Nachweis nicht festgelegt; Kunden-/Herstellerzeichnung erforderlich."
+      },
+      "insertOuterProfile": {
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "unit": "mm",
+        "note": "Detailmaß im ausgewerteten Nachweis nicht festgelegt; Kunden-/Herstellerzeichnung erforderlich."
+      }
+    },
+    "M24": {
+      "P": {
+        "nominal": 3,
+        "sourceRefs": [
+          "iso10511_2012"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "s_nom": {
+        "nominal": 36,
+        "sourceRefs": [
+          "iso10511_2012",
+          "stainlessfix10511"
+        ],
+        "status": "verified",
+        "verification": "independent-source-agreement",
+        "unit": "mm"
+      },
+      "s_min": {
+        "min": 35,
+        "sourceRefs": [
+          "iso10511_2012"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "e_min": {
+        "min": 39.55,
+        "sourceRefs": [
+          "iso10511_2012"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "h_max": {
+        "max": 17.8,
+        "sourceRefs": [
+          "iso10511_2012",
+          "stainlessfix10511"
+        ],
+        "status": "verified",
+        "verification": "independent-source-agreement",
+        "unit": "mm"
+      },
+      "h_min": {
+        "min": 16,
+        "sourceRefs": [
+          "iso10511_2012"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "m_min": {
+        "min": 10.9,
+        "sourceRefs": [
+          "iso10511_2012"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "d_nom": {
+        "nominal": 24,
+        "sourceRefs": [
+          "iso10511_2012"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "insertSeatDiameter": {
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "unit": "mm",
+        "note": "Detailmaß im ausgewerteten Nachweis nicht festgelegt; Kunden-/Herstellerzeichnung erforderlich."
+      },
+      "insertSeatDepth": {
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "unit": "mm",
+        "note": "Detailmaß im ausgewerteten Nachweis nicht festgelegt; Kunden-/Herstellerzeichnung erforderlich."
+      },
+      "insertOuterProfile": {
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "unit": "mm",
+        "note": "Detailmaß im ausgewerteten Nachweis nicht festgelegt; Kunden-/Herstellerzeichnung erforderlich."
+      }
+    },
+    "M30": {
+      "P": {
+        "nominal": 3.5,
+        "sourceRefs": [
+          "iso10511_2012"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "s_nom": {
+        "nominal": 46,
+        "sourceRefs": [
+          "iso10511_2012",
+          "stainlessfix10511"
+        ],
+        "status": "verified",
+        "verification": "independent-source-agreement",
+        "unit": "mm"
+      },
+      "s_min": {
+        "min": 45,
+        "sourceRefs": [
+          "iso10511_2012"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "e_min": {
+        "min": 50.85,
+        "sourceRefs": [
+          "iso10511_2012"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "h_max": {
+        "max": 22.2,
+        "sourceRefs": [
+          "iso10511_2012",
+          "stainlessfix10511"
+        ],
+        "status": "verified",
+        "verification": "independent-source-agreement",
+        "unit": "mm"
+      },
+      "h_min": {
+        "min": 20.1,
+        "sourceRefs": [
+          "iso10511_2012"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "m_min": {
+        "min": 13.9,
+        "sourceRefs": [
+          "iso10511_2012"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "d_nom": {
+        "nominal": 30,
+        "sourceRefs": [
+          "iso10511_2012"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "insertSeatDiameter": {
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "unit": "mm",
+        "note": "Detailmaß im ausgewerteten Nachweis nicht festgelegt; Kunden-/Herstellerzeichnung erforderlich."
+      },
+      "insertSeatDepth": {
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "unit": "mm",
+        "note": "Detailmaß im ausgewerteten Nachweis nicht festgelegt; Kunden-/Herstellerzeichnung erforderlich."
+      },
+      "insertOuterProfile": {
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "unit": "mm",
+        "note": "Detailmaß im ausgewerteten Nachweis nicht festgelegt; Kunden-/Herstellerzeichnung erforderlich."
+      }
+    }
+  },
+  "sourceMeta": {
+    "iso10511_2012": {
+      "url": "https://cdn.standards.iteh.ai/samples/61369/9332a361b820448895a2594727485014/ISO-10511-2012.pdf",
+      "title": "ISO 10511:2012",
+      "locator": "Figure 1 and Table 1, printed page 2",
+      "kind": "standard",
+      "edition": "2012",
+      "accessed": "2026-11-26"
+    },
+    "iso_update_2025": {
+      "url": "https://www.iso.org/files/live/sites/isoorg/files/news/magazine/ISOupdate/EN/2025/ISOupdate%20July%202025.pdf",
+      "title": "ISO Update July 2025",
+      "locator": "Published standards: ISO 7040, 7042, 7719, 10511, 10512, 10513",
+      "kind": "standard-register",
+      "edition": "2025",
+      "accessed": "2026-11-26"
+    },
+    "stainlessfix10511": {
+      "url": "https://www.stainlessfix.com/iso-10511/",
+      "title": "StainlessFix ISO 10511 product dimensions",
+      "locator": "Size table",
+      "kind": "manufacturer-catalog",
+      "edition": null,
+      "accessed": "2026-11-26"
+    }
+  },
+  "sourceStatus": "per-value",
+  "coverage": {
+    "diameterMin": 5,
+    "diameterMax": 30,
+    "unit": "mm",
+    "status": "partial",
+    "missingSizes": [
+      "M7",
+      "M18",
+      "M22",
+      "M27"
+    ],
+    "missingReason": "Größe fehlt im ausgewerteten Stand 2012 oder liegt außerhalb seines Gewindebereichs; Ergänzungen 2025 noch offen."
+  },
+  "editionStatus": "superseded",
+  "height": "h_max",
+  "threadSeries": "coarse",
+  "currentEdition": "2025",
+  "editionSourceRefs": [
+    "iso_update_2025"
+  ],
+  "coverageNotes": [
+    "Maßwerte der Ausgabe 2012; vollständiger Abgleich der 2025 geänderten Höhen und ergänzten Größen fehlt."
+  ],
+  "defaultPolicy": "Dokumentierte Kataloghöhe oder ausgewiesenes Höchstmaß als vorläufige Außenhülle; kein vollständiges Fertigteilmodell."
+}

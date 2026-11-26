@@ -1,0 +1,651 @@
+{
+  "id": "ISO1580",
+  "version": "2026-11-26",
+  "schemaVersion": 1,
+  "label": "ISO1580 · Flachkopf mit Schlitz",
+  "edition": "2011",
+  "editionStatus": "documented",
+  "funktion": "schraube",
+  "klasse": "bolzen",
+  "kopfTyp": "linse",
+  "antrieb": {
+    "art": "slot"
+  },
+  "feldzuordnung": {
+    "kD": "dk_max",
+    "kH": "k_max",
+    "slotWidth": "n_nom",
+    "iT": "t_min"
+  },
+  "groessen": {
+    "M3": {
+      "roh": {
+        "dk_max": 5.6,
+        "k_max": 1.8,
+        "n_nom": 0.8,
+        "t_min": 0.7
+      },
+      "vorbelegung": {
+        "kD": 5.6,
+        "kH": 1.8,
+        "slotWidth": 0.8,
+        "iT": 0.7
+      },
+      "coverage": "documented",
+      "nachLaenge": {},
+      "lengthCoverage": "unresearched",
+      "missingGeometryFields": [],
+      "geometryStatus": "documented"
+    },
+    "M3.5": {
+      "roh": {
+        "dk_max": 7,
+        "k_max": 2.1,
+        "n_nom": 1,
+        "t_min": 0.8
+      },
+      "vorbelegung": {
+        "kD": 7,
+        "kH": 2.1,
+        "slotWidth": 1,
+        "iT": 0.8
+      },
+      "coverage": "documented",
+      "nachLaenge": {},
+      "lengthCoverage": "unresearched",
+      "missingGeometryFields": [],
+      "geometryStatus": "documented"
+    },
+    "M4": {
+      "roh": {
+        "dk_max": 8,
+        "k_max": 2.4,
+        "n_nom": 1.2,
+        "t_min": 1
+      },
+      "vorbelegung": {
+        "kD": 8,
+        "kH": 2.4,
+        "slotWidth": 1.2,
+        "iT": 1
+      },
+      "coverage": "documented",
+      "nachLaenge": {},
+      "lengthCoverage": "unresearched",
+      "missingGeometryFields": [],
+      "geometryStatus": "documented"
+    },
+    "M5": {
+      "roh": {
+        "dk_max": 9.5,
+        "k_max": 3,
+        "n_nom": 1.2,
+        "t_min": 1.2
+      },
+      "vorbelegung": {
+        "kD": 9.5,
+        "kH": 3,
+        "slotWidth": 1.2,
+        "iT": 1.2
+      },
+      "coverage": "documented",
+      "nachLaenge": {},
+      "lengthCoverage": "unresearched",
+      "missingGeometryFields": [],
+      "geometryStatus": "documented"
+    },
+    "M6": {
+      "roh": {
+        "dk_max": 12,
+        "k_max": 3.6,
+        "n_nom": 1.6,
+        "t_min": 1.4
+      },
+      "vorbelegung": {
+        "kD": 12,
+        "kH": 3.6,
+        "slotWidth": 1.6,
+        "iT": 1.4
+      },
+      "coverage": "documented",
+      "nachLaenge": {},
+      "lengthCoverage": "unresearched",
+      "missingGeometryFields": [],
+      "geometryStatus": "documented"
+    },
+    "M8": {
+      "roh": {
+        "dk_max": 16,
+        "k_max": 4.8,
+        "n_nom": 2,
+        "t_min": 1.9
+      },
+      "vorbelegung": {
+        "kD": 16,
+        "kH": 4.8,
+        "slotWidth": 2,
+        "iT": 1.9
+      },
+      "coverage": "documented",
+      "nachLaenge": {},
+      "lengthCoverage": "unresearched",
+      "missingGeometryFields": [],
+      "geometryStatus": "documented"
+    },
+    "M10": {
+      "roh": {
+        "dk_max": 20,
+        "k_max": 6,
+        "n_nom": 2.5,
+        "t_min": 2.4
+      },
+      "vorbelegung": {
+        "kD": 20,
+        "kH": 6,
+        "slotWidth": 2.5,
+        "iT": 2.4
+      },
+      "coverage": "documented",
+      "nachLaenge": {},
+      "lengthCoverage": "unresearched",
+      "missingGeometryFields": [],
+      "geometryStatus": "documented"
+    }
+  },
+  "fields": {
+    "M3": {
+      "dk_max": {
+        "nominal": 5.6,
+        "min": null,
+        "max": 5.6,
+        "unit": "mm",
+        "sourceRefs": [
+          "iteh1580_2011"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Zweitbeleg je Einzelwert noch offen."
+      },
+      "k_max": {
+        "nominal": 1.8,
+        "min": null,
+        "max": 1.8,
+        "unit": "mm",
+        "sourceRefs": [
+          "iteh1580_2011"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Zweitbeleg je Einzelwert noch offen."
+      },
+      "n_nom": {
+        "nominal": 0.8,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iteh1580_2011"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Zweitbeleg je Einzelwert noch offen."
+      },
+      "t_min": {
+        "nominal": 0.7,
+        "min": 0.7,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iteh1580_2011"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Zweitbeleg je Einzelwert noch offen."
+      }
+    },
+    "M3.5": {
+      "dk_max": {
+        "nominal": 7,
+        "min": null,
+        "max": 7,
+        "unit": "mm",
+        "sourceRefs": [
+          "iteh1580_2011"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Zweitbeleg je Einzelwert noch offen."
+      },
+      "k_max": {
+        "nominal": 2.1,
+        "min": null,
+        "max": 2.1,
+        "unit": "mm",
+        "sourceRefs": [
+          "iteh1580_2011"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Zweitbeleg je Einzelwert noch offen."
+      },
+      "n_nom": {
+        "nominal": 1,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iteh1580_2011"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Zweitbeleg je Einzelwert noch offen."
+      },
+      "t_min": {
+        "nominal": 0.8,
+        "min": 0.8,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iteh1580_2011"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Zweitbeleg je Einzelwert noch offen."
+      }
+    },
+    "M4": {
+      "dk_max": {
+        "nominal": 8,
+        "min": null,
+        "max": 8,
+        "unit": "mm",
+        "sourceRefs": [
+          "iteh1580_2011"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Zweitbeleg je Einzelwert noch offen."
+      },
+      "k_max": {
+        "nominal": 2.4,
+        "min": null,
+        "max": 2.4,
+        "unit": "mm",
+        "sourceRefs": [
+          "iteh1580_2011"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Zweitbeleg je Einzelwert noch offen."
+      },
+      "n_nom": {
+        "nominal": 1.2,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iteh1580_2011"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Zweitbeleg je Einzelwert noch offen."
+      },
+      "t_min": {
+        "nominal": 1,
+        "min": 1,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iteh1580_2011"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Zweitbeleg je Einzelwert noch offen."
+      }
+    },
+    "M5": {
+      "dk_max": {
+        "nominal": 9.5,
+        "min": null,
+        "max": 9.5,
+        "unit": "mm",
+        "sourceRefs": [
+          "iteh1580_2011"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Zweitbeleg je Einzelwert noch offen."
+      },
+      "k_max": {
+        "nominal": 3,
+        "min": null,
+        "max": 3,
+        "unit": "mm",
+        "sourceRefs": [
+          "iteh1580_2011"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Zweitbeleg je Einzelwert noch offen."
+      },
+      "n_nom": {
+        "nominal": 1.2,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iteh1580_2011"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Zweitbeleg je Einzelwert noch offen."
+      },
+      "t_min": {
+        "nominal": 1.2,
+        "min": 1.2,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iteh1580_2011"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Zweitbeleg je Einzelwert noch offen."
+      }
+    },
+    "M6": {
+      "dk_max": {
+        "nominal": 12,
+        "min": null,
+        "max": 12,
+        "unit": "mm",
+        "sourceRefs": [
+          "iteh1580_2011"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Zweitbeleg je Einzelwert noch offen."
+      },
+      "k_max": {
+        "nominal": 3.6,
+        "min": null,
+        "max": 3.6,
+        "unit": "mm",
+        "sourceRefs": [
+          "iteh1580_2011"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Zweitbeleg je Einzelwert noch offen."
+      },
+      "n_nom": {
+        "nominal": 1.6,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iteh1580_2011"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Zweitbeleg je Einzelwert noch offen."
+      },
+      "t_min": {
+        "nominal": 1.4,
+        "min": 1.4,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iteh1580_2011"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Zweitbeleg je Einzelwert noch offen."
+      }
+    },
+    "M8": {
+      "dk_max": {
+        "nominal": 16,
+        "min": null,
+        "max": 16,
+        "unit": "mm",
+        "sourceRefs": [
+          "iteh1580_2011"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Zweitbeleg je Einzelwert noch offen."
+      },
+      "k_max": {
+        "nominal": 4.8,
+        "min": null,
+        "max": 4.8,
+        "unit": "mm",
+        "sourceRefs": [
+          "iteh1580_2011"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Zweitbeleg je Einzelwert noch offen."
+      },
+      "n_nom": {
+        "nominal": 2,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iteh1580_2011"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Zweitbeleg je Einzelwert noch offen."
+      },
+      "t_min": {
+        "nominal": 1.9,
+        "min": 1.9,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iteh1580_2011"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Zweitbeleg je Einzelwert noch offen."
+      }
+    },
+    "M10": {
+      "dk_max": {
+        "nominal": 20,
+        "min": null,
+        "max": 20,
+        "unit": "mm",
+        "sourceRefs": [
+          "iteh1580_2011"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Zweitbeleg je Einzelwert noch offen."
+      },
+      "k_max": {
+        "nominal": 6,
+        "min": null,
+        "max": 6,
+        "unit": "mm",
+        "sourceRefs": [
+          "iteh1580_2011"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Zweitbeleg je Einzelwert noch offen."
+      },
+      "n_nom": {
+        "nominal": 2.5,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iteh1580_2011"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Zweitbeleg je Einzelwert noch offen."
+      },
+      "t_min": {
+        "nominal": 2.4,
+        "min": 2.4,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iteh1580_2011"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Zweitbeleg je Einzelwert noch offen."
+      }
+    }
+  },
+  "sourceMeta": {
+    "iteh1580_2011": {
+      "url": "https://cdn.standards.iteh.ai/samples/57369/c0b7cfb7fe9947579329bf75d7778d02/ISO-1580-2011.pdf",
+      "titel": "ISO1580:2011 Tabelle 1",
+      "type": "standard-excerpt",
+      "accessed": "2026-11-26"
+    }
+  },
+  "quellen": [
+    {
+      "id": "iteh1580_2011",
+      "url": "https://cdn.standards.iteh.ai/samples/57369/c0b7cfb7fe9947579329bf75d7778d02/ISO-1580-2011.pdf",
+      "titel": "ISO1580:2011 Tabelle 1",
+      "type": "standard-excerpt",
+      "accessed": "2026-11-26"
+    }
+  ],
+  "abweichungen": [],
+  "status": "partial",
+  "coverage": "documented",
+  "lengthCoverage": "unresearched",
+  "hinweise": [
+    "Nenn-Kopfdurchmesser entspricht tatsächlichem dk; theoretischer Prüfdurchmesser ist nicht als Rohlingkopf eingesetzt. Normlängenzellen noch nicht vollständig erfasst."
+  ],
+  "normstatus": {
+    "status": "unresolved",
+    "note": "Ausgabe und Vollständigkeit nicht aus einer ähnlichen Norm ableiten."
+  },
+  "scope": {
+    "minDiameter": 1.6,
+    "maxDiameter": 10,
+    "sourceRefs": [
+      "iteh1580_2011"
+    ]
+  },
+  "requiredGeometryFields": [
+    "kD",
+    "kH",
+    "slotWidth",
+    "iT"
+  ],
+  "sizeCoverage": {
+    "M3": {
+      "status": "documented"
+    },
+    "M3.5": {
+      "status": "documented"
+    },
+    "M4": {
+      "status": "documented"
+    },
+    "M5": {
+      "status": "documented"
+    },
+    "M6": {
+      "status": "documented"
+    },
+    "M7": {
+      "status": "unresearched",
+      "note": "Keine Größenzeile vorhanden; daraus folgt kein Normverbot."
+    },
+    "M8": {
+      "status": "documented"
+    },
+    "M10": {
+      "status": "documented"
+    },
+    "M12": {
+      "status": "not-in-standard",
+      "sourceRefs": [
+        "iteh1580_2011"
+      ],
+      "note": "Außerhalb des belegten Norm-Geltungsbereichs."
+    },
+    "M14": {
+      "status": "not-in-standard",
+      "sourceRefs": [
+        "iteh1580_2011"
+      ],
+      "note": "Außerhalb des belegten Norm-Geltungsbereichs."
+    },
+    "M16": {
+      "status": "not-in-standard",
+      "sourceRefs": [
+        "iteh1580_2011"
+      ],
+      "note": "Außerhalb des belegten Norm-Geltungsbereichs."
+    },
+    "M18": {
+      "status": "not-in-standard",
+      "sourceRefs": [
+        "iteh1580_2011"
+      ],
+      "note": "Außerhalb des belegten Norm-Geltungsbereichs."
+    },
+    "M20": {
+      "status": "not-in-standard",
+      "sourceRefs": [
+        "iteh1580_2011"
+      ],
+      "note": "Außerhalb des belegten Norm-Geltungsbereichs."
+    },
+    "M22": {
+      "status": "not-in-standard",
+      "sourceRefs": [
+        "iteh1580_2011"
+      ],
+      "note": "Außerhalb des belegten Norm-Geltungsbereichs."
+    },
+    "M24": {
+      "status": "not-in-standard",
+      "sourceRefs": [
+        "iteh1580_2011"
+      ],
+      "note": "Außerhalb des belegten Norm-Geltungsbereichs."
+    },
+    "M27": {
+      "status": "not-in-standard",
+      "sourceRefs": [
+        "iteh1580_2011"
+      ],
+      "note": "Außerhalb des belegten Norm-Geltungsbereichs."
+    },
+    "M30": {
+      "status": "not-in-standard",
+      "sourceRefs": [
+        "iteh1580_2011"
+      ],
+      "note": "Außerhalb des belegten Norm-Geltungsbereichs."
+    },
+    "M33": {
+      "status": "not-in-standard",
+      "sourceRefs": [
+        "iteh1580_2011"
+      ],
+      "note": "Außerhalb des belegten Norm-Geltungsbereichs."
+    }
+  },
+  "pruefdatum": "2026-11-26",
+  "klassen": {
+    "status": "unresearched",
+    "values": [],
+    "note": "Festigkeits-/Werkstoffklassen noch nicht vollständig aus dieser Norm belegt."
+  }
+}

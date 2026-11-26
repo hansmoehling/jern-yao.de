@@ -1,0 +1,917 @@
+{
+  "id": "ISO15071",
+  "version": "2026-11-26",
+  "schemaVersion": 1,
+  "label": "ISO15071 · Sechskant mit Bund, kleine Reihe",
+  "edition": "2011",
+  "editionStatus": "documented",
+  "funktion": "schraube",
+  "klasse": "bolzen",
+  "kopfTyp": "sechskant_bund",
+  "antrieb": {
+    "art": "none"
+  },
+  "feldzuordnung": {
+    "kSW": "s_nom",
+    "kH": "k_max",
+    "kD": "dc_max",
+    "b": "b_ref_l_le_125"
+  },
+  "groessen": {
+    "M5": {
+      "roh": {
+        "s_nom": 7,
+        "dc_max": 11.4,
+        "k_max": 5.6,
+        "c_min": 1,
+        "e_min": 7.59,
+        "b_ref_l_le_125": 16
+      },
+      "vorbelegung": {
+        "kSW": 7,
+        "kH": 5.6,
+        "kD": 11.4,
+        "b": 16
+      },
+      "coverage": "documented",
+      "nachLaenge": {},
+      "lengthCoverage": "unresearched",
+      "missingGeometryFields": [
+        "flangeHeight"
+      ],
+      "geometryStatus": "partial"
+    },
+    "M6": {
+      "roh": {
+        "s_nom": 8,
+        "dc_max": 13.6,
+        "k_max": 6.9,
+        "c_min": 1.1,
+        "e_min": 8.71,
+        "b_ref_l_le_125": 18
+      },
+      "vorbelegung": {
+        "kSW": 8,
+        "kH": 6.9,
+        "kD": 13.6,
+        "b": 18
+      },
+      "coverage": "documented",
+      "nachLaenge": {},
+      "lengthCoverage": "unresearched",
+      "missingGeometryFields": [
+        "flangeHeight"
+      ],
+      "geometryStatus": "partial"
+    },
+    "M8": {
+      "roh": {
+        "s_nom": 10,
+        "dc_max": 17,
+        "k_max": 8.5,
+        "c_min": 1.2,
+        "e_min": 10.95,
+        "b_ref_l_le_125": 22
+      },
+      "vorbelegung": {
+        "kSW": 10,
+        "kH": 8.5,
+        "kD": 17,
+        "b": 22
+      },
+      "coverage": "documented",
+      "nachLaenge": {},
+      "lengthCoverage": "unresearched",
+      "missingGeometryFields": [
+        "flangeHeight"
+      ],
+      "geometryStatus": "partial"
+    },
+    "M10": {
+      "roh": {
+        "s_nom": 13,
+        "dc_max": 20.8,
+        "k_max": 9.7,
+        "c_min": 1.5,
+        "e_min": 14.26,
+        "b_ref_l_le_125": 26
+      },
+      "vorbelegung": {
+        "kSW": 13,
+        "kH": 9.7,
+        "kD": 20.8,
+        "b": 26
+      },
+      "coverage": "documented",
+      "nachLaenge": {},
+      "lengthCoverage": "unresearched",
+      "missingGeometryFields": [
+        "flangeHeight"
+      ],
+      "geometryStatus": "partial"
+    },
+    "M12": {
+      "roh": {
+        "s_nom": 15,
+        "dc_max": 24.7,
+        "k_max": 12.1,
+        "c_min": 1.8,
+        "e_min": 16.5,
+        "b_ref_l_le_125": 30
+      },
+      "vorbelegung": {
+        "kSW": 15,
+        "kH": 12.1,
+        "kD": 24.7,
+        "b": 30
+      },
+      "coverage": "documented",
+      "nachLaenge": {},
+      "lengthCoverage": "unresearched",
+      "missingGeometryFields": [
+        "flangeHeight"
+      ],
+      "geometryStatus": "partial"
+    },
+    "M14": {
+      "roh": {
+        "s_nom": 18,
+        "dc_max": 28.6,
+        "k_max": 12.9,
+        "c_min": 2.1,
+        "e_min": 19.86,
+        "b_ref_l_le_125": 34
+      },
+      "vorbelegung": {
+        "kSW": 18,
+        "kH": 12.9,
+        "kD": 28.6,
+        "b": 34
+      },
+      "coverage": "documented",
+      "nachLaenge": {},
+      "lengthCoverage": "unresearched",
+      "missingGeometryFields": [
+        "flangeHeight"
+      ],
+      "geometryStatus": "partial"
+    },
+    "M16": {
+      "roh": {
+        "s_nom": 21,
+        "dc_max": 32.8,
+        "k_max": 15.2,
+        "c_min": 2.4,
+        "e_min": 23.15,
+        "b_ref_l_le_125": 38
+      },
+      "vorbelegung": {
+        "kSW": 21,
+        "kH": 15.2,
+        "kD": 32.8,
+        "b": 38
+      },
+      "coverage": "documented",
+      "nachLaenge": {},
+      "lengthCoverage": "unresearched",
+      "missingGeometryFields": [
+        "flangeHeight"
+      ],
+      "geometryStatus": "partial"
+    }
+  },
+  "fields": {
+    "M5": {
+      "s_nom": {
+        "nominal": 7,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iteh15071_2011"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Zweitbeleg je Einzelwert noch offen."
+      },
+      "dc_max": {
+        "nominal": 11.4,
+        "min": null,
+        "max": 11.4,
+        "unit": "mm",
+        "sourceRefs": [
+          "iteh15071_2011"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Zweitbeleg je Einzelwert noch offen."
+      },
+      "k_max": {
+        "nominal": 5.6,
+        "min": null,
+        "max": 5.6,
+        "unit": "mm",
+        "sourceRefs": [
+          "iteh15071_2011"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Zweitbeleg je Einzelwert noch offen."
+      },
+      "c_min": {
+        "nominal": 1,
+        "min": 1,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iteh15071_2011"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Zweitbeleg je Einzelwert noch offen."
+      },
+      "e_min": {
+        "nominal": 7.59,
+        "min": 7.59,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iteh15071_2011"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Zweitbeleg je Einzelwert noch offen."
+      },
+      "b_ref_l_le_125": {
+        "nominal": 16,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iteh15071_2011"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Zweitbeleg je Einzelwert noch offen."
+      },
+      "flangeHeight": {
+        "nominal": null,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "note": "Für diese Geometrie noch nicht belegt; nicht aus ähnlicher Norm ergänzen."
+      }
+    },
+    "M6": {
+      "s_nom": {
+        "nominal": 8,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iteh15071_2011"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Zweitbeleg je Einzelwert noch offen."
+      },
+      "dc_max": {
+        "nominal": 13.6,
+        "min": null,
+        "max": 13.6,
+        "unit": "mm",
+        "sourceRefs": [
+          "iteh15071_2011"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Zweitbeleg je Einzelwert noch offen."
+      },
+      "k_max": {
+        "nominal": 6.9,
+        "min": null,
+        "max": 6.9,
+        "unit": "mm",
+        "sourceRefs": [
+          "iteh15071_2011"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Zweitbeleg je Einzelwert noch offen."
+      },
+      "c_min": {
+        "nominal": 1.1,
+        "min": 1.1,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iteh15071_2011"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Zweitbeleg je Einzelwert noch offen."
+      },
+      "e_min": {
+        "nominal": 8.71,
+        "min": 8.71,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iteh15071_2011"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Zweitbeleg je Einzelwert noch offen."
+      },
+      "b_ref_l_le_125": {
+        "nominal": 18,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iteh15071_2011"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Zweitbeleg je Einzelwert noch offen."
+      },
+      "flangeHeight": {
+        "nominal": null,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "note": "Für diese Geometrie noch nicht belegt; nicht aus ähnlicher Norm ergänzen."
+      }
+    },
+    "M8": {
+      "s_nom": {
+        "nominal": 10,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iteh15071_2011"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Zweitbeleg je Einzelwert noch offen."
+      },
+      "dc_max": {
+        "nominal": 17,
+        "min": null,
+        "max": 17,
+        "unit": "mm",
+        "sourceRefs": [
+          "iteh15071_2011"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Zweitbeleg je Einzelwert noch offen."
+      },
+      "k_max": {
+        "nominal": 8.5,
+        "min": null,
+        "max": 8.5,
+        "unit": "mm",
+        "sourceRefs": [
+          "iteh15071_2011"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Zweitbeleg je Einzelwert noch offen."
+      },
+      "c_min": {
+        "nominal": 1.2,
+        "min": 1.2,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iteh15071_2011"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Zweitbeleg je Einzelwert noch offen."
+      },
+      "e_min": {
+        "nominal": 10.95,
+        "min": 10.95,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iteh15071_2011"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Zweitbeleg je Einzelwert noch offen."
+      },
+      "b_ref_l_le_125": {
+        "nominal": 22,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iteh15071_2011"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Zweitbeleg je Einzelwert noch offen."
+      },
+      "flangeHeight": {
+        "nominal": null,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "note": "Für diese Geometrie noch nicht belegt; nicht aus ähnlicher Norm ergänzen."
+      }
+    },
+    "M10": {
+      "s_nom": {
+        "nominal": 13,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iteh15071_2011"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Zweitbeleg je Einzelwert noch offen."
+      },
+      "dc_max": {
+        "nominal": 20.8,
+        "min": null,
+        "max": 20.8,
+        "unit": "mm",
+        "sourceRefs": [
+          "iteh15071_2011"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Zweitbeleg je Einzelwert noch offen."
+      },
+      "k_max": {
+        "nominal": 9.7,
+        "min": null,
+        "max": 9.7,
+        "unit": "mm",
+        "sourceRefs": [
+          "iteh15071_2011"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Zweitbeleg je Einzelwert noch offen."
+      },
+      "c_min": {
+        "nominal": 1.5,
+        "min": 1.5,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iteh15071_2011"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Zweitbeleg je Einzelwert noch offen."
+      },
+      "e_min": {
+        "nominal": 14.26,
+        "min": 14.26,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iteh15071_2011"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Zweitbeleg je Einzelwert noch offen."
+      },
+      "b_ref_l_le_125": {
+        "nominal": 26,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iteh15071_2011"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Zweitbeleg je Einzelwert noch offen."
+      },
+      "flangeHeight": {
+        "nominal": null,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "note": "Für diese Geometrie noch nicht belegt; nicht aus ähnlicher Norm ergänzen."
+      }
+    },
+    "M12": {
+      "s_nom": {
+        "nominal": 15,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iteh15071_2011"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Zweitbeleg je Einzelwert noch offen."
+      },
+      "dc_max": {
+        "nominal": 24.7,
+        "min": null,
+        "max": 24.7,
+        "unit": "mm",
+        "sourceRefs": [
+          "iteh15071_2011"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Zweitbeleg je Einzelwert noch offen."
+      },
+      "k_max": {
+        "nominal": 12.1,
+        "min": null,
+        "max": 12.1,
+        "unit": "mm",
+        "sourceRefs": [
+          "iteh15071_2011"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Zweitbeleg je Einzelwert noch offen."
+      },
+      "c_min": {
+        "nominal": 1.8,
+        "min": 1.8,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iteh15071_2011"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Zweitbeleg je Einzelwert noch offen."
+      },
+      "e_min": {
+        "nominal": 16.5,
+        "min": 16.5,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iteh15071_2011"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Zweitbeleg je Einzelwert noch offen."
+      },
+      "b_ref_l_le_125": {
+        "nominal": 30,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iteh15071_2011"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Zweitbeleg je Einzelwert noch offen."
+      },
+      "flangeHeight": {
+        "nominal": null,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "note": "Für diese Geometrie noch nicht belegt; nicht aus ähnlicher Norm ergänzen."
+      }
+    },
+    "M14": {
+      "s_nom": {
+        "nominal": 18,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iteh15071_2011"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Zweitbeleg je Einzelwert noch offen."
+      },
+      "dc_max": {
+        "nominal": 28.6,
+        "min": null,
+        "max": 28.6,
+        "unit": "mm",
+        "sourceRefs": [
+          "iteh15071_2011"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Zweitbeleg je Einzelwert noch offen."
+      },
+      "k_max": {
+        "nominal": 12.9,
+        "min": null,
+        "max": 12.9,
+        "unit": "mm",
+        "sourceRefs": [
+          "iteh15071_2011"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Zweitbeleg je Einzelwert noch offen."
+      },
+      "c_min": {
+        "nominal": 2.1,
+        "min": 2.1,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iteh15071_2011"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Zweitbeleg je Einzelwert noch offen."
+      },
+      "e_min": {
+        "nominal": 19.86,
+        "min": 19.86,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iteh15071_2011"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Zweitbeleg je Einzelwert noch offen."
+      },
+      "b_ref_l_le_125": {
+        "nominal": 34,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iteh15071_2011"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Zweitbeleg je Einzelwert noch offen."
+      },
+      "flangeHeight": {
+        "nominal": null,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "note": "Für diese Geometrie noch nicht belegt; nicht aus ähnlicher Norm ergänzen."
+      }
+    },
+    "M16": {
+      "s_nom": {
+        "nominal": 21,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iteh15071_2011"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Zweitbeleg je Einzelwert noch offen."
+      },
+      "dc_max": {
+        "nominal": 32.8,
+        "min": null,
+        "max": 32.8,
+        "unit": "mm",
+        "sourceRefs": [
+          "iteh15071_2011"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Zweitbeleg je Einzelwert noch offen."
+      },
+      "k_max": {
+        "nominal": 15.2,
+        "min": null,
+        "max": 15.2,
+        "unit": "mm",
+        "sourceRefs": [
+          "iteh15071_2011"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Zweitbeleg je Einzelwert noch offen."
+      },
+      "c_min": {
+        "nominal": 2.4,
+        "min": 2.4,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iteh15071_2011"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Zweitbeleg je Einzelwert noch offen."
+      },
+      "e_min": {
+        "nominal": 23.15,
+        "min": 23.15,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iteh15071_2011"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Zweitbeleg je Einzelwert noch offen."
+      },
+      "b_ref_l_le_125": {
+        "nominal": 38,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iteh15071_2011"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Zweitbeleg je Einzelwert noch offen."
+      },
+      "flangeHeight": {
+        "nominal": null,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "note": "Für diese Geometrie noch nicht belegt; nicht aus ähnlicher Norm ergänzen."
+      }
+    }
+  },
+  "sourceMeta": {
+    "iteh15071_2011": {
+      "url": "https://cdn.standards.iteh.ai/samples/56462/112b5057c3c04d55be1f26b53e4eb9f9/ISO-15071-2011.pdf",
+      "titel": "ISO15071:2011 Tabelle1",
+      "type": "standard-excerpt",
+      "accessed": "2026-11-26"
+    }
+  },
+  "quellen": [
+    {
+      "id": "iteh15071_2011",
+      "url": "https://cdn.standards.iteh.ai/samples/56462/112b5057c3c04d55be1f26b53e4eb9f9/ISO-15071-2011.pdf",
+      "titel": "ISO15071:2011 Tabelle1",
+      "type": "standard-excerpt",
+      "accessed": "2026-11-26"
+    }
+  ],
+  "abweichungen": [],
+  "status": "partial",
+  "coverage": "documented",
+  "lengthCoverage": "unresearched",
+  "hinweise": [
+    "Bund-Dicke c ist nur als Mindestmaß belegt; sie wird nicht als exakte Profilhöhe ausgegeben."
+  ],
+  "normstatus": {
+    "status": "unresolved",
+    "note": "Ausgabe und Vollständigkeit nicht aus einer ähnlichen Norm ableiten."
+  },
+  "requiredGeometryFields": [
+    "kSW",
+    "kH",
+    "kD",
+    "flangeHeight"
+  ],
+  "scope": {
+    "minDiameter": 5,
+    "maxDiameter": 16,
+    "sourceRefs": [
+      "iteh15071_2011"
+    ]
+  },
+  "sizeCoverage": {
+    "M3": {
+      "status": "not-in-standard",
+      "sourceRefs": [
+        "iteh15071_2011"
+      ],
+      "note": "Außerhalb des belegten Norm-Geltungsbereichs."
+    },
+    "M3.5": {
+      "status": "not-in-standard",
+      "sourceRefs": [
+        "iteh15071_2011"
+      ],
+      "note": "Außerhalb des belegten Norm-Geltungsbereichs."
+    },
+    "M4": {
+      "status": "not-in-standard",
+      "sourceRefs": [
+        "iteh15071_2011"
+      ],
+      "note": "Außerhalb des belegten Norm-Geltungsbereichs."
+    },
+    "M5": {
+      "status": "documented"
+    },
+    "M6": {
+      "status": "documented"
+    },
+    "M7": {
+      "status": "unresearched",
+      "note": "Keine Größenzeile vorhanden; daraus folgt kein Normverbot."
+    },
+    "M8": {
+      "status": "documented"
+    },
+    "M10": {
+      "status": "documented"
+    },
+    "M12": {
+      "status": "documented"
+    },
+    "M14": {
+      "status": "documented"
+    },
+    "M16": {
+      "status": "documented"
+    },
+    "M18": {
+      "status": "not-in-standard",
+      "sourceRefs": [
+        "iteh15071_2011"
+      ],
+      "note": "Außerhalb des belegten Norm-Geltungsbereichs."
+    },
+    "M20": {
+      "status": "not-in-standard",
+      "sourceRefs": [
+        "iteh15071_2011"
+      ],
+      "note": "Außerhalb des belegten Norm-Geltungsbereichs."
+    },
+    "M22": {
+      "status": "not-in-standard",
+      "sourceRefs": [
+        "iteh15071_2011"
+      ],
+      "note": "Außerhalb des belegten Norm-Geltungsbereichs."
+    },
+    "M24": {
+      "status": "not-in-standard",
+      "sourceRefs": [
+        "iteh15071_2011"
+      ],
+      "note": "Außerhalb des belegten Norm-Geltungsbereichs."
+    },
+    "M27": {
+      "status": "not-in-standard",
+      "sourceRefs": [
+        "iteh15071_2011"
+      ],
+      "note": "Außerhalb des belegten Norm-Geltungsbereichs."
+    },
+    "M30": {
+      "status": "not-in-standard",
+      "sourceRefs": [
+        "iteh15071_2011"
+      ],
+      "note": "Außerhalb des belegten Norm-Geltungsbereichs."
+    },
+    "M33": {
+      "status": "not-in-standard",
+      "sourceRefs": [
+        "iteh15071_2011"
+      ],
+      "note": "Außerhalb des belegten Norm-Geltungsbereichs."
+    }
+  },
+  "pruefdatum": "2026-11-26",
+  "klassen": {
+    "status": "unresearched",
+    "values": [],
+    "note": "Festigkeits-/Werkstoffklassen noch nicht vollständig aus dieser Norm belegt."
+  }
+}

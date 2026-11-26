@@ -1,0 +1,132 @@
+{
+  "id": "ISO7379",
+  "version": "2026-11-26",
+  "schemaVersion": 1,
+  "label": "ISO7379 · Passschraube mit Innensechskant",
+  "edition": "1983",
+  "editionStatus": "documented",
+  "funktion": "schraube",
+  "klasse": "bolzen",
+  "kopfTyp": "zylinder",
+  "antrieb": {
+    "art": "hex"
+  },
+  "feldzuordnung": {},
+  "groessen": {},
+  "fields": {},
+  "sourceMeta": {
+    "iso7379": {
+      "url": "https://www.iso.org/standard/14078.html",
+      "titel": "ISO 7379:1983, Geltungsbereich",
+      "type": "standards-body",
+      "accessed": "2026-11-26"
+    }
+  },
+  "quellen": [
+    {
+      "id": "iso7379",
+      "url": "https://www.iso.org/standard/14078.html",
+      "titel": "ISO 7379:1983, Geltungsbereich",
+      "type": "standards-body",
+      "accessed": "2026-11-26"
+    }
+  ],
+  "abweichungen": [],
+  "status": "partial",
+  "coverage": "unresearched",
+  "lengthCoverage": "unresearched",
+  "hinweise": [
+    "Familie erfasst; vollständige Einzelmaß- und Längenrecherche steht noch aus. Keine Ersatzmaße einer ähnlichen Norm verwendet.",
+    "Normative Passdurchmesser 6,5 bis 25 mm; Herstellerabweichungen 6 statt 6,5 oder 12 statt 13 nicht als Normvorlage übernehmen."
+  ],
+  "normstatus": {
+    "status": "unresolved",
+    "note": "Ausgabe und Vollständigkeit nicht aus einer ähnlichen Norm ableiten."
+  },
+  "requiredGeometryFields": [
+    "kD",
+    "kH",
+    "iSW",
+    "iT"
+  ],
+  "sizeCoverage": {
+    "M3": {
+      "status": "unresearched",
+      "note": "Keine Größenzeile vorhanden; daraus folgt kein Normverbot."
+    },
+    "M3.5": {
+      "status": "unresearched",
+      "note": "Keine Größenzeile vorhanden; daraus folgt kein Normverbot."
+    },
+    "M4": {
+      "status": "unresearched",
+      "note": "Keine Größenzeile vorhanden; daraus folgt kein Normverbot."
+    },
+    "M5": {
+      "status": "unresearched",
+      "note": "Keine Größenzeile vorhanden; daraus folgt kein Normverbot."
+    },
+    "M6": {
+      "status": "unresearched",
+      "note": "Keine Größenzeile vorhanden; daraus folgt kein Normverbot."
+    },
+    "M7": {
+      "status": "unresearched",
+      "note": "Keine Größenzeile vorhanden; daraus folgt kein Normverbot."
+    },
+    "M8": {
+      "status": "unresearched",
+      "note": "Keine Größenzeile vorhanden; daraus folgt kein Normverbot."
+    },
+    "M10": {
+      "status": "unresearched",
+      "note": "Keine Größenzeile vorhanden; daraus folgt kein Normverbot."
+    },
+    "M12": {
+      "status": "unresearched",
+      "note": "Keine Größenzeile vorhanden; daraus folgt kein Normverbot."
+    },
+    "M14": {
+      "status": "unresearched",
+      "note": "Keine Größenzeile vorhanden; daraus folgt kein Normverbot."
+    },
+    "M16": {
+      "status": "unresearched",
+      "note": "Keine Größenzeile vorhanden; daraus folgt kein Normverbot."
+    },
+    "M18": {
+      "status": "unresearched",
+      "note": "Keine Größenzeile vorhanden; daraus folgt kein Normverbot."
+    },
+    "M20": {
+      "status": "unresearched",
+      "note": "Keine Größenzeile vorhanden; daraus folgt kein Normverbot."
+    },
+    "M22": {
+      "status": "unresearched",
+      "note": "Keine Größenzeile vorhanden; daraus folgt kein Normverbot."
+    },
+    "M24": {
+      "status": "unresearched",
+      "note": "Keine Größenzeile vorhanden; daraus folgt kein Normverbot."
+    },
+    "M27": {
+      "status": "unresearched",
+      "note": "Keine Größenzeile vorhanden; daraus folgt kein Normverbot."
+    },
+    "M30": {
+      "status": "unresearched",
+      "note": "Keine Größenzeile vorhanden; daraus folgt kein Normverbot."
+    },
+    "M33": {
+      "status": "unresearched",
+      "note": "Keine Größenzeile vorhanden; daraus folgt kein Normverbot."
+    }
+  },
+  "pruefdatum": "2026-11-26",
+  "klassen": {
+    "status": "unresearched",
+    "values": [],
+    "note": "Festigkeits-/Werkstoffklassen noch nicht vollständig aus dieser Norm belegt."
+  }
+}

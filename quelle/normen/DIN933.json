@@ -1,0 +1,775 @@
+{
+  "id": "DIN933",
+  "version": "2026-11-26",
+  "schemaVersion": 1,
+  "label": "DIN 933 · Sechskant, Gewinde bis Kopf",
+  "edition": null,
+  "editionStatus": "unresolved",
+  "funktion": "schraube",
+  "klasse": "bolzen",
+  "kopfTyp": "sechskant",
+  "antrieb": {
+    "art": "none"
+  },
+  "feldzuordnung": {
+    "kSW": "s_nom",
+    "kH": "k_nom"
+  },
+  "groessen": {
+    "M3": {
+      "roh": {
+        "s_nom": 5.5,
+        "k_nom": 2
+      },
+      "vorbelegung": {
+        "kSW": 5.5,
+        "kH": 2
+      },
+      "coverage": "documented",
+      "nachLaenge": {},
+      "lengthCoverage": "unresearched",
+      "missingGeometryFields": [],
+      "geometryStatus": "documented"
+    },
+    "M4": {
+      "roh": {
+        "s_nom": 7,
+        "k_nom": 2.8
+      },
+      "vorbelegung": {
+        "kSW": 7,
+        "kH": 2.8
+      },
+      "coverage": "documented",
+      "nachLaenge": {},
+      "lengthCoverage": "unresearched",
+      "missingGeometryFields": [],
+      "geometryStatus": "documented"
+    },
+    "M5": {
+      "roh": {
+        "s_nom": 8,
+        "k_nom": 3.5
+      },
+      "vorbelegung": {
+        "kSW": 8,
+        "kH": 3.5
+      },
+      "coverage": "documented",
+      "nachLaenge": {},
+      "lengthCoverage": "unresearched",
+      "missingGeometryFields": [],
+      "geometryStatus": "documented"
+    },
+    "M6": {
+      "roh": {
+        "s_nom": 10,
+        "k_nom": 4
+      },
+      "vorbelegung": {
+        "kSW": 10,
+        "kH": 4
+      },
+      "coverage": "documented",
+      "nachLaenge": {},
+      "lengthCoverage": "unresearched",
+      "missingGeometryFields": [],
+      "geometryStatus": "documented"
+    },
+    "M8": {
+      "roh": {
+        "s_nom": 13,
+        "k_nom": 5.3
+      },
+      "vorbelegung": {
+        "kSW": 13,
+        "kH": 5.3
+      },
+      "coverage": "documented",
+      "nachLaenge": {},
+      "lengthCoverage": "unresearched",
+      "missingGeometryFields": [],
+      "geometryStatus": "documented"
+    },
+    "M10": {
+      "roh": {
+        "s_nom": 17,
+        "k_nom": 6.4
+      },
+      "vorbelegung": {
+        "kSW": 17,
+        "kH": 6.4
+      },
+      "coverage": "documented",
+      "nachLaenge": {},
+      "lengthCoverage": "unresearched",
+      "missingGeometryFields": [],
+      "geometryStatus": "documented"
+    },
+    "M12": {
+      "roh": {
+        "s_nom": 19,
+        "k_nom": 7.5
+      },
+      "vorbelegung": {
+        "kSW": 19,
+        "kH": 7.5
+      },
+      "coverage": "documented",
+      "nachLaenge": {},
+      "lengthCoverage": "unresearched",
+      "missingGeometryFields": [],
+      "geometryStatus": "documented"
+    },
+    "M14": {
+      "roh": {
+        "s_nom": 22,
+        "k_nom": 8.8
+      },
+      "vorbelegung": {
+        "kSW": 22,
+        "kH": 8.8
+      },
+      "coverage": "documented",
+      "nachLaenge": {},
+      "lengthCoverage": "unresearched",
+      "missingGeometryFields": [],
+      "geometryStatus": "documented"
+    },
+    "M16": {
+      "roh": {
+        "s_nom": 24,
+        "k_nom": 10
+      },
+      "vorbelegung": {
+        "kSW": 24,
+        "kH": 10
+      },
+      "coverage": "documented",
+      "nachLaenge": {},
+      "lengthCoverage": "unresearched",
+      "missingGeometryFields": [],
+      "geometryStatus": "documented"
+    },
+    "M18": {
+      "roh": {
+        "s_nom": 27,
+        "k_nom": 11.5
+      },
+      "vorbelegung": {
+        "kSW": 27,
+        "kH": 11.5
+      },
+      "coverage": "documented",
+      "nachLaenge": {},
+      "lengthCoverage": "unresearched",
+      "missingGeometryFields": [],
+      "geometryStatus": "documented"
+    },
+    "M20": {
+      "roh": {
+        "s_nom": 30,
+        "k_nom": 12.5
+      },
+      "vorbelegung": {
+        "kSW": 30,
+        "kH": 12.5
+      },
+      "coverage": "documented",
+      "nachLaenge": {},
+      "lengthCoverage": "unresearched",
+      "missingGeometryFields": [],
+      "geometryStatus": "documented"
+    },
+    "M22": {
+      "roh": {
+        "s_nom": 32,
+        "k_nom": 14
+      },
+      "vorbelegung": {
+        "kSW": 32,
+        "kH": 14
+      },
+      "coverage": "documented",
+      "nachLaenge": {},
+      "lengthCoverage": "unresearched",
+      "missingGeometryFields": [],
+      "geometryStatus": "documented"
+    },
+    "M24": {
+      "roh": {
+        "s_nom": 36,
+        "k_nom": 15
+      },
+      "vorbelegung": {
+        "kSW": 36,
+        "kH": 15
+      },
+      "coverage": "documented",
+      "nachLaenge": {},
+      "lengthCoverage": "unresearched",
+      "missingGeometryFields": [],
+      "geometryStatus": "documented"
+    },
+    "M27": {
+      "roh": {
+        "s_nom": 41,
+        "k_nom": 17
+      },
+      "vorbelegung": {
+        "kSW": 41,
+        "kH": 17
+      },
+      "coverage": "documented",
+      "nachLaenge": {},
+      "lengthCoverage": "unresearched",
+      "missingGeometryFields": [],
+      "geometryStatus": "documented"
+    },
+    "M30": {
+      "roh": {
+        "s_nom": 46,
+        "k_nom": 18.7
+      },
+      "vorbelegung": {
+        "kSW": 46,
+        "kH": 18.7
+      },
+      "coverage": "documented",
+      "nachLaenge": {},
+      "lengthCoverage": "unresearched",
+      "missingGeometryFields": [],
+      "geometryStatus": "documented"
+    },
+    "M33": {
+      "roh": {
+        "s_nom": 50,
+        "k_nom": 21
+      },
+      "vorbelegung": {
+        "kSW": 50,
+        "kH": 21
+      },
+      "coverage": "documented",
+      "nachLaenge": {},
+      "lengthCoverage": "unresearched",
+      "missingGeometryFields": [],
+      "geometryStatus": "documented"
+    }
+  },
+  "fields": {
+    "M3": {
+      "s_nom": {
+        "nominal": 5.5,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "boell933"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Zweitbeleg je Einzelwert noch offen."
+      },
+      "k_nom": {
+        "nominal": 2,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "boell933"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Zweitbeleg je Einzelwert noch offen."
+      }
+    },
+    "M4": {
+      "s_nom": {
+        "nominal": 7,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "boell933"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Zweitbeleg je Einzelwert noch offen."
+      },
+      "k_nom": {
+        "nominal": 2.8,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "boell933"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Zweitbeleg je Einzelwert noch offen."
+      }
+    },
+    "M5": {
+      "s_nom": {
+        "nominal": 8,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "boell933"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Zweitbeleg je Einzelwert noch offen."
+      },
+      "k_nom": {
+        "nominal": 3.5,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "boell933"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Zweitbeleg je Einzelwert noch offen."
+      }
+    },
+    "M6": {
+      "s_nom": {
+        "nominal": 10,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "boell933"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Zweitbeleg je Einzelwert noch offen."
+      },
+      "k_nom": {
+        "nominal": 4,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "boell933"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Zweitbeleg je Einzelwert noch offen."
+      }
+    },
+    "M8": {
+      "s_nom": {
+        "nominal": 13,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "boell933"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Zweitbeleg je Einzelwert noch offen."
+      },
+      "k_nom": {
+        "nominal": 5.3,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "boell933"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Zweitbeleg je Einzelwert noch offen."
+      }
+    },
+    "M10": {
+      "s_nom": {
+        "nominal": 17,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "boell933"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Zweitbeleg je Einzelwert noch offen."
+      },
+      "k_nom": {
+        "nominal": 6.4,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "boell933"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Zweitbeleg je Einzelwert noch offen."
+      }
+    },
+    "M12": {
+      "s_nom": {
+        "nominal": 19,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "boell933"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Zweitbeleg je Einzelwert noch offen."
+      },
+      "k_nom": {
+        "nominal": 7.5,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "boell933"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Zweitbeleg je Einzelwert noch offen."
+      }
+    },
+    "M14": {
+      "s_nom": {
+        "nominal": 22,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "boell933"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Zweitbeleg je Einzelwert noch offen."
+      },
+      "k_nom": {
+        "nominal": 8.8,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "boell933"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Zweitbeleg je Einzelwert noch offen."
+      }
+    },
+    "M16": {
+      "s_nom": {
+        "nominal": 24,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "boell933"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Zweitbeleg je Einzelwert noch offen."
+      },
+      "k_nom": {
+        "nominal": 10,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "boell933"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Zweitbeleg je Einzelwert noch offen."
+      }
+    },
+    "M18": {
+      "s_nom": {
+        "nominal": 27,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "boell933"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Zweitbeleg je Einzelwert noch offen."
+      },
+      "k_nom": {
+        "nominal": 11.5,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "boell933"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Zweitbeleg je Einzelwert noch offen."
+      }
+    },
+    "M20": {
+      "s_nom": {
+        "nominal": 30,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "boell933"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Zweitbeleg je Einzelwert noch offen."
+      },
+      "k_nom": {
+        "nominal": 12.5,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "boell933"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Zweitbeleg je Einzelwert noch offen."
+      }
+    },
+    "M22": {
+      "s_nom": {
+        "nominal": 32,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "boell933"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Zweitbeleg je Einzelwert noch offen."
+      },
+      "k_nom": {
+        "nominal": 14,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "boell933"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Zweitbeleg je Einzelwert noch offen."
+      }
+    },
+    "M24": {
+      "s_nom": {
+        "nominal": 36,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "boell933"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Zweitbeleg je Einzelwert noch offen."
+      },
+      "k_nom": {
+        "nominal": 15,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "boell933"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Zweitbeleg je Einzelwert noch offen."
+      }
+    },
+    "M27": {
+      "s_nom": {
+        "nominal": 41,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "boell933"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Zweitbeleg je Einzelwert noch offen."
+      },
+      "k_nom": {
+        "nominal": 17,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "boell933"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Zweitbeleg je Einzelwert noch offen."
+      }
+    },
+    "M30": {
+      "s_nom": {
+        "nominal": 46,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "boell933"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Zweitbeleg je Einzelwert noch offen."
+      },
+      "k_nom": {
+        "nominal": 18.7,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "boell933"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Zweitbeleg je Einzelwert noch offen."
+      }
+    },
+    "M33": {
+      "s_nom": {
+        "nominal": 50,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "boell933"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Zweitbeleg je Einzelwert noch offen."
+      },
+      "k_nom": {
+        "nominal": 21,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "boell933"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Zweitbeleg je Einzelwert noch offen."
+      }
+    }
+  },
+  "sourceMeta": {
+    "boell933": {
+      "url": "https://eshop.boellhoff.de/out/media/pdf/DIN_933_Edelstahl_A2___de.pdf",
+      "titel": "Böllhoff DIN 933, Produktdatenblatt",
+      "type": "manufacturer",
+      "accessed": "2026-11-26"
+    }
+  },
+  "quellen": [
+    {
+      "id": "boell933",
+      "url": "https://eshop.boellhoff.de/out/media/pdf/DIN_933_Edelstahl_A2___de.pdf",
+      "titel": "Böllhoff DIN 933, Produktdatenblatt",
+      "type": "manufacturer",
+      "accessed": "2026-11-26"
+    }
+  ],
+  "abweichungen": [],
+  "status": "partial",
+  "coverage": "documented",
+  "lengthCoverage": "unresearched",
+  "hinweise": [
+    "Herstellertabelle liefert beide Produktklassen zusammen; unplausibles k_max M5=6,35 nicht übernommen. Händler-Lieferlängen sind keine vollständige Normlängenreihe."
+  ],
+  "normstatus": {
+    "status": "withdrawn",
+    "successor": "ISO4017",
+    "note": "Geänderte Schlüsselweiten; keine maßgleiche Alias-Auflösung."
+  },
+  "requiredGeometryFields": [
+    "kSW",
+    "kH"
+  ],
+  "sizeCoverage": {
+    "M3": {
+      "status": "documented"
+    },
+    "M3.5": {
+      "status": "unresearched",
+      "note": "Keine Größenzeile vorhanden; daraus folgt kein Normverbot."
+    },
+    "M4": {
+      "status": "documented"
+    },
+    "M5": {
+      "status": "documented"
+    },
+    "M6": {
+      "status": "documented"
+    },
+    "M7": {
+      "status": "unresearched",
+      "note": "Keine Größenzeile vorhanden; daraus folgt kein Normverbot."
+    },
+    "M8": {
+      "status": "documented"
+    },
+    "M10": {
+      "status": "documented"
+    },
+    "M12": {
+      "status": "documented"
+    },
+    "M14": {
+      "status": "documented"
+    },
+    "M16": {
+      "status": "documented"
+    },
+    "M18": {
+      "status": "documented"
+    },
+    "M20": {
+      "status": "documented"
+    },
+    "M22": {
+      "status": "documented"
+    },
+    "M24": {
+      "status": "documented"
+    },
+    "M27": {
+      "status": "documented"
+    },
+    "M30": {
+      "status": "documented"
+    },
+    "M33": {
+      "status": "documented"
+    }
+  },
+  "pruefdatum": "2026-11-26",
+  "klassen": {
+    "status": "unresearched",
+    "values": [],
+    "note": "Festigkeits-/Werkstoffklassen noch nicht vollständig aus dieser Norm belegt."
+  }
+}

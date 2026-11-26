@@ -1,0 +1,705 @@
+{
+  "id": "ISO4028",
+  "alias": [],
+  "funktion": "gewindestift",
+  "klasse": "bolzen",
+  "label": "ISO 4028 · Gewindestift mit Innensechskant, Zapfen",
+  "kopfTyp": "kopflos",
+  "antrieb": {
+    "art": "hex"
+  },
+  "schaftende": "zapfen",
+  "feldzuordnung": {
+    "iSW": "s_nom",
+    "iT": "t_min_lang"
+  },
+  "groessen": {
+    "M3": {
+      "vorbelegung": {
+        "iT": 2,
+        "iSW": 1.5
+      },
+      "roh": {
+        "t_min_kurz": 1.2,
+        "t_min_lang": 2,
+        "dp_min": 1.75,
+        "z_max": 1.5,
+        "s_nom": 1.5
+      },
+      "coverage": "documented",
+      "lengthCoverage": "unresearched",
+      "nachLaenge": {},
+      "missingGeometryFields": [],
+      "geometryStatus": "documented"
+    },
+    "M4": {
+      "vorbelegung": {
+        "iT": 2.5,
+        "iSW": 2
+      },
+      "roh": {
+        "t_min_kurz": 1.5,
+        "t_min_lang": 2.5,
+        "dp_min": 2.25,
+        "z_max": 2,
+        "s_nom": 2
+      },
+      "coverage": "documented",
+      "lengthCoverage": "unresearched",
+      "nachLaenge": {},
+      "missingGeometryFields": [],
+      "geometryStatus": "documented"
+    },
+    "M5": {
+      "vorbelegung": {
+        "iT": 3,
+        "iSW": 2.5
+      },
+      "roh": {
+        "t_min_kurz": 2,
+        "t_min_lang": 3,
+        "dp_min": 3.2,
+        "z_max": 2.5,
+        "s_nom": 2.5
+      },
+      "coverage": "documented",
+      "lengthCoverage": "unresearched",
+      "nachLaenge": {},
+      "missingGeometryFields": [],
+      "geometryStatus": "documented"
+    },
+    "M6": {
+      "vorbelegung": {
+        "iT": 3.5,
+        "iSW": 3
+      },
+      "roh": {
+        "t_min_kurz": 2,
+        "t_min_lang": 3.5,
+        "dp_min": 3.7,
+        "z_max": 3,
+        "s_nom": 3
+      },
+      "coverage": "documented",
+      "lengthCoverage": "unresearched",
+      "nachLaenge": {},
+      "missingGeometryFields": [],
+      "geometryStatus": "documented"
+    },
+    "M8": {
+      "vorbelegung": {
+        "iT": 5,
+        "iSW": 4
+      },
+      "roh": {
+        "t_min_kurz": 3,
+        "t_min_lang": 5,
+        "dp_min": 5.2,
+        "z_max": 4,
+        "s_nom": 4
+      },
+      "coverage": "documented",
+      "lengthCoverage": "unresearched",
+      "nachLaenge": {},
+      "missingGeometryFields": [],
+      "geometryStatus": "documented"
+    },
+    "M10": {
+      "vorbelegung": {
+        "iT": 6,
+        "iSW": 5
+      },
+      "roh": {
+        "t_min_kurz": 4,
+        "t_min_lang": 6,
+        "dp_min": 6.64,
+        "z_max": 5,
+        "s_nom": 5
+      },
+      "coverage": "documented",
+      "lengthCoverage": "unresearched",
+      "nachLaenge": {},
+      "missingGeometryFields": [],
+      "geometryStatus": "documented"
+    },
+    "M12": {
+      "vorbelegung": {
+        "iT": 8,
+        "iSW": 6
+      },
+      "roh": {
+        "t_min_kurz": 4.8,
+        "t_min_lang": 8,
+        "dp_min": 8.14,
+        "z_max": 6,
+        "s_nom": 6
+      },
+      "coverage": "documented",
+      "lengthCoverage": "unresearched",
+      "nachLaenge": {},
+      "missingGeometryFields": [],
+      "geometryStatus": "documented"
+    }
+  },
+  "status": "partial",
+  "quellen": [
+    {
+      "id": "fe4028",
+      "url": "https://www.fasteners.eu/standards/ISO/4028/",
+      "titel": "fasteners.eu - ISO 4028 (Normenverzeichnis, Maßtabelle)",
+      "abgerufen": "2026-11-25",
+      "type": "supplied-research-source"
+    },
+    {
+      "id": "unbrako",
+      "url": "https://www.unbrako.com.au/images/downloads/unbrako-technical-brochure.pdf",
+      "titel": "Unbrako technical brochure",
+      "type": "manufacturer",
+      "accessed": "2026-11-26"
+    }
+  ],
+  "abweichungen": [],
+  "normstatus": null,
+  "hinweise": [
+    "Kurze/lange Antriebstiefe erst nach belegter Längenzuordnung verwenden."
+  ],
+  "schemaVersion": 1,
+  "version": "2026-11-26",
+  "edition": null,
+  "editionStatus": "unresolved",
+  "fields": {
+    "M3": {
+      "t_min_kurz": {
+        "nominal": 1.2,
+        "min": 1.2,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "fe4028"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Aus bereitgestellter Maßrecherche übernommen; Einzelwert-Abdeckung und zweiter unabhängiger Beleg sind separat zu prüfen."
+      },
+      "t_min_lang": {
+        "nominal": 2,
+        "min": 2,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "fe4028"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Aus bereitgestellter Maßrecherche übernommen; Einzelwert-Abdeckung und zweiter unabhängiger Beleg sind separat zu prüfen."
+      },
+      "dp_min": {
+        "nominal": 1.75,
+        "min": 1.75,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "fe4028"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Aus bereitgestellter Maßrecherche übernommen; Einzelwert-Abdeckung und zweiter unabhängiger Beleg sind separat zu prüfen."
+      },
+      "z_max": {
+        "nominal": 1.5,
+        "min": null,
+        "max": 1.5,
+        "unit": "mm",
+        "sourceRefs": [
+          "fe4028"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Aus bereitgestellter Maßrecherche übernommen; Einzelwert-Abdeckung und zweiter unabhängiger Beleg sind separat zu prüfen."
+      },
+      "s_nom": {
+        "nominal": 1.5,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "unbrako"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Unbrako Herstellermaßreihe ISO4028; unabhängiger Zweitbeleg offen."
+      }
+    },
+    "M4": {
+      "t_min_kurz": {
+        "nominal": 1.5,
+        "min": 1.5,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "fe4028"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Aus bereitgestellter Maßrecherche übernommen; Einzelwert-Abdeckung und zweiter unabhängiger Beleg sind separat zu prüfen."
+      },
+      "t_min_lang": {
+        "nominal": 2.5,
+        "min": 2.5,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "fe4028"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Aus bereitgestellter Maßrecherche übernommen; Einzelwert-Abdeckung und zweiter unabhängiger Beleg sind separat zu prüfen."
+      },
+      "dp_min": {
+        "nominal": 2.25,
+        "min": 2.25,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "fe4028"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Aus bereitgestellter Maßrecherche übernommen; Einzelwert-Abdeckung und zweiter unabhängiger Beleg sind separat zu prüfen."
+      },
+      "z_max": {
+        "nominal": 2,
+        "min": null,
+        "max": 2,
+        "unit": "mm",
+        "sourceRefs": [
+          "fe4028"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Aus bereitgestellter Maßrecherche übernommen; Einzelwert-Abdeckung und zweiter unabhängiger Beleg sind separat zu prüfen."
+      },
+      "s_nom": {
+        "nominal": 2,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "unbrako"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Unbrako Herstellermaßreihe ISO4028; unabhängiger Zweitbeleg offen."
+      }
+    },
+    "M5": {
+      "t_min_kurz": {
+        "nominal": 2,
+        "min": 2,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "fe4028"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Aus bereitgestellter Maßrecherche übernommen; Einzelwert-Abdeckung und zweiter unabhängiger Beleg sind separat zu prüfen."
+      },
+      "t_min_lang": {
+        "nominal": 3,
+        "min": 3,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "fe4028"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Aus bereitgestellter Maßrecherche übernommen; Einzelwert-Abdeckung und zweiter unabhängiger Beleg sind separat zu prüfen."
+      },
+      "dp_min": {
+        "nominal": 3.2,
+        "min": 3.2,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "fe4028"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Aus bereitgestellter Maßrecherche übernommen; Einzelwert-Abdeckung und zweiter unabhängiger Beleg sind separat zu prüfen."
+      },
+      "z_max": {
+        "nominal": 2.5,
+        "min": null,
+        "max": 2.5,
+        "unit": "mm",
+        "sourceRefs": [
+          "fe4028"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Aus bereitgestellter Maßrecherche übernommen; Einzelwert-Abdeckung und zweiter unabhängiger Beleg sind separat zu prüfen."
+      },
+      "s_nom": {
+        "nominal": 2.5,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "unbrako"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Unbrako Herstellermaßreihe ISO4028; unabhängiger Zweitbeleg offen."
+      }
+    },
+    "M6": {
+      "t_min_kurz": {
+        "nominal": 2,
+        "min": 2,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "fe4028"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Aus bereitgestellter Maßrecherche übernommen; Einzelwert-Abdeckung und zweiter unabhängiger Beleg sind separat zu prüfen."
+      },
+      "t_min_lang": {
+        "nominal": 3.5,
+        "min": 3.5,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "fe4028"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Aus bereitgestellter Maßrecherche übernommen; Einzelwert-Abdeckung und zweiter unabhängiger Beleg sind separat zu prüfen."
+      },
+      "dp_min": {
+        "nominal": 3.7,
+        "min": 3.7,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "fe4028"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Aus bereitgestellter Maßrecherche übernommen; Einzelwert-Abdeckung und zweiter unabhängiger Beleg sind separat zu prüfen."
+      },
+      "z_max": {
+        "nominal": 3,
+        "min": null,
+        "max": 3,
+        "unit": "mm",
+        "sourceRefs": [
+          "fe4028"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Aus bereitgestellter Maßrecherche übernommen; Einzelwert-Abdeckung und zweiter unabhängiger Beleg sind separat zu prüfen."
+      },
+      "s_nom": {
+        "nominal": 3,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "unbrako"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Unbrako Herstellermaßreihe ISO4028; unabhängiger Zweitbeleg offen."
+      }
+    },
+    "M8": {
+      "t_min_kurz": {
+        "nominal": 3,
+        "min": 3,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "fe4028"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Aus bereitgestellter Maßrecherche übernommen; Einzelwert-Abdeckung und zweiter unabhängiger Beleg sind separat zu prüfen."
+      },
+      "t_min_lang": {
+        "nominal": 5,
+        "min": 5,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "fe4028"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Aus bereitgestellter Maßrecherche übernommen; Einzelwert-Abdeckung und zweiter unabhängiger Beleg sind separat zu prüfen."
+      },
+      "dp_min": {
+        "nominal": 5.2,
+        "min": 5.2,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "fe4028"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Aus bereitgestellter Maßrecherche übernommen; Einzelwert-Abdeckung und zweiter unabhängiger Beleg sind separat zu prüfen."
+      },
+      "z_max": {
+        "nominal": 4,
+        "min": null,
+        "max": 4,
+        "unit": "mm",
+        "sourceRefs": [
+          "fe4028"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Aus bereitgestellter Maßrecherche übernommen; Einzelwert-Abdeckung und zweiter unabhängiger Beleg sind separat zu prüfen."
+      },
+      "s_nom": {
+        "nominal": 4,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "unbrako"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Unbrako Herstellermaßreihe ISO4028; unabhängiger Zweitbeleg offen."
+      }
+    },
+    "M10": {
+      "t_min_kurz": {
+        "nominal": 4,
+        "min": 4,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "fe4028"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Aus bereitgestellter Maßrecherche übernommen; Einzelwert-Abdeckung und zweiter unabhängiger Beleg sind separat zu prüfen."
+      },
+      "t_min_lang": {
+        "nominal": 6,
+        "min": 6,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "fe4028"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Aus bereitgestellter Maßrecherche übernommen; Einzelwert-Abdeckung und zweiter unabhängiger Beleg sind separat zu prüfen."
+      },
+      "dp_min": {
+        "nominal": 6.64,
+        "min": 6.64,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "fe4028"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Aus bereitgestellter Maßrecherche übernommen; Einzelwert-Abdeckung und zweiter unabhängiger Beleg sind separat zu prüfen."
+      },
+      "z_max": {
+        "nominal": 5,
+        "min": null,
+        "max": 5,
+        "unit": "mm",
+        "sourceRefs": [
+          "fe4028"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Aus bereitgestellter Maßrecherche übernommen; Einzelwert-Abdeckung und zweiter unabhängiger Beleg sind separat zu prüfen."
+      },
+      "s_nom": {
+        "nominal": 5,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "unbrako"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Unbrako Herstellermaßreihe ISO4028; unabhängiger Zweitbeleg offen."
+      }
+    },
+    "M12": {
+      "t_min_kurz": {
+        "nominal": 4.8,
+        "min": 4.8,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "fe4028"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Aus bereitgestellter Maßrecherche übernommen; Einzelwert-Abdeckung und zweiter unabhängiger Beleg sind separat zu prüfen."
+      },
+      "t_min_lang": {
+        "nominal": 8,
+        "min": 8,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "fe4028"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Aus bereitgestellter Maßrecherche übernommen; Einzelwert-Abdeckung und zweiter unabhängiger Beleg sind separat zu prüfen."
+      },
+      "dp_min": {
+        "nominal": 8.14,
+        "min": 8.14,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "fe4028"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Aus bereitgestellter Maßrecherche übernommen; Einzelwert-Abdeckung und zweiter unabhängiger Beleg sind separat zu prüfen."
+      },
+      "z_max": {
+        "nominal": 6,
+        "min": null,
+        "max": 6,
+        "unit": "mm",
+        "sourceRefs": [
+          "fe4028"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Aus bereitgestellter Maßrecherche übernommen; Einzelwert-Abdeckung und zweiter unabhängiger Beleg sind separat zu prüfen."
+      },
+      "s_nom": {
+        "nominal": 6,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "unbrako"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Unbrako Herstellermaßreihe ISO4028; unabhängiger Zweitbeleg offen."
+      }
+    }
+  },
+  "sourceMeta": {
+    "fe4028": {
+      "id": "fe4028",
+      "url": "https://www.fasteners.eu/standards/ISO/4028/",
+      "titel": "fasteners.eu - ISO 4028 (Normenverzeichnis, Maßtabelle)",
+      "abgerufen": "2026-11-25",
+      "type": "supplied-research-source"
+    },
+    "unbrako": {
+      "url": "https://www.unbrako.com.au/images/downloads/unbrako-technical-brochure.pdf",
+      "titel": "Unbrako technical brochure",
+      "type": "manufacturer",
+      "accessed": "2026-11-26"
+    }
+  },
+  "coverage": "documented",
+  "lengthCoverage": "unresearched",
+  "lengthDependentFields": [
+    "iT",
+    "t_min_lang",
+    "t_min_kurz"
+  ],
+  "requiredGeometryFields": [
+    "iSW",
+    "iT"
+  ],
+  "sizeCoverage": {
+    "M3": {
+      "status": "documented"
+    },
+    "M3.5": {
+      "status": "unresearched",
+      "note": "Keine Größenzeile vorhanden; daraus folgt kein Normverbot."
+    },
+    "M4": {
+      "status": "documented"
+    },
+    "M5": {
+      "status": "documented"
+    },
+    "M6": {
+      "status": "documented"
+    },
+    "M7": {
+      "status": "unresearched",
+      "note": "Keine Größenzeile vorhanden; daraus folgt kein Normverbot."
+    },
+    "M8": {
+      "status": "documented"
+    },
+    "M10": {
+      "status": "documented"
+    },
+    "M12": {
+      "status": "documented"
+    },
+    "M14": {
+      "status": "unresearched",
+      "note": "Keine Größenzeile vorhanden; daraus folgt kein Normverbot."
+    },
+    "M16": {
+      "status": "unresearched",
+      "note": "Keine Größenzeile vorhanden; daraus folgt kein Normverbot."
+    },
+    "M18": {
+      "status": "unresearched",
+      "note": "Keine Größenzeile vorhanden; daraus folgt kein Normverbot."
+    },
+    "M20": {
+      "status": "unresearched",
+      "note": "Keine Größenzeile vorhanden; daraus folgt kein Normverbot."
+    },
+    "M22": {
+      "status": "unresearched",
+      "note": "Keine Größenzeile vorhanden; daraus folgt kein Normverbot."
+    },
+    "M24": {
+      "status": "unresearched",
+      "note": "Keine Größenzeile vorhanden; daraus folgt kein Normverbot."
+    },
+    "M27": {
+      "status": "unresearched",
+      "note": "Keine Größenzeile vorhanden; daraus folgt kein Normverbot."
+    },
+    "M30": {
+      "status": "unresearched",
+      "note": "Keine Größenzeile vorhanden; daraus folgt kein Normverbot."
+    },
+    "M33": {
+      "status": "unresearched",
+      "note": "Keine Größenzeile vorhanden; daraus folgt kein Normverbot."
+    }
+  },
+  "pruefdatum": "2026-11-26",
+  "klassen": {
+    "status": "unresearched",
+    "values": [],
+    "note": "Festigkeits-/Werkstoffklassen noch nicht vollständig aus dieser Norm belegt."
+  }
+}

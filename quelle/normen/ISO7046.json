@@ -1,0 +1,699 @@
+{
+  "id": "ISO7046",
+  "version": "2026-11-26",
+  "schemaVersion": 1,
+  "label": "ISO7046 · Senkkopf mit Kreuzschlitz",
+  "edition": "2011",
+  "editionStatus": "part-specific",
+  "funktion": "schraube",
+  "klasse": "bolzen",
+  "kopfTyp": "kegelstumpf",
+  "antrieb": {
+    "art": "ph"
+  },
+  "feldzuordnung": {
+    "kD": "dk_max",
+    "kH": "k_max",
+    "iSize": "kreuzschlitz_Nr_H",
+    "iT": "t_H_min"
+  },
+  "groessen": {
+    "M3": {
+      "roh": {
+        "dk_max": 5.5,
+        "k_max": 1.65,
+        "kreuzschlitz_Nr_H": 1,
+        "t_H_min": 1.7
+      },
+      "vorbelegung": {
+        "kD": 5.5,
+        "kH": 1.65,
+        "iSize": 1,
+        "iT": 1.7
+      },
+      "coverage": "documented",
+      "nachLaenge": {},
+      "lengthCoverage": "unresearched",
+      "missingGeometryFields": [
+        "recessVolumeModel"
+      ],
+      "geometryStatus": "partial"
+    },
+    "M3.5": {
+      "roh": {
+        "dk_max": 7.3,
+        "k_max": 2.35,
+        "kreuzschlitz_Nr_H": 2,
+        "t_H_min": 1.9
+      },
+      "vorbelegung": {
+        "kD": 7.3,
+        "kH": 2.35,
+        "iSize": 2,
+        "iT": 1.9
+      },
+      "coverage": "documented",
+      "nachLaenge": {},
+      "lengthCoverage": "unresearched",
+      "missingGeometryFields": [
+        "recessVolumeModel"
+      ],
+      "geometryStatus": "partial"
+    },
+    "M4": {
+      "roh": {
+        "dk_max": 8.4,
+        "k_max": 2.7,
+        "kreuzschlitz_Nr_H": 2,
+        "t_H_min": 2.1
+      },
+      "vorbelegung": {
+        "kD": 8.4,
+        "kH": 2.7,
+        "iSize": 2,
+        "iT": 2.1
+      },
+      "coverage": "documented",
+      "nachLaenge": {},
+      "lengthCoverage": "unresearched",
+      "missingGeometryFields": [
+        "recessVolumeModel"
+      ],
+      "geometryStatus": "partial"
+    },
+    "M5": {
+      "roh": {
+        "dk_max": 9.3,
+        "k_max": 2.7,
+        "kreuzschlitz_Nr_H": 2,
+        "t_H_min": 2.7
+      },
+      "vorbelegung": {
+        "kD": 9.3,
+        "kH": 2.7,
+        "iSize": 2,
+        "iT": 2.7
+      },
+      "coverage": "documented",
+      "nachLaenge": {},
+      "lengthCoverage": "unresearched",
+      "missingGeometryFields": [
+        "recessVolumeModel"
+      ],
+      "geometryStatus": "partial"
+    },
+    "M6": {
+      "roh": {
+        "dk_max": 11.3,
+        "k_max": 3.3,
+        "kreuzschlitz_Nr_H": 3,
+        "t_H_min": 3
+      },
+      "vorbelegung": {
+        "kD": 11.3,
+        "kH": 3.3,
+        "iSize": 3,
+        "iT": 3
+      },
+      "coverage": "documented",
+      "nachLaenge": {},
+      "lengthCoverage": "unresearched",
+      "missingGeometryFields": [
+        "recessVolumeModel"
+      ],
+      "geometryStatus": "partial"
+    },
+    "M8": {
+      "roh": {
+        "dk_max": 15.8,
+        "k_max": 4.65,
+        "kreuzschlitz_Nr_H": 4,
+        "t_H_min": 4
+      },
+      "vorbelegung": {
+        "kD": 15.8,
+        "kH": 4.65,
+        "iSize": 4,
+        "iT": 4
+      },
+      "coverage": "documented",
+      "nachLaenge": {},
+      "lengthCoverage": "unresearched",
+      "missingGeometryFields": [
+        "recessVolumeModel"
+      ],
+      "geometryStatus": "partial"
+    },
+    "M10": {
+      "roh": {
+        "dk_max": 18.3,
+        "k_max": 5,
+        "kreuzschlitz_Nr_H": 4,
+        "t_H_min": 5.1
+      },
+      "vorbelegung": {
+        "kD": 18.3,
+        "kH": 5,
+        "iSize": 4,
+        "iT": 5.1
+      },
+      "coverage": "documented",
+      "nachLaenge": {},
+      "lengthCoverage": "unresearched",
+      "missingGeometryFields": [
+        "recessVolumeModel"
+      ],
+      "geometryStatus": "partial"
+    }
+  },
+  "fields": {
+    "M3": {
+      "dk_max": {
+        "nominal": 5.5,
+        "min": null,
+        "max": 5.5,
+        "unit": "mm",
+        "sourceRefs": [
+          "iteh7046_1_2011"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Zweitbeleg je Einzelwert noch offen."
+      },
+      "k_max": {
+        "nominal": 1.65,
+        "min": null,
+        "max": 1.65,
+        "unit": "mm",
+        "sourceRefs": [
+          "iteh7046_1_2011"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Zweitbeleg je Einzelwert noch offen."
+      },
+      "kreuzschlitz_Nr_H": {
+        "nominal": 1,
+        "min": null,
+        "max": null,
+        "unit": null,
+        "sourceRefs": [
+          "iteh7046_1_2011"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Zweitbeleg je Einzelwert noch offen."
+      },
+      "t_H_min": {
+        "nominal": 1.7,
+        "min": 1.7,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iteh7046_1_2011"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Zweitbeleg je Einzelwert noch offen."
+      },
+      "recessVolumeModel": {
+        "nominal": null,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "note": "Für diese Geometrie noch nicht belegt; nicht aus ähnlicher Norm ergänzen."
+      }
+    },
+    "M3.5": {
+      "dk_max": {
+        "nominal": 7.3,
+        "min": null,
+        "max": 7.3,
+        "unit": "mm",
+        "sourceRefs": [
+          "iteh7046_1_2011"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Zweitbeleg je Einzelwert noch offen."
+      },
+      "k_max": {
+        "nominal": 2.35,
+        "min": null,
+        "max": 2.35,
+        "unit": "mm",
+        "sourceRefs": [
+          "iteh7046_1_2011"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Zweitbeleg je Einzelwert noch offen."
+      },
+      "kreuzschlitz_Nr_H": {
+        "nominal": 2,
+        "min": null,
+        "max": null,
+        "unit": null,
+        "sourceRefs": [
+          "iteh7046_1_2011"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Zweitbeleg je Einzelwert noch offen."
+      },
+      "t_H_min": {
+        "nominal": 1.9,
+        "min": 1.9,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iteh7046_1_2011"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Zweitbeleg je Einzelwert noch offen."
+      },
+      "recessVolumeModel": {
+        "nominal": null,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "note": "Für diese Geometrie noch nicht belegt; nicht aus ähnlicher Norm ergänzen."
+      }
+    },
+    "M4": {
+      "dk_max": {
+        "nominal": 8.4,
+        "min": null,
+        "max": 8.4,
+        "unit": "mm",
+        "sourceRefs": [
+          "iteh7046_1_2011"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Zweitbeleg je Einzelwert noch offen."
+      },
+      "k_max": {
+        "nominal": 2.7,
+        "min": null,
+        "max": 2.7,
+        "unit": "mm",
+        "sourceRefs": [
+          "iteh7046_1_2011"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Zweitbeleg je Einzelwert noch offen."
+      },
+      "kreuzschlitz_Nr_H": {
+        "nominal": 2,
+        "min": null,
+        "max": null,
+        "unit": null,
+        "sourceRefs": [
+          "iteh7046_1_2011"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Zweitbeleg je Einzelwert noch offen."
+      },
+      "t_H_min": {
+        "nominal": 2.1,
+        "min": 2.1,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iteh7046_1_2011"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Zweitbeleg je Einzelwert noch offen."
+      },
+      "recessVolumeModel": {
+        "nominal": null,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "note": "Für diese Geometrie noch nicht belegt; nicht aus ähnlicher Norm ergänzen."
+      }
+    },
+    "M5": {
+      "dk_max": {
+        "nominal": 9.3,
+        "min": null,
+        "max": 9.3,
+        "unit": "mm",
+        "sourceRefs": [
+          "iteh7046_1_2011"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Zweitbeleg je Einzelwert noch offen."
+      },
+      "k_max": {
+        "nominal": 2.7,
+        "min": null,
+        "max": 2.7,
+        "unit": "mm",
+        "sourceRefs": [
+          "iteh7046_1_2011"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Zweitbeleg je Einzelwert noch offen."
+      },
+      "kreuzschlitz_Nr_H": {
+        "nominal": 2,
+        "min": null,
+        "max": null,
+        "unit": null,
+        "sourceRefs": [
+          "iteh7046_1_2011"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Zweitbeleg je Einzelwert noch offen."
+      },
+      "t_H_min": {
+        "nominal": 2.7,
+        "min": 2.7,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iteh7046_1_2011"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Zweitbeleg je Einzelwert noch offen."
+      },
+      "recessVolumeModel": {
+        "nominal": null,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "note": "Für diese Geometrie noch nicht belegt; nicht aus ähnlicher Norm ergänzen."
+      }
+    },
+    "M6": {
+      "dk_max": {
+        "nominal": 11.3,
+        "min": null,
+        "max": 11.3,
+        "unit": "mm",
+        "sourceRefs": [
+          "iteh7046_1_2011"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Zweitbeleg je Einzelwert noch offen."
+      },
+      "k_max": {
+        "nominal": 3.3,
+        "min": null,
+        "max": 3.3,
+        "unit": "mm",
+        "sourceRefs": [
+          "iteh7046_1_2011"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Zweitbeleg je Einzelwert noch offen."
+      },
+      "kreuzschlitz_Nr_H": {
+        "nominal": 3,
+        "min": null,
+        "max": null,
+        "unit": null,
+        "sourceRefs": [
+          "iteh7046_1_2011"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Zweitbeleg je Einzelwert noch offen."
+      },
+      "t_H_min": {
+        "nominal": 3,
+        "min": 3,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iteh7046_1_2011"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Zweitbeleg je Einzelwert noch offen."
+      },
+      "recessVolumeModel": {
+        "nominal": null,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "note": "Für diese Geometrie noch nicht belegt; nicht aus ähnlicher Norm ergänzen."
+      }
+    },
+    "M8": {
+      "dk_max": {
+        "nominal": 15.8,
+        "min": null,
+        "max": 15.8,
+        "unit": "mm",
+        "sourceRefs": [
+          "iteh7046_1_2011"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Zweitbeleg je Einzelwert noch offen."
+      },
+      "k_max": {
+        "nominal": 4.65,
+        "min": null,
+        "max": 4.65,
+        "unit": "mm",
+        "sourceRefs": [
+          "iteh7046_1_2011"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Zweitbeleg je Einzelwert noch offen."
+      },
+      "kreuzschlitz_Nr_H": {
+        "nominal": 4,
+        "min": null,
+        "max": null,
+        "unit": null,
+        "sourceRefs": [
+          "iteh7046_1_2011"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Zweitbeleg je Einzelwert noch offen."
+      },
+      "t_H_min": {
+        "nominal": 4,
+        "min": 4,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iteh7046_1_2011"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Zweitbeleg je Einzelwert noch offen."
+      },
+      "recessVolumeModel": {
+        "nominal": null,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "note": "Für diese Geometrie noch nicht belegt; nicht aus ähnlicher Norm ergänzen."
+      }
+    },
+    "M10": {
+      "dk_max": {
+        "nominal": 18.3,
+        "min": null,
+        "max": 18.3,
+        "unit": "mm",
+        "sourceRefs": [
+          "iteh7046_1_2011"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Zweitbeleg je Einzelwert noch offen."
+      },
+      "k_max": {
+        "nominal": 5,
+        "min": null,
+        "max": 5,
+        "unit": "mm",
+        "sourceRefs": [
+          "iteh7046_1_2011"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Zweitbeleg je Einzelwert noch offen."
+      },
+      "kreuzschlitz_Nr_H": {
+        "nominal": 4,
+        "min": null,
+        "max": null,
+        "unit": null,
+        "sourceRefs": [
+          "iteh7046_1_2011"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Zweitbeleg je Einzelwert noch offen."
+      },
+      "t_H_min": {
+        "nominal": 5.1,
+        "min": 5.1,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iteh7046_1_2011"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Zweitbeleg je Einzelwert noch offen."
+      },
+      "recessVolumeModel": {
+        "nominal": null,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "note": "Für diese Geometrie noch nicht belegt; nicht aus ähnlicher Norm ergänzen."
+      }
+    }
+  },
+  "sourceMeta": {
+    "iteh7046_1_2011": {
+      "url": "https://cdn.standards.iteh.ai/samples/57373/eec1f81ca47845038a18aa4c66b91e22/ISO-7046-1-2011.pdf",
+      "titel": "ISO7046-1:2011 Tabelle1",
+      "type": "standard-excerpt",
+      "accessed": "2026-11-26"
+    }
+  },
+  "quellen": [
+    {
+      "id": "iteh7046_1_2011",
+      "url": "https://cdn.standards.iteh.ai/samples/57373/eec1f81ca47845038a18aa4c66b91e22/ISO-7046-1-2011.pdf",
+      "titel": "ISO7046-1:2011 Tabelle1",
+      "type": "standard-excerpt",
+      "accessed": "2026-11-26"
+    }
+  ],
+  "abweichungen": [],
+  "status": "partial",
+  "coverage": "documented",
+  "lengthCoverage": "unresearched",
+  "hinweise": [
+    "ISO7046 muss nach Teil1/Teil2 und Kreuzschlitz H/Z unterschieden werden. Diese Zeilen belegen nur Teil1 TypH; Tiefe ist Eindringtiefe der Prüflehre, nicht blind als Zylinderlochvolumen interpretieren."
+  ],
+  "normstatus": {
+    "status": "unresolved",
+    "note": "Ausgabe und Vollständigkeit nicht aus einer ähnlichen Norm ableiten."
+  },
+  "part": "ISO7046-1",
+  "requiredGeometryFields": [
+    "kD",
+    "kH",
+    "iSize",
+    "recessVolumeModel"
+  ],
+  "sizeCoverage": {
+    "M3": {
+      "status": "documented"
+    },
+    "M3.5": {
+      "status": "documented"
+    },
+    "M4": {
+      "status": "documented"
+    },
+    "M5": {
+      "status": "documented"
+    },
+    "M6": {
+      "status": "documented"
+    },
+    "M7": {
+      "status": "unresearched",
+      "note": "Keine Größenzeile vorhanden; daraus folgt kein Normverbot."
+    },
+    "M8": {
+      "status": "documented"
+    },
+    "M10": {
+      "status": "documented"
+    },
+    "M12": {
+      "status": "unresearched",
+      "note": "Keine Größenzeile vorhanden; daraus folgt kein Normverbot."
+    },
+    "M14": {
+      "status": "unresearched",
+      "note": "Keine Größenzeile vorhanden; daraus folgt kein Normverbot."
+    },
+    "M16": {
+      "status": "unresearched",
+      "note": "Keine Größenzeile vorhanden; daraus folgt kein Normverbot."
+    },
+    "M18": {
+      "status": "unresearched",
+      "note": "Keine Größenzeile vorhanden; daraus folgt kein Normverbot."
+    },
+    "M20": {
+      "status": "unresearched",
+      "note": "Keine Größenzeile vorhanden; daraus folgt kein Normverbot."
+    },
+    "M22": {
+      "status": "unresearched",
+      "note": "Keine Größenzeile vorhanden; daraus folgt kein Normverbot."
+    },
+    "M24": {
+      "status": "unresearched",
+      "note": "Keine Größenzeile vorhanden; daraus folgt kein Normverbot."
+    },
+    "M27": {
+      "status": "unresearched",
+      "note": "Keine Größenzeile vorhanden; daraus folgt kein Normverbot."
+    },
+    "M30": {
+      "status": "unresearched",
+      "note": "Keine Größenzeile vorhanden; daraus folgt kein Normverbot."
+    },
+    "M33": {
+      "status": "unresearched",
+      "note": "Keine Größenzeile vorhanden; daraus folgt kein Normverbot."
+    }
+  },
+  "pruefdatum": "2026-11-26",
+  "klassen": {
+    "status": "unresearched",
+    "values": [],
+    "note": "Festigkeits-/Werkstoffklassen noch nicht vollständig aus dieser Norm belegt."
+  }
+}

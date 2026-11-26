@@ -1,0 +1,2002 @@
+{
+  "schemaVersion": 1,
+  "version": "2026-11-26.1",
+  "id": "DIN6927",
+  "edition": "catalog-undated",
+  "label": "Ganzmetall-Klemmmutter mit Bund",
+  "funktion": "mutter",
+  "klasse": "mutter",
+  "kopfTyp": "sechskant_bund",
+  "alias": [],
+  "feldzuordnung": {
+    "mSW": "s_nom",
+    "mH": "h_max",
+    "dc": "dc_max",
+    "c": "c_min"
+  },
+  "groessen": {
+    "M5": {
+      "vorbelegung": {
+        "mSW": 8,
+        "mH": 6.2,
+        "dc": 11.8,
+        "c": 1
+      },
+      "roh": {
+        "d_nom": 5,
+        "P": 0.8,
+        "s_nom": 8,
+        "s_min": 7.78,
+        "e_min": 8.79,
+        "h_max": 6.2,
+        "m_min": 4.7,
+        "dc_max": 11.8,
+        "c_min": 1
+      },
+      "thread": {
+        "id": "M5x0.8",
+        "diameter": 5,
+        "pitch": 0.8,
+        "sourceRefs": [
+          "ugatu6927"
+        ]
+      },
+      "geometryStatus": "partial",
+      "missingGeometryFields": [
+        "prevailingTorqueProfile"
+      ]
+    },
+    "M6": {
+      "vorbelegung": {
+        "mSW": 10,
+        "mH": 7.3,
+        "dc": 14.2,
+        "c": 1.1
+      },
+      "roh": {
+        "d_nom": 6,
+        "P": 1,
+        "s_nom": 10,
+        "s_min": 9.78,
+        "e_min": 11.05,
+        "h_max": 7.3,
+        "m_min": 5.7,
+        "dc_max": 14.2,
+        "c_min": 1.1
+      },
+      "thread": {
+        "id": "M6x1",
+        "diameter": 6,
+        "pitch": 1,
+        "sourceRefs": [
+          "ugatu6927"
+        ]
+      },
+      "geometryStatus": "partial",
+      "missingGeometryFields": [
+        "prevailingTorqueProfile"
+      ]
+    },
+    "M8": {
+      "vorbelegung": {
+        "mSW": 13,
+        "mH": 9.4,
+        "dc": 17.9,
+        "c": 1.2
+      },
+      "roh": {
+        "d_nom": 8,
+        "P": 1.25,
+        "s_nom": 13,
+        "s_min": 12.73,
+        "e_min": 14.38,
+        "h_max": 9.4,
+        "m_min": 7.6,
+        "dc_max": 17.9,
+        "c_min": 1.2
+      },
+      "thread": {
+        "id": "M8x1.25",
+        "diameter": 8,
+        "pitch": 1.25,
+        "sourceRefs": [
+          "ugatu6927"
+        ]
+      },
+      "geometryStatus": "partial",
+      "missingGeometryFields": [
+        "prevailingTorqueProfile"
+      ]
+    },
+    "M10": {
+      "vorbelegung": {
+        "mSW": 15,
+        "mH": 11.4,
+        "dc": 21.8,
+        "c": 1.5
+      },
+      "roh": {
+        "d_nom": 10,
+        "P": 1.5,
+        "s_nom": 15,
+        "s_min": 14.73,
+        "e_min": 16.64,
+        "h_max": 11.4,
+        "m_min": 9.6,
+        "dc_max": 21.8,
+        "c_min": 1.5
+      },
+      "thread": {
+        "id": "M10x1.5",
+        "diameter": 10,
+        "pitch": 1.5,
+        "sourceRefs": [
+          "ugatu6927"
+        ]
+      },
+      "geometryStatus": "partial",
+      "missingGeometryFields": [
+        "prevailingTorqueProfile"
+      ]
+    },
+    "M12": {
+      "vorbelegung": {
+        "mSW": 18,
+        "mH": 13.8,
+        "dc": 26,
+        "c": 1.8
+      },
+      "roh": {
+        "d_nom": 12,
+        "P": 1.75,
+        "s_nom": 18,
+        "s_min": 17.73,
+        "e_min": 20.03,
+        "h_max": 13.8,
+        "m_min": 11.6,
+        "dc_max": 26,
+        "c_min": 1.8
+      },
+      "thread": {
+        "id": "M12x1.75",
+        "diameter": 12,
+        "pitch": 1.75,
+        "sourceRefs": [
+          "ugatu6927"
+        ]
+      },
+      "geometryStatus": "partial",
+      "missingGeometryFields": [
+        "prevailingTorqueProfile"
+      ]
+    },
+    "M14": {
+      "vorbelegung": {
+        "mSW": 21,
+        "mH": 15.9,
+        "dc": 29.9,
+        "c": 2.1
+      },
+      "roh": {
+        "d_nom": 14,
+        "P": 2,
+        "s_nom": 21,
+        "s_min": 20.67,
+        "e_min": 23.36,
+        "h_max": 15.9,
+        "m_min": 13.3,
+        "dc_max": 29.9,
+        "c_min": 2.1
+      },
+      "thread": {
+        "id": "M14x2",
+        "diameter": 14,
+        "pitch": 2,
+        "sourceRefs": [
+          "ugatu6927"
+        ]
+      },
+      "geometryStatus": "partial",
+      "missingGeometryFields": [
+        "prevailingTorqueProfile"
+      ]
+    },
+    "M16": {
+      "vorbelegung": {
+        "mSW": 24,
+        "mH": 18.3,
+        "dc": 34.5,
+        "c": 2.4
+      },
+      "roh": {
+        "d_nom": 16,
+        "P": 2,
+        "s_nom": 24,
+        "s_min": 23.67,
+        "e_min": 26.75,
+        "h_max": 18.3,
+        "m_min": 15.3,
+        "dc_max": 34.5,
+        "c_min": 2.4
+      },
+      "thread": {
+        "id": "M16x2",
+        "diameter": 16,
+        "pitch": 2,
+        "sourceRefs": [
+          "ugatu6927"
+        ]
+      },
+      "geometryStatus": "partial",
+      "missingGeometryFields": [
+        "prevailingTorqueProfile"
+      ]
+    },
+    "M20": {
+      "vorbelegung": {
+        "mSW": 30,
+        "mH": 22.4,
+        "dc": 42.8,
+        "c": 3
+      },
+      "roh": {
+        "d_nom": 20,
+        "P": 2.5,
+        "s_nom": 30,
+        "s_min": 29.16,
+        "e_min": 32.95,
+        "h_max": 22.4,
+        "m_min": 18.9,
+        "dc_max": 42.8,
+        "c_min": 3
+      },
+      "thread": {
+        "id": "M20x2.5",
+        "diameter": 20,
+        "pitch": 2.5,
+        "sourceRefs": [
+          "ugatu6927"
+        ]
+      },
+      "geometryStatus": "partial",
+      "missingGeometryFields": [
+        "prevailingTorqueProfile"
+      ]
+    },
+    "M8x1": {
+      "vorbelegung": {
+        "mSW": 13,
+        "mH": 9.4,
+        "dc": 17.9,
+        "c": 1.2
+      },
+      "roh": {
+        "d_nom": 8,
+        "P": 1,
+        "s_nom": 13,
+        "s_min": 12.73,
+        "e_min": 14.38,
+        "h_max": 9.4,
+        "m_min": 7.6,
+        "dc_max": 17.9,
+        "c_min": 1.2
+      },
+      "thread": {
+        "id": "M8x1",
+        "diameter": 8,
+        "pitch": 1,
+        "sourceRefs": [
+          "ugatu6927"
+        ]
+      },
+      "geometryStatus": "partial",
+      "missingGeometryFields": [
+        "prevailingTorqueProfile"
+      ]
+    },
+    "M10x1.25": {
+      "vorbelegung": {
+        "mSW": 15,
+        "mH": 11.4,
+        "dc": 21.8,
+        "c": 1.5
+      },
+      "roh": {
+        "d_nom": 10,
+        "P": 1.25,
+        "s_nom": 15,
+        "s_min": 14.73,
+        "e_min": 16.64,
+        "h_max": 11.4,
+        "m_min": 9.6,
+        "dc_max": 21.8,
+        "c_min": 1.5
+      },
+      "thread": {
+        "id": "M10x1.25",
+        "diameter": 10,
+        "pitch": 1.25,
+        "sourceRefs": [
+          "ugatu6927"
+        ]
+      },
+      "geometryStatus": "partial",
+      "missingGeometryFields": [
+        "prevailingTorqueProfile"
+      ]
+    },
+    "M10x1": {
+      "vorbelegung": {
+        "mSW": 15,
+        "mH": 11.4,
+        "dc": 21.8,
+        "c": 1.5
+      },
+      "roh": {
+        "d_nom": 10,
+        "P": 1,
+        "s_nom": 15,
+        "s_min": 14.73,
+        "e_min": 16.64,
+        "h_max": 11.4,
+        "m_min": 9.6,
+        "dc_max": 21.8,
+        "c_min": 1.5
+      },
+      "thread": {
+        "id": "M10x1",
+        "diameter": 10,
+        "pitch": 1,
+        "sourceRefs": [
+          "ugatu6927"
+        ]
+      },
+      "geometryStatus": "partial",
+      "missingGeometryFields": [
+        "prevailingTorqueProfile"
+      ]
+    },
+    "M12x1.5": {
+      "vorbelegung": {
+        "mSW": 18,
+        "mH": 13.8,
+        "dc": 26,
+        "c": 1.8
+      },
+      "roh": {
+        "d_nom": 12,
+        "P": 1.5,
+        "s_nom": 18,
+        "s_min": 17.73,
+        "e_min": 20.03,
+        "h_max": 13.8,
+        "m_min": 11.6,
+        "dc_max": 26,
+        "c_min": 1.8
+      },
+      "thread": {
+        "id": "M12x1.5",
+        "diameter": 12,
+        "pitch": 1.5,
+        "sourceRefs": [
+          "ugatu6927"
+        ]
+      },
+      "geometryStatus": "partial",
+      "missingGeometryFields": [
+        "prevailingTorqueProfile"
+      ]
+    },
+    "M14x1.5": {
+      "vorbelegung": {
+        "mSW": 21,
+        "mH": 15.9,
+        "dc": 29.9,
+        "c": 2.1
+      },
+      "roh": {
+        "d_nom": 14,
+        "P": 1.5,
+        "s_nom": 21,
+        "s_min": 20.67,
+        "e_min": 23.36,
+        "h_max": 15.9,
+        "m_min": 13.3,
+        "dc_max": 29.9,
+        "c_min": 2.1
+      },
+      "thread": {
+        "id": "M14x1.5",
+        "diameter": 14,
+        "pitch": 1.5,
+        "sourceRefs": [
+          "ugatu6927"
+        ]
+      },
+      "geometryStatus": "partial",
+      "missingGeometryFields": [
+        "prevailingTorqueProfile"
+      ]
+    },
+    "M16x1.5": {
+      "vorbelegung": {
+        "mSW": 24,
+        "mH": 18.3,
+        "dc": 34.5,
+        "c": 2.4
+      },
+      "roh": {
+        "d_nom": 16,
+        "P": 1.5,
+        "s_nom": 24,
+        "s_min": 23.67,
+        "e_min": 26.75,
+        "h_max": 18.3,
+        "m_min": 15.3,
+        "dc_max": 34.5,
+        "c_min": 2.4
+      },
+      "thread": {
+        "id": "M16x1.5",
+        "diameter": 16,
+        "pitch": 1.5,
+        "sourceRefs": [
+          "ugatu6927"
+        ]
+      },
+      "geometryStatus": "partial",
+      "missingGeometryFields": [
+        "prevailingTorqueProfile"
+      ]
+    },
+    "M20x1.5": {
+      "vorbelegung": {
+        "mSW": 30,
+        "mH": 22.4,
+        "dc": 42.8,
+        "c": 3
+      },
+      "roh": {
+        "d_nom": 20,
+        "P": 1.5,
+        "s_nom": 30,
+        "s_min": 29.16,
+        "e_min": 32.95,
+        "h_max": 22.4,
+        "m_min": 18.9,
+        "dc_max": 42.8,
+        "c_min": 3
+      },
+      "thread": {
+        "id": "M20x1.5",
+        "diameter": 20,
+        "pitch": 1.5,
+        "sourceRefs": [
+          "ugatu6927"
+        ]
+      },
+      "geometryStatus": "partial",
+      "missingGeometryFields": [
+        "prevailingTorqueProfile"
+      ]
+    }
+  },
+  "fields": {
+    "M5": {
+      "P": {
+        "nominal": 0.8,
+        "sourceRefs": [
+          "ugatu6927"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "s_nom": {
+        "nominal": 8,
+        "sourceRefs": [
+          "ugatu6927"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "s_min": {
+        "min": 7.78,
+        "sourceRefs": [
+          "ugatu6927"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "e_min": {
+        "min": 8.79,
+        "sourceRefs": [
+          "ugatu6927"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "h_max": {
+        "max": 6.2,
+        "sourceRefs": [
+          "ugatu6927"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "m_min": {
+        "min": 4.7,
+        "sourceRefs": [
+          "ugatu6927"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "dc_max": {
+        "max": 11.8,
+        "sourceRefs": [
+          "ugatu6927"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "c_min": {
+        "min": 1,
+        "sourceRefs": [
+          "ugatu6927"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "d_nom": {
+        "nominal": 5,
+        "sourceRefs": [
+          "ugatu6927"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "prevailingTorqueProfile": {
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "unit": "mm",
+        "note": "Detailmaß im ausgewerteten Nachweis nicht festgelegt; Kunden-/Herstellerzeichnung erforderlich."
+      }
+    },
+    "M6": {
+      "P": {
+        "nominal": 1,
+        "sourceRefs": [
+          "ugatu6927"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "s_nom": {
+        "nominal": 10,
+        "sourceRefs": [
+          "ugatu6927"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "s_min": {
+        "min": 9.78,
+        "sourceRefs": [
+          "ugatu6927"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "e_min": {
+        "min": 11.05,
+        "sourceRefs": [
+          "ugatu6927"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "h_max": {
+        "max": 7.3,
+        "sourceRefs": [
+          "ugatu6927"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "m_min": {
+        "min": 5.7,
+        "sourceRefs": [
+          "ugatu6927"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "dc_max": {
+        "max": 14.2,
+        "sourceRefs": [
+          "ugatu6927"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "c_min": {
+        "min": 1.1,
+        "sourceRefs": [
+          "ugatu6927"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "d_nom": {
+        "nominal": 6,
+        "sourceRefs": [
+          "ugatu6927"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "prevailingTorqueProfile": {
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "unit": "mm",
+        "note": "Detailmaß im ausgewerteten Nachweis nicht festgelegt; Kunden-/Herstellerzeichnung erforderlich."
+      }
+    },
+    "M8": {
+      "P": {
+        "nominal": 1.25,
+        "sourceRefs": [
+          "ugatu6927"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "s_nom": {
+        "nominal": 13,
+        "sourceRefs": [
+          "ugatu6927"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "s_min": {
+        "min": 12.73,
+        "sourceRefs": [
+          "ugatu6927"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "e_min": {
+        "min": 14.38,
+        "sourceRefs": [
+          "ugatu6927"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "h_max": {
+        "max": 9.4,
+        "sourceRefs": [
+          "ugatu6927"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "m_min": {
+        "min": 7.6,
+        "sourceRefs": [
+          "ugatu6927"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "dc_max": {
+        "max": 17.9,
+        "sourceRefs": [
+          "ugatu6927"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "c_min": {
+        "min": 1.2,
+        "sourceRefs": [
+          "ugatu6927"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "d_nom": {
+        "nominal": 8,
+        "sourceRefs": [
+          "ugatu6927"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "prevailingTorqueProfile": {
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "unit": "mm",
+        "note": "Detailmaß im ausgewerteten Nachweis nicht festgelegt; Kunden-/Herstellerzeichnung erforderlich."
+      }
+    },
+    "M10": {
+      "P": {
+        "nominal": 1.5,
+        "sourceRefs": [
+          "ugatu6927"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "s_nom": {
+        "nominal": 15,
+        "sourceRefs": [
+          "ugatu6927"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "s_min": {
+        "min": 14.73,
+        "sourceRefs": [
+          "ugatu6927"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "e_min": {
+        "min": 16.64,
+        "sourceRefs": [
+          "ugatu6927"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "h_max": {
+        "max": 11.4,
+        "sourceRefs": [
+          "ugatu6927"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "m_min": {
+        "min": 9.6,
+        "sourceRefs": [
+          "ugatu6927"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "dc_max": {
+        "max": 21.8,
+        "sourceRefs": [
+          "ugatu6927"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "c_min": {
+        "min": 1.5,
+        "sourceRefs": [
+          "ugatu6927"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "d_nom": {
+        "nominal": 10,
+        "sourceRefs": [
+          "ugatu6927"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "prevailingTorqueProfile": {
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "unit": "mm",
+        "note": "Detailmaß im ausgewerteten Nachweis nicht festgelegt; Kunden-/Herstellerzeichnung erforderlich."
+      }
+    },
+    "M12": {
+      "P": {
+        "nominal": 1.75,
+        "sourceRefs": [
+          "ugatu6927"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "s_nom": {
+        "nominal": 18,
+        "sourceRefs": [
+          "ugatu6927"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "s_min": {
+        "min": 17.73,
+        "sourceRefs": [
+          "ugatu6927"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "e_min": {
+        "min": 20.03,
+        "sourceRefs": [
+          "ugatu6927"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "h_max": {
+        "max": 13.8,
+        "sourceRefs": [
+          "ugatu6927"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "m_min": {
+        "min": 11.6,
+        "sourceRefs": [
+          "ugatu6927"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "dc_max": {
+        "max": 26,
+        "sourceRefs": [
+          "ugatu6927"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "c_min": {
+        "min": 1.8,
+        "sourceRefs": [
+          "ugatu6927"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "d_nom": {
+        "nominal": 12,
+        "sourceRefs": [
+          "ugatu6927"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "prevailingTorqueProfile": {
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "unit": "mm",
+        "note": "Detailmaß im ausgewerteten Nachweis nicht festgelegt; Kunden-/Herstellerzeichnung erforderlich."
+      }
+    },
+    "M14": {
+      "P": {
+        "nominal": 2,
+        "sourceRefs": [
+          "ugatu6927"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "s_nom": {
+        "nominal": 21,
+        "sourceRefs": [
+          "ugatu6927"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "s_min": {
+        "min": 20.67,
+        "sourceRefs": [
+          "ugatu6927"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "e_min": {
+        "min": 23.36,
+        "sourceRefs": [
+          "ugatu6927"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "h_max": {
+        "max": 15.9,
+        "sourceRefs": [
+          "ugatu6927"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "m_min": {
+        "min": 13.3,
+        "sourceRefs": [
+          "ugatu6927"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "dc_max": {
+        "max": 29.9,
+        "sourceRefs": [
+          "ugatu6927"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "c_min": {
+        "min": 2.1,
+        "sourceRefs": [
+          "ugatu6927"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "d_nom": {
+        "nominal": 14,
+        "sourceRefs": [
+          "ugatu6927"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "prevailingTorqueProfile": {
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "unit": "mm",
+        "note": "Detailmaß im ausgewerteten Nachweis nicht festgelegt; Kunden-/Herstellerzeichnung erforderlich."
+      }
+    },
+    "M16": {
+      "P": {
+        "nominal": 2,
+        "sourceRefs": [
+          "ugatu6927"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "s_nom": {
+        "nominal": 24,
+        "sourceRefs": [
+          "ugatu6927"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "s_min": {
+        "min": 23.67,
+        "sourceRefs": [
+          "ugatu6927"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "e_min": {
+        "min": 26.75,
+        "sourceRefs": [
+          "ugatu6927"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "h_max": {
+        "max": 18.3,
+        "sourceRefs": [
+          "ugatu6927"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "m_min": {
+        "min": 15.3,
+        "sourceRefs": [
+          "ugatu6927"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "dc_max": {
+        "max": 34.5,
+        "sourceRefs": [
+          "ugatu6927"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "c_min": {
+        "min": 2.4,
+        "sourceRefs": [
+          "ugatu6927"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "d_nom": {
+        "nominal": 16,
+        "sourceRefs": [
+          "ugatu6927"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "prevailingTorqueProfile": {
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "unit": "mm",
+        "note": "Detailmaß im ausgewerteten Nachweis nicht festgelegt; Kunden-/Herstellerzeichnung erforderlich."
+      }
+    },
+    "M20": {
+      "P": {
+        "nominal": 2.5,
+        "sourceRefs": [
+          "ugatu6927"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "s_nom": {
+        "nominal": 30,
+        "sourceRefs": [
+          "ugatu6927"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "s_min": {
+        "min": 29.16,
+        "sourceRefs": [
+          "ugatu6927"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "e_min": {
+        "min": 32.95,
+        "sourceRefs": [
+          "ugatu6927"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "h_max": {
+        "max": 22.4,
+        "sourceRefs": [
+          "ugatu6927"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "m_min": {
+        "min": 18.9,
+        "sourceRefs": [
+          "ugatu6927"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "dc_max": {
+        "max": 42.8,
+        "sourceRefs": [
+          "ugatu6927"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "c_min": {
+        "min": 3,
+        "sourceRefs": [
+          "ugatu6927"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "d_nom": {
+        "nominal": 20,
+        "sourceRefs": [
+          "ugatu6927"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "prevailingTorqueProfile": {
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "unit": "mm",
+        "note": "Detailmaß im ausgewerteten Nachweis nicht festgelegt; Kunden-/Herstellerzeichnung erforderlich."
+      }
+    },
+    "M8x1": {
+      "P": {
+        "nominal": 1,
+        "sourceRefs": [
+          "ugatu6927"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "s_nom": {
+        "nominal": 13,
+        "sourceRefs": [
+          "ugatu6927"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "s_min": {
+        "min": 12.73,
+        "sourceRefs": [
+          "ugatu6927"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "e_min": {
+        "min": 14.38,
+        "sourceRefs": [
+          "ugatu6927"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "h_max": {
+        "max": 9.4,
+        "sourceRefs": [
+          "ugatu6927"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "m_min": {
+        "min": 7.6,
+        "sourceRefs": [
+          "ugatu6927"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "dc_max": {
+        "max": 17.9,
+        "sourceRefs": [
+          "ugatu6927"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "c_min": {
+        "min": 1.2,
+        "sourceRefs": [
+          "ugatu6927"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "d_nom": {
+        "nominal": 8,
+        "sourceRefs": [
+          "ugatu6927"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "prevailingTorqueProfile": {
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "unit": "mm",
+        "note": "Detailmaß im ausgewerteten Nachweis nicht festgelegt; Kunden-/Herstellerzeichnung erforderlich."
+      }
+    },
+    "M10x1.25": {
+      "P": {
+        "nominal": 1.25,
+        "sourceRefs": [
+          "ugatu6927"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "s_nom": {
+        "nominal": 15,
+        "sourceRefs": [
+          "ugatu6927"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "s_min": {
+        "min": 14.73,
+        "sourceRefs": [
+          "ugatu6927"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "e_min": {
+        "min": 16.64,
+        "sourceRefs": [
+          "ugatu6927"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "h_max": {
+        "max": 11.4,
+        "sourceRefs": [
+          "ugatu6927"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "m_min": {
+        "min": 9.6,
+        "sourceRefs": [
+          "ugatu6927"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "dc_max": {
+        "max": 21.8,
+        "sourceRefs": [
+          "ugatu6927"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "c_min": {
+        "min": 1.5,
+        "sourceRefs": [
+          "ugatu6927"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "d_nom": {
+        "nominal": 10,
+        "sourceRefs": [
+          "ugatu6927"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "prevailingTorqueProfile": {
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "unit": "mm",
+        "note": "Detailmaß im ausgewerteten Nachweis nicht festgelegt; Kunden-/Herstellerzeichnung erforderlich."
+      }
+    },
+    "M10x1": {
+      "P": {
+        "nominal": 1,
+        "sourceRefs": [
+          "ugatu6927"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "s_nom": {
+        "nominal": 15,
+        "sourceRefs": [
+          "ugatu6927"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "s_min": {
+        "min": 14.73,
+        "sourceRefs": [
+          "ugatu6927"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "e_min": {
+        "min": 16.64,
+        "sourceRefs": [
+          "ugatu6927"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "h_max": {
+        "max": 11.4,
+        "sourceRefs": [
+          "ugatu6927"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "m_min": {
+        "min": 9.6,
+        "sourceRefs": [
+          "ugatu6927"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "dc_max": {
+        "max": 21.8,
+        "sourceRefs": [
+          "ugatu6927"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "c_min": {
+        "min": 1.5,
+        "sourceRefs": [
+          "ugatu6927"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "d_nom": {
+        "nominal": 10,
+        "sourceRefs": [
+          "ugatu6927"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "prevailingTorqueProfile": {
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "unit": "mm",
+        "note": "Detailmaß im ausgewerteten Nachweis nicht festgelegt; Kunden-/Herstellerzeichnung erforderlich."
+      }
+    },
+    "M12x1.5": {
+      "P": {
+        "nominal": 1.5,
+        "sourceRefs": [
+          "ugatu6927"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "s_nom": {
+        "nominal": 18,
+        "sourceRefs": [
+          "ugatu6927"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "s_min": {
+        "min": 17.73,
+        "sourceRefs": [
+          "ugatu6927"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "e_min": {
+        "min": 20.03,
+        "sourceRefs": [
+          "ugatu6927"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "h_max": {
+        "max": 13.8,
+        "sourceRefs": [
+          "ugatu6927"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "m_min": {
+        "min": 11.6,
+        "sourceRefs": [
+          "ugatu6927"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "dc_max": {
+        "max": 26,
+        "sourceRefs": [
+          "ugatu6927"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "c_min": {
+        "min": 1.8,
+        "sourceRefs": [
+          "ugatu6927"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "d_nom": {
+        "nominal": 12,
+        "sourceRefs": [
+          "ugatu6927"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "prevailingTorqueProfile": {
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "unit": "mm",
+        "note": "Detailmaß im ausgewerteten Nachweis nicht festgelegt; Kunden-/Herstellerzeichnung erforderlich."
+      }
+    },
+    "M14x1.5": {
+      "P": {
+        "nominal": 1.5,
+        "sourceRefs": [
+          "ugatu6927"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "s_nom": {
+        "nominal": 21,
+        "sourceRefs": [
+          "ugatu6927"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "s_min": {
+        "min": 20.67,
+        "sourceRefs": [
+          "ugatu6927"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "e_min": {
+        "min": 23.36,
+        "sourceRefs": [
+          "ugatu6927"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "h_max": {
+        "max": 15.9,
+        "sourceRefs": [
+          "ugatu6927"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "m_min": {
+        "min": 13.3,
+        "sourceRefs": [
+          "ugatu6927"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "dc_max": {
+        "max": 29.9,
+        "sourceRefs": [
+          "ugatu6927"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "c_min": {
+        "min": 2.1,
+        "sourceRefs": [
+          "ugatu6927"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "d_nom": {
+        "nominal": 14,
+        "sourceRefs": [
+          "ugatu6927"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "prevailingTorqueProfile": {
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "unit": "mm",
+        "note": "Detailmaß im ausgewerteten Nachweis nicht festgelegt; Kunden-/Herstellerzeichnung erforderlich."
+      }
+    },
+    "M16x1.5": {
+      "P": {
+        "nominal": 1.5,
+        "sourceRefs": [
+          "ugatu6927"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "s_nom": {
+        "nominal": 24,
+        "sourceRefs": [
+          "ugatu6927"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "s_min": {
+        "min": 23.67,
+        "sourceRefs": [
+          "ugatu6927"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "e_min": {
+        "min": 26.75,
+        "sourceRefs": [
+          "ugatu6927"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "h_max": {
+        "max": 18.3,
+        "sourceRefs": [
+          "ugatu6927"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "m_min": {
+        "min": 15.3,
+        "sourceRefs": [
+          "ugatu6927"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "dc_max": {
+        "max": 34.5,
+        "sourceRefs": [
+          "ugatu6927"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "c_min": {
+        "min": 2.4,
+        "sourceRefs": [
+          "ugatu6927"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "d_nom": {
+        "nominal": 16,
+        "sourceRefs": [
+          "ugatu6927"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "prevailingTorqueProfile": {
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "unit": "mm",
+        "note": "Detailmaß im ausgewerteten Nachweis nicht festgelegt; Kunden-/Herstellerzeichnung erforderlich."
+      }
+    },
+    "M20x1.5": {
+      "P": {
+        "nominal": 1.5,
+        "sourceRefs": [
+          "ugatu6927"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "s_nom": {
+        "nominal": 30,
+        "sourceRefs": [
+          "ugatu6927"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "s_min": {
+        "min": 29.16,
+        "sourceRefs": [
+          "ugatu6927"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "e_min": {
+        "min": 32.95,
+        "sourceRefs": [
+          "ugatu6927"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "h_max": {
+        "max": 22.4,
+        "sourceRefs": [
+          "ugatu6927"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "m_min": {
+        "min": 18.9,
+        "sourceRefs": [
+          "ugatu6927"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "dc_max": {
+        "max": 42.8,
+        "sourceRefs": [
+          "ugatu6927"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "c_min": {
+        "min": 3,
+        "sourceRefs": [
+          "ugatu6927"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "d_nom": {
+        "nominal": 20,
+        "sourceRefs": [
+          "ugatu6927"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "prevailingTorqueProfile": {
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "unit": "mm",
+        "note": "Detailmaß im ausgewerteten Nachweis nicht festgelegt; Kunden-/Herstellerzeichnung erforderlich."
+      }
+    }
+  },
+  "sourceMeta": {
+    "ugatu6927": {
+      "url": "https://www.ugatu.com/media/uploads/pdf/fichas-tecnicas/DIN_6927.pdf",
+      "title": "Industrias UGATU DIN 6927 technical data",
+      "locator": "Page 2, dimensional table",
+      "kind": "manufacturer-datasheet",
+      "edition": null,
+      "accessed": "2026-11-26"
+    }
+  },
+  "sourceStatus": "per-value",
+  "coverage": {
+    "diameterMin": 5,
+    "diameterMax": 30,
+    "unit": "mm",
+    "status": "partial",
+    "missingSizes": [
+      "M7",
+      "M18",
+      "M22",
+      "M24",
+      "M27",
+      "M30"
+    ],
+    "missingReason": "Keine ausgewerteten Maßnachweise für diese Größen; keine Aussage über Herstellbarkeit oder Lieferbarkeit."
+  },
+  "editionStatus": "edition-unverified",
+  "shape": "sechskant_bund",
+  "height": "h_max",
+  "threadSeries": "coarse-and-documented-fine",
+  "defaultPolicy": "Dokumentierte Kataloghöhe oder ausgewiesenes Höchstmaß als vorläufige Außenhülle; kein vollständiges Fertigteilmodell."
+}

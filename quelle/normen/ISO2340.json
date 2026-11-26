@@ -1,0 +1,993 @@
+{
+  "schemaVersion": 1,
+  "id": "ISO2340",
+  "version": "2026-11-26",
+  "edition": "1986",
+  "label": "ISO 2340 (DIN 1443) · Bolzen ohne Kopf",
+  "alias": [
+    "DIN 1443"
+  ],
+  "datasetKind": "part-standard",
+  "funktion": "stift",
+  "klasse": "bolzen",
+  "kopfTyp": null,
+  "antrieb": null,
+  "threadFamily": "none",
+  "schaftende": "voll",
+  "feldzuordnung": {
+    "sD": "d_nominal",
+    "sL": "l_nominal"
+  },
+  "groessen": {
+    "3": {
+      "vorbelegung": {
+        "sD": 3
+      },
+      "roh": {
+        "d_nominal": 3,
+        "d1": 0.8,
+        "c_max": 1,
+        "le_min": 1.6
+      },
+      "coverage": "documented",
+      "geometryStatus": "partial",
+      "missingGeometryFields": [
+        "selectedForm",
+        "endGeometry",
+        "length"
+      ],
+      "nachLaenge": {}
+    },
+    "4": {
+      "vorbelegung": {
+        "sD": 4
+      },
+      "roh": {
+        "d_nominal": 4,
+        "d1": 1,
+        "c_max": 1,
+        "le_min": 2.2
+      },
+      "coverage": "documented",
+      "geometryStatus": "partial",
+      "missingGeometryFields": [
+        "selectedForm",
+        "endGeometry",
+        "length"
+      ],
+      "nachLaenge": {}
+    },
+    "5": {
+      "vorbelegung": {
+        "sD": 5
+      },
+      "roh": {
+        "d_nominal": 5,
+        "d1": 1.2,
+        "c_max": 2,
+        "le_min": 2.9
+      },
+      "coverage": "documented",
+      "geometryStatus": "partial",
+      "missingGeometryFields": [
+        "selectedForm",
+        "endGeometry",
+        "length"
+      ],
+      "nachLaenge": {}
+    },
+    "6": {
+      "vorbelegung": {
+        "sD": 6
+      },
+      "roh": {
+        "d_nominal": 6,
+        "d1": 1.6,
+        "c_max": 2,
+        "le_min": 3.2
+      },
+      "coverage": "documented",
+      "geometryStatus": "partial",
+      "missingGeometryFields": [
+        "selectedForm",
+        "endGeometry",
+        "length"
+      ],
+      "nachLaenge": {}
+    },
+    "8": {
+      "vorbelegung": {
+        "sD": 8
+      },
+      "roh": {
+        "d_nominal": 8,
+        "d1": 2,
+        "c_max": 2,
+        "le_min": 3.5
+      },
+      "coverage": "documented",
+      "geometryStatus": "partial",
+      "missingGeometryFields": [
+        "selectedForm",
+        "endGeometry",
+        "length"
+      ],
+      "nachLaenge": {}
+    },
+    "10": {
+      "vorbelegung": {
+        "sD": 10
+      },
+      "roh": {
+        "d_nominal": 10,
+        "d1": 3.2,
+        "c_max": 2,
+        "le_min": 4.5
+      },
+      "coverage": "documented",
+      "geometryStatus": "partial",
+      "missingGeometryFields": [
+        "selectedForm",
+        "endGeometry",
+        "length"
+      ],
+      "nachLaenge": {}
+    },
+    "12": {
+      "vorbelegung": {
+        "sD": 12
+      },
+      "roh": {
+        "d_nominal": 12,
+        "d1": 3.2,
+        "c_max": 3,
+        "le_min": 5.5
+      },
+      "coverage": "documented",
+      "geometryStatus": "partial",
+      "missingGeometryFields": [
+        "selectedForm",
+        "endGeometry",
+        "length"
+      ],
+      "nachLaenge": {}
+    },
+    "14": {
+      "vorbelegung": {
+        "sD": 14
+      },
+      "roh": {
+        "d_nominal": 14,
+        "d1": 4,
+        "c_max": 3,
+        "le_min": 6
+      },
+      "coverage": "documented",
+      "geometryStatus": "partial",
+      "missingGeometryFields": [
+        "selectedForm",
+        "endGeometry",
+        "length"
+      ],
+      "nachLaenge": {}
+    },
+    "16": {
+      "vorbelegung": {
+        "sD": 16
+      },
+      "roh": {
+        "d_nominal": 16,
+        "d1": 4,
+        "c_max": 3,
+        "le_min": 6
+      },
+      "coverage": "documented",
+      "geometryStatus": "partial",
+      "missingGeometryFields": [
+        "selectedForm",
+        "endGeometry",
+        "length"
+      ],
+      "nachLaenge": {}
+    },
+    "18": {
+      "vorbelegung": {
+        "sD": 18
+      },
+      "roh": {
+        "d_nominal": 18,
+        "d1": 5,
+        "c_max": 3,
+        "le_min": 7
+      },
+      "coverage": "documented",
+      "geometryStatus": "partial",
+      "missingGeometryFields": [
+        "selectedForm",
+        "endGeometry",
+        "length"
+      ],
+      "nachLaenge": {}
+    },
+    "20": {
+      "vorbelegung": {
+        "sD": 20
+      },
+      "roh": {
+        "d_nominal": 20,
+        "d1": 5,
+        "c_max": 4,
+        "le_min": 8
+      },
+      "coverage": "documented",
+      "geometryStatus": "partial",
+      "missingGeometryFields": [
+        "selectedForm",
+        "endGeometry",
+        "length"
+      ],
+      "nachLaenge": {}
+    },
+    "22": {
+      "vorbelegung": {
+        "sD": 22
+      },
+      "roh": {
+        "d_nominal": 22,
+        "d1": 5,
+        "c_max": 4,
+        "le_min": 8
+      },
+      "coverage": "documented",
+      "geometryStatus": "partial",
+      "missingGeometryFields": [
+        "selectedForm",
+        "endGeometry",
+        "length"
+      ],
+      "nachLaenge": {}
+    },
+    "24": {
+      "vorbelegung": {
+        "sD": 24
+      },
+      "roh": {
+        "d_nominal": 24,
+        "d1": 6.3,
+        "c_max": 4,
+        "le_min": 9
+      },
+      "coverage": "documented",
+      "geometryStatus": "partial",
+      "missingGeometryFields": [
+        "selectedForm",
+        "endGeometry",
+        "length"
+      ],
+      "nachLaenge": {}
+    },
+    "27": {
+      "vorbelegung": {
+        "sD": 27
+      },
+      "roh": {
+        "d_nominal": 27,
+        "d1": 6.3,
+        "c_max": 4,
+        "le_min": 9
+      },
+      "coverage": "documented",
+      "geometryStatus": "partial",
+      "missingGeometryFields": [
+        "selectedForm",
+        "endGeometry",
+        "length"
+      ],
+      "nachLaenge": {}
+    },
+    "30": {
+      "vorbelegung": {
+        "sD": 30
+      },
+      "roh": {
+        "d_nominal": 30,
+        "d1": 8,
+        "c_max": 4,
+        "le_min": 10
+      },
+      "coverage": "documented",
+      "geometryStatus": "partial",
+      "missingGeometryFields": [
+        "selectedForm",
+        "endGeometry",
+        "length"
+      ],
+      "nachLaenge": {}
+    }
+  },
+  "fields": {
+    "3": {
+      "d_nominal": {
+        "nominal": 3,
+        "sourceRefs": [
+          "ISO2340-s1"
+        ],
+        "status": "single-source",
+        "verification": "norm-table-not-independently-verified",
+        "note": "Wert aus der genannten Maßtabelle; zweite unabhängige Bestätigung fehlt.",
+        "unit": "mm"
+      },
+      "d1": {
+        "nominal": 0.8,
+        "sourceRefs": [
+          "ISO2340-s1"
+        ],
+        "status": "single-source",
+        "verification": "norm-table-not-independently-verified",
+        "note": "Splintloch-Ø",
+        "unit": "mm"
+      },
+      "c_max": {
+        "sourceRefs": [
+          "ISO2340-s1"
+        ],
+        "status": "single-source",
+        "verification": "norm-table-not-independently-verified",
+        "note": "Fase max",
+        "unit": "mm",
+        "max": 1
+      },
+      "le_min": {
+        "sourceRefs": [
+          "ISO2340-s1"
+        ],
+        "status": "single-source",
+        "verification": "norm-table-not-independently-verified",
+        "note": "Lochabstand (Lesart)",
+        "unit": "mm",
+        "min": 1.6
+      }
+    },
+    "4": {
+      "d_nominal": {
+        "nominal": 4,
+        "sourceRefs": [
+          "ISO2340-s1"
+        ],
+        "status": "single-source",
+        "verification": "norm-table-not-independently-verified",
+        "note": "Wert aus der genannten Maßtabelle; zweite unabhängige Bestätigung fehlt.",
+        "unit": "mm"
+      },
+      "d1": {
+        "nominal": 1,
+        "sourceRefs": [
+          "ISO2340-s1"
+        ],
+        "status": "single-source",
+        "verification": "norm-table-not-independently-verified",
+        "note": "Splintloch-Ø",
+        "unit": "mm"
+      },
+      "c_max": {
+        "sourceRefs": [
+          "ISO2340-s1"
+        ],
+        "status": "single-source",
+        "verification": "norm-table-not-independently-verified",
+        "note": "Fase max",
+        "unit": "mm",
+        "max": 1
+      },
+      "le_min": {
+        "sourceRefs": [
+          "ISO2340-s1"
+        ],
+        "status": "single-source",
+        "verification": "norm-table-not-independently-verified",
+        "note": "Lochabstand (Lesart)",
+        "unit": "mm",
+        "min": 2.2
+      }
+    },
+    "5": {
+      "d_nominal": {
+        "nominal": 5,
+        "sourceRefs": [
+          "ISO2340-s1"
+        ],
+        "status": "single-source",
+        "verification": "norm-table-not-independently-verified",
+        "note": "Wert aus der genannten Maßtabelle; zweite unabhängige Bestätigung fehlt.",
+        "unit": "mm"
+      },
+      "d1": {
+        "nominal": 1.2,
+        "sourceRefs": [
+          "ISO2340-s1"
+        ],
+        "status": "single-source",
+        "verification": "norm-table-not-independently-verified",
+        "note": "Splintloch-Ø",
+        "unit": "mm"
+      },
+      "c_max": {
+        "sourceRefs": [
+          "ISO2340-s1"
+        ],
+        "status": "single-source",
+        "verification": "norm-table-not-independently-verified",
+        "note": "Fase max",
+        "unit": "mm",
+        "max": 2
+      },
+      "le_min": {
+        "sourceRefs": [
+          "ISO2340-s1"
+        ],
+        "status": "single-source",
+        "verification": "norm-table-not-independently-verified",
+        "note": "Lochabstand (Lesart)",
+        "unit": "mm",
+        "min": 2.9
+      }
+    },
+    "6": {
+      "d_nominal": {
+        "nominal": 6,
+        "sourceRefs": [
+          "ISO2340-s1"
+        ],
+        "status": "single-source",
+        "verification": "norm-table-not-independently-verified",
+        "note": "Wert aus der genannten Maßtabelle; zweite unabhängige Bestätigung fehlt.",
+        "unit": "mm"
+      },
+      "d1": {
+        "nominal": 1.6,
+        "sourceRefs": [
+          "ISO2340-s1"
+        ],
+        "status": "single-source",
+        "verification": "norm-table-not-independently-verified",
+        "note": "Splintloch-Ø",
+        "unit": "mm"
+      },
+      "c_max": {
+        "sourceRefs": [
+          "ISO2340-s1"
+        ],
+        "status": "single-source",
+        "verification": "norm-table-not-independently-verified",
+        "note": "Fase max",
+        "unit": "mm",
+        "max": 2
+      },
+      "le_min": {
+        "sourceRefs": [
+          "ISO2340-s1"
+        ],
+        "status": "single-source",
+        "verification": "norm-table-not-independently-verified",
+        "note": "Lochabstand (Lesart)",
+        "unit": "mm",
+        "min": 3.2
+      }
+    },
+    "8": {
+      "d_nominal": {
+        "nominal": 8,
+        "sourceRefs": [
+          "ISO2340-s1"
+        ],
+        "status": "single-source",
+        "verification": "norm-table-not-independently-verified",
+        "note": "Wert aus der genannten Maßtabelle; zweite unabhängige Bestätigung fehlt.",
+        "unit": "mm"
+      },
+      "d1": {
+        "nominal": 2,
+        "sourceRefs": [
+          "ISO2340-s1"
+        ],
+        "status": "single-source",
+        "verification": "norm-table-not-independently-verified",
+        "note": "Splintloch-Ø",
+        "unit": "mm"
+      },
+      "c_max": {
+        "sourceRefs": [
+          "ISO2340-s1"
+        ],
+        "status": "single-source",
+        "verification": "norm-table-not-independently-verified",
+        "note": "Fase max",
+        "unit": "mm",
+        "max": 2
+      },
+      "le_min": {
+        "sourceRefs": [
+          "ISO2340-s1"
+        ],
+        "status": "single-source",
+        "verification": "norm-table-not-independently-verified",
+        "note": "Lochabstand (Lesart)",
+        "unit": "mm",
+        "min": 3.5
+      }
+    },
+    "10": {
+      "d_nominal": {
+        "nominal": 10,
+        "sourceRefs": [
+          "ISO2340-s1"
+        ],
+        "status": "single-source",
+        "verification": "norm-table-not-independently-verified",
+        "note": "Wert aus der genannten Maßtabelle; zweite unabhängige Bestätigung fehlt.",
+        "unit": "mm"
+      },
+      "d1": {
+        "nominal": 3.2,
+        "sourceRefs": [
+          "ISO2340-s1"
+        ],
+        "status": "single-source",
+        "verification": "norm-table-not-independently-verified",
+        "note": "Splintloch-Ø",
+        "unit": "mm"
+      },
+      "c_max": {
+        "sourceRefs": [
+          "ISO2340-s1"
+        ],
+        "status": "single-source",
+        "verification": "norm-table-not-independently-verified",
+        "note": "Fase max",
+        "unit": "mm",
+        "max": 2
+      },
+      "le_min": {
+        "sourceRefs": [
+          "ISO2340-s1"
+        ],
+        "status": "single-source",
+        "verification": "norm-table-not-independently-verified",
+        "note": "Lochabstand (Lesart)",
+        "unit": "mm",
+        "min": 4.5
+      }
+    },
+    "12": {
+      "d_nominal": {
+        "nominal": 12,
+        "sourceRefs": [
+          "ISO2340-s1"
+        ],
+        "status": "single-source",
+        "verification": "norm-table-not-independently-verified",
+        "note": "Wert aus der genannten Maßtabelle; zweite unabhängige Bestätigung fehlt.",
+        "unit": "mm"
+      },
+      "d1": {
+        "nominal": 3.2,
+        "sourceRefs": [
+          "ISO2340-s1"
+        ],
+        "status": "single-source",
+        "verification": "norm-table-not-independently-verified",
+        "note": "Splintloch-Ø",
+        "unit": "mm"
+      },
+      "c_max": {
+        "sourceRefs": [
+          "ISO2340-s1"
+        ],
+        "status": "single-source",
+        "verification": "norm-table-not-independently-verified",
+        "note": "Fase max",
+        "unit": "mm",
+        "max": 3
+      },
+      "le_min": {
+        "sourceRefs": [
+          "ISO2340-s1"
+        ],
+        "status": "single-source",
+        "verification": "norm-table-not-independently-verified",
+        "note": "Lochabstand (Lesart)",
+        "unit": "mm",
+        "min": 5.5
+      }
+    },
+    "14": {
+      "d_nominal": {
+        "nominal": 14,
+        "sourceRefs": [
+          "ISO2340-s1"
+        ],
+        "status": "single-source",
+        "verification": "norm-table-not-independently-verified",
+        "note": "Wert aus der genannten Maßtabelle; zweite unabhängige Bestätigung fehlt.",
+        "unit": "mm"
+      },
+      "d1": {
+        "nominal": 4,
+        "sourceRefs": [
+          "ISO2340-s1"
+        ],
+        "status": "single-source",
+        "verification": "norm-table-not-independently-verified",
+        "note": "Splintloch-Ø",
+        "unit": "mm"
+      },
+      "c_max": {
+        "sourceRefs": [
+          "ISO2340-s1"
+        ],
+        "status": "single-source",
+        "verification": "norm-table-not-independently-verified",
+        "note": "Fase max",
+        "unit": "mm",
+        "max": 3
+      },
+      "le_min": {
+        "sourceRefs": [
+          "ISO2340-s1"
+        ],
+        "status": "single-source",
+        "verification": "norm-table-not-independently-verified",
+        "note": "Lochabstand (Lesart)",
+        "unit": "mm",
+        "min": 6
+      }
+    },
+    "16": {
+      "d_nominal": {
+        "nominal": 16,
+        "sourceRefs": [
+          "ISO2340-s1"
+        ],
+        "status": "single-source",
+        "verification": "norm-table-not-independently-verified",
+        "note": "Wert aus der genannten Maßtabelle; zweite unabhängige Bestätigung fehlt.",
+        "unit": "mm"
+      },
+      "d1": {
+        "nominal": 4,
+        "sourceRefs": [
+          "ISO2340-s1"
+        ],
+        "status": "single-source",
+        "verification": "norm-table-not-independently-verified",
+        "note": "Splintloch-Ø",
+        "unit": "mm"
+      },
+      "c_max": {
+        "sourceRefs": [
+          "ISO2340-s1"
+        ],
+        "status": "single-source",
+        "verification": "norm-table-not-independently-verified",
+        "note": "Fase max",
+        "unit": "mm",
+        "max": 3
+      },
+      "le_min": {
+        "sourceRefs": [
+          "ISO2340-s1"
+        ],
+        "status": "single-source",
+        "verification": "norm-table-not-independently-verified",
+        "note": "Lochabstand (Lesart)",
+        "unit": "mm",
+        "min": 6
+      }
+    },
+    "18": {
+      "d_nominal": {
+        "nominal": 18,
+        "sourceRefs": [
+          "ISO2340-s1"
+        ],
+        "status": "single-source",
+        "verification": "norm-table-not-independently-verified",
+        "note": "Wert aus der genannten Maßtabelle; zweite unabhängige Bestätigung fehlt.",
+        "unit": "mm"
+      },
+      "d1": {
+        "nominal": 5,
+        "sourceRefs": [
+          "ISO2340-s1"
+        ],
+        "status": "single-source",
+        "verification": "norm-table-not-independently-verified",
+        "note": "Splintloch-Ø",
+        "unit": "mm"
+      },
+      "c_max": {
+        "sourceRefs": [
+          "ISO2340-s1"
+        ],
+        "status": "single-source",
+        "verification": "norm-table-not-independently-verified",
+        "note": "Fase max",
+        "unit": "mm",
+        "max": 3
+      },
+      "le_min": {
+        "sourceRefs": [
+          "ISO2340-s1"
+        ],
+        "status": "single-source",
+        "verification": "norm-table-not-independently-verified",
+        "note": "Lochabstand (Lesart)",
+        "unit": "mm",
+        "min": 7
+      }
+    },
+    "20": {
+      "d_nominal": {
+        "nominal": 20,
+        "sourceRefs": [
+          "ISO2340-s1"
+        ],
+        "status": "single-source",
+        "verification": "norm-table-not-independently-verified",
+        "note": "Wert aus der genannten Maßtabelle; zweite unabhängige Bestätigung fehlt.",
+        "unit": "mm"
+      },
+      "d1": {
+        "nominal": 5,
+        "sourceRefs": [
+          "ISO2340-s1"
+        ],
+        "status": "single-source",
+        "verification": "norm-table-not-independently-verified",
+        "note": "Splintloch-Ø",
+        "unit": "mm"
+      },
+      "c_max": {
+        "sourceRefs": [
+          "ISO2340-s1"
+        ],
+        "status": "single-source",
+        "verification": "norm-table-not-independently-verified",
+        "note": "Fase max",
+        "unit": "mm",
+        "max": 4
+      },
+      "le_min": {
+        "sourceRefs": [
+          "ISO2340-s1"
+        ],
+        "status": "single-source",
+        "verification": "norm-table-not-independently-verified",
+        "note": "Lochabstand (Lesart)",
+        "unit": "mm",
+        "min": 8
+      }
+    },
+    "22": {
+      "d_nominal": {
+        "nominal": 22,
+        "sourceRefs": [
+          "ISO2340-s1"
+        ],
+        "status": "single-source",
+        "verification": "norm-table-not-independently-verified",
+        "note": "Wert aus der genannten Maßtabelle; zweite unabhängige Bestätigung fehlt.",
+        "unit": "mm"
+      },
+      "d1": {
+        "nominal": 5,
+        "sourceRefs": [
+          "ISO2340-s1"
+        ],
+        "status": "single-source",
+        "verification": "norm-table-not-independently-verified",
+        "note": "Splintloch-Ø",
+        "unit": "mm"
+      },
+      "c_max": {
+        "sourceRefs": [
+          "ISO2340-s1"
+        ],
+        "status": "single-source",
+        "verification": "norm-table-not-independently-verified",
+        "note": "Fase max",
+        "unit": "mm",
+        "max": 4
+      },
+      "le_min": {
+        "sourceRefs": [
+          "ISO2340-s1"
+        ],
+        "status": "single-source",
+        "verification": "norm-table-not-independently-verified",
+        "note": "Lochabstand (Lesart)",
+        "unit": "mm",
+        "min": 8
+      }
+    },
+    "24": {
+      "d_nominal": {
+        "nominal": 24,
+        "sourceRefs": [
+          "ISO2340-s1"
+        ],
+        "status": "single-source",
+        "verification": "norm-table-not-independently-verified",
+        "note": "Wert aus der genannten Maßtabelle; zweite unabhängige Bestätigung fehlt.",
+        "unit": "mm"
+      },
+      "d1": {
+        "nominal": 6.3,
+        "sourceRefs": [
+          "ISO2340-s1"
+        ],
+        "status": "single-source",
+        "verification": "norm-table-not-independently-verified",
+        "note": "Splintloch-Ø",
+        "unit": "mm"
+      },
+      "c_max": {
+        "sourceRefs": [
+          "ISO2340-s1"
+        ],
+        "status": "single-source",
+        "verification": "norm-table-not-independently-verified",
+        "note": "Fase max",
+        "unit": "mm",
+        "max": 4
+      },
+      "le_min": {
+        "sourceRefs": [
+          "ISO2340-s1"
+        ],
+        "status": "single-source",
+        "verification": "norm-table-not-independently-verified",
+        "note": "Lochabstand (Lesart)",
+        "unit": "mm",
+        "min": 9
+      }
+    },
+    "27": {
+      "d_nominal": {
+        "nominal": 27,
+        "sourceRefs": [
+          "ISO2340-s1"
+        ],
+        "status": "single-source",
+        "verification": "norm-table-not-independently-verified",
+        "note": "Wert aus der genannten Maßtabelle; zweite unabhängige Bestätigung fehlt.",
+        "unit": "mm"
+      },
+      "d1": {
+        "nominal": 6.3,
+        "sourceRefs": [
+          "ISO2340-s1"
+        ],
+        "status": "single-source",
+        "verification": "norm-table-not-independently-verified",
+        "note": "Splintloch-Ø",
+        "unit": "mm"
+      },
+      "c_max": {
+        "sourceRefs": [
+          "ISO2340-s1"
+        ],
+        "status": "single-source",
+        "verification": "norm-table-not-independently-verified",
+        "note": "Fase max",
+        "unit": "mm",
+        "max": 4
+      },
+      "le_min": {
+        "sourceRefs": [
+          "ISO2340-s1"
+        ],
+        "status": "single-source",
+        "verification": "norm-table-not-independently-verified",
+        "note": "Lochabstand (Lesart)",
+        "unit": "mm",
+        "min": 9
+      }
+    },
+    "30": {
+      "d_nominal": {
+        "nominal": 30,
+        "sourceRefs": [
+          "ISO2340-s1"
+        ],
+        "status": "single-source",
+        "verification": "norm-table-not-independently-verified",
+        "note": "Wert aus der genannten Maßtabelle; zweite unabhängige Bestätigung fehlt.",
+        "unit": "mm"
+      },
+      "d1": {
+        "nominal": 8,
+        "sourceRefs": [
+          "ISO2340-s1"
+        ],
+        "status": "single-source",
+        "verification": "norm-table-not-independently-verified",
+        "note": "Splintloch-Ø",
+        "unit": "mm"
+      },
+      "c_max": {
+        "sourceRefs": [
+          "ISO2340-s1"
+        ],
+        "status": "single-source",
+        "verification": "norm-table-not-independently-verified",
+        "note": "Fase max",
+        "unit": "mm",
+        "max": 4
+      },
+      "le_min": {
+        "sourceRefs": [
+          "ISO2340-s1"
+        ],
+        "status": "single-source",
+        "verification": "norm-table-not-independently-verified",
+        "note": "Lochabstand (Lesart)",
+        "unit": "mm",
+        "min": 10
+      }
+    }
+  },
+  "quellen": [
+    {
+      "url": "https://fasten.it/en/norms/norm/din_1443",
+      "titel": "fasten.it DIN 1443",
+      "abgerufen": "2026-11-25",
+      "id": "ISO2340-s1",
+      "scope": "dimensions"
+    },
+    {
+      "url": "https://fasten.it/en/norms/norm/din_en_22340",
+      "titel": "fasten.it DIN EN 22340 (1992, ersetzt DIN 1443)",
+      "abgerufen": "2026-11-25",
+      "id": "ISO2340-s2",
+      "scope": "dimensions"
+    },
+    {
+      "id": "iso-catalog",
+      "url": "https://www.iso.org/committee/45446/x/catalogue/",
+      "titel": "ISO/TC 2 Katalog: Ausgabe und Status",
+      "abgerufen": "2026-11-26",
+      "scope": "edition-status"
+    }
+  ],
+  "status": "partial",
+  "coverage": "documented",
+  "pruefdatum": "2026-11-26",
+  "normstatus": {
+    "edition": "1986",
+    "status": "current",
+    "sourceRefs": [
+      "iso-catalog"
+    ]
+  },
+  "hinweise": [
+    "Fehlende Größe oder Länge bedeutet fehlende Datenabdeckung, kein Normverbot.",
+    "Maßdaten sind einzeln belegt; Editionsstatus allein bestätigt keine Maßtabelle."
+  ],
+  "gaps": [
+    "Vollständige Normlängenmatrix je Größe und aktuelle Originalmaßtabelle nicht unabhängig bestätigt."
+  ],
+  "lengthDependentFields": [
+    "sL"
+  ],
+  "laengen": {
+    "values": [],
+    "unit": "mm",
+    "kind": "unresearched",
+    "coverage": "unresearched",
+    "status": "missing",
+    "sourceRefs": [],
+    "verification": "norm-length-matrix-not-verified",
+    "note": "Exakte Normlängen je Durchmesser noch nicht belegt; aus min/max werden keine Zwischenlängen erzeugt."
+  }
+}

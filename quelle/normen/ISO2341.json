@@ -1,0 +1,2032 @@
+{
+  "schemaVersion": 1,
+  "id": "ISO2341",
+  "version": "2026-11-26",
+  "edition": "1986",
+  "label": "ISO 2341 (DIN 1444) · Bolzen mit Kopf, Form A ohne, Form B mit Splintloch",
+  "alias": [
+    "DIN 1444",
+    "DIN EN 22341"
+  ],
+  "datasetKind": "part-standard",
+  "funktion": "stift",
+  "klasse": "bolzen",
+  "kopfTyp": "zylinder",
+  "antrieb": null,
+  "threadFamily": "none",
+  "schaftende": "voll",
+  "feldzuordnung": {
+    "sD": "d_nominal",
+    "kD": "dk",
+    "kH": "k",
+    "sL": "l_nominal"
+  },
+  "groessen": {
+    "3": {
+      "vorbelegung": {
+        "sD": 3,
+        "kD": 5,
+        "kH": 1
+      },
+      "roh": {
+        "d_nominal": 3,
+        "dk": 5,
+        "k": 1,
+        "e": null,
+        "c_max": 1,
+        "d1": 0.8,
+        "le_min": 1.6
+      },
+      "coverage": "documented",
+      "geometryStatus": "partial",
+      "missingGeometryFields": [
+        "selectedForm",
+        "endGeometry",
+        "length"
+      ],
+      "nachLaenge": {}
+    },
+    "4": {
+      "vorbelegung": {
+        "sD": 4,
+        "kD": 6,
+        "kH": 1
+      },
+      "roh": {
+        "d_nominal": 4,
+        "dk": 6,
+        "k": 1,
+        "e": 0.5,
+        "c_max": 1,
+        "d1": 1,
+        "le_min": 2.2
+      },
+      "coverage": "documented",
+      "geometryStatus": "partial",
+      "missingGeometryFields": [
+        "selectedForm",
+        "endGeometry",
+        "length"
+      ],
+      "nachLaenge": {}
+    },
+    "5": {
+      "vorbelegung": {
+        "sD": 5,
+        "kD": 8,
+        "kH": 1.6
+      },
+      "roh": {
+        "d_nominal": 5,
+        "dk": 8,
+        "k": 1.6,
+        "e": 0.5,
+        "c_max": 2,
+        "d1": 1.2,
+        "le_min": 2.9
+      },
+      "coverage": "documented",
+      "geometryStatus": "partial",
+      "missingGeometryFields": [
+        "selectedForm",
+        "endGeometry",
+        "length"
+      ],
+      "nachLaenge": {}
+    },
+    "6": {
+      "vorbelegung": {
+        "sD": 6,
+        "kD": 10,
+        "kH": 2
+      },
+      "roh": {
+        "d_nominal": 6,
+        "dk": 10,
+        "k": 2,
+        "e": 1,
+        "c_max": 2,
+        "d1": 1.6,
+        "le_min": 3.2
+      },
+      "coverage": "documented",
+      "geometryStatus": "partial",
+      "missingGeometryFields": [
+        "selectedForm",
+        "endGeometry",
+        "length"
+      ],
+      "nachLaenge": {}
+    },
+    "8": {
+      "vorbelegung": {
+        "sD": 8,
+        "kD": 14,
+        "kH": 3
+      },
+      "roh": {
+        "d_nominal": 8,
+        "dk": 14,
+        "k": 3,
+        "e": 1,
+        "c_max": 2,
+        "d1": 2,
+        "le_min": 3.5
+      },
+      "coverage": "documented",
+      "geometryStatus": "partial",
+      "missingGeometryFields": [
+        "selectedForm",
+        "endGeometry",
+        "length"
+      ],
+      "nachLaenge": {}
+    },
+    "10": {
+      "vorbelegung": {
+        "sD": 10,
+        "kD": 18,
+        "kH": 4
+      },
+      "roh": {
+        "d_nominal": 10,
+        "dk": 18,
+        "k": 4,
+        "e": 1,
+        "c_max": 2,
+        "d1": 3.2,
+        "le_min": 4.5
+      },
+      "coverage": "documented",
+      "geometryStatus": "partial",
+      "missingGeometryFields": [
+        "selectedForm",
+        "endGeometry",
+        "length"
+      ],
+      "nachLaenge": {}
+    },
+    "12": {
+      "vorbelegung": {
+        "sD": 12,
+        "kD": 20,
+        "kH": 4
+      },
+      "roh": {
+        "d_nominal": 12,
+        "dk": 20,
+        "k": 4,
+        "e": 1,
+        "c_max": 3,
+        "d1": 3.2,
+        "le_min": 5.5
+      },
+      "coverage": "documented",
+      "geometryStatus": "partial",
+      "missingGeometryFields": [
+        "selectedForm",
+        "endGeometry",
+        "length"
+      ],
+      "nachLaenge": {}
+    },
+    "14": {
+      "vorbelegung": {
+        "sD": 14,
+        "kD": 22,
+        "kH": 4
+      },
+      "roh": {
+        "d_nominal": 14,
+        "dk": 22,
+        "k": 4,
+        "e": 1.6,
+        "c_max": 3,
+        "d1": 4,
+        "le_min": 6
+      },
+      "coverage": "documented",
+      "geometryStatus": "partial",
+      "missingGeometryFields": [
+        "selectedForm",
+        "endGeometry",
+        "length"
+      ],
+      "nachLaenge": {}
+    },
+    "16": {
+      "vorbelegung": {
+        "sD": 16,
+        "kD": 25,
+        "kH": 4.5
+      },
+      "roh": {
+        "d_nominal": 16,
+        "dk": 25,
+        "k": 4.5,
+        "e": 1.6,
+        "c_max": 3,
+        "d1": 4,
+        "le_min": 6
+      },
+      "coverage": "documented",
+      "geometryStatus": "partial",
+      "missingGeometryFields": [
+        "selectedForm",
+        "endGeometry",
+        "length"
+      ],
+      "nachLaenge": {}
+    },
+    "18": {
+      "vorbelegung": {
+        "sD": 18,
+        "kD": 28,
+        "kH": 5
+      },
+      "roh": {
+        "d_nominal": 18,
+        "dk": 28,
+        "k": 5,
+        "e": 1.6,
+        "c_max": 3,
+        "d1": 5,
+        "le_min": 7
+      },
+      "coverage": "documented",
+      "geometryStatus": "partial",
+      "missingGeometryFields": [
+        "selectedForm",
+        "endGeometry",
+        "length"
+      ],
+      "nachLaenge": {}
+    },
+    "20": {
+      "vorbelegung": {
+        "sD": 20,
+        "kD": 30,
+        "kH": 5
+      },
+      "roh": {
+        "d_nominal": 20,
+        "dk": 30,
+        "k": 5,
+        "e": 1.6,
+        "c_max": 4,
+        "d1": 5,
+        "le_min": 8
+      },
+      "coverage": "documented",
+      "geometryStatus": "partial",
+      "missingGeometryFields": [
+        "selectedForm",
+        "endGeometry",
+        "length"
+      ],
+      "nachLaenge": {}
+    },
+    "22": {
+      "vorbelegung": {
+        "sD": 22,
+        "kD": 33,
+        "kH": 5.5
+      },
+      "roh": {
+        "d_nominal": 22,
+        "dk": 33,
+        "k": 5.5,
+        "e": 2,
+        "c_max": 4,
+        "d1": 5,
+        "le_min": 8
+      },
+      "coverage": "documented",
+      "geometryStatus": "partial",
+      "missingGeometryFields": [
+        "selectedForm",
+        "endGeometry",
+        "length"
+      ],
+      "nachLaenge": {}
+    },
+    "24": {
+      "vorbelegung": {
+        "sD": 24,
+        "kD": 36,
+        "kH": 6
+      },
+      "roh": {
+        "d_nominal": 24,
+        "dk": 36,
+        "k": 6,
+        "e": 2,
+        "c_max": 4,
+        "d1": 6.3,
+        "le_min": 9
+      },
+      "coverage": "documented",
+      "geometryStatus": "partial",
+      "missingGeometryFields": [
+        "selectedForm",
+        "endGeometry",
+        "length"
+      ],
+      "nachLaenge": {}
+    },
+    "27": {
+      "vorbelegung": {
+        "sD": 27,
+        "kD": 40,
+        "kH": 6
+      },
+      "roh": {
+        "d_nominal": 27,
+        "dk": 40,
+        "k": 6,
+        "e": 2,
+        "c_max": 4,
+        "d1": 6.3,
+        "le_min": 9
+      },
+      "coverage": "documented",
+      "geometryStatus": "partial",
+      "missingGeometryFields": [
+        "selectedForm",
+        "endGeometry",
+        "length"
+      ],
+      "nachLaenge": {}
+    },
+    "30": {
+      "vorbelegung": {
+        "sD": 30,
+        "kD": 44,
+        "kH": 8
+      },
+      "roh": {
+        "d_nominal": 30,
+        "dk": 44,
+        "k": 8,
+        "e": 2,
+        "c_max": 4,
+        "d1": 8,
+        "le_min": 10
+      },
+      "coverage": "documented",
+      "geometryStatus": "partial",
+      "missingGeometryFields": [
+        "selectedForm",
+        "endGeometry",
+        "length"
+      ],
+      "nachLaenge": {}
+    },
+    "33": {
+      "vorbelegung": {
+        "sD": 33,
+        "kD": 47,
+        "kH": 8
+      },
+      "roh": {
+        "d_nominal": 33,
+        "dk": 47,
+        "k": 8,
+        "e": 2,
+        "c_max": 4,
+        "d1": 8,
+        "le_min": 10
+      },
+      "nachLaenge": {},
+      "coverage": "documented",
+      "geometryStatus": "partial",
+      "missingGeometryFields": [
+        "selectedForm",
+        "endGeometry",
+        "length"
+      ]
+    },
+    "36": {
+      "vorbelegung": {
+        "sD": 36,
+        "kD": 50,
+        "kH": 8
+      },
+      "roh": {
+        "d_nominal": 36,
+        "dk": 50,
+        "k": 8,
+        "e": 2,
+        "c_max": 4,
+        "d1": 8,
+        "le_min": 10
+      },
+      "nachLaenge": {},
+      "coverage": "documented",
+      "geometryStatus": "partial",
+      "missingGeometryFields": [
+        "selectedForm",
+        "endGeometry",
+        "length"
+      ]
+    },
+    "40": {
+      "vorbelegung": {
+        "sD": 40,
+        "kD": 55,
+        "kH": 8
+      },
+      "roh": {
+        "d_nominal": 40,
+        "dk": 55,
+        "k": 8,
+        "e": 2,
+        "c_max": 4,
+        "d1": 8,
+        "le_min": 10
+      },
+      "nachLaenge": {},
+      "coverage": "documented",
+      "geometryStatus": "partial",
+      "missingGeometryFields": [
+        "selectedForm",
+        "endGeometry",
+        "length"
+      ]
+    }
+  },
+  "fields": {
+    "3": {
+      "d_nominal": {
+        "nominal": 3,
+        "sourceRefs": [
+          "ISO2341-s1"
+        ],
+        "status": "single-source",
+        "verification": "norm-table-not-independently-verified",
+        "note": "Wert aus der genannten Maßtabelle; zweite unabhängige Bestätigung fehlt.",
+        "unit": "mm"
+      },
+      "dk": {
+        "nominal": 5,
+        "sourceRefs": [
+          "ISO2341-s1",
+          "iso-preview"
+        ],
+        "status": "verified",
+        "verification": "original-standard-and-catalog-agree",
+        "note": "Originalnormvorschau bestätigt den Katalogwert.",
+        "unit": "mm"
+      },
+      "k": {
+        "nominal": 1,
+        "sourceRefs": [
+          "ISO2341-s1",
+          "iso-preview"
+        ],
+        "status": "verified",
+        "verification": "original-standard-and-catalog-agree",
+        "note": "Originalnormvorschau bestätigt den Katalogwert.",
+        "unit": "mm"
+      },
+      "e": {
+        "sourceRefs": [
+          "ISO2341-s1",
+          "iso-preview"
+        ],
+        "status": "conflict",
+        "verification": "norm-table-not-independently-verified",
+        "note": "Originalvorschau enthält Strich; Katalog liefert Zahlenwert. Keine gesicherte Nominalangabe.",
+        "unit": "mm",
+        "alternatives": [
+          {
+            "nominal": 0.5,
+            "sourceRefs": [
+              "ISO2341-s1"
+            ],
+            "status": "unconfirmed-catalogue-reading"
+          },
+          {
+            "value": null,
+            "sourceRefs": [
+              "iso-preview"
+            ],
+            "note": "Strich im Original; keine Zahlenvorgabe."
+          }
+        ]
+      },
+      "c_max": {
+        "sourceRefs": [
+          "ISO2341-s1",
+          "iso-preview"
+        ],
+        "status": "verified",
+        "verification": "original-standard-and-catalog-agree",
+        "note": "Originalnormvorschau bestätigt den Katalogwert.",
+        "unit": "mm",
+        "max": 1
+      },
+      "d1": {
+        "nominal": 0.8,
+        "sourceRefs": [
+          "ISO2341-s1",
+          "iso-preview"
+        ],
+        "status": "verified",
+        "verification": "original-standard-and-catalog-agree",
+        "note": "Originalnormvorschau bestätigt den Katalogwert.",
+        "unit": "mm"
+      },
+      "le_min": {
+        "sourceRefs": [
+          "ISO2341-s1",
+          "iso-preview"
+        ],
+        "status": "verified",
+        "verification": "original-standard-and-catalog-agree",
+        "note": "Originalnormvorschau bestätigt den Katalogwert.",
+        "unit": "mm",
+        "min": 1.6
+      }
+    },
+    "4": {
+      "d_nominal": {
+        "nominal": 4,
+        "sourceRefs": [
+          "ISO2341-s1"
+        ],
+        "status": "single-source",
+        "verification": "norm-table-not-independently-verified",
+        "note": "Wert aus der genannten Maßtabelle; zweite unabhängige Bestätigung fehlt.",
+        "unit": "mm"
+      },
+      "dk": {
+        "nominal": 6,
+        "sourceRefs": [
+          "ISO2341-s1",
+          "iso-preview"
+        ],
+        "status": "verified",
+        "verification": "original-standard-and-catalog-agree",
+        "note": "Originalnormvorschau bestätigt den Katalogwert.",
+        "unit": "mm"
+      },
+      "k": {
+        "nominal": 1,
+        "sourceRefs": [
+          "ISO2341-s1",
+          "iso-preview"
+        ],
+        "status": "verified",
+        "verification": "original-standard-and-catalog-agree",
+        "note": "Originalnormvorschau bestätigt den Katalogwert.",
+        "unit": "mm"
+      },
+      "e": {
+        "nominal": 0.5,
+        "sourceRefs": [
+          "ISO2341-s1",
+          "iso-preview"
+        ],
+        "status": "verified",
+        "verification": "original-standard-and-catalog-agree",
+        "note": "Originalnormvorschau bestätigt den Katalogwert.",
+        "unit": "mm"
+      },
+      "c_max": {
+        "sourceRefs": [
+          "ISO2341-s1",
+          "iso-preview"
+        ],
+        "status": "verified",
+        "verification": "original-standard-and-catalog-agree",
+        "note": "Originalnormvorschau bestätigt den Katalogwert.",
+        "unit": "mm",
+        "max": 1
+      },
+      "d1": {
+        "nominal": 1,
+        "sourceRefs": [
+          "ISO2341-s1",
+          "iso-preview"
+        ],
+        "status": "verified",
+        "verification": "original-standard-and-catalog-agree",
+        "note": "Originalnormvorschau bestätigt den Katalogwert.",
+        "unit": "mm"
+      },
+      "le_min": {
+        "sourceRefs": [
+          "ISO2341-s1",
+          "iso-preview"
+        ],
+        "status": "verified",
+        "verification": "original-standard-and-catalog-agree",
+        "note": "Originalnormvorschau bestätigt den Katalogwert.",
+        "unit": "mm",
+        "min": 2.2
+      }
+    },
+    "5": {
+      "d_nominal": {
+        "nominal": 5,
+        "sourceRefs": [
+          "ISO2341-s1"
+        ],
+        "status": "single-source",
+        "verification": "norm-table-not-independently-verified",
+        "note": "Wert aus der genannten Maßtabelle; zweite unabhängige Bestätigung fehlt.",
+        "unit": "mm"
+      },
+      "dk": {
+        "nominal": 8,
+        "sourceRefs": [
+          "ISO2341-s1",
+          "iso-preview"
+        ],
+        "status": "verified",
+        "verification": "original-standard-and-catalog-agree",
+        "note": "Originalnormvorschau bestätigt den Katalogwert.",
+        "unit": "mm"
+      },
+      "k": {
+        "nominal": 1.6,
+        "sourceRefs": [
+          "ISO2341-s1",
+          "iso-preview"
+        ],
+        "status": "verified",
+        "verification": "original-standard-and-catalog-agree",
+        "note": "Originalnormvorschau bestätigt den Katalogwert.",
+        "unit": "mm"
+      },
+      "e": {
+        "nominal": 0.5,
+        "sourceRefs": [
+          "iso-preview",
+          "ISO2341-s1"
+        ],
+        "status": "conflict",
+        "verification": "original-standard-prioritized",
+        "note": "ISO-Originaltabelle hat Vorrang; abweichender DIN/Katalogwert bleibt als Alternative dokumentiert.",
+        "unit": "mm",
+        "alternatives": [
+          {
+            "nominal": 1,
+            "sourceRefs": [
+              "ISO2341-s1"
+            ],
+            "edition": "DIN1444:1974"
+          }
+        ]
+      },
+      "c_max": {
+        "sourceRefs": [
+          "ISO2341-s1",
+          "iso-preview"
+        ],
+        "status": "verified",
+        "verification": "original-standard-and-catalog-agree",
+        "note": "Originalnormvorschau bestätigt den Katalogwert.",
+        "unit": "mm",
+        "max": 2
+      },
+      "d1": {
+        "nominal": 1.2,
+        "sourceRefs": [
+          "ISO2341-s1",
+          "iso-preview"
+        ],
+        "status": "verified",
+        "verification": "original-standard-and-catalog-agree",
+        "note": "Originalnormvorschau bestätigt den Katalogwert.",
+        "unit": "mm"
+      },
+      "le_min": {
+        "sourceRefs": [
+          "ISO2341-s1",
+          "iso-preview"
+        ],
+        "status": "verified",
+        "verification": "original-standard-and-catalog-agree",
+        "note": "Originalnormvorschau bestätigt den Katalogwert.",
+        "unit": "mm",
+        "min": 2.9
+      }
+    },
+    "6": {
+      "d_nominal": {
+        "nominal": 6,
+        "sourceRefs": [
+          "ISO2341-s1"
+        ],
+        "status": "single-source",
+        "verification": "norm-table-not-independently-verified",
+        "note": "Wert aus der genannten Maßtabelle; zweite unabhängige Bestätigung fehlt.",
+        "unit": "mm"
+      },
+      "dk": {
+        "nominal": 10,
+        "sourceRefs": [
+          "ISO2341-s1",
+          "iso-preview"
+        ],
+        "status": "verified",
+        "verification": "original-standard-and-catalog-agree",
+        "note": "Originalnormvorschau bestätigt den Katalogwert.",
+        "unit": "mm"
+      },
+      "k": {
+        "nominal": 2,
+        "sourceRefs": [
+          "ISO2341-s1",
+          "iso-preview"
+        ],
+        "status": "verified",
+        "verification": "original-standard-and-catalog-agree",
+        "note": "Originalnormvorschau bestätigt den Katalogwert.",
+        "unit": "mm"
+      },
+      "e": {
+        "nominal": 1,
+        "sourceRefs": [
+          "ISO2341-s1",
+          "iso-preview"
+        ],
+        "status": "verified",
+        "verification": "original-standard-and-catalog-agree",
+        "note": "Originalnormvorschau bestätigt den Katalogwert.",
+        "unit": "mm"
+      },
+      "c_max": {
+        "sourceRefs": [
+          "ISO2341-s1",
+          "iso-preview"
+        ],
+        "status": "verified",
+        "verification": "original-standard-and-catalog-agree",
+        "note": "Originalnormvorschau bestätigt den Katalogwert.",
+        "unit": "mm",
+        "max": 2
+      },
+      "d1": {
+        "nominal": 1.6,
+        "sourceRefs": [
+          "ISO2341-s1",
+          "iso-preview"
+        ],
+        "status": "verified",
+        "verification": "original-standard-and-catalog-agree",
+        "note": "Originalnormvorschau bestätigt den Katalogwert.",
+        "unit": "mm"
+      },
+      "le_min": {
+        "sourceRefs": [
+          "ISO2341-s1",
+          "iso-preview"
+        ],
+        "status": "verified",
+        "verification": "original-standard-and-catalog-agree",
+        "note": "Originalnormvorschau bestätigt den Katalogwert.",
+        "unit": "mm",
+        "min": 3.2
+      }
+    },
+    "8": {
+      "d_nominal": {
+        "nominal": 8,
+        "sourceRefs": [
+          "ISO2341-s1"
+        ],
+        "status": "single-source",
+        "verification": "norm-table-not-independently-verified",
+        "note": "Wert aus der genannten Maßtabelle; zweite unabhängige Bestätigung fehlt.",
+        "unit": "mm"
+      },
+      "dk": {
+        "nominal": 14,
+        "sourceRefs": [
+          "ISO2341-s1",
+          "iso-preview"
+        ],
+        "status": "verified",
+        "verification": "original-standard-and-catalog-agree",
+        "note": "Originalnormvorschau bestätigt den Katalogwert.",
+        "unit": "mm"
+      },
+      "k": {
+        "nominal": 3,
+        "sourceRefs": [
+          "ISO2341-s1",
+          "iso-preview"
+        ],
+        "status": "verified",
+        "verification": "original-standard-and-catalog-agree",
+        "note": "Originalnormvorschau bestätigt den Katalogwert.",
+        "unit": "mm"
+      },
+      "e": {
+        "nominal": 1,
+        "sourceRefs": [
+          "ISO2341-s1",
+          "iso-preview"
+        ],
+        "status": "verified",
+        "verification": "original-standard-and-catalog-agree",
+        "note": "Originalnormvorschau bestätigt den Katalogwert.",
+        "unit": "mm"
+      },
+      "c_max": {
+        "sourceRefs": [
+          "ISO2341-s1",
+          "iso-preview"
+        ],
+        "status": "verified",
+        "verification": "original-standard-and-catalog-agree",
+        "note": "Originalnormvorschau bestätigt den Katalogwert.",
+        "unit": "mm",
+        "max": 2
+      },
+      "d1": {
+        "nominal": 2,
+        "sourceRefs": [
+          "ISO2341-s1",
+          "iso-preview"
+        ],
+        "status": "verified",
+        "verification": "original-standard-and-catalog-agree",
+        "note": "Originalnormvorschau bestätigt den Katalogwert.",
+        "unit": "mm"
+      },
+      "le_min": {
+        "sourceRefs": [
+          "ISO2341-s1",
+          "iso-preview"
+        ],
+        "status": "verified",
+        "verification": "original-standard-and-catalog-agree",
+        "note": "Originalnormvorschau bestätigt den Katalogwert.",
+        "unit": "mm",
+        "min": 3.5
+      }
+    },
+    "10": {
+      "d_nominal": {
+        "nominal": 10,
+        "sourceRefs": [
+          "ISO2341-s1"
+        ],
+        "status": "single-source",
+        "verification": "norm-table-not-independently-verified",
+        "note": "Wert aus der genannten Maßtabelle; zweite unabhängige Bestätigung fehlt.",
+        "unit": "mm"
+      },
+      "dk": {
+        "nominal": 18,
+        "sourceRefs": [
+          "ISO2341-s1",
+          "iso-preview"
+        ],
+        "status": "verified",
+        "verification": "original-standard-and-catalog-agree",
+        "note": "Originalnormvorschau bestätigt den Katalogwert.",
+        "unit": "mm"
+      },
+      "k": {
+        "nominal": 4,
+        "sourceRefs": [
+          "ISO2341-s1",
+          "iso-preview"
+        ],
+        "status": "verified",
+        "verification": "original-standard-and-catalog-agree",
+        "note": "Originalnormvorschau bestätigt den Katalogwert.",
+        "unit": "mm"
+      },
+      "e": {
+        "nominal": 1,
+        "sourceRefs": [
+          "ISO2341-s1",
+          "iso-preview"
+        ],
+        "status": "verified",
+        "verification": "original-standard-and-catalog-agree",
+        "note": "Originalnormvorschau bestätigt den Katalogwert.",
+        "unit": "mm"
+      },
+      "c_max": {
+        "sourceRefs": [
+          "ISO2341-s1",
+          "iso-preview"
+        ],
+        "status": "verified",
+        "verification": "original-standard-and-catalog-agree",
+        "note": "Originalnormvorschau bestätigt den Katalogwert.",
+        "unit": "mm",
+        "max": 2
+      },
+      "d1": {
+        "nominal": 3.2,
+        "sourceRefs": [
+          "ISO2341-s1",
+          "iso-preview"
+        ],
+        "status": "verified",
+        "verification": "original-standard-and-catalog-agree",
+        "note": "Originalnormvorschau bestätigt den Katalogwert.",
+        "unit": "mm"
+      },
+      "le_min": {
+        "sourceRefs": [
+          "ISO2341-s1",
+          "iso-preview"
+        ],
+        "status": "verified",
+        "verification": "original-standard-and-catalog-agree",
+        "note": "Originalnormvorschau bestätigt den Katalogwert.",
+        "unit": "mm",
+        "min": 4.5
+      }
+    },
+    "12": {
+      "d_nominal": {
+        "nominal": 12,
+        "sourceRefs": [
+          "ISO2341-s1"
+        ],
+        "status": "single-source",
+        "verification": "norm-table-not-independently-verified",
+        "note": "Wert aus der genannten Maßtabelle; zweite unabhängige Bestätigung fehlt.",
+        "unit": "mm"
+      },
+      "dk": {
+        "nominal": 20,
+        "sourceRefs": [
+          "ISO2341-s1",
+          "iso-preview"
+        ],
+        "status": "verified",
+        "verification": "original-standard-and-catalog-agree",
+        "note": "Originalnormvorschau bestätigt den Katalogwert.",
+        "unit": "mm"
+      },
+      "k": {
+        "nominal": 4,
+        "sourceRefs": [
+          "ISO2341-s1",
+          "iso-preview"
+        ],
+        "status": "verified",
+        "verification": "original-standard-and-catalog-agree",
+        "note": "Originalnormvorschau bestätigt den Katalogwert.",
+        "unit": "mm"
+      },
+      "e": {
+        "nominal": 1,
+        "sourceRefs": [
+          "iso-preview",
+          "ISO2341-s1"
+        ],
+        "status": "conflict",
+        "verification": "original-standard-prioritized",
+        "note": "ISO-Originaltabelle hat Vorrang; abweichender DIN/Katalogwert bleibt als Alternative dokumentiert.",
+        "unit": "mm",
+        "alternatives": [
+          {
+            "nominal": 1.6,
+            "sourceRefs": [
+              "ISO2341-s1"
+            ],
+            "edition": "DIN1444:1974"
+          }
+        ]
+      },
+      "c_max": {
+        "sourceRefs": [
+          "ISO2341-s1",
+          "iso-preview"
+        ],
+        "status": "verified",
+        "verification": "original-standard-and-catalog-agree",
+        "note": "Originalnormvorschau bestätigt den Katalogwert.",
+        "unit": "mm",
+        "max": 3
+      },
+      "d1": {
+        "nominal": 3.2,
+        "sourceRefs": [
+          "ISO2341-s1",
+          "iso-preview"
+        ],
+        "status": "verified",
+        "verification": "original-standard-and-catalog-agree",
+        "note": "Originalnormvorschau bestätigt den Katalogwert.",
+        "unit": "mm"
+      },
+      "le_min": {
+        "sourceRefs": [
+          "ISO2341-s1",
+          "iso-preview"
+        ],
+        "status": "verified",
+        "verification": "original-standard-and-catalog-agree",
+        "note": "Originalnormvorschau bestätigt den Katalogwert.",
+        "unit": "mm",
+        "min": 5.5
+      }
+    },
+    "14": {
+      "d_nominal": {
+        "nominal": 14,
+        "sourceRefs": [
+          "ISO2341-s1"
+        ],
+        "status": "single-source",
+        "verification": "norm-table-not-independently-verified",
+        "note": "Wert aus der genannten Maßtabelle; zweite unabhängige Bestätigung fehlt.",
+        "unit": "mm"
+      },
+      "dk": {
+        "nominal": 22,
+        "sourceRefs": [
+          "ISO2341-s1",
+          "iso-preview"
+        ],
+        "status": "verified",
+        "verification": "original-standard-and-catalog-agree",
+        "note": "Originalnormvorschau bestätigt den Katalogwert.",
+        "unit": "mm"
+      },
+      "k": {
+        "nominal": 4,
+        "sourceRefs": [
+          "ISO2341-s1",
+          "iso-preview"
+        ],
+        "status": "verified",
+        "verification": "original-standard-and-catalog-agree",
+        "note": "Originalnormvorschau bestätigt den Katalogwert.",
+        "unit": "mm"
+      },
+      "e": {
+        "nominal": 1.6,
+        "sourceRefs": [
+          "ISO2341-s1",
+          "iso-preview"
+        ],
+        "status": "verified",
+        "verification": "original-standard-and-catalog-agree",
+        "note": "Originalnormvorschau bestätigt den Katalogwert.",
+        "unit": "mm"
+      },
+      "c_max": {
+        "sourceRefs": [
+          "ISO2341-s1",
+          "iso-preview"
+        ],
+        "status": "verified",
+        "verification": "original-standard-and-catalog-agree",
+        "note": "Originalnormvorschau bestätigt den Katalogwert.",
+        "unit": "mm",
+        "max": 3
+      },
+      "d1": {
+        "nominal": 4,
+        "sourceRefs": [
+          "ISO2341-s1",
+          "iso-preview"
+        ],
+        "status": "verified",
+        "verification": "original-standard-and-catalog-agree",
+        "note": "Originalnormvorschau bestätigt den Katalogwert.",
+        "unit": "mm"
+      },
+      "le_min": {
+        "sourceRefs": [
+          "ISO2341-s1",
+          "iso-preview"
+        ],
+        "status": "verified",
+        "verification": "original-standard-and-catalog-agree",
+        "note": "Originalnormvorschau bestätigt den Katalogwert.",
+        "unit": "mm",
+        "min": 6
+      }
+    },
+    "16": {
+      "d_nominal": {
+        "nominal": 16,
+        "sourceRefs": [
+          "ISO2341-s1"
+        ],
+        "status": "single-source",
+        "verification": "norm-table-not-independently-verified",
+        "note": "Wert aus der genannten Maßtabelle; zweite unabhängige Bestätigung fehlt.",
+        "unit": "mm"
+      },
+      "dk": {
+        "nominal": 25,
+        "sourceRefs": [
+          "ISO2341-s1",
+          "iso-preview"
+        ],
+        "status": "verified",
+        "verification": "original-standard-and-catalog-agree",
+        "note": "Originalnormvorschau bestätigt den Katalogwert.",
+        "unit": "mm"
+      },
+      "k": {
+        "nominal": 4.5,
+        "sourceRefs": [
+          "ISO2341-s1",
+          "iso-preview"
+        ],
+        "status": "verified",
+        "verification": "original-standard-and-catalog-agree",
+        "note": "Originalnormvorschau bestätigt den Katalogwert.",
+        "unit": "mm"
+      },
+      "e": {
+        "nominal": 1.6,
+        "sourceRefs": [
+          "ISO2341-s1",
+          "iso-preview"
+        ],
+        "status": "verified",
+        "verification": "original-standard-and-catalog-agree",
+        "note": "Originalnormvorschau bestätigt den Katalogwert.",
+        "unit": "mm"
+      },
+      "c_max": {
+        "sourceRefs": [
+          "ISO2341-s1",
+          "iso-preview"
+        ],
+        "status": "verified",
+        "verification": "original-standard-and-catalog-agree",
+        "note": "Originalnormvorschau bestätigt den Katalogwert.",
+        "unit": "mm",
+        "max": 3
+      },
+      "d1": {
+        "nominal": 4,
+        "sourceRefs": [
+          "ISO2341-s1",
+          "iso-preview"
+        ],
+        "status": "verified",
+        "verification": "original-standard-and-catalog-agree",
+        "note": "Originalnormvorschau bestätigt den Katalogwert.",
+        "unit": "mm"
+      },
+      "le_min": {
+        "sourceRefs": [
+          "ISO2341-s1",
+          "iso-preview"
+        ],
+        "status": "verified",
+        "verification": "original-standard-and-catalog-agree",
+        "note": "Originalnormvorschau bestätigt den Katalogwert.",
+        "unit": "mm",
+        "min": 6
+      }
+    },
+    "18": {
+      "d_nominal": {
+        "nominal": 18,
+        "sourceRefs": [
+          "ISO2341-s1"
+        ],
+        "status": "single-source",
+        "verification": "norm-table-not-independently-verified",
+        "note": "Wert aus der genannten Maßtabelle; zweite unabhängige Bestätigung fehlt.",
+        "unit": "mm"
+      },
+      "dk": {
+        "nominal": 28,
+        "sourceRefs": [
+          "ISO2341-s1",
+          "iso-preview"
+        ],
+        "status": "verified",
+        "verification": "original-standard-and-catalog-agree",
+        "note": "Originalnormvorschau bestätigt den Katalogwert.",
+        "unit": "mm"
+      },
+      "k": {
+        "nominal": 5,
+        "sourceRefs": [
+          "ISO2341-s1",
+          "iso-preview"
+        ],
+        "status": "verified",
+        "verification": "original-standard-and-catalog-agree",
+        "note": "Originalnormvorschau bestätigt den Katalogwert.",
+        "unit": "mm"
+      },
+      "e": {
+        "nominal": 1.6,
+        "sourceRefs": [
+          "ISO2341-s1",
+          "iso-preview"
+        ],
+        "status": "verified",
+        "verification": "original-standard-and-catalog-agree",
+        "note": "Originalnormvorschau bestätigt den Katalogwert.",
+        "unit": "mm"
+      },
+      "c_max": {
+        "sourceRefs": [
+          "ISO2341-s1",
+          "iso-preview"
+        ],
+        "status": "verified",
+        "verification": "original-standard-and-catalog-agree",
+        "note": "Originalnormvorschau bestätigt den Katalogwert.",
+        "unit": "mm",
+        "max": 3
+      },
+      "d1": {
+        "nominal": 5,
+        "sourceRefs": [
+          "ISO2341-s1",
+          "iso-preview"
+        ],
+        "status": "verified",
+        "verification": "original-standard-and-catalog-agree",
+        "note": "Originalnormvorschau bestätigt den Katalogwert.",
+        "unit": "mm"
+      },
+      "le_min": {
+        "sourceRefs": [
+          "ISO2341-s1",
+          "iso-preview"
+        ],
+        "status": "verified",
+        "verification": "original-standard-and-catalog-agree",
+        "note": "Originalnormvorschau bestätigt den Katalogwert.",
+        "unit": "mm",
+        "min": 7
+      }
+    },
+    "20": {
+      "d_nominal": {
+        "nominal": 20,
+        "sourceRefs": [
+          "ISO2341-s1"
+        ],
+        "status": "single-source",
+        "verification": "norm-table-not-independently-verified",
+        "note": "Wert aus der genannten Maßtabelle; zweite unabhängige Bestätigung fehlt.",
+        "unit": "mm"
+      },
+      "dk": {
+        "nominal": 30,
+        "sourceRefs": [
+          "ISO2341-s1",
+          "iso-preview"
+        ],
+        "status": "verified",
+        "verification": "original-standard-and-catalog-agree",
+        "note": "Originalnormvorschau bestätigt den Katalogwert.",
+        "unit": "mm"
+      },
+      "k": {
+        "nominal": 5,
+        "sourceRefs": [
+          "ISO2341-s1",
+          "iso-preview"
+        ],
+        "status": "verified",
+        "verification": "original-standard-and-catalog-agree",
+        "note": "Originalnormvorschau bestätigt den Katalogwert.",
+        "unit": "mm"
+      },
+      "e": {
+        "nominal": 1.6,
+        "sourceRefs": [
+          "iso-preview",
+          "ISO2341-s1"
+        ],
+        "status": "conflict",
+        "verification": "original-standard-prioritized",
+        "note": "ISO-Originaltabelle hat Vorrang; abweichender DIN/Katalogwert bleibt als Alternative dokumentiert.",
+        "unit": "mm",
+        "alternatives": [
+          {
+            "nominal": 2,
+            "sourceRefs": [
+              "ISO2341-s1"
+            ],
+            "edition": "DIN1444:1974"
+          }
+        ]
+      },
+      "c_max": {
+        "sourceRefs": [
+          "ISO2341-s1",
+          "iso-preview"
+        ],
+        "status": "verified",
+        "verification": "original-standard-and-catalog-agree",
+        "note": "Originalnormvorschau bestätigt den Katalogwert.",
+        "unit": "mm",
+        "max": 4
+      },
+      "d1": {
+        "nominal": 5,
+        "sourceRefs": [
+          "ISO2341-s1",
+          "iso-preview"
+        ],
+        "status": "verified",
+        "verification": "original-standard-and-catalog-agree",
+        "note": "Originalnormvorschau bestätigt den Katalogwert.",
+        "unit": "mm"
+      },
+      "le_min": {
+        "sourceRefs": [
+          "ISO2341-s1",
+          "iso-preview"
+        ],
+        "status": "verified",
+        "verification": "original-standard-and-catalog-agree",
+        "note": "Originalnormvorschau bestätigt den Katalogwert.",
+        "unit": "mm",
+        "min": 8
+      }
+    },
+    "22": {
+      "d_nominal": {
+        "nominal": 22,
+        "sourceRefs": [
+          "ISO2341-s1"
+        ],
+        "status": "single-source",
+        "verification": "norm-table-not-independently-verified",
+        "note": "Wert aus der genannten Maßtabelle; zweite unabhängige Bestätigung fehlt.",
+        "unit": "mm"
+      },
+      "dk": {
+        "nominal": 33,
+        "sourceRefs": [
+          "ISO2341-s1",
+          "iso-preview"
+        ],
+        "status": "verified",
+        "verification": "original-standard-and-catalog-agree",
+        "note": "Originalnormvorschau bestätigt den Katalogwert.",
+        "unit": "mm"
+      },
+      "k": {
+        "nominal": 5.5,
+        "sourceRefs": [
+          "iso-preview",
+          "ISO2341-s1"
+        ],
+        "status": "conflict",
+        "verification": "original-standard-prioritized",
+        "note": "ISO-Originaltabelle hat Vorrang; abweichender DIN/Katalogwert bleibt als Alternative dokumentiert.",
+        "unit": "mm",
+        "alternatives": [
+          {
+            "nominal": 5,
+            "sourceRefs": [
+              "ISO2341-s1"
+            ],
+            "edition": "DIN1444:1974"
+          }
+        ]
+      },
+      "e": {
+        "nominal": 2,
+        "sourceRefs": [
+          "ISO2341-s1",
+          "iso-preview"
+        ],
+        "status": "verified",
+        "verification": "original-standard-and-catalog-agree",
+        "note": "Originalnormvorschau bestätigt den Katalogwert.",
+        "unit": "mm"
+      },
+      "c_max": {
+        "sourceRefs": [
+          "ISO2341-s1",
+          "iso-preview"
+        ],
+        "status": "verified",
+        "verification": "original-standard-and-catalog-agree",
+        "note": "Originalnormvorschau bestätigt den Katalogwert.",
+        "unit": "mm",
+        "max": 4
+      },
+      "d1": {
+        "nominal": 5,
+        "sourceRefs": [
+          "ISO2341-s1",
+          "iso-preview"
+        ],
+        "status": "verified",
+        "verification": "original-standard-and-catalog-agree",
+        "note": "Originalnormvorschau bestätigt den Katalogwert.",
+        "unit": "mm"
+      },
+      "le_min": {
+        "sourceRefs": [
+          "ISO2341-s1",
+          "iso-preview"
+        ],
+        "status": "verified",
+        "verification": "original-standard-and-catalog-agree",
+        "note": "Originalnormvorschau bestätigt den Katalogwert.",
+        "unit": "mm",
+        "min": 8
+      }
+    },
+    "24": {
+      "d_nominal": {
+        "nominal": 24,
+        "sourceRefs": [
+          "ISO2341-s1"
+        ],
+        "status": "single-source",
+        "verification": "norm-table-not-independently-verified",
+        "note": "Wert aus der genannten Maßtabelle; zweite unabhängige Bestätigung fehlt.",
+        "unit": "mm"
+      },
+      "dk": {
+        "nominal": 36,
+        "sourceRefs": [
+          "ISO2341-s1",
+          "iso-preview"
+        ],
+        "status": "verified",
+        "verification": "original-standard-and-catalog-agree",
+        "note": "Originalnormvorschau bestätigt den Katalogwert.",
+        "unit": "mm"
+      },
+      "k": {
+        "nominal": 6,
+        "sourceRefs": [
+          "iso-preview",
+          "ISO2341-s1"
+        ],
+        "status": "conflict",
+        "verification": "original-standard-prioritized",
+        "note": "ISO-Originaltabelle hat Vorrang; abweichender DIN/Katalogwert bleibt als Alternative dokumentiert.",
+        "unit": "mm",
+        "alternatives": [
+          {
+            "nominal": 6.3,
+            "sourceRefs": [
+              "ISO2341-s1"
+            ],
+            "edition": "DIN1444:1974"
+          }
+        ]
+      },
+      "e": {
+        "nominal": 2,
+        "sourceRefs": [
+          "ISO2341-s1",
+          "iso-preview"
+        ],
+        "status": "verified",
+        "verification": "original-standard-and-catalog-agree",
+        "note": "Originalnormvorschau bestätigt den Katalogwert.",
+        "unit": "mm"
+      },
+      "c_max": {
+        "sourceRefs": [
+          "ISO2341-s1",
+          "iso-preview"
+        ],
+        "status": "verified",
+        "verification": "original-standard-and-catalog-agree",
+        "note": "Originalnormvorschau bestätigt den Katalogwert.",
+        "unit": "mm",
+        "max": 4
+      },
+      "d1": {
+        "nominal": 6.3,
+        "sourceRefs": [
+          "ISO2341-s1",
+          "iso-preview"
+        ],
+        "status": "verified",
+        "verification": "original-standard-and-catalog-agree",
+        "note": "Originalnormvorschau bestätigt den Katalogwert.",
+        "unit": "mm"
+      },
+      "le_min": {
+        "sourceRefs": [
+          "ISO2341-s1",
+          "iso-preview"
+        ],
+        "status": "verified",
+        "verification": "original-standard-and-catalog-agree",
+        "note": "Originalnormvorschau bestätigt den Katalogwert.",
+        "unit": "mm",
+        "min": 9
+      }
+    },
+    "27": {
+      "d_nominal": {
+        "nominal": 27,
+        "sourceRefs": [
+          "ISO2341-s1"
+        ],
+        "status": "single-source",
+        "verification": "norm-table-not-independently-verified",
+        "note": "Wert aus der genannten Maßtabelle; zweite unabhängige Bestätigung fehlt.",
+        "unit": "mm"
+      },
+      "dk": {
+        "nominal": 40,
+        "sourceRefs": [
+          "ISO2341-s1",
+          "iso-preview"
+        ],
+        "status": "verified",
+        "verification": "original-standard-and-catalog-agree",
+        "note": "Originalnormvorschau bestätigt den Katalogwert.",
+        "unit": "mm"
+      },
+      "k": {
+        "nominal": 6,
+        "sourceRefs": [
+          "iso-preview",
+          "ISO2341-s1"
+        ],
+        "status": "conflict",
+        "verification": "original-standard-prioritized",
+        "note": "ISO-Originaltabelle hat Vorrang; abweichender DIN/Katalogwert bleibt als Alternative dokumentiert.",
+        "unit": "mm",
+        "alternatives": [
+          {
+            "nominal": 6.3,
+            "sourceRefs": [
+              "ISO2341-s1"
+            ],
+            "edition": "DIN1444:1974"
+          }
+        ]
+      },
+      "e": {
+        "nominal": 2,
+        "sourceRefs": [
+          "ISO2341-s1",
+          "iso-preview"
+        ],
+        "status": "verified",
+        "verification": "original-standard-and-catalog-agree",
+        "note": "Originalnormvorschau bestätigt den Katalogwert.",
+        "unit": "mm"
+      },
+      "c_max": {
+        "sourceRefs": [
+          "ISO2341-s1",
+          "iso-preview"
+        ],
+        "status": "verified",
+        "verification": "original-standard-and-catalog-agree",
+        "note": "Originalnormvorschau bestätigt den Katalogwert.",
+        "unit": "mm",
+        "max": 4
+      },
+      "d1": {
+        "nominal": 6.3,
+        "sourceRefs": [
+          "ISO2341-s1",
+          "iso-preview"
+        ],
+        "status": "verified",
+        "verification": "original-standard-and-catalog-agree",
+        "note": "Originalnormvorschau bestätigt den Katalogwert.",
+        "unit": "mm"
+      },
+      "le_min": {
+        "sourceRefs": [
+          "ISO2341-s1",
+          "iso-preview"
+        ],
+        "status": "verified",
+        "verification": "original-standard-and-catalog-agree",
+        "note": "Originalnormvorschau bestätigt den Katalogwert.",
+        "unit": "mm",
+        "min": 9
+      }
+    },
+    "30": {
+      "d_nominal": {
+        "nominal": 30,
+        "sourceRefs": [
+          "ISO2341-s1"
+        ],
+        "status": "single-source",
+        "verification": "norm-table-not-independently-verified",
+        "note": "Wert aus der genannten Maßtabelle; zweite unabhängige Bestätigung fehlt.",
+        "unit": "mm"
+      },
+      "dk": {
+        "nominal": 44,
+        "sourceRefs": [
+          "ISO2341-s1",
+          "iso-preview"
+        ],
+        "status": "verified",
+        "verification": "original-standard-and-catalog-agree",
+        "note": "Originalnormvorschau bestätigt den Katalogwert.",
+        "unit": "mm"
+      },
+      "k": {
+        "nominal": 8,
+        "sourceRefs": [
+          "ISO2341-s1",
+          "iso-preview"
+        ],
+        "status": "verified",
+        "verification": "original-standard-and-catalog-agree",
+        "note": "Originalnormvorschau bestätigt den Katalogwert.",
+        "unit": "mm"
+      },
+      "e": {
+        "nominal": 2,
+        "sourceRefs": [
+          "ISO2341-s1",
+          "iso-preview"
+        ],
+        "status": "verified",
+        "verification": "original-standard-and-catalog-agree",
+        "note": "Originalnormvorschau bestätigt den Katalogwert.",
+        "unit": "mm"
+      },
+      "c_max": {
+        "sourceRefs": [
+          "ISO2341-s1",
+          "iso-preview"
+        ],
+        "status": "verified",
+        "verification": "original-standard-and-catalog-agree",
+        "note": "Originalnormvorschau bestätigt den Katalogwert.",
+        "unit": "mm",
+        "max": 4
+      },
+      "d1": {
+        "nominal": 8,
+        "sourceRefs": [
+          "ISO2341-s1",
+          "iso-preview"
+        ],
+        "status": "verified",
+        "verification": "original-standard-and-catalog-agree",
+        "note": "Originalnormvorschau bestätigt den Katalogwert.",
+        "unit": "mm"
+      },
+      "le_min": {
+        "sourceRefs": [
+          "ISO2341-s1",
+          "iso-preview"
+        ],
+        "status": "verified",
+        "verification": "original-standard-and-catalog-agree",
+        "note": "Originalnormvorschau bestätigt den Katalogwert.",
+        "unit": "mm",
+        "min": 10
+      }
+    },
+    "33": {
+      "d_nominal": {
+        "nominal": 33,
+        "sourceRefs": [
+          "iso-preview"
+        ],
+        "status": "single-source",
+        "verification": "original-standard-preview",
+        "note": "Zweite unabhängige Bestätigung fehlt.",
+        "unit": "mm"
+      },
+      "dk": {
+        "nominal": 47,
+        "sourceRefs": [
+          "iso-preview"
+        ],
+        "status": "single-source",
+        "verification": "original-standard-preview",
+        "note": "Originalnormvorschau; zweite unabhängig übereinstimmende Quelle fehlt.",
+        "unit": "mm"
+      },
+      "k": {
+        "nominal": 8,
+        "sourceRefs": [
+          "iso-preview"
+        ],
+        "status": "single-source",
+        "verification": "original-standard-preview",
+        "note": "Originalnormvorschau; zweite unabhängig übereinstimmende Quelle fehlt.",
+        "unit": "mm"
+      },
+      "e": {
+        "nominal": 2,
+        "sourceRefs": [
+          "iso-preview"
+        ],
+        "status": "single-source",
+        "verification": "original-standard-preview",
+        "note": "Originalnormvorschau; zweite unabhängig übereinstimmende Quelle fehlt.",
+        "unit": "mm"
+      },
+      "c_max": {
+        "sourceRefs": [
+          "iso-preview"
+        ],
+        "status": "single-source",
+        "verification": "original-standard-preview",
+        "note": "Originalnormvorschau; zweite unabhängig übereinstimmende Quelle fehlt.",
+        "unit": "mm",
+        "max": 4
+      },
+      "d1": {
+        "nominal": 8,
+        "sourceRefs": [
+          "iso-preview"
+        ],
+        "status": "single-source",
+        "verification": "original-standard-preview",
+        "note": "Originalnormvorschau; zweite unabhängig übereinstimmende Quelle fehlt.",
+        "unit": "mm"
+      },
+      "le_min": {
+        "sourceRefs": [
+          "iso-preview"
+        ],
+        "status": "single-source",
+        "verification": "original-standard-preview",
+        "note": "Originalnormvorschau; zweite unabhängig übereinstimmende Quelle fehlt.",
+        "unit": "mm",
+        "min": 10
+      }
+    },
+    "36": {
+      "d_nominal": {
+        "nominal": 36,
+        "sourceRefs": [
+          "iso-preview"
+        ],
+        "status": "single-source",
+        "verification": "original-standard-preview",
+        "note": "Zweite unabhängige Bestätigung fehlt.",
+        "unit": "mm"
+      },
+      "dk": {
+        "nominal": 50,
+        "sourceRefs": [
+          "iso-preview"
+        ],
+        "status": "single-source",
+        "verification": "original-standard-preview",
+        "note": "Originalnormvorschau; zweite unabhängig übereinstimmende Quelle fehlt.",
+        "unit": "mm"
+      },
+      "k": {
+        "nominal": 8,
+        "sourceRefs": [
+          "iso-preview"
+        ],
+        "status": "single-source",
+        "verification": "original-standard-preview",
+        "note": "Originalnormvorschau; zweite unabhängig übereinstimmende Quelle fehlt.",
+        "unit": "mm"
+      },
+      "e": {
+        "nominal": 2,
+        "sourceRefs": [
+          "iso-preview"
+        ],
+        "status": "single-source",
+        "verification": "original-standard-preview",
+        "note": "Originalnormvorschau; zweite unabhängig übereinstimmende Quelle fehlt.",
+        "unit": "mm"
+      },
+      "c_max": {
+        "sourceRefs": [
+          "iso-preview"
+        ],
+        "status": "single-source",
+        "verification": "original-standard-preview",
+        "note": "Originalnormvorschau; zweite unabhängig übereinstimmende Quelle fehlt.",
+        "unit": "mm",
+        "max": 4
+      },
+      "d1": {
+        "nominal": 8,
+        "sourceRefs": [
+          "iso-preview"
+        ],
+        "status": "single-source",
+        "verification": "original-standard-preview",
+        "note": "Originalnormvorschau; zweite unabhängig übereinstimmende Quelle fehlt.",
+        "unit": "mm"
+      },
+      "le_min": {
+        "sourceRefs": [
+          "iso-preview"
+        ],
+        "status": "single-source",
+        "verification": "original-standard-preview",
+        "note": "Originalnormvorschau; zweite unabhängig übereinstimmende Quelle fehlt.",
+        "unit": "mm",
+        "min": 10
+      }
+    },
+    "40": {
+      "d_nominal": {
+        "nominal": 40,
+        "sourceRefs": [
+          "iso-preview"
+        ],
+        "status": "single-source",
+        "verification": "original-standard-preview",
+        "note": "Zweite unabhängige Bestätigung fehlt.",
+        "unit": "mm"
+      },
+      "dk": {
+        "nominal": 55,
+        "sourceRefs": [
+          "iso-preview"
+        ],
+        "status": "single-source",
+        "verification": "original-standard-preview",
+        "note": "Originalnormvorschau; zweite unabhängig übereinstimmende Quelle fehlt.",
+        "unit": "mm"
+      },
+      "k": {
+        "nominal": 8,
+        "sourceRefs": [
+          "iso-preview"
+        ],
+        "status": "single-source",
+        "verification": "original-standard-preview",
+        "note": "Originalnormvorschau; zweite unabhängig übereinstimmende Quelle fehlt.",
+        "unit": "mm"
+      },
+      "e": {
+        "nominal": 2,
+        "sourceRefs": [
+          "iso-preview"
+        ],
+        "status": "single-source",
+        "verification": "original-standard-preview",
+        "note": "Originalnormvorschau; zweite unabhängig übereinstimmende Quelle fehlt.",
+        "unit": "mm"
+      },
+      "c_max": {
+        "sourceRefs": [
+          "iso-preview"
+        ],
+        "status": "single-source",
+        "verification": "original-standard-preview",
+        "note": "Originalnormvorschau; zweite unabhängig übereinstimmende Quelle fehlt.",
+        "unit": "mm",
+        "max": 4
+      },
+      "d1": {
+        "nominal": 8,
+        "sourceRefs": [
+          "iso-preview"
+        ],
+        "status": "single-source",
+        "verification": "original-standard-preview",
+        "note": "Originalnormvorschau; zweite unabhängig übereinstimmende Quelle fehlt.",
+        "unit": "mm"
+      },
+      "le_min": {
+        "sourceRefs": [
+          "iso-preview"
+        ],
+        "status": "single-source",
+        "verification": "original-standard-preview",
+        "note": "Originalnormvorschau; zweite unabhängig übereinstimmende Quelle fehlt.",
+        "unit": "mm",
+        "min": 10
+      }
+    }
+  },
+  "quellen": [
+    {
+      "url": "https://fasten.it/en/norms/norm/din_1444",
+      "titel": "fasten.it DIN 1444 (1974)",
+      "abgerufen": "2026-11-25",
+      "id": "ISO2341-s1",
+      "scope": "dimensions"
+    },
+    {
+      "url": "https://fasten.it/en/norms/norm/din_en_22341",
+      "titel": "fasten.it DIN EN 22341 (1992)",
+      "abgerufen": "2026-11-25",
+      "id": "ISO2341-s2",
+      "scope": "dimensions"
+    },
+    {
+      "url": "https://www.dinmedia.de/en/standard/iso-2341/724684",
+      "titel": "DIN Media ISO 2341:1986-11 Clevis pins with head",
+      "abgerufen": "2026-11-25",
+      "id": "ISO2341-s3",
+      "scope": "edition-status"
+    },
+    {
+      "id": "iso-catalog",
+      "url": "https://www.iso.org/committee/45446/x/catalogue/",
+      "titel": "ISO/TC 2 Katalog: Ausgabe und Status",
+      "abgerufen": "2026-11-26",
+      "scope": "edition-status"
+    },
+    {
+      "id": "iso-preview",
+      "url": "https://cdn.standards.iteh.ai/samples/7178/cdb15ce9572042f4a56dad7dee7c7949/ISO-2341-1986.pdf",
+      "titel": "ISO2341:1986 Originalvorschau, Tabelle1",
+      "abgerufen": "2026-11-26",
+      "scope": "standard-dimensions"
+    }
+  ],
+  "status": "partial",
+  "coverage": "documented",
+  "pruefdatum": "2026-11-26",
+  "normstatus": {
+    "edition": "1986",
+    "status": "current",
+    "sourceRefs": [
+      "iso-catalog"
+    ]
+  },
+  "hinweise": [
+    "Fehlende Größe oder Länge bedeutet fehlende Datenabdeckung, kein Normverbot.",
+    "Maßdaten sind einzeln belegt; Editionsstatus allein bestätigt keine Maßtabelle."
+  ],
+  "gaps": [
+    "Vollständige Normlängenmatrix je Größe und aktuelle Originalmaßtabelle nicht unabhängig bestätigt."
+  ],
+  "lengthDependentFields": [
+    "sL"
+  ],
+  "laengen": {
+    "values": [
+      6,
+      8,
+      10,
+      12,
+      14,
+      16,
+      18,
+      20,
+      22,
+      24,
+      26,
+      28,
+      30,
+      32,
+      35,
+      40,
+      45,
+      50,
+      55,
+      60,
+      65,
+      70,
+      75,
+      80,
+      85,
+      90,
+      95,
+      100,
+      120,
+      140,
+      160,
+      180,
+      200
+    ],
+    "unit": "mm",
+    "kind": "standard-listed-commercial-series",
+    "coverage": "documented",
+    "status": "single-source",
+    "sourceRefs": [
+      "iso-preview"
+    ],
+    "verification": "original-standard-preview",
+    "note": "Längenreihe in ISO2341:1986 Tabelle1; Durchmesser-Längen-Kombinationen aus grafischer Matrix noch nicht geprüft."
+  },
+  "variants": [
+    {
+      "id": "A",
+      "label": "Ohne Splintloch",
+      "sizeData": {},
+      "note": "Gemeinsame Kopfmaße; keine Splintlochgeometrie einsetzen."
+    },
+    {
+      "id": "B",
+      "label": "Mit Splintloch",
+      "sizeData": {},
+      "note": "d1 und le_min gelten für Splintloch; Lochmittenmaß abhängig von gewählter Länge."
+    }
+  ]
+}

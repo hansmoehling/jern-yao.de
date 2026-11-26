@@ -1,0 +1,1010 @@
+{
+  "schemaVersion": 1,
+  "version": "2026-11-26.1",
+  "id": "DIN936",
+  "edition": "catalog-undated",
+  "label": "Flache Sechskantmutter, DIN-Geometrie",
+  "funktion": "mutter",
+  "klasse": "mutter",
+  "kopfTyp": "sechskant",
+  "alias": [],
+  "feldzuordnung": {
+    "mSW": "s_nom",
+    "mH": "m_max"
+  },
+  "groessen": {
+    "M8": {
+      "vorbelegung": {
+        "mSW": 13,
+        "mH": 5
+      },
+      "roh": {
+        "d_nom": 8,
+        "P": 1.25,
+        "s_nom": 13,
+        "s_min": 12.73,
+        "m_max": 5,
+        "m_min": 4.7
+      },
+      "thread": {
+        "id": "M8x1.25",
+        "diameter": 8,
+        "pitch": 1.25,
+        "sourceRefs": [
+          "iso4032_2023"
+        ]
+      },
+      "geometryStatus": "dimensioned",
+      "missingGeometryFields": []
+    },
+    "M10": {
+      "vorbelegung": {
+        "mSW": 17,
+        "mH": 6
+      },
+      "roh": {
+        "d_nom": 10,
+        "P": 1.5,
+        "s_nom": 17,
+        "s_min": 16.73,
+        "m_max": 6,
+        "m_min": 5.7
+      },
+      "thread": {
+        "id": "M10x1.5",
+        "diameter": 10,
+        "pitch": 1.5,
+        "sourceRefs": [
+          "iso4032_2023"
+        ]
+      },
+      "geometryStatus": "dimensioned",
+      "missingGeometryFields": []
+    },
+    "M12": {
+      "vorbelegung": {
+        "mSW": 19,
+        "mH": 7
+      },
+      "roh": {
+        "d_nom": 12,
+        "P": 1.75,
+        "s_nom": 19,
+        "s_min": 18.67,
+        "m_max": 7,
+        "m_min": 6.64
+      },
+      "thread": {
+        "id": "M12x1.75",
+        "diameter": 12,
+        "pitch": 1.75,
+        "sourceRefs": [
+          "iso4032_2023"
+        ]
+      },
+      "geometryStatus": "dimensioned",
+      "missingGeometryFields": []
+    },
+    "M14": {
+      "vorbelegung": {
+        "mSW": 22,
+        "mH": 8
+      },
+      "roh": {
+        "d_nom": 14,
+        "P": 2,
+        "s_nom": 22,
+        "s_min": 21.67,
+        "m_max": 8,
+        "m_min": 7.42
+      },
+      "thread": {
+        "id": "M14x2",
+        "diameter": 14,
+        "pitch": 2,
+        "sourceRefs": [
+          "iso4032_2023"
+        ]
+      },
+      "geometryStatus": "dimensioned",
+      "missingGeometryFields": []
+    },
+    "M16": {
+      "vorbelegung": {
+        "mSW": 24,
+        "mH": 8
+      },
+      "roh": {
+        "d_nom": 16,
+        "P": 2,
+        "s_nom": 24,
+        "s_min": 23.67,
+        "m_max": 8,
+        "m_min": 7.42
+      },
+      "thread": {
+        "id": "M16x2",
+        "diameter": 16,
+        "pitch": 2,
+        "sourceRefs": [
+          "iso4032_2023"
+        ]
+      },
+      "geometryStatus": "dimensioned",
+      "missingGeometryFields": []
+    },
+    "M18": {
+      "vorbelegung": {
+        "mSW": 27,
+        "mH": 9
+      },
+      "roh": {
+        "d_nom": 18,
+        "P": 2.5,
+        "s_nom": 27,
+        "s_min": 26.16,
+        "m_max": 9,
+        "m_min": 8.42
+      },
+      "thread": {
+        "id": "M18x2.5",
+        "diameter": 18,
+        "pitch": 2.5,
+        "sourceRefs": [
+          "iso4032_2023"
+        ]
+      },
+      "geometryStatus": "dimensioned",
+      "missingGeometryFields": []
+    },
+    "M20": {
+      "vorbelegung": {
+        "mSW": 30,
+        "mH": 9
+      },
+      "roh": {
+        "d_nom": 20,
+        "P": 2.5,
+        "s_nom": 30,
+        "s_min": 29.16,
+        "m_max": 9,
+        "m_min": 8.1
+      },
+      "thread": {
+        "id": "M20x2.5",
+        "diameter": 20,
+        "pitch": 2.5,
+        "sourceRefs": [
+          "iso4032_2023"
+        ]
+      },
+      "geometryStatus": "dimensioned",
+      "missingGeometryFields": []
+    },
+    "M22": {
+      "vorbelegung": {
+        "mSW": 32,
+        "mH": 10
+      },
+      "roh": {
+        "d_nom": 22,
+        "P": 2.5,
+        "s_nom": 32,
+        "s_min": 31,
+        "m_max": 10,
+        "m_min": 9.1
+      },
+      "thread": {
+        "id": "M22x2.5",
+        "diameter": 22,
+        "pitch": 2.5,
+        "sourceRefs": [
+          "iso4032_2023"
+        ]
+      },
+      "geometryStatus": "dimensioned",
+      "missingGeometryFields": []
+    },
+    "M24": {
+      "vorbelegung": {
+        "mSW": 36,
+        "mH": 10
+      },
+      "roh": {
+        "d_nom": 24,
+        "P": 3,
+        "s_nom": 36,
+        "s_min": 35,
+        "m_max": 10,
+        "m_min": 9.1
+      },
+      "thread": {
+        "id": "M24x3",
+        "diameter": 24,
+        "pitch": 3,
+        "sourceRefs": [
+          "iso4032_2023"
+        ]
+      },
+      "geometryStatus": "dimensioned",
+      "missingGeometryFields": []
+    },
+    "M27": {
+      "vorbelegung": {
+        "mSW": 41,
+        "mH": 12
+      },
+      "roh": {
+        "d_nom": 27,
+        "P": 3,
+        "s_nom": 41,
+        "s_min": 40,
+        "m_max": 12,
+        "m_min": 10.9
+      },
+      "thread": {
+        "id": "M27x3",
+        "diameter": 27,
+        "pitch": 3,
+        "sourceRefs": [
+          "iso4032_2023"
+        ]
+      },
+      "geometryStatus": "dimensioned",
+      "missingGeometryFields": []
+    },
+    "M30": {
+      "vorbelegung": {
+        "mSW": 46,
+        "mH": 12
+      },
+      "roh": {
+        "d_nom": 30,
+        "P": 3.5,
+        "s_nom": 46,
+        "s_min": 45,
+        "m_max": 12,
+        "m_min": 10.9
+      },
+      "thread": {
+        "id": "M30x3.5",
+        "diameter": 30,
+        "pitch": 3.5,
+        "sourceRefs": [
+          "iso4032_2023"
+        ]
+      },
+      "geometryStatus": "dimensioned",
+      "missingGeometryFields": []
+    }
+  },
+  "fields": {
+    "M8": {
+      "P": {
+        "nominal": 1.25,
+        "sourceRefs": [
+          "iso4032_2023"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "s_nom": {
+        "nominal": 13,
+        "sourceRefs": [
+          "fastenal936",
+          "wuerth936"
+        ],
+        "status": "verified",
+        "verification": "independent-source-agreement",
+        "unit": "mm"
+      },
+      "s_min": {
+        "min": 12.73,
+        "sourceRefs": [
+          "fastenal936"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "m_max": {
+        "max": 5,
+        "sourceRefs": [
+          "fastenal936",
+          "wuerth936"
+        ],
+        "status": "verified",
+        "verification": "independent-source-agreement",
+        "unit": "mm"
+      },
+      "m_min": {
+        "min": 4.7,
+        "sourceRefs": [
+          "fastenal936"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "d_nom": {
+        "nominal": 8,
+        "sourceRefs": [
+          "fastenal936"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      }
+    },
+    "M10": {
+      "P": {
+        "nominal": 1.5,
+        "sourceRefs": [
+          "iso4032_2023"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "s_nom": {
+        "nominal": 17,
+        "sourceRefs": [
+          "fastenal936",
+          "wuerth936"
+        ],
+        "status": "verified",
+        "verification": "independent-source-agreement",
+        "unit": "mm"
+      },
+      "s_min": {
+        "min": 16.73,
+        "sourceRefs": [
+          "fastenal936"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "m_max": {
+        "max": 6,
+        "sourceRefs": [
+          "fastenal936",
+          "wuerth936"
+        ],
+        "status": "verified",
+        "verification": "independent-source-agreement",
+        "unit": "mm"
+      },
+      "m_min": {
+        "min": 5.7,
+        "sourceRefs": [
+          "fastenal936"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "d_nom": {
+        "nominal": 10,
+        "sourceRefs": [
+          "fastenal936"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      }
+    },
+    "M12": {
+      "P": {
+        "nominal": 1.75,
+        "sourceRefs": [
+          "iso4032_2023"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "s_nom": {
+        "nominal": 19,
+        "sourceRefs": [
+          "fastenal936",
+          "wuerth936"
+        ],
+        "status": "verified",
+        "verification": "independent-source-agreement",
+        "unit": "mm"
+      },
+      "s_min": {
+        "min": 18.67,
+        "sourceRefs": [
+          "fastenal936"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "m_max": {
+        "max": 7,
+        "sourceRefs": [
+          "fastenal936",
+          "wuerth936"
+        ],
+        "status": "verified",
+        "verification": "independent-source-agreement",
+        "unit": "mm"
+      },
+      "m_min": {
+        "min": 6.64,
+        "sourceRefs": [
+          "fastenal936"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "d_nom": {
+        "nominal": 12,
+        "sourceRefs": [
+          "fastenal936"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      }
+    },
+    "M14": {
+      "P": {
+        "nominal": 2,
+        "sourceRefs": [
+          "iso4032_2023"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "s_nom": {
+        "nominal": 22,
+        "sourceRefs": [
+          "fastenal936"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "s_min": {
+        "min": 21.67,
+        "sourceRefs": [
+          "fastenal936"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "m_max": {
+        "max": 8,
+        "sourceRefs": [
+          "fastenal936"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "m_min": {
+        "min": 7.42,
+        "sourceRefs": [
+          "fastenal936"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "d_nom": {
+        "nominal": 14,
+        "sourceRefs": [
+          "fastenal936"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      }
+    },
+    "M16": {
+      "P": {
+        "nominal": 2,
+        "sourceRefs": [
+          "iso4032_2023"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "s_nom": {
+        "nominal": 24,
+        "sourceRefs": [
+          "fastenal936",
+          "wuerth936"
+        ],
+        "status": "verified",
+        "verification": "independent-source-agreement",
+        "unit": "mm"
+      },
+      "s_min": {
+        "min": 23.67,
+        "sourceRefs": [
+          "fastenal936"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "m_max": {
+        "max": 8,
+        "sourceRefs": [
+          "fastenal936",
+          "wuerth936"
+        ],
+        "status": "verified",
+        "verification": "independent-source-agreement",
+        "unit": "mm"
+      },
+      "m_min": {
+        "min": 7.42,
+        "sourceRefs": [
+          "fastenal936"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "d_nom": {
+        "nominal": 16,
+        "sourceRefs": [
+          "fastenal936"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      }
+    },
+    "M18": {
+      "P": {
+        "nominal": 2.5,
+        "sourceRefs": [
+          "iso4032_2023"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "s_nom": {
+        "nominal": 27,
+        "sourceRefs": [
+          "fastenal936"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "s_min": {
+        "min": 26.16,
+        "sourceRefs": [
+          "fastenal936"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "m_max": {
+        "max": 9,
+        "sourceRefs": [
+          "fastenal936"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "m_min": {
+        "min": 8.42,
+        "sourceRefs": [
+          "fastenal936"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "d_nom": {
+        "nominal": 18,
+        "sourceRefs": [
+          "fastenal936"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      }
+    },
+    "M20": {
+      "P": {
+        "nominal": 2.5,
+        "sourceRefs": [
+          "iso4032_2023"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "s_nom": {
+        "nominal": 30,
+        "sourceRefs": [
+          "fastenal936",
+          "wuerth936"
+        ],
+        "status": "verified",
+        "verification": "independent-source-agreement",
+        "unit": "mm"
+      },
+      "s_min": {
+        "min": 29.16,
+        "sourceRefs": [
+          "fastenal936"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "m_max": {
+        "max": 9,
+        "sourceRefs": [
+          "fastenal936",
+          "wuerth936"
+        ],
+        "status": "verified",
+        "verification": "independent-source-agreement",
+        "unit": "mm"
+      },
+      "m_min": {
+        "min": 8.1,
+        "sourceRefs": [
+          "fastenal936"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "d_nom": {
+        "nominal": 20,
+        "sourceRefs": [
+          "fastenal936"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      }
+    },
+    "M22": {
+      "P": {
+        "nominal": 2.5,
+        "sourceRefs": [
+          "iso4032_2023"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "s_nom": {
+        "nominal": 32,
+        "sourceRefs": [
+          "fastenal936",
+          "wuerth936"
+        ],
+        "status": "verified",
+        "verification": "independent-source-agreement",
+        "unit": "mm"
+      },
+      "s_min": {
+        "min": 31,
+        "sourceRefs": [
+          "fastenal936"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "m_max": {
+        "max": 10,
+        "sourceRefs": [
+          "fastenal936",
+          "wuerth936"
+        ],
+        "status": "verified",
+        "verification": "independent-source-agreement",
+        "unit": "mm"
+      },
+      "m_min": {
+        "min": 9.1,
+        "sourceRefs": [
+          "fastenal936"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "d_nom": {
+        "nominal": 22,
+        "sourceRefs": [
+          "fastenal936"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      }
+    },
+    "M24": {
+      "P": {
+        "nominal": 3,
+        "sourceRefs": [
+          "iso4032_2023"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "s_nom": {
+        "nominal": 36,
+        "sourceRefs": [
+          "fastenal936",
+          "wuerth936"
+        ],
+        "status": "verified",
+        "verification": "independent-source-agreement",
+        "unit": "mm"
+      },
+      "s_min": {
+        "min": 35,
+        "sourceRefs": [
+          "fastenal936"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "m_max": {
+        "max": 10,
+        "sourceRefs": [
+          "fastenal936",
+          "wuerth936"
+        ],
+        "status": "verified",
+        "verification": "independent-source-agreement",
+        "unit": "mm"
+      },
+      "m_min": {
+        "min": 9.1,
+        "sourceRefs": [
+          "fastenal936"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "d_nom": {
+        "nominal": 24,
+        "sourceRefs": [
+          "fastenal936"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      }
+    },
+    "M27": {
+      "P": {
+        "nominal": 3,
+        "sourceRefs": [
+          "iso4032_2023"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "s_nom": {
+        "nominal": 41,
+        "sourceRefs": [
+          "fastenal936",
+          "wuerth936"
+        ],
+        "status": "verified",
+        "verification": "independent-source-agreement",
+        "unit": "mm"
+      },
+      "s_min": {
+        "min": 40,
+        "sourceRefs": [
+          "fastenal936"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "m_max": {
+        "max": 12,
+        "sourceRefs": [
+          "fastenal936",
+          "wuerth936"
+        ],
+        "status": "verified",
+        "verification": "independent-source-agreement",
+        "unit": "mm"
+      },
+      "m_min": {
+        "min": 10.9,
+        "sourceRefs": [
+          "fastenal936"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "d_nom": {
+        "nominal": 27,
+        "sourceRefs": [
+          "fastenal936"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      }
+    },
+    "M30": {
+      "P": {
+        "nominal": 3.5,
+        "sourceRefs": [
+          "iso4032_2023"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "s_nom": {
+        "nominal": 46,
+        "sourceRefs": [
+          "fastenal936",
+          "wuerth936"
+        ],
+        "status": "verified",
+        "verification": "independent-source-agreement",
+        "unit": "mm"
+      },
+      "s_min": {
+        "min": 45,
+        "sourceRefs": [
+          "fastenal936"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "m_max": {
+        "max": 12,
+        "sourceRefs": [
+          "fastenal936",
+          "wuerth936"
+        ],
+        "status": "verified",
+        "verification": "independent-source-agreement",
+        "unit": "mm"
+      },
+      "m_min": {
+        "min": 10.9,
+        "sourceRefs": [
+          "fastenal936"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "d_nom": {
+        "nominal": 30,
+        "sourceRefs": [
+          "fastenal936"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      }
+    }
+  },
+  "sourceMeta": {
+    "fastenal936": {
+      "url": "https://www.fastenal.com/content/product_specifications/M.936.P.04.pdf",
+      "title": "Fastenal DIN 936 product standard",
+      "locator": "REV-04, 2021-08-27, page 1",
+      "kind": "supplier-product-specification",
+      "edition": null,
+      "accessed": "2026-11-26"
+    },
+    "iso4032_2023": {
+      "url": "https://cdn.standards.iteh.ai/samples/75016/5b1f83bd2dc44fc199973e9957a75086/ISO-4032-2023.pdf",
+      "title": "ISO 4032:2023",
+      "locator": "Tables 1–2, printed page 3",
+      "kind": "standard",
+      "edition": "2023",
+      "accessed": "2026-11-26"
+    },
+    "wuerth936": {
+      "url": "https://marketplacemedia.witglobal.net/source/marketplace/stmedia/wuerth/documents/documents/std.lang.all/29218893.pdf",
+      "title": "Würth DIN 936, left-hand thread",
+      "locator": "CL01_3512122602, Rev. 0.281, 2025-08-12",
+      "kind": "manufacturer-catalog",
+      "edition": null,
+      "accessed": "2026-11-26"
+    }
+  },
+  "sourceStatus": "per-value",
+  "coverage": {
+    "diameterMin": 5,
+    "diameterMax": 30,
+    "unit": "mm",
+    "status": "partial",
+    "missingSizes": [
+      "M5",
+      "M6",
+      "M7"
+    ],
+    "missingReason": "Keine ausgewerteten Maßnachweise für diese Größen; keine Aussage über Herstellbarkeit oder Lieferbarkeit."
+  },
+  "editionStatus": "edition-unverified",
+  "threadSeries": "coarse",
+  "coverageNotes": [
+    "Zurückgezogene DIN-Geometrie; keine Maßgleichsetzung mit ISO 4035."
+  ],
+  "defaultPolicy": "Dokumentierte Kataloghöhe oder ausgewiesenes Höchstmaß als vorläufige Außenhülle; kein vollständiges Fertigteilmodell."
+}

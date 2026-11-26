@@ -1,0 +1,1277 @@
+{
+  "schemaVersion": 1,
+  "id": "DIN302",
+  "version": "2026-11-26",
+  "edition": "2011-03",
+  "label": "Senkniete, Nenndurchmesser 10 mm bis 36 mm",
+  "alias": [],
+  "datasetKind": "part-standard",
+  "funktion": "niet",
+  "klasse": "bolzen",
+  "kopfTyp": "kegelstumpf",
+  "antrieb": null,
+  "threadFamily": "none",
+  "schaftende": "voll",
+  "feldzuordnung": {
+    "sD": "d_nominal",
+    "sL": "l_nominal",
+    "kD": "dk_nom",
+    "kH": "k_ca",
+    "alpha": "alpha"
+  },
+  "groessen": {
+    "10": {
+      "vorbelegung": {
+        "sD": 10,
+        "kD": 14.5,
+        "kH": 3,
+        "alpha": 75
+      },
+      "roh": {
+        "d_nominal": 10,
+        "dk_nom": 14.5,
+        "d_min": 9.4,
+        "e_max": 5,
+        "k_ca": 3,
+        "r2": 32,
+        "alpha": 75
+      },
+      "coverage": "documented",
+      "geometryStatus": "partial",
+      "missingGeometryFields": [
+        "secondSourceHeadAngle",
+        "headTransition"
+      ],
+      "nachLaenge": {}
+    },
+    "12": {
+      "vorbelegung": {
+        "sD": 12,
+        "kD": 18,
+        "kH": 4,
+        "alpha": 75
+      },
+      "roh": {
+        "d_nominal": 12,
+        "dk_nom": 18,
+        "d_min": 11.3,
+        "e_max": 6,
+        "k_ca": 4,
+        "r2": 45,
+        "alpha": 75
+      },
+      "coverage": "documented",
+      "geometryStatus": "partial",
+      "missingGeometryFields": [
+        "secondSourceHeadAngle",
+        "headTransition"
+      ],
+      "nachLaenge": {}
+    },
+    "14": {
+      "vorbelegung": {
+        "sD": 14,
+        "kD": 21.5,
+        "kH": 5,
+        "alpha": 75
+      },
+      "roh": {
+        "d_nominal": 14,
+        "dk_nom": 21.5,
+        "d_min": 13.2,
+        "e_max": 7,
+        "k_ca": 5,
+        "r2": 60,
+        "alpha": 75
+      },
+      "coverage": "documented",
+      "geometryStatus": "partial",
+      "missingGeometryFields": [
+        "secondSourceHeadAngle",
+        "headTransition"
+      ],
+      "nachLaenge": {}
+    },
+    "16": {
+      "vorbelegung": {
+        "sD": 16,
+        "kD": 26,
+        "kH": 6.5,
+        "alpha": 75
+      },
+      "roh": {
+        "d_nominal": 16,
+        "dk_nom": 26,
+        "d_min": 15.2,
+        "e_max": 8,
+        "k_ca": 6.5,
+        "r2": 85,
+        "alpha": 75
+      },
+      "coverage": "documented",
+      "geometryStatus": "partial",
+      "missingGeometryFields": [
+        "secondSourceHeadAngle",
+        "headTransition"
+      ],
+      "nachLaenge": {}
+    },
+    "18": {
+      "vorbelegung": {
+        "sD": 18,
+        "kD": 30,
+        "kH": 8,
+        "alpha": 75
+      },
+      "roh": {
+        "d_nominal": 18,
+        "dk_nom": 30,
+        "d_min": 17.1,
+        "e_max": 9,
+        "k_ca": 8,
+        "r2": 105,
+        "alpha": 75
+      },
+      "coverage": "documented",
+      "geometryStatus": "partial",
+      "missingGeometryFields": [
+        "secondSourceHeadAngle",
+        "headTransition"
+      ],
+      "nachLaenge": {}
+    },
+    "20": {
+      "vorbelegung": {
+        "sD": 20,
+        "kD": 31.5,
+        "kH": 10,
+        "alpha": 60
+      },
+      "roh": {
+        "d_nominal": 20,
+        "dk_nom": 31.5,
+        "d_min": 19.1,
+        "e_max": 10,
+        "k_ca": 10,
+        "r2": 120,
+        "alpha": 60
+      },
+      "coverage": "documented",
+      "geometryStatus": "partial",
+      "missingGeometryFields": [
+        "secondSourceHeadAngle",
+        "headTransition"
+      ],
+      "nachLaenge": {}
+    },
+    "22": {
+      "vorbelegung": {
+        "sD": 22,
+        "kD": 34.5,
+        "kH": 11,
+        "alpha": 60
+      },
+      "roh": {
+        "d_nominal": 22,
+        "dk_nom": 34.5,
+        "d_min": 20.9,
+        "e_max": 11,
+        "k_ca": 11,
+        "r2": 75,
+        "alpha": 60
+      },
+      "coverage": "documented",
+      "geometryStatus": "partial",
+      "missingGeometryFields": [
+        "secondSourceHeadAngle",
+        "headTransition"
+      ],
+      "nachLaenge": {}
+    },
+    "24": {
+      "vorbelegung": {
+        "sD": 24,
+        "kD": 38,
+        "kH": 12,
+        "alpha": 60
+      },
+      "roh": {
+        "d_nominal": 24,
+        "dk_nom": 38,
+        "d_min": 22.9,
+        "e_max": 12,
+        "k_ca": 12,
+        "r2": 85,
+        "alpha": 60
+      },
+      "coverage": "documented",
+      "geometryStatus": "partial",
+      "missingGeometryFields": [
+        "secondSourceHeadAngle",
+        "headTransition"
+      ],
+      "nachLaenge": {}
+    },
+    "27": {
+      "vorbelegung": {
+        "sD": 27,
+        "kD": 42,
+        "kH": 13.5,
+        "alpha": 60
+      },
+      "roh": {
+        "d_nominal": 27,
+        "dk_nom": 42,
+        "d_min": 25.8,
+        "e_max": 13.5,
+        "k_ca": 13.5,
+        "r2": 110,
+        "alpha": 60
+      },
+      "coverage": "documented",
+      "geometryStatus": "partial",
+      "missingGeometryFields": [
+        "secondSourceHeadAngle",
+        "headTransition"
+      ],
+      "nachLaenge": {}
+    },
+    "30": {
+      "vorbelegung": {
+        "sD": 30,
+        "kD": 42.5,
+        "kH": 15,
+        "alpha": 45
+      },
+      "roh": {
+        "d_nominal": 30,
+        "dk_nom": 42.5,
+        "d_min": 28.6,
+        "e_max": 15,
+        "k_ca": 15,
+        "r2": 120,
+        "alpha": 45
+      },
+      "coverage": "documented",
+      "geometryStatus": "partial",
+      "missingGeometryFields": [
+        "secondSourceHeadAngle",
+        "headTransition"
+      ],
+      "nachLaenge": {}
+    },
+    "33": {
+      "vorbelegung": {
+        "sD": 33,
+        "kD": 46.5,
+        "kH": 16.5,
+        "alpha": 45
+      },
+      "roh": {
+        "d_nominal": 33,
+        "dk_nom": 46.5,
+        "d_min": 31.6,
+        "e_max": 16.5,
+        "k_ca": 16.5,
+        "r2": 145,
+        "alpha": 45
+      },
+      "coverage": "documented",
+      "geometryStatus": "partial",
+      "missingGeometryFields": [
+        "secondSourceHeadAngle",
+        "headTransition"
+      ],
+      "nachLaenge": {}
+    },
+    "36": {
+      "vorbelegung": {
+        "sD": 36,
+        "kD": 51,
+        "kH": 18,
+        "alpha": 45
+      },
+      "roh": {
+        "d_nominal": 36,
+        "dk_nom": 51,
+        "d_min": 34.6,
+        "e_max": 18,
+        "k_ca": 18,
+        "r2": 170,
+        "alpha": 45
+      },
+      "coverage": "documented",
+      "geometryStatus": "partial",
+      "missingGeometryFields": [
+        "secondSourceHeadAngle",
+        "headTransition"
+      ],
+      "nachLaenge": {}
+    }
+  },
+  "fields": {
+    "10": {
+      "d_nominal": {
+        "nominal": 10,
+        "sourceRefs": [
+          "DIN302-s1",
+          "fasenco"
+        ],
+        "status": "verified",
+        "verification": "independent-publishers-agree",
+        "note": "Zahlenwert in zwei voneinander getrennten Veröffentlichungen bestätigt; Normedition des Herstellerblatts nicht ausdrücklich genannt.",
+        "unit": "mm"
+      },
+      "dk_nom": {
+        "nominal": 14.5,
+        "sourceRefs": [
+          "DIN302-s1",
+          "fasenco"
+        ],
+        "status": "verified",
+        "verification": "independent-publishers-agree",
+        "note": "Zahlenwert in zwei voneinander getrennten Veröffentlichungen bestätigt; Normedition des Herstellerblatts nicht ausdrücklich genannt.",
+        "unit": "mm"
+      },
+      "d_min": {
+        "sourceRefs": [
+          "DIN302-s1",
+          "fasenco"
+        ],
+        "status": "verified",
+        "verification": "independent-publishers-agree",
+        "note": "Zahlenwert in zwei voneinander getrennten Veröffentlichungen bestätigt; Normedition des Herstellerblatts nicht ausdrücklich genannt.",
+        "unit": "mm",
+        "min": 9.4
+      },
+      "e_max": {
+        "sourceRefs": [
+          "DIN302-s1"
+        ],
+        "status": "single-source",
+        "verification": "norm-table-not-independently-verified",
+        "note": "siehe DIN 660",
+        "unit": "mm",
+        "max": 5
+      },
+      "k_ca": {
+        "nominal": 3,
+        "sourceRefs": [
+          "DIN302-s1",
+          "fasenco"
+        ],
+        "status": "verified",
+        "verification": "independent-publishers-agree",
+        "note": "Zahlenwert in zwei voneinander getrennten Veröffentlichungen bestätigt; Normedition des Herstellerblatts nicht ausdrücklich genannt.",
+        "unit": "mm"
+      },
+      "r2": {
+        "nominal": 32,
+        "sourceRefs": [
+          "DIN302-s1"
+        ],
+        "status": "single-source",
+        "verification": "norm-table-not-independently-verified",
+        "note": "Radius (Spalte 'r 2' der Quelle, Bedeutung nicht definiert)",
+        "unit": "mm"
+      },
+      "alpha": {
+        "nominal": 75,
+        "unit": "deg",
+        "sourceRefs": [
+          "fasenco"
+        ],
+        "status": "single-source",
+        "verification": "manufacturer-table",
+        "note": "Größenabhängiger Winkel aus Herstellerquelle; zweite unabhängige Bestätigung fehlt."
+      }
+    },
+    "12": {
+      "d_nominal": {
+        "nominal": 12,
+        "sourceRefs": [
+          "DIN302-s1",
+          "fasenco"
+        ],
+        "status": "verified",
+        "verification": "independent-publishers-agree",
+        "note": "Zahlenwert in zwei voneinander getrennten Veröffentlichungen bestätigt; Normedition des Herstellerblatts nicht ausdrücklich genannt.",
+        "unit": "mm"
+      },
+      "dk_nom": {
+        "nominal": 18,
+        "sourceRefs": [
+          "DIN302-s1",
+          "fasenco"
+        ],
+        "status": "verified",
+        "verification": "independent-publishers-agree",
+        "note": "Zahlenwert in zwei voneinander getrennten Veröffentlichungen bestätigt; Normedition des Herstellerblatts nicht ausdrücklich genannt.",
+        "unit": "mm"
+      },
+      "d_min": {
+        "sourceRefs": [
+          "DIN302-s1",
+          "fasenco"
+        ],
+        "status": "verified",
+        "verification": "independent-publishers-agree",
+        "note": "Zahlenwert in zwei voneinander getrennten Veröffentlichungen bestätigt; Normedition des Herstellerblatts nicht ausdrücklich genannt.",
+        "unit": "mm",
+        "min": 11.3
+      },
+      "e_max": {
+        "sourceRefs": [
+          "DIN302-s1"
+        ],
+        "status": "single-source",
+        "verification": "norm-table-not-independently-verified",
+        "note": "siehe DIN 660",
+        "unit": "mm",
+        "max": 6
+      },
+      "k_ca": {
+        "nominal": 4,
+        "sourceRefs": [
+          "DIN302-s1",
+          "fasenco"
+        ],
+        "status": "verified",
+        "verification": "independent-publishers-agree",
+        "note": "Zahlenwert in zwei voneinander getrennten Veröffentlichungen bestätigt; Normedition des Herstellerblatts nicht ausdrücklich genannt.",
+        "unit": "mm"
+      },
+      "r2": {
+        "nominal": 45,
+        "sourceRefs": [
+          "DIN302-s1"
+        ],
+        "status": "single-source",
+        "verification": "norm-table-not-independently-verified",
+        "note": "Radius (Spalte 'r 2' der Quelle, Bedeutung nicht definiert)",
+        "unit": "mm"
+      },
+      "alpha": {
+        "nominal": 75,
+        "unit": "deg",
+        "sourceRefs": [
+          "fasenco"
+        ],
+        "status": "single-source",
+        "verification": "manufacturer-table",
+        "note": "Größenabhängiger Winkel aus Herstellerquelle; zweite unabhängige Bestätigung fehlt."
+      }
+    },
+    "14": {
+      "d_nominal": {
+        "nominal": 14,
+        "sourceRefs": [
+          "DIN302-s1",
+          "fasenco"
+        ],
+        "status": "verified",
+        "verification": "independent-publishers-agree",
+        "note": "Zahlenwert in zwei voneinander getrennten Veröffentlichungen bestätigt; Normedition des Herstellerblatts nicht ausdrücklich genannt.",
+        "unit": "mm"
+      },
+      "dk_nom": {
+        "nominal": 21.5,
+        "sourceRefs": [
+          "DIN302-s1",
+          "fasenco"
+        ],
+        "status": "verified",
+        "verification": "independent-publishers-agree",
+        "note": "Zahlenwert in zwei voneinander getrennten Veröffentlichungen bestätigt; Normedition des Herstellerblatts nicht ausdrücklich genannt.",
+        "unit": "mm"
+      },
+      "d_min": {
+        "sourceRefs": [
+          "DIN302-s1",
+          "fasenco"
+        ],
+        "status": "verified",
+        "verification": "independent-publishers-agree",
+        "note": "Zahlenwert in zwei voneinander getrennten Veröffentlichungen bestätigt; Normedition des Herstellerblatts nicht ausdrücklich genannt.",
+        "unit": "mm",
+        "min": 13.2
+      },
+      "e_max": {
+        "sourceRefs": [
+          "DIN302-s1"
+        ],
+        "status": "single-source",
+        "verification": "norm-table-not-independently-verified",
+        "note": "siehe DIN 660",
+        "unit": "mm",
+        "max": 7
+      },
+      "k_ca": {
+        "nominal": 5,
+        "sourceRefs": [
+          "DIN302-s1",
+          "fasenco"
+        ],
+        "status": "verified",
+        "verification": "independent-publishers-agree",
+        "note": "Zahlenwert in zwei voneinander getrennten Veröffentlichungen bestätigt; Normedition des Herstellerblatts nicht ausdrücklich genannt.",
+        "unit": "mm"
+      },
+      "r2": {
+        "nominal": 60,
+        "sourceRefs": [
+          "DIN302-s1"
+        ],
+        "status": "single-source",
+        "verification": "norm-table-not-independently-verified",
+        "note": "Radius (Spalte 'r 2' der Quelle, Bedeutung nicht definiert)",
+        "unit": "mm"
+      },
+      "alpha": {
+        "nominal": 75,
+        "unit": "deg",
+        "sourceRefs": [
+          "fasenco"
+        ],
+        "status": "single-source",
+        "verification": "manufacturer-table",
+        "note": "Größenabhängiger Winkel aus Herstellerquelle; zweite unabhängige Bestätigung fehlt."
+      }
+    },
+    "16": {
+      "d_nominal": {
+        "nominal": 16,
+        "sourceRefs": [
+          "DIN302-s1",
+          "fasenco"
+        ],
+        "status": "verified",
+        "verification": "independent-publishers-agree",
+        "note": "Zahlenwert in zwei voneinander getrennten Veröffentlichungen bestätigt; Normedition des Herstellerblatts nicht ausdrücklich genannt.",
+        "unit": "mm"
+      },
+      "dk_nom": {
+        "nominal": 26,
+        "sourceRefs": [
+          "DIN302-s1",
+          "fasenco"
+        ],
+        "status": "verified",
+        "verification": "independent-publishers-agree",
+        "note": "Zahlenwert in zwei voneinander getrennten Veröffentlichungen bestätigt; Normedition des Herstellerblatts nicht ausdrücklich genannt.",
+        "unit": "mm"
+      },
+      "d_min": {
+        "sourceRefs": [
+          "DIN302-s1",
+          "fasenco"
+        ],
+        "status": "verified",
+        "verification": "independent-publishers-agree",
+        "note": "Zahlenwert in zwei voneinander getrennten Veröffentlichungen bestätigt; Normedition des Herstellerblatts nicht ausdrücklich genannt.",
+        "unit": "mm",
+        "min": 15.2
+      },
+      "e_max": {
+        "sourceRefs": [
+          "DIN302-s1"
+        ],
+        "status": "single-source",
+        "verification": "norm-table-not-independently-verified",
+        "note": "siehe DIN 660",
+        "unit": "mm",
+        "max": 8
+      },
+      "k_ca": {
+        "nominal": 6.5,
+        "sourceRefs": [
+          "DIN302-s1",
+          "fasenco"
+        ],
+        "status": "verified",
+        "verification": "independent-publishers-agree",
+        "note": "Zahlenwert in zwei voneinander getrennten Veröffentlichungen bestätigt; Normedition des Herstellerblatts nicht ausdrücklich genannt.",
+        "unit": "mm"
+      },
+      "r2": {
+        "nominal": 85,
+        "sourceRefs": [
+          "DIN302-s1"
+        ],
+        "status": "single-source",
+        "verification": "norm-table-not-independently-verified",
+        "note": "Radius (Spalte 'r 2' der Quelle, Bedeutung nicht definiert)",
+        "unit": "mm"
+      },
+      "alpha": {
+        "nominal": 75,
+        "unit": "deg",
+        "sourceRefs": [
+          "fasenco"
+        ],
+        "status": "single-source",
+        "verification": "manufacturer-table",
+        "note": "Größenabhängiger Winkel aus Herstellerquelle; zweite unabhängige Bestätigung fehlt."
+      }
+    },
+    "18": {
+      "d_nominal": {
+        "nominal": 18,
+        "sourceRefs": [
+          "DIN302-s1",
+          "fasenco"
+        ],
+        "status": "verified",
+        "verification": "independent-publishers-agree",
+        "note": "Zahlenwert in zwei voneinander getrennten Veröffentlichungen bestätigt; Normedition des Herstellerblatts nicht ausdrücklich genannt.",
+        "unit": "mm"
+      },
+      "dk_nom": {
+        "nominal": 30,
+        "sourceRefs": [
+          "DIN302-s1",
+          "fasenco"
+        ],
+        "status": "verified",
+        "verification": "independent-publishers-agree",
+        "note": "Zahlenwert in zwei voneinander getrennten Veröffentlichungen bestätigt; Normedition des Herstellerblatts nicht ausdrücklich genannt.",
+        "unit": "mm"
+      },
+      "d_min": {
+        "sourceRefs": [
+          "DIN302-s1",
+          "fasenco"
+        ],
+        "status": "verified",
+        "verification": "independent-publishers-agree",
+        "note": "Zahlenwert in zwei voneinander getrennten Veröffentlichungen bestätigt; Normedition des Herstellerblatts nicht ausdrücklich genannt.",
+        "unit": "mm",
+        "min": 17.1
+      },
+      "e_max": {
+        "sourceRefs": [
+          "DIN302-s1"
+        ],
+        "status": "single-source",
+        "verification": "norm-table-not-independently-verified",
+        "note": "siehe DIN 660",
+        "unit": "mm",
+        "max": 9
+      },
+      "k_ca": {
+        "nominal": 8,
+        "sourceRefs": [
+          "DIN302-s1",
+          "fasenco"
+        ],
+        "status": "verified",
+        "verification": "independent-publishers-agree",
+        "note": "Zahlenwert in zwei voneinander getrennten Veröffentlichungen bestätigt; Normedition des Herstellerblatts nicht ausdrücklich genannt.",
+        "unit": "mm"
+      },
+      "r2": {
+        "nominal": 105,
+        "sourceRefs": [
+          "DIN302-s1"
+        ],
+        "status": "single-source",
+        "verification": "norm-table-not-independently-verified",
+        "note": "Radius (Spalte 'r 2' der Quelle, Bedeutung nicht definiert)",
+        "unit": "mm"
+      },
+      "alpha": {
+        "nominal": 75,
+        "unit": "deg",
+        "sourceRefs": [
+          "fasenco"
+        ],
+        "status": "single-source",
+        "verification": "manufacturer-table",
+        "note": "Größenabhängiger Winkel aus Herstellerquelle; zweite unabhängige Bestätigung fehlt."
+      }
+    },
+    "20": {
+      "d_nominal": {
+        "nominal": 20,
+        "sourceRefs": [
+          "DIN302-s1",
+          "fasenco"
+        ],
+        "status": "verified",
+        "verification": "independent-publishers-agree",
+        "note": "Zahlenwert in zwei voneinander getrennten Veröffentlichungen bestätigt; Normedition des Herstellerblatts nicht ausdrücklich genannt.",
+        "unit": "mm"
+      },
+      "dk_nom": {
+        "nominal": 31.5,
+        "sourceRefs": [
+          "DIN302-s1",
+          "fasenco"
+        ],
+        "status": "verified",
+        "verification": "independent-publishers-agree",
+        "note": "Zahlenwert in zwei voneinander getrennten Veröffentlichungen bestätigt; Normedition des Herstellerblatts nicht ausdrücklich genannt.",
+        "unit": "mm"
+      },
+      "d_min": {
+        "sourceRefs": [
+          "DIN302-s1",
+          "fasenco"
+        ],
+        "status": "verified",
+        "verification": "independent-publishers-agree",
+        "note": "Zahlenwert in zwei voneinander getrennten Veröffentlichungen bestätigt; Normedition des Herstellerblatts nicht ausdrücklich genannt.",
+        "unit": "mm",
+        "min": 19.1
+      },
+      "e_max": {
+        "sourceRefs": [
+          "DIN302-s1"
+        ],
+        "status": "single-source",
+        "verification": "norm-table-not-independently-verified",
+        "note": "siehe DIN 660",
+        "unit": "mm",
+        "max": 10
+      },
+      "k_ca": {
+        "nominal": 10,
+        "sourceRefs": [
+          "DIN302-s1",
+          "fasenco"
+        ],
+        "status": "verified",
+        "verification": "independent-publishers-agree",
+        "note": "Zahlenwert in zwei voneinander getrennten Veröffentlichungen bestätigt; Normedition des Herstellerblatts nicht ausdrücklich genannt.",
+        "unit": "mm"
+      },
+      "r2": {
+        "nominal": 120,
+        "sourceRefs": [
+          "DIN302-s1"
+        ],
+        "status": "single-source",
+        "verification": "norm-table-not-independently-verified",
+        "note": "Radius (Spalte 'r 2' der Quelle, Bedeutung nicht definiert)",
+        "unit": "mm"
+      },
+      "alpha": {
+        "nominal": 60,
+        "unit": "deg",
+        "sourceRefs": [
+          "fasenco"
+        ],
+        "status": "single-source",
+        "verification": "manufacturer-table",
+        "note": "Größenabhängiger Winkel aus Herstellerquelle; zweite unabhängige Bestätigung fehlt."
+      }
+    },
+    "22": {
+      "d_nominal": {
+        "nominal": 22,
+        "sourceRefs": [
+          "DIN302-s1",
+          "fasenco"
+        ],
+        "status": "verified",
+        "verification": "independent-publishers-agree",
+        "note": "Zahlenwert in zwei voneinander getrennten Veröffentlichungen bestätigt; Normedition des Herstellerblatts nicht ausdrücklich genannt.",
+        "unit": "mm"
+      },
+      "dk_nom": {
+        "nominal": 34.5,
+        "sourceRefs": [
+          "DIN302-s1",
+          "fasenco"
+        ],
+        "status": "verified",
+        "verification": "independent-publishers-agree",
+        "note": "Zahlenwert in zwei voneinander getrennten Veröffentlichungen bestätigt; Normedition des Herstellerblatts nicht ausdrücklich genannt.",
+        "unit": "mm"
+      },
+      "d_min": {
+        "sourceRefs": [
+          "DIN302-s1",
+          "fasenco"
+        ],
+        "status": "verified",
+        "verification": "independent-publishers-agree",
+        "note": "Zahlenwert in zwei voneinander getrennten Veröffentlichungen bestätigt; Normedition des Herstellerblatts nicht ausdrücklich genannt.",
+        "unit": "mm",
+        "min": 20.9
+      },
+      "e_max": {
+        "sourceRefs": [
+          "DIN302-s1"
+        ],
+        "status": "single-source",
+        "verification": "norm-table-not-independently-verified",
+        "note": "siehe DIN 660",
+        "unit": "mm",
+        "max": 11
+      },
+      "k_ca": {
+        "nominal": 11,
+        "sourceRefs": [
+          "DIN302-s1",
+          "fasenco"
+        ],
+        "status": "verified",
+        "verification": "independent-publishers-agree",
+        "note": "Zahlenwert in zwei voneinander getrennten Veröffentlichungen bestätigt; Normedition des Herstellerblatts nicht ausdrücklich genannt.",
+        "unit": "mm"
+      },
+      "r2": {
+        "nominal": 75,
+        "sourceRefs": [
+          "DIN302-s1"
+        ],
+        "status": "single-source",
+        "verification": "norm-table-not-independently-verified",
+        "note": "Radius (Spalte 'r 2' der Quelle, Bedeutung nicht definiert)",
+        "unit": "mm"
+      },
+      "alpha": {
+        "nominal": 60,
+        "unit": "deg",
+        "sourceRefs": [
+          "fasenco"
+        ],
+        "status": "single-source",
+        "verification": "manufacturer-table",
+        "note": "Größenabhängiger Winkel aus Herstellerquelle; zweite unabhängige Bestätigung fehlt."
+      }
+    },
+    "24": {
+      "d_nominal": {
+        "nominal": 24,
+        "sourceRefs": [
+          "DIN302-s1",
+          "fasenco"
+        ],
+        "status": "verified",
+        "verification": "independent-publishers-agree",
+        "note": "Zahlenwert in zwei voneinander getrennten Veröffentlichungen bestätigt; Normedition des Herstellerblatts nicht ausdrücklich genannt.",
+        "unit": "mm"
+      },
+      "dk_nom": {
+        "nominal": 38,
+        "sourceRefs": [
+          "DIN302-s1",
+          "fasenco"
+        ],
+        "status": "verified",
+        "verification": "independent-publishers-agree",
+        "note": "Zahlenwert in zwei voneinander getrennten Veröffentlichungen bestätigt; Normedition des Herstellerblatts nicht ausdrücklich genannt.",
+        "unit": "mm"
+      },
+      "d_min": {
+        "sourceRefs": [
+          "DIN302-s1",
+          "fasenco"
+        ],
+        "status": "verified",
+        "verification": "independent-publishers-agree",
+        "note": "Zahlenwert in zwei voneinander getrennten Veröffentlichungen bestätigt; Normedition des Herstellerblatts nicht ausdrücklich genannt.",
+        "unit": "mm",
+        "min": 22.9
+      },
+      "e_max": {
+        "sourceRefs": [
+          "DIN302-s1"
+        ],
+        "status": "single-source",
+        "verification": "norm-table-not-independently-verified",
+        "note": "siehe DIN 660",
+        "unit": "mm",
+        "max": 12
+      },
+      "k_ca": {
+        "nominal": 12,
+        "sourceRefs": [
+          "DIN302-s1",
+          "fasenco"
+        ],
+        "status": "verified",
+        "verification": "independent-publishers-agree",
+        "note": "Zahlenwert in zwei voneinander getrennten Veröffentlichungen bestätigt; Normedition des Herstellerblatts nicht ausdrücklich genannt.",
+        "unit": "mm"
+      },
+      "r2": {
+        "nominal": 85,
+        "sourceRefs": [
+          "DIN302-s1"
+        ],
+        "status": "single-source",
+        "verification": "norm-table-not-independently-verified",
+        "note": "Radius (Spalte 'r 2' der Quelle, Bedeutung nicht definiert)",
+        "unit": "mm"
+      },
+      "alpha": {
+        "nominal": 60,
+        "unit": "deg",
+        "sourceRefs": [
+          "fasenco"
+        ],
+        "status": "single-source",
+        "verification": "manufacturer-table",
+        "note": "Größenabhängiger Winkel aus Herstellerquelle; zweite unabhängige Bestätigung fehlt."
+      }
+    },
+    "27": {
+      "d_nominal": {
+        "nominal": 27,
+        "sourceRefs": [
+          "DIN302-s1",
+          "fasenco"
+        ],
+        "status": "verified",
+        "verification": "independent-publishers-agree",
+        "note": "Zahlenwert in zwei voneinander getrennten Veröffentlichungen bestätigt; Normedition des Herstellerblatts nicht ausdrücklich genannt.",
+        "unit": "mm"
+      },
+      "dk_nom": {
+        "nominal": 42,
+        "sourceRefs": [
+          "DIN302-s1",
+          "fasenco"
+        ],
+        "status": "verified",
+        "verification": "independent-publishers-agree",
+        "note": "Zahlenwert in zwei voneinander getrennten Veröffentlichungen bestätigt; Normedition des Herstellerblatts nicht ausdrücklich genannt.",
+        "unit": "mm"
+      },
+      "d_min": {
+        "sourceRefs": [
+          "DIN302-s1",
+          "fasenco"
+        ],
+        "status": "verified",
+        "verification": "independent-publishers-agree",
+        "note": "Zahlenwert in zwei voneinander getrennten Veröffentlichungen bestätigt; Normedition des Herstellerblatts nicht ausdrücklich genannt.",
+        "unit": "mm",
+        "min": 25.8
+      },
+      "e_max": {
+        "sourceRefs": [
+          "DIN302-s1"
+        ],
+        "status": "single-source",
+        "verification": "norm-table-not-independently-verified",
+        "note": "siehe DIN 660",
+        "unit": "mm",
+        "max": 13.5
+      },
+      "k_ca": {
+        "nominal": 13.5,
+        "sourceRefs": [
+          "DIN302-s1",
+          "fasenco"
+        ],
+        "status": "verified",
+        "verification": "independent-publishers-agree",
+        "note": "Zahlenwert in zwei voneinander getrennten Veröffentlichungen bestätigt; Normedition des Herstellerblatts nicht ausdrücklich genannt.",
+        "unit": "mm"
+      },
+      "r2": {
+        "nominal": 110,
+        "sourceRefs": [
+          "DIN302-s1"
+        ],
+        "status": "single-source",
+        "verification": "norm-table-not-independently-verified",
+        "note": "Radius (Spalte 'r 2' der Quelle, Bedeutung nicht definiert)",
+        "unit": "mm"
+      },
+      "alpha": {
+        "nominal": 60,
+        "unit": "deg",
+        "sourceRefs": [
+          "fasenco"
+        ],
+        "status": "single-source",
+        "verification": "manufacturer-table",
+        "note": "Größenabhängiger Winkel aus Herstellerquelle; zweite unabhängige Bestätigung fehlt."
+      }
+    },
+    "30": {
+      "d_nominal": {
+        "nominal": 30,
+        "sourceRefs": [
+          "DIN302-s1",
+          "fasenco"
+        ],
+        "status": "verified",
+        "verification": "independent-publishers-agree",
+        "note": "Zahlenwert in zwei voneinander getrennten Veröffentlichungen bestätigt; Normedition des Herstellerblatts nicht ausdrücklich genannt.",
+        "unit": "mm"
+      },
+      "dk_nom": {
+        "nominal": 42.5,
+        "sourceRefs": [
+          "DIN302-s1",
+          "fasenco"
+        ],
+        "status": "verified",
+        "verification": "independent-publishers-agree",
+        "note": "Zahlenwert in zwei voneinander getrennten Veröffentlichungen bestätigt; Normedition des Herstellerblatts nicht ausdrücklich genannt.",
+        "unit": "mm"
+      },
+      "d_min": {
+        "sourceRefs": [
+          "DIN302-s1",
+          "fasenco"
+        ],
+        "status": "verified",
+        "verification": "independent-publishers-agree",
+        "note": "Zahlenwert in zwei voneinander getrennten Veröffentlichungen bestätigt; Normedition des Herstellerblatts nicht ausdrücklich genannt.",
+        "unit": "mm",
+        "min": 28.6
+      },
+      "e_max": {
+        "sourceRefs": [
+          "DIN302-s1"
+        ],
+        "status": "single-source",
+        "verification": "norm-table-not-independently-verified",
+        "note": "siehe DIN 660",
+        "unit": "mm",
+        "max": 15
+      },
+      "k_ca": {
+        "nominal": 15,
+        "sourceRefs": [
+          "DIN302-s1",
+          "fasenco"
+        ],
+        "status": "verified",
+        "verification": "independent-publishers-agree",
+        "note": "Zahlenwert in zwei voneinander getrennten Veröffentlichungen bestätigt; Normedition des Herstellerblatts nicht ausdrücklich genannt.",
+        "unit": "mm"
+      },
+      "r2": {
+        "nominal": 120,
+        "sourceRefs": [
+          "DIN302-s1"
+        ],
+        "status": "single-source",
+        "verification": "norm-table-not-independently-verified",
+        "note": "Radius (Spalte 'r 2' der Quelle, Bedeutung nicht definiert)",
+        "unit": "mm"
+      },
+      "alpha": {
+        "nominal": 45,
+        "unit": "deg",
+        "sourceRefs": [
+          "fasenco"
+        ],
+        "status": "single-source",
+        "verification": "manufacturer-table",
+        "note": "Größenabhängiger Winkel aus Herstellerquelle; zweite unabhängige Bestätigung fehlt."
+      }
+    },
+    "33": {
+      "d_nominal": {
+        "nominal": 33,
+        "sourceRefs": [
+          "DIN302-s1",
+          "fasenco"
+        ],
+        "status": "verified",
+        "verification": "independent-publishers-agree",
+        "note": "Zahlenwert in zwei voneinander getrennten Veröffentlichungen bestätigt; Normedition des Herstellerblatts nicht ausdrücklich genannt.",
+        "unit": "mm"
+      },
+      "dk_nom": {
+        "nominal": 46.5,
+        "sourceRefs": [
+          "DIN302-s1",
+          "fasenco"
+        ],
+        "status": "verified",
+        "verification": "independent-publishers-agree",
+        "note": "Zahlenwert in zwei voneinander getrennten Veröffentlichungen bestätigt; Normedition des Herstellerblatts nicht ausdrücklich genannt.",
+        "unit": "mm"
+      },
+      "d_min": {
+        "sourceRefs": [
+          "DIN302-s1",
+          "fasenco"
+        ],
+        "status": "verified",
+        "verification": "independent-publishers-agree",
+        "note": "Zahlenwert in zwei voneinander getrennten Veröffentlichungen bestätigt; Normedition des Herstellerblatts nicht ausdrücklich genannt.",
+        "unit": "mm",
+        "min": 31.6
+      },
+      "e_max": {
+        "sourceRefs": [
+          "DIN302-s1"
+        ],
+        "status": "single-source",
+        "verification": "norm-table-not-independently-verified",
+        "note": "siehe DIN 660",
+        "unit": "mm",
+        "max": 16.5
+      },
+      "k_ca": {
+        "nominal": 16.5,
+        "sourceRefs": [
+          "DIN302-s1",
+          "fasenco"
+        ],
+        "status": "verified",
+        "verification": "independent-publishers-agree",
+        "note": "Zahlenwert in zwei voneinander getrennten Veröffentlichungen bestätigt; Normedition des Herstellerblatts nicht ausdrücklich genannt.",
+        "unit": "mm"
+      },
+      "r2": {
+        "nominal": 145,
+        "sourceRefs": [
+          "DIN302-s1"
+        ],
+        "status": "single-source",
+        "verification": "norm-table-not-independently-verified",
+        "note": "Radius (Spalte 'r 2' der Quelle, Bedeutung nicht definiert)",
+        "unit": "mm"
+      },
+      "alpha": {
+        "nominal": 45,
+        "unit": "deg",
+        "sourceRefs": [
+          "fasenco"
+        ],
+        "status": "single-source",
+        "verification": "manufacturer-table",
+        "note": "Größenabhängiger Winkel aus Herstellerquelle; zweite unabhängige Bestätigung fehlt."
+      }
+    },
+    "36": {
+      "d_nominal": {
+        "nominal": 36,
+        "sourceRefs": [
+          "DIN302-s1",
+          "fasenco"
+        ],
+        "status": "verified",
+        "verification": "independent-publishers-agree",
+        "note": "Zahlenwert in zwei voneinander getrennten Veröffentlichungen bestätigt; Normedition des Herstellerblatts nicht ausdrücklich genannt.",
+        "unit": "mm"
+      },
+      "dk_nom": {
+        "nominal": 51,
+        "sourceRefs": [
+          "DIN302-s1",
+          "fasenco"
+        ],
+        "status": "verified",
+        "verification": "independent-publishers-agree",
+        "note": "Zahlenwert in zwei voneinander getrennten Veröffentlichungen bestätigt; Normedition des Herstellerblatts nicht ausdrücklich genannt.",
+        "unit": "mm"
+      },
+      "d_min": {
+        "sourceRefs": [
+          "DIN302-s1",
+          "fasenco"
+        ],
+        "status": "verified",
+        "verification": "independent-publishers-agree",
+        "note": "Zahlenwert in zwei voneinander getrennten Veröffentlichungen bestätigt; Normedition des Herstellerblatts nicht ausdrücklich genannt.",
+        "unit": "mm",
+        "min": 34.6
+      },
+      "e_max": {
+        "sourceRefs": [
+          "DIN302-s1"
+        ],
+        "status": "single-source",
+        "verification": "norm-table-not-independently-verified",
+        "note": "siehe DIN 660",
+        "unit": "mm",
+        "max": 18
+      },
+      "k_ca": {
+        "nominal": 18,
+        "sourceRefs": [
+          "DIN302-s1",
+          "fasenco"
+        ],
+        "status": "verified",
+        "verification": "independent-publishers-agree",
+        "note": "Zahlenwert in zwei voneinander getrennten Veröffentlichungen bestätigt; Normedition des Herstellerblatts nicht ausdrücklich genannt.",
+        "unit": "mm"
+      },
+      "r2": {
+        "nominal": 170,
+        "sourceRefs": [
+          "DIN302-s1"
+        ],
+        "status": "single-source",
+        "verification": "norm-table-not-independently-verified",
+        "note": "Radius (Spalte 'r 2' der Quelle, Bedeutung nicht definiert)",
+        "unit": "mm"
+      },
+      "alpha": {
+        "nominal": 45,
+        "unit": "deg",
+        "sourceRefs": [
+          "fasenco"
+        ],
+        "status": "single-source",
+        "verification": "manufacturer-table",
+        "note": "Größenabhängiger Winkel aus Herstellerquelle; zweite unabhängige Bestätigung fehlt."
+      }
+    }
+  },
+  "quellen": [
+    {
+      "url": "https://fasten.it/en/norms/norm/din_302",
+      "titel": "fasten.it DIN 302 (2011-03, ersetzt 1993-05)",
+      "abgerufen": "2026-11-25",
+      "id": "DIN302-s1",
+      "scope": "dimensions"
+    },
+    {
+      "url": "https://angele-shop.com/en/Forging/Miscellaneous/Rivets",
+      "titel": "angele-shop.com Warm-/Kaltnietregel",
+      "abgerufen": "2026-11-25",
+      "id": "DIN302-s2",
+      "scope": "dimensions"
+    },
+    {
+      "id": "fasenco",
+      "url": "https://www.fasenco.com/din-302/",
+      "titel": "Fasenco Maßtabelle DIN302",
+      "abgerufen": "2026-11-26",
+      "scope": "dimensions"
+    }
+  ],
+  "status": "partial",
+  "coverage": "documented",
+  "pruefdatum": "2026-11-26",
+  "normstatus": {
+    "edition": "2011-03",
+    "status": "status-from-supplied-source",
+    "sourceRefs": []
+  },
+  "hinweise": [
+    "Fehlende Größe oder Länge bedeutet fehlende Datenabdeckung, kein Normverbot.",
+    "Maßdaten sind einzeln belegt; Editionsstatus allein bestätigt keine Maßtabelle."
+  ],
+  "gaps": [
+    "Vollständige Normlängenmatrix je Größe und aktuelle Originalmaßtabelle nicht unabhängig bestätigt."
+  ],
+  "lengthDependentFields": [
+    "sL"
+  ],
+  "laengen": {
+    "values": [],
+    "unit": "mm",
+    "kind": "unresearched",
+    "coverage": "unresearched",
+    "status": "missing",
+    "sourceRefs": [],
+    "verification": "norm-length-matrix-not-verified",
+    "note": "Exakte Normlängen je Durchmesser noch nicht belegt; aus min/max werden keine Zwischenlängen erzeugt."
+  }
+}

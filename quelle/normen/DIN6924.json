@@ -1,0 +1,1810 @@
+{
+  "schemaVersion": 1,
+  "version": "2026-11-26.1",
+  "id": "DIN6924",
+  "edition": "1987",
+  "label": "Klemmmutter mit nichtmetallischem Einsatz, DIN-Geometrie",
+  "funktion": "mutter",
+  "klasse": "mutter",
+  "kopfTyp": "sechskant",
+  "alias": [],
+  "feldzuordnung": {
+    "mSW": "s_nom",
+    "mH": "h_max"
+  },
+  "groessen": {
+    "M5": {
+      "vorbelegung": {
+        "mSW": 8,
+        "mH": 6.8
+      },
+      "roh": {
+        "d_nom": 5,
+        "P": 0.8,
+        "s_nom": 8,
+        "s_min": 7.78,
+        "e_min": 8.79,
+        "h_max": 6.8,
+        "h_min": 6.44,
+        "m_min": 4.4
+      },
+      "thread": {
+        "id": "M5x0.8",
+        "diameter": 5,
+        "pitch": 0.8,
+        "sourceRefs": [
+          "boellhoff6924"
+        ]
+      },
+      "geometryStatus": "partial",
+      "missingGeometryFields": [
+        "insertSeatDiameter",
+        "insertSeatDepth",
+        "insertOuterProfile"
+      ]
+    },
+    "M6": {
+      "vorbelegung": {
+        "mSW": 10,
+        "mH": 8
+      },
+      "roh": {
+        "d_nom": 6,
+        "P": 1,
+        "s_nom": 10,
+        "s_min": 9.78,
+        "e_min": 11.05,
+        "h_max": 8,
+        "h_min": 7.64,
+        "m_min": 4.9
+      },
+      "thread": {
+        "id": "M6x1",
+        "diameter": 6,
+        "pitch": 1,
+        "sourceRefs": [
+          "boellhoff6924"
+        ]
+      },
+      "geometryStatus": "partial",
+      "missingGeometryFields": [
+        "insertSeatDiameter",
+        "insertSeatDepth",
+        "insertOuterProfile"
+      ]
+    },
+    "M8": {
+      "vorbelegung": {
+        "mSW": 13,
+        "mH": 9.5
+      },
+      "roh": {
+        "d_nom": 8,
+        "P": 1.25,
+        "s_nom": 13,
+        "s_min": 12.73,
+        "e_min": 14.38,
+        "h_max": 9.5,
+        "h_min": 9.14,
+        "m_min": 6.44
+      },
+      "thread": {
+        "id": "M8x1.25",
+        "diameter": 8,
+        "pitch": 1.25,
+        "sourceRefs": [
+          "boellhoff6924"
+        ]
+      },
+      "geometryStatus": "partial",
+      "missingGeometryFields": [
+        "insertSeatDiameter",
+        "insertSeatDepth",
+        "insertOuterProfile"
+      ]
+    },
+    "M10": {
+      "vorbelegung": {
+        "mSW": 16,
+        "mH": 11.9
+      },
+      "roh": {
+        "d_nom": 10,
+        "P": 1.5,
+        "s_nom": 16,
+        "s_min": 15.73,
+        "e_min": 17.77,
+        "h_max": 11.9,
+        "h_min": 11.47,
+        "m_min": 8.04
+      },
+      "thread": {
+        "id": "M10x1.5",
+        "diameter": 10,
+        "pitch": 1.5,
+        "sourceRefs": [
+          "boellhoff6924"
+        ]
+      },
+      "geometryStatus": "partial",
+      "missingGeometryFields": [
+        "insertSeatDiameter",
+        "insertSeatDepth",
+        "insertOuterProfile"
+      ]
+    },
+    "M12": {
+      "vorbelegung": {
+        "mSW": 18,
+        "mH": 14.9
+      },
+      "roh": {
+        "d_nom": 12,
+        "P": 1.75,
+        "s_nom": 18,
+        "s_min": 17.73,
+        "e_min": 20.03,
+        "h_max": 14.9,
+        "h_min": 14.47,
+        "m_min": 10.37
+      },
+      "thread": {
+        "id": "M12x1.75",
+        "diameter": 12,
+        "pitch": 1.75,
+        "sourceRefs": [
+          "boellhoff6924"
+        ]
+      },
+      "geometryStatus": "partial",
+      "missingGeometryFields": [
+        "insertSeatDiameter",
+        "insertSeatDepth",
+        "insertOuterProfile"
+      ]
+    },
+    "M16": {
+      "vorbelegung": {
+        "mSW": 24,
+        "mH": 19.1
+      },
+      "roh": {
+        "d_nom": 16,
+        "P": 2,
+        "s_nom": 24,
+        "s_min": 23.67,
+        "e_min": 26.75,
+        "h_max": 19.1,
+        "h_min": 18.26,
+        "m_min": 14.1
+      },
+      "thread": {
+        "id": "M16x2",
+        "diameter": 16,
+        "pitch": 2,
+        "sourceRefs": [
+          "boellhoff6924"
+        ]
+      },
+      "geometryStatus": "partial",
+      "missingGeometryFields": [
+        "insertSeatDiameter",
+        "insertSeatDepth",
+        "insertOuterProfile"
+      ]
+    },
+    "M18": {
+      "vorbelegung": {
+        "mSW": 27,
+        "mH": 20.6
+      },
+      "roh": {
+        "d_nom": 18,
+        "P": 2.5,
+        "s_nom": 27,
+        "s_min": 26.16,
+        "e_min": 29.56,
+        "h_max": 20.6,
+        "h_min": 19.76,
+        "m_min": 15.1
+      },
+      "thread": {
+        "id": "M18x2.5",
+        "diameter": 18,
+        "pitch": 2.5,
+        "sourceRefs": [
+          "boellhoff6924"
+        ]
+      },
+      "geometryStatus": "partial",
+      "missingGeometryFields": [
+        "insertSeatDiameter",
+        "insertSeatDepth",
+        "insertOuterProfile"
+      ]
+    },
+    "M20": {
+      "vorbelegung": {
+        "mSW": 30,
+        "mH": 22.8
+      },
+      "roh": {
+        "d_nom": 20,
+        "P": 2.5,
+        "s_nom": 30,
+        "s_min": 29.16,
+        "e_min": 32.95,
+        "h_max": 22.8,
+        "h_min": 21.5,
+        "m_min": 16.9
+      },
+      "thread": {
+        "id": "M20x2.5",
+        "diameter": 20,
+        "pitch": 2.5,
+        "sourceRefs": [
+          "boellhoff6924"
+        ]
+      },
+      "geometryStatus": "partial",
+      "missingGeometryFields": [
+        "insertSeatDiameter",
+        "insertSeatDepth",
+        "insertOuterProfile"
+      ]
+    },
+    "M22": {
+      "vorbelegung": {
+        "mSW": 34,
+        "mH": 24.5
+      },
+      "roh": {
+        "d_nom": 22,
+        "P": 2.5,
+        "s_nom": 34,
+        "s_min": 33,
+        "e_min": 37.29,
+        "h_max": 24.5,
+        "h_min": 23.2,
+        "m_min": 18.1
+      },
+      "thread": {
+        "id": "M22x2.5",
+        "diameter": 22,
+        "pitch": 2.5,
+        "sourceRefs": [
+          "boellhoff6924"
+        ]
+      },
+      "geometryStatus": "partial",
+      "missingGeometryFields": [
+        "insertSeatDiameter",
+        "insertSeatDepth",
+        "insertOuterProfile"
+      ]
+    },
+    "M24": {
+      "vorbelegung": {
+        "mSW": 36,
+        "mH": 27.1
+      },
+      "roh": {
+        "d_nom": 24,
+        "P": 3,
+        "s_nom": 36,
+        "s_min": 35,
+        "e_min": 39.55,
+        "h_max": 27.1,
+        "h_min": 25.8,
+        "m_min": 20.2
+      },
+      "thread": {
+        "id": "M24x3",
+        "diameter": 24,
+        "pitch": 3,
+        "sourceRefs": [
+          "boellhoff6924"
+        ]
+      },
+      "geometryStatus": "partial",
+      "missingGeometryFields": [
+        "insertSeatDiameter",
+        "insertSeatDepth",
+        "insertOuterProfile"
+      ]
+    },
+    "M27": {
+      "vorbelegung": {
+        "mSW": 41,
+        "mH": 31
+      },
+      "roh": {
+        "d_nom": 27,
+        "P": 3,
+        "s_nom": 41,
+        "s_min": 40,
+        "e_min": 45.2,
+        "h_max": 31,
+        "h_min": 29.4,
+        "m_min": 22.5
+      },
+      "thread": {
+        "id": "M27x3",
+        "diameter": 27,
+        "pitch": 3,
+        "sourceRefs": [
+          "boellhoff6924"
+        ]
+      },
+      "geometryStatus": "partial",
+      "missingGeometryFields": [
+        "insertSeatDiameter",
+        "insertSeatDepth",
+        "insertOuterProfile"
+      ]
+    },
+    "M30": {
+      "vorbelegung": {
+        "mSW": 46,
+        "mH": 32.6
+      },
+      "roh": {
+        "d_nom": 30,
+        "P": 3.5,
+        "s_nom": 46,
+        "s_min": 45,
+        "e_min": 50.85,
+        "h_max": 32.6,
+        "h_min": 31,
+        "m_min": 24.3
+      },
+      "thread": {
+        "id": "M30x3.5",
+        "diameter": 30,
+        "pitch": 3.5,
+        "sourceRefs": [
+          "boellhoff6924"
+        ]
+      },
+      "geometryStatus": "partial",
+      "missingGeometryFields": [
+        "insertSeatDiameter",
+        "insertSeatDepth",
+        "insertOuterProfile"
+      ]
+    },
+    "M14": {
+      "vorbelegung": {
+        "mSW": 21
+      },
+      "roh": {
+        "d_nom": 14,
+        "P": 2,
+        "s_nom": 21,
+        "s_min": 20.67,
+        "e_min": 23.35,
+        "h_max": 16.3,
+        "h_min": 16.3,
+        "m_min": 12.1
+      },
+      "thread": {
+        "id": "M14x2",
+        "diameter": 14,
+        "pitch": 2,
+        "sourceRefs": [
+          "nufast6924"
+        ]
+      },
+      "geometryStatus": "partial",
+      "missingGeometryFields": [
+        "h_verified",
+        "insertSeatDiameter",
+        "insertSeatDepth",
+        "insertOuterProfile"
+      ]
+    }
+  },
+  "fields": {
+    "M5": {
+      "P": {
+        "nominal": 0.8,
+        "sourceRefs": [
+          "boellhoff6924",
+          "nufast6924"
+        ],
+        "status": "verified",
+        "verification": "independent-source-agreement",
+        "unit": "mm"
+      },
+      "s_nom": {
+        "nominal": 8,
+        "sourceRefs": [
+          "boellhoff6924",
+          "nufast6924"
+        ],
+        "status": "verified",
+        "verification": "independent-source-agreement",
+        "unit": "mm"
+      },
+      "s_min": {
+        "min": 7.78,
+        "sourceRefs": [
+          "boellhoff6924",
+          "nufast6924"
+        ],
+        "status": "verified",
+        "verification": "independent-source-agreement",
+        "unit": "mm"
+      },
+      "e_min": {
+        "min": 8.79,
+        "sourceRefs": [
+          "boellhoff6924",
+          "nufast6924"
+        ],
+        "status": "verified",
+        "verification": "independent-source-agreement",
+        "unit": "mm"
+      },
+      "h_max": {
+        "max": 6.8,
+        "sourceRefs": [
+          "boellhoff6924",
+          "nufast6924"
+        ],
+        "status": "verified",
+        "verification": "independent-source-agreement",
+        "unit": "mm"
+      },
+      "h_min": {
+        "min": 6.44,
+        "sourceRefs": [
+          "boellhoff6924",
+          "nufast6924"
+        ],
+        "status": "verified",
+        "verification": "independent-source-agreement",
+        "unit": "mm"
+      },
+      "m_min": {
+        "min": 4.4,
+        "sourceRefs": [
+          "boellhoff6924",
+          "nufast6924"
+        ],
+        "status": "verified",
+        "verification": "independent-source-agreement",
+        "unit": "mm"
+      },
+      "d_nom": {
+        "nominal": 5,
+        "sourceRefs": [
+          "boellhoff6924"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "insertSeatDiameter": {
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "unit": "mm",
+        "note": "Detailmaß im ausgewerteten Nachweis nicht festgelegt; Kunden-/Herstellerzeichnung erforderlich."
+      },
+      "insertSeatDepth": {
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "unit": "mm",
+        "note": "Detailmaß im ausgewerteten Nachweis nicht festgelegt; Kunden-/Herstellerzeichnung erforderlich."
+      },
+      "insertOuterProfile": {
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "unit": "mm",
+        "note": "Detailmaß im ausgewerteten Nachweis nicht festgelegt; Kunden-/Herstellerzeichnung erforderlich."
+      }
+    },
+    "M6": {
+      "P": {
+        "nominal": 1,
+        "sourceRefs": [
+          "boellhoff6924",
+          "nufast6924"
+        ],
+        "status": "verified",
+        "verification": "independent-source-agreement",
+        "unit": "mm"
+      },
+      "s_nom": {
+        "nominal": 10,
+        "sourceRefs": [
+          "boellhoff6924",
+          "nufast6924"
+        ],
+        "status": "verified",
+        "verification": "independent-source-agreement",
+        "unit": "mm"
+      },
+      "s_min": {
+        "min": 9.78,
+        "sourceRefs": [
+          "boellhoff6924",
+          "nufast6924"
+        ],
+        "status": "verified",
+        "verification": "independent-source-agreement",
+        "unit": "mm"
+      },
+      "e_min": {
+        "min": 11.05,
+        "sourceRefs": [
+          "boellhoff6924",
+          "nufast6924"
+        ],
+        "status": "verified",
+        "verification": "independent-source-agreement",
+        "unit": "mm"
+      },
+      "h_max": {
+        "max": 8,
+        "sourceRefs": [
+          "boellhoff6924",
+          "nufast6924"
+        ],
+        "status": "verified",
+        "verification": "independent-source-agreement",
+        "unit": "mm"
+      },
+      "h_min": {
+        "min": 7.64,
+        "sourceRefs": [
+          "boellhoff6924",
+          "nufast6924"
+        ],
+        "status": "verified",
+        "verification": "independent-source-agreement",
+        "unit": "mm"
+      },
+      "m_min": {
+        "min": 4.9,
+        "sourceRefs": [
+          "boellhoff6924",
+          "nufast6924"
+        ],
+        "status": "verified",
+        "verification": "independent-source-agreement",
+        "unit": "mm"
+      },
+      "d_nom": {
+        "nominal": 6,
+        "sourceRefs": [
+          "boellhoff6924"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "insertSeatDiameter": {
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "unit": "mm",
+        "note": "Detailmaß im ausgewerteten Nachweis nicht festgelegt; Kunden-/Herstellerzeichnung erforderlich."
+      },
+      "insertSeatDepth": {
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "unit": "mm",
+        "note": "Detailmaß im ausgewerteten Nachweis nicht festgelegt; Kunden-/Herstellerzeichnung erforderlich."
+      },
+      "insertOuterProfile": {
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "unit": "mm",
+        "note": "Detailmaß im ausgewerteten Nachweis nicht festgelegt; Kunden-/Herstellerzeichnung erforderlich."
+      }
+    },
+    "M8": {
+      "P": {
+        "nominal": 1.25,
+        "sourceRefs": [
+          "boellhoff6924",
+          "nufast6924"
+        ],
+        "status": "verified",
+        "verification": "independent-source-agreement",
+        "unit": "mm"
+      },
+      "s_nom": {
+        "nominal": 13,
+        "sourceRefs": [
+          "boellhoff6924",
+          "nufast6924"
+        ],
+        "status": "verified",
+        "verification": "independent-source-agreement",
+        "unit": "mm"
+      },
+      "s_min": {
+        "min": 12.73,
+        "sourceRefs": [
+          "boellhoff6924",
+          "nufast6924"
+        ],
+        "status": "verified",
+        "verification": "independent-source-agreement",
+        "unit": "mm"
+      },
+      "e_min": {
+        "min": 14.38,
+        "sourceRefs": [
+          "boellhoff6924",
+          "nufast6924"
+        ],
+        "status": "verified",
+        "verification": "independent-source-agreement",
+        "unit": "mm"
+      },
+      "h_max": {
+        "max": 9.5,
+        "sourceRefs": [
+          "boellhoff6924",
+          "nufast6924"
+        ],
+        "status": "verified",
+        "verification": "independent-source-agreement",
+        "unit": "mm"
+      },
+      "h_min": {
+        "min": 9.14,
+        "sourceRefs": [
+          "boellhoff6924",
+          "nufast6924"
+        ],
+        "status": "verified",
+        "verification": "independent-source-agreement",
+        "unit": "mm"
+      },
+      "m_min": {
+        "min": 6.44,
+        "sourceRefs": [
+          "boellhoff6924",
+          "nufast6924"
+        ],
+        "status": "verified",
+        "verification": "independent-source-agreement",
+        "unit": "mm"
+      },
+      "d_nom": {
+        "nominal": 8,
+        "sourceRefs": [
+          "boellhoff6924"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "insertSeatDiameter": {
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "unit": "mm",
+        "note": "Detailmaß im ausgewerteten Nachweis nicht festgelegt; Kunden-/Herstellerzeichnung erforderlich."
+      },
+      "insertSeatDepth": {
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "unit": "mm",
+        "note": "Detailmaß im ausgewerteten Nachweis nicht festgelegt; Kunden-/Herstellerzeichnung erforderlich."
+      },
+      "insertOuterProfile": {
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "unit": "mm",
+        "note": "Detailmaß im ausgewerteten Nachweis nicht festgelegt; Kunden-/Herstellerzeichnung erforderlich."
+      }
+    },
+    "M10": {
+      "P": {
+        "nominal": 1.5,
+        "sourceRefs": [
+          "boellhoff6924",
+          "nufast6924"
+        ],
+        "status": "verified",
+        "verification": "independent-source-agreement",
+        "unit": "mm"
+      },
+      "s_nom": {
+        "nominal": 16,
+        "sourceRefs": [
+          "boellhoff6924",
+          "nufast6924"
+        ],
+        "status": "verified",
+        "verification": "independent-source-agreement",
+        "unit": "mm"
+      },
+      "s_min": {
+        "min": 15.73,
+        "sourceRefs": [
+          "boellhoff6924",
+          "nufast6924"
+        ],
+        "status": "verified",
+        "verification": "independent-source-agreement",
+        "unit": "mm"
+      },
+      "e_min": {
+        "min": 17.77,
+        "sourceRefs": [
+          "boellhoff6924",
+          "nufast6924"
+        ],
+        "status": "verified",
+        "verification": "independent-source-agreement",
+        "unit": "mm"
+      },
+      "h_max": {
+        "max": 11.9,
+        "sourceRefs": [
+          "boellhoff6924",
+          "nufast6924"
+        ],
+        "status": "verified",
+        "verification": "independent-source-agreement",
+        "unit": "mm"
+      },
+      "h_min": {
+        "min": 11.47,
+        "sourceRefs": [
+          "boellhoff6924",
+          "nufast6924"
+        ],
+        "status": "verified",
+        "verification": "independent-source-agreement",
+        "unit": "mm"
+      },
+      "m_min": {
+        "min": 8.04,
+        "sourceRefs": [
+          "boellhoff6924",
+          "nufast6924"
+        ],
+        "status": "verified",
+        "verification": "independent-source-agreement",
+        "unit": "mm"
+      },
+      "d_nom": {
+        "nominal": 10,
+        "sourceRefs": [
+          "boellhoff6924"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "insertSeatDiameter": {
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "unit": "mm",
+        "note": "Detailmaß im ausgewerteten Nachweis nicht festgelegt; Kunden-/Herstellerzeichnung erforderlich."
+      },
+      "insertSeatDepth": {
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "unit": "mm",
+        "note": "Detailmaß im ausgewerteten Nachweis nicht festgelegt; Kunden-/Herstellerzeichnung erforderlich."
+      },
+      "insertOuterProfile": {
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "unit": "mm",
+        "note": "Detailmaß im ausgewerteten Nachweis nicht festgelegt; Kunden-/Herstellerzeichnung erforderlich."
+      }
+    },
+    "M12": {
+      "P": {
+        "nominal": 1.75,
+        "sourceRefs": [
+          "boellhoff6924",
+          "nufast6924"
+        ],
+        "status": "verified",
+        "verification": "independent-source-agreement",
+        "unit": "mm"
+      },
+      "s_nom": {
+        "nominal": 18,
+        "sourceRefs": [
+          "boellhoff6924",
+          "nufast6924"
+        ],
+        "status": "verified",
+        "verification": "independent-source-agreement",
+        "unit": "mm"
+      },
+      "s_min": {
+        "min": 17.73,
+        "sourceRefs": [
+          "boellhoff6924",
+          "nufast6924"
+        ],
+        "status": "verified",
+        "verification": "independent-source-agreement",
+        "unit": "mm"
+      },
+      "e_min": {
+        "min": 20.03,
+        "sourceRefs": [
+          "boellhoff6924",
+          "nufast6924"
+        ],
+        "status": "verified",
+        "verification": "independent-source-agreement",
+        "unit": "mm"
+      },
+      "h_max": {
+        "max": 14.9,
+        "sourceRefs": [
+          "boellhoff6924",
+          "nufast6924"
+        ],
+        "status": "verified",
+        "verification": "independent-source-agreement",
+        "unit": "mm"
+      },
+      "h_min": {
+        "min": 14.47,
+        "sourceRefs": [
+          "boellhoff6924",
+          "nufast6924"
+        ],
+        "status": "verified",
+        "verification": "independent-source-agreement",
+        "unit": "mm"
+      },
+      "m_min": {
+        "min": 10.37,
+        "sourceRefs": [
+          "boellhoff6924",
+          "nufast6924"
+        ],
+        "status": "verified",
+        "verification": "independent-source-agreement",
+        "unit": "mm"
+      },
+      "d_nom": {
+        "nominal": 12,
+        "sourceRefs": [
+          "boellhoff6924"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "insertSeatDiameter": {
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "unit": "mm",
+        "note": "Detailmaß im ausgewerteten Nachweis nicht festgelegt; Kunden-/Herstellerzeichnung erforderlich."
+      },
+      "insertSeatDepth": {
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "unit": "mm",
+        "note": "Detailmaß im ausgewerteten Nachweis nicht festgelegt; Kunden-/Herstellerzeichnung erforderlich."
+      },
+      "insertOuterProfile": {
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "unit": "mm",
+        "note": "Detailmaß im ausgewerteten Nachweis nicht festgelegt; Kunden-/Herstellerzeichnung erforderlich."
+      }
+    },
+    "M16": {
+      "P": {
+        "nominal": 2,
+        "sourceRefs": [
+          "boellhoff6924"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "s_nom": {
+        "nominal": 24,
+        "sourceRefs": [
+          "boellhoff6924"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "s_min": {
+        "min": 23.67,
+        "sourceRefs": [
+          "boellhoff6924"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "e_min": {
+        "min": 26.75,
+        "sourceRefs": [
+          "boellhoff6924"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "h_max": {
+        "max": 19.1,
+        "sourceRefs": [
+          "boellhoff6924",
+          "nufast6924"
+        ],
+        "status": "conflict",
+        "verification": "primary-record-preferred",
+        "unit": "mm",
+        "note": "Nufast-Höhe weicht von Böllhoff 19,10 mm ab; ausgewählt bleibt Böllhoff.",
+        "sourceValues": [
+          {
+            "value": 19.1,
+            "sourceRef": "boellhoff6924"
+          },
+          {
+            "value": 18.26,
+            "sourceRef": "nufast6924"
+          }
+        ]
+      },
+      "h_min": {
+        "min": 18.26,
+        "sourceRefs": [
+          "boellhoff6924",
+          "nufast6924"
+        ],
+        "status": "conflict",
+        "verification": "primary-record-preferred",
+        "unit": "mm",
+        "note": "Nufast-Höhe weicht von Böllhoff 18,26 mm ab; ausgewählt bleibt Böllhoff.",
+        "sourceValues": [
+          {
+            "value": 18.26,
+            "sourceRef": "boellhoff6924"
+          },
+          {
+            "value": 18.25,
+            "sourceRef": "nufast6924"
+          }
+        ]
+      },
+      "m_min": {
+        "min": 14.1,
+        "sourceRefs": [
+          "boellhoff6924"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "d_nom": {
+        "nominal": 16,
+        "sourceRefs": [
+          "boellhoff6924"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "insertSeatDiameter": {
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "unit": "mm",
+        "note": "Detailmaß im ausgewerteten Nachweis nicht festgelegt; Kunden-/Herstellerzeichnung erforderlich."
+      },
+      "insertSeatDepth": {
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "unit": "mm",
+        "note": "Detailmaß im ausgewerteten Nachweis nicht festgelegt; Kunden-/Herstellerzeichnung erforderlich."
+      },
+      "insertOuterProfile": {
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "unit": "mm",
+        "note": "Detailmaß im ausgewerteten Nachweis nicht festgelegt; Kunden-/Herstellerzeichnung erforderlich."
+      }
+    },
+    "M18": {
+      "P": {
+        "nominal": 2.5,
+        "sourceRefs": [
+          "boellhoff6924"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "s_nom": {
+        "nominal": 27,
+        "sourceRefs": [
+          "boellhoff6924"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "s_min": {
+        "min": 26.16,
+        "sourceRefs": [
+          "boellhoff6924"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "e_min": {
+        "min": 29.56,
+        "sourceRefs": [
+          "boellhoff6924"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "h_max": {
+        "max": 20.6,
+        "sourceRefs": [
+          "boellhoff6924"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "h_min": {
+        "min": 19.76,
+        "sourceRefs": [
+          "boellhoff6924"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "m_min": {
+        "min": 15.1,
+        "sourceRefs": [
+          "boellhoff6924"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "d_nom": {
+        "nominal": 18,
+        "sourceRefs": [
+          "boellhoff6924"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "insertSeatDiameter": {
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "unit": "mm",
+        "note": "Detailmaß im ausgewerteten Nachweis nicht festgelegt; Kunden-/Herstellerzeichnung erforderlich."
+      },
+      "insertSeatDepth": {
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "unit": "mm",
+        "note": "Detailmaß im ausgewerteten Nachweis nicht festgelegt; Kunden-/Herstellerzeichnung erforderlich."
+      },
+      "insertOuterProfile": {
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "unit": "mm",
+        "note": "Detailmaß im ausgewerteten Nachweis nicht festgelegt; Kunden-/Herstellerzeichnung erforderlich."
+      }
+    },
+    "M20": {
+      "P": {
+        "nominal": 2.5,
+        "sourceRefs": [
+          "boellhoff6924",
+          "nufast6924"
+        ],
+        "status": "verified",
+        "verification": "independent-source-agreement",
+        "unit": "mm"
+      },
+      "s_nom": {
+        "nominal": 30,
+        "sourceRefs": [
+          "boellhoff6924",
+          "nufast6924"
+        ],
+        "status": "verified",
+        "verification": "independent-source-agreement",
+        "unit": "mm"
+      },
+      "s_min": {
+        "min": 29.16,
+        "sourceRefs": [
+          "boellhoff6924",
+          "nufast6924"
+        ],
+        "status": "verified",
+        "verification": "independent-source-agreement",
+        "unit": "mm"
+      },
+      "e_min": {
+        "min": 32.95,
+        "sourceRefs": [
+          "boellhoff6924",
+          "nufast6924"
+        ],
+        "status": "verified",
+        "verification": "independent-source-agreement",
+        "unit": "mm"
+      },
+      "h_max": {
+        "max": 22.8,
+        "sourceRefs": [
+          "boellhoff6924",
+          "nufast6924"
+        ],
+        "status": "verified",
+        "verification": "independent-source-agreement",
+        "unit": "mm"
+      },
+      "h_min": {
+        "min": 21.5,
+        "sourceRefs": [
+          "boellhoff6924",
+          "nufast6924"
+        ],
+        "status": "verified",
+        "verification": "independent-source-agreement",
+        "unit": "mm"
+      },
+      "m_min": {
+        "min": 16.9,
+        "sourceRefs": [
+          "boellhoff6924",
+          "nufast6924"
+        ],
+        "status": "verified",
+        "verification": "independent-source-agreement",
+        "unit": "mm"
+      },
+      "d_nom": {
+        "nominal": 20,
+        "sourceRefs": [
+          "boellhoff6924"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "insertSeatDiameter": {
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "unit": "mm",
+        "note": "Detailmaß im ausgewerteten Nachweis nicht festgelegt; Kunden-/Herstellerzeichnung erforderlich."
+      },
+      "insertSeatDepth": {
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "unit": "mm",
+        "note": "Detailmaß im ausgewerteten Nachweis nicht festgelegt; Kunden-/Herstellerzeichnung erforderlich."
+      },
+      "insertOuterProfile": {
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "unit": "mm",
+        "note": "Detailmaß im ausgewerteten Nachweis nicht festgelegt; Kunden-/Herstellerzeichnung erforderlich."
+      }
+    },
+    "M22": {
+      "P": {
+        "nominal": 2.5,
+        "sourceRefs": [
+          "boellhoff6924"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "s_nom": {
+        "nominal": 34,
+        "sourceRefs": [
+          "boellhoff6924"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "s_min": {
+        "min": 33,
+        "sourceRefs": [
+          "boellhoff6924"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "e_min": {
+        "min": 37.29,
+        "sourceRefs": [
+          "boellhoff6924"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "h_max": {
+        "max": 24.5,
+        "sourceRefs": [
+          "boellhoff6924"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "h_min": {
+        "min": 23.2,
+        "sourceRefs": [
+          "boellhoff6924"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "m_min": {
+        "min": 18.1,
+        "sourceRefs": [
+          "boellhoff6924"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "d_nom": {
+        "nominal": 22,
+        "sourceRefs": [
+          "boellhoff6924"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "insertSeatDiameter": {
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "unit": "mm",
+        "note": "Detailmaß im ausgewerteten Nachweis nicht festgelegt; Kunden-/Herstellerzeichnung erforderlich."
+      },
+      "insertSeatDepth": {
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "unit": "mm",
+        "note": "Detailmaß im ausgewerteten Nachweis nicht festgelegt; Kunden-/Herstellerzeichnung erforderlich."
+      },
+      "insertOuterProfile": {
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "unit": "mm",
+        "note": "Detailmaß im ausgewerteten Nachweis nicht festgelegt; Kunden-/Herstellerzeichnung erforderlich."
+      }
+    },
+    "M24": {
+      "P": {
+        "nominal": 3,
+        "sourceRefs": [
+          "boellhoff6924",
+          "nufast6924"
+        ],
+        "status": "verified",
+        "verification": "independent-source-agreement",
+        "unit": "mm"
+      },
+      "s_nom": {
+        "nominal": 36,
+        "sourceRefs": [
+          "boellhoff6924",
+          "nufast6924"
+        ],
+        "status": "verified",
+        "verification": "independent-source-agreement",
+        "unit": "mm"
+      },
+      "s_min": {
+        "min": 35,
+        "sourceRefs": [
+          "boellhoff6924",
+          "nufast6924"
+        ],
+        "status": "verified",
+        "verification": "independent-source-agreement",
+        "unit": "mm"
+      },
+      "e_min": {
+        "min": 39.55,
+        "sourceRefs": [
+          "boellhoff6924",
+          "nufast6924"
+        ],
+        "status": "verified",
+        "verification": "independent-source-agreement",
+        "unit": "mm"
+      },
+      "h_max": {
+        "max": 27.1,
+        "sourceRefs": [
+          "boellhoff6924",
+          "nufast6924"
+        ],
+        "status": "verified",
+        "verification": "independent-source-agreement",
+        "unit": "mm"
+      },
+      "h_min": {
+        "min": 25.8,
+        "sourceRefs": [
+          "boellhoff6924",
+          "nufast6924"
+        ],
+        "status": "verified",
+        "verification": "independent-source-agreement",
+        "unit": "mm"
+      },
+      "m_min": {
+        "min": 20.2,
+        "sourceRefs": [
+          "boellhoff6924",
+          "nufast6924"
+        ],
+        "status": "verified",
+        "verification": "independent-source-agreement",
+        "unit": "mm"
+      },
+      "d_nom": {
+        "nominal": 24,
+        "sourceRefs": [
+          "boellhoff6924"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "insertSeatDiameter": {
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "unit": "mm",
+        "note": "Detailmaß im ausgewerteten Nachweis nicht festgelegt; Kunden-/Herstellerzeichnung erforderlich."
+      },
+      "insertSeatDepth": {
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "unit": "mm",
+        "note": "Detailmaß im ausgewerteten Nachweis nicht festgelegt; Kunden-/Herstellerzeichnung erforderlich."
+      },
+      "insertOuterProfile": {
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "unit": "mm",
+        "note": "Detailmaß im ausgewerteten Nachweis nicht festgelegt; Kunden-/Herstellerzeichnung erforderlich."
+      }
+    },
+    "M27": {
+      "P": {
+        "nominal": 3,
+        "sourceRefs": [
+          "boellhoff6924"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "s_nom": {
+        "nominal": 41,
+        "sourceRefs": [
+          "boellhoff6924"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "s_min": {
+        "min": 40,
+        "sourceRefs": [
+          "boellhoff6924"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "e_min": {
+        "min": 45.2,
+        "sourceRefs": [
+          "boellhoff6924"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "h_max": {
+        "max": 31,
+        "sourceRefs": [
+          "boellhoff6924"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "h_min": {
+        "min": 29.4,
+        "sourceRefs": [
+          "boellhoff6924"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "m_min": {
+        "min": 22.5,
+        "sourceRefs": [
+          "boellhoff6924"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "d_nom": {
+        "nominal": 27,
+        "sourceRefs": [
+          "boellhoff6924"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "insertSeatDiameter": {
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "unit": "mm",
+        "note": "Detailmaß im ausgewerteten Nachweis nicht festgelegt; Kunden-/Herstellerzeichnung erforderlich."
+      },
+      "insertSeatDepth": {
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "unit": "mm",
+        "note": "Detailmaß im ausgewerteten Nachweis nicht festgelegt; Kunden-/Herstellerzeichnung erforderlich."
+      },
+      "insertOuterProfile": {
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "unit": "mm",
+        "note": "Detailmaß im ausgewerteten Nachweis nicht festgelegt; Kunden-/Herstellerzeichnung erforderlich."
+      }
+    },
+    "M30": {
+      "P": {
+        "nominal": 3.5,
+        "sourceRefs": [
+          "boellhoff6924",
+          "nufast6924"
+        ],
+        "status": "verified",
+        "verification": "independent-source-agreement",
+        "unit": "mm"
+      },
+      "s_nom": {
+        "nominal": 46,
+        "sourceRefs": [
+          "boellhoff6924",
+          "nufast6924"
+        ],
+        "status": "verified",
+        "verification": "independent-source-agreement",
+        "unit": "mm"
+      },
+      "s_min": {
+        "min": 45,
+        "sourceRefs": [
+          "boellhoff6924",
+          "nufast6924"
+        ],
+        "status": "verified",
+        "verification": "independent-source-agreement",
+        "unit": "mm"
+      },
+      "e_min": {
+        "min": 50.85,
+        "sourceRefs": [
+          "boellhoff6924",
+          "nufast6924"
+        ],
+        "status": "verified",
+        "verification": "independent-source-agreement",
+        "unit": "mm"
+      },
+      "h_max": {
+        "max": 32.6,
+        "sourceRefs": [
+          "boellhoff6924",
+          "nufast6924"
+        ],
+        "status": "verified",
+        "verification": "independent-source-agreement",
+        "unit": "mm"
+      },
+      "h_min": {
+        "min": 31,
+        "sourceRefs": [
+          "boellhoff6924",
+          "nufast6924"
+        ],
+        "status": "verified",
+        "verification": "independent-source-agreement",
+        "unit": "mm"
+      },
+      "m_min": {
+        "min": 24.3,
+        "sourceRefs": [
+          "boellhoff6924",
+          "nufast6924"
+        ],
+        "status": "verified",
+        "verification": "independent-source-agreement",
+        "unit": "mm"
+      },
+      "d_nom": {
+        "nominal": 30,
+        "sourceRefs": [
+          "boellhoff6924"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "insertSeatDiameter": {
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "unit": "mm",
+        "note": "Detailmaß im ausgewerteten Nachweis nicht festgelegt; Kunden-/Herstellerzeichnung erforderlich."
+      },
+      "insertSeatDepth": {
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "unit": "mm",
+        "note": "Detailmaß im ausgewerteten Nachweis nicht festgelegt; Kunden-/Herstellerzeichnung erforderlich."
+      },
+      "insertOuterProfile": {
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "unit": "mm",
+        "note": "Detailmaß im ausgewerteten Nachweis nicht festgelegt; Kunden-/Herstellerzeichnung erforderlich."
+      }
+    },
+    "M14": {
+      "P": {
+        "nominal": 2,
+        "sourceRefs": [
+          "nufast6924"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "s_nom": {
+        "nominal": 21,
+        "sourceRefs": [
+          "nufast6924"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "s_min": {
+        "min": 20.67,
+        "sourceRefs": [
+          "nufast6924"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "e_min": {
+        "min": 23.35,
+        "sourceRefs": [
+          "nufast6924"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "h_max": {
+        "max": 16.3,
+        "sourceRefs": [
+          "nufast6924"
+        ],
+        "status": "unresolved",
+        "verification": false,
+        "unit": "mm",
+        "note": "Nufast nennt für Mindest- und Höchsthöhe identisch 16,30 mm; Zweitnachweis fehlt. Deshalb keine Höhenvorbelegung."
+      },
+      "h_min": {
+        "min": 16.3,
+        "sourceRefs": [
+          "nufast6924"
+        ],
+        "status": "unresolved",
+        "verification": false,
+        "unit": "mm",
+        "note": "Nufast nennt für Mindest- und Höchsthöhe identisch 16,30 mm; Zweitnachweis fehlt. Deshalb keine Höhenvorbelegung."
+      },
+      "m_min": {
+        "min": 12.1,
+        "sourceRefs": [
+          "nufast6924"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "d_nom": {
+        "nominal": 14,
+        "sourceRefs": [
+          "nufast6924"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "h_verified": {
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "unit": "mm",
+        "note": "Detailmaß im ausgewerteten Nachweis nicht festgelegt; Kunden-/Herstellerzeichnung erforderlich."
+      },
+      "insertSeatDiameter": {
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "unit": "mm",
+        "note": "Detailmaß im ausgewerteten Nachweis nicht festgelegt; Kunden-/Herstellerzeichnung erforderlich."
+      },
+      "insertSeatDepth": {
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "unit": "mm",
+        "note": "Detailmaß im ausgewerteten Nachweis nicht festgelegt; Kunden-/Herstellerzeichnung erforderlich."
+      },
+      "insertOuterProfile": {
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "unit": "mm",
+        "note": "Detailmaß im ausgewerteten Nachweis nicht festgelegt; Kunden-/Herstellerzeichnung erforderlich."
+      }
+    }
+  },
+  "sourceMeta": {
+    "boellhoff6924": {
+      "url": "https://eshop.boellhoff.de/out/media/pdf/DIN_6924_Stahl_8_gv___en.pdf",
+      "title": "Böllhoff DIN 6924 product data sheet",
+      "locator": "Page 1, dimensions",
+      "kind": "manufacturer-catalog",
+      "edition": null,
+      "accessed": "2026-11-26"
+    },
+    "nufast6924": {
+      "url": "https://www.nufast.co.uk/uploads/DIN6924.pdf",
+      "title": "Nufast DIN 6924 production drawing",
+      "locator": "2014-06-25, dimensional table; DIN 6924:1987 extract",
+      "kind": "manufacturer-drawing",
+      "edition": "1987",
+      "accessed": "2026-11-26"
+    }
+  },
+  "sourceStatus": "per-value",
+  "coverage": {
+    "diameterMin": 5,
+    "diameterMax": 30,
+    "unit": "mm",
+    "status": "partial",
+    "missingSizes": [
+      "M7"
+    ],
+    "missingReason": "Keine ausgewerteten Maßnachweise für diese Größen; keine Aussage über Herstellbarkeit oder Lieferbarkeit."
+  },
+  "editionStatus": "historical-dimensions",
+  "height": "h_max",
+  "threadSeries": "coarse",
+  "defaultPolicy": "Dokumentierte Kataloghöhe oder ausgewiesenes Höchstmaß als vorläufige Außenhülle; kein vollständiges Fertigteilmodell."
+}

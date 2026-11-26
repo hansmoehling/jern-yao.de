@@ -10,6 +10,7 @@
   const RM_PRESET_EMBEDDED = /*RM_PRESETS_BEGIN*/null/*RM_PRESETS_END*/;
   const RM_PRESETS = RM_PRESET_EMBEDDED || (typeof require === 'function' ? require('./vorbelegung/rm.json') : null);
   const RM_POLICY_VERSION = 'rm-v1';
+  const NUT_MODEL=typeof require==='function'?require('./nut-model.js'):root.JYNutModel;
 
   // Katalogidentitäten und Herstellerwerte werden von werkstoffe_bauen.py ergänzt.
   // Die 14 bestehenden C/n-Ansätze sind Näherungen, keine neu verifizierten Fließkurven.
@@ -324,6 +325,106 @@
     out.regeln.add('R-VOL');out.regelListe=[...out.regeln];return out;
   }
 
+  // P3: analytic rotational head shapes and a distinct cavity at the die-side
+  // shaft end. Legacy calls without these fields retain their original path.
+  const NEW_HEADS = ['zylinder','kugelabschnitt','linse','kegelstumpf','linsensenk','flachrund','sechskant_bund','kugelabschnitt_bund','kopflos'];
+  const usesBoltGeometry = e => e.typ !== 'mutter' && (e.kopfTyp !== undefined || NEW_HEADS.includes(e.kopfForm) || e.shaftSegments !== undefined || e.schaftende !== undefined);
+  const capVolume = (diameter, height) => Math.PI * height * (3 * (diameter / 2) ** 2 + height ** 2) / 6;
+  const coneVolume = (a, b, height) => Math.PI * height * (a*a+a*b+b*b) / 12;
+  function integrate(fn,a,b,n=160){if(b<=a)return 0;const h=(b-a)/n;let sum=fn(a)+fn(b);for(let i=1;i<n;i++)sum+=(i%2?4:2)*fn(a+i*h);return sum*h/3;}
+  function boltGeometry(e) {
+    const fail=error=>({error}), nonneg=n=>Number.isFinite(n)&&n>=0;
+    const suppliedSegments=e.shaftSegments!==undefined;
+    if(suppliedSegments&&(!Array.isArray(e.shaftSegments)||!e.shaftSegments.length||e.shaftSegments.length>32))return fail('Schaftsegmente als vollständige Folge von Durchmesser und Länge angeben');
+    const segments=suppliedSegments?e.shaftSegments.map(s=>({diameter:s?.diameter,length:s?.length})):[{diameter:e.sD,length:e.sL}];
+    if(segments.some(s=>!pos(s.diameter)||!pos(s.length)||s.diameter>1e6||s.length>1e6))return fail('Jedes Schaftsegment benötigt positiven Durchmesser und positive Länge');
+    const end=e.schaftende||'voll';let tip=null;
+    if(end==='zapfen'){
+      const last=segments.at(-1),length=e.endLength??e.tipLength,diameter=e.endDiameter??e.tipDiameter;
+      if(!pos(length)||length>=last.length||!pos(diameter)||diameter>=last.diameter)return fail('Zapfen benötigt Durchmesser unter Schaft-Ø und Länge innerhalb des letzten Schaftsegments');
+      last.length-=length;segments.push({diameter,length});
+    }
+    const shaftLength=segments.reduce((n,s)=>n+s.length,0);let shaftVolume=segments.reduce((n,s)=>n+kreis(s.diameter)*s.length,0);
+    if(end==='spitze'){
+      const last=segments.at(-1),diameter=e.endDiameter??e.tipDiameter??0,angle=e.tipAngle??90;
+      if(!nonneg(diameter)||diameter>=last.diameter||!pos(angle)||angle>=180)return fail('Spitze benötigt Enddurchmesser unter Schaft-Ø und gültigen Spitzenwinkel');
+      const length=e.endLength??e.tipLength??(last.diameter-diameter)/(2*Math.tan(angle*Math.PI/360));
+      if(!pos(length)||length>last.length)return fail('Spitzenlänge muss innerhalb des letzten Schaftsegments liegen');
+      const volume=coneVolume(last.diameter,diameter,length);shaftVolume-=kreis(last.diameter)*length-volume;
+      tip={length,diameter,baseDiameter:last.diameter,volume,angle};
+    }
+    if(suppliedSegments&&e.sL!==undefined&&Math.abs(e.sL-shaftLength)>1e-7*Math.max(1,shaftLength))return fail('Summe der Schaftsegmentlängen muss der Schaftlänge entsprechen');
+    const type=e.kopfTyp||e.kopfForm||'zylinder',shape=type==='rund'?'zylinder':type==='none'?'kopflos':type;
+    const s=e.kSW||0,d=e.kD||(['sechskant','abgratet','sechskant_bund'].includes(shape)&&pos(s)?s/Math.cos(Math.PI/6):0),base=e.headBaseDiameter||segments[0].diameter;
+    let h=e.kH||0,V=0,maxD=d,area=kreis(d),c=0,f=0,outerAt=()=>d,wallAt=()=>d,loss=0;
+    const cap=(D,H,z)=>{if(H===0)return D;const a=D/2,R=(a*a+H*H)/(2*H);return 2*Math.sqrt(Math.max(0,R*R-(z+R-H)**2));};
+    if(shape==='kopflos'){if(d||h)return fail('Kopfloses Teil darf keinen Kopf enthalten');maxD=area=0;outerAt=wallAt=()=>0;}
+    else {
+      if(shape==='kegelstumpf'||shape==='linsensenk'){
+        const alpha=e.alpha===undefined?90:e.alpha;
+        if(!pos(alpha)||alpha>=180||!(d>base))return fail('Senkkopf benötigt Kopf-Ø über Anschluss-Ø und einen Winkel zwischen 0 und 180 Grad');
+        if(!h)h=(d-base)/(2*Math.tan(alpha*Math.PI/360));
+      }
+      if(!pos(d)||!pos(h)||d>1e6||h>1e6)return fail('Kopfmaße vollständig und positiv angeben');
+      if(['zylinder','krallen'].includes(shape)){V=shape==='krallen'?e.kVol:kreis(d)*h;if(!pos(V)||V>kreis(d)*h)return fail('Netto-Außenvolumen des Krallenkopfs ergänzen');}
+      else if(['kugelabschnitt','flachrund'].includes(shape)){if(h>d/2)return fail('Kugelabschnitt: Kopfhöhe darf den halben Auflagedurchmesser nicht übersteigen');V=capVolume(d,h);outerAt=z=>cap(d,h,z);wallAt=outerAt;}
+      else if(shape==='linse'||shape==='kugelabschnitt_bund'){
+        f=e.capHeight??e.f;c=e.kC??(nonneg(f)?h-f:NaN);
+        if(!nonneg(c)||!pos(f)||f>d/2||Math.abs(c+f-h)>1e-7*Math.max(1,h))return fail('Linsenkopf benötigt Zylinderanteil kC und Wölbung capHeight; ihre Summe ist die Kopfhöhe');
+        V=kreis(d)*c+capVolume(d,f);outerAt=z=>z<=c?d:cap(d,f,z-c);wallAt=outerAt;
+      }else if(shape==='kegelstumpf'||shape==='linsensenk'){
+        const coneH=h;V=coneVolume(d,base,coneH);outerAt=z=>base+(d-base)*z/coneH;
+        if(shape==='linsensenk'){f=e.capHeight??e.f;if(!pos(f)||f>d/2)return fail('Linsensenkkopf benötigt die zusätzliche Wölbung capHeight');V+=capVolume(d,f);h+=f;outerAt=z=>z<=coneH?base+(d-base)*z/coneH:cap(d,f,z-coneH);}
+        wallAt=outerAt;
+      }else if(['sechskant','abgratet','sechskant_bund'].includes(shape)){
+        if(!pos(s))return fail('Kopfschlüsselweite angeben');const corner=s/Math.cos(Math.PI/6);
+        if(shape==='sechskant_bund'){
+          const dc=e.flangeDiameter??e.dc;c=e.flangeHeight??e.c;
+          if(!pos(dc)||!pos(c)||c>=h||dc<corner)return fail('Bundkopf benötigt Flansch-Ø mindestens über Eck und Flanschhöhe kleiner als Gesamtkopfhöhe');
+          V=sechskant(s)*(h-c)+kreis(dc)*c;maxD=Math.max(corner,dc);area=Math.max(sechskant(s),kreis(dc));outerAt=z=>z<=c?dc:corner;wallAt=z=>z<=c?dc:s;
+        }else {V=sechskant(s)*h;maxD=shape==='abgratet'?Math.max(d,corner):corner;area=shape==='abgratet'?kreis(maxD):sechskant(s);loss=shape==='abgratet'?(kreis(maxD)-sechskant(s))*h:0;outerAt=()=>maxD;wallAt=()=>s;}
+      }else return fail('Kopftyp besitzt noch kein belastbares Volumenmodell');
+    }
+    const headAreaAt=z=>['sechskant','abgratet'].includes(shape)?sechskant(s):shape==='sechskant_bund'&&z>c?sechskant(s):kreis(outerAt(z));
+    const totalLength=h+shaftLength,shaftMax=Math.max(...segments.map(s=>s.diameter));
+    // z is measured from the head bearing plane towards the die-side end.
+    function shaftDiameterAt(z){if(tip&&z>shaftLength-tip.length)return tip.baseDiameter+(tip.diameter-tip.baseDiameter)*(z-shaftLength+tip.length)/tip.length;let start=0;for(const s of segments){if(z<=start+s.length+1e-10)return s.diameter;start+=s.length;}return segments.at(-1).diameter;}
+    function minShaftDiameter(from,to){let start=0,min=Infinity;for(const s of segments){if(start+s.length>from&&start<to)min=Math.min(min,s.diameter);start+=s.length;}if(tip&&to>shaftLength-tip.length)min=Math.min(min,shaftDiameterAt(Math.min(to,shaftLength)));return min;}
+    let cavity={type:end,volume:0,depth:0,wall:null,bottom:null,through:false,notes:[]};
+    if(['halbhohl','rohr'].includes(end)){
+      const db=e.d_b,tb=end==='rohr'?totalLength:e.t_b;
+      if(!pos(db)||!pos(tb)||db>1e6||tb>1e6)return fail('Schaftendbohrung benötigt Durchmesser d_b und Tiefe t_b');
+      const through=end==='rohr',bottom=through?'through':e.bottomShape||'flat',angle=e.bottomAngle??120;
+      if(!['flat','cone','round','through'].includes(bottom))return fail('Bohrungsgrund eindeutig als flach, kegelig oder rund angeben');
+      if(!['total','cylindrical',undefined].includes(e.boreDepthMode))return fail('Tiefenbezug der Schaftendbohrung eindeutig angeben');
+      if(bottom==='cone'&&(!pos(angle)||angle>=180))return fail('Winkel des Bohrungsgrunds muss zwischen 0 und 180 Grad liegen');
+      const bottomHeight=bottom==='cone'?db/(2*Math.tan(angle*Math.PI/360)):bottom==='round'?db/2:0;
+      const depth=through?totalLength:e.boreDepthMode==='cylindrical'?tb+bottomHeight:tb;
+      const cylinderDepth=through?depth:depth-bottomHeight;
+      if(cylinderDepth<0)return fail('Bohrungstiefe ist kleiner als die Höhe des gewählten Grunds');
+      if(!through&&depth>=totalLength)return fail('Schaftendbohrung benötigt einen positiven Restboden');
+      const reachedShaft=Math.min(depth,shaftLength),outside=minShaftDiameter(shaftLength-reachedShaft,shaftLength);
+      if(db>=outside)return fail('Schaftendbohrung benötigt eine positive Restwand in jedem erreichten Schaftsegment');
+      if(depth>shaftLength&&!through&&db>=Math.min(wallAt(0),wallAt(Math.min(h,depth-shaftLength))))return fail('Schaftendbohrung benötigt eine positive Restwand im Kopf');
+      let cavityVolume=kreis(db)*cylinderDepth+(bottom==='cone'?kreis(db)*bottomHeight/3:bottom==='round'?2*Math.PI*(db/2)**3/3:0);
+      if(through){
+        if(['sechskant','abgratet','sechskant_bund'].includes(shape)&&db>=s)return fail('Durchgangsloch benötigt positive Restwand am Kopf');
+        cavityVolume=kreis(db)*shaftLength+integrate(z=>Math.min(kreis(db),kreis(outerAt(z))),0,h);
+      }
+      cavity={type:end,diameter:db,volume:cavityVolume,depth,cylinderDepth,bottomHeight,bottom,angle:bottom==='cone'?angle:null,depthMode:e.boreDepthMode||'total',wall:(outside-db)/2,restBottom:through?0:totalLength-depth,through,notes:[]};
+      if(!e.bottomShape&&!through)cavity.notes.push('Schaftendbohrung mit flachem Grund gerechnet; Grundform als Prozessannahme.');
+      if(bottom==='cone')cavity.notes.push('Kegelgrund '+z(angle)+'° als Geometrie-/Prozessannahme, nicht aus der Normgröße abgeleitet.');
+    }else if(!['voll','kuppe','kegelstumpf_flach','spitze','zapfen'].includes(end))return fail('Schaftende '+end+' mit eigenem Längen-/Durchmesserprofil im Baukasten beschreiben');
+    function driveVolume(drive){
+      if(!drive||drive.family!=='hex'||pos(e.iVol))return drive?.volume||0;
+      const ap=e.iSW/2,corner=ap/Math.cos(Math.PI/6),hex=sechskant(e.iSW);
+      const circleHex=D=>{const r=D/2;if(r<=ap)return kreis(D);if(r>=corner)return hex;return Math.PI*r*r-6*(r*r*Math.acos(ap/r)-ap*Math.sqrt(r*r-ap*ap));};
+      const headDepth=Math.min(h,drive.depth),headV=integrate(depth=>circleHex(outerAt(h-depth)),0,headDepth);
+      return headV+hex*Math.max(0,drive.depth-h);
+    }
+    return {type:shape,headVolume:V,headLoss:loss,headHeight:h,headDiameter:maxD,headArea:area,shaftVolume,shaftLength,shaftMax,segments,totalLength,cavity,tip,outerAt,wallAt,headAreaAt,minShaftDiameter,shaftDiameterAt,driveVolume};
+  }
+
   /* Eingaben:
      typ: 'bolzen' | 'mutter' | 'formteil'
      wst: Index in WERKSTOFFE; rm (optional, überschreibt)
@@ -345,19 +446,21 @@
     const invalid = text => { out.stufen = []; out.werte = {}; out.fehlt.push(text); return out; };
     if (!e || typeof e !== 'object') return invalid('Teilbeschreibung fehlt');
     if (!['bolzen', 'mutter', 'formteil'].includes(e.typ)) return invalid('Teilart eindeutig auswählen');
-    if (e.kopfForm !== undefined && !['none', 'rund', 'sechskant', 'abgratet', 'krallen'].includes(e.kopfForm)) return invalid('Kopfform eindeutig auswählen');
+    if (e.kopfForm !== undefined && !['none', 'rund', 'sechskant', 'abgratet', 'krallen',...NEW_HEADS].includes(e.kopfForm)) return invalid('Kopfform eindeutig auswählen');
+    if(e.kopfTyp!==undefined&&!['rund','sechskant','abgratet','krallen','none',...NEW_HEADS].includes(e.kopfTyp))return invalid('Kopftyp eindeutig auswählen');
     if(e.threadFamily!==undefined&&!['none','metric','trilobular','duo-taptite','self-tapping','thermoplastic'].includes(e.threadFamily))return invalid('Gewindeart eindeutig auswählen');
     if (!Number.isInteger(e.wst) || !WERKSTOFFE[e.wst]) return invalid('Werkstoff aus der Werkstoffliste bestimmen');
     if (e.wirePreparation && !['as-supplied', 'inline-drawing'].includes(e.wirePreparation)) return invalid('Vormaterial und Vorzug eindeutig auswählen');
+    if(e.typ!=='mutter'&&e.kopfTyp)e={...e,kopfForm:e.kopfTyp==='zylinder'?'rund':e.kopfTyp==='kopflos'?'none':e.kopfTyp};
     // Hidden fields from an explicitly deselected operation are not inputs.
     const inactive = new Set();
     if (e.iTyp === 'none') ['iSW', 'iT', 'iVol'].forEach(key => inactive.add(key));
     else if (e.iTyp && e.iTyp !== 'hex') inactive.add('iSW');
     if (e.wirePreparation !== 'inline-drawing') inactive.add('rodDiameter');
-    if (!['sechskant', 'abgratet'].includes(e.kopfForm)) inactive.add('kSW');
+    if (!['sechskant', 'abgratet','sechskant_bund'].includes(e.kopfTyp||e.kopfForm)) inactive.add('kSW');
     if (e.kopfForm === 'none') ['kD', 'kH', 'kVol'].forEach(key => inactive.add(key));
-    if (e.threadFamily === 'none') ['sArea', 'tipArea', 'tipLength', 'tipDiameter'].forEach(key => inactive.add(key));
-    const numericKeys = ['d0','rodDiameter','rm','sD','sL','kD','kSW','kH','sArea','tipArea','tipLength','tipDiameter','kVol','iSW','iT','iVol','nD','nT','mM','mSW','mH','mLoch','mFlansch','mFlanschH','masse','lStempel'];
+    if (e.threadFamily === 'none') ['sArea', 'tipArea',...(['spitze','zapfen'].includes(e.schaftende)?[]:['tipLength', 'tipDiameter'])].forEach(key => inactive.add(key));
+    const numericKeys = ['d0','rodDiameter','rm','sD','sL','kD','kSW','kH','sArea','tipArea','tipLength','tipDiameter','kVol','iSW','iT','iVol','nD','nT','mM','mSW','mH','mLoch','mFlansch','mFlanschH','masse','lStempel','kC','capHeight','f','flangeDiameter','flangeHeight','dc','c','alpha','headBaseDiameter','d_b','t_b','bottomAngle','endLength','endDiameter','tipAngle'];
     for (const key of numericKeys) if (!inactive.has(key) && e[key] !== undefined && e[key] !== null && typeof e[key] !== 'number') return invalid('Ungültiger Zahlenwert: ' + key);
     for (const [key, value] of Object.entries(e)) {
       if (!inactive.has(key) && typeof value === 'number' && (!Number.isFinite(value) || value < 0)) return invalid('Ungültiger Zahlenwert: ' + key);
@@ -368,6 +471,10 @@
     }
     e = { ...e };
     inactive.forEach(key => { delete e[key]; });
+    const newGeometry=usesBoltGeometry(e);
+    if(newGeometry&&Array.isArray(e.shaftSegments)&&e.shaftSegments.length&&e.shaftSegments.every(s=>pos(s?.diameter)&&pos(s?.length))){
+      e.sD=Math.max(...e.shaftSegments.map(s=>s.diameter));e.sL??=e.shaftSegments.reduce((n,s)=>n+s.length,0);
+    }
     if (missingShaft(e)) return invalid('Schaftdurchmesser und Schaftlänge vollständig angeben');
     const drive = innenantrieb(e);
     if (drive && drive.error) return invalid(drive.error);
@@ -404,25 +511,32 @@
     }
     const A0 = kreis(d0);
     if (!pos(A0)) return invalid('Geometrie außerhalb des numerischen Rechenbereichs; Maße und Einheiten prüfen');
-    if(e.typ!=='mutter'&&(e.standardKind==='headless'||['trilobular','duo-taptite'].includes(e.threadFamily)||pos(e.tipLength)||e.kopfForm==='krallen'))return profilTeil(e,out,m,drive,d0,A0);
+    if(e.typ!=='mutter'&&(e.standardKind==='headless'&&!newGeometry||['trilobular','duo-taptite'].includes(e.threadFamily)||pos(e.tipLength)&&!newGeometry||e.kopfForm==='krallen')){
+      if(newGeometry&&(e.shaftSegments!==undefined||!['voll',undefined].includes(e.schaftende)||!['rund','sechskant','abgratet','krallen','none',undefined].includes(e.kopfForm)))return invalid('Profilkontur mit zusätzlicher Kopfform, Schaftsegmenten oder Schaftende im Baukasten gemeinsam beschreiben; Teilvolumen nicht aus getrennten Modellen schätzen');
+      return profilTeil(e,out,m,drive,d0,A0);
+    }
     const R = id => out.regeln.add(id);
 
     let V = 0, Vab = 0, Lteil = 0, Lstempel = 0, kopfD = 0, kopfH = 0, matBohrung = d0, massEnvelope = 0, driveEnvelope = 0;
-    let phiKopf = 0, sKopf = 0, phiEnde = 0;
+    let phiKopf = 0, sKopf = 0, phiEnde = 0, geometryForceReason=null;
 
     if (e.typ === 'mutter') {
+      const nut=e.nutModelVersion==='nut-model-v1'?NUT_MODEL?.nutModel(e):null;
+      if(e.nutModelVersion==='nut-model-v1'&&!nut)return invalid('Muttermodell konnte nicht geladen werden.');
+      if(nut&&!nut.valid)return invalid(nut.errors[0]);
+      if(nut){out.nutGeometry=nut;out.hinweise.push(...nut.assumptions);}
       if (!pos(e.mSW) || !pos(e.mH)) { out.fehlt.push('Schlüsselweite und Höhe der Mutter'); return out; }
       const M = pos(e.mM) ? e.mM : mAusSW(e.mSW);
       out.werte.mM = M;
-      const dl = pos(e.mLoch) ? e.mLoch : 0.84 * M;
+      const dl = nut?nut.holeDiameter:pos(e.mLoch) ? e.mLoch : 0.84 * M;
       if (dl >= e.mSW) return invalid('Loch-Ø muss kleiner als die Schlüsselweite sein');
-      if (!pos(e.mLoch)) out.hinweise.push('Loch-Ø nicht angegeben: angenommen 0,84 × M = ' + z(dl) + ' mm');
-      const Ahex = sechskant(e.mSW), eck = e.mSW / Math.cos(Math.PI / 6);
+      if (!nut&&!pos(e.mLoch)) out.hinweise.push('Loch-Ø nicht angegeben: angenommen 0,84 × M = ' + z(dl) + ' mm');
+      const Ahex = nut?nut.outerArea:sechskant(e.mSW), eck = e.nutShape==='square'?e.mSW*Math.SQRT2:e.mSW / Math.cos(Math.PI / 6);
       const flansch = pos(e.mFlansch) ? e.mFlansch : 0, fH = pos(e.mFlanschH) ? e.mFlanschH : 0;
       if (!!flansch !== !!fH) return invalid('Flanschdurchmesser und Flanschhöhe vollständig angeben');
       if (fH > e.mH) return invalid('Flanschhöhe übersteigt die Mutterhöhe');
       if (flansch && dl >= flansch) return invalid('Loch-Ø muss kleiner als der Flanschdurchmesser sein');
-      V = Ahex * (e.mH - fH) + (flansch ? kreis(flansch) * fH : 0) - kreis(dl) * e.mH;
+      V = nut?nut.volume:Ahex * (e.mH - fH) + (flansch ? kreis(flansch) * fH : 0) - kreis(dl) * e.mH;
       massEnvelope = V + kreis(dl) * e.mH;
       const T = 0.5 * dl; R('R-LO1');
       Vab = kreis(dl) * T;
@@ -438,6 +552,7 @@
       out.stufen.push({ v: 'Planstauchen', F: A1 * kf(m, phi1) / ETA_VOR, A: A1, bohr: d0, r: 'R-F1', operations: [op('Planstauchen', 'Abschnitt / Stirnflächen')] });
       out.stufen.push({ v: 'Vorstauchen rund', F: A2 * kf(m, phi2) / ETA_VOR, A: A2, bohr: 0.95 * eck, r: 'R-F1', operations: [op('Vorstauchen rund', 'Mutternkörper / Außenkontur')] });
       out.stufen.push({ v: 'Sechskant formen, beidseitig vorlochen', F: Ahex * kf(m, phiHex) / ETA_FERTIG, A: Ahex, bohr: eck, r: 'R-F1', operations: [op('Sechskant formen', 'Mutternkörper / Außenkontur'), op('Beidseitig vorlochen', 'Zentrale Bohrung / beide Stirnseiten')] });
+      if(e.nutShape==='square'){out.stufen.at(-1).v='Vierkant formen, beidseitig vorlochen';out.stufen.at(-1).operations[0]=op('Vierkant formen','Mutternkörper / Außenkontur');}
       out.stufen.push({ v: 'Napf vertiefen bis Butzen', F: kreis(dl) * p4, A: kreis(dl), bohr: eck, r: 'R-F3', operations: [op('Napf vertiefen bis Butzen', 'Zentrale Bohrung / Napfboden')] });
       if (flansch) out.stufen.push({ v: 'Flansch fertigformen', F: kreis(flansch) * kf(m, phiEnd) / ETA_FERTIG, A: kreis(flansch), bohr: flansch, r: 'R-F1', operations: [op('Flansch fertigformen', 'Flansch / Bund der Mutter')] });
       out.stufen.push({ v: 'Lochen', F: Math.PI * dl * T * 0.8 * kf(m, phiEnd), A: kreis(dl), bohr: eck, r: 'R-F4', operations: [op('Lochen', 'Zentrale Bohrung / Butzen')] });
@@ -445,15 +560,18 @@
       out.werte.loch = dl;
     } else {
       // Bolzen und Formteile: Kopf/Bund + Schaft (+ Napf, Innenantrieb)
-      const hatKopf = pos(e.kD) && pos(e.kH);
+      const geometry=newGeometry?boltGeometry(e):null;
+      if(geometry?.error)return invalid(geometry.error);
+      const hatKopf = geometry?geometry.headHeight>0:pos(e.kD) && pos(e.kH);
       if ((pos(e.kD) || pos(e.kH)) && !hatKopf) return invalid('Kopf-Hüllmaße vollständig angeben');
       if (hatKopf && ['sechskant', 'abgratet'].includes(e.kopfForm) && !pos(e.kSW)) return invalid('Kopfschlüsselweite angeben');
       if (pos(e.nD) !== pos(e.nT)) return invalid('Napfdurchmesser und Napftiefe vollständig angeben');
       if (pos(e.sL) && e.sD !== undefined && e.sD !== null && !pos(e.sD)) return invalid('Schaftdurchmesser muss positiv sein');
-      const sD = pos(e.sD) ? e.sD : d0, sL = pos(e.sL) ? e.sL : 0;
+      const sD = geometry?geometry.shaftMax:pos(e.sD) ? e.sD : d0, sL = geometry?geometry.shaftLength:pos(e.sL) ? e.sL : 0;
       if (!hatKopf && !sL) { out.fehlt.push('Kopf (Ø und Höhe) oder Schaftlänge'); return out; }
       let Akopf = 0, kopfAbgr = 0;
-      if (hatKopf) {
+      if(geometry){kopfD=geometry.headDiameter;kopfH=geometry.headHeight;Akopf=geometry.headArea;kopfAbgr=geometry.headLoss;}
+      else if (hatKopf) {
         kopfD = e.kD; kopfH = e.kH;
         if (e.kopfForm === 'sechskant' && pos(e.kSW)) { Akopf = sechskant(e.kSW); kopfD = e.kSW / Math.cos(Math.PI / 6); }
         else if (e.kopfForm === 'abgratet' && pos(e.kSW)) {
@@ -462,25 +580,29 @@
           kopfAbgr = (kreis(kopfD) - sechskant(e.kSW)) * e.kH;
         } else Akopf = kreis(e.kD);
       }
-      const Vkopf = Akopf * kopfH;
+      const Vkopf = geometry?geometry.headVolume+kopfAbgr:Akopf * kopfH;
       const headSection = hatKopf && ['sechskant', 'abgratet'].includes(e.kopfForm) ? sechskant(e.kSW) : Akopf;
       const headWallDiameter = hatKopf && ['sechskant', 'abgratet'].includes(e.kopfForm) ? e.kSW : kopfD;
-      if (drive && !hatKopf) return invalid('Innenantrieb benötigt Kopf- oder Bundmaße');
+      if (drive && !hatKopf && !geometry) return invalid('Innenantrieb benötigt Kopf- oder Bundmaße');
       if (drive && drive.depth >= kopfH + sL) return invalid('Innenantrieb benötigt einen positiven Restboden');
       if (drive && drive.family === 'hex') {
-        const outside = drive.depth > kopfH ? Math.min(kopfD, sD) : kopfD;
+        const outside = geometry?(drive.depth>kopfH?Math.min(hatKopf?geometry.wallAt(0):Infinity,geometry.minShaftDiameter(0,drive.depth-kopfH)):geometry.wallAt(kopfH-drive.depth)):drive.depth > kopfH ? Math.min(kopfD, sD) : kopfD;
         if (e.iSW / Math.cos(Math.PI / 6) >= outside || (['sechskant', 'abgratet'].includes(e.kopfForm) && e.iSW >= e.kSW)) return invalid('Innensechskant benötigt eine positive Restwand');
       }
       if (drive) {
-        driveEnvelope = headSection * Math.min(kopfH, drive.depth) + kreis(sD) * Math.max(0, drive.depth - kopfH);
+        driveEnvelope = geometry?integrate(depth=>geometry.headAreaAt(kopfH-depth),0,Math.min(kopfH,drive.depth))+integrate(depth=>kreis(geometry.shaftDiameterAt(depth)),0,Math.max(0,drive.depth-kopfH)):headSection * Math.min(kopfH, drive.depth) + kreis(sD) * Math.max(0, drive.depth - kopfH);
+        if(geometry&&drive.family==='hex'&&!pos(e.iVol)){drive.volume=geometry.driveVolume(drive);drive.volumeStatus='hex-intersection-with-head-profile';}
         if (volumeKnown && drive.volume >= driveEnvelope) return invalid('Innenantriebsvolumen überschreitet den verfügbaren Hüllraum seiner Tiefe');
       }
       const Vi = drive && volumeKnown ? drive.volume : 0;
       const Vn = (pos(e.nD) && pos(e.nT)) ? kreis(e.nD) * e.nT : 0;
       if (drive && Vn) return invalid('Innenantrieb und Napf: Lage und Überlappung der Hohlräume zuerst klären; Volumen nicht doppelt abziehen');
-      const Vs = kreis(sD) * sL;
+      const Vs = geometry?geometry.shaftVolume:kreis(sD) * sL;
+      const endCavity=geometry?.cavity,Ve=endCavity?.volume||0;
+      if(endCavity?.depth&&!endCavity.through&&((drive?.depth||0)+(pos(e.nT)?e.nT:0)+endCavity.depth>=kopfH+sL))return invalid('Kopfvertiefung und Schaftendbohrung benötigen einen positiven gemeinsamen Restboden');
+      if(endCavity?.through&&(drive||Vn))return invalid('Durchgangsloch und weitere Vertiefung überlagern sich; gemeinsame Kontur im Baukasten beschreiben');
       massEnvelope = Vkopf - kopfAbgr + Vs;
-      V = Vkopf - kopfAbgr + Vs - Vi - Vn; // Fertigteil
+      V = Vkopf - kopfAbgr + Vs - Vi - Vn - Ve; // Fertigteil
       if (!pos(V)) return invalid('Geometrie ergibt kein positives Restvolumen; Maße und Einheiten prüfen');
       if (Vn && (e.nT > kopfH + sL || (!e.nDurch && e.nT >= kopfH + sL))) return invalid('Napftiefe und Restboden widersprechen der Teillänge');
       Vab = kopfAbgr;
@@ -488,9 +610,21 @@
       if (Vn && e.nDurch) { butzen = 0.5 * e.nD; Vab += kreis(e.nD) * butzen; R('R-LO1'); }
       Lteil = kopfH + sL;
       Lstempel = Number.isFinite(e.lStempel) ? e.lStempel : kopfH;
+      if(geometry){
+        out.geometry={model:'bolt-geometry-v1',headType:geometry.type,headVolumeMm3:geometry.headVolume,headHeightMm:kopfH,shaftVolumeMm3:Vs,shaftSegments:geometry.segments,shaftEnd:{...endCavity},tip:geometry.tip,volumeSource:'analytic-shapes',blankBasis:'net-part-volume-plus-explicit-trimming'};
+        out.hinweise.push(...(endCavity?.notes||[]));
+      }
       R('R-KF');
       // Schaft gegenüber Draht
       let phiSchaft = 0;
+      const shaftWork=geometry?geometry.segments:[{diameter:sD,length:sL}];
+      let maxShaftStrain=0;
+      for(let segmentIndex=0;segmentIndex<shaftWork.length;segmentIndex++){
+      const segment=shaftWork[segmentIndex],sD=segment.diameter,sL=segment.length;
+      const d0=geometry&&segmentIndex>0?shaftWork[segmentIndex-1].diameter:e.d0,A0=kreis(d0),Vs=kreis(sD)*sL;
+      const feedVolume=geometry?shaftWork.slice(segmentIndex).reduce((n,s)=>n+kreis(s.diameter)*s.length,0):V+Vab;
+      let phiSchaft=0;
+      const stageStart=out.stufen.length;
       if (sL && sD < d0 * 0.995) {
         const eps = 1 - (sD / d0) ** 2; phiSchaft = Math.log(1 / (1 - eps));
         R('R-RE1'); R('R-FP1'); R('R-F2');
@@ -502,7 +636,7 @@
           for (let i = 1; i <= nFP; i++) {
             const a = phiSchaft * (i - 1) / nFP, b = phiSchaft * i / nFP;
             const dA = Math.sqrt(4 * A0 * Math.exp(-a) / Math.PI), dB = Math.sqrt(4 * A0 * Math.exp(-b) / Math.PI);
-            out.stufen.push({ v: 'Vorwärtsfließpressen Schaft ' + z(dA) + ' → ' + z(dB) + ' (' + Math.round((1 - Math.exp(a - b)) * 100) + ' %)', F: fpKraft(m, kreis(dA), a, b, false, (V + Vab) / A0, dA), A: kreis(dA), bohr: dA, r: 'R-F2', operations: [op('Vorwärtsfließpressen', 'Schaft / Körper')] });
+            out.stufen.push({ v: 'Vorwärtsfließpressen Schaft ' + z(dA) + ' → ' + z(dB) + ' (' + Math.round((1 - Math.exp(a - b)) * 100) + ' %)', F: fpKraft(m, kreis(dA), a, b, false, feedVolume / A0, dA), A: kreis(dA), bohr: dA, r: 'R-F2', operations: [op('Vorwärtsfließpressen', 'Schaft / Körper')] });
           }
           R('R-L0');
           if (gr.l0d0 && ((V + Vab) / A0) / d0 > gr.l0d0) out.hinweise.push('Rohteil schlanker als l₀/d₀ = ' + gr.l0d0 + ' beim Vorwärtsfließpressen: hohe Wandreibung, Schaft in der Matrize abstützen oder Abschnitt kürzen');
@@ -523,6 +657,16 @@
       } else if (sL && sD > d0 * 1.005) {
         out.hinweise.push('Schaft-Ø bis 5 % über Draht-Ø: füllt im ersten Schlag, Matrizenbohrung = Schaft-Ø');
       }
+      maxShaftStrain=Math.max(maxShaftStrain,phiSchaft);
+      if(geometry&&shaftWork.length>1)for(const stage of out.stufen.slice(stageStart)){
+        stage.segmentIndex=segmentIndex;stage.segment={diameter:sD,length:sL};
+        stage.operations=stage.operations.map(operation=>({...operation,location:'Schaftsegment '+(segmentIndex+1)+' / '+operation.location}));
+        // Segment reduction is an explicit shaft operation; a later body
+        // segment may not be silently merged into the preceding one.
+        delete stage.mit;
+      }
+      }
+      phiSchaft=maxShaftStrain;
       matBohrung = Math.max(d0, sD);
       // Kopf
       if (hatKopf) {
@@ -602,6 +746,40 @@
         }
         matBohrung = Math.max(matBohrung, Dw);
       }
+      // A die-side cavity is independent from a head drive or head cup.
+      // The same documented cup-pressure approximation is used, with its
+      // local shaft diameter and prestrain, never the head diameter.
+      if(Ve){
+        R('R-FP1');R('R-F3');
+        const Dw=endCavity.diameter+2*endCavity.wall,eps=kreis(endCavity.diameter)/kreis(Dw);
+        const epsN=Math.min(eps,gr.napfMax),dN=Dw*Math.sqrt(epsN),q=(1-epsN)/(1-eps);
+        const nAb=eps>gr.napfMax?Math.ceil(Math.log(q)/Math.log(1/.7)-1e-9):0;
+        const tN=endCavity.depth*(1-eps)/(1-epsN),nN=Math.max(1,Math.ceil(tN/(gr.tiefe*dN)-1e-9));
+        if(!Number.isFinite(nN)||!Number.isFinite(nAb)||nN+nAb>100)return invalid('Schaftendbohrung außerhalb des numerischen Rechenbereichs');
+        if(eps<gr.napfMin)out.hinweise.push('Schaftendbohrung: geringe Lochfläche belastet den Lochdorn; geführt vorformen.');
+        if(endCavity.wall<.1*Dw)out.hinweise.push('Schaftendbohrung: Restwand unter 10 % des örtlichen Außen-Ø; dünne Wand im Werkzeug abstützen. Erfahrungsband, kein Ausschluss.');
+        if(endCavity.depth/endCavity.diameter>gr.tiefe)out.hinweise.push('Schaftendbohrung: Tiefe/Ø über dem Werkstoff-Erfahrungsband; auf mehrere Napfschläge verteilen.');
+        for(let i=1;i<=nN;i++){
+          const p=napfDruck(m,phiSchaft,Math.min(Math.max(epsN,.05),.9),tN*i/nN,dN);
+          out.stufen.push({v:'Bohrung am Schaftende rückwärts fließpressen'+(nN>1?' ('+i+'/'+nN+')':'')+' Ø'+z(dN)+' × '+z(tN*i/nN),F:kreis(dN)*p,A:kreis(dN),bohr:Dw,r:'R-F3',operations:[op('Bohrung am Schaftende fließpressen','Matrizenseitiges Schaftende / Auswerferstift bzw. Lochdorn')]});
+        }
+        const phiN=Math.log(1/(1-epsN));
+        for(let i=1;i<=nAb;i++){
+          const phi=Math.log(q)/nAb,wallArea=(1-epsN)*kreis(Dw)*Math.exp(-phi*(i-1));
+          out.stufen.push({v:'Schaftend-Napfwand abstrecken'+(nAb>1?' ('+i+'/'+nAb+')':''),F:wallArea*kf(m,phiSchaft+phiN+phi*i),A:kreis(endCavity.diameter),bohr:Dw,r:'R-FP2',operations:[op('Napfwand abstrecken','Matrizenseitiges Schaftende')]});R('R-FP2');
+        }
+        if(endCavity.through){const butzen=.5*endCavity.diameter;Vab+=kreis(endCavity.diameter)*butzen;out.stufen.push({v:'Schaftendbohrung durchlochen',F:Math.PI*endCavity.diameter*butzen*.8*kf(m,phiSchaft+phiN),A:kreis(endCavity.diameter),bohr:Dw,r:'R-F4',operations:[op('Durchlochen / Butzen abtrennen','Matrizenseitiger Bohrungsgrund')]});R('R-LO1');R('R-F4');}
+        phiEnde=Math.max(phiEnde,phiSchaft+Math.log(1/(1-eps)));
+        out.hinweise.push('Schaftendbohrung liegt auf der Matrizenseite. Lochdorn, Gegenhalt und Auswerferbewegung mit dem Maschinen-/Werkzeugkonzept abstimmen; Wenden ist daraus nicht automatisch erforderlich.');
+      }
+      if(geometry&&!hatKopf&&drive){
+        const p=drive.family==='hex'?napfDruck(m,phiSchaft,Math.min(.9,drive.area/kreis(sD)),drive.depth,e.iSW):null;
+        out.stufen.push({v:'Innenantrieb formen: '+drive.label,F:p===null?null:drive.area*p,A:drive.area,bohr:sD,r:'R-F3',operations:[op('Innenantrieb formen','Stempelseitige kopflose Stirnseite')]});R('R-F3');
+      }
+      if(geometry?.tip){
+        out.stufen.push({v:'Schaftendspitze formen',F:null,A:kreis(geometry.tip.baseDiameter),bohr:geometry.tip.baseDiameter,r:'R-F2',operations:[op('Spitze formen','Matrizenseitiges Schaftende')],qualitative:true});
+        geometryForceReason='Kraftmodell der Schaftendspitze noch offen; Volumen aus Kegelstumpfgeometrie';
+      }
       // Formteile: zuerst Planstauchen, außer der erste Schritt ist Vorwärtsfließpressen oder Reduzieren (Spindelfolge)
       if (e.typ === 'formteil' && !(out.stufen.length && /^(Vorwärtsfließpressen|Reduzieren)/.test(out.stufen[0].v))) out.stufen.unshift({ v: 'Planstauchen, Abschnitt richten', F: A0 * Math.exp(0.1) * kf(m, 0.1) / ETA_VOR, A: A0 * Math.exp(0.1), bohr: d0, r: 'R-F1', operations: [op('Planstauchen / Abschnitt richten', 'Abschnitt / Stirnflächen')] });
       phiEnde = Math.max(phiEnde, phiKopf, phiSchaft);
@@ -666,7 +844,7 @@
       out.materialStatus.flow = 'strain-outside-range';
       out.hinweise.push('Umformgrad außerhalb des belegten Fließkurvenbereichs. Betroffene Stationskräfte und die Pressenauslastung bleiben offen; keine Extrapolation.');
     }
-    out.werte.forceReason = [!forceKnown ? flow.reason : '', outsideCurve ? 'Umformgrad außerhalb des belegten Fließkurvenbereichs' : '', !volumeKnown ? 'Innenantriebsvolumen fehlt' : '', drive && drive.forceStatus === 'missing' ? 'Profilabhängige Umformkraft des Innenantriebs fehlt' : ''].filter(Boolean).join('; ') || null;
+    out.werte.forceReason = [!forceKnown ? flow.reason : '', outsideCurve ? 'Umformgrad außerhalb des belegten Fließkurvenbereichs' : '', !volumeKnown ? 'Innenantriebsvolumen fehlt' : '', drive && drive.forceStatus === 'missing' ? 'Profilabhängige Umformkraft des Innenantriebs fehlt' : '',geometryForceReason].filter(Boolean).join('; ') || null;
 
     // Werkzeuge
     R('R-MA'); R('R-SB'); R('R-PI'); R('R-KO'); R('R-PKO');
@@ -951,6 +1129,6 @@
     return result;
   }
 
-  const API = { WERKSTOFFE, GRENZEN, REGELN, FAMILIEN, PRAXIS_STANDARD, RM_POLICY_VERSION, rmVorbelegung, rmSensitivitaet, auslegen, pruefe, waehle, maschinenKonzept, planung, kf, kfm, selectFlow, G, findMaterial };
+  const API = { WERKSTOFFE, GRENZEN, REGELN, FAMILIEN, PRAXIS_STANDARD, RM_POLICY_VERSION, rmVorbelegung, rmSensitivitaet, auslegen, boltGeometry, pruefe, waehle, maschinenKonzept, planung, kf, kfm, selectFlow, G, findMaterial };
   if (typeof module !== 'undefined' && module.exports) module.exports = API; else root.JYK = API;
 })(typeof globalThis !== 'undefined' ? globalThis : this);

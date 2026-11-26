@@ -1,0 +1,872 @@
+{
+  "id": "ISO8676",
+  "version": "2026-11-26",
+  "schemaVersion": 1,
+  "label": "ISO8676 · Sechskant mit Voll-Feingewinde",
+  "edition": "2022",
+  "editionStatus": "documented",
+  "funktion": "schraube",
+  "klasse": "bolzen",
+  "kopfTyp": "sechskant",
+  "antrieb": {
+    "art": "none"
+  },
+  "feldzuordnung": {
+    "kSW": "s_nom",
+    "kH": "k_nom"
+  },
+  "groessen": {
+    "M8": {
+      "roh": {
+        "s_nom": 13,
+        "k_nom": 5.3,
+        "P": 1
+      },
+      "vorbelegung": {
+        "kSW": 13,
+        "kH": 5.3
+      },
+      "coverage": "documented",
+      "nachLaenge": {},
+      "lengthCoverage": "unresearched",
+      "steigungen": [
+        1
+      ],
+      "pitchSourceRefs": [
+        "iteh8676_2022"
+      ],
+      "missingGeometryFields": [],
+      "geometryStatus": "documented"
+    },
+    "M10": {
+      "roh": {
+        "s_nom": 16,
+        "k_nom": 6.4,
+        "P": 1.25
+      },
+      "vorbelegung": {
+        "kSW": 16,
+        "kH": 6.4
+      },
+      "coverage": "documented",
+      "nachLaenge": {},
+      "lengthCoverage": "unresearched",
+      "steigungen": [
+        1.25,
+        1
+      ],
+      "pitchSourceRefs": [
+        "iteh8676_2022"
+      ],
+      "missingGeometryFields": [],
+      "geometryStatus": "documented"
+    },
+    "M12": {
+      "roh": {
+        "s_nom": 18,
+        "k_nom": 7.5,
+        "P": 1.5
+      },
+      "vorbelegung": {
+        "kSW": 18,
+        "kH": 7.5
+      },
+      "coverage": "documented",
+      "nachLaenge": {},
+      "lengthCoverage": "unresearched",
+      "steigungen": [
+        1.5,
+        1.25
+      ],
+      "pitchSourceRefs": [
+        "iteh8676_2022"
+      ],
+      "missingGeometryFields": [],
+      "geometryStatus": "documented"
+    },
+    "M14": {
+      "roh": {
+        "s_nom": 21,
+        "k_nom": 8.8,
+        "P": 1.5
+      },
+      "vorbelegung": {
+        "kSW": 21,
+        "kH": 8.8
+      },
+      "coverage": "documented",
+      "nachLaenge": {},
+      "lengthCoverage": "unresearched",
+      "steigungen": [
+        1.5
+      ],
+      "pitchSourceRefs": [
+        "iteh8676_2022"
+      ],
+      "missingGeometryFields": [],
+      "geometryStatus": "documented"
+    },
+    "M16": {
+      "roh": {
+        "s_nom": 24,
+        "k_nom": 10,
+        "P": 1.5
+      },
+      "vorbelegung": {
+        "kSW": 24,
+        "kH": 10
+      },
+      "coverage": "documented",
+      "nachLaenge": {},
+      "lengthCoverage": "unresearched",
+      "steigungen": [
+        1.5
+      ],
+      "pitchSourceRefs": [
+        "iteh8676_2022"
+      ],
+      "missingGeometryFields": [],
+      "geometryStatus": "documented"
+    },
+    "M18": {
+      "roh": {
+        "s_nom": 27,
+        "k_nom": 11.5,
+        "P": 2
+      },
+      "vorbelegung": {
+        "kSW": 27,
+        "kH": 11.5
+      },
+      "coverage": "documented",
+      "nachLaenge": {},
+      "lengthCoverage": "unresearched",
+      "steigungen": [
+        2,
+        1.5
+      ],
+      "pitchSourceRefs": [
+        "iteh8676_2022"
+      ],
+      "missingGeometryFields": [],
+      "geometryStatus": "documented"
+    },
+    "M20": {
+      "roh": {
+        "s_nom": 30,
+        "k_nom": 12.5,
+        "P": 2
+      },
+      "vorbelegung": {
+        "kSW": 30,
+        "kH": 12.5
+      },
+      "coverage": "documented",
+      "nachLaenge": {},
+      "lengthCoverage": "unresearched",
+      "steigungen": [
+        2,
+        1.5
+      ],
+      "pitchSourceRefs": [
+        "iteh8676_2022"
+      ],
+      "missingGeometryFields": [],
+      "geometryStatus": "documented"
+    },
+    "M22": {
+      "roh": {
+        "s_nom": 34,
+        "k_nom": 14,
+        "P": 2
+      },
+      "vorbelegung": {
+        "kSW": 34,
+        "kH": 14
+      },
+      "coverage": "documented",
+      "nachLaenge": {},
+      "lengthCoverage": "unresearched",
+      "steigungen": [
+        2,
+        1.5
+      ],
+      "pitchSourceRefs": [
+        "iteh8676_2022"
+      ],
+      "missingGeometryFields": [],
+      "geometryStatus": "documented"
+    },
+    "M24": {
+      "roh": {
+        "s_nom": 36,
+        "k_nom": 15,
+        "P": 2
+      },
+      "vorbelegung": {
+        "kSW": 36,
+        "kH": 15
+      },
+      "coverage": "documented",
+      "nachLaenge": {},
+      "lengthCoverage": "unresearched",
+      "steigungen": [
+        2
+      ],
+      "pitchSourceRefs": [
+        "iteh8676_2022"
+      ],
+      "missingGeometryFields": [],
+      "geometryStatus": "documented"
+    },
+    "M27": {
+      "roh": {
+        "s_nom": 41,
+        "k_nom": 17,
+        "P": 2
+      },
+      "vorbelegung": {
+        "kSW": 41,
+        "kH": 17
+      },
+      "coverage": "documented",
+      "nachLaenge": {},
+      "lengthCoverage": "unresearched",
+      "steigungen": [
+        2
+      ],
+      "pitchSourceRefs": [
+        "iteh8676_2022"
+      ],
+      "missingGeometryFields": [],
+      "geometryStatus": "documented"
+    },
+    "M30": {
+      "roh": {
+        "s_nom": 46,
+        "k_nom": 18.7,
+        "P": 2
+      },
+      "vorbelegung": {
+        "kSW": 46,
+        "kH": 18.7
+      },
+      "coverage": "documented",
+      "nachLaenge": {},
+      "lengthCoverage": "unresearched",
+      "steigungen": [
+        2
+      ],
+      "pitchSourceRefs": [
+        "iteh8676_2022"
+      ],
+      "missingGeometryFields": [],
+      "geometryStatus": "documented"
+    },
+    "M33": {
+      "roh": {
+        "s_nom": 50,
+        "k_nom": 21,
+        "P": 2
+      },
+      "vorbelegung": {
+        "kSW": 50,
+        "kH": 21
+      },
+      "coverage": "documented",
+      "nachLaenge": {},
+      "lengthCoverage": "unresearched",
+      "steigungen": [
+        2
+      ],
+      "pitchSourceRefs": [
+        "iteh8676_2022"
+      ],
+      "missingGeometryFields": [],
+      "geometryStatus": "documented"
+    }
+  },
+  "fields": {
+    "M8": {
+      "s_nom": {
+        "nominal": 13,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iteh8676_2022"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Zweitbeleg je Einzelwert noch offen."
+      },
+      "k_nom": {
+        "nominal": 5.3,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iteh8676_2022"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Zweitbeleg je Einzelwert noch offen."
+      },
+      "P": {
+        "nominal": 1,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iteh8676_2022"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Zweitbeleg je Einzelwert noch offen."
+      }
+    },
+    "M10": {
+      "s_nom": {
+        "nominal": 16,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iteh8676_2022"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Zweitbeleg je Einzelwert noch offen."
+      },
+      "k_nom": {
+        "nominal": 6.4,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iteh8676_2022"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Zweitbeleg je Einzelwert noch offen."
+      },
+      "P": {
+        "nominal": 1.25,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iteh8676_2022"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Zweitbeleg je Einzelwert noch offen."
+      }
+    },
+    "M12": {
+      "s_nom": {
+        "nominal": 18,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iteh8676_2022"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Zweitbeleg je Einzelwert noch offen."
+      },
+      "k_nom": {
+        "nominal": 7.5,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iteh8676_2022"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Zweitbeleg je Einzelwert noch offen."
+      },
+      "P": {
+        "nominal": 1.5,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iteh8676_2022"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Zweitbeleg je Einzelwert noch offen."
+      }
+    },
+    "M14": {
+      "s_nom": {
+        "nominal": 21,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iteh8676_2022"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Zweitbeleg je Einzelwert noch offen."
+      },
+      "k_nom": {
+        "nominal": 8.8,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iteh8676_2022"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Zweitbeleg je Einzelwert noch offen."
+      },
+      "P": {
+        "nominal": 1.5,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iteh8676_2022"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Zweitbeleg je Einzelwert noch offen."
+      }
+    },
+    "M16": {
+      "s_nom": {
+        "nominal": 24,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iteh8676_2022"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Zweitbeleg je Einzelwert noch offen."
+      },
+      "k_nom": {
+        "nominal": 10,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iteh8676_2022"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Zweitbeleg je Einzelwert noch offen."
+      },
+      "P": {
+        "nominal": 1.5,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iteh8676_2022"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Zweitbeleg je Einzelwert noch offen."
+      }
+    },
+    "M18": {
+      "s_nom": {
+        "nominal": 27,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iteh8676_2022"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Zweitbeleg je Einzelwert noch offen."
+      },
+      "k_nom": {
+        "nominal": 11.5,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iteh8676_2022"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Zweitbeleg je Einzelwert noch offen."
+      },
+      "P": {
+        "nominal": 2,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iteh8676_2022"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Zweitbeleg je Einzelwert noch offen."
+      }
+    },
+    "M20": {
+      "s_nom": {
+        "nominal": 30,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iteh8676_2022"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Zweitbeleg je Einzelwert noch offen."
+      },
+      "k_nom": {
+        "nominal": 12.5,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iteh8676_2022"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Zweitbeleg je Einzelwert noch offen."
+      },
+      "P": {
+        "nominal": 2,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iteh8676_2022"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Zweitbeleg je Einzelwert noch offen."
+      }
+    },
+    "M22": {
+      "s_nom": {
+        "nominal": 34,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iteh8676_2022"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Zweitbeleg je Einzelwert noch offen."
+      },
+      "k_nom": {
+        "nominal": 14,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iteh8676_2022"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Zweitbeleg je Einzelwert noch offen."
+      },
+      "P": {
+        "nominal": 2,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iteh8676_2022"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Zweitbeleg je Einzelwert noch offen."
+      }
+    },
+    "M24": {
+      "s_nom": {
+        "nominal": 36,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iteh8676_2022"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Zweitbeleg je Einzelwert noch offen."
+      },
+      "k_nom": {
+        "nominal": 15,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iteh8676_2022"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Zweitbeleg je Einzelwert noch offen."
+      },
+      "P": {
+        "nominal": 2,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iteh8676_2022"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Zweitbeleg je Einzelwert noch offen."
+      }
+    },
+    "M27": {
+      "s_nom": {
+        "nominal": 41,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iteh8676_2022"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Zweitbeleg je Einzelwert noch offen."
+      },
+      "k_nom": {
+        "nominal": 17,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iteh8676_2022"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Zweitbeleg je Einzelwert noch offen."
+      },
+      "P": {
+        "nominal": 2,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iteh8676_2022"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Zweitbeleg je Einzelwert noch offen."
+      }
+    },
+    "M30": {
+      "s_nom": {
+        "nominal": 46,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iteh8676_2022"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Zweitbeleg je Einzelwert noch offen."
+      },
+      "k_nom": {
+        "nominal": 18.7,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iteh8676_2022"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Zweitbeleg je Einzelwert noch offen."
+      },
+      "P": {
+        "nominal": 2,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iteh8676_2022"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Zweitbeleg je Einzelwert noch offen."
+      }
+    },
+    "M33": {
+      "s_nom": {
+        "nominal": 50,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iteh8676_2022"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Zweitbeleg je Einzelwert noch offen."
+      },
+      "k_nom": {
+        "nominal": 21,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iteh8676_2022"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Zweitbeleg je Einzelwert noch offen."
+      },
+      "P": {
+        "nominal": 2,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iteh8676_2022"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Zweitbeleg je Einzelwert noch offen."
+      }
+    }
+  },
+  "sourceMeta": {
+    "iteh8676_2022": {
+      "url": "https://cdn.standards.iteh.ai/samples/72582/9af12aac9a1b40e1a203f3f4c4a7bb89/ISO-8676-2022.pdf",
+      "titel": "ISO8676:2022 Tabellen1/2",
+      "type": "standard-excerpt",
+      "accessed": "2026-11-26"
+    }
+  },
+  "quellen": [
+    {
+      "id": "iteh8676_2022",
+      "url": "https://cdn.standards.iteh.ai/samples/72582/9af12aac9a1b40e1a203f3f4c4a7bb89/ISO-8676-2022.pdf",
+      "titel": "ISO8676:2022 Tabellen1/2",
+      "type": "standard-excerpt",
+      "accessed": "2026-11-26"
+    }
+  ],
+  "abweichungen": [],
+  "status": "partial",
+  "coverage": "documented",
+  "lengthCoverage": "unresearched",
+  "hinweise": [
+    "Feingewinde getrennt von ISO4017. Tabellen1/2/4 decken M8 bis M33 ab; vollständige Längenzellen und weitere Einzelmaße bleiben offen."
+  ],
+  "normstatus": {
+    "status": "unresolved",
+    "note": "Ausgabe und Vollständigkeit nicht aus einer ähnlichen Norm ableiten."
+  },
+  "scope": {
+    "minDiameter": 8,
+    "maxDiameter": 64,
+    "sourceRefs": [
+      "iteh8676_2022"
+    ]
+  },
+  "requiredGeometryFields": [
+    "kSW",
+    "kH"
+  ],
+  "sizeCoverage": {
+    "M3": {
+      "status": "not-in-standard",
+      "sourceRefs": [
+        "iteh8676_2022"
+      ],
+      "note": "Außerhalb des belegten Norm-Geltungsbereichs."
+    },
+    "M3.5": {
+      "status": "not-in-standard",
+      "sourceRefs": [
+        "iteh8676_2022"
+      ],
+      "note": "Außerhalb des belegten Norm-Geltungsbereichs."
+    },
+    "M4": {
+      "status": "not-in-standard",
+      "sourceRefs": [
+        "iteh8676_2022"
+      ],
+      "note": "Außerhalb des belegten Norm-Geltungsbereichs."
+    },
+    "M5": {
+      "status": "not-in-standard",
+      "sourceRefs": [
+        "iteh8676_2022"
+      ],
+      "note": "Außerhalb des belegten Norm-Geltungsbereichs."
+    },
+    "M6": {
+      "status": "not-in-standard",
+      "sourceRefs": [
+        "iteh8676_2022"
+      ],
+      "note": "Außerhalb des belegten Norm-Geltungsbereichs."
+    },
+    "M7": {
+      "status": "not-in-standard",
+      "sourceRefs": [
+        "iteh8676_2022"
+      ],
+      "note": "Außerhalb des belegten Norm-Geltungsbereichs."
+    },
+    "M8": {
+      "status": "documented"
+    },
+    "M10": {
+      "status": "documented"
+    },
+    "M12": {
+      "status": "documented"
+    },
+    "M14": {
+      "status": "documented"
+    },
+    "M16": {
+      "status": "documented"
+    },
+    "M18": {
+      "status": "documented"
+    },
+    "M20": {
+      "status": "documented"
+    },
+    "M22": {
+      "status": "documented"
+    },
+    "M24": {
+      "status": "documented"
+    },
+    "M27": {
+      "status": "documented"
+    },
+    "M30": {
+      "status": "documented"
+    },
+    "M33": {
+      "status": "documented"
+    }
+  },
+  "pruefdatum": "2026-11-26",
+  "klassen": {
+    "status": "unresearched",
+    "values": [],
+    "note": "Festigkeits-/Werkstoffklassen noch nicht vollständig aus dieser Norm belegt."
+  }
+}

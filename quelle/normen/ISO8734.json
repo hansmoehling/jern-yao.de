@@ -1,0 +1,884 @@
+{
+  "schemaVersion": 1,
+  "id": "ISO8734",
+  "version": "2026-11-26",
+  "edition": "1997",
+  "label": "Zylinderstifte aus gehärtetem Stahl (Toleranz m6)",
+  "alias": [],
+  "datasetKind": "part-standard",
+  "funktion": "stift",
+  "klasse": "bolzen",
+  "kopfTyp": null,
+  "antrieb": null,
+  "threadFamily": "none",
+  "schaftende": "voll",
+  "feldzuordnung": {
+    "sD": "d_nominal",
+    "sL": "l_nominal"
+  },
+  "groessen": {
+    "1": {
+      "vorbelegung": {
+        "sD": 1
+      },
+      "roh": {
+        "d_nominal": 1,
+        "c": 0.2,
+        "l_min": 3,
+        "l_max": 10
+      },
+      "coverage": "documented",
+      "geometryStatus": "partial",
+      "missingGeometryFields": [
+        "endGeometry",
+        "length"
+      ],
+      "nachLaenge": {}
+    },
+    "2": {
+      "vorbelegung": {
+        "sD": 2
+      },
+      "roh": {
+        "d_nominal": 2,
+        "c": 0.35,
+        "l_min": 5,
+        "l_max": 20
+      },
+      "coverage": "documented",
+      "geometryStatus": "partial",
+      "missingGeometryFields": [
+        "endGeometry",
+        "length"
+      ],
+      "nachLaenge": {}
+    },
+    "3": {
+      "vorbelegung": {
+        "sD": 3
+      },
+      "roh": {
+        "d_nominal": 3,
+        "c": 0.5,
+        "l_min": 8,
+        "l_max": 30
+      },
+      "coverage": "documented",
+      "geometryStatus": "partial",
+      "missingGeometryFields": [
+        "endGeometry",
+        "length"
+      ],
+      "nachLaenge": {}
+    },
+    "4": {
+      "vorbelegung": {
+        "sD": 4
+      },
+      "roh": {
+        "d_nominal": 4,
+        "c": 0.63,
+        "l_min": 10,
+        "l_max": 40
+      },
+      "coverage": "documented",
+      "geometryStatus": "partial",
+      "missingGeometryFields": [
+        "endGeometry",
+        "length"
+      ],
+      "nachLaenge": {}
+    },
+    "5": {
+      "vorbelegung": {
+        "sD": 5
+      },
+      "roh": {
+        "d_nominal": 5,
+        "c": 0.8,
+        "l_min": 12,
+        "l_max": 50
+      },
+      "coverage": "documented",
+      "geometryStatus": "partial",
+      "missingGeometryFields": [
+        "endGeometry",
+        "length"
+      ],
+      "nachLaenge": {}
+    },
+    "6": {
+      "vorbelegung": {
+        "sD": 6
+      },
+      "roh": {
+        "d_nominal": 6,
+        "c": 1.2,
+        "l_min": 14,
+        "l_max": 60
+      },
+      "coverage": "documented",
+      "geometryStatus": "partial",
+      "missingGeometryFields": [
+        "endGeometry",
+        "length"
+      ],
+      "nachLaenge": {}
+    },
+    "8": {
+      "vorbelegung": {
+        "sD": 8
+      },
+      "roh": {
+        "d_nominal": 8,
+        "c": 1.6,
+        "l_min": 18,
+        "l_max": 80
+      },
+      "coverage": "documented",
+      "geometryStatus": "partial",
+      "missingGeometryFields": [
+        "endGeometry",
+        "length"
+      ],
+      "nachLaenge": {}
+    },
+    "10": {
+      "vorbelegung": {
+        "sD": 10
+      },
+      "roh": {
+        "d_nominal": 10,
+        "c": 2,
+        "l_min": 22,
+        "l_max": 100
+      },
+      "coverage": "documented",
+      "geometryStatus": "partial",
+      "missingGeometryFields": [
+        "endGeometry",
+        "length"
+      ],
+      "nachLaenge": {}
+    },
+    "12": {
+      "vorbelegung": {
+        "sD": 12
+      },
+      "roh": {
+        "d_nominal": 12,
+        "c": 2.5,
+        "l_min": 26,
+        "l_max": 100
+      },
+      "coverage": "documented",
+      "geometryStatus": "partial",
+      "missingGeometryFields": [
+        "endGeometry",
+        "length"
+      ],
+      "nachLaenge": {}
+    },
+    "16": {
+      "vorbelegung": {
+        "sD": 16
+      },
+      "roh": {
+        "d_nominal": 16,
+        "c": 3,
+        "l_min": 40,
+        "l_max": 100
+      },
+      "coverage": "documented",
+      "geometryStatus": "partial",
+      "missingGeometryFields": [
+        "endGeometry",
+        "length"
+      ],
+      "nachLaenge": {}
+    },
+    "20": {
+      "vorbelegung": {
+        "sD": 20
+      },
+      "roh": {
+        "d_nominal": 20,
+        "c": 3.5,
+        "l_min": 50,
+        "l_max": 100
+      },
+      "coverage": "documented",
+      "geometryStatus": "partial",
+      "missingGeometryFields": [
+        "endGeometry",
+        "length"
+      ],
+      "nachLaenge": {}
+    },
+    "1.5": {
+      "vorbelegung": {
+        "sD": 1.5
+      },
+      "roh": {
+        "d_nominal": 1.5,
+        "c": 0.3,
+        "l_min": 4,
+        "l_max": 16
+      },
+      "coverage": "documented",
+      "geometryStatus": "partial",
+      "missingGeometryFields": [
+        "endGeometry",
+        "length"
+      ],
+      "nachLaenge": {}
+    },
+    "2.5": {
+      "vorbelegung": {
+        "sD": 2.5
+      },
+      "roh": {
+        "d_nominal": 2.5,
+        "c": 0.4,
+        "l_min": 6,
+        "l_max": 24
+      },
+      "coverage": "documented",
+      "geometryStatus": "partial",
+      "missingGeometryFields": [
+        "endGeometry",
+        "length"
+      ],
+      "nachLaenge": {}
+    }
+  },
+  "fields": {
+    "1": {
+      "d_nominal": {
+        "nominal": 1,
+        "sourceRefs": [
+          "ISO8734-s1"
+        ],
+        "status": "single-source",
+        "verification": "norm-table-not-independently-verified",
+        "note": "Wert aus der genannten Maßtabelle; zweite unabhängige Bestätigung fehlt.",
+        "unit": "mm"
+      },
+      "c": {
+        "nominal": 0.2,
+        "sourceRefs": [
+          "ISO8734-s1",
+          "reyher"
+        ],
+        "status": "verified",
+        "verification": "independent-publishers-agree",
+        "note": "Zahlenwert in zwei voneinander getrennten Veröffentlichungen bestätigt; Normedition des Herstellerblatts nicht ausdrücklich genannt.",
+        "unit": "mm"
+      },
+      "l_min": {
+        "sourceRefs": [
+          "ISO8734-s1"
+        ],
+        "status": "single-source",
+        "verification": "norm-table-not-independently-verified",
+        "note": "Grenze einer Katalog-/Gewichtstabelle, kein nachgewiesener Normgrenzwert.",
+        "unit": "mm",
+        "min": 3
+      },
+      "l_max": {
+        "sourceRefs": [
+          "ISO8734-s1"
+        ],
+        "status": "single-source",
+        "verification": "norm-table-not-independently-verified",
+        "note": "Grenze einer Katalog-/Gewichtstabelle, kein nachgewiesener Normgrenzwert.",
+        "unit": "mm",
+        "max": 10
+      }
+    },
+    "2": {
+      "d_nominal": {
+        "nominal": 2,
+        "sourceRefs": [
+          "ISO8734-s1"
+        ],
+        "status": "single-source",
+        "verification": "norm-table-not-independently-verified",
+        "note": "Wert aus der genannten Maßtabelle; zweite unabhängige Bestätigung fehlt.",
+        "unit": "mm"
+      },
+      "c": {
+        "nominal": 0.35,
+        "sourceRefs": [
+          "ISO8734-s1",
+          "reyher"
+        ],
+        "status": "verified",
+        "verification": "independent-publishers-agree",
+        "note": "Zahlenwert in zwei voneinander getrennten Veröffentlichungen bestätigt; Normedition des Herstellerblatts nicht ausdrücklich genannt.",
+        "unit": "mm"
+      },
+      "l_min": {
+        "sourceRefs": [
+          "ISO8734-s1"
+        ],
+        "status": "single-source",
+        "verification": "norm-table-not-independently-verified",
+        "note": "Grenze einer Katalog-/Gewichtstabelle, kein nachgewiesener Normgrenzwert.",
+        "unit": "mm",
+        "min": 5
+      },
+      "l_max": {
+        "sourceRefs": [
+          "ISO8734-s1"
+        ],
+        "status": "single-source",
+        "verification": "norm-table-not-independently-verified",
+        "note": "Grenze einer Katalog-/Gewichtstabelle, kein nachgewiesener Normgrenzwert.",
+        "unit": "mm",
+        "max": 20
+      }
+    },
+    "3": {
+      "d_nominal": {
+        "nominal": 3,
+        "sourceRefs": [
+          "ISO8734-s1"
+        ],
+        "status": "single-source",
+        "verification": "norm-table-not-independently-verified",
+        "note": "Wert aus der genannten Maßtabelle; zweite unabhängige Bestätigung fehlt.",
+        "unit": "mm"
+      },
+      "c": {
+        "nominal": 0.5,
+        "sourceRefs": [
+          "ISO8734-s1",
+          "reyher"
+        ],
+        "status": "verified",
+        "verification": "independent-publishers-agree",
+        "note": "Zahlenwert in zwei voneinander getrennten Veröffentlichungen bestätigt; Normedition des Herstellerblatts nicht ausdrücklich genannt.",
+        "unit": "mm"
+      },
+      "l_min": {
+        "sourceRefs": [
+          "ISO8734-s1"
+        ],
+        "status": "single-source",
+        "verification": "norm-table-not-independently-verified",
+        "note": "Grenze einer Katalog-/Gewichtstabelle, kein nachgewiesener Normgrenzwert.",
+        "unit": "mm",
+        "min": 8
+      },
+      "l_max": {
+        "sourceRefs": [
+          "ISO8734-s1"
+        ],
+        "status": "single-source",
+        "verification": "norm-table-not-independently-verified",
+        "note": "Grenze einer Katalog-/Gewichtstabelle, kein nachgewiesener Normgrenzwert.",
+        "unit": "mm",
+        "max": 30
+      }
+    },
+    "4": {
+      "d_nominal": {
+        "nominal": 4,
+        "sourceRefs": [
+          "ISO8734-s1"
+        ],
+        "status": "single-source",
+        "verification": "norm-table-not-independently-verified",
+        "note": "Wert aus der genannten Maßtabelle; zweite unabhängige Bestätigung fehlt.",
+        "unit": "mm"
+      },
+      "c": {
+        "nominal": 0.63,
+        "sourceRefs": [
+          "ISO8734-s1",
+          "reyher"
+        ],
+        "status": "verified",
+        "verification": "independent-publishers-agree",
+        "note": "Zahlenwert in zwei voneinander getrennten Veröffentlichungen bestätigt; Normedition des Herstellerblatts nicht ausdrücklich genannt.",
+        "unit": "mm"
+      },
+      "l_min": {
+        "sourceRefs": [
+          "ISO8734-s1"
+        ],
+        "status": "single-source",
+        "verification": "norm-table-not-independently-verified",
+        "note": "Grenze einer Katalog-/Gewichtstabelle, kein nachgewiesener Normgrenzwert.",
+        "unit": "mm",
+        "min": 10
+      },
+      "l_max": {
+        "sourceRefs": [
+          "ISO8734-s1"
+        ],
+        "status": "single-source",
+        "verification": "norm-table-not-independently-verified",
+        "note": "Grenze einer Katalog-/Gewichtstabelle, kein nachgewiesener Normgrenzwert.",
+        "unit": "mm",
+        "max": 40
+      }
+    },
+    "5": {
+      "d_nominal": {
+        "nominal": 5,
+        "sourceRefs": [
+          "ISO8734-s1"
+        ],
+        "status": "single-source",
+        "verification": "norm-table-not-independently-verified",
+        "note": "Wert aus der genannten Maßtabelle; zweite unabhängige Bestätigung fehlt.",
+        "unit": "mm"
+      },
+      "c": {
+        "nominal": 0.8,
+        "sourceRefs": [
+          "ISO8734-s1",
+          "reyher"
+        ],
+        "status": "conflict",
+        "verification": "norm-table-not-independently-verified",
+        "note": "Originalbeleg nennt c=0,8; REYHER nennt 0,98. Offener Tabellenkonflikt.",
+        "unit": "mm",
+        "alternatives": [
+          {
+            "nominal": 0.98,
+            "sourceRefs": [
+              "reyher"
+            ]
+          }
+        ]
+      },
+      "l_min": {
+        "sourceRefs": [
+          "ISO8734-s1"
+        ],
+        "status": "single-source",
+        "verification": "norm-table-not-independently-verified",
+        "note": "Grenze einer Katalog-/Gewichtstabelle, kein nachgewiesener Normgrenzwert.",
+        "unit": "mm",
+        "min": 12
+      },
+      "l_max": {
+        "sourceRefs": [
+          "ISO8734-s1"
+        ],
+        "status": "single-source",
+        "verification": "norm-table-not-independently-verified",
+        "note": "Grenze einer Katalog-/Gewichtstabelle, kein nachgewiesener Normgrenzwert.",
+        "unit": "mm",
+        "max": 50
+      }
+    },
+    "6": {
+      "d_nominal": {
+        "nominal": 6,
+        "sourceRefs": [
+          "ISO8734-s1"
+        ],
+        "status": "single-source",
+        "verification": "norm-table-not-independently-verified",
+        "note": "Wert aus der genannten Maßtabelle; zweite unabhängige Bestätigung fehlt.",
+        "unit": "mm"
+      },
+      "c": {
+        "nominal": 1.2,
+        "sourceRefs": [
+          "ISO8734-s1",
+          "reyher"
+        ],
+        "status": "verified",
+        "verification": "independent-publishers-agree",
+        "note": "Zahlenwert in zwei voneinander getrennten Veröffentlichungen bestätigt; Normedition des Herstellerblatts nicht ausdrücklich genannt.",
+        "unit": "mm"
+      },
+      "l_min": {
+        "sourceRefs": [
+          "ISO8734-s1"
+        ],
+        "status": "single-source",
+        "verification": "norm-table-not-independently-verified",
+        "note": "Grenze einer Katalog-/Gewichtstabelle, kein nachgewiesener Normgrenzwert.",
+        "unit": "mm",
+        "min": 14
+      },
+      "l_max": {
+        "sourceRefs": [
+          "ISO8734-s1"
+        ],
+        "status": "single-source",
+        "verification": "norm-table-not-independently-verified",
+        "note": "Grenze einer Katalog-/Gewichtstabelle, kein nachgewiesener Normgrenzwert.",
+        "unit": "mm",
+        "max": 60
+      }
+    },
+    "8": {
+      "d_nominal": {
+        "nominal": 8,
+        "sourceRefs": [
+          "ISO8734-s1"
+        ],
+        "status": "single-source",
+        "verification": "norm-table-not-independently-verified",
+        "note": "Wert aus der genannten Maßtabelle; zweite unabhängige Bestätigung fehlt.",
+        "unit": "mm"
+      },
+      "c": {
+        "nominal": 1.6,
+        "sourceRefs": [
+          "ISO8734-s1",
+          "reyher"
+        ],
+        "status": "verified",
+        "verification": "independent-publishers-agree",
+        "note": "Zahlenwert in zwei voneinander getrennten Veröffentlichungen bestätigt; Normedition des Herstellerblatts nicht ausdrücklich genannt.",
+        "unit": "mm"
+      },
+      "l_min": {
+        "sourceRefs": [
+          "ISO8734-s1"
+        ],
+        "status": "single-source",
+        "verification": "norm-table-not-independently-verified",
+        "note": "Grenze einer Katalog-/Gewichtstabelle, kein nachgewiesener Normgrenzwert.",
+        "unit": "mm",
+        "min": 18
+      },
+      "l_max": {
+        "sourceRefs": [
+          "ISO8734-s1"
+        ],
+        "status": "single-source",
+        "verification": "norm-table-not-independently-verified",
+        "note": "Grenze einer Katalog-/Gewichtstabelle, kein nachgewiesener Normgrenzwert.",
+        "unit": "mm",
+        "max": 80
+      }
+    },
+    "10": {
+      "d_nominal": {
+        "nominal": 10,
+        "sourceRefs": [
+          "ISO8734-s1"
+        ],
+        "status": "single-source",
+        "verification": "norm-table-not-independently-verified",
+        "note": "Wert aus der genannten Maßtabelle; zweite unabhängige Bestätigung fehlt.",
+        "unit": "mm"
+      },
+      "c": {
+        "nominal": 2,
+        "sourceRefs": [
+          "ISO8734-s1",
+          "reyher"
+        ],
+        "status": "verified",
+        "verification": "independent-publishers-agree",
+        "note": "Zahlenwert in zwei voneinander getrennten Veröffentlichungen bestätigt; Normedition des Herstellerblatts nicht ausdrücklich genannt.",
+        "unit": "mm"
+      },
+      "l_min": {
+        "sourceRefs": [
+          "ISO8734-s1"
+        ],
+        "status": "single-source",
+        "verification": "norm-table-not-independently-verified",
+        "note": "Grenze einer Katalog-/Gewichtstabelle, kein nachgewiesener Normgrenzwert.",
+        "unit": "mm",
+        "min": 22
+      },
+      "l_max": {
+        "sourceRefs": [
+          "ISO8734-s1"
+        ],
+        "status": "single-source",
+        "verification": "norm-table-not-independently-verified",
+        "note": "Grenze einer Katalog-/Gewichtstabelle, kein nachgewiesener Normgrenzwert.",
+        "unit": "mm",
+        "max": 100
+      }
+    },
+    "12": {
+      "d_nominal": {
+        "nominal": 12,
+        "sourceRefs": [
+          "ISO8734-s1"
+        ],
+        "status": "single-source",
+        "verification": "norm-table-not-independently-verified",
+        "note": "Wert aus der genannten Maßtabelle; zweite unabhängige Bestätigung fehlt.",
+        "unit": "mm"
+      },
+      "c": {
+        "nominal": 2.5,
+        "sourceRefs": [
+          "ISO8734-s1",
+          "reyher"
+        ],
+        "status": "verified",
+        "verification": "independent-publishers-agree",
+        "note": "Zahlenwert in zwei voneinander getrennten Veröffentlichungen bestätigt; Normedition des Herstellerblatts nicht ausdrücklich genannt.",
+        "unit": "mm"
+      },
+      "l_min": {
+        "sourceRefs": [
+          "ISO8734-s1"
+        ],
+        "status": "single-source",
+        "verification": "norm-table-not-independently-verified",
+        "note": "Grenze einer Katalog-/Gewichtstabelle, kein nachgewiesener Normgrenzwert.",
+        "unit": "mm",
+        "min": 26
+      },
+      "l_max": {
+        "sourceRefs": [
+          "ISO8734-s1"
+        ],
+        "status": "single-source",
+        "verification": "norm-table-not-independently-verified",
+        "note": "Grenze einer Katalog-/Gewichtstabelle, kein nachgewiesener Normgrenzwert.",
+        "unit": "mm",
+        "max": 100
+      }
+    },
+    "16": {
+      "d_nominal": {
+        "nominal": 16,
+        "sourceRefs": [
+          "ISO8734-s1"
+        ],
+        "status": "single-source",
+        "verification": "norm-table-not-independently-verified",
+        "note": "Wert aus der genannten Maßtabelle; zweite unabhängige Bestätigung fehlt.",
+        "unit": "mm"
+      },
+      "c": {
+        "nominal": 3,
+        "sourceRefs": [
+          "ISO8734-s1",
+          "reyher"
+        ],
+        "status": "verified",
+        "verification": "independent-publishers-agree",
+        "note": "Zahlenwert in zwei voneinander getrennten Veröffentlichungen bestätigt; Normedition des Herstellerblatts nicht ausdrücklich genannt.",
+        "unit": "mm"
+      },
+      "l_min": {
+        "sourceRefs": [
+          "ISO8734-s1"
+        ],
+        "status": "single-source",
+        "verification": "norm-table-not-independently-verified",
+        "note": "Grenze einer Katalog-/Gewichtstabelle, kein nachgewiesener Normgrenzwert.",
+        "unit": "mm",
+        "min": 40
+      },
+      "l_max": {
+        "sourceRefs": [
+          "ISO8734-s1"
+        ],
+        "status": "single-source",
+        "verification": "norm-table-not-independently-verified",
+        "note": "Grenze einer Katalog-/Gewichtstabelle, kein nachgewiesener Normgrenzwert.",
+        "unit": "mm",
+        "max": 100
+      }
+    },
+    "20": {
+      "d_nominal": {
+        "nominal": 20,
+        "sourceRefs": [
+          "ISO8734-s1"
+        ],
+        "status": "single-source",
+        "verification": "norm-table-not-independently-verified",
+        "note": "Wert aus der genannten Maßtabelle; zweite unabhängige Bestätigung fehlt.",
+        "unit": "mm"
+      },
+      "c": {
+        "nominal": 3.5,
+        "sourceRefs": [
+          "ISO8734-s1",
+          "reyher"
+        ],
+        "status": "verified",
+        "verification": "independent-publishers-agree",
+        "note": "Zahlenwert in zwei voneinander getrennten Veröffentlichungen bestätigt; Normedition des Herstellerblatts nicht ausdrücklich genannt.",
+        "unit": "mm"
+      },
+      "l_min": {
+        "sourceRefs": [
+          "ISO8734-s1"
+        ],
+        "status": "single-source",
+        "verification": "norm-table-not-independently-verified",
+        "note": "Grenze einer Katalog-/Gewichtstabelle, kein nachgewiesener Normgrenzwert.",
+        "unit": "mm",
+        "min": 50
+      },
+      "l_max": {
+        "sourceRefs": [
+          "ISO8734-s1"
+        ],
+        "status": "single-source",
+        "verification": "norm-table-not-independently-verified",
+        "note": "Grenze einer Katalog-/Gewichtstabelle, kein nachgewiesener Normgrenzwert.",
+        "unit": "mm",
+        "max": 100
+      }
+    },
+    "1.5": {
+      "d_nominal": {
+        "nominal": 1.5,
+        "sourceRefs": [
+          "ISO8734-s1"
+        ],
+        "status": "single-source",
+        "verification": "norm-table-not-independently-verified",
+        "note": "Wert aus der genannten Maßtabelle; zweite unabhängige Bestätigung fehlt.",
+        "unit": "mm"
+      },
+      "c": {
+        "nominal": 0.3,
+        "sourceRefs": [
+          "ISO8734-s1",
+          "reyher"
+        ],
+        "status": "verified",
+        "verification": "independent-publishers-agree",
+        "note": "Zahlenwert in zwei voneinander getrennten Veröffentlichungen bestätigt; Normedition des Herstellerblatts nicht ausdrücklich genannt.",
+        "unit": "mm"
+      },
+      "l_min": {
+        "sourceRefs": [
+          "ISO8734-s1"
+        ],
+        "status": "single-source",
+        "verification": "norm-table-not-independently-verified",
+        "note": "Grenze einer Katalog-/Gewichtstabelle, kein nachgewiesener Normgrenzwert.",
+        "unit": "mm",
+        "min": 4
+      },
+      "l_max": {
+        "sourceRefs": [
+          "ISO8734-s1"
+        ],
+        "status": "single-source",
+        "verification": "norm-table-not-independently-verified",
+        "note": "Grenze einer Katalog-/Gewichtstabelle, kein nachgewiesener Normgrenzwert.",
+        "unit": "mm",
+        "max": 16
+      }
+    },
+    "2.5": {
+      "d_nominal": {
+        "nominal": 2.5,
+        "sourceRefs": [
+          "ISO8734-s1"
+        ],
+        "status": "single-source",
+        "verification": "norm-table-not-independently-verified",
+        "note": "Wert aus der genannten Maßtabelle; zweite unabhängige Bestätigung fehlt.",
+        "unit": "mm"
+      },
+      "c": {
+        "nominal": 0.4,
+        "sourceRefs": [
+          "ISO8734-s1",
+          "reyher"
+        ],
+        "status": "verified",
+        "verification": "independent-publishers-agree",
+        "note": "Zahlenwert in zwei voneinander getrennten Veröffentlichungen bestätigt; Normedition des Herstellerblatts nicht ausdrücklich genannt.",
+        "unit": "mm"
+      },
+      "l_min": {
+        "sourceRefs": [
+          "ISO8734-s1"
+        ],
+        "status": "single-source",
+        "verification": "norm-table-not-independently-verified",
+        "note": "Grenze einer Katalog-/Gewichtstabelle, kein nachgewiesener Normgrenzwert.",
+        "unit": "mm",
+        "min": 6
+      },
+      "l_max": {
+        "sourceRefs": [
+          "ISO8734-s1"
+        ],
+        "status": "single-source",
+        "verification": "norm-table-not-independently-verified",
+        "note": "Grenze einer Katalog-/Gewichtstabelle, kein nachgewiesener Normgrenzwert.",
+        "unit": "mm",
+        "max": 24
+      }
+    }
+  },
+  "quellen": [
+    {
+      "url": "https://fasten.it/Norms/Norm/din_en_iso_8734",
+      "titel": "fasten.it DIN EN ISO 8734 (1998)",
+      "abgerufen": "2026-11-25",
+      "id": "ISO8734-s1",
+      "scope": "dimensions"
+    },
+    {
+      "url": "https://www.galaxus.de/en/s4/product/dowel-pin-iso-8734-10-m6-x-50-steel-hardened-tolerance-m6-iso-8734-screw-accessories-22016350",
+      "titel": "Händlerbezeichnung 'Steel hardened Tolerance m6'",
+      "abgerufen": "2026-11-25",
+      "id": "ISO8734-s2",
+      "scope": "dimensions"
+    },
+    {
+      "id": "iso-catalog",
+      "url": "https://www.iso.org/committee/45446/x/catalogue/",
+      "titel": "ISO/TC 2 Katalog: Ausgabe und Status",
+      "abgerufen": "2026-11-26",
+      "scope": "edition-status"
+    },
+    {
+      "id": "reyher",
+      "url": "https://www.reyher.de/fileadmin/user_upload/Downloadbereich/Reyher_2019-EN_Technische_Informationen_ks.pdf",
+      "titel": "REYHER technische Informationen 2020, TI116",
+      "abgerufen": "2026-11-26",
+      "scope": "dimensions"
+    }
+  ],
+  "status": "partial",
+  "coverage": "documented",
+  "pruefdatum": "2026-11-26",
+  "normstatus": {
+    "edition": "1997",
+    "status": "current",
+    "sourceRefs": [
+      "iso-catalog"
+    ]
+  },
+  "hinweise": [
+    "Fehlende Größe oder Länge bedeutet fehlende Datenabdeckung, kein Normverbot.",
+    "Maßdaten sind einzeln belegt; Editionsstatus allein bestätigt keine Maßtabelle."
+  ],
+  "gaps": [
+    "Vollständige Normlängenmatrix je Größe und aktuelle Originalmaßtabelle nicht unabhängig bestätigt."
+  ],
+  "lengthDependentFields": [
+    "sL"
+  ],
+  "laengen": {
+    "values": [],
+    "unit": "mm",
+    "kind": "unresearched",
+    "coverage": "unresearched",
+    "status": "missing",
+    "sourceRefs": [],
+    "verification": "norm-length-matrix-not-verified",
+    "note": "Exakte Normlängen je Durchmesser noch nicht belegt; aus min/max werden keine Zwischenlängen erzeugt."
+  }
+}

@@ -1,0 +1,1259 @@
+{
+  "id": "DIN931",
+  "version": "2026-11-26",
+  "schemaVersion": 1,
+  "label": "DIN931 · Sechskant mit Schaft",
+  "edition": null,
+  "editionStatus": "unresolved",
+  "funktion": "schraube",
+  "klasse": "bolzen",
+  "kopfTyp": "sechskant",
+  "antrieb": {
+    "art": "none"
+  },
+  "feldzuordnung": {
+    "kSW": "s_nom",
+    "kH": "k_nom",
+    "b": "b_ref_l_le_125"
+  },
+  "groessen": {
+    "M4": {
+      "roh": {
+        "s_nom": 7,
+        "k_nom": 2.8,
+        "b_ref_l_le_125": 14,
+        "b_ref_l_le_200": 20,
+        "b_ref_l_gt_200": 33
+      },
+      "vorbelegung": {
+        "kSW": 7,
+        "kH": 2.8,
+        "b": 14
+      },
+      "coverage": "documented",
+      "nachLaenge": {},
+      "lengthCoverage": "unresearched",
+      "missingGeometryFields": [],
+      "geometryStatus": "documented"
+    },
+    "M5": {
+      "roh": {
+        "s_nom": 8,
+        "k_nom": 3.5,
+        "b_ref_l_le_125": 16,
+        "b_ref_l_le_200": 22,
+        "b_ref_l_gt_200": 35
+      },
+      "vorbelegung": {
+        "kSW": 8,
+        "kH": 3.5,
+        "b": 16
+      },
+      "coverage": "documented",
+      "nachLaenge": {},
+      "lengthCoverage": "unresearched",
+      "missingGeometryFields": [],
+      "geometryStatus": "documented"
+    },
+    "M6": {
+      "roh": {
+        "s_nom": 10,
+        "k_nom": 4,
+        "b_ref_l_le_125": 18,
+        "b_ref_l_le_200": 24,
+        "b_ref_l_gt_200": 37
+      },
+      "vorbelegung": {
+        "kSW": 10,
+        "kH": 4,
+        "b": 18
+      },
+      "coverage": "documented",
+      "nachLaenge": {},
+      "lengthCoverage": "unresearched",
+      "missingGeometryFields": [],
+      "geometryStatus": "documented"
+    },
+    "M8": {
+      "roh": {
+        "s_nom": 13,
+        "k_nom": 5.3,
+        "b_ref_l_le_125": 22,
+        "b_ref_l_le_200": 28,
+        "b_ref_l_gt_200": 41
+      },
+      "vorbelegung": {
+        "kSW": 13,
+        "kH": 5.3,
+        "b": 22
+      },
+      "coverage": "documented",
+      "nachLaenge": {},
+      "lengthCoverage": "unresearched",
+      "missingGeometryFields": [],
+      "geometryStatus": "documented"
+    },
+    "M10": {
+      "roh": {
+        "s_nom": 17,
+        "k_nom": 6.4,
+        "b_ref_l_le_125": 26,
+        "b_ref_l_le_200": 32,
+        "b_ref_l_gt_200": 45
+      },
+      "vorbelegung": {
+        "kSW": 17,
+        "kH": 6.4,
+        "b": 26
+      },
+      "coverage": "documented",
+      "nachLaenge": {},
+      "lengthCoverage": "unresearched",
+      "missingGeometryFields": [],
+      "geometryStatus": "documented"
+    },
+    "M12": {
+      "roh": {
+        "s_nom": 19,
+        "k_nom": 7.5,
+        "b_ref_l_le_125": 30,
+        "b_ref_l_le_200": 36,
+        "b_ref_l_gt_200": 49
+      },
+      "vorbelegung": {
+        "kSW": 19,
+        "kH": 7.5,
+        "b": 30
+      },
+      "coverage": "documented",
+      "nachLaenge": {},
+      "lengthCoverage": "unresearched",
+      "missingGeometryFields": [],
+      "geometryStatus": "documented"
+    },
+    "M14": {
+      "roh": {
+        "s_nom": 22,
+        "k_nom": 8.8,
+        "b_ref_l_le_125": 34,
+        "b_ref_l_le_200": 40,
+        "b_ref_l_gt_200": 53
+      },
+      "vorbelegung": {
+        "kSW": 22,
+        "kH": 8.8,
+        "b": 34
+      },
+      "coverage": "documented",
+      "nachLaenge": {},
+      "lengthCoverage": "unresearched",
+      "missingGeometryFields": [],
+      "geometryStatus": "documented"
+    },
+    "M16": {
+      "roh": {
+        "s_nom": 24,
+        "k_nom": 10,
+        "b_ref_l_le_125": 38,
+        "b_ref_l_le_200": 44,
+        "b_ref_l_gt_200": 57
+      },
+      "vorbelegung": {
+        "kSW": 24,
+        "kH": 10,
+        "b": 38
+      },
+      "coverage": "documented",
+      "nachLaenge": {},
+      "lengthCoverage": "unresearched",
+      "missingGeometryFields": [],
+      "geometryStatus": "documented"
+    },
+    "M18": {
+      "roh": {
+        "s_nom": 27,
+        "k_nom": 11.5,
+        "b_ref_l_le_125": 42,
+        "b_ref_l_le_200": 48,
+        "b_ref_l_gt_200": 61
+      },
+      "vorbelegung": {
+        "kSW": 27,
+        "kH": 11.5,
+        "b": 42
+      },
+      "coverage": "documented",
+      "nachLaenge": {},
+      "lengthCoverage": "unresearched",
+      "missingGeometryFields": [],
+      "geometryStatus": "documented"
+    },
+    "M20": {
+      "roh": {
+        "s_nom": 30,
+        "k_nom": 12.5,
+        "b_ref_l_le_125": 46,
+        "b_ref_l_le_200": 52,
+        "b_ref_l_gt_200": 65
+      },
+      "vorbelegung": {
+        "kSW": 30,
+        "kH": 12.5,
+        "b": 46
+      },
+      "coverage": "documented",
+      "nachLaenge": {},
+      "lengthCoverage": "unresearched",
+      "missingGeometryFields": [],
+      "geometryStatus": "documented"
+    },
+    "M24": {
+      "roh": {
+        "s_nom": 36,
+        "k_nom": 15,
+        "b_ref_l_le_125": 54,
+        "b_ref_l_le_200": 60,
+        "b_ref_l_gt_200": 73
+      },
+      "vorbelegung": {
+        "kSW": 36,
+        "kH": 15,
+        "b": 54
+      },
+      "coverage": "documented",
+      "nachLaenge": {},
+      "lengthCoverage": "unresearched",
+      "missingGeometryFields": [],
+      "geometryStatus": "documented"
+    },
+    "M27": {
+      "roh": {
+        "s_nom": 41,
+        "k_nom": 17,
+        "b_ref_l_le_125": 60,
+        "b_ref_l_le_200": 66,
+        "b_ref_l_gt_200": 79
+      },
+      "vorbelegung": {
+        "kSW": 41,
+        "kH": 17,
+        "b": 60
+      },
+      "coverage": "documented",
+      "nachLaenge": {},
+      "lengthCoverage": "unresearched",
+      "missingGeometryFields": [],
+      "geometryStatus": "documented"
+    },
+    "M30": {
+      "roh": {
+        "s_nom": 46,
+        "k_nom": 18.7,
+        "b_ref_l_le_125": 66,
+        "b_ref_l_le_200": 72,
+        "b_ref_l_gt_200": 85
+      },
+      "vorbelegung": {
+        "kSW": 46,
+        "kH": 18.7,
+        "b": 66
+      },
+      "coverage": "documented",
+      "nachLaenge": {},
+      "lengthCoverage": "unresearched",
+      "missingGeometryFields": [],
+      "geometryStatus": "documented"
+    },
+    "M33": {
+      "roh": {
+        "s_nom": 50,
+        "k_nom": 21,
+        "b_ref_l_le_125": 72,
+        "b_ref_l_le_200": 78,
+        "b_ref_l_gt_200": 91
+      },
+      "vorbelegung": {
+        "kSW": 50,
+        "kH": 21,
+        "b": 72
+      },
+      "coverage": "documented",
+      "nachLaenge": {},
+      "lengthCoverage": "unresearched",
+      "missingGeometryFields": [],
+      "geometryStatus": "documented"
+    }
+  },
+  "fields": {
+    "M4": {
+      "s_nom": {
+        "nominal": 7,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "boell931"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Herstellermaßblatt; nominale Kopfhöhe aus symmetrischen k-Grenzen. Normlängenmatrix noch offen."
+      },
+      "k_nom": {
+        "nominal": 2.8,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "boell931"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Herstellermaßblatt; nominale Kopfhöhe aus symmetrischen k-Grenzen. Normlängenmatrix noch offen."
+      },
+      "b_ref_l_le_125": {
+        "nominal": 14,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "boell931"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Herstellermaßblatt; nominale Kopfhöhe aus symmetrischen k-Grenzen. Normlängenmatrix noch offen."
+      },
+      "b_ref_l_le_200": {
+        "nominal": 20,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "boell931"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Herstellermaßblatt; nominale Kopfhöhe aus symmetrischen k-Grenzen. Normlängenmatrix noch offen."
+      },
+      "b_ref_l_gt_200": {
+        "nominal": 33,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "boell931"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Herstellermaßblatt; nominale Kopfhöhe aus symmetrischen k-Grenzen. Normlängenmatrix noch offen."
+      }
+    },
+    "M5": {
+      "s_nom": {
+        "nominal": 8,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "boell931"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Herstellermaßblatt; nominale Kopfhöhe aus symmetrischen k-Grenzen. Normlängenmatrix noch offen."
+      },
+      "k_nom": {
+        "nominal": 3.5,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "boell931"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Herstellermaßblatt; nominale Kopfhöhe aus symmetrischen k-Grenzen. Normlängenmatrix noch offen."
+      },
+      "b_ref_l_le_125": {
+        "nominal": 16,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "boell931"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Herstellermaßblatt; nominale Kopfhöhe aus symmetrischen k-Grenzen. Normlängenmatrix noch offen."
+      },
+      "b_ref_l_le_200": {
+        "nominal": 22,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "boell931"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Herstellermaßblatt; nominale Kopfhöhe aus symmetrischen k-Grenzen. Normlängenmatrix noch offen."
+      },
+      "b_ref_l_gt_200": {
+        "nominal": 35,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "boell931"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Herstellermaßblatt; nominale Kopfhöhe aus symmetrischen k-Grenzen. Normlängenmatrix noch offen."
+      }
+    },
+    "M6": {
+      "s_nom": {
+        "nominal": 10,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "boell931"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Herstellermaßblatt; nominale Kopfhöhe aus symmetrischen k-Grenzen. Normlängenmatrix noch offen."
+      },
+      "k_nom": {
+        "nominal": 4,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "boell931"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Herstellermaßblatt; nominale Kopfhöhe aus symmetrischen k-Grenzen. Normlängenmatrix noch offen."
+      },
+      "b_ref_l_le_125": {
+        "nominal": 18,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "boell931"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Herstellermaßblatt; nominale Kopfhöhe aus symmetrischen k-Grenzen. Normlängenmatrix noch offen."
+      },
+      "b_ref_l_le_200": {
+        "nominal": 24,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "boell931"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Herstellermaßblatt; nominale Kopfhöhe aus symmetrischen k-Grenzen. Normlängenmatrix noch offen."
+      },
+      "b_ref_l_gt_200": {
+        "nominal": 37,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "boell931"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Herstellermaßblatt; nominale Kopfhöhe aus symmetrischen k-Grenzen. Normlängenmatrix noch offen."
+      }
+    },
+    "M8": {
+      "s_nom": {
+        "nominal": 13,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "boell931"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Herstellermaßblatt; nominale Kopfhöhe aus symmetrischen k-Grenzen. Normlängenmatrix noch offen."
+      },
+      "k_nom": {
+        "nominal": 5.3,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "boell931"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Herstellermaßblatt; nominale Kopfhöhe aus symmetrischen k-Grenzen. Normlängenmatrix noch offen."
+      },
+      "b_ref_l_le_125": {
+        "nominal": 22,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "boell931"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Herstellermaßblatt; nominale Kopfhöhe aus symmetrischen k-Grenzen. Normlängenmatrix noch offen."
+      },
+      "b_ref_l_le_200": {
+        "nominal": 28,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "boell931"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Herstellermaßblatt; nominale Kopfhöhe aus symmetrischen k-Grenzen. Normlängenmatrix noch offen."
+      },
+      "b_ref_l_gt_200": {
+        "nominal": 41,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "boell931"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Herstellermaßblatt; nominale Kopfhöhe aus symmetrischen k-Grenzen. Normlängenmatrix noch offen."
+      }
+    },
+    "M10": {
+      "s_nom": {
+        "nominal": 17,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "boell931"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Herstellermaßblatt; nominale Kopfhöhe aus symmetrischen k-Grenzen. Normlängenmatrix noch offen."
+      },
+      "k_nom": {
+        "nominal": 6.4,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "boell931"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Herstellermaßblatt; nominale Kopfhöhe aus symmetrischen k-Grenzen. Normlängenmatrix noch offen."
+      },
+      "b_ref_l_le_125": {
+        "nominal": 26,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "boell931"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Herstellermaßblatt; nominale Kopfhöhe aus symmetrischen k-Grenzen. Normlängenmatrix noch offen."
+      },
+      "b_ref_l_le_200": {
+        "nominal": 32,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "boell931"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Herstellermaßblatt; nominale Kopfhöhe aus symmetrischen k-Grenzen. Normlängenmatrix noch offen."
+      },
+      "b_ref_l_gt_200": {
+        "nominal": 45,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "boell931"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Herstellermaßblatt; nominale Kopfhöhe aus symmetrischen k-Grenzen. Normlängenmatrix noch offen."
+      }
+    },
+    "M12": {
+      "s_nom": {
+        "nominal": 19,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "boell931"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Herstellermaßblatt; nominale Kopfhöhe aus symmetrischen k-Grenzen. Normlängenmatrix noch offen."
+      },
+      "k_nom": {
+        "nominal": 7.5,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "boell931"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Herstellermaßblatt; nominale Kopfhöhe aus symmetrischen k-Grenzen. Normlängenmatrix noch offen."
+      },
+      "b_ref_l_le_125": {
+        "nominal": 30,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "boell931"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Herstellermaßblatt; nominale Kopfhöhe aus symmetrischen k-Grenzen. Normlängenmatrix noch offen."
+      },
+      "b_ref_l_le_200": {
+        "nominal": 36,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "boell931"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Herstellermaßblatt; nominale Kopfhöhe aus symmetrischen k-Grenzen. Normlängenmatrix noch offen."
+      },
+      "b_ref_l_gt_200": {
+        "nominal": 49,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "boell931"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Herstellermaßblatt; nominale Kopfhöhe aus symmetrischen k-Grenzen. Normlängenmatrix noch offen."
+      }
+    },
+    "M14": {
+      "s_nom": {
+        "nominal": 22,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "boell931"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Herstellermaßblatt; nominale Kopfhöhe aus symmetrischen k-Grenzen. Normlängenmatrix noch offen."
+      },
+      "k_nom": {
+        "nominal": 8.8,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "boell931"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Herstellermaßblatt; nominale Kopfhöhe aus symmetrischen k-Grenzen. Normlängenmatrix noch offen."
+      },
+      "b_ref_l_le_125": {
+        "nominal": 34,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "boell931"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Herstellermaßblatt; nominale Kopfhöhe aus symmetrischen k-Grenzen. Normlängenmatrix noch offen."
+      },
+      "b_ref_l_le_200": {
+        "nominal": 40,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "boell931"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Herstellermaßblatt; nominale Kopfhöhe aus symmetrischen k-Grenzen. Normlängenmatrix noch offen."
+      },
+      "b_ref_l_gt_200": {
+        "nominal": 53,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "boell931"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Herstellermaßblatt; nominale Kopfhöhe aus symmetrischen k-Grenzen. Normlängenmatrix noch offen."
+      }
+    },
+    "M16": {
+      "s_nom": {
+        "nominal": 24,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "boell931"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Herstellermaßblatt; nominale Kopfhöhe aus symmetrischen k-Grenzen. Normlängenmatrix noch offen."
+      },
+      "k_nom": {
+        "nominal": 10,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "boell931"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Herstellermaßblatt; nominale Kopfhöhe aus symmetrischen k-Grenzen. Normlängenmatrix noch offen."
+      },
+      "b_ref_l_le_125": {
+        "nominal": 38,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "boell931"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Herstellermaßblatt; nominale Kopfhöhe aus symmetrischen k-Grenzen. Normlängenmatrix noch offen."
+      },
+      "b_ref_l_le_200": {
+        "nominal": 44,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "boell931"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Herstellermaßblatt; nominale Kopfhöhe aus symmetrischen k-Grenzen. Normlängenmatrix noch offen."
+      },
+      "b_ref_l_gt_200": {
+        "nominal": 57,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "boell931"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Herstellermaßblatt; nominale Kopfhöhe aus symmetrischen k-Grenzen. Normlängenmatrix noch offen."
+      }
+    },
+    "M18": {
+      "s_nom": {
+        "nominal": 27,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "boell931"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Herstellermaßblatt; nominale Kopfhöhe aus symmetrischen k-Grenzen. Normlängenmatrix noch offen."
+      },
+      "k_nom": {
+        "nominal": 11.5,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "boell931"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Herstellermaßblatt; nominale Kopfhöhe aus symmetrischen k-Grenzen. Normlängenmatrix noch offen."
+      },
+      "b_ref_l_le_125": {
+        "nominal": 42,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "boell931"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Herstellermaßblatt; nominale Kopfhöhe aus symmetrischen k-Grenzen. Normlängenmatrix noch offen."
+      },
+      "b_ref_l_le_200": {
+        "nominal": 48,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "boell931"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Herstellermaßblatt; nominale Kopfhöhe aus symmetrischen k-Grenzen. Normlängenmatrix noch offen."
+      },
+      "b_ref_l_gt_200": {
+        "nominal": 61,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "boell931"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Herstellermaßblatt; nominale Kopfhöhe aus symmetrischen k-Grenzen. Normlängenmatrix noch offen."
+      }
+    },
+    "M20": {
+      "s_nom": {
+        "nominal": 30,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "boell931"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Herstellermaßblatt; nominale Kopfhöhe aus symmetrischen k-Grenzen. Normlängenmatrix noch offen."
+      },
+      "k_nom": {
+        "nominal": 12.5,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "boell931"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Herstellermaßblatt; nominale Kopfhöhe aus symmetrischen k-Grenzen. Normlängenmatrix noch offen."
+      },
+      "b_ref_l_le_125": {
+        "nominal": 46,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "boell931"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Herstellermaßblatt; nominale Kopfhöhe aus symmetrischen k-Grenzen. Normlängenmatrix noch offen."
+      },
+      "b_ref_l_le_200": {
+        "nominal": 52,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "boell931"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Herstellermaßblatt; nominale Kopfhöhe aus symmetrischen k-Grenzen. Normlängenmatrix noch offen."
+      },
+      "b_ref_l_gt_200": {
+        "nominal": 65,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "boell931"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Herstellermaßblatt; nominale Kopfhöhe aus symmetrischen k-Grenzen. Normlängenmatrix noch offen."
+      }
+    },
+    "M24": {
+      "s_nom": {
+        "nominal": 36,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "boell931"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Herstellermaßblatt; nominale Kopfhöhe aus symmetrischen k-Grenzen. Normlängenmatrix noch offen."
+      },
+      "k_nom": {
+        "nominal": 15,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "boell931"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Herstellermaßblatt; nominale Kopfhöhe aus symmetrischen k-Grenzen. Normlängenmatrix noch offen."
+      },
+      "b_ref_l_le_125": {
+        "nominal": 54,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "boell931"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Herstellermaßblatt; nominale Kopfhöhe aus symmetrischen k-Grenzen. Normlängenmatrix noch offen."
+      },
+      "b_ref_l_le_200": {
+        "nominal": 60,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "boell931"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Herstellermaßblatt; nominale Kopfhöhe aus symmetrischen k-Grenzen. Normlängenmatrix noch offen."
+      },
+      "b_ref_l_gt_200": {
+        "nominal": 73,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "boell931"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Herstellermaßblatt; nominale Kopfhöhe aus symmetrischen k-Grenzen. Normlängenmatrix noch offen."
+      }
+    },
+    "M27": {
+      "s_nom": {
+        "nominal": 41,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "boell931"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Herstellermaßblatt; nominale Kopfhöhe aus symmetrischen k-Grenzen. Normlängenmatrix noch offen."
+      },
+      "k_nom": {
+        "nominal": 17,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "boell931"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Herstellermaßblatt; nominale Kopfhöhe aus symmetrischen k-Grenzen. Normlängenmatrix noch offen."
+      },
+      "b_ref_l_le_125": {
+        "nominal": 60,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "boell931"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Herstellermaßblatt; nominale Kopfhöhe aus symmetrischen k-Grenzen. Normlängenmatrix noch offen."
+      },
+      "b_ref_l_le_200": {
+        "nominal": 66,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "boell931"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Herstellermaßblatt; nominale Kopfhöhe aus symmetrischen k-Grenzen. Normlängenmatrix noch offen."
+      },
+      "b_ref_l_gt_200": {
+        "nominal": 79,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "boell931"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Herstellermaßblatt; nominale Kopfhöhe aus symmetrischen k-Grenzen. Normlängenmatrix noch offen."
+      }
+    },
+    "M30": {
+      "s_nom": {
+        "nominal": 46,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "boell931"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Herstellermaßblatt; nominale Kopfhöhe aus symmetrischen k-Grenzen. Normlängenmatrix noch offen."
+      },
+      "k_nom": {
+        "nominal": 18.7,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "boell931"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Herstellermaßblatt; nominale Kopfhöhe aus symmetrischen k-Grenzen. Normlängenmatrix noch offen."
+      },
+      "b_ref_l_le_125": {
+        "nominal": 66,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "boell931"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Herstellermaßblatt; nominale Kopfhöhe aus symmetrischen k-Grenzen. Normlängenmatrix noch offen."
+      },
+      "b_ref_l_le_200": {
+        "nominal": 72,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "boell931"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Herstellermaßblatt; nominale Kopfhöhe aus symmetrischen k-Grenzen. Normlängenmatrix noch offen."
+      },
+      "b_ref_l_gt_200": {
+        "nominal": 85,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "boell931"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Herstellermaßblatt; nominale Kopfhöhe aus symmetrischen k-Grenzen. Normlängenmatrix noch offen."
+      }
+    },
+    "M33": {
+      "s_nom": {
+        "nominal": 50,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "boell931"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Herstellermaßblatt; nominale Kopfhöhe aus symmetrischen k-Grenzen. Normlängenmatrix noch offen."
+      },
+      "k_nom": {
+        "nominal": 21,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "boell931"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Herstellermaßblatt; nominale Kopfhöhe aus symmetrischen k-Grenzen. Normlängenmatrix noch offen."
+      },
+      "b_ref_l_le_125": {
+        "nominal": 72,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "boell931"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Herstellermaßblatt; nominale Kopfhöhe aus symmetrischen k-Grenzen. Normlängenmatrix noch offen."
+      },
+      "b_ref_l_le_200": {
+        "nominal": 78,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "boell931"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Herstellermaßblatt; nominale Kopfhöhe aus symmetrischen k-Grenzen. Normlängenmatrix noch offen."
+      },
+      "b_ref_l_gt_200": {
+        "nominal": 91,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "boell931"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Herstellermaßblatt; nominale Kopfhöhe aus symmetrischen k-Grenzen. Normlängenmatrix noch offen."
+      }
+    }
+  },
+  "sourceMeta": {
+    "boell931": {
+      "url": "https://eshop.boellhoff.de/out/media/pdf/DIN_931_Stahl_8.8_gv___de.pdf",
+      "titel": "Böllhoff DIN931 Produktdatenblatt",
+      "type": "manufacturer",
+      "accessed": "2026-11-26"
+    }
+  },
+  "quellen": [
+    {
+      "id": "boell931",
+      "url": "https://eshop.boellhoff.de/out/media/pdf/DIN_931_Stahl_8.8_gv___de.pdf",
+      "titel": "Böllhoff DIN931 Produktdatenblatt",
+      "type": "manufacturer",
+      "accessed": "2026-11-26"
+    }
+  ],
+  "abweichungen": [],
+  "status": "partial",
+  "coverage": "documented",
+  "lengthCoverage": "unresearched",
+  "hinweise": [
+    "Familie erfasst; vollständige Einzelmaß- und Längenrecherche steht noch aus. Keine Ersatzmaße einer ähnlichen Norm verwendet."
+  ],
+  "normstatus": {
+    "status": "withdrawn",
+    "successor": "ISO4014",
+    "note": "Abweichende DIN-Schlüsselweiten bleiben erhalten."
+  },
+  "lengthDependentFields": [
+    "b"
+  ],
+  "requiredGeometryFields": [
+    "kSW",
+    "kH"
+  ],
+  "sizeCoverage": {
+    "M3": {
+      "status": "unresearched",
+      "note": "Keine Größenzeile vorhanden; daraus folgt kein Normverbot."
+    },
+    "M3.5": {
+      "status": "unresearched",
+      "note": "Keine Größenzeile vorhanden; daraus folgt kein Normverbot."
+    },
+    "M4": {
+      "status": "documented"
+    },
+    "M5": {
+      "status": "documented"
+    },
+    "M6": {
+      "status": "documented"
+    },
+    "M7": {
+      "status": "unresearched",
+      "note": "Keine Größenzeile vorhanden; daraus folgt kein Normverbot."
+    },
+    "M8": {
+      "status": "documented"
+    },
+    "M10": {
+      "status": "documented"
+    },
+    "M12": {
+      "status": "documented"
+    },
+    "M14": {
+      "status": "documented"
+    },
+    "M16": {
+      "status": "documented"
+    },
+    "M18": {
+      "status": "documented"
+    },
+    "M20": {
+      "status": "documented"
+    },
+    "M22": {
+      "status": "unresearched",
+      "note": "Keine Größenzeile vorhanden; daraus folgt kein Normverbot."
+    },
+    "M24": {
+      "status": "documented"
+    },
+    "M27": {
+      "status": "documented"
+    },
+    "M30": {
+      "status": "documented"
+    },
+    "M33": {
+      "status": "documented"
+    }
+  },
+  "pruefdatum": "2026-11-26",
+  "klassen": {
+    "status": "unresearched",
+    "values": [],
+    "note": "Festigkeits-/Werkstoffklassen noch nicht vollständig aus dieser Norm belegt."
+  }
+}

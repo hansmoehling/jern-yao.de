@@ -1,0 +1,15 @@
+{
+  "Norm wählen, Maße übernehmen":["Scegli la norma, importa le dimensioni","Izberite standard in prevzemite mere","Choose a standard, fill in dimensions","选择标准，导入尺寸"],
+  "Normvorlage":["Modello normativo","Predloga standarda","Standard template","标准模板"],
+  "Größe":["Dimensione","Velikost","Size","规格"],
+  "Länge in mm":["Lunghezza in mm","Dolžina v mm","Length in mm","长度（毫米）"],
+  "Steigung in mm":["Passo in mm","Korak v mm","Pitch in mm","螺距（毫米）"],
+  "Festigkeitsklasse":["Classe di resistenza","Trdnostni razred","Property class","性能等级"],
+  "Die Norm ist Ihre Vorlage. Ändern Sie nur, was bei Ihrem Teil abweicht.":["La norma è il modello di partenza. Modifica solo ciò che differisce nel tuo pezzo.","Standard je vaša predloga. Spremenite le odstopanja vašega izdelka.","The standard is your starting template. Change only what differs on your part.","以标准为初始模板，只需修改零件的差异部分。"],
+  "Maße und Geometrie bearbeiten":["Modifica dimensioni e geometria","Uredi mere in geometrijo","Edit dimensions and geometry","编辑尺寸与几何形状"],
+  "Freies Teil: Maße unten eingeben.":["Pezzo libero: inserisci le dimensioni sotto.","Prosti izdelek: spodaj vnesite mere.","Free part: enter dimensions below.","自定义零件：在下方输入尺寸。"],
+  "Kundenabweichung":["Modifica del cliente","Odstopanje stranke","Customer modification","客户修改"],
+  "Normmaß wiederherstellen":["Ripristina dimensione normativa","Obnovi standardno mero","Restore standard dimension","恢复标准尺寸"],
+  "Noch zu ergänzen":["Da completare","Dopolniti je treba","Still to complete","仍需补充"],
+  "Rollrohling und Mutterloch sind Prozessvorbelegungen. Festigkeitsklasse und Drahtzustand sind getrennte Angaben.":["Il diametro di rullatura e il foro del dado sono valori di processo iniziali. La classe di resistenza e lo stato del filo sono dati distinti.","Premer za valjanje in izvrtina matice sta začetni procesni vrednosti. Trdnostni razred in stanje žice sta ločena podatka.","Rolling blank and nut hole are process starting values. Property class and wire condition are separate inputs.","滚牙坯径和螺母孔径为工艺初始值。性能等级与线材状态分别指定。"]
+}

@@ -1,0 +1,1869 @@
+{
+  "schemaVersion": 1,
+  "version": "2026-11-26.1",
+  "id": "ISO4035",
+  "edition": "2023",
+  "label": "Niedrige Sechskantmutter, Typ 0",
+  "funktion": "mutter",
+  "klasse": "mutter",
+  "kopfTyp": "sechskant",
+  "alias": [],
+  "feldzuordnung": {
+    "mSW": "s_nom",
+    "mH": "m_max"
+  },
+  "groessen": {
+    "M5": {
+      "vorbelegung": {
+        "mSW": 8,
+        "mH": 2.7
+      },
+      "roh": {
+        "d_nom": 5,
+        "P": 0.8,
+        "s_nom": 8,
+        "s_min": 7.78,
+        "e_min": 8.79,
+        "m_max": 2.7,
+        "m_min": 2.45,
+        "da_min": 5,
+        "da_max": 5.75,
+        "dw_min": 7.2
+      },
+      "thread": {
+        "id": "M5x0.8",
+        "diameter": 5,
+        "pitch": 0.8,
+        "sourceRefs": [
+          "iso4035_2023"
+        ]
+      },
+      "geometryStatus": "dimensioned",
+      "missingGeometryFields": []
+    },
+    "M6": {
+      "vorbelegung": {
+        "mSW": 10,
+        "mH": 3.2
+      },
+      "roh": {
+        "d_nom": 6,
+        "P": 1,
+        "s_nom": 10,
+        "s_min": 9.78,
+        "e_min": 11.05,
+        "m_max": 3.2,
+        "m_min": 2.9,
+        "da_min": 6,
+        "da_max": 6.75,
+        "dw_min": 8.88
+      },
+      "thread": {
+        "id": "M6x1",
+        "diameter": 6,
+        "pitch": 1,
+        "sourceRefs": [
+          "iso4035_2023"
+        ]
+      },
+      "geometryStatus": "dimensioned",
+      "missingGeometryFields": []
+    },
+    "M7": {
+      "vorbelegung": {
+        "mSW": 11,
+        "mH": 3.7
+      },
+      "roh": {
+        "d_nom": 7,
+        "P": 1,
+        "s_nom": 11,
+        "s_min": 10.73,
+        "e_min": 12.12,
+        "m_max": 3.7,
+        "m_min": 3.4,
+        "da_min": 7,
+        "da_max": 7.75,
+        "dw_min": 9.63
+      },
+      "thread": {
+        "id": "M7x1",
+        "diameter": 7,
+        "pitch": 1,
+        "sourceRefs": [
+          "iso4035_2023"
+        ]
+      },
+      "geometryStatus": "dimensioned",
+      "missingGeometryFields": []
+    },
+    "M8": {
+      "vorbelegung": {
+        "mSW": 13,
+        "mH": 4
+      },
+      "roh": {
+        "d_nom": 8,
+        "P": 1.25,
+        "s_nom": 13,
+        "s_min": 12.73,
+        "e_min": 14.38,
+        "m_max": 4,
+        "m_min": 3.7,
+        "da_min": 8,
+        "da_max": 8.75,
+        "dw_min": 11.63
+      },
+      "thread": {
+        "id": "M8x1.25",
+        "diameter": 8,
+        "pitch": 1.25,
+        "sourceRefs": [
+          "iso4035_2023"
+        ]
+      },
+      "geometryStatus": "dimensioned",
+      "missingGeometryFields": []
+    },
+    "M10": {
+      "vorbelegung": {
+        "mSW": 16,
+        "mH": 5
+      },
+      "roh": {
+        "d_nom": 10,
+        "P": 1.5,
+        "s_nom": 16,
+        "s_min": 15.73,
+        "e_min": 17.77,
+        "m_max": 5,
+        "m_min": 4.7,
+        "da_min": 10,
+        "da_max": 10.8,
+        "dw_min": 14.63
+      },
+      "thread": {
+        "id": "M10x1.5",
+        "diameter": 10,
+        "pitch": 1.5,
+        "sourceRefs": [
+          "iso4035_2023"
+        ]
+      },
+      "geometryStatus": "dimensioned",
+      "missingGeometryFields": []
+    },
+    "M12": {
+      "vorbelegung": {
+        "mSW": 18,
+        "mH": 6
+      },
+      "roh": {
+        "d_nom": 12,
+        "P": 1.75,
+        "s_nom": 18,
+        "s_min": 17.73,
+        "e_min": 20.03,
+        "m_max": 6,
+        "m_min": 5.7,
+        "da_min": 12,
+        "da_max": 12.96,
+        "dw_min": 16.63
+      },
+      "thread": {
+        "id": "M12x1.75",
+        "diameter": 12,
+        "pitch": 1.75,
+        "sourceRefs": [
+          "iso4035_2023"
+        ]
+      },
+      "geometryStatus": "dimensioned",
+      "missingGeometryFields": []
+    },
+    "M14": {
+      "vorbelegung": {
+        "mSW": 21,
+        "mH": 7
+      },
+      "roh": {
+        "d_nom": 14,
+        "P": 2,
+        "s_nom": 21,
+        "s_min": 20.67,
+        "e_min": 23.36,
+        "m_max": 7,
+        "m_min": 6.42,
+        "da_min": 14,
+        "da_max": 15.12,
+        "dw_min": 19.64
+      },
+      "thread": {
+        "id": "M14x2",
+        "diameter": 14,
+        "pitch": 2,
+        "sourceRefs": [
+          "iso4035_2023"
+        ]
+      },
+      "geometryStatus": "dimensioned",
+      "missingGeometryFields": []
+    },
+    "M16": {
+      "vorbelegung": {
+        "mSW": 24,
+        "mH": 8
+      },
+      "roh": {
+        "d_nom": 16,
+        "P": 2,
+        "s_nom": 24,
+        "s_min": 23.67,
+        "e_min": 26.75,
+        "m_max": 8,
+        "m_min": 7.42,
+        "da_min": 16,
+        "da_max": 17.28,
+        "dw_min": 22.49
+      },
+      "thread": {
+        "id": "M16x2",
+        "diameter": 16,
+        "pitch": 2,
+        "sourceRefs": [
+          "iso4035_2023"
+        ]
+      },
+      "geometryStatus": "dimensioned",
+      "missingGeometryFields": []
+    },
+    "M18": {
+      "vorbelegung": {
+        "mSW": 27,
+        "mH": 9
+      },
+      "roh": {
+        "d_nom": 18,
+        "P": 2.5,
+        "s_nom": 27,
+        "s_min": 26.16,
+        "e_min": 29.56,
+        "m_max": 9,
+        "m_min": 8.42,
+        "da_min": 18,
+        "da_max": 19.44,
+        "dw_min": 24.85
+      },
+      "thread": {
+        "id": "M18x2.5",
+        "diameter": 18,
+        "pitch": 2.5,
+        "sourceRefs": [
+          "iso4035_2023"
+        ]
+      },
+      "geometryStatus": "dimensioned",
+      "missingGeometryFields": []
+    },
+    "M20": {
+      "vorbelegung": {
+        "mSW": 30,
+        "mH": 10
+      },
+      "roh": {
+        "d_nom": 20,
+        "P": 2.5,
+        "s_nom": 30,
+        "s_min": 29.16,
+        "e_min": 32.95,
+        "m_max": 10,
+        "m_min": 9.1,
+        "da_min": 20,
+        "da_max": 21.6,
+        "dw_min": 27.7
+      },
+      "thread": {
+        "id": "M20x2.5",
+        "diameter": 20,
+        "pitch": 2.5,
+        "sourceRefs": [
+          "iso4035_2023"
+        ]
+      },
+      "geometryStatus": "dimensioned",
+      "missingGeometryFields": []
+    },
+    "M22": {
+      "vorbelegung": {
+        "mSW": 34,
+        "mH": 11
+      },
+      "roh": {
+        "d_nom": 22,
+        "P": 2.5,
+        "s_nom": 34,
+        "s_min": 33,
+        "e_min": 37.29,
+        "m_max": 11,
+        "m_min": 9.9,
+        "da_min": 22,
+        "da_max": 23.76,
+        "dw_min": 31.35
+      },
+      "thread": {
+        "id": "M22x2.5",
+        "diameter": 22,
+        "pitch": 2.5,
+        "sourceRefs": [
+          "iso4035_2023"
+        ]
+      },
+      "geometryStatus": "dimensioned",
+      "missingGeometryFields": []
+    },
+    "M24": {
+      "vorbelegung": {
+        "mSW": 36,
+        "mH": 12
+      },
+      "roh": {
+        "d_nom": 24,
+        "P": 3,
+        "s_nom": 36,
+        "s_min": 35,
+        "e_min": 39.55,
+        "m_max": 12,
+        "m_min": 10.9,
+        "da_min": 24,
+        "da_max": 25.92,
+        "dw_min": 33.25
+      },
+      "thread": {
+        "id": "M24x3",
+        "diameter": 24,
+        "pitch": 3,
+        "sourceRefs": [
+          "iso4035_2023"
+        ]
+      },
+      "geometryStatus": "dimensioned",
+      "missingGeometryFields": []
+    },
+    "M27": {
+      "vorbelegung": {
+        "mSW": 41,
+        "mH": 13.5
+      },
+      "roh": {
+        "d_nom": 27,
+        "P": 3,
+        "s_nom": 41,
+        "s_min": 40,
+        "e_min": 45.2,
+        "m_max": 13.5,
+        "m_min": 12.4,
+        "da_min": 27,
+        "da_max": 29.16,
+        "dw_min": 38
+      },
+      "thread": {
+        "id": "M27x3",
+        "diameter": 27,
+        "pitch": 3,
+        "sourceRefs": [
+          "iso4035_2023"
+        ]
+      },
+      "geometryStatus": "dimensioned",
+      "missingGeometryFields": []
+    },
+    "M30": {
+      "vorbelegung": {
+        "mSW": 46,
+        "mH": 15
+      },
+      "roh": {
+        "d_nom": 30,
+        "P": 3.5,
+        "s_nom": 46,
+        "s_min": 45,
+        "e_min": 50.85,
+        "m_max": 15,
+        "m_min": 13.9,
+        "da_min": 30,
+        "da_max": 32.4,
+        "dw_min": 42.75
+      },
+      "thread": {
+        "id": "M30x3.5",
+        "diameter": 30,
+        "pitch": 3.5,
+        "sourceRefs": [
+          "iso4035_2023"
+        ]
+      },
+      "geometryStatus": "dimensioned",
+      "missingGeometryFields": []
+    }
+  },
+  "fields": {
+    "M5": {
+      "P": {
+        "nominal": 0.8,
+        "sourceRefs": [
+          "iso4035_2023"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "s_nom": {
+        "nominal": 8,
+        "sourceRefs": [
+          "iso4035_2023",
+          "stainlessfix4035"
+        ],
+        "status": "verified",
+        "verification": "independent-source-agreement",
+        "unit": "mm"
+      },
+      "s_min": {
+        "min": 7.78,
+        "sourceRefs": [
+          "iso4035_2023"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "e_min": {
+        "min": 8.79,
+        "sourceRefs": [
+          "iso4035_2023",
+          "stainlessfix4035"
+        ],
+        "status": "verified",
+        "verification": "independent-source-agreement",
+        "unit": "mm"
+      },
+      "m_max": {
+        "max": 2.7,
+        "sourceRefs": [
+          "iso4035_2023",
+          "stainlessfix4035"
+        ],
+        "status": "verified",
+        "verification": "independent-source-agreement",
+        "unit": "mm"
+      },
+      "m_min": {
+        "min": 2.45,
+        "sourceRefs": [
+          "iso4035_2023"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "da_min": {
+        "min": 5,
+        "sourceRefs": [
+          "iso4035_2023"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "da_max": {
+        "max": 5.75,
+        "sourceRefs": [
+          "iso4035_2023"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "dw_min": {
+        "min": 7.2,
+        "sourceRefs": [
+          "iso4035_2023"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "d_nom": {
+        "nominal": 5,
+        "sourceRefs": [
+          "iso4035_2023"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      }
+    },
+    "M6": {
+      "P": {
+        "nominal": 1,
+        "sourceRefs": [
+          "iso4035_2023"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "s_nom": {
+        "nominal": 10,
+        "sourceRefs": [
+          "iso4035_2023",
+          "stainlessfix4035"
+        ],
+        "status": "verified",
+        "verification": "independent-source-agreement",
+        "unit": "mm"
+      },
+      "s_min": {
+        "min": 9.78,
+        "sourceRefs": [
+          "iso4035_2023"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "e_min": {
+        "min": 11.05,
+        "sourceRefs": [
+          "iso4035_2023",
+          "stainlessfix4035"
+        ],
+        "status": "verified",
+        "verification": "independent-source-agreement",
+        "unit": "mm"
+      },
+      "m_max": {
+        "max": 3.2,
+        "sourceRefs": [
+          "iso4035_2023",
+          "stainlessfix4035"
+        ],
+        "status": "verified",
+        "verification": "independent-source-agreement",
+        "unit": "mm"
+      },
+      "m_min": {
+        "min": 2.9,
+        "sourceRefs": [
+          "iso4035_2023"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "da_min": {
+        "min": 6,
+        "sourceRefs": [
+          "iso4035_2023"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "da_max": {
+        "max": 6.75,
+        "sourceRefs": [
+          "iso4035_2023"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "dw_min": {
+        "min": 8.88,
+        "sourceRefs": [
+          "iso4035_2023"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "d_nom": {
+        "nominal": 6,
+        "sourceRefs": [
+          "iso4035_2023"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      }
+    },
+    "M7": {
+      "P": {
+        "nominal": 1,
+        "sourceRefs": [
+          "iso4035_2023"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "s_nom": {
+        "nominal": 11,
+        "sourceRefs": [
+          "iso4035_2023"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "s_min": {
+        "min": 10.73,
+        "sourceRefs": [
+          "iso4035_2023"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "e_min": {
+        "min": 12.12,
+        "sourceRefs": [
+          "iso4035_2023"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "m_max": {
+        "max": 3.7,
+        "sourceRefs": [
+          "iso4035_2023"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "m_min": {
+        "min": 3.4,
+        "sourceRefs": [
+          "iso4035_2023"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "da_min": {
+        "min": 7,
+        "sourceRefs": [
+          "iso4035_2023"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "da_max": {
+        "max": 7.75,
+        "sourceRefs": [
+          "iso4035_2023"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "dw_min": {
+        "min": 9.63,
+        "sourceRefs": [
+          "iso4035_2023"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "d_nom": {
+        "nominal": 7,
+        "sourceRefs": [
+          "iso4035_2023"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      }
+    },
+    "M8": {
+      "P": {
+        "nominal": 1.25,
+        "sourceRefs": [
+          "iso4035_2023"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "s_nom": {
+        "nominal": 13,
+        "sourceRefs": [
+          "iso4035_2023",
+          "stainlessfix4035"
+        ],
+        "status": "verified",
+        "verification": "independent-source-agreement",
+        "unit": "mm"
+      },
+      "s_min": {
+        "min": 12.73,
+        "sourceRefs": [
+          "iso4035_2023"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "e_min": {
+        "min": 14.38,
+        "sourceRefs": [
+          "iso4035_2023",
+          "stainlessfix4035"
+        ],
+        "status": "verified",
+        "verification": "independent-source-agreement",
+        "unit": "mm"
+      },
+      "m_max": {
+        "max": 4,
+        "sourceRefs": [
+          "iso4035_2023",
+          "stainlessfix4035"
+        ],
+        "status": "verified",
+        "verification": "independent-source-agreement",
+        "unit": "mm"
+      },
+      "m_min": {
+        "min": 3.7,
+        "sourceRefs": [
+          "iso4035_2023"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "da_min": {
+        "min": 8,
+        "sourceRefs": [
+          "iso4035_2023"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "da_max": {
+        "max": 8.75,
+        "sourceRefs": [
+          "iso4035_2023"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "dw_min": {
+        "min": 11.63,
+        "sourceRefs": [
+          "iso4035_2023"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "d_nom": {
+        "nominal": 8,
+        "sourceRefs": [
+          "iso4035_2023"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      }
+    },
+    "M10": {
+      "P": {
+        "nominal": 1.5,
+        "sourceRefs": [
+          "iso4035_2023"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "s_nom": {
+        "nominal": 16,
+        "sourceRefs": [
+          "iso4035_2023",
+          "stainlessfix4035"
+        ],
+        "status": "verified",
+        "verification": "independent-source-agreement",
+        "unit": "mm"
+      },
+      "s_min": {
+        "min": 15.73,
+        "sourceRefs": [
+          "iso4035_2023"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "e_min": {
+        "min": 17.77,
+        "sourceRefs": [
+          "iso4035_2023",
+          "stainlessfix4035"
+        ],
+        "status": "verified",
+        "verification": "independent-source-agreement",
+        "unit": "mm"
+      },
+      "m_max": {
+        "max": 5,
+        "sourceRefs": [
+          "iso4035_2023",
+          "stainlessfix4035"
+        ],
+        "status": "verified",
+        "verification": "independent-source-agreement",
+        "unit": "mm"
+      },
+      "m_min": {
+        "min": 4.7,
+        "sourceRefs": [
+          "iso4035_2023"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "da_min": {
+        "min": 10,
+        "sourceRefs": [
+          "iso4035_2023"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "da_max": {
+        "max": 10.8,
+        "sourceRefs": [
+          "iso4035_2023"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "dw_min": {
+        "min": 14.63,
+        "sourceRefs": [
+          "iso4035_2023"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "d_nom": {
+        "nominal": 10,
+        "sourceRefs": [
+          "iso4035_2023"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      }
+    },
+    "M12": {
+      "P": {
+        "nominal": 1.75,
+        "sourceRefs": [
+          "iso4035_2023"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "s_nom": {
+        "nominal": 18,
+        "sourceRefs": [
+          "iso4035_2023",
+          "stainlessfix4035"
+        ],
+        "status": "verified",
+        "verification": "independent-source-agreement",
+        "unit": "mm"
+      },
+      "s_min": {
+        "min": 17.73,
+        "sourceRefs": [
+          "iso4035_2023"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "e_min": {
+        "min": 20.03,
+        "sourceRefs": [
+          "iso4035_2023",
+          "stainlessfix4035"
+        ],
+        "status": "verified",
+        "verification": "independent-source-agreement",
+        "unit": "mm"
+      },
+      "m_max": {
+        "max": 6,
+        "sourceRefs": [
+          "iso4035_2023",
+          "stainlessfix4035"
+        ],
+        "status": "verified",
+        "verification": "independent-source-agreement",
+        "unit": "mm"
+      },
+      "m_min": {
+        "min": 5.7,
+        "sourceRefs": [
+          "iso4035_2023"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "da_min": {
+        "min": 12,
+        "sourceRefs": [
+          "iso4035_2023"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "da_max": {
+        "max": 12.96,
+        "sourceRefs": [
+          "iso4035_2023"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "dw_min": {
+        "min": 16.63,
+        "sourceRefs": [
+          "iso4035_2023"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "d_nom": {
+        "nominal": 12,
+        "sourceRefs": [
+          "iso4035_2023"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      }
+    },
+    "M14": {
+      "P": {
+        "nominal": 2,
+        "sourceRefs": [
+          "iso4035_2023"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "s_nom": {
+        "nominal": 21,
+        "sourceRefs": [
+          "iso4035_2023",
+          "stainlessfix4035"
+        ],
+        "status": "verified",
+        "verification": "independent-source-agreement",
+        "unit": "mm"
+      },
+      "s_min": {
+        "min": 20.67,
+        "sourceRefs": [
+          "iso4035_2023"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "e_min": {
+        "min": 23.36,
+        "sourceRefs": [
+          "iso4035_2023",
+          "stainlessfix4035"
+        ],
+        "status": "verified",
+        "verification": "independent-source-agreement",
+        "unit": "mm"
+      },
+      "m_max": {
+        "max": 7,
+        "sourceRefs": [
+          "iso4035_2023",
+          "stainlessfix4035"
+        ],
+        "status": "verified",
+        "verification": "independent-source-agreement",
+        "unit": "mm"
+      },
+      "m_min": {
+        "min": 6.42,
+        "sourceRefs": [
+          "iso4035_2023"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "da_min": {
+        "min": 14,
+        "sourceRefs": [
+          "iso4035_2023"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "da_max": {
+        "max": 15.12,
+        "sourceRefs": [
+          "iso4035_2023"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "dw_min": {
+        "min": 19.64,
+        "sourceRefs": [
+          "iso4035_2023"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "d_nom": {
+        "nominal": 14,
+        "sourceRefs": [
+          "iso4035_2023"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      }
+    },
+    "M16": {
+      "P": {
+        "nominal": 2,
+        "sourceRefs": [
+          "iso4035_2023"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "s_nom": {
+        "nominal": 24,
+        "sourceRefs": [
+          "iso4035_2023",
+          "stainlessfix4035"
+        ],
+        "status": "verified",
+        "verification": "independent-source-agreement",
+        "unit": "mm"
+      },
+      "s_min": {
+        "min": 23.67,
+        "sourceRefs": [
+          "iso4035_2023"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "e_min": {
+        "min": 26.75,
+        "sourceRefs": [
+          "iso4035_2023",
+          "stainlessfix4035"
+        ],
+        "status": "verified",
+        "verification": "independent-source-agreement",
+        "unit": "mm"
+      },
+      "m_max": {
+        "max": 8,
+        "sourceRefs": [
+          "iso4035_2023",
+          "stainlessfix4035"
+        ],
+        "status": "verified",
+        "verification": "independent-source-agreement",
+        "unit": "mm"
+      },
+      "m_min": {
+        "min": 7.42,
+        "sourceRefs": [
+          "iso4035_2023"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "da_min": {
+        "min": 16,
+        "sourceRefs": [
+          "iso4035_2023"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "da_max": {
+        "max": 17.28,
+        "sourceRefs": [
+          "iso4035_2023"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "dw_min": {
+        "min": 22.49,
+        "sourceRefs": [
+          "iso4035_2023"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "d_nom": {
+        "nominal": 16,
+        "sourceRefs": [
+          "iso4035_2023"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      }
+    },
+    "M18": {
+      "P": {
+        "nominal": 2.5,
+        "sourceRefs": [
+          "iso4035_2023"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "s_nom": {
+        "nominal": 27,
+        "sourceRefs": [
+          "iso4035_2023",
+          "stainlessfix4035"
+        ],
+        "status": "verified",
+        "verification": "independent-source-agreement",
+        "unit": "mm"
+      },
+      "s_min": {
+        "min": 26.16,
+        "sourceRefs": [
+          "iso4035_2023"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "e_min": {
+        "min": 29.56,
+        "sourceRefs": [
+          "iso4035_2023",
+          "stainlessfix4035"
+        ],
+        "status": "verified",
+        "verification": "independent-source-agreement",
+        "unit": "mm"
+      },
+      "m_max": {
+        "max": 9,
+        "sourceRefs": [
+          "iso4035_2023",
+          "stainlessfix4035"
+        ],
+        "status": "verified",
+        "verification": "independent-source-agreement",
+        "unit": "mm"
+      },
+      "m_min": {
+        "min": 8.42,
+        "sourceRefs": [
+          "iso4035_2023"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "da_min": {
+        "min": 18,
+        "sourceRefs": [
+          "iso4035_2023"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "da_max": {
+        "max": 19.44,
+        "sourceRefs": [
+          "iso4035_2023"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "dw_min": {
+        "min": 24.85,
+        "sourceRefs": [
+          "iso4035_2023"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "d_nom": {
+        "nominal": 18,
+        "sourceRefs": [
+          "iso4035_2023"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      }
+    },
+    "M20": {
+      "P": {
+        "nominal": 2.5,
+        "sourceRefs": [
+          "iso4035_2023"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "s_nom": {
+        "nominal": 30,
+        "sourceRefs": [
+          "iso4035_2023",
+          "stainlessfix4035"
+        ],
+        "status": "verified",
+        "verification": "independent-source-agreement",
+        "unit": "mm"
+      },
+      "s_min": {
+        "min": 29.16,
+        "sourceRefs": [
+          "iso4035_2023"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "e_min": {
+        "min": 32.95,
+        "sourceRefs": [
+          "iso4035_2023",
+          "stainlessfix4035"
+        ],
+        "status": "verified",
+        "verification": "independent-source-agreement",
+        "unit": "mm"
+      },
+      "m_max": {
+        "max": 10,
+        "sourceRefs": [
+          "iso4035_2023",
+          "stainlessfix4035"
+        ],
+        "status": "verified",
+        "verification": "independent-source-agreement",
+        "unit": "mm"
+      },
+      "m_min": {
+        "min": 9.1,
+        "sourceRefs": [
+          "iso4035_2023"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "da_min": {
+        "min": 20,
+        "sourceRefs": [
+          "iso4035_2023"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "da_max": {
+        "max": 21.6,
+        "sourceRefs": [
+          "iso4035_2023"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "dw_min": {
+        "min": 27.7,
+        "sourceRefs": [
+          "iso4035_2023"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "d_nom": {
+        "nominal": 20,
+        "sourceRefs": [
+          "iso4035_2023"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      }
+    },
+    "M22": {
+      "P": {
+        "nominal": 2.5,
+        "sourceRefs": [
+          "iso4035_2023"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "s_nom": {
+        "nominal": 34,
+        "sourceRefs": [
+          "iso4035_2023",
+          "stainlessfix4035"
+        ],
+        "status": "verified",
+        "verification": "independent-source-agreement",
+        "unit": "mm"
+      },
+      "s_min": {
+        "min": 33,
+        "sourceRefs": [
+          "iso4035_2023"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "e_min": {
+        "min": 37.29,
+        "sourceRefs": [
+          "iso4035_2023",
+          "stainlessfix4035"
+        ],
+        "status": "verified",
+        "verification": "independent-source-agreement",
+        "unit": "mm"
+      },
+      "m_max": {
+        "max": 11,
+        "sourceRefs": [
+          "iso4035_2023",
+          "stainlessfix4035"
+        ],
+        "status": "verified",
+        "verification": "independent-source-agreement",
+        "unit": "mm"
+      },
+      "m_min": {
+        "min": 9.9,
+        "sourceRefs": [
+          "iso4035_2023"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "da_min": {
+        "min": 22,
+        "sourceRefs": [
+          "iso4035_2023"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "da_max": {
+        "max": 23.76,
+        "sourceRefs": [
+          "iso4035_2023"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "dw_min": {
+        "min": 31.35,
+        "sourceRefs": [
+          "iso4035_2023"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "d_nom": {
+        "nominal": 22,
+        "sourceRefs": [
+          "iso4035_2023"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      }
+    },
+    "M24": {
+      "P": {
+        "nominal": 3,
+        "sourceRefs": [
+          "iso4035_2023"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "s_nom": {
+        "nominal": 36,
+        "sourceRefs": [
+          "iso4035_2023",
+          "stainlessfix4035"
+        ],
+        "status": "verified",
+        "verification": "independent-source-agreement",
+        "unit": "mm"
+      },
+      "s_min": {
+        "min": 35,
+        "sourceRefs": [
+          "iso4035_2023"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "e_min": {
+        "min": 39.55,
+        "sourceRefs": [
+          "iso4035_2023",
+          "stainlessfix4035"
+        ],
+        "status": "verified",
+        "verification": "independent-source-agreement",
+        "unit": "mm"
+      },
+      "m_max": {
+        "max": 12,
+        "sourceRefs": [
+          "iso4035_2023",
+          "stainlessfix4035"
+        ],
+        "status": "verified",
+        "verification": "independent-source-agreement",
+        "unit": "mm"
+      },
+      "m_min": {
+        "min": 10.9,
+        "sourceRefs": [
+          "iso4035_2023"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "da_min": {
+        "min": 24,
+        "sourceRefs": [
+          "iso4035_2023"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "da_max": {
+        "max": 25.92,
+        "sourceRefs": [
+          "iso4035_2023"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "dw_min": {
+        "min": 33.25,
+        "sourceRefs": [
+          "iso4035_2023"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "d_nom": {
+        "nominal": 24,
+        "sourceRefs": [
+          "iso4035_2023"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      }
+    },
+    "M27": {
+      "P": {
+        "nominal": 3,
+        "sourceRefs": [
+          "iso4035_2023"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "s_nom": {
+        "nominal": 41,
+        "sourceRefs": [
+          "iso4035_2023",
+          "stainlessfix4035"
+        ],
+        "status": "verified",
+        "verification": "independent-source-agreement",
+        "unit": "mm"
+      },
+      "s_min": {
+        "min": 40,
+        "sourceRefs": [
+          "iso4035_2023"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "e_min": {
+        "min": 45.2,
+        "sourceRefs": [
+          "iso4035_2023",
+          "stainlessfix4035"
+        ],
+        "status": "verified",
+        "verification": "independent-source-agreement",
+        "unit": "mm"
+      },
+      "m_max": {
+        "max": 13.5,
+        "sourceRefs": [
+          "iso4035_2023",
+          "stainlessfix4035"
+        ],
+        "status": "verified",
+        "verification": "independent-source-agreement",
+        "unit": "mm"
+      },
+      "m_min": {
+        "min": 12.4,
+        "sourceRefs": [
+          "iso4035_2023"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "da_min": {
+        "min": 27,
+        "sourceRefs": [
+          "iso4035_2023"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "da_max": {
+        "max": 29.16,
+        "sourceRefs": [
+          "iso4035_2023"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "dw_min": {
+        "min": 38,
+        "sourceRefs": [
+          "iso4035_2023"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "d_nom": {
+        "nominal": 27,
+        "sourceRefs": [
+          "iso4035_2023"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      }
+    },
+    "M30": {
+      "P": {
+        "nominal": 3.5,
+        "sourceRefs": [
+          "iso4035_2023"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "s_nom": {
+        "nominal": 46,
+        "sourceRefs": [
+          "iso4035_2023",
+          "stainlessfix4035"
+        ],
+        "status": "verified",
+        "verification": "independent-source-agreement",
+        "unit": "mm"
+      },
+      "s_min": {
+        "min": 45,
+        "sourceRefs": [
+          "iso4035_2023"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "e_min": {
+        "min": 50.85,
+        "sourceRefs": [
+          "iso4035_2023",
+          "stainlessfix4035"
+        ],
+        "status": "verified",
+        "verification": "independent-source-agreement",
+        "unit": "mm"
+      },
+      "m_max": {
+        "max": 15,
+        "sourceRefs": [
+          "iso4035_2023",
+          "stainlessfix4035"
+        ],
+        "status": "verified",
+        "verification": "independent-source-agreement",
+        "unit": "mm"
+      },
+      "m_min": {
+        "min": 13.9,
+        "sourceRefs": [
+          "iso4035_2023"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "da_min": {
+        "min": 30,
+        "sourceRefs": [
+          "iso4035_2023"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "da_max": {
+        "max": 32.4,
+        "sourceRefs": [
+          "iso4035_2023"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "dw_min": {
+        "min": 42.75,
+        "sourceRefs": [
+          "iso4035_2023"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "d_nom": {
+        "nominal": 30,
+        "sourceRefs": [
+          "iso4035_2023"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      }
+    }
+  },
+  "sourceMeta": {
+    "iso4035_2023": {
+      "url": "https://cdn.standards.iteh.ai/samples/75019/bdc8627c7e5e456593a9c1cca4e051ab/ISO-4035-2023.pdf",
+      "title": "ISO 4035:2023",
+      "locator": "Tables 1–2, printed page 3",
+      "kind": "standard",
+      "edition": "2023",
+      "accessed": "2026-11-26"
+    },
+    "stainlessfix4035": {
+      "url": "https://www.stainlessfix.com/iso-4035/",
+      "title": "StainlessFix ISO 4035 product dimensions",
+      "locator": "Size table",
+      "kind": "manufacturer-catalog",
+      "edition": null,
+      "accessed": "2026-11-26"
+    }
+  },
+  "sourceStatus": "per-value",
+  "coverage": {
+    "diameterMin": 5,
+    "diameterMax": 30,
+    "unit": "mm",
+    "status": "documented-table-range",
+    "missingSizes": [],
+    "missingReason": null
+  },
+  "editionStatus": "documented",
+  "threadSeries": "coarse",
+  "defaultPolicy": "Dokumentierte Kataloghöhe oder ausgewiesenes Höchstmaß als vorläufige Außenhülle; kein vollständiges Fertigteilmodell."
+}

@@ -1,0 +1,1254 @@
+{
+  "schemaVersion": 1,
+  "id": "DIN124",
+  "version": "2026-11-26",
+  "edition": "2011-03",
+  "label": "Halbrundniete, Nenndurchmesser 10 mm bis 36 mm",
+  "alias": [],
+  "datasetKind": "part-standard",
+  "funktion": "niet",
+  "klasse": "bolzen",
+  "kopfTyp": "kugelabschnitt",
+  "antrieb": null,
+  "threadFamily": "none",
+  "schaftende": "voll",
+  "feldzuordnung": {
+    "sD": "d_nominal",
+    "sL": "l_nominal",
+    "kD": "dk_nom_h16",
+    "kH": "k_nom"
+  },
+  "groessen": {
+    "10": {
+      "vorbelegung": {
+        "sD": 10,
+        "kD": 16,
+        "kH": 6.5
+      },
+      "roh": {
+        "d_nominal": 10,
+        "dk_nom_h16": 16,
+        "d_min": 9.4,
+        "e_max": 5,
+        "k_nom": 6.5,
+        "r_max": 8,
+        "s_setting_allowance": 10.15
+      },
+      "coverage": "documented",
+      "geometryStatus": "partial",
+      "missingGeometryFields": [
+        "headTransition"
+      ],
+      "nachLaenge": {}
+    },
+    "12": {
+      "vorbelegung": {
+        "sD": 12,
+        "kD": 19,
+        "kH": 7.5
+      },
+      "roh": {
+        "d_nominal": 12,
+        "dk_nom_h16": 19,
+        "d_min": 11.3,
+        "e_max": 6,
+        "k_nom": 7.5,
+        "r_max": 9.5,
+        "s_setting_allowance": 12.18
+      },
+      "coverage": "documented",
+      "geometryStatus": "partial",
+      "missingGeometryFields": [
+        "headTransition"
+      ],
+      "nachLaenge": {}
+    },
+    "14": {
+      "vorbelegung": {
+        "sD": 14,
+        "kD": 22,
+        "kH": 9
+      },
+      "roh": {
+        "d_nominal": 14,
+        "dk_nom_h16": 22,
+        "d_min": 13.2,
+        "e_max": 7,
+        "k_nom": 9,
+        "r_max": 11,
+        "s_setting_allowance": 14.21
+      },
+      "coverage": "documented",
+      "geometryStatus": "partial",
+      "missingGeometryFields": [
+        "headTransition"
+      ],
+      "nachLaenge": {}
+    },
+    "16": {
+      "vorbelegung": {
+        "sD": 16,
+        "kD": 25,
+        "kH": 10
+      },
+      "roh": {
+        "d_nominal": 16,
+        "dk_nom_h16": 25,
+        "d_min": 15.2,
+        "e_max": 8,
+        "k_nom": 10,
+        "r_max": 13,
+        "s_setting_allowance": 16.24
+      },
+      "coverage": "documented",
+      "geometryStatus": "partial",
+      "missingGeometryFields": [
+        "headTransition"
+      ],
+      "nachLaenge": {}
+    },
+    "18": {
+      "vorbelegung": {
+        "sD": 18,
+        "kD": 28,
+        "kH": 11.5
+      },
+      "roh": {
+        "d_nominal": 18,
+        "dk_nom_h16": 28,
+        "d_min": 17.1,
+        "e_max": 9,
+        "k_nom": 11.5,
+        "r_max": 14.5,
+        "s_setting_allowance": 18.27
+      },
+      "coverage": "documented",
+      "geometryStatus": "partial",
+      "missingGeometryFields": [
+        "headTransition"
+      ],
+      "nachLaenge": {}
+    },
+    "20": {
+      "vorbelegung": {
+        "sD": 20,
+        "kD": 32,
+        "kH": 13
+      },
+      "roh": {
+        "d_nominal": 20,
+        "dk_nom_h16": 32,
+        "d_min": 19.1,
+        "e_max": 10,
+        "k_nom": 13,
+        "r_max": 16.5,
+        "s_setting_allowance": 20.3
+      },
+      "coverage": "documented",
+      "geometryStatus": "partial",
+      "missingGeometryFields": [
+        "headTransition"
+      ],
+      "nachLaenge": {}
+    },
+    "22": {
+      "vorbelegung": {
+        "sD": 22,
+        "kD": 36,
+        "kH": 14
+      },
+      "roh": {
+        "d_nominal": 22,
+        "dk_nom_h16": 36,
+        "d_min": 20.9,
+        "e_max": 11,
+        "k_nom": 14,
+        "r_max": 18.5,
+        "s_setting_allowance": 22.33
+      },
+      "coverage": "documented",
+      "geometryStatus": "partial",
+      "missingGeometryFields": [
+        "headTransition"
+      ],
+      "nachLaenge": {}
+    },
+    "24": {
+      "vorbelegung": {
+        "sD": 24,
+        "kD": 40,
+        "kH": 16
+      },
+      "roh": {
+        "d_nominal": 24,
+        "dk_nom_h16": 40,
+        "d_min": 22.9,
+        "e_max": 12,
+        "k_nom": 16,
+        "r_max": 20.5,
+        "s_setting_allowance": 24.36
+      },
+      "coverage": "documented",
+      "geometryStatus": "partial",
+      "missingGeometryFields": [
+        "headTransition"
+      ],
+      "nachLaenge": {}
+    },
+    "27": {
+      "vorbelegung": {
+        "sD": 27,
+        "kD": 43,
+        "kH": 17
+      },
+      "roh": {
+        "d_nominal": 27,
+        "dk_nom_h16": 43,
+        "d_min": 25.8,
+        "e_max": 13.5,
+        "k_nom": 17,
+        "r_max": 22,
+        "s_setting_allowance": 27.41
+      },
+      "coverage": "documented",
+      "geometryStatus": "partial",
+      "missingGeometryFields": [
+        "headTransition"
+      ],
+      "nachLaenge": {}
+    },
+    "30": {
+      "vorbelegung": {
+        "sD": 30,
+        "kD": 48,
+        "kH": 19
+      },
+      "roh": {
+        "d_nominal": 30,
+        "dk_nom_h16": 48,
+        "d_min": 28.6,
+        "e_max": 15,
+        "k_nom": 19,
+        "r_max": 24.5,
+        "s_setting_allowance": 30.45
+      },
+      "coverage": "documented",
+      "geometryStatus": "partial",
+      "missingGeometryFields": [
+        "headTransition"
+      ],
+      "nachLaenge": {}
+    },
+    "33": {
+      "vorbelegung": {
+        "sD": 33,
+        "kD": 53,
+        "kH": 21
+      },
+      "roh": {
+        "d_nominal": 33,
+        "dk_nom_h16": 53,
+        "d_min": 31.6,
+        "e_max": 16.5,
+        "k_nom": 21,
+        "r_max": 27,
+        "s_setting_allowance": 33.5
+      },
+      "coverage": "documented",
+      "geometryStatus": "partial",
+      "missingGeometryFields": [
+        "headTransition"
+      ],
+      "nachLaenge": {}
+    },
+    "36": {
+      "vorbelegung": {
+        "sD": 36,
+        "kD": 58,
+        "kH": 23
+      },
+      "roh": {
+        "d_nominal": 36,
+        "dk_nom_h16": 58,
+        "d_min": 34.6,
+        "e_max": 18,
+        "k_nom": 23,
+        "r_max": 30,
+        "s_setting_allowance": 36.54
+      },
+      "coverage": "documented",
+      "geometryStatus": "partial",
+      "missingGeometryFields": [
+        "headTransition"
+      ],
+      "nachLaenge": {}
+    }
+  },
+  "fields": {
+    "10": {
+      "d_nominal": {
+        "nominal": 10,
+        "sourceRefs": [
+          "DIN124-s1",
+          "fasenco"
+        ],
+        "status": "verified",
+        "verification": "independent-publishers-agree",
+        "note": "Zahlenwert in zwei voneinander getrennten Veröffentlichungen bestätigt; Normedition des Herstellerblatts nicht ausdrücklich genannt.",
+        "unit": "mm"
+      },
+      "dk_nom_h16": {
+        "nominal": 16,
+        "sourceRefs": [
+          "DIN124-s1",
+          "fasenco"
+        ],
+        "status": "verified",
+        "verification": "independent-publishers-agree",
+        "note": "Zahlenwert in zwei voneinander getrennten Veröffentlichungen bestätigt; Normedition des Herstellerblatts nicht ausdrücklich genannt.",
+        "unit": "mm"
+      },
+      "d_min": {
+        "sourceRefs": [
+          "DIN124-s1",
+          "fasenco"
+        ],
+        "status": "verified",
+        "verification": "independent-publishers-agree",
+        "note": "Zahlenwert in zwei voneinander getrennten Veröffentlichungen bestätigt; Normedition des Herstellerblatts nicht ausdrücklich genannt.",
+        "unit": "mm",
+        "min": 9.4
+      },
+      "e_max": {
+        "sourceRefs": [
+          "DIN124-s1"
+        ],
+        "status": "single-source",
+        "verification": "norm-table-not-independently-verified",
+        "note": "siehe DIN 660",
+        "unit": "mm",
+        "max": 5
+      },
+      "k_nom": {
+        "nominal": 6.5,
+        "sourceRefs": [
+          "DIN124-s1",
+          "fasenco"
+        ],
+        "status": "verified",
+        "verification": "independent-publishers-agree",
+        "note": "Zahlenwert in zwei voneinander getrennten Veröffentlichungen bestätigt; Normedition des Herstellerblatts nicht ausdrücklich genannt.",
+        "unit": "mm"
+      },
+      "r_max": {
+        "sourceRefs": [
+          "DIN124-s1"
+        ],
+        "status": "single-source",
+        "verification": "norm-table-not-independently-verified",
+        "note": "Radius",
+        "unit": "mm",
+        "max": 8
+      },
+      "s_setting_allowance": {
+        "nominal": 10.15,
+        "sourceRefs": [
+          "DIN124-s1"
+        ],
+        "status": "single-source",
+        "verification": "norm-table-not-independently-verified",
+        "note": "Spaltenname 's setting allowance' der Quelle (Nietzugabe vermutet, nicht definiert)",
+        "unit": "mm"
+      }
+    },
+    "12": {
+      "d_nominal": {
+        "nominal": 12,
+        "sourceRefs": [
+          "DIN124-s1",
+          "fasenco"
+        ],
+        "status": "verified",
+        "verification": "independent-publishers-agree",
+        "note": "Zahlenwert in zwei voneinander getrennten Veröffentlichungen bestätigt; Normedition des Herstellerblatts nicht ausdrücklich genannt.",
+        "unit": "mm"
+      },
+      "dk_nom_h16": {
+        "nominal": 19,
+        "sourceRefs": [
+          "DIN124-s1",
+          "fasenco"
+        ],
+        "status": "verified",
+        "verification": "independent-publishers-agree",
+        "note": "Zahlenwert in zwei voneinander getrennten Veröffentlichungen bestätigt; Normedition des Herstellerblatts nicht ausdrücklich genannt.",
+        "unit": "mm"
+      },
+      "d_min": {
+        "sourceRefs": [
+          "DIN124-s1",
+          "fasenco"
+        ],
+        "status": "verified",
+        "verification": "independent-publishers-agree",
+        "note": "Zahlenwert in zwei voneinander getrennten Veröffentlichungen bestätigt; Normedition des Herstellerblatts nicht ausdrücklich genannt.",
+        "unit": "mm",
+        "min": 11.3
+      },
+      "e_max": {
+        "sourceRefs": [
+          "DIN124-s1"
+        ],
+        "status": "single-source",
+        "verification": "norm-table-not-independently-verified",
+        "note": "siehe DIN 660",
+        "unit": "mm",
+        "max": 6
+      },
+      "k_nom": {
+        "nominal": 7.5,
+        "sourceRefs": [
+          "DIN124-s1",
+          "fasenco"
+        ],
+        "status": "verified",
+        "verification": "independent-publishers-agree",
+        "note": "Zahlenwert in zwei voneinander getrennten Veröffentlichungen bestätigt; Normedition des Herstellerblatts nicht ausdrücklich genannt.",
+        "unit": "mm"
+      },
+      "r_max": {
+        "sourceRefs": [
+          "DIN124-s1"
+        ],
+        "status": "single-source",
+        "verification": "norm-table-not-independently-verified",
+        "note": "Radius",
+        "unit": "mm",
+        "max": 9.5
+      },
+      "s_setting_allowance": {
+        "nominal": 12.18,
+        "sourceRefs": [
+          "DIN124-s1"
+        ],
+        "status": "single-source",
+        "verification": "norm-table-not-independently-verified",
+        "note": "Spaltenname 's setting allowance' der Quelle (Nietzugabe vermutet, nicht definiert)",
+        "unit": "mm"
+      }
+    },
+    "14": {
+      "d_nominal": {
+        "nominal": 14,
+        "sourceRefs": [
+          "DIN124-s1",
+          "fasenco"
+        ],
+        "status": "verified",
+        "verification": "independent-publishers-agree",
+        "note": "Zahlenwert in zwei voneinander getrennten Veröffentlichungen bestätigt; Normedition des Herstellerblatts nicht ausdrücklich genannt.",
+        "unit": "mm"
+      },
+      "dk_nom_h16": {
+        "nominal": 22,
+        "sourceRefs": [
+          "DIN124-s1",
+          "fasenco"
+        ],
+        "status": "verified",
+        "verification": "independent-publishers-agree",
+        "note": "Zahlenwert in zwei voneinander getrennten Veröffentlichungen bestätigt; Normedition des Herstellerblatts nicht ausdrücklich genannt.",
+        "unit": "mm"
+      },
+      "d_min": {
+        "sourceRefs": [
+          "DIN124-s1",
+          "fasenco"
+        ],
+        "status": "verified",
+        "verification": "independent-publishers-agree",
+        "note": "Zahlenwert in zwei voneinander getrennten Veröffentlichungen bestätigt; Normedition des Herstellerblatts nicht ausdrücklich genannt.",
+        "unit": "mm",
+        "min": 13.2
+      },
+      "e_max": {
+        "sourceRefs": [
+          "DIN124-s1"
+        ],
+        "status": "single-source",
+        "verification": "norm-table-not-independently-verified",
+        "note": "siehe DIN 660",
+        "unit": "mm",
+        "max": 7
+      },
+      "k_nom": {
+        "nominal": 9,
+        "sourceRefs": [
+          "DIN124-s1",
+          "fasenco"
+        ],
+        "status": "verified",
+        "verification": "independent-publishers-agree",
+        "note": "Zahlenwert in zwei voneinander getrennten Veröffentlichungen bestätigt; Normedition des Herstellerblatts nicht ausdrücklich genannt.",
+        "unit": "mm"
+      },
+      "r_max": {
+        "sourceRefs": [
+          "DIN124-s1"
+        ],
+        "status": "single-source",
+        "verification": "norm-table-not-independently-verified",
+        "note": "Radius",
+        "unit": "mm",
+        "max": 11
+      },
+      "s_setting_allowance": {
+        "nominal": 14.21,
+        "sourceRefs": [
+          "DIN124-s1"
+        ],
+        "status": "single-source",
+        "verification": "norm-table-not-independently-verified",
+        "note": "Spaltenname 's setting allowance' der Quelle (Nietzugabe vermutet, nicht definiert)",
+        "unit": "mm"
+      }
+    },
+    "16": {
+      "d_nominal": {
+        "nominal": 16,
+        "sourceRefs": [
+          "DIN124-s1",
+          "fasenco"
+        ],
+        "status": "verified",
+        "verification": "independent-publishers-agree",
+        "note": "Zahlenwert in zwei voneinander getrennten Veröffentlichungen bestätigt; Normedition des Herstellerblatts nicht ausdrücklich genannt.",
+        "unit": "mm"
+      },
+      "dk_nom_h16": {
+        "nominal": 25,
+        "sourceRefs": [
+          "DIN124-s1",
+          "fasenco"
+        ],
+        "status": "verified",
+        "verification": "independent-publishers-agree",
+        "note": "Zahlenwert in zwei voneinander getrennten Veröffentlichungen bestätigt; Normedition des Herstellerblatts nicht ausdrücklich genannt.",
+        "unit": "mm"
+      },
+      "d_min": {
+        "sourceRefs": [
+          "DIN124-s1",
+          "fasenco"
+        ],
+        "status": "verified",
+        "verification": "independent-publishers-agree",
+        "note": "Zahlenwert in zwei voneinander getrennten Veröffentlichungen bestätigt; Normedition des Herstellerblatts nicht ausdrücklich genannt.",
+        "unit": "mm",
+        "min": 15.2
+      },
+      "e_max": {
+        "sourceRefs": [
+          "DIN124-s1"
+        ],
+        "status": "single-source",
+        "verification": "norm-table-not-independently-verified",
+        "note": "siehe DIN 660",
+        "unit": "mm",
+        "max": 8
+      },
+      "k_nom": {
+        "nominal": 10,
+        "sourceRefs": [
+          "DIN124-s1",
+          "fasenco"
+        ],
+        "status": "verified",
+        "verification": "independent-publishers-agree",
+        "note": "Zahlenwert in zwei voneinander getrennten Veröffentlichungen bestätigt; Normedition des Herstellerblatts nicht ausdrücklich genannt.",
+        "unit": "mm"
+      },
+      "r_max": {
+        "sourceRefs": [
+          "DIN124-s1"
+        ],
+        "status": "single-source",
+        "verification": "norm-table-not-independently-verified",
+        "note": "Radius",
+        "unit": "mm",
+        "max": 13
+      },
+      "s_setting_allowance": {
+        "nominal": 16.24,
+        "sourceRefs": [
+          "DIN124-s1"
+        ],
+        "status": "single-source",
+        "verification": "norm-table-not-independently-verified",
+        "note": "Spaltenname 's setting allowance' der Quelle (Nietzugabe vermutet, nicht definiert)",
+        "unit": "mm"
+      }
+    },
+    "18": {
+      "d_nominal": {
+        "nominal": 18,
+        "sourceRefs": [
+          "DIN124-s1",
+          "fasenco"
+        ],
+        "status": "verified",
+        "verification": "independent-publishers-agree",
+        "note": "Zahlenwert in zwei voneinander getrennten Veröffentlichungen bestätigt; Normedition des Herstellerblatts nicht ausdrücklich genannt.",
+        "unit": "mm"
+      },
+      "dk_nom_h16": {
+        "nominal": 28,
+        "sourceRefs": [
+          "DIN124-s1",
+          "fasenco"
+        ],
+        "status": "verified",
+        "verification": "independent-publishers-agree",
+        "note": "Zahlenwert in zwei voneinander getrennten Veröffentlichungen bestätigt; Normedition des Herstellerblatts nicht ausdrücklich genannt.",
+        "unit": "mm"
+      },
+      "d_min": {
+        "sourceRefs": [
+          "DIN124-s1",
+          "fasenco"
+        ],
+        "status": "verified",
+        "verification": "independent-publishers-agree",
+        "note": "Zahlenwert in zwei voneinander getrennten Veröffentlichungen bestätigt; Normedition des Herstellerblatts nicht ausdrücklich genannt.",
+        "unit": "mm",
+        "min": 17.1
+      },
+      "e_max": {
+        "sourceRefs": [
+          "DIN124-s1"
+        ],
+        "status": "single-source",
+        "verification": "norm-table-not-independently-verified",
+        "note": "siehe DIN 660",
+        "unit": "mm",
+        "max": 9
+      },
+      "k_nom": {
+        "nominal": 11.5,
+        "sourceRefs": [
+          "DIN124-s1",
+          "fasenco"
+        ],
+        "status": "verified",
+        "verification": "independent-publishers-agree",
+        "note": "Zahlenwert in zwei voneinander getrennten Veröffentlichungen bestätigt; Normedition des Herstellerblatts nicht ausdrücklich genannt.",
+        "unit": "mm"
+      },
+      "r_max": {
+        "sourceRefs": [
+          "DIN124-s1"
+        ],
+        "status": "single-source",
+        "verification": "norm-table-not-independently-verified",
+        "note": "Radius",
+        "unit": "mm",
+        "max": 14.5
+      },
+      "s_setting_allowance": {
+        "nominal": 18.27,
+        "sourceRefs": [
+          "DIN124-s1"
+        ],
+        "status": "single-source",
+        "verification": "norm-table-not-independently-verified",
+        "note": "Spaltenname 's setting allowance' der Quelle (Nietzugabe vermutet, nicht definiert)",
+        "unit": "mm"
+      }
+    },
+    "20": {
+      "d_nominal": {
+        "nominal": 20,
+        "sourceRefs": [
+          "DIN124-s1",
+          "fasenco"
+        ],
+        "status": "verified",
+        "verification": "independent-publishers-agree",
+        "note": "Zahlenwert in zwei voneinander getrennten Veröffentlichungen bestätigt; Normedition des Herstellerblatts nicht ausdrücklich genannt.",
+        "unit": "mm"
+      },
+      "dk_nom_h16": {
+        "nominal": 32,
+        "sourceRefs": [
+          "DIN124-s1",
+          "fasenco"
+        ],
+        "status": "verified",
+        "verification": "independent-publishers-agree",
+        "note": "Zahlenwert in zwei voneinander getrennten Veröffentlichungen bestätigt; Normedition des Herstellerblatts nicht ausdrücklich genannt.",
+        "unit": "mm"
+      },
+      "d_min": {
+        "sourceRefs": [
+          "DIN124-s1",
+          "fasenco"
+        ],
+        "status": "verified",
+        "verification": "independent-publishers-agree",
+        "note": "Zahlenwert in zwei voneinander getrennten Veröffentlichungen bestätigt; Normedition des Herstellerblatts nicht ausdrücklich genannt.",
+        "unit": "mm",
+        "min": 19.1
+      },
+      "e_max": {
+        "sourceRefs": [
+          "DIN124-s1"
+        ],
+        "status": "single-source",
+        "verification": "norm-table-not-independently-verified",
+        "note": "siehe DIN 660",
+        "unit": "mm",
+        "max": 10
+      },
+      "k_nom": {
+        "nominal": 13,
+        "sourceRefs": [
+          "DIN124-s1",
+          "fasenco"
+        ],
+        "status": "verified",
+        "verification": "independent-publishers-agree",
+        "note": "Zahlenwert in zwei voneinander getrennten Veröffentlichungen bestätigt; Normedition des Herstellerblatts nicht ausdrücklich genannt.",
+        "unit": "mm"
+      },
+      "r_max": {
+        "sourceRefs": [
+          "DIN124-s1"
+        ],
+        "status": "single-source",
+        "verification": "norm-table-not-independently-verified",
+        "note": "Radius",
+        "unit": "mm",
+        "max": 16.5
+      },
+      "s_setting_allowance": {
+        "nominal": 20.3,
+        "sourceRefs": [
+          "DIN124-s1"
+        ],
+        "status": "single-source",
+        "verification": "norm-table-not-independently-verified",
+        "note": "Spaltenname 's setting allowance' der Quelle (Nietzugabe vermutet, nicht definiert)",
+        "unit": "mm"
+      }
+    },
+    "22": {
+      "d_nominal": {
+        "nominal": 22,
+        "sourceRefs": [
+          "DIN124-s1",
+          "fasenco"
+        ],
+        "status": "verified",
+        "verification": "independent-publishers-agree",
+        "note": "Zahlenwert in zwei voneinander getrennten Veröffentlichungen bestätigt; Normedition des Herstellerblatts nicht ausdrücklich genannt.",
+        "unit": "mm"
+      },
+      "dk_nom_h16": {
+        "nominal": 36,
+        "sourceRefs": [
+          "DIN124-s1",
+          "fasenco"
+        ],
+        "status": "verified",
+        "verification": "independent-publishers-agree",
+        "note": "Zahlenwert in zwei voneinander getrennten Veröffentlichungen bestätigt; Normedition des Herstellerblatts nicht ausdrücklich genannt.",
+        "unit": "mm"
+      },
+      "d_min": {
+        "sourceRefs": [
+          "DIN124-s1",
+          "fasenco"
+        ],
+        "status": "verified",
+        "verification": "independent-publishers-agree",
+        "note": "Zahlenwert in zwei voneinander getrennten Veröffentlichungen bestätigt; Normedition des Herstellerblatts nicht ausdrücklich genannt.",
+        "unit": "mm",
+        "min": 20.9
+      },
+      "e_max": {
+        "sourceRefs": [
+          "DIN124-s1"
+        ],
+        "status": "single-source",
+        "verification": "norm-table-not-independently-verified",
+        "note": "siehe DIN 660",
+        "unit": "mm",
+        "max": 11
+      },
+      "k_nom": {
+        "nominal": 14,
+        "sourceRefs": [
+          "DIN124-s1",
+          "fasenco"
+        ],
+        "status": "verified",
+        "verification": "independent-publishers-agree",
+        "note": "Zahlenwert in zwei voneinander getrennten Veröffentlichungen bestätigt; Normedition des Herstellerblatts nicht ausdrücklich genannt.",
+        "unit": "mm"
+      },
+      "r_max": {
+        "sourceRefs": [
+          "DIN124-s1"
+        ],
+        "status": "single-source",
+        "verification": "norm-table-not-independently-verified",
+        "note": "Radius",
+        "unit": "mm",
+        "max": 18.5
+      },
+      "s_setting_allowance": {
+        "nominal": 22.33,
+        "sourceRefs": [
+          "DIN124-s1"
+        ],
+        "status": "single-source",
+        "verification": "norm-table-not-independently-verified",
+        "note": "Spaltenname 's setting allowance' der Quelle (Nietzugabe vermutet, nicht definiert)",
+        "unit": "mm"
+      }
+    },
+    "24": {
+      "d_nominal": {
+        "nominal": 24,
+        "sourceRefs": [
+          "DIN124-s1",
+          "fasenco"
+        ],
+        "status": "verified",
+        "verification": "independent-publishers-agree",
+        "note": "Zahlenwert in zwei voneinander getrennten Veröffentlichungen bestätigt; Normedition des Herstellerblatts nicht ausdrücklich genannt.",
+        "unit": "mm"
+      },
+      "dk_nom_h16": {
+        "nominal": 40,
+        "sourceRefs": [
+          "DIN124-s1",
+          "fasenco"
+        ],
+        "status": "verified",
+        "verification": "independent-publishers-agree",
+        "note": "Zahlenwert in zwei voneinander getrennten Veröffentlichungen bestätigt; Normedition des Herstellerblatts nicht ausdrücklich genannt.",
+        "unit": "mm"
+      },
+      "d_min": {
+        "sourceRefs": [
+          "DIN124-s1",
+          "fasenco"
+        ],
+        "status": "verified",
+        "verification": "independent-publishers-agree",
+        "note": "Zahlenwert in zwei voneinander getrennten Veröffentlichungen bestätigt; Normedition des Herstellerblatts nicht ausdrücklich genannt.",
+        "unit": "mm",
+        "min": 22.9
+      },
+      "e_max": {
+        "sourceRefs": [
+          "DIN124-s1"
+        ],
+        "status": "single-source",
+        "verification": "norm-table-not-independently-verified",
+        "note": "siehe DIN 660",
+        "unit": "mm",
+        "max": 12
+      },
+      "k_nom": {
+        "nominal": 16,
+        "sourceRefs": [
+          "DIN124-s1",
+          "fasenco"
+        ],
+        "status": "verified",
+        "verification": "independent-publishers-agree",
+        "note": "Zahlenwert in zwei voneinander getrennten Veröffentlichungen bestätigt; Normedition des Herstellerblatts nicht ausdrücklich genannt.",
+        "unit": "mm"
+      },
+      "r_max": {
+        "sourceRefs": [
+          "DIN124-s1"
+        ],
+        "status": "single-source",
+        "verification": "norm-table-not-independently-verified",
+        "note": "Radius",
+        "unit": "mm",
+        "max": 20.5
+      },
+      "s_setting_allowance": {
+        "nominal": 24.36,
+        "sourceRefs": [
+          "DIN124-s1"
+        ],
+        "status": "single-source",
+        "verification": "norm-table-not-independently-verified",
+        "note": "Spaltenname 's setting allowance' der Quelle (Nietzugabe vermutet, nicht definiert)",
+        "unit": "mm"
+      }
+    },
+    "27": {
+      "d_nominal": {
+        "nominal": 27,
+        "sourceRefs": [
+          "DIN124-s1",
+          "fasenco"
+        ],
+        "status": "verified",
+        "verification": "independent-publishers-agree",
+        "note": "Zahlenwert in zwei voneinander getrennten Veröffentlichungen bestätigt; Normedition des Herstellerblatts nicht ausdrücklich genannt.",
+        "unit": "mm"
+      },
+      "dk_nom_h16": {
+        "nominal": 43,
+        "sourceRefs": [
+          "DIN124-s1",
+          "fasenco"
+        ],
+        "status": "verified",
+        "verification": "independent-publishers-agree",
+        "note": "Zahlenwert in zwei voneinander getrennten Veröffentlichungen bestätigt; Normedition des Herstellerblatts nicht ausdrücklich genannt.",
+        "unit": "mm"
+      },
+      "d_min": {
+        "sourceRefs": [
+          "DIN124-s1",
+          "fasenco"
+        ],
+        "status": "verified",
+        "verification": "independent-publishers-agree",
+        "note": "Zahlenwert in zwei voneinander getrennten Veröffentlichungen bestätigt; Normedition des Herstellerblatts nicht ausdrücklich genannt.",
+        "unit": "mm",
+        "min": 25.8
+      },
+      "e_max": {
+        "sourceRefs": [
+          "DIN124-s1"
+        ],
+        "status": "single-source",
+        "verification": "norm-table-not-independently-verified",
+        "note": "siehe DIN 660",
+        "unit": "mm",
+        "max": 13.5
+      },
+      "k_nom": {
+        "nominal": 17,
+        "sourceRefs": [
+          "DIN124-s1",
+          "fasenco"
+        ],
+        "status": "verified",
+        "verification": "independent-publishers-agree",
+        "note": "Zahlenwert in zwei voneinander getrennten Veröffentlichungen bestätigt; Normedition des Herstellerblatts nicht ausdrücklich genannt.",
+        "unit": "mm"
+      },
+      "r_max": {
+        "sourceRefs": [
+          "DIN124-s1"
+        ],
+        "status": "single-source",
+        "verification": "norm-table-not-independently-verified",
+        "note": "Radius",
+        "unit": "mm",
+        "max": 22
+      },
+      "s_setting_allowance": {
+        "nominal": 27.41,
+        "sourceRefs": [
+          "DIN124-s1"
+        ],
+        "status": "single-source",
+        "verification": "norm-table-not-independently-verified",
+        "note": "Spaltenname 's setting allowance' der Quelle (Nietzugabe vermutet, nicht definiert)",
+        "unit": "mm"
+      }
+    },
+    "30": {
+      "d_nominal": {
+        "nominal": 30,
+        "sourceRefs": [
+          "DIN124-s1",
+          "fasenco"
+        ],
+        "status": "verified",
+        "verification": "independent-publishers-agree",
+        "note": "Zahlenwert in zwei voneinander getrennten Veröffentlichungen bestätigt; Normedition des Herstellerblatts nicht ausdrücklich genannt.",
+        "unit": "mm"
+      },
+      "dk_nom_h16": {
+        "nominal": 48,
+        "sourceRefs": [
+          "DIN124-s1",
+          "fasenco"
+        ],
+        "status": "verified",
+        "verification": "independent-publishers-agree",
+        "note": "Zahlenwert in zwei voneinander getrennten Veröffentlichungen bestätigt; Normedition des Herstellerblatts nicht ausdrücklich genannt.",
+        "unit": "mm"
+      },
+      "d_min": {
+        "sourceRefs": [
+          "DIN124-s1",
+          "fasenco"
+        ],
+        "status": "verified",
+        "verification": "independent-publishers-agree",
+        "note": "Zahlenwert in zwei voneinander getrennten Veröffentlichungen bestätigt; Normedition des Herstellerblatts nicht ausdrücklich genannt.",
+        "unit": "mm",
+        "min": 28.6
+      },
+      "e_max": {
+        "sourceRefs": [
+          "DIN124-s1"
+        ],
+        "status": "single-source",
+        "verification": "norm-table-not-independently-verified",
+        "note": "siehe DIN 660",
+        "unit": "mm",
+        "max": 15
+      },
+      "k_nom": {
+        "nominal": 19,
+        "sourceRefs": [
+          "DIN124-s1",
+          "fasenco"
+        ],
+        "status": "verified",
+        "verification": "independent-publishers-agree",
+        "note": "Zahlenwert in zwei voneinander getrennten Veröffentlichungen bestätigt; Normedition des Herstellerblatts nicht ausdrücklich genannt.",
+        "unit": "mm"
+      },
+      "r_max": {
+        "sourceRefs": [
+          "DIN124-s1"
+        ],
+        "status": "single-source",
+        "verification": "norm-table-not-independently-verified",
+        "note": "Radius",
+        "unit": "mm",
+        "max": 24.5
+      },
+      "s_setting_allowance": {
+        "nominal": 30.45,
+        "sourceRefs": [
+          "DIN124-s1"
+        ],
+        "status": "single-source",
+        "verification": "norm-table-not-independently-verified",
+        "note": "Spaltenname 's setting allowance' der Quelle (Nietzugabe vermutet, nicht definiert)",
+        "unit": "mm"
+      }
+    },
+    "33": {
+      "d_nominal": {
+        "nominal": 33,
+        "sourceRefs": [
+          "DIN124-s1",
+          "fasenco"
+        ],
+        "status": "verified",
+        "verification": "independent-publishers-agree",
+        "note": "Zahlenwert in zwei voneinander getrennten Veröffentlichungen bestätigt; Normedition des Herstellerblatts nicht ausdrücklich genannt.",
+        "unit": "mm"
+      },
+      "dk_nom_h16": {
+        "nominal": 53,
+        "sourceRefs": [
+          "DIN124-s1",
+          "fasenco"
+        ],
+        "status": "verified",
+        "verification": "independent-publishers-agree",
+        "note": "Zahlenwert in zwei voneinander getrennten Veröffentlichungen bestätigt; Normedition des Herstellerblatts nicht ausdrücklich genannt.",
+        "unit": "mm"
+      },
+      "d_min": {
+        "sourceRefs": [
+          "DIN124-s1",
+          "fasenco"
+        ],
+        "status": "verified",
+        "verification": "independent-publishers-agree",
+        "note": "Zahlenwert in zwei voneinander getrennten Veröffentlichungen bestätigt; Normedition des Herstellerblatts nicht ausdrücklich genannt.",
+        "unit": "mm",
+        "min": 31.6
+      },
+      "e_max": {
+        "sourceRefs": [
+          "DIN124-s1"
+        ],
+        "status": "single-source",
+        "verification": "norm-table-not-independently-verified",
+        "note": "siehe DIN 660",
+        "unit": "mm",
+        "max": 16.5
+      },
+      "k_nom": {
+        "nominal": 21,
+        "sourceRefs": [
+          "DIN124-s1",
+          "fasenco"
+        ],
+        "status": "verified",
+        "verification": "independent-publishers-agree",
+        "note": "Zahlenwert in zwei voneinander getrennten Veröffentlichungen bestätigt; Normedition des Herstellerblatts nicht ausdrücklich genannt.",
+        "unit": "mm"
+      },
+      "r_max": {
+        "sourceRefs": [
+          "DIN124-s1"
+        ],
+        "status": "single-source",
+        "verification": "norm-table-not-independently-verified",
+        "note": "Radius",
+        "unit": "mm",
+        "max": 27
+      },
+      "s_setting_allowance": {
+        "nominal": 33.5,
+        "sourceRefs": [
+          "DIN124-s1"
+        ],
+        "status": "single-source",
+        "verification": "norm-table-not-independently-verified",
+        "note": "Spaltenname 's setting allowance' der Quelle (Nietzugabe vermutet, nicht definiert)",
+        "unit": "mm"
+      }
+    },
+    "36": {
+      "d_nominal": {
+        "nominal": 36,
+        "sourceRefs": [
+          "DIN124-s1",
+          "fasenco"
+        ],
+        "status": "verified",
+        "verification": "independent-publishers-agree",
+        "note": "Zahlenwert in zwei voneinander getrennten Veröffentlichungen bestätigt; Normedition des Herstellerblatts nicht ausdrücklich genannt.",
+        "unit": "mm"
+      },
+      "dk_nom_h16": {
+        "nominal": 58,
+        "sourceRefs": [
+          "DIN124-s1",
+          "fasenco"
+        ],
+        "status": "verified",
+        "verification": "independent-publishers-agree",
+        "note": "Zahlenwert in zwei voneinander getrennten Veröffentlichungen bestätigt; Normedition des Herstellerblatts nicht ausdrücklich genannt.",
+        "unit": "mm"
+      },
+      "d_min": {
+        "sourceRefs": [
+          "DIN124-s1",
+          "fasenco"
+        ],
+        "status": "verified",
+        "verification": "independent-publishers-agree",
+        "note": "Zahlenwert in zwei voneinander getrennten Veröffentlichungen bestätigt; Normedition des Herstellerblatts nicht ausdrücklich genannt.",
+        "unit": "mm",
+        "min": 34.6
+      },
+      "e_max": {
+        "sourceRefs": [
+          "DIN124-s1"
+        ],
+        "status": "single-source",
+        "verification": "norm-table-not-independently-verified",
+        "note": "siehe DIN 660",
+        "unit": "mm",
+        "max": 18
+      },
+      "k_nom": {
+        "nominal": 23,
+        "sourceRefs": [
+          "DIN124-s1",
+          "fasenco"
+        ],
+        "status": "verified",
+        "verification": "independent-publishers-agree",
+        "note": "Zahlenwert in zwei voneinander getrennten Veröffentlichungen bestätigt; Normedition des Herstellerblatts nicht ausdrücklich genannt.",
+        "unit": "mm"
+      },
+      "r_max": {
+        "sourceRefs": [
+          "DIN124-s1"
+        ],
+        "status": "single-source",
+        "verification": "norm-table-not-independently-verified",
+        "note": "Radius",
+        "unit": "mm",
+        "max": 30
+      },
+      "s_setting_allowance": {
+        "nominal": 36.54,
+        "sourceRefs": [
+          "DIN124-s1"
+        ],
+        "status": "single-source",
+        "verification": "norm-table-not-independently-verified",
+        "note": "Spaltenname 's setting allowance' der Quelle (Nietzugabe vermutet, nicht definiert)",
+        "unit": "mm"
+      }
+    }
+  },
+  "quellen": [
+    {
+      "url": "https://fasten.it/en/norms/norm/din_124",
+      "titel": "fasten.it DIN 124",
+      "abgerufen": "2026-11-25",
+      "id": "DIN124-s1",
+      "scope": "dimensions"
+    },
+    {
+      "url": "https://www.dinmedia.de/de/norm/din-124/135439521",
+      "titel": "DIN Media DIN 124:2011-03",
+      "abgerufen": "2026-11-25",
+      "id": "DIN124-s2",
+      "scope": "edition-status"
+    },
+    {
+      "id": "fasenco",
+      "url": "https://www.fasenco.com/din-124/",
+      "titel": "Fasenco Maßtabelle DIN124",
+      "abgerufen": "2026-11-26",
+      "scope": "dimensions"
+    }
+  ],
+  "status": "partial",
+  "coverage": "documented",
+  "pruefdatum": "2026-11-26",
+  "normstatus": {
+    "edition": "2011-03",
+    "status": "status-from-supplied-source",
+    "sourceRefs": [
+      "DIN124-s2"
+    ]
+  },
+  "hinweise": [
+    "Fehlende Größe oder Länge bedeutet fehlende Datenabdeckung, kein Normverbot.",
+    "Maßdaten sind einzeln belegt; Editionsstatus allein bestätigt keine Maßtabelle."
+  ],
+  "gaps": [
+    "Vollständige Normlängenmatrix je Größe und aktuelle Originalmaßtabelle nicht unabhängig bestätigt."
+  ],
+  "lengthDependentFields": [
+    "sL"
+  ],
+  "laengen": {
+    "values": [],
+    "unit": "mm",
+    "kind": "unresearched",
+    "coverage": "unresearched",
+    "status": "missing",
+    "sourceRefs": [],
+    "verification": "norm-length-matrix-not-verified",
+    "note": "Exakte Normlängen je Durchmesser noch nicht belegt; aus min/max werden keine Zwischenlängen erzeugt."
+  }
+}

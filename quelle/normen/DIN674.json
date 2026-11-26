@@ -1,0 +1,970 @@
+{
+  "schemaVersion": 1,
+  "id": "DIN674",
+  "version": "2026-11-26",
+  "edition": "2011-03",
+  "label": "DIN 674 · Flachrundniet",
+  "alias": [],
+  "datasetKind": "part-standard",
+  "funktion": "niet",
+  "klasse": "bolzen",
+  "kopfTyp": "flachrund",
+  "antrieb": null,
+  "threadFamily": "none",
+  "schaftende": "voll",
+  "feldzuordnung": {
+    "sD": "d_nominal",
+    "kD": "dk_nom",
+    "kH": "k_js14",
+    "sL": "l_nominal"
+  },
+  "groessen": {
+    "2": {
+      "vorbelegung": {
+        "sD": 2,
+        "kD": 4.5
+      },
+      "roh": {
+        "d_nominal": 2,
+        "dk_nom": 4.5,
+        "k_js14": 1.12,
+        "e_max": 1,
+        "r1_ca": 3.6,
+        "d_min": 1.87
+      },
+      "coverage": "documented",
+      "geometryStatus": "partial",
+      "missingGeometryFields": [
+        "headProfileDefinition",
+        "verifiedHeadHeight"
+      ],
+      "nachLaenge": {}
+    },
+    "3": {
+      "vorbelegung": {
+        "sD": 3,
+        "kD": 6.8
+      },
+      "roh": {
+        "d_nominal": 3,
+        "dk_nom": 6.8,
+        "k_js14": 1.62,
+        "e_max": 1.5,
+        "r1_ca": 5.4,
+        "d_min": 2.87
+      },
+      "coverage": "documented",
+      "geometryStatus": "partial",
+      "missingGeometryFields": [
+        "headProfileDefinition",
+        "verifiedHeadHeight"
+      ],
+      "nachLaenge": {}
+    },
+    "4": {
+      "vorbelegung": {
+        "sD": 4,
+        "kD": 9
+      },
+      "roh": {
+        "d_nominal": 4,
+        "dk_nom": 9,
+        "k_js14": 2.12,
+        "e_max": 2,
+        "r1_ca": 7.1,
+        "d_min": 3.87
+      },
+      "coverage": "documented",
+      "geometryStatus": "partial",
+      "missingGeometryFields": [
+        "headProfileDefinition",
+        "verifiedHeadHeight"
+      ],
+      "nachLaenge": {}
+    },
+    "5": {
+      "vorbelegung": {
+        "sD": 5,
+        "kD": 11.2
+      },
+      "roh": {
+        "d_nominal": 5,
+        "dk_nom": 11.2,
+        "k_js14": 2.62,
+        "e_max": 2.5,
+        "r1_ca": 8.8,
+        "d_min": 4.82
+      },
+      "coverage": "documented",
+      "geometryStatus": "partial",
+      "missingGeometryFields": [
+        "headProfileDefinition",
+        "verifiedHeadHeight"
+      ],
+      "nachLaenge": {}
+    },
+    "6": {
+      "vorbelegung": {
+        "sD": 6,
+        "kD": 13.5
+      },
+      "roh": {
+        "d_nominal": 6,
+        "dk_nom": 13.5,
+        "k_js14": 3.15,
+        "e_max": 3,
+        "r1_ca": 10.7,
+        "d_min": 5.82
+      },
+      "coverage": "documented",
+      "geometryStatus": "partial",
+      "missingGeometryFields": [
+        "headProfileDefinition",
+        "verifiedHeadHeight"
+      ],
+      "nachLaenge": {}
+    },
+    "1.4": {
+      "vorbelegung": {
+        "sD": 1.4,
+        "kD": 3.2
+      },
+      "roh": {
+        "d_nominal": 1.4,
+        "dk_nom": 3.2,
+        "k_js14": 0.82,
+        "e_max": 0.7,
+        "r1_ca": 2.8,
+        "d_min": 1.33
+      },
+      "coverage": "documented",
+      "geometryStatus": "partial",
+      "missingGeometryFields": [
+        "headProfileDefinition",
+        "verifiedHeadHeight"
+      ],
+      "nachLaenge": {}
+    },
+    "1.6": {
+      "vorbelegung": {
+        "sD": 1.6,
+        "kD": 3.6
+      },
+      "roh": {
+        "d_nominal": 1.6,
+        "dk_nom": 3.6,
+        "k_js14": 0.92,
+        "e_max": 0.8,
+        "r1_ca": 3,
+        "d_min": 1.52
+      },
+      "coverage": "documented",
+      "geometryStatus": "partial",
+      "missingGeometryFields": [
+        "headProfileDefinition",
+        "verifiedHeadHeight"
+      ],
+      "nachLaenge": {}
+    },
+    "2.5": {
+      "vorbelegung": {
+        "sD": 2.5,
+        "kD": 5.6
+      },
+      "roh": {
+        "d_nominal": 2.5,
+        "dk_nom": 5.6,
+        "k_js14": 1.42,
+        "e_max": 1.25,
+        "r1_ca": 4.2,
+        "d_min": 2.37
+      },
+      "coverage": "documented",
+      "geometryStatus": "partial",
+      "missingGeometryFields": [
+        "headProfileDefinition",
+        "verifiedHeadHeight"
+      ],
+      "nachLaenge": {}
+    },
+    "3.5": {
+      "vorbelegung": {
+        "sD": 3.5,
+        "kD": 7.8
+      },
+      "roh": {
+        "d_nominal": 3.5,
+        "dk_nom": 7.8,
+        "k_js14": 1.92,
+        "e_max": 1.75,
+        "r1_ca": 6.1,
+        "d_min": 3.37
+      },
+      "coverage": "documented",
+      "geometryStatus": "partial",
+      "missingGeometryFields": [
+        "headProfileDefinition",
+        "verifiedHeadHeight"
+      ],
+      "nachLaenge": {}
+    }
+  },
+  "fields": {
+    "2": {
+      "d_nominal": {
+        "nominal": 2,
+        "sourceRefs": [
+          "DIN674-s1",
+          "fasenco"
+        ],
+        "status": "verified",
+        "verification": "independent-publishers-agree",
+        "note": "Zahlenwert in zwei voneinander getrennten Veröffentlichungen bestätigt; Normedition des Herstellerblatts nicht ausdrücklich genannt.",
+        "unit": "mm"
+      },
+      "dk_nom": {
+        "nominal": 4.5,
+        "sourceRefs": [
+          "DIN674-s1",
+          "fasenco"
+        ],
+        "status": "verified",
+        "verification": "independent-publishers-agree",
+        "note": "Zahlenwert in zwei voneinander getrennten Veröffentlichungen bestätigt; Normedition des Herstellerblatts nicht ausdrücklich genannt.",
+        "unit": "mm"
+      },
+      "k_js14": {
+        "nominal": 1.12,
+        "sourceRefs": [
+          "DIN674-s1",
+          "fasenco"
+        ],
+        "status": "conflict",
+        "verification": "different-head-heights",
+        "note": "2011-Katalogwert und Herstellerwert ohne Editionsangabe widersprechen sich. Keine sichere automatische Kopfhöhe.",
+        "unit": "mm",
+        "alternatives": [
+          {
+            "nominal": 1,
+            "sourceRefs": [
+              "fasenco"
+            ],
+            "edition": null
+          }
+        ]
+      },
+      "e_max": {
+        "sourceRefs": [
+          "DIN674-s1",
+          "fasenco"
+        ],
+        "status": "verified",
+        "verification": "independent-publishers-agree",
+        "note": "Zahlenwert in zwei voneinander getrennten Veröffentlichungen bestätigt; Normedition des Herstellerblatts nicht ausdrücklich genannt.",
+        "unit": "mm",
+        "max": 1
+      },
+      "r1_ca": {
+        "nominal": 3.6,
+        "sourceRefs": [
+          "DIN674-s1"
+        ],
+        "status": "single-source",
+        "verification": "norm-table-not-independently-verified",
+        "note": "Kopfradius ca.",
+        "unit": "mm"
+      },
+      "d_min": {
+        "sourceRefs": [
+          "DIN674-s1",
+          "fasenco"
+        ],
+        "status": "verified",
+        "verification": "independent-publishers-agree",
+        "note": "Zahlenwert in zwei voneinander getrennten Veröffentlichungen bestätigt; Normedition des Herstellerblatts nicht ausdrücklich genannt.",
+        "unit": "mm",
+        "min": 1.87
+      }
+    },
+    "3": {
+      "d_nominal": {
+        "nominal": 3,
+        "sourceRefs": [
+          "DIN674-s1",
+          "fasenco"
+        ],
+        "status": "verified",
+        "verification": "independent-publishers-agree",
+        "note": "Zahlenwert in zwei voneinander getrennten Veröffentlichungen bestätigt; Normedition des Herstellerblatts nicht ausdrücklich genannt.",
+        "unit": "mm"
+      },
+      "dk_nom": {
+        "nominal": 6.8,
+        "sourceRefs": [
+          "DIN674-s1",
+          "fasenco"
+        ],
+        "status": "verified",
+        "verification": "independent-publishers-agree",
+        "note": "Zahlenwert in zwei voneinander getrennten Veröffentlichungen bestätigt; Normedition des Herstellerblatts nicht ausdrücklich genannt.",
+        "unit": "mm"
+      },
+      "k_js14": {
+        "nominal": 1.62,
+        "sourceRefs": [
+          "DIN674-s1",
+          "fasenco"
+        ],
+        "status": "conflict",
+        "verification": "different-head-heights",
+        "note": "2011-Katalogwert und Herstellerwert ohne Editionsangabe widersprechen sich. Keine sichere automatische Kopfhöhe.",
+        "unit": "mm",
+        "alternatives": [
+          {
+            "nominal": 1.5,
+            "sourceRefs": [
+              "fasenco"
+            ],
+            "edition": null
+          }
+        ]
+      },
+      "e_max": {
+        "sourceRefs": [
+          "DIN674-s1",
+          "fasenco"
+        ],
+        "status": "verified",
+        "verification": "independent-publishers-agree",
+        "note": "Zahlenwert in zwei voneinander getrennten Veröffentlichungen bestätigt; Normedition des Herstellerblatts nicht ausdrücklich genannt.",
+        "unit": "mm",
+        "max": 1.5
+      },
+      "r1_ca": {
+        "nominal": 5.4,
+        "sourceRefs": [
+          "DIN674-s1"
+        ],
+        "status": "single-source",
+        "verification": "norm-table-not-independently-verified",
+        "note": "Kopfradius ca.",
+        "unit": "mm"
+      },
+      "d_min": {
+        "sourceRefs": [
+          "DIN674-s1",
+          "fasenco"
+        ],
+        "status": "verified",
+        "verification": "independent-publishers-agree",
+        "note": "Zahlenwert in zwei voneinander getrennten Veröffentlichungen bestätigt; Normedition des Herstellerblatts nicht ausdrücklich genannt.",
+        "unit": "mm",
+        "min": 2.87
+      }
+    },
+    "4": {
+      "d_nominal": {
+        "nominal": 4,
+        "sourceRefs": [
+          "DIN674-s1",
+          "fasenco"
+        ],
+        "status": "verified",
+        "verification": "independent-publishers-agree",
+        "note": "Zahlenwert in zwei voneinander getrennten Veröffentlichungen bestätigt; Normedition des Herstellerblatts nicht ausdrücklich genannt.",
+        "unit": "mm"
+      },
+      "dk_nom": {
+        "nominal": 9,
+        "sourceRefs": [
+          "DIN674-s1",
+          "fasenco"
+        ],
+        "status": "verified",
+        "verification": "independent-publishers-agree",
+        "note": "Zahlenwert in zwei voneinander getrennten Veröffentlichungen bestätigt; Normedition des Herstellerblatts nicht ausdrücklich genannt.",
+        "unit": "mm"
+      },
+      "k_js14": {
+        "nominal": 2.12,
+        "sourceRefs": [
+          "DIN674-s1",
+          "fasenco"
+        ],
+        "status": "conflict",
+        "verification": "different-head-heights",
+        "note": "2011-Katalogwert und Herstellerwert ohne Editionsangabe widersprechen sich. Keine sichere automatische Kopfhöhe.",
+        "unit": "mm",
+        "alternatives": [
+          {
+            "nominal": 2,
+            "sourceRefs": [
+              "fasenco"
+            ],
+            "edition": null
+          }
+        ]
+      },
+      "e_max": {
+        "sourceRefs": [
+          "DIN674-s1",
+          "fasenco"
+        ],
+        "status": "verified",
+        "verification": "independent-publishers-agree",
+        "note": "Zahlenwert in zwei voneinander getrennten Veröffentlichungen bestätigt; Normedition des Herstellerblatts nicht ausdrücklich genannt.",
+        "unit": "mm",
+        "max": 2
+      },
+      "r1_ca": {
+        "nominal": 7.1,
+        "sourceRefs": [
+          "DIN674-s1"
+        ],
+        "status": "single-source",
+        "verification": "norm-table-not-independently-verified",
+        "note": "Kopfradius ca.",
+        "unit": "mm"
+      },
+      "d_min": {
+        "sourceRefs": [
+          "DIN674-s1",
+          "fasenco"
+        ],
+        "status": "verified",
+        "verification": "independent-publishers-agree",
+        "note": "Zahlenwert in zwei voneinander getrennten Veröffentlichungen bestätigt; Normedition des Herstellerblatts nicht ausdrücklich genannt.",
+        "unit": "mm",
+        "min": 3.87
+      }
+    },
+    "5": {
+      "d_nominal": {
+        "nominal": 5,
+        "sourceRefs": [
+          "DIN674-s1",
+          "fasenco"
+        ],
+        "status": "verified",
+        "verification": "independent-publishers-agree",
+        "note": "Zahlenwert in zwei voneinander getrennten Veröffentlichungen bestätigt; Normedition des Herstellerblatts nicht ausdrücklich genannt.",
+        "unit": "mm"
+      },
+      "dk_nom": {
+        "nominal": 11.2,
+        "sourceRefs": [
+          "DIN674-s1",
+          "fasenco"
+        ],
+        "status": "verified",
+        "verification": "independent-publishers-agree",
+        "note": "Zahlenwert in zwei voneinander getrennten Veröffentlichungen bestätigt; Normedition des Herstellerblatts nicht ausdrücklich genannt.",
+        "unit": "mm"
+      },
+      "k_js14": {
+        "nominal": 2.62,
+        "sourceRefs": [
+          "DIN674-s1",
+          "fasenco"
+        ],
+        "status": "conflict",
+        "verification": "different-head-heights",
+        "note": "2011-Katalogwert und Herstellerwert ohne Editionsangabe widersprechen sich. Keine sichere automatische Kopfhöhe.",
+        "unit": "mm",
+        "alternatives": [
+          {
+            "nominal": 2.5,
+            "sourceRefs": [
+              "fasenco"
+            ],
+            "edition": null
+          }
+        ]
+      },
+      "e_max": {
+        "sourceRefs": [
+          "DIN674-s1",
+          "fasenco"
+        ],
+        "status": "verified",
+        "verification": "independent-publishers-agree",
+        "note": "Zahlenwert in zwei voneinander getrennten Veröffentlichungen bestätigt; Normedition des Herstellerblatts nicht ausdrücklich genannt.",
+        "unit": "mm",
+        "max": 2.5
+      },
+      "r1_ca": {
+        "nominal": 8.8,
+        "sourceRefs": [
+          "DIN674-s1"
+        ],
+        "status": "single-source",
+        "verification": "norm-table-not-independently-verified",
+        "note": "Kopfradius ca.",
+        "unit": "mm"
+      },
+      "d_min": {
+        "sourceRefs": [
+          "DIN674-s1",
+          "fasenco"
+        ],
+        "status": "verified",
+        "verification": "independent-publishers-agree",
+        "note": "Zahlenwert in zwei voneinander getrennten Veröffentlichungen bestätigt; Normedition des Herstellerblatts nicht ausdrücklich genannt.",
+        "unit": "mm",
+        "min": 4.82
+      }
+    },
+    "6": {
+      "d_nominal": {
+        "nominal": 6,
+        "sourceRefs": [
+          "DIN674-s1",
+          "fasenco"
+        ],
+        "status": "verified",
+        "verification": "independent-publishers-agree",
+        "note": "Zahlenwert in zwei voneinander getrennten Veröffentlichungen bestätigt; Normedition des Herstellerblatts nicht ausdrücklich genannt.",
+        "unit": "mm"
+      },
+      "dk_nom": {
+        "nominal": 13.5,
+        "sourceRefs": [
+          "DIN674-s1",
+          "fasenco"
+        ],
+        "status": "verified",
+        "verification": "independent-publishers-agree",
+        "note": "Zahlenwert in zwei voneinander getrennten Veröffentlichungen bestätigt; Normedition des Herstellerblatts nicht ausdrücklich genannt.",
+        "unit": "mm"
+      },
+      "k_js14": {
+        "nominal": 3.15,
+        "sourceRefs": [
+          "DIN674-s1",
+          "fasenco"
+        ],
+        "status": "conflict",
+        "verification": "different-head-heights",
+        "note": "2011-Katalogwert und Herstellerwert ohne Editionsangabe widersprechen sich. Keine sichere automatische Kopfhöhe.",
+        "unit": "mm",
+        "alternatives": [
+          {
+            "nominal": 3,
+            "sourceRefs": [
+              "fasenco"
+            ],
+            "edition": null
+          }
+        ]
+      },
+      "e_max": {
+        "sourceRefs": [
+          "DIN674-s1",
+          "fasenco"
+        ],
+        "status": "verified",
+        "verification": "independent-publishers-agree",
+        "note": "Zahlenwert in zwei voneinander getrennten Veröffentlichungen bestätigt; Normedition des Herstellerblatts nicht ausdrücklich genannt.",
+        "unit": "mm",
+        "max": 3
+      },
+      "r1_ca": {
+        "nominal": 10.7,
+        "sourceRefs": [
+          "DIN674-s1"
+        ],
+        "status": "single-source",
+        "verification": "norm-table-not-independently-verified",
+        "note": "Kopfradius ca.",
+        "unit": "mm"
+      },
+      "d_min": {
+        "sourceRefs": [
+          "DIN674-s1",
+          "fasenco"
+        ],
+        "status": "verified",
+        "verification": "independent-publishers-agree",
+        "note": "Zahlenwert in zwei voneinander getrennten Veröffentlichungen bestätigt; Normedition des Herstellerblatts nicht ausdrücklich genannt.",
+        "unit": "mm",
+        "min": 5.82
+      }
+    },
+    "1.4": {
+      "d_nominal": {
+        "nominal": 1.4,
+        "sourceRefs": [
+          "DIN674-s1",
+          "fasenco"
+        ],
+        "status": "verified",
+        "verification": "independent-publishers-agree",
+        "note": "Zahlenwert in zwei voneinander getrennten Veröffentlichungen bestätigt; Normedition des Herstellerblatts nicht ausdrücklich genannt.",
+        "unit": "mm"
+      },
+      "dk_nom": {
+        "nominal": 3.2,
+        "sourceRefs": [
+          "DIN674-s1",
+          "fasenco"
+        ],
+        "status": "verified",
+        "verification": "independent-publishers-agree",
+        "note": "Zahlenwert in zwei voneinander getrennten Veröffentlichungen bestätigt; Normedition des Herstellerblatts nicht ausdrücklich genannt.",
+        "unit": "mm"
+      },
+      "k_js14": {
+        "nominal": 0.82,
+        "sourceRefs": [
+          "DIN674-s1",
+          "fasenco"
+        ],
+        "status": "conflict",
+        "verification": "different-head-heights",
+        "note": "2011-Katalogwert und Herstellerwert ohne Editionsangabe widersprechen sich. Keine sichere automatische Kopfhöhe.",
+        "unit": "mm",
+        "alternatives": [
+          {
+            "nominal": 0.7,
+            "sourceRefs": [
+              "fasenco"
+            ],
+            "edition": null
+          }
+        ]
+      },
+      "e_max": {
+        "sourceRefs": [
+          "DIN674-s1",
+          "fasenco"
+        ],
+        "status": "verified",
+        "verification": "independent-publishers-agree",
+        "note": "Zahlenwert in zwei voneinander getrennten Veröffentlichungen bestätigt; Normedition des Herstellerblatts nicht ausdrücklich genannt.",
+        "unit": "mm",
+        "max": 0.7
+      },
+      "r1_ca": {
+        "nominal": 2.8,
+        "sourceRefs": [
+          "DIN674-s1"
+        ],
+        "status": "single-source",
+        "verification": "norm-table-not-independently-verified",
+        "note": "Kopfradius ca.",
+        "unit": "mm"
+      },
+      "d_min": {
+        "sourceRefs": [
+          "DIN674-s1",
+          "fasenco"
+        ],
+        "status": "verified",
+        "verification": "independent-publishers-agree",
+        "note": "Zahlenwert in zwei voneinander getrennten Veröffentlichungen bestätigt; Normedition des Herstellerblatts nicht ausdrücklich genannt.",
+        "unit": "mm",
+        "min": 1.33
+      }
+    },
+    "1.6": {
+      "d_nominal": {
+        "nominal": 1.6,
+        "sourceRefs": [
+          "DIN674-s1",
+          "fasenco"
+        ],
+        "status": "verified",
+        "verification": "independent-publishers-agree",
+        "note": "Zahlenwert in zwei voneinander getrennten Veröffentlichungen bestätigt; Normedition des Herstellerblatts nicht ausdrücklich genannt.",
+        "unit": "mm"
+      },
+      "dk_nom": {
+        "nominal": 3.6,
+        "sourceRefs": [
+          "DIN674-s1",
+          "fasenco"
+        ],
+        "status": "verified",
+        "verification": "independent-publishers-agree",
+        "note": "Zahlenwert in zwei voneinander getrennten Veröffentlichungen bestätigt; Normedition des Herstellerblatts nicht ausdrücklich genannt.",
+        "unit": "mm"
+      },
+      "k_js14": {
+        "nominal": 0.92,
+        "sourceRefs": [
+          "DIN674-s1",
+          "fasenco"
+        ],
+        "status": "conflict",
+        "verification": "different-head-heights",
+        "note": "2011-Katalogwert und Herstellerwert ohne Editionsangabe widersprechen sich. Keine sichere automatische Kopfhöhe.",
+        "unit": "mm",
+        "alternatives": [
+          {
+            "nominal": 0.8,
+            "sourceRefs": [
+              "fasenco"
+            ],
+            "edition": null
+          }
+        ]
+      },
+      "e_max": {
+        "sourceRefs": [
+          "DIN674-s1",
+          "fasenco"
+        ],
+        "status": "verified",
+        "verification": "independent-publishers-agree",
+        "note": "Zahlenwert in zwei voneinander getrennten Veröffentlichungen bestätigt; Normedition des Herstellerblatts nicht ausdrücklich genannt.",
+        "unit": "mm",
+        "max": 0.8
+      },
+      "r1_ca": {
+        "nominal": 3,
+        "sourceRefs": [
+          "DIN674-s1"
+        ],
+        "status": "single-source",
+        "verification": "norm-table-not-independently-verified",
+        "note": "Kopfradius ca.",
+        "unit": "mm"
+      },
+      "d_min": {
+        "sourceRefs": [
+          "DIN674-s1",
+          "fasenco"
+        ],
+        "status": "verified",
+        "verification": "independent-publishers-agree",
+        "note": "Zahlenwert in zwei voneinander getrennten Veröffentlichungen bestätigt; Normedition des Herstellerblatts nicht ausdrücklich genannt.",
+        "unit": "mm",
+        "min": 1.52
+      }
+    },
+    "2.5": {
+      "d_nominal": {
+        "nominal": 2.5,
+        "sourceRefs": [
+          "DIN674-s1",
+          "fasenco"
+        ],
+        "status": "verified",
+        "verification": "independent-publishers-agree",
+        "note": "Zahlenwert in zwei voneinander getrennten Veröffentlichungen bestätigt; Normedition des Herstellerblatts nicht ausdrücklich genannt.",
+        "unit": "mm"
+      },
+      "dk_nom": {
+        "nominal": 5.6,
+        "sourceRefs": [
+          "DIN674-s1",
+          "fasenco"
+        ],
+        "status": "verified",
+        "verification": "independent-publishers-agree",
+        "note": "Zahlenwert in zwei voneinander getrennten Veröffentlichungen bestätigt; Normedition des Herstellerblatts nicht ausdrücklich genannt.",
+        "unit": "mm"
+      },
+      "k_js14": {
+        "nominal": 1.42,
+        "sourceRefs": [
+          "DIN674-s1",
+          "fasenco"
+        ],
+        "status": "conflict",
+        "verification": "different-head-heights",
+        "note": "2011-Katalogwert und Herstellerwert ohne Editionsangabe widersprechen sich. Keine sichere automatische Kopfhöhe.",
+        "unit": "mm",
+        "alternatives": [
+          {
+            "nominal": 1.3,
+            "sourceRefs": [
+              "fasenco"
+            ],
+            "edition": null
+          }
+        ]
+      },
+      "e_max": {
+        "sourceRefs": [
+          "DIN674-s1",
+          "fasenco"
+        ],
+        "status": "verified",
+        "verification": "independent-publishers-agree",
+        "note": "Zahlenwert in zwei voneinander getrennten Veröffentlichungen bestätigt; Normedition des Herstellerblatts nicht ausdrücklich genannt.",
+        "unit": "mm",
+        "max": 1.25
+      },
+      "r1_ca": {
+        "nominal": 4.2,
+        "sourceRefs": [
+          "DIN674-s1"
+        ],
+        "status": "single-source",
+        "verification": "norm-table-not-independently-verified",
+        "note": "Kopfradius ca.",
+        "unit": "mm"
+      },
+      "d_min": {
+        "sourceRefs": [
+          "DIN674-s1",
+          "fasenco"
+        ],
+        "status": "verified",
+        "verification": "independent-publishers-agree",
+        "note": "Zahlenwert in zwei voneinander getrennten Veröffentlichungen bestätigt; Normedition des Herstellerblatts nicht ausdrücklich genannt.",
+        "unit": "mm",
+        "min": 2.37
+      }
+    },
+    "3.5": {
+      "d_nominal": {
+        "nominal": 3.5,
+        "sourceRefs": [
+          "DIN674-s1",
+          "fasenco"
+        ],
+        "status": "verified",
+        "verification": "independent-publishers-agree",
+        "note": "Zahlenwert in zwei voneinander getrennten Veröffentlichungen bestätigt; Normedition des Herstellerblatts nicht ausdrücklich genannt.",
+        "unit": "mm"
+      },
+      "dk_nom": {
+        "nominal": 7.8,
+        "sourceRefs": [
+          "DIN674-s1",
+          "fasenco"
+        ],
+        "status": "verified",
+        "verification": "independent-publishers-agree",
+        "note": "Zahlenwert in zwei voneinander getrennten Veröffentlichungen bestätigt; Normedition des Herstellerblatts nicht ausdrücklich genannt.",
+        "unit": "mm"
+      },
+      "k_js14": {
+        "nominal": 1.92,
+        "sourceRefs": [
+          "DIN674-s1",
+          "fasenco"
+        ],
+        "status": "conflict",
+        "verification": "different-head-heights",
+        "note": "2011-Katalogwert und Herstellerwert ohne Editionsangabe widersprechen sich. Keine sichere automatische Kopfhöhe.",
+        "unit": "mm",
+        "alternatives": [
+          {
+            "nominal": 1.8,
+            "sourceRefs": [
+              "fasenco"
+            ],
+            "edition": null
+          }
+        ]
+      },
+      "e_max": {
+        "sourceRefs": [
+          "DIN674-s1",
+          "fasenco"
+        ],
+        "status": "verified",
+        "verification": "independent-publishers-agree",
+        "note": "Zahlenwert in zwei voneinander getrennten Veröffentlichungen bestätigt; Normedition des Herstellerblatts nicht ausdrücklich genannt.",
+        "unit": "mm",
+        "max": 1.75
+      },
+      "r1_ca": {
+        "nominal": 6.1,
+        "sourceRefs": [
+          "DIN674-s1"
+        ],
+        "status": "single-source",
+        "verification": "norm-table-not-independently-verified",
+        "note": "Kopfradius ca.",
+        "unit": "mm"
+      },
+      "d_min": {
+        "sourceRefs": [
+          "DIN674-s1",
+          "fasenco"
+        ],
+        "status": "verified",
+        "verification": "independent-publishers-agree",
+        "note": "Zahlenwert in zwei voneinander getrennten Veröffentlichungen bestätigt; Normedition des Herstellerblatts nicht ausdrücklich genannt.",
+        "unit": "mm",
+        "min": 3.37
+      }
+    }
+  },
+  "quellen": [
+    {
+      "url": "https://fasten.it/en/norms/norm/din_674",
+      "titel": "fasten.it DIN 674 (2011/1993)",
+      "abgerufen": "2026-11-25",
+      "id": "DIN674-s1",
+      "scope": "dimensions"
+    },
+    {
+      "url": "https://www.dinmedia.de/en/standard/din-674/135458307",
+      "titel": "DIN Media DIN 674:2011-03 Statusseite",
+      "abgerufen": "2026-11-25",
+      "id": "DIN674-s2",
+      "scope": "edition-status"
+    },
+    {
+      "id": "fasenco",
+      "url": "https://www.fasenco.com/din-674/",
+      "titel": "Fasenco Maßtabelle DIN674",
+      "abgerufen": "2026-11-26",
+      "scope": "dimensions"
+    }
+  ],
+  "status": "partial",
+  "coverage": "documented",
+  "pruefdatum": "2026-11-26",
+  "normstatus": {
+    "edition": "2011-03",
+    "status": "status-from-supplied-source",
+    "sourceRefs": [
+      "DIN674-s2"
+    ]
+  },
+  "hinweise": [
+    "Fehlende Größe oder Länge bedeutet fehlende Datenabdeckung, kein Normverbot.",
+    "Maßdaten sind einzeln belegt; Editionsstatus allein bestätigt keine Maßtabelle."
+  ],
+  "gaps": [
+    "Vollständige Normlängenmatrix je Größe und aktuelle Originalmaßtabelle nicht unabhängig bestätigt.",
+    "Gewichtstabellenkopf 1,2 statt 1,4 widersprüchlich; keine Zuordnung der Längen aus dieser Spalte."
+  ],
+  "lengthDependentFields": [
+    "sL"
+  ],
+  "laengen": {
+    "values": [
+      3,
+      4,
+      5,
+      6,
+      8,
+      10,
+      12,
+      14,
+      16,
+      18,
+      20,
+      22,
+      25,
+      28,
+      30
+    ],
+    "unit": "mm",
+    "kind": "catalog-weight-table-series",
+    "coverage": "documented",
+    "status": "single-source",
+    "sourceRefs": [
+      "DIN674-s1"
+    ],
+    "verification": "norm-length-matrix-not-verified",
+    "note": "Vollständige im Ausgangsbeleg erfasste Katalogreihe wiederhergestellt. Nicht als vollständige Normlängenmatrix je Durchmesser interpretiert."
+  }
+}

@@ -1,0 +1,948 @@
+{
+  "id": "ISO7045",
+  "alias": [],
+  "funktion": "schraube",
+  "klasse": "bolzen",
+  "label": "ISO 7045 · Flachkopf mit Kreuzschlitz H",
+  "kopfTyp": "linse",
+  "antrieb": {
+    "art": "ph"
+  },
+  "schaftende": "kuppe",
+  "feldzuordnung": {
+    "kD": "dk_max",
+    "kH": "k_max",
+    "iSize": "kreuzschlitz_Nr_H"
+  },
+  "groessen": {
+    "M3": {
+      "vorbelegung": {
+        "kD": 5.6,
+        "kH": 2.4,
+        "iSize": 1
+      },
+      "roh": {
+        "dk_max": 5.6,
+        "dk_min": 5.3,
+        "k_max": 2.4,
+        "k_min": 2.26,
+        "kreuzschlitz_Nr_H": 1,
+        "x_max": 1.25,
+        "a_max": 1
+      },
+      "coverage": "documented",
+      "lengthCoverage": "unresearched",
+      "nachLaenge": {},
+      "missingGeometryFields": [
+        "iT"
+      ],
+      "geometryStatus": "partial"
+    },
+    "M4": {
+      "vorbelegung": {
+        "kD": 8,
+        "kH": 3.1,
+        "iSize": 2
+      },
+      "roh": {
+        "dk_max": 8,
+        "dk_min": 7.64,
+        "k_max": 3.1,
+        "k_min": 2.92,
+        "kreuzschlitz_Nr_H": 2,
+        "x_max": 1.75,
+        "a_max": 1.4
+      },
+      "coverage": "documented",
+      "lengthCoverage": "unresearched",
+      "nachLaenge": {},
+      "missingGeometryFields": [
+        "iT"
+      ],
+      "geometryStatus": "partial"
+    },
+    "M5": {
+      "vorbelegung": {
+        "kD": 9.5,
+        "kH": 3.7,
+        "iSize": 2
+      },
+      "roh": {
+        "dk_max": 9.5,
+        "dk_min": 9.14,
+        "k_max": 3.7,
+        "k_min": 3.52,
+        "kreuzschlitz_Nr_H": 2,
+        "x_max": 2,
+        "a_max": 1.6
+      },
+      "coverage": "documented",
+      "lengthCoverage": "unresearched",
+      "nachLaenge": {},
+      "missingGeometryFields": [
+        "iT"
+      ],
+      "geometryStatus": "partial"
+    },
+    "M6": {
+      "vorbelegung": {
+        "kD": 12,
+        "kH": 4.6,
+        "iSize": 3
+      },
+      "roh": {
+        "dk_max": 12,
+        "dk_min": 11.57,
+        "k_max": 4.6,
+        "k_min": 4.3,
+        "kreuzschlitz_Nr_H": 3,
+        "x_max": 2.5,
+        "a_max": 2
+      },
+      "coverage": "documented",
+      "lengthCoverage": "unresearched",
+      "nachLaenge": {},
+      "missingGeometryFields": [
+        "iT"
+      ],
+      "geometryStatus": "partial"
+    },
+    "M8": {
+      "vorbelegung": {
+        "kD": 16,
+        "kH": 6,
+        "iSize": 4
+      },
+      "roh": {
+        "dk_max": 16,
+        "dk_min": 15.57,
+        "k_max": 6,
+        "k_min": 5.7,
+        "kreuzschlitz_Nr_H": 4,
+        "x_max": 3.2,
+        "a_max": 2.5
+      },
+      "coverage": "documented",
+      "lengthCoverage": "unresearched",
+      "nachLaenge": {},
+      "missingGeometryFields": [
+        "iT"
+      ],
+      "geometryStatus": "partial"
+    },
+    "M10": {
+      "vorbelegung": {
+        "kD": 20,
+        "kH": 7.5,
+        "iSize": 4
+      },
+      "roh": {
+        "dk_max": 20,
+        "dk_min": 19.48,
+        "k_max": 7.5,
+        "k_min": 7.14,
+        "kreuzschlitz_Nr_H": 4,
+        "x_max": 3.8,
+        "a_max": 3
+      },
+      "coverage": "documented",
+      "lengthCoverage": "unresearched",
+      "nachLaenge": {},
+      "missingGeometryFields": [
+        "iT"
+      ],
+      "geometryStatus": "partial"
+    }
+  },
+  "status": "partial",
+  "quellen": [
+    {
+      "id": "iteh7045_2011",
+      "url": "https://cdn.standards.iteh.ai/samples/57372/fafe91d8504049fc8953281401736c79/ISO-7045-2011.pdf",
+      "titel": "ISO 7045:2011 Vorschau-Sample (iTeh), Tabelle 1",
+      "abgerufen": "2026-11-25",
+      "type": "standard-excerpt"
+    },
+    {
+      "id": "fe7045",
+      "url": "https://www.fasteners.eu/standards/ISO/7045/",
+      "titel": "fasteners.eu - ISO 7045 (Normenverzeichnis, Maßtabelle)",
+      "abgerufen": "2026-11-25",
+      "type": "supplied-research-source"
+    }
+  ],
+  "abweichungen": [
+    {
+      "groesse": "M3,M5",
+      "feld": "dk_max",
+      "werte": [
+        {
+          "wert": {
+            "M3": 5.6,
+            "M5": 9.5
+          },
+          "quelle": "iteh7045_2011"
+        },
+        {
+          "wert": {
+            "M3": 6,
+            "M5": 10
+          },
+          "quelle": "fe7045"
+        }
+      ],
+      "vermerk": "fasteners.eu zeigt ältere/andere Werte (k nominal = ältere Zahlenreihe, max 2,52/3,25/3,95/...); ISO-7045:2011-Sample maßgeblich"
+    },
+    {
+      "groesse": "M3,M5",
+      "feld": "dk_min",
+      "werte": [
+        {
+          "wert": {
+            "M3": 5.3,
+            "M5": 9.14
+          },
+          "quelle": "iteh7045_2011"
+        },
+        {
+          "wert": {
+            "M3": 5.7,
+            "M5": 9.64
+          },
+          "quelle": "fe7045"
+        }
+      ],
+      "vermerk": "fasteners.eu zeigt ältere/andere Werte (k nominal = ältere Zahlenreihe, max 2,52/3,25/3,95/...); ISO-7045:2011-Sample maßgeblich"
+    },
+    {
+      "groesse": "M5",
+      "feld": "k_max",
+      "werte": [
+        {
+          "wert": {
+            "M5": 3.7
+          },
+          "quelle": "iteh7045_2011"
+        },
+        {
+          "wert": {
+            "M5": 3.8
+          },
+          "quelle": "fe7045"
+        }
+      ],
+      "vermerk": "fasteners.eu zeigt ältere/andere Werte (k nominal = ältere Zahlenreihe, max 2,52/3,25/3,95/...); ISO-7045:2011-Sample maßgeblich"
+    },
+    {
+      "groesse": "M3,M4,M5,M6,M8,M10",
+      "feld": "k_min",
+      "werte": [
+        {
+          "wert": {
+            "M3": 2.26,
+            "M4": 2.92,
+            "M5": 3.52,
+            "M6": 4.3,
+            "M8": 5.7,
+            "M10": 7.14
+          },
+          "quelle": "iteh7045_2011"
+        },
+        {
+          "wert": {
+            "M3": 2.28,
+            "M4": 2.95,
+            "M5": 3.65,
+            "M6": 4.45,
+            "M8": 5.85,
+            "M10": 7.32
+          },
+          "quelle": "fe7045"
+        }
+      ],
+      "vermerk": "fasteners.eu zeigt ältere/andere Werte (k nominal = ältere Zahlenreihe, max 2,52/3,25/3,95/...); ISO-7045:2011-Sample maßgeblich"
+    }
+  ],
+  "normstatus": null,
+  "hinweise": [],
+  "schemaVersion": 1,
+  "version": "2026-11-26",
+  "edition": "2011",
+  "editionStatus": "documented",
+  "fields": {
+    "M3": {
+      "dk_max": {
+        "nominal": 5.6,
+        "min": null,
+        "max": 5.6,
+        "unit": "mm",
+        "sourceRefs": [
+          "iteh7045_2011"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Aus bereitgestellter Maßrecherche übernommen; Einzelwert-Abdeckung und zweiter unabhängiger Beleg sind separat zu prüfen."
+      },
+      "dk_min": {
+        "nominal": 5.3,
+        "min": 5.3,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iteh7045_2011"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Aus bereitgestellter Maßrecherche übernommen; Einzelwert-Abdeckung und zweiter unabhängiger Beleg sind separat zu prüfen."
+      },
+      "k_max": {
+        "nominal": 2.4,
+        "min": null,
+        "max": 2.4,
+        "unit": "mm",
+        "sourceRefs": [
+          "iteh7045_2011"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Aus bereitgestellter Maßrecherche übernommen; Einzelwert-Abdeckung und zweiter unabhängiger Beleg sind separat zu prüfen."
+      },
+      "k_min": {
+        "nominal": 2.26,
+        "min": 2.26,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iteh7045_2011"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Aus bereitgestellter Maßrecherche übernommen; Einzelwert-Abdeckung und zweiter unabhängiger Beleg sind separat zu prüfen."
+      },
+      "kreuzschlitz_Nr_H": {
+        "nominal": 1,
+        "min": null,
+        "max": null,
+        "unit": null,
+        "sourceRefs": [
+          "iteh7045_2011"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Aus bereitgestellter Maßrecherche übernommen; Einzelwert-Abdeckung und zweiter unabhängiger Beleg sind separat zu prüfen."
+      },
+      "x_max": {
+        "nominal": 1.25,
+        "min": null,
+        "max": 1.25,
+        "unit": "mm",
+        "sourceRefs": [
+          "iteh7045_2011"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Aus bereitgestellter Maßrecherche übernommen; Einzelwert-Abdeckung und zweiter unabhängiger Beleg sind separat zu prüfen."
+      },
+      "a_max": {
+        "nominal": 1,
+        "min": null,
+        "max": 1,
+        "unit": "mm",
+        "sourceRefs": [
+          "iteh7045_2011"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Aus bereitgestellter Maßrecherche übernommen; Einzelwert-Abdeckung und zweiter unabhängiger Beleg sind separat zu prüfen."
+      },
+      "iT": {
+        "nominal": null,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "note": "Für diese Geometrie noch nicht belegt; nicht aus ähnlicher Norm ergänzen."
+      }
+    },
+    "M4": {
+      "dk_max": {
+        "nominal": 8,
+        "min": null,
+        "max": 8,
+        "unit": "mm",
+        "sourceRefs": [
+          "iteh7045_2011"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Aus bereitgestellter Maßrecherche übernommen; Einzelwert-Abdeckung und zweiter unabhängiger Beleg sind separat zu prüfen."
+      },
+      "dk_min": {
+        "nominal": 7.64,
+        "min": 7.64,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iteh7045_2011"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Aus bereitgestellter Maßrecherche übernommen; Einzelwert-Abdeckung und zweiter unabhängiger Beleg sind separat zu prüfen."
+      },
+      "k_max": {
+        "nominal": 3.1,
+        "min": null,
+        "max": 3.1,
+        "unit": "mm",
+        "sourceRefs": [
+          "iteh7045_2011"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Aus bereitgestellter Maßrecherche übernommen; Einzelwert-Abdeckung und zweiter unabhängiger Beleg sind separat zu prüfen."
+      },
+      "k_min": {
+        "nominal": 2.92,
+        "min": 2.92,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iteh7045_2011"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Aus bereitgestellter Maßrecherche übernommen; Einzelwert-Abdeckung und zweiter unabhängiger Beleg sind separat zu prüfen."
+      },
+      "kreuzschlitz_Nr_H": {
+        "nominal": 2,
+        "min": null,
+        "max": null,
+        "unit": null,
+        "sourceRefs": [
+          "iteh7045_2011"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Aus bereitgestellter Maßrecherche übernommen; Einzelwert-Abdeckung und zweiter unabhängiger Beleg sind separat zu prüfen."
+      },
+      "x_max": {
+        "nominal": 1.75,
+        "min": null,
+        "max": 1.75,
+        "unit": "mm",
+        "sourceRefs": [
+          "iteh7045_2011"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Aus bereitgestellter Maßrecherche übernommen; Einzelwert-Abdeckung und zweiter unabhängiger Beleg sind separat zu prüfen."
+      },
+      "a_max": {
+        "nominal": 1.4,
+        "min": null,
+        "max": 1.4,
+        "unit": "mm",
+        "sourceRefs": [
+          "iteh7045_2011"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Aus bereitgestellter Maßrecherche übernommen; Einzelwert-Abdeckung und zweiter unabhängiger Beleg sind separat zu prüfen."
+      },
+      "iT": {
+        "nominal": null,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "note": "Für diese Geometrie noch nicht belegt; nicht aus ähnlicher Norm ergänzen."
+      }
+    },
+    "M5": {
+      "dk_max": {
+        "nominal": 9.5,
+        "min": null,
+        "max": 9.5,
+        "unit": "mm",
+        "sourceRefs": [
+          "iteh7045_2011"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Aus bereitgestellter Maßrecherche übernommen; Einzelwert-Abdeckung und zweiter unabhängiger Beleg sind separat zu prüfen."
+      },
+      "dk_min": {
+        "nominal": 9.14,
+        "min": 9.14,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iteh7045_2011"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Aus bereitgestellter Maßrecherche übernommen; Einzelwert-Abdeckung und zweiter unabhängiger Beleg sind separat zu prüfen."
+      },
+      "k_max": {
+        "nominal": 3.7,
+        "min": null,
+        "max": 3.7,
+        "unit": "mm",
+        "sourceRefs": [
+          "iteh7045_2011"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Aus bereitgestellter Maßrecherche übernommen; Einzelwert-Abdeckung und zweiter unabhängiger Beleg sind separat zu prüfen."
+      },
+      "k_min": {
+        "nominal": 3.52,
+        "min": 3.52,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iteh7045_2011"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Aus bereitgestellter Maßrecherche übernommen; Einzelwert-Abdeckung und zweiter unabhängiger Beleg sind separat zu prüfen."
+      },
+      "kreuzschlitz_Nr_H": {
+        "nominal": 2,
+        "min": null,
+        "max": null,
+        "unit": null,
+        "sourceRefs": [
+          "iteh7045_2011"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Aus bereitgestellter Maßrecherche übernommen; Einzelwert-Abdeckung und zweiter unabhängiger Beleg sind separat zu prüfen."
+      },
+      "x_max": {
+        "nominal": 2,
+        "min": null,
+        "max": 2,
+        "unit": "mm",
+        "sourceRefs": [
+          "iteh7045_2011"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Aus bereitgestellter Maßrecherche übernommen; Einzelwert-Abdeckung und zweiter unabhängiger Beleg sind separat zu prüfen."
+      },
+      "a_max": {
+        "nominal": 1.6,
+        "min": null,
+        "max": 1.6,
+        "unit": "mm",
+        "sourceRefs": [
+          "iteh7045_2011"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Aus bereitgestellter Maßrecherche übernommen; Einzelwert-Abdeckung und zweiter unabhängiger Beleg sind separat zu prüfen."
+      },
+      "iT": {
+        "nominal": null,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "note": "Für diese Geometrie noch nicht belegt; nicht aus ähnlicher Norm ergänzen."
+      }
+    },
+    "M6": {
+      "dk_max": {
+        "nominal": 12,
+        "min": null,
+        "max": 12,
+        "unit": "mm",
+        "sourceRefs": [
+          "iteh7045_2011"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Aus bereitgestellter Maßrecherche übernommen; Einzelwert-Abdeckung und zweiter unabhängiger Beleg sind separat zu prüfen."
+      },
+      "dk_min": {
+        "nominal": 11.57,
+        "min": 11.57,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iteh7045_2011"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Aus bereitgestellter Maßrecherche übernommen; Einzelwert-Abdeckung und zweiter unabhängiger Beleg sind separat zu prüfen."
+      },
+      "k_max": {
+        "nominal": 4.6,
+        "min": null,
+        "max": 4.6,
+        "unit": "mm",
+        "sourceRefs": [
+          "iteh7045_2011"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Aus bereitgestellter Maßrecherche übernommen; Einzelwert-Abdeckung und zweiter unabhängiger Beleg sind separat zu prüfen."
+      },
+      "k_min": {
+        "nominal": 4.3,
+        "min": 4.3,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iteh7045_2011"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Aus bereitgestellter Maßrecherche übernommen; Einzelwert-Abdeckung und zweiter unabhängiger Beleg sind separat zu prüfen."
+      },
+      "kreuzschlitz_Nr_H": {
+        "nominal": 3,
+        "min": null,
+        "max": null,
+        "unit": null,
+        "sourceRefs": [
+          "iteh7045_2011"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Aus bereitgestellter Maßrecherche übernommen; Einzelwert-Abdeckung und zweiter unabhängiger Beleg sind separat zu prüfen."
+      },
+      "x_max": {
+        "nominal": 2.5,
+        "min": null,
+        "max": 2.5,
+        "unit": "mm",
+        "sourceRefs": [
+          "iteh7045_2011"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Aus bereitgestellter Maßrecherche übernommen; Einzelwert-Abdeckung und zweiter unabhängiger Beleg sind separat zu prüfen."
+      },
+      "a_max": {
+        "nominal": 2,
+        "min": null,
+        "max": 2,
+        "unit": "mm",
+        "sourceRefs": [
+          "iteh7045_2011"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Aus bereitgestellter Maßrecherche übernommen; Einzelwert-Abdeckung und zweiter unabhängiger Beleg sind separat zu prüfen."
+      },
+      "iT": {
+        "nominal": null,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "note": "Für diese Geometrie noch nicht belegt; nicht aus ähnlicher Norm ergänzen."
+      }
+    },
+    "M8": {
+      "dk_max": {
+        "nominal": 16,
+        "min": null,
+        "max": 16,
+        "unit": "mm",
+        "sourceRefs": [
+          "iteh7045_2011"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Aus bereitgestellter Maßrecherche übernommen; Einzelwert-Abdeckung und zweiter unabhängiger Beleg sind separat zu prüfen."
+      },
+      "dk_min": {
+        "nominal": 15.57,
+        "min": 15.57,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iteh7045_2011"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Aus bereitgestellter Maßrecherche übernommen; Einzelwert-Abdeckung und zweiter unabhängiger Beleg sind separat zu prüfen."
+      },
+      "k_max": {
+        "nominal": 6,
+        "min": null,
+        "max": 6,
+        "unit": "mm",
+        "sourceRefs": [
+          "iteh7045_2011"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Aus bereitgestellter Maßrecherche übernommen; Einzelwert-Abdeckung und zweiter unabhängiger Beleg sind separat zu prüfen."
+      },
+      "k_min": {
+        "nominal": 5.7,
+        "min": 5.7,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iteh7045_2011"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Aus bereitgestellter Maßrecherche übernommen; Einzelwert-Abdeckung und zweiter unabhängiger Beleg sind separat zu prüfen."
+      },
+      "kreuzschlitz_Nr_H": {
+        "nominal": 4,
+        "min": null,
+        "max": null,
+        "unit": null,
+        "sourceRefs": [
+          "iteh7045_2011"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Aus bereitgestellter Maßrecherche übernommen; Einzelwert-Abdeckung und zweiter unabhängiger Beleg sind separat zu prüfen."
+      },
+      "x_max": {
+        "nominal": 3.2,
+        "min": null,
+        "max": 3.2,
+        "unit": "mm",
+        "sourceRefs": [
+          "iteh7045_2011"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Aus bereitgestellter Maßrecherche übernommen; Einzelwert-Abdeckung und zweiter unabhängiger Beleg sind separat zu prüfen."
+      },
+      "a_max": {
+        "nominal": 2.5,
+        "min": null,
+        "max": 2.5,
+        "unit": "mm",
+        "sourceRefs": [
+          "iteh7045_2011"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Aus bereitgestellter Maßrecherche übernommen; Einzelwert-Abdeckung und zweiter unabhängiger Beleg sind separat zu prüfen."
+      },
+      "iT": {
+        "nominal": null,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "note": "Für diese Geometrie noch nicht belegt; nicht aus ähnlicher Norm ergänzen."
+      }
+    },
+    "M10": {
+      "dk_max": {
+        "nominal": 20,
+        "min": null,
+        "max": 20,
+        "unit": "mm",
+        "sourceRefs": [
+          "iteh7045_2011"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Aus bereitgestellter Maßrecherche übernommen; Einzelwert-Abdeckung und zweiter unabhängiger Beleg sind separat zu prüfen."
+      },
+      "dk_min": {
+        "nominal": 19.48,
+        "min": 19.48,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iteh7045_2011"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Aus bereitgestellter Maßrecherche übernommen; Einzelwert-Abdeckung und zweiter unabhängiger Beleg sind separat zu prüfen."
+      },
+      "k_max": {
+        "nominal": 7.5,
+        "min": null,
+        "max": 7.5,
+        "unit": "mm",
+        "sourceRefs": [
+          "iteh7045_2011"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Aus bereitgestellter Maßrecherche übernommen; Einzelwert-Abdeckung und zweiter unabhängiger Beleg sind separat zu prüfen."
+      },
+      "k_min": {
+        "nominal": 7.14,
+        "min": 7.14,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iteh7045_2011"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Aus bereitgestellter Maßrecherche übernommen; Einzelwert-Abdeckung und zweiter unabhängiger Beleg sind separat zu prüfen."
+      },
+      "kreuzschlitz_Nr_H": {
+        "nominal": 4,
+        "min": null,
+        "max": null,
+        "unit": null,
+        "sourceRefs": [
+          "iteh7045_2011"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Aus bereitgestellter Maßrecherche übernommen; Einzelwert-Abdeckung und zweiter unabhängiger Beleg sind separat zu prüfen."
+      },
+      "x_max": {
+        "nominal": 3.8,
+        "min": null,
+        "max": 3.8,
+        "unit": "mm",
+        "sourceRefs": [
+          "iteh7045_2011"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Aus bereitgestellter Maßrecherche übernommen; Einzelwert-Abdeckung und zweiter unabhängiger Beleg sind separat zu prüfen."
+      },
+      "a_max": {
+        "nominal": 3,
+        "min": null,
+        "max": 3,
+        "unit": "mm",
+        "sourceRefs": [
+          "iteh7045_2011"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Aus bereitgestellter Maßrecherche übernommen; Einzelwert-Abdeckung und zweiter unabhängiger Beleg sind separat zu prüfen."
+      },
+      "iT": {
+        "nominal": null,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "note": "Für diese Geometrie noch nicht belegt; nicht aus ähnlicher Norm ergänzen."
+      }
+    }
+  },
+  "sourceMeta": {
+    "iteh7045_2011": {
+      "id": "iteh7045_2011",
+      "url": "https://cdn.standards.iteh.ai/samples/57372/fafe91d8504049fc8953281401736c79/ISO-7045-2011.pdf",
+      "titel": "ISO 7045:2011 Vorschau-Sample (iTeh), Tabelle 1",
+      "abgerufen": "2026-11-25",
+      "type": "standard-excerpt"
+    },
+    "fe7045": {
+      "id": "fe7045",
+      "url": "https://www.fasteners.eu/standards/ISO/7045/",
+      "titel": "fasteners.eu - ISO 7045 (Normenverzeichnis, Maßtabelle)",
+      "abgerufen": "2026-11-25",
+      "type": "supplied-research-source"
+    }
+  },
+  "coverage": "documented",
+  "lengthCoverage": "unresearched",
+  "requiredGeometryFields": [
+    "kD",
+    "kH",
+    "iSize",
+    "iT"
+  ],
+  "sizeCoverage": {
+    "M3": {
+      "status": "documented"
+    },
+    "M3.5": {
+      "status": "unresearched",
+      "note": "Keine Größenzeile vorhanden; daraus folgt kein Normverbot."
+    },
+    "M4": {
+      "status": "documented"
+    },
+    "M5": {
+      "status": "documented"
+    },
+    "M6": {
+      "status": "documented"
+    },
+    "M7": {
+      "status": "unresearched",
+      "note": "Keine Größenzeile vorhanden; daraus folgt kein Normverbot."
+    },
+    "M8": {
+      "status": "documented"
+    },
+    "M10": {
+      "status": "documented"
+    },
+    "M12": {
+      "status": "unresearched",
+      "note": "Keine Größenzeile vorhanden; daraus folgt kein Normverbot."
+    },
+    "M14": {
+      "status": "unresearched",
+      "note": "Keine Größenzeile vorhanden; daraus folgt kein Normverbot."
+    },
+    "M16": {
+      "status": "unresearched",
+      "note": "Keine Größenzeile vorhanden; daraus folgt kein Normverbot."
+    },
+    "M18": {
+      "status": "unresearched",
+      "note": "Keine Größenzeile vorhanden; daraus folgt kein Normverbot."
+    },
+    "M20": {
+      "status": "unresearched",
+      "note": "Keine Größenzeile vorhanden; daraus folgt kein Normverbot."
+    },
+    "M22": {
+      "status": "unresearched",
+      "note": "Keine Größenzeile vorhanden; daraus folgt kein Normverbot."
+    },
+    "M24": {
+      "status": "unresearched",
+      "note": "Keine Größenzeile vorhanden; daraus folgt kein Normverbot."
+    },
+    "M27": {
+      "status": "unresearched",
+      "note": "Keine Größenzeile vorhanden; daraus folgt kein Normverbot."
+    },
+    "M30": {
+      "status": "unresearched",
+      "note": "Keine Größenzeile vorhanden; daraus folgt kein Normverbot."
+    },
+    "M33": {
+      "status": "unresearched",
+      "note": "Keine Größenzeile vorhanden; daraus folgt kein Normverbot."
+    }
+  },
+  "pruefdatum": "2026-11-26",
+  "klassen": {
+    "status": "unresearched",
+    "values": [],
+    "note": "Festigkeits-/Werkstoffklassen noch nicht vollständig aus dieser Norm belegt."
+  }
+}

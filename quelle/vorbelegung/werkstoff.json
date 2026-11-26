@@ -1,0 +1,16 @@
+{
+  "version":"2026-11-26",
+  "status":"provisional",
+  "rules":[
+    {"kind":"screw","classes":["4.6","4.8"],"materialId":"C4C","state":"soft-annealed"},
+    {"kind":"screw","classes":["5.6","5.8"],"materialId":"C15C","state":"soft-annealed"},
+    {"kind":"screw","classes":["8.8"],"materialId":"20MnB4","state":"normalized-rolled"},
+    {"kind":"screw","classes":["10.9"],"materialId":"34CrMo4","state":"soft-annealed"},
+    {"kind":"screw","classes":["12.9"],"materialId":"42CrMo4","state":"soft-annealed"},
+    {"kind":"nut","classes":["5","6","8"],"materialId":"C10C","state":"soft-annealed"},
+    {"kind":"nut","classes":["10","12"],"materialId":"C35EC","state":"soft-annealed"},
+    {"kind":"rivet","classes":["Stahl"],"materialId":"C4C","state":"soft-annealed"},
+    {"kind":"pin","classes":["Stahl"],"materialId":"C4C","state":"soft-annealed"}
+  ],
+  "note":"Vorschläge für die Maschinenstudie. Die Festigkeitsklasse gilt dem fertigen Teil, die Fließkurve dem Draht vor Umformung und Wärmebehandlung. Nur vorhandene freigegebene Kurven auswählbar; keine stillen Ersatzwerkstoffe."
+}

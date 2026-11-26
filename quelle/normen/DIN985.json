@@ -1,0 +1,1450 @@
+{
+  "schemaVersion": 1,
+  "version": "2026-11-26.1",
+  "id": "DIN985",
+  "edition": "catalog-undated",
+  "label": "Niedrige Klemmmutter mit nichtmetallischem Einsatz, DIN-Geometrie",
+  "funktion": "mutter",
+  "klasse": "mutter",
+  "kopfTyp": "sechskant",
+  "alias": [],
+  "feldzuordnung": {
+    "mSW": "s_nom",
+    "mH": "h_catalog"
+  },
+  "groessen": {
+    "M5": {
+      "vorbelegung": {
+        "mSW": 8,
+        "mH": 5
+      },
+      "roh": {
+        "d_nom": 5,
+        "P": 0.8,
+        "s_nom": 8,
+        "h_catalog": 5,
+        "m_catalog": 3.2
+      },
+      "thread": {
+        "id": "M5x0.8",
+        "diameter": 5,
+        "pitch": 0.8,
+        "sourceRefs": [
+          "iso4032_2023"
+        ]
+      },
+      "geometryStatus": "partial",
+      "missingGeometryFields": [
+        "insertSeatDiameter",
+        "insertSeatDepth",
+        "insertOuterProfile"
+      ]
+    },
+    "M6": {
+      "vorbelegung": {
+        "mSW": 10,
+        "mH": 6
+      },
+      "roh": {
+        "d_nom": 6,
+        "P": 1,
+        "s_nom": 10,
+        "h_catalog": 6,
+        "m_catalog": 4
+      },
+      "thread": {
+        "id": "M6x1",
+        "diameter": 6,
+        "pitch": 1,
+        "sourceRefs": [
+          "iso4032_2023"
+        ]
+      },
+      "geometryStatus": "partial",
+      "missingGeometryFields": [
+        "insertSeatDiameter",
+        "insertSeatDepth",
+        "insertOuterProfile"
+      ]
+    },
+    "M7": {
+      "vorbelegung": {
+        "mSW": 11,
+        "mH": 7.5
+      },
+      "roh": {
+        "d_nom": 7,
+        "P": 1,
+        "s_nom": 11,
+        "h_catalog": 7.5,
+        "m_catalog": 4.7
+      },
+      "thread": {
+        "id": "M7x1",
+        "diameter": 7,
+        "pitch": 1,
+        "sourceRefs": [
+          "iso4032_2023"
+        ]
+      },
+      "geometryStatus": "partial",
+      "missingGeometryFields": [
+        "insertSeatDiameter",
+        "insertSeatDepth",
+        "insertOuterProfile"
+      ]
+    },
+    "M8": {
+      "vorbelegung": {
+        "mSW": 13,
+        "mH": 8
+      },
+      "roh": {
+        "d_nom": 8,
+        "P": 1.25,
+        "s_nom": 13,
+        "h_catalog": 8,
+        "m_catalog": 5.5
+      },
+      "thread": {
+        "id": "M8x1.25",
+        "diameter": 8,
+        "pitch": 1.25,
+        "sourceRefs": [
+          "iso4032_2023"
+        ]
+      },
+      "geometryStatus": "partial",
+      "missingGeometryFields": [
+        "insertSeatDiameter",
+        "insertSeatDepth",
+        "insertOuterProfile"
+      ]
+    },
+    "M10": {
+      "vorbelegung": {
+        "mSW": 17,
+        "mH": 10
+      },
+      "roh": {
+        "d_nom": 10,
+        "P": 1.5,
+        "s_nom": 17,
+        "h_catalog": 10,
+        "m_catalog": 6.5
+      },
+      "thread": {
+        "id": "M10x1.5",
+        "diameter": 10,
+        "pitch": 1.5,
+        "sourceRefs": [
+          "iso4032_2023"
+        ]
+      },
+      "geometryStatus": "partial",
+      "missingGeometryFields": [
+        "insertSeatDiameter",
+        "insertSeatDepth",
+        "insertOuterProfile"
+      ]
+    },
+    "M12": {
+      "vorbelegung": {
+        "mSW": 19,
+        "mH": 12
+      },
+      "roh": {
+        "d_nom": 12,
+        "P": 1.75,
+        "s_nom": 19,
+        "h_catalog": 12,
+        "m_catalog": 8
+      },
+      "thread": {
+        "id": "M12x1.75",
+        "diameter": 12,
+        "pitch": 1.75,
+        "sourceRefs": [
+          "iso4032_2023"
+        ]
+      },
+      "geometryStatus": "partial",
+      "missingGeometryFields": [
+        "insertSeatDiameter",
+        "insertSeatDepth",
+        "insertOuterProfile"
+      ]
+    },
+    "M14": {
+      "vorbelegung": {
+        "mSW": 22,
+        "mH": 14
+      },
+      "roh": {
+        "d_nom": 14,
+        "P": 2,
+        "s_nom": 22,
+        "h_catalog": 14,
+        "m_catalog": 9.5
+      },
+      "thread": {
+        "id": "M14x2",
+        "diameter": 14,
+        "pitch": 2,
+        "sourceRefs": [
+          "iso4032_2023"
+        ]
+      },
+      "geometryStatus": "partial",
+      "missingGeometryFields": [
+        "insertSeatDiameter",
+        "insertSeatDepth",
+        "insertOuterProfile"
+      ]
+    },
+    "M16": {
+      "vorbelegung": {
+        "mSW": 24,
+        "mH": 16
+      },
+      "roh": {
+        "d_nom": 16,
+        "P": 2,
+        "s_nom": 24,
+        "h_catalog": 16,
+        "m_catalog": 10.5
+      },
+      "thread": {
+        "id": "M16x2",
+        "diameter": 16,
+        "pitch": 2,
+        "sourceRefs": [
+          "iso4032_2023"
+        ]
+      },
+      "geometryStatus": "partial",
+      "missingGeometryFields": [
+        "insertSeatDiameter",
+        "insertSeatDepth",
+        "insertOuterProfile"
+      ]
+    },
+    "M18": {
+      "vorbelegung": {
+        "mSW": 27,
+        "mH": 18.5
+      },
+      "roh": {
+        "d_nom": 18,
+        "P": 2.5,
+        "s_nom": 27,
+        "h_catalog": 18.5,
+        "m_catalog": 13
+      },
+      "thread": {
+        "id": "M18x2.5",
+        "diameter": 18,
+        "pitch": 2.5,
+        "sourceRefs": [
+          "iso4032_2023"
+        ]
+      },
+      "geometryStatus": "partial",
+      "missingGeometryFields": [
+        "insertSeatDiameter",
+        "insertSeatDepth",
+        "insertOuterProfile"
+      ]
+    },
+    "M20": {
+      "vorbelegung": {
+        "mSW": 30,
+        "mH": 20
+      },
+      "roh": {
+        "d_nom": 20,
+        "P": 2.5,
+        "s_nom": 30,
+        "h_catalog": 20,
+        "m_catalog": 14
+      },
+      "thread": {
+        "id": "M20x2.5",
+        "diameter": 20,
+        "pitch": 2.5,
+        "sourceRefs": [
+          "iso4032_2023"
+        ]
+      },
+      "geometryStatus": "partial",
+      "missingGeometryFields": [
+        "insertSeatDiameter",
+        "insertSeatDepth",
+        "insertOuterProfile"
+      ]
+    },
+    "M22": {
+      "vorbelegung": {
+        "mSW": 32,
+        "mH": 22
+      },
+      "roh": {
+        "d_nom": 22,
+        "P": 2.5,
+        "s_nom": 32,
+        "h_catalog": 22,
+        "m_catalog": 15
+      },
+      "thread": {
+        "id": "M22x2.5",
+        "diameter": 22,
+        "pitch": 2.5,
+        "sourceRefs": [
+          "iso4032_2023"
+        ]
+      },
+      "geometryStatus": "partial",
+      "missingGeometryFields": [
+        "insertSeatDiameter",
+        "insertSeatDepth",
+        "insertOuterProfile"
+      ]
+    },
+    "M24": {
+      "vorbelegung": {
+        "mSW": 36,
+        "mH": 24
+      },
+      "roh": {
+        "d_nom": 24,
+        "P": 3,
+        "s_nom": 36,
+        "h_catalog": 24,
+        "m_catalog": 15
+      },
+      "thread": {
+        "id": "M24x3",
+        "diameter": 24,
+        "pitch": 3,
+        "sourceRefs": [
+          "iso4032_2023"
+        ]
+      },
+      "geometryStatus": "partial",
+      "missingGeometryFields": [
+        "insertSeatDiameter",
+        "insertSeatDepth",
+        "insertOuterProfile"
+      ]
+    },
+    "M27": {
+      "vorbelegung": {
+        "mSW": 41,
+        "mH": 27
+      },
+      "roh": {
+        "d_nom": 27,
+        "P": 3,
+        "s_nom": 41,
+        "h_catalog": 27,
+        "m_catalog": 17
+      },
+      "thread": {
+        "id": "M27x3",
+        "diameter": 27,
+        "pitch": 3,
+        "sourceRefs": [
+          "iso4032_2023"
+        ]
+      },
+      "geometryStatus": "partial",
+      "missingGeometryFields": [
+        "insertSeatDiameter",
+        "insertSeatDepth",
+        "insertOuterProfile"
+      ]
+    },
+    "M30": {
+      "vorbelegung": {
+        "mSW": 46,
+        "mH": 30
+      },
+      "roh": {
+        "d_nom": 30,
+        "P": 3.5,
+        "s_nom": 46,
+        "h_catalog": 30,
+        "m_catalog": 19
+      },
+      "thread": {
+        "id": "M30x3.5",
+        "diameter": 30,
+        "pitch": 3.5,
+        "sourceRefs": [
+          "iso4032_2023"
+        ]
+      },
+      "geometryStatus": "partial",
+      "missingGeometryFields": [
+        "insertSeatDiameter",
+        "insertSeatDepth",
+        "insertOuterProfile"
+      ]
+    }
+  },
+  "fields": {
+    "M5": {
+      "P": {
+        "nominal": 0.8,
+        "sourceRefs": [
+          "iso4032_2023"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "s_nom": {
+        "nominal": 8,
+        "sourceRefs": [
+          "lederer985"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "h_catalog": {
+        "value": 5,
+        "sourceRefs": [
+          "lederer985"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "m_catalog": {
+        "value": 3.2,
+        "sourceRefs": [
+          "lederer985"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "d_nom": {
+        "nominal": 5,
+        "sourceRefs": [
+          "lederer985"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "insertSeatDiameter": {
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "unit": "mm",
+        "note": "Detailmaß im ausgewerteten Nachweis nicht festgelegt; Kunden-/Herstellerzeichnung erforderlich."
+      },
+      "insertSeatDepth": {
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "unit": "mm",
+        "note": "Detailmaß im ausgewerteten Nachweis nicht festgelegt; Kunden-/Herstellerzeichnung erforderlich."
+      },
+      "insertOuterProfile": {
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "unit": "mm",
+        "note": "Detailmaß im ausgewerteten Nachweis nicht festgelegt; Kunden-/Herstellerzeichnung erforderlich."
+      }
+    },
+    "M6": {
+      "P": {
+        "nominal": 1,
+        "sourceRefs": [
+          "iso4032_2023"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "s_nom": {
+        "nominal": 10,
+        "sourceRefs": [
+          "lederer985"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "h_catalog": {
+        "value": 6,
+        "sourceRefs": [
+          "lederer985"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "m_catalog": {
+        "value": 4,
+        "sourceRefs": [
+          "lederer985"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "d_nom": {
+        "nominal": 6,
+        "sourceRefs": [
+          "lederer985"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "insertSeatDiameter": {
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "unit": "mm",
+        "note": "Detailmaß im ausgewerteten Nachweis nicht festgelegt; Kunden-/Herstellerzeichnung erforderlich."
+      },
+      "insertSeatDepth": {
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "unit": "mm",
+        "note": "Detailmaß im ausgewerteten Nachweis nicht festgelegt; Kunden-/Herstellerzeichnung erforderlich."
+      },
+      "insertOuterProfile": {
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "unit": "mm",
+        "note": "Detailmaß im ausgewerteten Nachweis nicht festgelegt; Kunden-/Herstellerzeichnung erforderlich."
+      }
+    },
+    "M7": {
+      "P": {
+        "nominal": 1,
+        "sourceRefs": [
+          "iso4032_2023"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "s_nom": {
+        "nominal": 11,
+        "sourceRefs": [
+          "lederer985"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "h_catalog": {
+        "value": 7.5,
+        "sourceRefs": [
+          "lederer985"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "m_catalog": {
+        "value": 4.7,
+        "sourceRefs": [
+          "lederer985"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "d_nom": {
+        "nominal": 7,
+        "sourceRefs": [
+          "lederer985"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "insertSeatDiameter": {
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "unit": "mm",
+        "note": "Detailmaß im ausgewerteten Nachweis nicht festgelegt; Kunden-/Herstellerzeichnung erforderlich."
+      },
+      "insertSeatDepth": {
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "unit": "mm",
+        "note": "Detailmaß im ausgewerteten Nachweis nicht festgelegt; Kunden-/Herstellerzeichnung erforderlich."
+      },
+      "insertOuterProfile": {
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "unit": "mm",
+        "note": "Detailmaß im ausgewerteten Nachweis nicht festgelegt; Kunden-/Herstellerzeichnung erforderlich."
+      }
+    },
+    "M8": {
+      "P": {
+        "nominal": 1.25,
+        "sourceRefs": [
+          "iso4032_2023"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "s_nom": {
+        "nominal": 13,
+        "sourceRefs": [
+          "lederer985"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "h_catalog": {
+        "value": 8,
+        "sourceRefs": [
+          "lederer985"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "m_catalog": {
+        "value": 5.5,
+        "sourceRefs": [
+          "lederer985"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "d_nom": {
+        "nominal": 8,
+        "sourceRefs": [
+          "lederer985"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "insertSeatDiameter": {
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "unit": "mm",
+        "note": "Detailmaß im ausgewerteten Nachweis nicht festgelegt; Kunden-/Herstellerzeichnung erforderlich."
+      },
+      "insertSeatDepth": {
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "unit": "mm",
+        "note": "Detailmaß im ausgewerteten Nachweis nicht festgelegt; Kunden-/Herstellerzeichnung erforderlich."
+      },
+      "insertOuterProfile": {
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "unit": "mm",
+        "note": "Detailmaß im ausgewerteten Nachweis nicht festgelegt; Kunden-/Herstellerzeichnung erforderlich."
+      }
+    },
+    "M10": {
+      "P": {
+        "nominal": 1.5,
+        "sourceRefs": [
+          "iso4032_2023"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "s_nom": {
+        "nominal": 17,
+        "sourceRefs": [
+          "lederer985"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "h_catalog": {
+        "value": 10,
+        "sourceRefs": [
+          "lederer985"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "m_catalog": {
+        "value": 6.5,
+        "sourceRefs": [
+          "lederer985"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "d_nom": {
+        "nominal": 10,
+        "sourceRefs": [
+          "lederer985"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "insertSeatDiameter": {
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "unit": "mm",
+        "note": "Detailmaß im ausgewerteten Nachweis nicht festgelegt; Kunden-/Herstellerzeichnung erforderlich."
+      },
+      "insertSeatDepth": {
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "unit": "mm",
+        "note": "Detailmaß im ausgewerteten Nachweis nicht festgelegt; Kunden-/Herstellerzeichnung erforderlich."
+      },
+      "insertOuterProfile": {
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "unit": "mm",
+        "note": "Detailmaß im ausgewerteten Nachweis nicht festgelegt; Kunden-/Herstellerzeichnung erforderlich."
+      }
+    },
+    "M12": {
+      "P": {
+        "nominal": 1.75,
+        "sourceRefs": [
+          "iso4032_2023"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "s_nom": {
+        "nominal": 19,
+        "sourceRefs": [
+          "lederer985"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "h_catalog": {
+        "value": 12,
+        "sourceRefs": [
+          "lederer985"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "m_catalog": {
+        "value": 8,
+        "sourceRefs": [
+          "lederer985"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "d_nom": {
+        "nominal": 12,
+        "sourceRefs": [
+          "lederer985"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "insertSeatDiameter": {
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "unit": "mm",
+        "note": "Detailmaß im ausgewerteten Nachweis nicht festgelegt; Kunden-/Herstellerzeichnung erforderlich."
+      },
+      "insertSeatDepth": {
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "unit": "mm",
+        "note": "Detailmaß im ausgewerteten Nachweis nicht festgelegt; Kunden-/Herstellerzeichnung erforderlich."
+      },
+      "insertOuterProfile": {
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "unit": "mm",
+        "note": "Detailmaß im ausgewerteten Nachweis nicht festgelegt; Kunden-/Herstellerzeichnung erforderlich."
+      }
+    },
+    "M14": {
+      "P": {
+        "nominal": 2,
+        "sourceRefs": [
+          "iso4032_2023"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "s_nom": {
+        "nominal": 22,
+        "sourceRefs": [
+          "lederer985"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "h_catalog": {
+        "value": 14,
+        "sourceRefs": [
+          "lederer985"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "m_catalog": {
+        "value": 9.5,
+        "sourceRefs": [
+          "lederer985"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "d_nom": {
+        "nominal": 14,
+        "sourceRefs": [
+          "lederer985"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "insertSeatDiameter": {
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "unit": "mm",
+        "note": "Detailmaß im ausgewerteten Nachweis nicht festgelegt; Kunden-/Herstellerzeichnung erforderlich."
+      },
+      "insertSeatDepth": {
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "unit": "mm",
+        "note": "Detailmaß im ausgewerteten Nachweis nicht festgelegt; Kunden-/Herstellerzeichnung erforderlich."
+      },
+      "insertOuterProfile": {
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "unit": "mm",
+        "note": "Detailmaß im ausgewerteten Nachweis nicht festgelegt; Kunden-/Herstellerzeichnung erforderlich."
+      }
+    },
+    "M16": {
+      "P": {
+        "nominal": 2,
+        "sourceRefs": [
+          "iso4032_2023"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "s_nom": {
+        "nominal": 24,
+        "sourceRefs": [
+          "lederer985"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "h_catalog": {
+        "value": 16,
+        "sourceRefs": [
+          "lederer985"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "m_catalog": {
+        "value": 10.5,
+        "sourceRefs": [
+          "lederer985"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "d_nom": {
+        "nominal": 16,
+        "sourceRefs": [
+          "lederer985"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "insertSeatDiameter": {
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "unit": "mm",
+        "note": "Detailmaß im ausgewerteten Nachweis nicht festgelegt; Kunden-/Herstellerzeichnung erforderlich."
+      },
+      "insertSeatDepth": {
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "unit": "mm",
+        "note": "Detailmaß im ausgewerteten Nachweis nicht festgelegt; Kunden-/Herstellerzeichnung erforderlich."
+      },
+      "insertOuterProfile": {
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "unit": "mm",
+        "note": "Detailmaß im ausgewerteten Nachweis nicht festgelegt; Kunden-/Herstellerzeichnung erforderlich."
+      }
+    },
+    "M18": {
+      "P": {
+        "nominal": 2.5,
+        "sourceRefs": [
+          "iso4032_2023"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "s_nom": {
+        "nominal": 27,
+        "sourceRefs": [
+          "lederer985"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "h_catalog": {
+        "value": 18.5,
+        "sourceRefs": [
+          "lederer985"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "m_catalog": {
+        "value": 13,
+        "sourceRefs": [
+          "lederer985"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "d_nom": {
+        "nominal": 18,
+        "sourceRefs": [
+          "lederer985"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "insertSeatDiameter": {
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "unit": "mm",
+        "note": "Detailmaß im ausgewerteten Nachweis nicht festgelegt; Kunden-/Herstellerzeichnung erforderlich."
+      },
+      "insertSeatDepth": {
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "unit": "mm",
+        "note": "Detailmaß im ausgewerteten Nachweis nicht festgelegt; Kunden-/Herstellerzeichnung erforderlich."
+      },
+      "insertOuterProfile": {
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "unit": "mm",
+        "note": "Detailmaß im ausgewerteten Nachweis nicht festgelegt; Kunden-/Herstellerzeichnung erforderlich."
+      }
+    },
+    "M20": {
+      "P": {
+        "nominal": 2.5,
+        "sourceRefs": [
+          "iso4032_2023"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "s_nom": {
+        "nominal": 30,
+        "sourceRefs": [
+          "lederer985"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "h_catalog": {
+        "value": 20,
+        "sourceRefs": [
+          "lederer985"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "m_catalog": {
+        "value": 14,
+        "sourceRefs": [
+          "lederer985"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "d_nom": {
+        "nominal": 20,
+        "sourceRefs": [
+          "lederer985"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "insertSeatDiameter": {
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "unit": "mm",
+        "note": "Detailmaß im ausgewerteten Nachweis nicht festgelegt; Kunden-/Herstellerzeichnung erforderlich."
+      },
+      "insertSeatDepth": {
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "unit": "mm",
+        "note": "Detailmaß im ausgewerteten Nachweis nicht festgelegt; Kunden-/Herstellerzeichnung erforderlich."
+      },
+      "insertOuterProfile": {
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "unit": "mm",
+        "note": "Detailmaß im ausgewerteten Nachweis nicht festgelegt; Kunden-/Herstellerzeichnung erforderlich."
+      }
+    },
+    "M22": {
+      "P": {
+        "nominal": 2.5,
+        "sourceRefs": [
+          "iso4032_2023"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "s_nom": {
+        "nominal": 32,
+        "sourceRefs": [
+          "lederer985"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "h_catalog": {
+        "value": 22,
+        "sourceRefs": [
+          "lederer985"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "m_catalog": {
+        "value": 15,
+        "sourceRefs": [
+          "lederer985"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "d_nom": {
+        "nominal": 22,
+        "sourceRefs": [
+          "lederer985"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "insertSeatDiameter": {
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "unit": "mm",
+        "note": "Detailmaß im ausgewerteten Nachweis nicht festgelegt; Kunden-/Herstellerzeichnung erforderlich."
+      },
+      "insertSeatDepth": {
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "unit": "mm",
+        "note": "Detailmaß im ausgewerteten Nachweis nicht festgelegt; Kunden-/Herstellerzeichnung erforderlich."
+      },
+      "insertOuterProfile": {
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "unit": "mm",
+        "note": "Detailmaß im ausgewerteten Nachweis nicht festgelegt; Kunden-/Herstellerzeichnung erforderlich."
+      }
+    },
+    "M24": {
+      "P": {
+        "nominal": 3,
+        "sourceRefs": [
+          "iso4032_2023"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "s_nom": {
+        "nominal": 36,
+        "sourceRefs": [
+          "lederer985"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "h_catalog": {
+        "value": 24,
+        "sourceRefs": [
+          "lederer985"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "m_catalog": {
+        "value": 15,
+        "sourceRefs": [
+          "lederer985"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "d_nom": {
+        "nominal": 24,
+        "sourceRefs": [
+          "lederer985"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "insertSeatDiameter": {
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "unit": "mm",
+        "note": "Detailmaß im ausgewerteten Nachweis nicht festgelegt; Kunden-/Herstellerzeichnung erforderlich."
+      },
+      "insertSeatDepth": {
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "unit": "mm",
+        "note": "Detailmaß im ausgewerteten Nachweis nicht festgelegt; Kunden-/Herstellerzeichnung erforderlich."
+      },
+      "insertOuterProfile": {
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "unit": "mm",
+        "note": "Detailmaß im ausgewerteten Nachweis nicht festgelegt; Kunden-/Herstellerzeichnung erforderlich."
+      }
+    },
+    "M27": {
+      "P": {
+        "nominal": 3,
+        "sourceRefs": [
+          "iso4032_2023"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "s_nom": {
+        "nominal": 41,
+        "sourceRefs": [
+          "lederer985"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "h_catalog": {
+        "value": 27,
+        "sourceRefs": [
+          "lederer985"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "m_catalog": {
+        "value": 17,
+        "sourceRefs": [
+          "lederer985"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "d_nom": {
+        "nominal": 27,
+        "sourceRefs": [
+          "lederer985"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "insertSeatDiameter": {
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "unit": "mm",
+        "note": "Detailmaß im ausgewerteten Nachweis nicht festgelegt; Kunden-/Herstellerzeichnung erforderlich."
+      },
+      "insertSeatDepth": {
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "unit": "mm",
+        "note": "Detailmaß im ausgewerteten Nachweis nicht festgelegt; Kunden-/Herstellerzeichnung erforderlich."
+      },
+      "insertOuterProfile": {
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "unit": "mm",
+        "note": "Detailmaß im ausgewerteten Nachweis nicht festgelegt; Kunden-/Herstellerzeichnung erforderlich."
+      }
+    },
+    "M30": {
+      "P": {
+        "nominal": 3.5,
+        "sourceRefs": [
+          "iso4032_2023"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "s_nom": {
+        "nominal": 46,
+        "sourceRefs": [
+          "lederer985"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "h_catalog": {
+        "value": 30,
+        "sourceRefs": [
+          "lederer985"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "m_catalog": {
+        "value": 19,
+        "sourceRefs": [
+          "lederer985"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "d_nom": {
+        "nominal": 30,
+        "sourceRefs": [
+          "lederer985"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "insertSeatDiameter": {
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "unit": "mm",
+        "note": "Detailmaß im ausgewerteten Nachweis nicht festgelegt; Kunden-/Herstellerzeichnung erforderlich."
+      },
+      "insertSeatDepth": {
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "unit": "mm",
+        "note": "Detailmaß im ausgewerteten Nachweis nicht festgelegt; Kunden-/Herstellerzeichnung erforderlich."
+      },
+      "insertOuterProfile": {
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "unit": "mm",
+        "note": "Detailmaß im ausgewerteten Nachweis nicht festgelegt; Kunden-/Herstellerzeichnung erforderlich."
+      }
+    }
+  },
+  "sourceMeta": {
+    "lederer985": {
+      "url": "https://www.lederer-online.com/fileadmin/users/redakteur/redakteur_upload/DIN985.pdf",
+      "title": "Lederer DIN985 product dimensions",
+      "locator": "Printed page 143",
+      "kind": "supplier-product-catalog",
+      "edition": null,
+      "accessed": "2026-11-26"
+    },
+    "iso4032_2023": {
+      "url": "https://cdn.standards.iteh.ai/samples/75016/5b1f83bd2dc44fc199973e9957a75086/ISO-4032-2023.pdf",
+      "title": "ISO 4032:2023",
+      "locator": "Tables 1–2, printed page 3",
+      "kind": "standard",
+      "edition": "2023",
+      "accessed": "2026-11-26"
+    }
+  },
+  "sourceStatus": "per-value",
+  "coverage": {
+    "diameterMin": 5,
+    "diameterMax": 30,
+    "unit": "mm",
+    "status": "partial",
+    "missingSizes": [],
+    "missingReason": "Keine ausgewerteten Maßnachweise für diese Größen; keine Aussage über Herstellbarkeit oder Lieferbarkeit."
+  },
+  "editionStatus": "edition-unverified",
+  "height": "h_catalog",
+  "threadSeries": "coarse",
+  "defaultPolicy": "Dokumentierte Kataloghöhe oder ausgewiesenes Höchstmaß als vorläufige Außenhülle; kein vollständiges Fertigteilmodell."
+}

@@ -1,0 +1,2335 @@
+{
+  "schemaVersion": 1,
+  "id": "DIN7338",
+  "version": "2026-11-26",
+  "edition": "2011-03",
+  "label": "DIN7338 · Niete für Brems- und Kupplungsbeläge",
+  "datasetKind": "part-standard",
+  "funktion": "niet",
+  "klasse": "bolzen",
+  "kopfTyp": null,
+  "antrieb": null,
+  "threadFamily": "none",
+  "schaftende": "voll",
+  "feldzuordnung": {
+    "sD": "d_nominal",
+    "kD": "d2_nom",
+    "kH": "k_max",
+    "d_b": "d4_h13",
+    "t_b": "t_min",
+    "sL": "l_nominal"
+  },
+  "groessen": {},
+  "fields": {},
+  "quellen": [
+    {
+      "url": "https://www.fasten.it/norms/norm/din_7338",
+      "titel": "fasten.it DIN 7338:2011 (Formen A, B, C1, C2)",
+      "abgerufen": "2026-11-25",
+      "id": "DIN7338-s1",
+      "scope": "dimensions"
+    },
+    {
+      "url": "https://www.dinmedia.de/en/standard/din-7338/135476056",
+      "titel": "DIN Media DIN 7338:2011-03 (Formen A, B, C, Status)",
+      "abgerufen": "2026-11-25",
+      "id": "DIN7338-s2",
+      "scope": "edition-status"
+    },
+    {
+      "url": "https://eshop.wuerth.de/Rivet-for-brake-and-clutch-linings-RIV-MHD-DIN7338-BRS-B-4X8/0926150408.sku/en/US/EUR",
+      "titel": "Würth eshop DIN 7338 Messing Form B",
+      "abgerufen": "2026-11-25",
+      "id": "DIN7338-s3",
+      "scope": "dimensions"
+    },
+    {
+      "url": "https://www.keller-kalmbach.de/p/D7338BBYAA46/pdf",
+      "titel": "Keller-Kalmbach DIN 7338 B 4x6",
+      "abgerufen": "2026-11-25",
+      "id": "DIN7338-s4",
+      "scope": "dimensions"
+    },
+    {
+      "url": "https://www.reca.co.at/de/wp-content/uploads/sites/6/2021/09/Befestigungstechnik_Kap.-11.pdf",
+      "titel": "RECA Kap. 11 Rohrniete Form C DIN 7338",
+      "abgerufen": "2026-11-25",
+      "id": "DIN7338-s5",
+      "scope": "dimensions"
+    },
+    {
+      "id": "fasenco",
+      "url": "https://www.fasenco.com/din-7338/",
+      "titel": "Fasenco DIN7338 Maßtabelle",
+      "scope": "dimensions",
+      "abgerufen": "2026-11-26"
+    }
+  ],
+  "status": "partial",
+  "coverage": "documented",
+  "pruefdatum": "2026-11-26",
+  "lengthDependentFields": [
+    "sL"
+  ],
+  "laengen": {
+    "values": [],
+    "unit": "mm",
+    "coverage": "unresearched",
+    "status": "missing",
+    "sourceRefs": [],
+    "note": "Normlängenmatrix je Durchmesser nicht verifiziert."
+  },
+  "gaps": [
+    "B d4: Bohrungstiefe widersprüchlich (4 oder4,5..5).",
+    "C1/C2 sind Hohlformen; keine ungeprüfte Gleichsetzung mit Drahtvollmaterial.",
+    "Längen der Norm je Form/Größe nicht vollständig belegt."
+  ],
+  "hinweise": [
+    "Fehlende Größe/Länge kennzeichnet eine Datenlücke, keinen Normausschluss."
+  ],
+  "normstatus": {
+    "edition": "2011-03",
+    "status": "current",
+    "sourceRefs": [
+      "DIN7338-s2"
+    ]
+  },
+  "variants": [
+    {
+      "id": "A",
+      "label": "Vollniet",
+      "kopfTyp": "flachrund",
+      "schaftende": "voll",
+      "sizeData": {
+        "3": {
+          "vorbelegung": {
+            "sD": 3,
+            "kD": 5.5,
+            "kH": 0.8
+          },
+          "roh": {
+            "d_nominal": 3,
+            "d2_nom": 5.5,
+            "d3_min": 2.85,
+            "k_min": 0.6,
+            "k_max": 0.8
+          },
+          "coverage": "documented",
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "length",
+            "headProfileDefinition"
+          ],
+          "nachLaenge": {}
+        },
+        "4": {
+          "vorbelegung": {
+            "sD": 4,
+            "kD": 7.5,
+            "kH": 1
+          },
+          "roh": {
+            "d_nominal": 4,
+            "d2_nom": 7.5,
+            "d3_min": 3.8,
+            "k_min": 0.8,
+            "k_max": 1
+          },
+          "coverage": "documented",
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "length",
+            "headProfileDefinition"
+          ],
+          "nachLaenge": {}
+        },
+        "5": {
+          "vorbelegung": {
+            "sD": 5,
+            "kD": 9.5,
+            "kH": 1
+          },
+          "roh": {
+            "d_nominal": 5,
+            "d2_nom": 9.5,
+            "d3_min": 4.8,
+            "k_min": 0.8,
+            "k_max": 1
+          },
+          "coverage": "documented",
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "length",
+            "headProfileDefinition"
+          ],
+          "nachLaenge": {}
+        },
+        "6": {
+          "vorbelegung": {
+            "sD": 6,
+            "kD": 11.5,
+            "kH": 1.2
+          },
+          "roh": {
+            "d_nominal": 6,
+            "d2_nom": 11.5,
+            "d3_min": 5.8,
+            "k_min": 1,
+            "k_max": 1.2
+          },
+          "coverage": "documented",
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "length",
+            "headProfileDefinition"
+          ],
+          "nachLaenge": {}
+        },
+        "8": {
+          "vorbelegung": {
+            "sD": 8,
+            "kD": 15.5,
+            "kH": 1.2
+          },
+          "roh": {
+            "d_nominal": 8,
+            "d2_nom": 15.5,
+            "d3_min": 7.75,
+            "k_min": 1,
+            "k_max": 1.2
+          },
+          "coverage": "documented",
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "length",
+            "headProfileDefinition"
+          ],
+          "nachLaenge": {}
+        },
+        "10": {
+          "vorbelegung": {
+            "sD": 10,
+            "kD": 18,
+            "kH": 1.4
+          },
+          "roh": {
+            "d_nominal": 10,
+            "d2_nom": 18,
+            "d3_min": 9.75,
+            "k_min": 1.2,
+            "k_max": 1.4
+          },
+          "coverage": "documented",
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "length",
+            "headProfileDefinition"
+          ],
+          "nachLaenge": {}
+        }
+      },
+      "fields": {
+        "3": {
+          "d_nominal": {
+            "nominal": 3,
+            "sourceRefs": [
+              "DIN7338-s1",
+              "fasenco"
+            ],
+            "status": "verified",
+            "verification": "independent-publishers-agree",
+            "note": "Maßzahl in zwei Veröffentlichungen; Formabhängigkeit bleibt explizit.",
+            "unit": "mm"
+          },
+          "d2_nom": {
+            "nominal": 5.5,
+            "sourceRefs": [
+              "DIN7338-s1",
+              "fasenco"
+            ],
+            "status": "verified",
+            "verification": "independent-publishers-agree",
+            "note": "Maßzahl in zwei Veröffentlichungen; Formabhängigkeit bleibt explizit.",
+            "unit": "mm"
+          },
+          "d3_min": {
+            "sourceRefs": [
+              "DIN7338-s1",
+              "fasenco"
+            ],
+            "status": "verified",
+            "verification": "independent-publishers-agree",
+            "note": "Maßzahl in zwei Veröffentlichungen; Formabhängigkeit bleibt explizit.",
+            "unit": "mm",
+            "min": 2.85
+          },
+          "k_min": {
+            "sourceRefs": [
+              "DIN7338-s1"
+            ],
+            "status": "single-source",
+            "verification": "single-publication",
+            "note": "Maßtabelle; zweite unabhängig bestätigte Zuordnung zur Form fehlt.",
+            "unit": "mm",
+            "min": 0.6
+          },
+          "k_max": {
+            "sourceRefs": [
+              "DIN7338-s1",
+              "fasenco"
+            ],
+            "status": "verified",
+            "verification": "independent-publishers-agree",
+            "note": "Maßzahl in zwei Veröffentlichungen; Formabhängigkeit bleibt explizit.",
+            "unit": "mm",
+            "max": 0.8
+          }
+        },
+        "4": {
+          "d_nominal": {
+            "nominal": 4,
+            "sourceRefs": [
+              "DIN7338-s1",
+              "fasenco"
+            ],
+            "status": "verified",
+            "verification": "independent-publishers-agree",
+            "note": "Maßzahl in zwei Veröffentlichungen; Formabhängigkeit bleibt explizit.",
+            "unit": "mm"
+          },
+          "d2_nom": {
+            "nominal": 7.5,
+            "sourceRefs": [
+              "DIN7338-s1",
+              "fasenco"
+            ],
+            "status": "verified",
+            "verification": "independent-publishers-agree",
+            "note": "Maßzahl in zwei Veröffentlichungen; Formabhängigkeit bleibt explizit.",
+            "unit": "mm"
+          },
+          "d3_min": {
+            "sourceRefs": [
+              "DIN7338-s1",
+              "fasenco"
+            ],
+            "status": "verified",
+            "verification": "independent-publishers-agree",
+            "note": "Maßzahl in zwei Veröffentlichungen; Formabhängigkeit bleibt explizit.",
+            "unit": "mm",
+            "min": 3.8
+          },
+          "k_min": {
+            "sourceRefs": [
+              "DIN7338-s1"
+            ],
+            "status": "single-source",
+            "verification": "single-publication",
+            "note": "Maßtabelle; zweite unabhängig bestätigte Zuordnung zur Form fehlt.",
+            "unit": "mm",
+            "min": 0.8
+          },
+          "k_max": {
+            "sourceRefs": [
+              "DIN7338-s1",
+              "fasenco"
+            ],
+            "status": "verified",
+            "verification": "independent-publishers-agree",
+            "note": "Maßzahl in zwei Veröffentlichungen; Formabhängigkeit bleibt explizit.",
+            "unit": "mm",
+            "max": 1
+          }
+        },
+        "5": {
+          "d_nominal": {
+            "nominal": 5,
+            "sourceRefs": [
+              "DIN7338-s1",
+              "fasenco"
+            ],
+            "status": "verified",
+            "verification": "independent-publishers-agree",
+            "note": "Maßzahl in zwei Veröffentlichungen; Formabhängigkeit bleibt explizit.",
+            "unit": "mm"
+          },
+          "d2_nom": {
+            "nominal": 9.5,
+            "sourceRefs": [
+              "DIN7338-s1",
+              "fasenco"
+            ],
+            "status": "verified",
+            "verification": "independent-publishers-agree",
+            "note": "Maßzahl in zwei Veröffentlichungen; Formabhängigkeit bleibt explizit.",
+            "unit": "mm"
+          },
+          "d3_min": {
+            "sourceRefs": [
+              "DIN7338-s1",
+              "fasenco"
+            ],
+            "status": "verified",
+            "verification": "independent-publishers-agree",
+            "note": "Maßzahl in zwei Veröffentlichungen; Formabhängigkeit bleibt explizit.",
+            "unit": "mm",
+            "min": 4.8
+          },
+          "k_min": {
+            "sourceRefs": [
+              "DIN7338-s1"
+            ],
+            "status": "single-source",
+            "verification": "single-publication",
+            "note": "Maßtabelle; zweite unabhängig bestätigte Zuordnung zur Form fehlt.",
+            "unit": "mm",
+            "min": 0.8
+          },
+          "k_max": {
+            "sourceRefs": [
+              "DIN7338-s1",
+              "fasenco"
+            ],
+            "status": "verified",
+            "verification": "independent-publishers-agree",
+            "note": "Maßzahl in zwei Veröffentlichungen; Formabhängigkeit bleibt explizit.",
+            "unit": "mm",
+            "max": 1
+          }
+        },
+        "6": {
+          "d_nominal": {
+            "nominal": 6,
+            "sourceRefs": [
+              "DIN7338-s1",
+              "fasenco"
+            ],
+            "status": "verified",
+            "verification": "independent-publishers-agree",
+            "note": "Maßzahl in zwei Veröffentlichungen; Formabhängigkeit bleibt explizit.",
+            "unit": "mm"
+          },
+          "d2_nom": {
+            "nominal": 11.5,
+            "sourceRefs": [
+              "DIN7338-s1",
+              "fasenco"
+            ],
+            "status": "verified",
+            "verification": "independent-publishers-agree",
+            "note": "Maßzahl in zwei Veröffentlichungen; Formabhängigkeit bleibt explizit.",
+            "unit": "mm"
+          },
+          "d3_min": {
+            "sourceRefs": [
+              "DIN7338-s1",
+              "fasenco"
+            ],
+            "status": "verified",
+            "verification": "independent-publishers-agree",
+            "note": "Maßzahl in zwei Veröffentlichungen; Formabhängigkeit bleibt explizit.",
+            "unit": "mm",
+            "min": 5.8
+          },
+          "k_min": {
+            "sourceRefs": [
+              "DIN7338-s1"
+            ],
+            "status": "single-source",
+            "verification": "single-publication",
+            "note": "Maßtabelle; zweite unabhängig bestätigte Zuordnung zur Form fehlt.",
+            "unit": "mm",
+            "min": 1
+          },
+          "k_max": {
+            "sourceRefs": [
+              "DIN7338-s1",
+              "fasenco"
+            ],
+            "status": "verified",
+            "verification": "independent-publishers-agree",
+            "note": "Maßzahl in zwei Veröffentlichungen; Formabhängigkeit bleibt explizit.",
+            "unit": "mm",
+            "max": 1.2
+          }
+        },
+        "8": {
+          "d_nominal": {
+            "nominal": 8,
+            "sourceRefs": [
+              "DIN7338-s1",
+              "fasenco"
+            ],
+            "status": "verified",
+            "verification": "independent-publishers-agree",
+            "note": "Maßzahl in zwei Veröffentlichungen; Formabhängigkeit bleibt explizit.",
+            "unit": "mm"
+          },
+          "d2_nom": {
+            "nominal": 15.5,
+            "sourceRefs": [
+              "DIN7338-s1",
+              "fasenco"
+            ],
+            "status": "verified",
+            "verification": "independent-publishers-agree",
+            "note": "Maßzahl in zwei Veröffentlichungen; Formabhängigkeit bleibt explizit.",
+            "unit": "mm"
+          },
+          "d3_min": {
+            "sourceRefs": [
+              "DIN7338-s1",
+              "fasenco"
+            ],
+            "status": "verified",
+            "verification": "independent-publishers-agree",
+            "note": "Maßzahl in zwei Veröffentlichungen; Formabhängigkeit bleibt explizit.",
+            "unit": "mm",
+            "min": 7.75
+          },
+          "k_min": {
+            "sourceRefs": [
+              "DIN7338-s1"
+            ],
+            "status": "single-source",
+            "verification": "single-publication",
+            "note": "Maßtabelle; zweite unabhängig bestätigte Zuordnung zur Form fehlt.",
+            "unit": "mm",
+            "min": 1
+          },
+          "k_max": {
+            "sourceRefs": [
+              "DIN7338-s1",
+              "fasenco"
+            ],
+            "status": "verified",
+            "verification": "independent-publishers-agree",
+            "note": "Maßzahl in zwei Veröffentlichungen; Formabhängigkeit bleibt explizit.",
+            "unit": "mm",
+            "max": 1.2
+          }
+        },
+        "10": {
+          "d_nominal": {
+            "nominal": 10,
+            "sourceRefs": [
+              "DIN7338-s1",
+              "fasenco"
+            ],
+            "status": "verified",
+            "verification": "independent-publishers-agree",
+            "note": "Maßzahl in zwei Veröffentlichungen; Formabhängigkeit bleibt explizit.",
+            "unit": "mm"
+          },
+          "d2_nom": {
+            "nominal": 18,
+            "sourceRefs": [
+              "DIN7338-s1",
+              "fasenco"
+            ],
+            "status": "verified",
+            "verification": "independent-publishers-agree",
+            "note": "Maßzahl in zwei Veröffentlichungen; Formabhängigkeit bleibt explizit.",
+            "unit": "mm"
+          },
+          "d3_min": {
+            "sourceRefs": [
+              "DIN7338-s1",
+              "fasenco"
+            ],
+            "status": "verified",
+            "verification": "independent-publishers-agree",
+            "note": "Maßzahl in zwei Veröffentlichungen; Formabhängigkeit bleibt explizit.",
+            "unit": "mm",
+            "min": 9.75
+          },
+          "k_min": {
+            "sourceRefs": [
+              "DIN7338-s1"
+            ],
+            "status": "single-source",
+            "verification": "single-publication",
+            "note": "Maßtabelle; zweite unabhängig bestätigte Zuordnung zur Form fehlt.",
+            "unit": "mm",
+            "min": 1.2
+          },
+          "k_max": {
+            "sourceRefs": [
+              "DIN7338-s1",
+              "fasenco"
+            ],
+            "status": "verified",
+            "verification": "independent-publishers-agree",
+            "note": "Maßzahl in zwei Veröffentlichungen; Formabhängigkeit bleibt explizit.",
+            "unit": "mm",
+            "max": 1.4
+          }
+        }
+      },
+      "productionScope": "wire-forming-candidate"
+    },
+    {
+      "id": "B",
+      "label": "Halbhohlniet",
+      "kopfTyp": "flachrund",
+      "schaftende": "halbhohl",
+      "sizeData": {
+        "3": {
+          "vorbelegung": {
+            "sD": 3,
+            "kD": 5.5,
+            "kH": 0.8,
+            "d_b": 1.7,
+            "t_b": 3.5
+          },
+          "roh": {
+            "d_nominal": 3,
+            "d2_nom": 5.5,
+            "d3_min": 2.85,
+            "d4_h13": 1.7,
+            "k_min": 0.6,
+            "k_max": 0.8,
+            "t_min": 3.5,
+            "t_max": 4
+          },
+          "coverage": "documented",
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "length",
+            "headProfileDefinition",
+            "boreBottomShape"
+          ],
+          "nachLaenge": {}
+        },
+        "4": {
+          "vorbelegung": {
+            "sD": 4,
+            "kD": 7.5,
+            "kH": 1,
+            "d_b": 2.7
+          },
+          "roh": {
+            "d_nominal": 4,
+            "d2_nom": 7.5,
+            "d3_min": 3.8,
+            "d4_h13": 2.7,
+            "k_min": 0.8,
+            "k_max": 1,
+            "t_min": 4.5,
+            "t_max": 5
+          },
+          "coverage": "documented",
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "length",
+            "headProfileDefinition",
+            "boreBottomShape",
+            "verifiedBoreDepth"
+          ],
+          "nachLaenge": {
+            "6": {
+              "vorbelegung": {
+                "sL": 6
+              },
+              "roh": {
+                "l_nominal": 6
+              },
+              "fields": {
+                "l_nominal": {
+                  "nominal": 6,
+                  "sourceRefs": [
+                    "DIN7338-s4"
+                  ],
+                  "status": "single-source",
+                  "verification": "single-publication",
+                  "note": "Einzelartikel, keine vollständige Normlängenmatrix.",
+                  "unit": "mm"
+                }
+              },
+              "coverage": "documented",
+              "geometryStatus": "partial",
+              "missingGeometryFields": [
+                "length",
+                "headProfileDefinition",
+                "boreBottomShape",
+                "verifiedBoreDepth"
+              ]
+            },
+            "8": {
+              "vorbelegung": {
+                "sL": 8
+              },
+              "roh": {
+                "l_nominal": 8
+              },
+              "fields": {
+                "l_nominal": {
+                  "nominal": 8,
+                  "sourceRefs": [
+                    "DIN7338-s3"
+                  ],
+                  "status": "single-source",
+                  "verification": "single-publication",
+                  "note": "Einzelartikel, keine vollständige Normlängenmatrix.",
+                  "unit": "mm"
+                }
+              },
+              "coverage": "documented",
+              "geometryStatus": "partial",
+              "missingGeometryFields": [
+                "length",
+                "headProfileDefinition",
+                "boreBottomShape",
+                "verifiedBoreDepth"
+              ]
+            }
+          }
+        },
+        "5": {
+          "vorbelegung": {
+            "sD": 5,
+            "kD": 9.5,
+            "kH": 1,
+            "d_b": 3.5,
+            "t_b": 5.5
+          },
+          "roh": {
+            "d_nominal": 5,
+            "d2_nom": 9.5,
+            "d3_min": 4.8,
+            "d4_h13": 3.5,
+            "k_min": 0.8,
+            "k_max": 1,
+            "t_min": 5.5,
+            "t_max": 6
+          },
+          "coverage": "documented",
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "length",
+            "headProfileDefinition",
+            "boreBottomShape"
+          ],
+          "nachLaenge": {}
+        },
+        "6": {
+          "vorbelegung": {
+            "sD": 6,
+            "kD": 11.5,
+            "kH": 1.2,
+            "d_b": 4.2,
+            "t_b": 7.5
+          },
+          "roh": {
+            "d_nominal": 6,
+            "d2_nom": 11.5,
+            "d3_min": 5.8,
+            "d4_h13": 4.2,
+            "k_min": 1,
+            "k_max": 1.2,
+            "t_min": 7.5,
+            "t_max": 8
+          },
+          "coverage": "documented",
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "length",
+            "headProfileDefinition",
+            "boreBottomShape"
+          ],
+          "nachLaenge": {}
+        },
+        "8": {
+          "vorbelegung": {
+            "sD": 8,
+            "kD": 15.5,
+            "kH": 1.2,
+            "d_b": 6,
+            "t_b": 9.5
+          },
+          "roh": {
+            "d_nominal": 8,
+            "d2_nom": 15.5,
+            "d3_min": 7.75,
+            "d4_h13": 6,
+            "k_min": 1,
+            "k_max": 1.2,
+            "t_min": 9.5,
+            "t_max": 10
+          },
+          "coverage": "documented",
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "length",
+            "headProfileDefinition",
+            "boreBottomShape"
+          ],
+          "nachLaenge": {}
+        },
+        "10": {
+          "vorbelegung": {
+            "sD": 10,
+            "kD": 18,
+            "kH": 1.4,
+            "d_b": 7.5,
+            "t_b": 11.5
+          },
+          "roh": {
+            "d_nominal": 10,
+            "d2_nom": 18,
+            "d3_min": 9.75,
+            "d4_h13": 7.5,
+            "k_min": 1.2,
+            "k_max": 1.4,
+            "t_min": 11.5,
+            "t_max": 12
+          },
+          "coverage": "documented",
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "length",
+            "headProfileDefinition",
+            "boreBottomShape"
+          ],
+          "nachLaenge": {}
+        }
+      },
+      "fields": {
+        "3": {
+          "d_nominal": {
+            "nominal": 3,
+            "sourceRefs": [
+              "DIN7338-s1",
+              "fasenco"
+            ],
+            "status": "verified",
+            "verification": "independent-publishers-agree",
+            "note": "Maßzahl in zwei Veröffentlichungen; Formabhängigkeit bleibt explizit.",
+            "unit": "mm"
+          },
+          "d2_nom": {
+            "nominal": 5.5,
+            "sourceRefs": [
+              "DIN7338-s1",
+              "fasenco"
+            ],
+            "status": "verified",
+            "verification": "independent-publishers-agree",
+            "note": "Maßzahl in zwei Veröffentlichungen; Formabhängigkeit bleibt explizit.",
+            "unit": "mm"
+          },
+          "d3_min": {
+            "sourceRefs": [
+              "DIN7338-s1",
+              "fasenco"
+            ],
+            "status": "verified",
+            "verification": "independent-publishers-agree",
+            "note": "Maßzahl in zwei Veröffentlichungen; Formabhängigkeit bleibt explizit.",
+            "unit": "mm",
+            "min": 2.85
+          },
+          "d4_h13": {
+            "nominal": 1.7,
+            "sourceRefs": [
+              "DIN7338-s1",
+              "fasenco"
+            ],
+            "status": "verified",
+            "verification": "independent-publishers-agree",
+            "note": "Maßzahl in zwei Veröffentlichungen; Formabhängigkeit bleibt explizit.",
+            "unit": "mm"
+          },
+          "k_min": {
+            "sourceRefs": [
+              "DIN7338-s1"
+            ],
+            "status": "single-source",
+            "verification": "single-publication",
+            "note": "Maßtabelle; zweite unabhängig bestätigte Zuordnung zur Form fehlt.",
+            "unit": "mm",
+            "min": 0.6
+          },
+          "k_max": {
+            "sourceRefs": [
+              "DIN7338-s1",
+              "fasenco"
+            ],
+            "status": "verified",
+            "verification": "independent-publishers-agree",
+            "note": "Maßzahl in zwei Veröffentlichungen; Formabhängigkeit bleibt explizit.",
+            "unit": "mm",
+            "max": 0.8
+          },
+          "t_min": {
+            "sourceRefs": [
+              "DIN7338-s1"
+            ],
+            "status": "single-source",
+            "verification": "single-publication",
+            "note": "Tiefe nur in fasten.it Form-B-Tabelle verifiziert; abweichende Lieferartikel möglich.",
+            "unit": "mm",
+            "min": 3.5
+          },
+          "t_max": {
+            "sourceRefs": [
+              "DIN7338-s1"
+            ],
+            "status": "single-source",
+            "verification": "single-publication",
+            "note": "Maßtabelle; zweite unabhängig bestätigte Zuordnung zur Form fehlt.",
+            "unit": "mm",
+            "max": 4
+          }
+        },
+        "4": {
+          "d_nominal": {
+            "nominal": 4,
+            "sourceRefs": [
+              "DIN7338-s1",
+              "fasenco"
+            ],
+            "status": "verified",
+            "verification": "independent-publishers-agree",
+            "note": "Maßzahl in zwei Veröffentlichungen; Formabhängigkeit bleibt explizit.",
+            "unit": "mm"
+          },
+          "d2_nom": {
+            "nominal": 7.5,
+            "sourceRefs": [
+              "DIN7338-s1",
+              "fasenco"
+            ],
+            "status": "verified",
+            "verification": "independent-publishers-agree",
+            "note": "Maßzahl in zwei Veröffentlichungen; Formabhängigkeit bleibt explizit.",
+            "unit": "mm"
+          },
+          "d3_min": {
+            "sourceRefs": [
+              "DIN7338-s1",
+              "fasenco"
+            ],
+            "status": "verified",
+            "verification": "independent-publishers-agree",
+            "note": "Maßzahl in zwei Veröffentlichungen; Formabhängigkeit bleibt explizit.",
+            "unit": "mm",
+            "min": 3.8
+          },
+          "d4_h13": {
+            "nominal": 2.7,
+            "sourceRefs": [
+              "DIN7338-s1",
+              "fasenco"
+            ],
+            "status": "verified",
+            "verification": "independent-publishers-agree",
+            "note": "Maßzahl in zwei Veröffentlichungen; Formabhängigkeit bleibt explizit.",
+            "unit": "mm"
+          },
+          "k_min": {
+            "sourceRefs": [
+              "DIN7338-s1"
+            ],
+            "status": "single-source",
+            "verification": "single-publication",
+            "note": "Maßtabelle; zweite unabhängig bestätigte Zuordnung zur Form fehlt.",
+            "unit": "mm",
+            "min": 0.8
+          },
+          "k_max": {
+            "sourceRefs": [
+              "DIN7338-s1",
+              "fasenco"
+            ],
+            "status": "verified",
+            "verification": "independent-publishers-agree",
+            "note": "Maßzahl in zwei Veröffentlichungen; Formabhängigkeit bleibt explizit.",
+            "unit": "mm",
+            "max": 1
+          },
+          "t_min": {
+            "sourceRefs": [
+              "DIN7338-s1",
+              "DIN7338-s3",
+              "DIN7338-s4"
+            ],
+            "status": "conflict",
+            "verification": "different-bore-depths",
+            "note": "Tabelle: 4,5..5; Würth/Keller-Kalmbach Einzelartikel: 4. Kein automatischer Tiefenwert.",
+            "unit": "mm",
+            "min": 4.5,
+            "alternatives": [
+              {
+                "min": 4,
+                "sourceRefs": [
+                  "DIN7338-s3",
+                  "DIN7338-s4"
+                ]
+              }
+            ]
+          },
+          "t_max": {
+            "sourceRefs": [
+              "DIN7338-s1"
+            ],
+            "status": "single-source",
+            "verification": "single-publication",
+            "note": "Maßtabelle; zweite unabhängig bestätigte Zuordnung zur Form fehlt.",
+            "unit": "mm",
+            "max": 5
+          }
+        },
+        "5": {
+          "d_nominal": {
+            "nominal": 5,
+            "sourceRefs": [
+              "DIN7338-s1",
+              "fasenco"
+            ],
+            "status": "verified",
+            "verification": "independent-publishers-agree",
+            "note": "Maßzahl in zwei Veröffentlichungen; Formabhängigkeit bleibt explizit.",
+            "unit": "mm"
+          },
+          "d2_nom": {
+            "nominal": 9.5,
+            "sourceRefs": [
+              "DIN7338-s1",
+              "fasenco"
+            ],
+            "status": "verified",
+            "verification": "independent-publishers-agree",
+            "note": "Maßzahl in zwei Veröffentlichungen; Formabhängigkeit bleibt explizit.",
+            "unit": "mm"
+          },
+          "d3_min": {
+            "sourceRefs": [
+              "DIN7338-s1",
+              "fasenco"
+            ],
+            "status": "verified",
+            "verification": "independent-publishers-agree",
+            "note": "Maßzahl in zwei Veröffentlichungen; Formabhängigkeit bleibt explizit.",
+            "unit": "mm",
+            "min": 4.8
+          },
+          "d4_h13": {
+            "nominal": 3.5,
+            "sourceRefs": [
+              "DIN7338-s1",
+              "fasenco"
+            ],
+            "status": "verified",
+            "verification": "independent-publishers-agree",
+            "note": "Maßzahl in zwei Veröffentlichungen; Formabhängigkeit bleibt explizit.",
+            "unit": "mm"
+          },
+          "k_min": {
+            "sourceRefs": [
+              "DIN7338-s1"
+            ],
+            "status": "single-source",
+            "verification": "single-publication",
+            "note": "Maßtabelle; zweite unabhängig bestätigte Zuordnung zur Form fehlt.",
+            "unit": "mm",
+            "min": 0.8
+          },
+          "k_max": {
+            "sourceRefs": [
+              "DIN7338-s1",
+              "fasenco"
+            ],
+            "status": "verified",
+            "verification": "independent-publishers-agree",
+            "note": "Maßzahl in zwei Veröffentlichungen; Formabhängigkeit bleibt explizit.",
+            "unit": "mm",
+            "max": 1
+          },
+          "t_min": {
+            "sourceRefs": [
+              "DIN7338-s1"
+            ],
+            "status": "single-source",
+            "verification": "single-publication",
+            "note": "Tiefe nur in fasten.it Form-B-Tabelle verifiziert; abweichende Lieferartikel möglich.",
+            "unit": "mm",
+            "min": 5.5
+          },
+          "t_max": {
+            "sourceRefs": [
+              "DIN7338-s1"
+            ],
+            "status": "single-source",
+            "verification": "single-publication",
+            "note": "Maßtabelle; zweite unabhängig bestätigte Zuordnung zur Form fehlt.",
+            "unit": "mm",
+            "max": 6
+          }
+        },
+        "6": {
+          "d_nominal": {
+            "nominal": 6,
+            "sourceRefs": [
+              "DIN7338-s1",
+              "fasenco"
+            ],
+            "status": "verified",
+            "verification": "independent-publishers-agree",
+            "note": "Maßzahl in zwei Veröffentlichungen; Formabhängigkeit bleibt explizit.",
+            "unit": "mm"
+          },
+          "d2_nom": {
+            "nominal": 11.5,
+            "sourceRefs": [
+              "DIN7338-s1",
+              "fasenco"
+            ],
+            "status": "verified",
+            "verification": "independent-publishers-agree",
+            "note": "Maßzahl in zwei Veröffentlichungen; Formabhängigkeit bleibt explizit.",
+            "unit": "mm"
+          },
+          "d3_min": {
+            "sourceRefs": [
+              "DIN7338-s1",
+              "fasenco"
+            ],
+            "status": "verified",
+            "verification": "independent-publishers-agree",
+            "note": "Maßzahl in zwei Veröffentlichungen; Formabhängigkeit bleibt explizit.",
+            "unit": "mm",
+            "min": 5.8
+          },
+          "d4_h13": {
+            "nominal": 4.2,
+            "sourceRefs": [
+              "DIN7338-s1",
+              "fasenco"
+            ],
+            "status": "verified",
+            "verification": "independent-publishers-agree",
+            "note": "Maßzahl in zwei Veröffentlichungen; Formabhängigkeit bleibt explizit.",
+            "unit": "mm"
+          },
+          "k_min": {
+            "sourceRefs": [
+              "DIN7338-s1"
+            ],
+            "status": "single-source",
+            "verification": "single-publication",
+            "note": "Maßtabelle; zweite unabhängig bestätigte Zuordnung zur Form fehlt.",
+            "unit": "mm",
+            "min": 1
+          },
+          "k_max": {
+            "sourceRefs": [
+              "DIN7338-s1",
+              "fasenco"
+            ],
+            "status": "verified",
+            "verification": "independent-publishers-agree",
+            "note": "Maßzahl in zwei Veröffentlichungen; Formabhängigkeit bleibt explizit.",
+            "unit": "mm",
+            "max": 1.2
+          },
+          "t_min": {
+            "sourceRefs": [
+              "DIN7338-s1"
+            ],
+            "status": "single-source",
+            "verification": "single-publication",
+            "note": "Tiefe nur in fasten.it Form-B-Tabelle verifiziert; abweichende Lieferartikel möglich.",
+            "unit": "mm",
+            "min": 7.5
+          },
+          "t_max": {
+            "sourceRefs": [
+              "DIN7338-s1"
+            ],
+            "status": "single-source",
+            "verification": "single-publication",
+            "note": "Maßtabelle; zweite unabhängig bestätigte Zuordnung zur Form fehlt.",
+            "unit": "mm",
+            "max": 8
+          }
+        },
+        "8": {
+          "d_nominal": {
+            "nominal": 8,
+            "sourceRefs": [
+              "DIN7338-s1",
+              "fasenco"
+            ],
+            "status": "verified",
+            "verification": "independent-publishers-agree",
+            "note": "Maßzahl in zwei Veröffentlichungen; Formabhängigkeit bleibt explizit.",
+            "unit": "mm"
+          },
+          "d2_nom": {
+            "nominal": 15.5,
+            "sourceRefs": [
+              "DIN7338-s1",
+              "fasenco"
+            ],
+            "status": "verified",
+            "verification": "independent-publishers-agree",
+            "note": "Maßzahl in zwei Veröffentlichungen; Formabhängigkeit bleibt explizit.",
+            "unit": "mm"
+          },
+          "d3_min": {
+            "sourceRefs": [
+              "DIN7338-s1",
+              "fasenco"
+            ],
+            "status": "verified",
+            "verification": "independent-publishers-agree",
+            "note": "Maßzahl in zwei Veröffentlichungen; Formabhängigkeit bleibt explizit.",
+            "unit": "mm",
+            "min": 7.75
+          },
+          "d4_h13": {
+            "nominal": 6,
+            "sourceRefs": [
+              "DIN7338-s1",
+              "fasenco"
+            ],
+            "status": "verified",
+            "verification": "independent-publishers-agree",
+            "note": "Maßzahl in zwei Veröffentlichungen; Formabhängigkeit bleibt explizit.",
+            "unit": "mm"
+          },
+          "k_min": {
+            "sourceRefs": [
+              "DIN7338-s1"
+            ],
+            "status": "single-source",
+            "verification": "single-publication",
+            "note": "Maßtabelle; zweite unabhängig bestätigte Zuordnung zur Form fehlt.",
+            "unit": "mm",
+            "min": 1
+          },
+          "k_max": {
+            "sourceRefs": [
+              "DIN7338-s1",
+              "fasenco"
+            ],
+            "status": "verified",
+            "verification": "independent-publishers-agree",
+            "note": "Maßzahl in zwei Veröffentlichungen; Formabhängigkeit bleibt explizit.",
+            "unit": "mm",
+            "max": 1.2
+          },
+          "t_min": {
+            "sourceRefs": [
+              "DIN7338-s1"
+            ],
+            "status": "single-source",
+            "verification": "single-publication",
+            "note": "Tiefe nur in fasten.it Form-B-Tabelle verifiziert; abweichende Lieferartikel möglich.",
+            "unit": "mm",
+            "min": 9.5
+          },
+          "t_max": {
+            "sourceRefs": [
+              "DIN7338-s1"
+            ],
+            "status": "single-source",
+            "verification": "single-publication",
+            "note": "Maßtabelle; zweite unabhängig bestätigte Zuordnung zur Form fehlt.",
+            "unit": "mm",
+            "max": 10
+          }
+        },
+        "10": {
+          "d_nominal": {
+            "nominal": 10,
+            "sourceRefs": [
+              "DIN7338-s1",
+              "fasenco"
+            ],
+            "status": "verified",
+            "verification": "independent-publishers-agree",
+            "note": "Maßzahl in zwei Veröffentlichungen; Formabhängigkeit bleibt explizit.",
+            "unit": "mm"
+          },
+          "d2_nom": {
+            "nominal": 18,
+            "sourceRefs": [
+              "DIN7338-s1",
+              "fasenco"
+            ],
+            "status": "verified",
+            "verification": "independent-publishers-agree",
+            "note": "Maßzahl in zwei Veröffentlichungen; Formabhängigkeit bleibt explizit.",
+            "unit": "mm"
+          },
+          "d3_min": {
+            "sourceRefs": [
+              "DIN7338-s1",
+              "fasenco"
+            ],
+            "status": "verified",
+            "verification": "independent-publishers-agree",
+            "note": "Maßzahl in zwei Veröffentlichungen; Formabhängigkeit bleibt explizit.",
+            "unit": "mm",
+            "min": 9.75
+          },
+          "d4_h13": {
+            "nominal": 7.5,
+            "sourceRefs": [
+              "DIN7338-s1",
+              "fasenco"
+            ],
+            "status": "verified",
+            "verification": "independent-publishers-agree",
+            "note": "Maßzahl in zwei Veröffentlichungen; Formabhängigkeit bleibt explizit.",
+            "unit": "mm"
+          },
+          "k_min": {
+            "sourceRefs": [
+              "DIN7338-s1"
+            ],
+            "status": "single-source",
+            "verification": "single-publication",
+            "note": "Maßtabelle; zweite unabhängig bestätigte Zuordnung zur Form fehlt.",
+            "unit": "mm",
+            "min": 1.2
+          },
+          "k_max": {
+            "sourceRefs": [
+              "DIN7338-s1",
+              "fasenco"
+            ],
+            "status": "verified",
+            "verification": "independent-publishers-agree",
+            "note": "Maßzahl in zwei Veröffentlichungen; Formabhängigkeit bleibt explizit.",
+            "unit": "mm",
+            "max": 1.4
+          },
+          "t_min": {
+            "sourceRefs": [
+              "DIN7338-s1"
+            ],
+            "status": "single-source",
+            "verification": "single-publication",
+            "note": "Tiefe nur in fasten.it Form-B-Tabelle verifiziert; abweichende Lieferartikel möglich.",
+            "unit": "mm",
+            "min": 11.5
+          },
+          "t_max": {
+            "sourceRefs": [
+              "DIN7338-s1"
+            ],
+            "status": "single-source",
+            "verification": "single-publication",
+            "note": "Maßtabelle; zweite unabhängig bestätigte Zuordnung zur Form fehlt.",
+            "unit": "mm",
+            "max": 12
+          }
+        }
+      },
+      "productionScope": "wire-forming-candidate"
+    },
+    {
+      "id": "C1",
+      "label": "Hohlniet C1",
+      "kopfTyp": "flachrund",
+      "schaftende": "hohl",
+      "sizeData": {
+        "3": {
+          "vorbelegung": {
+            "sD": 3,
+            "kD": 5.5,
+            "kH": 0.8
+          },
+          "roh": {
+            "d_nominal": 3,
+            "d2_nom": 5.5,
+            "d3_min": 2.85,
+            "k_min": 0.6,
+            "k_max": 0.8,
+            "s": 0.5
+          },
+          "coverage": "documented",
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "length",
+            "headProfileDefinition",
+            "tubeProfile"
+          ],
+          "nachLaenge": {}
+        },
+        "4": {
+          "vorbelegung": {
+            "sD": 4,
+            "kD": 7.5,
+            "kH": 1
+          },
+          "roh": {
+            "d_nominal": 4,
+            "d2_nom": 7.5,
+            "d3_min": 3.8,
+            "k_min": 0.8,
+            "k_max": 1,
+            "s": 0.5
+          },
+          "coverage": "documented",
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "length",
+            "headProfileDefinition",
+            "tubeProfile"
+          ],
+          "nachLaenge": {}
+        },
+        "5": {
+          "vorbelegung": {
+            "sD": 5,
+            "kD": 9.5,
+            "kH": 1
+          },
+          "roh": {
+            "d_nominal": 5,
+            "d2_nom": 9.5,
+            "d3_min": 4.8,
+            "k_min": 0.8,
+            "k_max": 1,
+            "s": 0.6
+          },
+          "coverage": "documented",
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "length",
+            "headProfileDefinition",
+            "tubeProfile"
+          ],
+          "nachLaenge": {}
+        },
+        "6": {
+          "vorbelegung": {
+            "sD": 6,
+            "kD": 11.5,
+            "kH": 1.2
+          },
+          "roh": {
+            "d_nominal": 6,
+            "d2_nom": 11.5,
+            "d3_min": 5.8,
+            "k_min": 1,
+            "k_max": 1.2,
+            "s": 0.75
+          },
+          "coverage": "documented",
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "length",
+            "headProfileDefinition",
+            "tubeProfile"
+          ],
+          "nachLaenge": {}
+        },
+        "8": {
+          "vorbelegung": {
+            "sD": 8,
+            "kD": 15.5,
+            "kH": 1.2
+          },
+          "roh": {
+            "d_nominal": 8,
+            "d2_nom": 15.5,
+            "d3_min": 7.75,
+            "k_min": 1,
+            "k_max": 1.2,
+            "s": 1.2
+          },
+          "coverage": "documented",
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "length",
+            "headProfileDefinition",
+            "tubeProfile"
+          ],
+          "nachLaenge": {}
+        },
+        "10": {
+          "vorbelegung": {
+            "sD": 10,
+            "kD": 18,
+            "kH": 1.4
+          },
+          "roh": {
+            "d_nominal": 10,
+            "d2_nom": 18,
+            "d3_min": 9.75,
+            "k_min": 1.2,
+            "k_max": 1.4,
+            "s": 1.2
+          },
+          "coverage": "documented",
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "length",
+            "headProfileDefinition",
+            "tubeProfile"
+          ],
+          "nachLaenge": {}
+        }
+      },
+      "fields": {
+        "3": {
+          "d_nominal": {
+            "nominal": 3,
+            "sourceRefs": [
+              "DIN7338-s1",
+              "fasenco"
+            ],
+            "status": "verified",
+            "verification": "independent-publishers-agree",
+            "note": "Maßzahl in zwei Veröffentlichungen; Formabhängigkeit bleibt explizit.",
+            "unit": "mm"
+          },
+          "d2_nom": {
+            "nominal": 5.5,
+            "sourceRefs": [
+              "DIN7338-s1",
+              "fasenco"
+            ],
+            "status": "verified",
+            "verification": "independent-publishers-agree",
+            "note": "Maßzahl in zwei Veröffentlichungen; Formabhängigkeit bleibt explizit.",
+            "unit": "mm"
+          },
+          "d3_min": {
+            "sourceRefs": [
+              "DIN7338-s1",
+              "fasenco"
+            ],
+            "status": "verified",
+            "verification": "independent-publishers-agree",
+            "note": "Maßzahl in zwei Veröffentlichungen; Formabhängigkeit bleibt explizit.",
+            "unit": "mm",
+            "min": 2.85
+          },
+          "k_min": {
+            "sourceRefs": [
+              "DIN7338-s1"
+            ],
+            "status": "single-source",
+            "verification": "single-publication",
+            "note": "Maßtabelle; zweite unabhängig bestätigte Zuordnung zur Form fehlt.",
+            "unit": "mm",
+            "min": 0.6
+          },
+          "k_max": {
+            "sourceRefs": [
+              "DIN7338-s1",
+              "fasenco"
+            ],
+            "status": "verified",
+            "verification": "independent-publishers-agree",
+            "note": "Maßzahl in zwei Veröffentlichungen; Formabhängigkeit bleibt explizit.",
+            "unit": "mm",
+            "max": 0.8
+          },
+          "s": {
+            "nominal": 0.5,
+            "sourceRefs": [
+              "DIN7338-s1"
+            ],
+            "status": "single-source",
+            "verification": "single-publication",
+            "note": "Maßtabelle; zweite unabhängig bestätigte Zuordnung zur Form fehlt.",
+            "unit": "mm"
+          }
+        },
+        "4": {
+          "d_nominal": {
+            "nominal": 4,
+            "sourceRefs": [
+              "DIN7338-s1",
+              "fasenco"
+            ],
+            "status": "verified",
+            "verification": "independent-publishers-agree",
+            "note": "Maßzahl in zwei Veröffentlichungen; Formabhängigkeit bleibt explizit.",
+            "unit": "mm"
+          },
+          "d2_nom": {
+            "nominal": 7.5,
+            "sourceRefs": [
+              "DIN7338-s1",
+              "fasenco"
+            ],
+            "status": "verified",
+            "verification": "independent-publishers-agree",
+            "note": "Maßzahl in zwei Veröffentlichungen; Formabhängigkeit bleibt explizit.",
+            "unit": "mm"
+          },
+          "d3_min": {
+            "sourceRefs": [
+              "DIN7338-s1",
+              "fasenco"
+            ],
+            "status": "verified",
+            "verification": "independent-publishers-agree",
+            "note": "Maßzahl in zwei Veröffentlichungen; Formabhängigkeit bleibt explizit.",
+            "unit": "mm",
+            "min": 3.8
+          },
+          "k_min": {
+            "sourceRefs": [
+              "DIN7338-s1"
+            ],
+            "status": "single-source",
+            "verification": "single-publication",
+            "note": "Maßtabelle; zweite unabhängig bestätigte Zuordnung zur Form fehlt.",
+            "unit": "mm",
+            "min": 0.8
+          },
+          "k_max": {
+            "sourceRefs": [
+              "DIN7338-s1",
+              "fasenco"
+            ],
+            "status": "verified",
+            "verification": "independent-publishers-agree",
+            "note": "Maßzahl in zwei Veröffentlichungen; Formabhängigkeit bleibt explizit.",
+            "unit": "mm",
+            "max": 1
+          },
+          "s": {
+            "nominal": 0.5,
+            "sourceRefs": [
+              "DIN7338-s1"
+            ],
+            "status": "single-source",
+            "verification": "single-publication",
+            "note": "Maßtabelle; zweite unabhängig bestätigte Zuordnung zur Form fehlt.",
+            "unit": "mm"
+          }
+        },
+        "5": {
+          "d_nominal": {
+            "nominal": 5,
+            "sourceRefs": [
+              "DIN7338-s1",
+              "fasenco"
+            ],
+            "status": "verified",
+            "verification": "independent-publishers-agree",
+            "note": "Maßzahl in zwei Veröffentlichungen; Formabhängigkeit bleibt explizit.",
+            "unit": "mm"
+          },
+          "d2_nom": {
+            "nominal": 9.5,
+            "sourceRefs": [
+              "DIN7338-s1",
+              "fasenco"
+            ],
+            "status": "verified",
+            "verification": "independent-publishers-agree",
+            "note": "Maßzahl in zwei Veröffentlichungen; Formabhängigkeit bleibt explizit.",
+            "unit": "mm"
+          },
+          "d3_min": {
+            "sourceRefs": [
+              "DIN7338-s1",
+              "fasenco"
+            ],
+            "status": "verified",
+            "verification": "independent-publishers-agree",
+            "note": "Maßzahl in zwei Veröffentlichungen; Formabhängigkeit bleibt explizit.",
+            "unit": "mm",
+            "min": 4.8
+          },
+          "k_min": {
+            "sourceRefs": [
+              "DIN7338-s1"
+            ],
+            "status": "single-source",
+            "verification": "single-publication",
+            "note": "Maßtabelle; zweite unabhängig bestätigte Zuordnung zur Form fehlt.",
+            "unit": "mm",
+            "min": 0.8
+          },
+          "k_max": {
+            "sourceRefs": [
+              "DIN7338-s1",
+              "fasenco"
+            ],
+            "status": "verified",
+            "verification": "independent-publishers-agree",
+            "note": "Maßzahl in zwei Veröffentlichungen; Formabhängigkeit bleibt explizit.",
+            "unit": "mm",
+            "max": 1
+          },
+          "s": {
+            "nominal": 0.6,
+            "sourceRefs": [
+              "DIN7338-s1"
+            ],
+            "status": "single-source",
+            "verification": "single-publication",
+            "note": "Maßtabelle; zweite unabhängig bestätigte Zuordnung zur Form fehlt.",
+            "unit": "mm"
+          }
+        },
+        "6": {
+          "d_nominal": {
+            "nominal": 6,
+            "sourceRefs": [
+              "DIN7338-s1",
+              "fasenco"
+            ],
+            "status": "verified",
+            "verification": "independent-publishers-agree",
+            "note": "Maßzahl in zwei Veröffentlichungen; Formabhängigkeit bleibt explizit.",
+            "unit": "mm"
+          },
+          "d2_nom": {
+            "nominal": 11.5,
+            "sourceRefs": [
+              "DIN7338-s1",
+              "fasenco"
+            ],
+            "status": "verified",
+            "verification": "independent-publishers-agree",
+            "note": "Maßzahl in zwei Veröffentlichungen; Formabhängigkeit bleibt explizit.",
+            "unit": "mm"
+          },
+          "d3_min": {
+            "sourceRefs": [
+              "DIN7338-s1",
+              "fasenco"
+            ],
+            "status": "verified",
+            "verification": "independent-publishers-agree",
+            "note": "Maßzahl in zwei Veröffentlichungen; Formabhängigkeit bleibt explizit.",
+            "unit": "mm",
+            "min": 5.8
+          },
+          "k_min": {
+            "sourceRefs": [
+              "DIN7338-s1"
+            ],
+            "status": "single-source",
+            "verification": "single-publication",
+            "note": "Maßtabelle; zweite unabhängig bestätigte Zuordnung zur Form fehlt.",
+            "unit": "mm",
+            "min": 1
+          },
+          "k_max": {
+            "sourceRefs": [
+              "DIN7338-s1",
+              "fasenco"
+            ],
+            "status": "verified",
+            "verification": "independent-publishers-agree",
+            "note": "Maßzahl in zwei Veröffentlichungen; Formabhängigkeit bleibt explizit.",
+            "unit": "mm",
+            "max": 1.2
+          },
+          "s": {
+            "nominal": 0.75,
+            "sourceRefs": [
+              "DIN7338-s1"
+            ],
+            "status": "single-source",
+            "verification": "single-publication",
+            "note": "Maßtabelle; zweite unabhängig bestätigte Zuordnung zur Form fehlt.",
+            "unit": "mm"
+          }
+        },
+        "8": {
+          "d_nominal": {
+            "nominal": 8,
+            "sourceRefs": [
+              "DIN7338-s1",
+              "fasenco"
+            ],
+            "status": "verified",
+            "verification": "independent-publishers-agree",
+            "note": "Maßzahl in zwei Veröffentlichungen; Formabhängigkeit bleibt explizit.",
+            "unit": "mm"
+          },
+          "d2_nom": {
+            "nominal": 15.5,
+            "sourceRefs": [
+              "DIN7338-s1",
+              "fasenco"
+            ],
+            "status": "verified",
+            "verification": "independent-publishers-agree",
+            "note": "Maßzahl in zwei Veröffentlichungen; Formabhängigkeit bleibt explizit.",
+            "unit": "mm"
+          },
+          "d3_min": {
+            "sourceRefs": [
+              "DIN7338-s1",
+              "fasenco"
+            ],
+            "status": "verified",
+            "verification": "independent-publishers-agree",
+            "note": "Maßzahl in zwei Veröffentlichungen; Formabhängigkeit bleibt explizit.",
+            "unit": "mm",
+            "min": 7.75
+          },
+          "k_min": {
+            "sourceRefs": [
+              "DIN7338-s1"
+            ],
+            "status": "single-source",
+            "verification": "single-publication",
+            "note": "Maßtabelle; zweite unabhängig bestätigte Zuordnung zur Form fehlt.",
+            "unit": "mm",
+            "min": 1
+          },
+          "k_max": {
+            "sourceRefs": [
+              "DIN7338-s1",
+              "fasenco"
+            ],
+            "status": "verified",
+            "verification": "independent-publishers-agree",
+            "note": "Maßzahl in zwei Veröffentlichungen; Formabhängigkeit bleibt explizit.",
+            "unit": "mm",
+            "max": 1.2
+          },
+          "s": {
+            "nominal": 1.2,
+            "sourceRefs": [
+              "DIN7338-s1"
+            ],
+            "status": "single-source",
+            "verification": "single-publication",
+            "note": "Maßtabelle; zweite unabhängig bestätigte Zuordnung zur Form fehlt.",
+            "unit": "mm"
+          }
+        },
+        "10": {
+          "d_nominal": {
+            "nominal": 10,
+            "sourceRefs": [
+              "DIN7338-s1",
+              "fasenco"
+            ],
+            "status": "verified",
+            "verification": "independent-publishers-agree",
+            "note": "Maßzahl in zwei Veröffentlichungen; Formabhängigkeit bleibt explizit.",
+            "unit": "mm"
+          },
+          "d2_nom": {
+            "nominal": 18,
+            "sourceRefs": [
+              "DIN7338-s1",
+              "fasenco"
+            ],
+            "status": "verified",
+            "verification": "independent-publishers-agree",
+            "note": "Maßzahl in zwei Veröffentlichungen; Formabhängigkeit bleibt explizit.",
+            "unit": "mm"
+          },
+          "d3_min": {
+            "sourceRefs": [
+              "DIN7338-s1",
+              "fasenco"
+            ],
+            "status": "verified",
+            "verification": "independent-publishers-agree",
+            "note": "Maßzahl in zwei Veröffentlichungen; Formabhängigkeit bleibt explizit.",
+            "unit": "mm",
+            "min": 9.75
+          },
+          "k_min": {
+            "sourceRefs": [
+              "DIN7338-s1"
+            ],
+            "status": "single-source",
+            "verification": "single-publication",
+            "note": "Maßtabelle; zweite unabhängig bestätigte Zuordnung zur Form fehlt.",
+            "unit": "mm",
+            "min": 1.2
+          },
+          "k_max": {
+            "sourceRefs": [
+              "DIN7338-s1",
+              "fasenco"
+            ],
+            "status": "verified",
+            "verification": "independent-publishers-agree",
+            "note": "Maßzahl in zwei Veröffentlichungen; Formabhängigkeit bleibt explizit.",
+            "unit": "mm",
+            "max": 1.4
+          },
+          "s": {
+            "nominal": 1.2,
+            "sourceRefs": [
+              "DIN7338-s1"
+            ],
+            "status": "single-source",
+            "verification": "single-publication",
+            "note": "Maßtabelle; zweite unabhängig bestätigte Zuordnung zur Form fehlt.",
+            "unit": "mm"
+          }
+        }
+      },
+      "productionScope": "reference-only-tubular-form"
+    },
+    {
+      "id": "C2",
+      "label": "Hohlniet C2",
+      "kopfTyp": null,
+      "schaftende": "hohl",
+      "sizeData": {
+        "3": {
+          "vorbelegung": {
+            "sD": 3
+          },
+          "roh": {
+            "d_nominal": 3,
+            "d3_min": 2.85,
+            "s": 0.5,
+            "s1_min": 0.4,
+            "d5": 1.66
+          },
+          "coverage": "documented",
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "length",
+            "headProfileDefinition",
+            "tubeProfile"
+          ],
+          "nachLaenge": {}
+        },
+        "4": {
+          "vorbelegung": {
+            "sD": 4
+          },
+          "roh": {
+            "d_nominal": 4,
+            "d3_min": 3.8,
+            "s": 0.5,
+            "s1_min": 0.4,
+            "d5": 2.62
+          },
+          "coverage": "documented",
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "length",
+            "headProfileDefinition",
+            "tubeProfile"
+          ],
+          "nachLaenge": {}
+        },
+        "5": {
+          "vorbelegung": {
+            "sD": 5
+          },
+          "roh": {
+            "d_nominal": 5,
+            "d3_min": 4.8,
+            "s": 0.6,
+            "s1_min": 0.5,
+            "d5": 3.42
+          },
+          "coverage": "documented",
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "length",
+            "headProfileDefinition",
+            "tubeProfile"
+          ],
+          "nachLaenge": {}
+        },
+        "6": {
+          "vorbelegung": {
+            "sD": 6
+          },
+          "roh": {
+            "d_nominal": 6,
+            "d3_min": 5.8,
+            "s": 0.75,
+            "s1_min": 0.6,
+            "d5": 4.12
+          },
+          "coverage": "documented",
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "length",
+            "headProfileDefinition",
+            "tubeProfile"
+          ],
+          "nachLaenge": {}
+        },
+        "8": {
+          "vorbelegung": {
+            "sD": 8
+          },
+          "roh": {
+            "d_nominal": 8,
+            "d3_min": 7.75,
+            "s": 1.2,
+            "s1_min": 1,
+            "d5": 5.18
+          },
+          "coverage": "documented",
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "length",
+            "headProfileDefinition",
+            "tubeProfile"
+          ],
+          "nachLaenge": {}
+        },
+        "10": {
+          "vorbelegung": {
+            "sD": 10
+          },
+          "roh": {
+            "d_nominal": 10,
+            "d3_min": 9.75,
+            "s": 1.2,
+            "s1_min": 1,
+            "d5": 7.18
+          },
+          "coverage": "documented",
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "length",
+            "headProfileDefinition",
+            "tubeProfile"
+          ],
+          "nachLaenge": {}
+        }
+      },
+      "fields": {
+        "3": {
+          "d_nominal": {
+            "nominal": 3,
+            "sourceRefs": [
+              "DIN7338-s1",
+              "fasenco"
+            ],
+            "status": "verified",
+            "verification": "independent-publishers-agree",
+            "note": "Maßzahl in zwei Veröffentlichungen; Formabhängigkeit bleibt explizit.",
+            "unit": "mm"
+          },
+          "d3_min": {
+            "sourceRefs": [
+              "DIN7338-s1",
+              "fasenco"
+            ],
+            "status": "verified",
+            "verification": "independent-publishers-agree",
+            "note": "Maßzahl in zwei Veröffentlichungen; Formabhängigkeit bleibt explizit.",
+            "unit": "mm",
+            "min": 2.85
+          },
+          "s": {
+            "nominal": 0.5,
+            "sourceRefs": [
+              "DIN7338-s1"
+            ],
+            "status": "single-source",
+            "verification": "single-publication",
+            "note": "Maßtabelle; zweite unabhängig bestätigte Zuordnung zur Form fehlt.",
+            "unit": "mm"
+          },
+          "s1_min": {
+            "sourceRefs": [
+              "DIN7338-s1"
+            ],
+            "status": "single-source",
+            "verification": "single-publication",
+            "note": "Maßtabelle; zweite unabhängig bestätigte Zuordnung zur Form fehlt.",
+            "unit": "mm",
+            "min": 0.4
+          },
+          "d5": {
+            "nominal": 1.66,
+            "sourceRefs": [
+              "DIN7338-s1"
+            ],
+            "status": "single-source",
+            "verification": "single-publication",
+            "note": "Maßtabelle; zweite unabhängig bestätigte Zuordnung zur Form fehlt.",
+            "unit": "mm"
+          }
+        },
+        "4": {
+          "d_nominal": {
+            "nominal": 4,
+            "sourceRefs": [
+              "DIN7338-s1",
+              "fasenco"
+            ],
+            "status": "verified",
+            "verification": "independent-publishers-agree",
+            "note": "Maßzahl in zwei Veröffentlichungen; Formabhängigkeit bleibt explizit.",
+            "unit": "mm"
+          },
+          "d3_min": {
+            "sourceRefs": [
+              "DIN7338-s1",
+              "fasenco"
+            ],
+            "status": "verified",
+            "verification": "independent-publishers-agree",
+            "note": "Maßzahl in zwei Veröffentlichungen; Formabhängigkeit bleibt explizit.",
+            "unit": "mm",
+            "min": 3.8
+          },
+          "s": {
+            "nominal": 0.5,
+            "sourceRefs": [
+              "DIN7338-s1"
+            ],
+            "status": "single-source",
+            "verification": "single-publication",
+            "note": "Maßtabelle; zweite unabhängig bestätigte Zuordnung zur Form fehlt.",
+            "unit": "mm"
+          },
+          "s1_min": {
+            "sourceRefs": [
+              "DIN7338-s1"
+            ],
+            "status": "single-source",
+            "verification": "single-publication",
+            "note": "Maßtabelle; zweite unabhängig bestätigte Zuordnung zur Form fehlt.",
+            "unit": "mm",
+            "min": 0.4
+          },
+          "d5": {
+            "nominal": 2.62,
+            "sourceRefs": [
+              "DIN7338-s1"
+            ],
+            "status": "single-source",
+            "verification": "single-publication",
+            "note": "Maßtabelle; zweite unabhängig bestätigte Zuordnung zur Form fehlt.",
+            "unit": "mm"
+          }
+        },
+        "5": {
+          "d_nominal": {
+            "nominal": 5,
+            "sourceRefs": [
+              "DIN7338-s1",
+              "fasenco"
+            ],
+            "status": "verified",
+            "verification": "independent-publishers-agree",
+            "note": "Maßzahl in zwei Veröffentlichungen; Formabhängigkeit bleibt explizit.",
+            "unit": "mm"
+          },
+          "d3_min": {
+            "sourceRefs": [
+              "DIN7338-s1",
+              "fasenco"
+            ],
+            "status": "verified",
+            "verification": "independent-publishers-agree",
+            "note": "Maßzahl in zwei Veröffentlichungen; Formabhängigkeit bleibt explizit.",
+            "unit": "mm",
+            "min": 4.8
+          },
+          "s": {
+            "nominal": 0.6,
+            "sourceRefs": [
+              "DIN7338-s1"
+            ],
+            "status": "single-source",
+            "verification": "single-publication",
+            "note": "Maßtabelle; zweite unabhängig bestätigte Zuordnung zur Form fehlt.",
+            "unit": "mm"
+          },
+          "s1_min": {
+            "sourceRefs": [
+              "DIN7338-s1"
+            ],
+            "status": "single-source",
+            "verification": "single-publication",
+            "note": "Maßtabelle; zweite unabhängig bestätigte Zuordnung zur Form fehlt.",
+            "unit": "mm",
+            "min": 0.5
+          },
+          "d5": {
+            "nominal": 3.42,
+            "sourceRefs": [
+              "DIN7338-s1"
+            ],
+            "status": "single-source",
+            "verification": "single-publication",
+            "note": "Maßtabelle; zweite unabhängig bestätigte Zuordnung zur Form fehlt.",
+            "unit": "mm"
+          }
+        },
+        "6": {
+          "d_nominal": {
+            "nominal": 6,
+            "sourceRefs": [
+              "DIN7338-s1",
+              "fasenco"
+            ],
+            "status": "verified",
+            "verification": "independent-publishers-agree",
+            "note": "Maßzahl in zwei Veröffentlichungen; Formabhängigkeit bleibt explizit.",
+            "unit": "mm"
+          },
+          "d3_min": {
+            "sourceRefs": [
+              "DIN7338-s1",
+              "fasenco"
+            ],
+            "status": "verified",
+            "verification": "independent-publishers-agree",
+            "note": "Maßzahl in zwei Veröffentlichungen; Formabhängigkeit bleibt explizit.",
+            "unit": "mm",
+            "min": 5.8
+          },
+          "s": {
+            "nominal": 0.75,
+            "sourceRefs": [
+              "DIN7338-s1"
+            ],
+            "status": "single-source",
+            "verification": "single-publication",
+            "note": "Maßtabelle; zweite unabhängig bestätigte Zuordnung zur Form fehlt.",
+            "unit": "mm"
+          },
+          "s1_min": {
+            "sourceRefs": [
+              "DIN7338-s1"
+            ],
+            "status": "single-source",
+            "verification": "single-publication",
+            "note": "Maßtabelle; zweite unabhängig bestätigte Zuordnung zur Form fehlt.",
+            "unit": "mm",
+            "min": 0.6
+          },
+          "d5": {
+            "nominal": 4.12,
+            "sourceRefs": [
+              "DIN7338-s1"
+            ],
+            "status": "single-source",
+            "verification": "single-publication",
+            "note": "Maßtabelle; zweite unabhängig bestätigte Zuordnung zur Form fehlt.",
+            "unit": "mm"
+          }
+        },
+        "8": {
+          "d_nominal": {
+            "nominal": 8,
+            "sourceRefs": [
+              "DIN7338-s1",
+              "fasenco"
+            ],
+            "status": "verified",
+            "verification": "independent-publishers-agree",
+            "note": "Maßzahl in zwei Veröffentlichungen; Formabhängigkeit bleibt explizit.",
+            "unit": "mm"
+          },
+          "d3_min": {
+            "sourceRefs": [
+              "DIN7338-s1",
+              "fasenco"
+            ],
+            "status": "verified",
+            "verification": "independent-publishers-agree",
+            "note": "Maßzahl in zwei Veröffentlichungen; Formabhängigkeit bleibt explizit.",
+            "unit": "mm",
+            "min": 7.75
+          },
+          "s": {
+            "nominal": 1.2,
+            "sourceRefs": [
+              "DIN7338-s1"
+            ],
+            "status": "single-source",
+            "verification": "single-publication",
+            "note": "Maßtabelle; zweite unabhängig bestätigte Zuordnung zur Form fehlt.",
+            "unit": "mm"
+          },
+          "s1_min": {
+            "sourceRefs": [
+              "DIN7338-s1"
+            ],
+            "status": "single-source",
+            "verification": "single-publication",
+            "note": "Maßtabelle; zweite unabhängig bestätigte Zuordnung zur Form fehlt.",
+            "unit": "mm",
+            "min": 1
+          },
+          "d5": {
+            "nominal": 5.18,
+            "sourceRefs": [
+              "DIN7338-s1"
+            ],
+            "status": "single-source",
+            "verification": "single-publication",
+            "note": "Maßtabelle; zweite unabhängig bestätigte Zuordnung zur Form fehlt.",
+            "unit": "mm"
+          }
+        },
+        "10": {
+          "d_nominal": {
+            "nominal": 10,
+            "sourceRefs": [
+              "DIN7338-s1",
+              "fasenco"
+            ],
+            "status": "verified",
+            "verification": "independent-publishers-agree",
+            "note": "Maßzahl in zwei Veröffentlichungen; Formabhängigkeit bleibt explizit.",
+            "unit": "mm"
+          },
+          "d3_min": {
+            "sourceRefs": [
+              "DIN7338-s1",
+              "fasenco"
+            ],
+            "status": "verified",
+            "verification": "independent-publishers-agree",
+            "note": "Maßzahl in zwei Veröffentlichungen; Formabhängigkeit bleibt explizit.",
+            "unit": "mm",
+            "min": 9.75
+          },
+          "s": {
+            "nominal": 1.2,
+            "sourceRefs": [
+              "DIN7338-s1"
+            ],
+            "status": "single-source",
+            "verification": "single-publication",
+            "note": "Maßtabelle; zweite unabhängig bestätigte Zuordnung zur Form fehlt.",
+            "unit": "mm"
+          },
+          "s1_min": {
+            "sourceRefs": [
+              "DIN7338-s1"
+            ],
+            "status": "single-source",
+            "verification": "single-publication",
+            "note": "Maßtabelle; zweite unabhängig bestätigte Zuordnung zur Form fehlt.",
+            "unit": "mm",
+            "min": 1
+          },
+          "d5": {
+            "nominal": 7.18,
+            "sourceRefs": [
+              "DIN7338-s1"
+            ],
+            "status": "single-source",
+            "verification": "single-publication",
+            "note": "Maßtabelle; zweite unabhängig bestätigte Zuordnung zur Form fehlt.",
+            "unit": "mm"
+          }
+        }
+      },
+      "productionScope": "reference-only-tubular-form"
+    }
+  ]
+}

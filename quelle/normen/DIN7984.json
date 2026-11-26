@@ -1,0 +1,1037 @@
+{
+  "id": "DIN7984",
+  "version": "2026-11-26",
+  "schemaVersion": 1,
+  "label": "DIN7984 · niedriger Zylinderkopf, Innensechskant",
+  "edition": "2022-03",
+  "editionStatus": "manufacturer-dimensions",
+  "funktion": "schraube",
+  "klasse": "bolzen",
+  "kopfTyp": "zylinder",
+  "antrieb": {
+    "art": "hex"
+  },
+  "feldzuordnung": {
+    "kD": "dk_max",
+    "kH": "k_max",
+    "iSW": "s_nom",
+    "iT": "t_nom",
+    "b": "b_ref_l_le_125"
+  },
+  "groessen": {
+    "M3": {
+      "roh": {
+        "dk_max": 5.5,
+        "k_max": 2,
+        "s_nom": 2,
+        "t_nom": 1.5,
+        "t_min": 1.38,
+        "t_max": 1.62,
+        "b_ref_l_le_125": 12
+      },
+      "vorbelegung": {
+        "kD": 5.5,
+        "kH": 2,
+        "iSW": 2,
+        "iT": 1.5,
+        "b": 12
+      },
+      "coverage": "documented",
+      "nachLaenge": {},
+      "lengthCoverage": "unresearched",
+      "missingGeometryFields": [],
+      "geometryStatus": "documented"
+    },
+    "M4": {
+      "roh": {
+        "dk_max": 7,
+        "k_max": 2.8,
+        "s_nom": 2.5,
+        "t_nom": 2.3,
+        "t_min": 2.18,
+        "t_max": 2.42,
+        "b_ref_l_le_125": 14
+      },
+      "vorbelegung": {
+        "kD": 7,
+        "kH": 2.8,
+        "iSW": 2.5,
+        "iT": 2.3,
+        "b": 14
+      },
+      "coverage": "documented",
+      "nachLaenge": {},
+      "lengthCoverage": "unresearched",
+      "missingGeometryFields": [],
+      "geometryStatus": "documented"
+    },
+    "M5": {
+      "roh": {
+        "dk_max": 8.5,
+        "k_max": 3.5,
+        "s_nom": 3,
+        "t_nom": 2.7,
+        "t_min": 2.58,
+        "t_max": 2.82,
+        "b_ref_l_le_125": 16
+      },
+      "vorbelegung": {
+        "kD": 8.5,
+        "kH": 3.5,
+        "iSW": 3,
+        "iT": 2.7,
+        "b": 16
+      },
+      "coverage": "documented",
+      "nachLaenge": {},
+      "lengthCoverage": "unresearched",
+      "missingGeometryFields": [],
+      "geometryStatus": "documented"
+    },
+    "M6": {
+      "roh": {
+        "dk_max": 10,
+        "k_max": 4,
+        "s_nom": 4,
+        "t_nom": 3,
+        "t_min": 2.88,
+        "t_max": 3.12,
+        "b_ref_l_le_125": 18
+      },
+      "vorbelegung": {
+        "kD": 10,
+        "kH": 4,
+        "iSW": 4,
+        "iT": 3,
+        "b": 18
+      },
+      "coverage": "documented",
+      "nachLaenge": {},
+      "lengthCoverage": "unresearched",
+      "missingGeometryFields": [],
+      "geometryStatus": "documented"
+    },
+    "M8": {
+      "roh": {
+        "dk_max": 13,
+        "k_max": 5,
+        "s_nom": 5,
+        "t_nom": 3.8,
+        "t_min": 3.65,
+        "t_max": 3.95,
+        "b_ref_l_le_125": 22
+      },
+      "vorbelegung": {
+        "kD": 13,
+        "kH": 5,
+        "iSW": 5,
+        "iT": 3.8,
+        "b": 22
+      },
+      "coverage": "documented",
+      "nachLaenge": {},
+      "lengthCoverage": "unresearched",
+      "missingGeometryFields": [],
+      "geometryStatus": "documented"
+    },
+    "M10": {
+      "roh": {
+        "dk_max": 16,
+        "k_max": 6,
+        "s_nom": 7,
+        "t_nom": 4.5,
+        "t_min": 4.35,
+        "t_max": 4.65,
+        "b_ref_l_le_125": 26
+      },
+      "vorbelegung": {
+        "kD": 16,
+        "kH": 6,
+        "iSW": 7,
+        "iT": 4.5,
+        "b": 26
+      },
+      "coverage": "documented",
+      "nachLaenge": {},
+      "lengthCoverage": "unresearched",
+      "missingGeometryFields": [],
+      "geometryStatus": "documented"
+    },
+    "M12": {
+      "roh": {
+        "dk_max": 18,
+        "k_max": 7,
+        "s_nom": 8,
+        "t_nom": 5,
+        "t_min": 4.85,
+        "t_max": 5.15,
+        "b_ref_l_le_125": 30
+      },
+      "vorbelegung": {
+        "kD": 18,
+        "kH": 7,
+        "iSW": 8,
+        "iT": 5,
+        "b": 30
+      },
+      "coverage": "documented",
+      "nachLaenge": {},
+      "lengthCoverage": "unresearched",
+      "missingGeometryFields": [],
+      "geometryStatus": "documented"
+    },
+    "M16": {
+      "roh": {
+        "dk_max": 24,
+        "k_max": 9,
+        "s_nom": 12,
+        "t_nom": 5.5,
+        "t_min": 5.35,
+        "t_max": 5.65,
+        "b_ref_l_le_125": 38
+      },
+      "vorbelegung": {
+        "kD": 24,
+        "kH": 9,
+        "iSW": 12,
+        "iT": 5.5,
+        "b": 38
+      },
+      "coverage": "documented",
+      "nachLaenge": {},
+      "lengthCoverage": "unresearched",
+      "missingGeometryFields": [],
+      "geometryStatus": "documented"
+    }
+  },
+  "fields": {
+    "M3": {
+      "dk_max": {
+        "nominal": 5.5,
+        "min": null,
+        "max": 5.5,
+        "unit": "mm",
+        "sourceRefs": [
+          "boell7984"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Zweitbeleg je Einzelwert noch offen."
+      },
+      "k_max": {
+        "nominal": 2,
+        "min": null,
+        "max": 2,
+        "unit": "mm",
+        "sourceRefs": [
+          "boell7984"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Zweitbeleg je Einzelwert noch offen."
+      },
+      "s_nom": {
+        "nominal": 2,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "boell7984",
+          "bossard_drive"
+        ],
+        "status": "verified",
+        "verification": true,
+        "note": "Böllhoff und Bossard stimmen beim DIN7984-Innensechskant überein."
+      },
+      "t_nom": {
+        "nominal": 1.5,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "boell7984"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Zweitbeleg je Einzelwert noch offen."
+      },
+      "t_min": {
+        "nominal": 1.38,
+        "min": 1.38,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "boell7984"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Zweitbeleg je Einzelwert noch offen."
+      },
+      "t_max": {
+        "nominal": 1.62,
+        "min": null,
+        "max": 1.62,
+        "unit": "mm",
+        "sourceRefs": [
+          "boell7984"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Zweitbeleg je Einzelwert noch offen."
+      },
+      "b_ref_l_le_125": {
+        "nominal": 12,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "boell7984"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Zweitbeleg je Einzelwert noch offen."
+      }
+    },
+    "M4": {
+      "dk_max": {
+        "nominal": 7,
+        "min": null,
+        "max": 7,
+        "unit": "mm",
+        "sourceRefs": [
+          "boell7984"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Zweitbeleg je Einzelwert noch offen."
+      },
+      "k_max": {
+        "nominal": 2.8,
+        "min": null,
+        "max": 2.8,
+        "unit": "mm",
+        "sourceRefs": [
+          "boell7984"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Zweitbeleg je Einzelwert noch offen."
+      },
+      "s_nom": {
+        "nominal": 2.5,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "boell7984",
+          "bossard_drive"
+        ],
+        "status": "verified",
+        "verification": true,
+        "note": "Böllhoff und Bossard stimmen beim DIN7984-Innensechskant überein."
+      },
+      "t_nom": {
+        "nominal": 2.3,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "boell7984"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Zweitbeleg je Einzelwert noch offen."
+      },
+      "t_min": {
+        "nominal": 2.18,
+        "min": 2.18,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "boell7984"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Zweitbeleg je Einzelwert noch offen."
+      },
+      "t_max": {
+        "nominal": 2.42,
+        "min": null,
+        "max": 2.42,
+        "unit": "mm",
+        "sourceRefs": [
+          "boell7984"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Zweitbeleg je Einzelwert noch offen."
+      },
+      "b_ref_l_le_125": {
+        "nominal": 14,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "boell7984"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Zweitbeleg je Einzelwert noch offen."
+      }
+    },
+    "M5": {
+      "dk_max": {
+        "nominal": 8.5,
+        "min": null,
+        "max": 8.5,
+        "unit": "mm",
+        "sourceRefs": [
+          "boell7984"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Zweitbeleg je Einzelwert noch offen."
+      },
+      "k_max": {
+        "nominal": 3.5,
+        "min": null,
+        "max": 3.5,
+        "unit": "mm",
+        "sourceRefs": [
+          "boell7984"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Zweitbeleg je Einzelwert noch offen."
+      },
+      "s_nom": {
+        "nominal": 3,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "boell7984",
+          "bossard_drive"
+        ],
+        "status": "verified",
+        "verification": true,
+        "note": "Böllhoff und Bossard stimmen beim DIN7984-Innensechskant überein."
+      },
+      "t_nom": {
+        "nominal": 2.7,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "boell7984"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Zweitbeleg je Einzelwert noch offen."
+      },
+      "t_min": {
+        "nominal": 2.58,
+        "min": 2.58,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "boell7984"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Zweitbeleg je Einzelwert noch offen."
+      },
+      "t_max": {
+        "nominal": 2.82,
+        "min": null,
+        "max": 2.82,
+        "unit": "mm",
+        "sourceRefs": [
+          "boell7984"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Zweitbeleg je Einzelwert noch offen."
+      },
+      "b_ref_l_le_125": {
+        "nominal": 16,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "boell7984"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Zweitbeleg je Einzelwert noch offen."
+      }
+    },
+    "M6": {
+      "dk_max": {
+        "nominal": 10,
+        "min": null,
+        "max": 10,
+        "unit": "mm",
+        "sourceRefs": [
+          "boell7984"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Zweitbeleg je Einzelwert noch offen."
+      },
+      "k_max": {
+        "nominal": 4,
+        "min": null,
+        "max": 4,
+        "unit": "mm",
+        "sourceRefs": [
+          "boell7984"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Zweitbeleg je Einzelwert noch offen."
+      },
+      "s_nom": {
+        "nominal": 4,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "boell7984",
+          "bossard_drive"
+        ],
+        "status": "verified",
+        "verification": true,
+        "note": "Böllhoff und Bossard stimmen beim DIN7984-Innensechskant überein."
+      },
+      "t_nom": {
+        "nominal": 3,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "boell7984"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Zweitbeleg je Einzelwert noch offen."
+      },
+      "t_min": {
+        "nominal": 2.88,
+        "min": 2.88,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "boell7984"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Zweitbeleg je Einzelwert noch offen."
+      },
+      "t_max": {
+        "nominal": 3.12,
+        "min": null,
+        "max": 3.12,
+        "unit": "mm",
+        "sourceRefs": [
+          "boell7984"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Zweitbeleg je Einzelwert noch offen."
+      },
+      "b_ref_l_le_125": {
+        "nominal": 18,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "boell7984"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Zweitbeleg je Einzelwert noch offen."
+      }
+    },
+    "M8": {
+      "dk_max": {
+        "nominal": 13,
+        "min": null,
+        "max": 13,
+        "unit": "mm",
+        "sourceRefs": [
+          "boell7984"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Zweitbeleg je Einzelwert noch offen."
+      },
+      "k_max": {
+        "nominal": 5,
+        "min": null,
+        "max": 5,
+        "unit": "mm",
+        "sourceRefs": [
+          "boell7984"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Zweitbeleg je Einzelwert noch offen."
+      },
+      "s_nom": {
+        "nominal": 5,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "boell7984",
+          "bossard_drive"
+        ],
+        "status": "verified",
+        "verification": true,
+        "note": "Böllhoff und Bossard stimmen beim DIN7984-Innensechskant überein."
+      },
+      "t_nom": {
+        "nominal": 3.8,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "boell7984"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Zweitbeleg je Einzelwert noch offen."
+      },
+      "t_min": {
+        "nominal": 3.65,
+        "min": 3.65,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "boell7984"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Zweitbeleg je Einzelwert noch offen."
+      },
+      "t_max": {
+        "nominal": 3.95,
+        "min": null,
+        "max": 3.95,
+        "unit": "mm",
+        "sourceRefs": [
+          "boell7984"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Zweitbeleg je Einzelwert noch offen."
+      },
+      "b_ref_l_le_125": {
+        "nominal": 22,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "boell7984"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Zweitbeleg je Einzelwert noch offen."
+      }
+    },
+    "M10": {
+      "dk_max": {
+        "nominal": 16,
+        "min": null,
+        "max": 16,
+        "unit": "mm",
+        "sourceRefs": [
+          "boell7984"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Zweitbeleg je Einzelwert noch offen."
+      },
+      "k_max": {
+        "nominal": 6,
+        "min": null,
+        "max": 6,
+        "unit": "mm",
+        "sourceRefs": [
+          "boell7984"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Zweitbeleg je Einzelwert noch offen."
+      },
+      "s_nom": {
+        "nominal": 7,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "boell7984",
+          "bossard_drive"
+        ],
+        "status": "verified",
+        "verification": true,
+        "note": "Böllhoff und Bossard stimmen beim DIN7984-Innensechskant überein."
+      },
+      "t_nom": {
+        "nominal": 4.5,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "boell7984"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Zweitbeleg je Einzelwert noch offen."
+      },
+      "t_min": {
+        "nominal": 4.35,
+        "min": 4.35,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "boell7984"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Zweitbeleg je Einzelwert noch offen."
+      },
+      "t_max": {
+        "nominal": 4.65,
+        "min": null,
+        "max": 4.65,
+        "unit": "mm",
+        "sourceRefs": [
+          "boell7984"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Zweitbeleg je Einzelwert noch offen."
+      },
+      "b_ref_l_le_125": {
+        "nominal": 26,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "boell7984"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Zweitbeleg je Einzelwert noch offen."
+      }
+    },
+    "M12": {
+      "dk_max": {
+        "nominal": 18,
+        "min": null,
+        "max": 18,
+        "unit": "mm",
+        "sourceRefs": [
+          "boell7984"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Zweitbeleg je Einzelwert noch offen."
+      },
+      "k_max": {
+        "nominal": 7,
+        "min": null,
+        "max": 7,
+        "unit": "mm",
+        "sourceRefs": [
+          "boell7984"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Zweitbeleg je Einzelwert noch offen."
+      },
+      "s_nom": {
+        "nominal": 8,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "boell7984",
+          "bossard_drive"
+        ],
+        "status": "verified",
+        "verification": true,
+        "note": "Böllhoff und Bossard stimmen beim DIN7984-Innensechskant überein."
+      },
+      "t_nom": {
+        "nominal": 5,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "boell7984"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Zweitbeleg je Einzelwert noch offen."
+      },
+      "t_min": {
+        "nominal": 4.85,
+        "min": 4.85,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "boell7984"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Zweitbeleg je Einzelwert noch offen."
+      },
+      "t_max": {
+        "nominal": 5.15,
+        "min": null,
+        "max": 5.15,
+        "unit": "mm",
+        "sourceRefs": [
+          "boell7984"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Zweitbeleg je Einzelwert noch offen."
+      },
+      "b_ref_l_le_125": {
+        "nominal": 30,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "boell7984"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Zweitbeleg je Einzelwert noch offen."
+      }
+    },
+    "M16": {
+      "dk_max": {
+        "nominal": 24,
+        "min": null,
+        "max": 24,
+        "unit": "mm",
+        "sourceRefs": [
+          "boell7984"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Zweitbeleg je Einzelwert noch offen."
+      },
+      "k_max": {
+        "nominal": 9,
+        "min": null,
+        "max": 9,
+        "unit": "mm",
+        "sourceRefs": [
+          "boell7984"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Zweitbeleg je Einzelwert noch offen."
+      },
+      "s_nom": {
+        "nominal": 12,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "boell7984",
+          "bossard_drive"
+        ],
+        "status": "verified",
+        "verification": true,
+        "note": "Böllhoff und Bossard stimmen beim DIN7984-Innensechskant überein."
+      },
+      "t_nom": {
+        "nominal": 5.5,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "boell7984"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Zweitbeleg je Einzelwert noch offen."
+      },
+      "t_min": {
+        "nominal": 5.35,
+        "min": 5.35,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "boell7984"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Zweitbeleg je Einzelwert noch offen."
+      },
+      "t_max": {
+        "nominal": 5.65,
+        "min": null,
+        "max": 5.65,
+        "unit": "mm",
+        "sourceRefs": [
+          "boell7984"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Zweitbeleg je Einzelwert noch offen."
+      },
+      "b_ref_l_le_125": {
+        "nominal": 38,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "boell7984"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Zweitbeleg je Einzelwert noch offen."
+      }
+    }
+  },
+  "sourceMeta": {
+    "din7984": {
+      "url": "https://www.dinmedia.de/de/norm/din-7984/349413305",
+      "titel": "DIN 7984:2022-03, niedriger Zylinderkopf",
+      "type": "standards-body",
+      "accessed": "2026-11-26"
+    },
+    "boell7984": {
+      "url": "https://eshop.boellhoff.cz/out/media/pdf/DIN_7984_Edelstahl_A2___en.pdf",
+      "titel": "Böllhoff DIN7984 Produktdatenblatt",
+      "type": "manufacturer",
+      "accessed": "2026-11-26"
+    },
+    "bossard_drive": {
+      "url": "https://media.bossard.com/ca-en/-/media/bossard-group/website/documents/technical-resources/en/f-077-en.pdf",
+      "titel": "Bossard Antriebsgrößen",
+      "type": "manufacturer",
+      "accessed": "2026-11-26"
+    }
+  },
+  "quellen": [
+    {
+      "id": "din7984",
+      "url": "https://www.dinmedia.de/de/norm/din-7984/349413305",
+      "titel": "DIN 7984:2022-03, niedriger Zylinderkopf",
+      "type": "standards-body",
+      "accessed": "2026-11-26"
+    },
+    {
+      "id": "boell7984",
+      "url": "https://eshop.boellhoff.cz/out/media/pdf/DIN_7984_Edelstahl_A2___en.pdf",
+      "titel": "Böllhoff DIN7984 Produktdatenblatt",
+      "type": "manufacturer",
+      "accessed": "2026-11-26"
+    },
+    {
+      "id": "bossard_drive",
+      "url": "https://media.bossard.com/ca-en/-/media/bossard-group/website/documents/technical-resources/en/f-077-en.pdf",
+      "titel": "Bossard Antriebsgrößen",
+      "type": "manufacturer",
+      "accessed": "2026-11-26"
+    }
+  ],
+  "abweichungen": [],
+  "status": "partial",
+  "coverage": "documented",
+  "lengthCoverage": "unresearched",
+  "hinweise": [
+    "Korrektur der irrtümlichen Bezeichnung ISO7984. Maße aus Herstellerblatt, Ausgabezuordnung 2022 noch nicht vollständig abgeglichen. Hersteller-Lieferlängen nicht als Normmatrix importiert."
+  ],
+  "normstatus": {
+    "status": "unresolved",
+    "note": "Ausgabe und Vollständigkeit nicht aus einer ähnlichen Norm ableiten."
+  },
+  "requiredGeometryFields": [
+    "kD",
+    "kH",
+    "iSW",
+    "iT"
+  ],
+  "sizeCoverage": {
+    "M3": {
+      "status": "documented"
+    },
+    "M3.5": {
+      "status": "unresearched",
+      "note": "Keine Größenzeile vorhanden; daraus folgt kein Normverbot."
+    },
+    "M4": {
+      "status": "documented"
+    },
+    "M5": {
+      "status": "documented"
+    },
+    "M6": {
+      "status": "documented"
+    },
+    "M7": {
+      "status": "unresearched",
+      "note": "Keine Größenzeile vorhanden; daraus folgt kein Normverbot."
+    },
+    "M8": {
+      "status": "documented"
+    },
+    "M10": {
+      "status": "documented"
+    },
+    "M12": {
+      "status": "documented"
+    },
+    "M14": {
+      "status": "unresearched",
+      "note": "Keine Größenzeile vorhanden; daraus folgt kein Normverbot."
+    },
+    "M16": {
+      "status": "documented"
+    },
+    "M18": {
+      "status": "unresearched",
+      "note": "Keine Größenzeile vorhanden; daraus folgt kein Normverbot."
+    },
+    "M20": {
+      "status": "unresearched",
+      "note": "Keine Größenzeile vorhanden; daraus folgt kein Normverbot."
+    },
+    "M22": {
+      "status": "unresearched",
+      "note": "Keine Größenzeile vorhanden; daraus folgt kein Normverbot."
+    },
+    "M24": {
+      "status": "unresearched",
+      "note": "Keine Größenzeile vorhanden; daraus folgt kein Normverbot."
+    },
+    "M27": {
+      "status": "unresearched",
+      "note": "Keine Größenzeile vorhanden; daraus folgt kein Normverbot."
+    },
+    "M30": {
+      "status": "unresearched",
+      "note": "Keine Größenzeile vorhanden; daraus folgt kein Normverbot."
+    },
+    "M33": {
+      "status": "unresearched",
+      "note": "Keine Größenzeile vorhanden; daraus folgt kein Normverbot."
+    }
+  },
+  "pruefdatum": "2026-11-26",
+  "klassen": {
+    "status": "unresearched",
+    "values": [],
+    "note": "Festigkeits-/Werkstoffklassen noch nicht vollständig aus dieser Norm belegt."
+  }
+}

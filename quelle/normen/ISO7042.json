@@ -1,0 +1,1122 @@
+{
+  "schemaVersion": 1,
+  "version": "2026-11-26.1",
+  "id": "ISO7042",
+  "edition": "2012",
+  "label": "Ganzmetall-Klemmmutter",
+  "funktion": "mutter",
+  "klasse": "mutter",
+  "kopfTyp": "sechskant",
+  "alias": [],
+  "feldzuordnung": {
+    "mSW": "s_nom",
+    "mH": "h_max"
+  },
+  "groessen": {
+    "M5": {
+      "vorbelegung": {
+        "mSW": 8,
+        "mH": 5.1
+      },
+      "roh": {
+        "d_nom": 5,
+        "P": 0.8,
+        "s_nom": 8,
+        "s_min": 7.78,
+        "e_min": 8.79,
+        "h_max": 5.1,
+        "h_min": 4.8
+      },
+      "thread": {
+        "id": "M5x0.8",
+        "diameter": 5,
+        "pitch": 0.8,
+        "sourceRefs": [
+          "iso7042_2012"
+        ]
+      },
+      "geometryStatus": "partial",
+      "missingGeometryFields": [
+        "prevailingTorqueProfile"
+      ]
+    },
+    "M6": {
+      "vorbelegung": {
+        "mSW": 10,
+        "mH": 6
+      },
+      "roh": {
+        "d_nom": 6,
+        "P": 1,
+        "s_nom": 10,
+        "s_min": 9.78,
+        "e_min": 11.05,
+        "h_max": 6,
+        "h_min": 5.4
+      },
+      "thread": {
+        "id": "M6x1",
+        "diameter": 6,
+        "pitch": 1,
+        "sourceRefs": [
+          "iso7042_2012"
+        ]
+      },
+      "geometryStatus": "partial",
+      "missingGeometryFields": [
+        "prevailingTorqueProfile"
+      ]
+    },
+    "M8": {
+      "vorbelegung": {
+        "mSW": 13,
+        "mH": 8
+      },
+      "roh": {
+        "d_nom": 8,
+        "P": 1.25,
+        "s_nom": 13,
+        "s_min": 12.73,
+        "e_min": 14.38,
+        "h_max": 8,
+        "h_min": 7.14
+      },
+      "thread": {
+        "id": "M8x1.25",
+        "diameter": 8,
+        "pitch": 1.25,
+        "sourceRefs": [
+          "iso7042_2012"
+        ]
+      },
+      "geometryStatus": "partial",
+      "missingGeometryFields": [
+        "prevailingTorqueProfile"
+      ]
+    },
+    "M10": {
+      "vorbelegung": {
+        "mSW": 16,
+        "mH": 10
+      },
+      "roh": {
+        "d_nom": 10,
+        "P": 1.5,
+        "s_nom": 16,
+        "s_min": 15.73,
+        "e_min": 17.77,
+        "h_max": 10,
+        "h_min": 8.94
+      },
+      "thread": {
+        "id": "M10x1.5",
+        "diameter": 10,
+        "pitch": 1.5,
+        "sourceRefs": [
+          "iso7042_2012"
+        ]
+      },
+      "geometryStatus": "partial",
+      "missingGeometryFields": [
+        "prevailingTorqueProfile"
+      ]
+    },
+    "M12": {
+      "vorbelegung": {
+        "mSW": 18,
+        "mH": 13.3
+      },
+      "roh": {
+        "d_nom": 12,
+        "P": 1.75,
+        "s_nom": 18,
+        "s_min": 17.73,
+        "e_min": 20.03,
+        "h_max": 13.3,
+        "h_min": 11.57
+      },
+      "thread": {
+        "id": "M12x1.75",
+        "diameter": 12,
+        "pitch": 1.75,
+        "sourceRefs": [
+          "iso7042_2012"
+        ]
+      },
+      "geometryStatus": "partial",
+      "missingGeometryFields": [
+        "prevailingTorqueProfile"
+      ]
+    },
+    "M14": {
+      "vorbelegung": {
+        "mSW": 21,
+        "mH": 14.1
+      },
+      "roh": {
+        "d_nom": 14,
+        "P": 2,
+        "s_nom": 21,
+        "s_min": 20.67,
+        "e_min": 23.36,
+        "h_max": 14.1,
+        "h_min": 13.4
+      },
+      "thread": {
+        "id": "M14x2",
+        "diameter": 14,
+        "pitch": 2,
+        "sourceRefs": [
+          "iso7042_2012"
+        ]
+      },
+      "geometryStatus": "partial",
+      "missingGeometryFields": [
+        "prevailingTorqueProfile"
+      ]
+    },
+    "M16": {
+      "vorbelegung": {
+        "mSW": 24,
+        "mH": 16.4
+      },
+      "roh": {
+        "d_nom": 16,
+        "P": 2,
+        "s_nom": 24,
+        "s_min": 23.67,
+        "e_min": 26.75,
+        "h_max": 16.4,
+        "h_min": 15.7
+      },
+      "thread": {
+        "id": "M16x2",
+        "diameter": 16,
+        "pitch": 2,
+        "sourceRefs": [
+          "iso7042_2012"
+        ]
+      },
+      "geometryStatus": "partial",
+      "missingGeometryFields": [
+        "prevailingTorqueProfile"
+      ]
+    },
+    "M20": {
+      "vorbelegung": {
+        "mSW": 30,
+        "mH": 20.3
+      },
+      "roh": {
+        "d_nom": 20,
+        "P": 2.5,
+        "s_nom": 30,
+        "s_min": 29.16,
+        "e_min": 32.95,
+        "h_max": 20.3,
+        "h_min": 19
+      },
+      "thread": {
+        "id": "M20x2.5",
+        "diameter": 20,
+        "pitch": 2.5,
+        "sourceRefs": [
+          "iso7042_2012"
+        ]
+      },
+      "geometryStatus": "partial",
+      "missingGeometryFields": [
+        "prevailingTorqueProfile"
+      ]
+    },
+    "M24": {
+      "vorbelegung": {
+        "mSW": 36,
+        "mH": 23.9
+      },
+      "roh": {
+        "d_nom": 24,
+        "P": 3,
+        "s_nom": 36,
+        "s_min": 35,
+        "e_min": 39.55,
+        "h_max": 23.9,
+        "h_min": 22.6
+      },
+      "thread": {
+        "id": "M24x3",
+        "diameter": 24,
+        "pitch": 3,
+        "sourceRefs": [
+          "iso7042_2012"
+        ]
+      },
+      "geometryStatus": "partial",
+      "missingGeometryFields": [
+        "prevailingTorqueProfile"
+      ]
+    },
+    "M30": {
+      "vorbelegung": {
+        "mSW": 46,
+        "mH": 30
+      },
+      "roh": {
+        "d_nom": 30,
+        "P": 3.5,
+        "s_nom": 46,
+        "s_min": 45,
+        "e_min": 50.85,
+        "h_max": 30,
+        "h_min": 27.3
+      },
+      "thread": {
+        "id": "M30x3.5",
+        "diameter": 30,
+        "pitch": 3.5,
+        "sourceRefs": [
+          "iso7042_2012"
+        ]
+      },
+      "geometryStatus": "partial",
+      "missingGeometryFields": [
+        "prevailingTorqueProfile"
+      ]
+    }
+  },
+  "fields": {
+    "M5": {
+      "P": {
+        "nominal": 0.8,
+        "sourceRefs": [
+          "iso7042_2012"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "s_nom": {
+        "nominal": 8,
+        "sourceRefs": [
+          "iso7042_2012"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "s_min": {
+        "min": 7.78,
+        "sourceRefs": [
+          "iso7042_2012"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "e_min": {
+        "min": 8.79,
+        "sourceRefs": [
+          "iso7042_2012"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "h_max": {
+        "max": 5.1,
+        "sourceRefs": [
+          "iso7042_2012"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "h_min": {
+        "min": 4.8,
+        "sourceRefs": [
+          "iso7042_2012"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "d_nom": {
+        "nominal": 5,
+        "sourceRefs": [
+          "iso7042_2012"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "prevailingTorqueProfile": {
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "unit": "mm",
+        "note": "Detailmaß im ausgewerteten Nachweis nicht festgelegt; Kunden-/Herstellerzeichnung erforderlich."
+      }
+    },
+    "M6": {
+      "P": {
+        "nominal": 1,
+        "sourceRefs": [
+          "iso7042_2012"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "s_nom": {
+        "nominal": 10,
+        "sourceRefs": [
+          "iso7042_2012"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "s_min": {
+        "min": 9.78,
+        "sourceRefs": [
+          "iso7042_2012"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "e_min": {
+        "min": 11.05,
+        "sourceRefs": [
+          "iso7042_2012"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "h_max": {
+        "max": 6,
+        "sourceRefs": [
+          "iso7042_2012"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "h_min": {
+        "min": 5.4,
+        "sourceRefs": [
+          "iso7042_2012"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "d_nom": {
+        "nominal": 6,
+        "sourceRefs": [
+          "iso7042_2012"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "prevailingTorqueProfile": {
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "unit": "mm",
+        "note": "Detailmaß im ausgewerteten Nachweis nicht festgelegt; Kunden-/Herstellerzeichnung erforderlich."
+      }
+    },
+    "M8": {
+      "P": {
+        "nominal": 1.25,
+        "sourceRefs": [
+          "iso7042_2012"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "s_nom": {
+        "nominal": 13,
+        "sourceRefs": [
+          "iso7042_2012"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "s_min": {
+        "min": 12.73,
+        "sourceRefs": [
+          "iso7042_2012"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "e_min": {
+        "min": 14.38,
+        "sourceRefs": [
+          "iso7042_2012"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "h_max": {
+        "max": 8,
+        "sourceRefs": [
+          "iso7042_2012"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "h_min": {
+        "min": 7.14,
+        "sourceRefs": [
+          "iso7042_2012"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "d_nom": {
+        "nominal": 8,
+        "sourceRefs": [
+          "iso7042_2012"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "prevailingTorqueProfile": {
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "unit": "mm",
+        "note": "Detailmaß im ausgewerteten Nachweis nicht festgelegt; Kunden-/Herstellerzeichnung erforderlich."
+      }
+    },
+    "M10": {
+      "P": {
+        "nominal": 1.5,
+        "sourceRefs": [
+          "iso7042_2012"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "s_nom": {
+        "nominal": 16,
+        "sourceRefs": [
+          "iso7042_2012"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "s_min": {
+        "min": 15.73,
+        "sourceRefs": [
+          "iso7042_2012"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "e_min": {
+        "min": 17.77,
+        "sourceRefs": [
+          "iso7042_2012"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "h_max": {
+        "max": 10,
+        "sourceRefs": [
+          "iso7042_2012"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "h_min": {
+        "min": 8.94,
+        "sourceRefs": [
+          "iso7042_2012"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "d_nom": {
+        "nominal": 10,
+        "sourceRefs": [
+          "iso7042_2012"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "prevailingTorqueProfile": {
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "unit": "mm",
+        "note": "Detailmaß im ausgewerteten Nachweis nicht festgelegt; Kunden-/Herstellerzeichnung erforderlich."
+      }
+    },
+    "M12": {
+      "P": {
+        "nominal": 1.75,
+        "sourceRefs": [
+          "iso7042_2012"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "s_nom": {
+        "nominal": 18,
+        "sourceRefs": [
+          "iso7042_2012"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "s_min": {
+        "min": 17.73,
+        "sourceRefs": [
+          "iso7042_2012"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "e_min": {
+        "min": 20.03,
+        "sourceRefs": [
+          "iso7042_2012"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "h_max": {
+        "max": 13.3,
+        "sourceRefs": [
+          "iso7042_2012"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "h_min": {
+        "min": 11.57,
+        "sourceRefs": [
+          "iso7042_2012"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "d_nom": {
+        "nominal": 12,
+        "sourceRefs": [
+          "iso7042_2012"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "prevailingTorqueProfile": {
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "unit": "mm",
+        "note": "Detailmaß im ausgewerteten Nachweis nicht festgelegt; Kunden-/Herstellerzeichnung erforderlich."
+      }
+    },
+    "M14": {
+      "P": {
+        "nominal": 2,
+        "sourceRefs": [
+          "iso7042_2012"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "s_nom": {
+        "nominal": 21,
+        "sourceRefs": [
+          "iso7042_2012"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "s_min": {
+        "min": 20.67,
+        "sourceRefs": [
+          "iso7042_2012"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "e_min": {
+        "min": 23.36,
+        "sourceRefs": [
+          "iso7042_2012"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "h_max": {
+        "max": 14.1,
+        "sourceRefs": [
+          "iso7042_2012"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "h_min": {
+        "min": 13.4,
+        "sourceRefs": [
+          "iso7042_2012"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "d_nom": {
+        "nominal": 14,
+        "sourceRefs": [
+          "iso7042_2012"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "prevailingTorqueProfile": {
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "unit": "mm",
+        "note": "Detailmaß im ausgewerteten Nachweis nicht festgelegt; Kunden-/Herstellerzeichnung erforderlich."
+      }
+    },
+    "M16": {
+      "P": {
+        "nominal": 2,
+        "sourceRefs": [
+          "iso7042_2012"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "s_nom": {
+        "nominal": 24,
+        "sourceRefs": [
+          "iso7042_2012"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "s_min": {
+        "min": 23.67,
+        "sourceRefs": [
+          "iso7042_2012"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "e_min": {
+        "min": 26.75,
+        "sourceRefs": [
+          "iso7042_2012"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "h_max": {
+        "max": 16.4,
+        "sourceRefs": [
+          "iso7042_2012"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "h_min": {
+        "min": 15.7,
+        "sourceRefs": [
+          "iso7042_2012"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "d_nom": {
+        "nominal": 16,
+        "sourceRefs": [
+          "iso7042_2012"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "prevailingTorqueProfile": {
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "unit": "mm",
+        "note": "Detailmaß im ausgewerteten Nachweis nicht festgelegt; Kunden-/Herstellerzeichnung erforderlich."
+      }
+    },
+    "M20": {
+      "P": {
+        "nominal": 2.5,
+        "sourceRefs": [
+          "iso7042_2012"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "s_nom": {
+        "nominal": 30,
+        "sourceRefs": [
+          "iso7042_2012"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "s_min": {
+        "min": 29.16,
+        "sourceRefs": [
+          "iso7042_2012"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "e_min": {
+        "min": 32.95,
+        "sourceRefs": [
+          "iso7042_2012"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "h_max": {
+        "max": 20.3,
+        "sourceRefs": [
+          "iso7042_2012"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "h_min": {
+        "min": 19,
+        "sourceRefs": [
+          "iso7042_2012"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "d_nom": {
+        "nominal": 20,
+        "sourceRefs": [
+          "iso7042_2012"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "prevailingTorqueProfile": {
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "unit": "mm",
+        "note": "Detailmaß im ausgewerteten Nachweis nicht festgelegt; Kunden-/Herstellerzeichnung erforderlich."
+      }
+    },
+    "M24": {
+      "P": {
+        "nominal": 3,
+        "sourceRefs": [
+          "iso7042_2012"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "s_nom": {
+        "nominal": 36,
+        "sourceRefs": [
+          "iso7042_2012"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "s_min": {
+        "min": 35,
+        "sourceRefs": [
+          "iso7042_2012"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "e_min": {
+        "min": 39.55,
+        "sourceRefs": [
+          "iso7042_2012"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "h_max": {
+        "max": 23.9,
+        "sourceRefs": [
+          "iso7042_2012"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "h_min": {
+        "min": 22.6,
+        "sourceRefs": [
+          "iso7042_2012"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "d_nom": {
+        "nominal": 24,
+        "sourceRefs": [
+          "iso7042_2012"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "prevailingTorqueProfile": {
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "unit": "mm",
+        "note": "Detailmaß im ausgewerteten Nachweis nicht festgelegt; Kunden-/Herstellerzeichnung erforderlich."
+      }
+    },
+    "M30": {
+      "P": {
+        "nominal": 3.5,
+        "sourceRefs": [
+          "iso7042_2012"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "s_nom": {
+        "nominal": 46,
+        "sourceRefs": [
+          "iso7042_2012"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "s_min": {
+        "min": 45,
+        "sourceRefs": [
+          "iso7042_2012"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "e_min": {
+        "min": 50.85,
+        "sourceRefs": [
+          "iso7042_2012"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "h_max": {
+        "max": 30,
+        "sourceRefs": [
+          "iso7042_2012"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "h_min": {
+        "min": 27.3,
+        "sourceRefs": [
+          "iso7042_2012"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "d_nom": {
+        "nominal": 30,
+        "sourceRefs": [
+          "iso7042_2012"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "prevailingTorqueProfile": {
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "unit": "mm",
+        "note": "Detailmaß im ausgewerteten Nachweis nicht festgelegt; Kunden-/Herstellerzeichnung erforderlich."
+      }
+    }
+  },
+  "sourceMeta": {
+    "iso7042_2012": {
+      "url": "https://cdn.standards.iteh.ai/samples/61366/7a4736de62ed4897a7ac651843665dcd/ISO-7042-2012.pdf",
+      "title": "ISO 7042:2012",
+      "locator": "Figure 1 and Table 1, printed page 2",
+      "kind": "standard",
+      "edition": "2012",
+      "accessed": "2026-11-26"
+    },
+    "iso_update_2025": {
+      "url": "https://www.iso.org/files/live/sites/isoorg/files/news/magazine/ISOupdate/EN/2025/ISOupdate%20July%202025.pdf",
+      "title": "ISO Update July 2025",
+      "locator": "Published standards: ISO 7040, 7042, 7719, 10511, 10512, 10513",
+      "kind": "standard-register",
+      "edition": "2025",
+      "accessed": "2026-11-26"
+    }
+  },
+  "sourceStatus": "per-value",
+  "coverage": {
+    "diameterMin": 5,
+    "diameterMax": 30,
+    "unit": "mm",
+    "status": "partial",
+    "missingSizes": [
+      "M7",
+      "M18",
+      "M22",
+      "M27"
+    ],
+    "missingReason": "Größe fehlt im ausgewerteten Stand 2012 oder liegt außerhalb seines Gewindebereichs; Ergänzungen 2025 noch offen."
+  },
+  "editionStatus": "superseded",
+  "height": "h_max",
+  "threadSeries": "coarse",
+  "currentEdition": "2025",
+  "editionSourceRefs": [
+    "iso_update_2025"
+  ],
+  "coverageNotes": [
+    "Maßwerte der Ausgabe 2012; vollständiger Abgleich der 2025 geänderten Höhen und ergänzten Größen fehlt."
+  ],
+  "defaultPolicy": "Dokumentierte Kataloghöhe oder ausgewiesenes Höchstmaß als vorläufige Außenhülle; kein vollständiges Fertigteilmodell."
+}

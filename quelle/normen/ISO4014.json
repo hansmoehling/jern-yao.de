@@ -1,0 +1,2158 @@
+{
+  "id": "ISO4014",
+  "alias": [
+    "DIN 931"
+  ],
+  "funktion": "schraube",
+  "klasse": "bolzen",
+  "label": "ISO 4014 (DIN 931) · Sechskantschraube, Teilgewinde",
+  "kopfTyp": "sechskant",
+  "antrieb": {
+    "art": "none"
+  },
+  "schaftende": "kuppe",
+  "feldzuordnung": {
+    "kSW": "s_nom",
+    "kH": "k_nom",
+    "b": "b_ref_l_le_125"
+  },
+  "groessen": {
+    "M3": {
+      "vorbelegung": {
+        "kSW": 5.5,
+        "kH": 2,
+        "b": 12
+      },
+      "roh": {
+        "s_nom": 5.5,
+        "e_min_A": 6.01,
+        "e_min_B": 5.88,
+        "k_nom": 2,
+        "k_max_A": 2.125,
+        "k_max_B": 2.2,
+        "b_ref_l_le_125": 12,
+        "b_ref_125_lt_l_le_200": 18,
+        "b_ref_l_gt_200": null
+      },
+      "coverage": "documented",
+      "lengthCoverage": "unresearched",
+      "nachLaenge": {},
+      "missingGeometryFields": [],
+      "geometryStatus": "documented"
+    },
+    "M4": {
+      "vorbelegung": {
+        "kSW": 7,
+        "kH": 2.8,
+        "b": 14
+      },
+      "roh": {
+        "s_nom": 7,
+        "e_min_A": 7.66,
+        "e_min_B": 7.5,
+        "k_nom": 2.8,
+        "k_max_A": 2.925,
+        "k_max_B": 3,
+        "b_ref_l_le_125": 14,
+        "b_ref_125_lt_l_le_200": 20,
+        "b_ref_l_gt_200": null
+      },
+      "coverage": "documented",
+      "lengthCoverage": "unresearched",
+      "nachLaenge": {},
+      "missingGeometryFields": [],
+      "geometryStatus": "documented"
+    },
+    "M5": {
+      "vorbelegung": {
+        "kSW": 8,
+        "kH": 3.5,
+        "b": 16
+      },
+      "roh": {
+        "s_nom": 8,
+        "e_min_A": 8.79,
+        "e_min_B": 8.63,
+        "k_nom": 3.5,
+        "k_max_A": 3.65,
+        "k_max_B": 3.74,
+        "b_ref_l_le_125": 16,
+        "b_ref_125_lt_l_le_200": 22,
+        "b_ref_l_gt_200": null
+      },
+      "coverage": "documented",
+      "lengthCoverage": "unresearched",
+      "nachLaenge": {},
+      "missingGeometryFields": [],
+      "geometryStatus": "documented"
+    },
+    "M6": {
+      "vorbelegung": {
+        "kSW": 10,
+        "kH": 4,
+        "b": 18
+      },
+      "roh": {
+        "s_nom": 10,
+        "e_min_A": 11.05,
+        "e_min_B": 10.89,
+        "k_nom": 4,
+        "k_max_A": 4.15,
+        "k_max_B": 4.24,
+        "b_ref_l_le_125": 18,
+        "b_ref_125_lt_l_le_200": 24,
+        "b_ref_l_gt_200": null
+      },
+      "coverage": "documented",
+      "lengthCoverage": "unresearched",
+      "nachLaenge": {},
+      "missingGeometryFields": [],
+      "geometryStatus": "documented"
+    },
+    "M8": {
+      "vorbelegung": {
+        "kSW": 13,
+        "kH": 5.3,
+        "b": 22
+      },
+      "roh": {
+        "s_nom": 13,
+        "e_min_A": 14.38,
+        "e_min_B": 14.2,
+        "k_nom": 5.3,
+        "k_max_A": 5.45,
+        "k_max_B": 5.54,
+        "b_ref_l_le_125": 22,
+        "b_ref_125_lt_l_le_200": 28,
+        "b_ref_l_gt_200": null
+      },
+      "coverage": "documented",
+      "lengthCoverage": "unresearched",
+      "nachLaenge": {},
+      "missingGeometryFields": [],
+      "geometryStatus": "documented"
+    },
+    "M10": {
+      "vorbelegung": {
+        "kSW": 16,
+        "kH": 6.4,
+        "b": 26
+      },
+      "roh": {
+        "s_nom": 16,
+        "e_min_A": 17.77,
+        "e_min_B": 17.59,
+        "k_nom": 6.4,
+        "k_max_A": 6.58,
+        "k_max_B": 6.69,
+        "b_ref_l_le_125": 26,
+        "b_ref_125_lt_l_le_200": 32,
+        "b_ref_l_gt_200": 45
+      },
+      "coverage": "documented",
+      "lengthCoverage": "unresearched",
+      "nachLaenge": {},
+      "missingGeometryFields": [],
+      "geometryStatus": "documented"
+    },
+    "M12": {
+      "vorbelegung": {
+        "kSW": 18,
+        "kH": 7.5,
+        "b": 30
+      },
+      "roh": {
+        "s_nom": 18,
+        "e_min_A": 20.03,
+        "e_min_B": 19.85,
+        "k_nom": 7.5,
+        "k_max_A": 7.68,
+        "k_max_B": 7.79,
+        "b_ref_l_le_125": 30,
+        "b_ref_125_lt_l_le_200": 36,
+        "b_ref_l_gt_200": 49
+      },
+      "coverage": "documented",
+      "lengthCoverage": "unresearched",
+      "nachLaenge": {},
+      "missingGeometryFields": [],
+      "geometryStatus": "documented"
+    },
+    "M14": {
+      "vorbelegung": {
+        "kSW": 21,
+        "kH": 8.8,
+        "b": 34
+      },
+      "roh": {
+        "s_nom": 21,
+        "e_min_A": 23.36,
+        "e_min_B": 22.78,
+        "k_nom": 8.8,
+        "k_max_A": 8.98,
+        "k_max_B": 9.09,
+        "b_ref_l_le_125": 34,
+        "b_ref_125_lt_l_le_200": 40,
+        "b_ref_l_gt_200": 53
+      },
+      "coverage": "documented",
+      "lengthCoverage": "unresearched",
+      "nachLaenge": {},
+      "missingGeometryFields": [],
+      "geometryStatus": "documented"
+    },
+    "M16": {
+      "vorbelegung": {
+        "kSW": 24,
+        "kH": 10,
+        "b": 38
+      },
+      "roh": {
+        "s_nom": 24,
+        "e_min_A": 26.75,
+        "e_min_B": 26.17,
+        "k_nom": 10,
+        "k_max_A": 10.18,
+        "k_max_B": 10.29,
+        "b_ref_l_le_125": 38,
+        "b_ref_125_lt_l_le_200": 44,
+        "b_ref_l_gt_200": 57
+      },
+      "coverage": "documented",
+      "lengthCoverage": "unresearched",
+      "nachLaenge": {},
+      "missingGeometryFields": [],
+      "geometryStatus": "documented"
+    },
+    "M18": {
+      "vorbelegung": {
+        "kSW": 27,
+        "kH": 11.5,
+        "b": 42
+      },
+      "roh": {
+        "s_nom": 27,
+        "e_min_A": 30.14,
+        "e_min_B": 29.56,
+        "k_nom": 11.5,
+        "k_max_A": 11.715,
+        "k_max_B": 11.85,
+        "b_ref_l_le_125": 42,
+        "b_ref_125_lt_l_le_200": 48,
+        "b_ref_l_gt_200": 61
+      },
+      "coverage": "documented",
+      "lengthCoverage": "unresearched",
+      "nachLaenge": {},
+      "missingGeometryFields": [],
+      "geometryStatus": "documented"
+    },
+    "M20": {
+      "vorbelegung": {
+        "kSW": 30,
+        "kH": 12.5,
+        "b": 46
+      },
+      "roh": {
+        "s_nom": 30,
+        "e_min_A": 33.53,
+        "e_min_B": 32.95,
+        "k_nom": 12.5,
+        "k_max_A": 12.715,
+        "k_max_B": 12.85,
+        "b_ref_l_le_125": 46,
+        "b_ref_125_lt_l_le_200": 52,
+        "b_ref_l_gt_200": 65
+      },
+      "coverage": "documented",
+      "lengthCoverage": "unresearched",
+      "nachLaenge": {},
+      "missingGeometryFields": [],
+      "geometryStatus": "documented"
+    },
+    "M22": {
+      "vorbelegung": {
+        "kSW": 34,
+        "kH": 14,
+        "b": 50
+      },
+      "roh": {
+        "s_nom": 34,
+        "e_min_A": 37.72,
+        "e_min_B": 37.29,
+        "k_nom": 14,
+        "k_max_A": 14.215,
+        "k_max_B": 14.35,
+        "b_ref_l_le_125": 50,
+        "b_ref_125_lt_l_le_200": 56,
+        "b_ref_l_gt_200": 69
+      },
+      "coverage": "documented",
+      "lengthCoverage": "unresearched",
+      "nachLaenge": {},
+      "missingGeometryFields": [],
+      "geometryStatus": "documented"
+    },
+    "M24": {
+      "vorbelegung": {
+        "kSW": 36,
+        "kH": 15,
+        "b": 54
+      },
+      "roh": {
+        "s_nom": 36,
+        "e_min_A": 39.98,
+        "e_min_B": 39.55,
+        "k_nom": 15,
+        "k_max_A": 15.215,
+        "k_max_B": 15.35,
+        "b_ref_l_le_125": 54,
+        "b_ref_125_lt_l_le_200": 60,
+        "b_ref_l_gt_200": 73
+      },
+      "coverage": "documented",
+      "lengthCoverage": "unresearched",
+      "nachLaenge": {},
+      "missingGeometryFields": [],
+      "geometryStatus": "documented"
+    },
+    "M27": {
+      "vorbelegung": {
+        "kSW": 41,
+        "kH": 17,
+        "b": 60
+      },
+      "roh": {
+        "s_nom": 41,
+        "e_min_A": null,
+        "e_min_B": 45.2,
+        "k_nom": 17,
+        "k_max_A": null,
+        "k_max_B": 17.35,
+        "b_ref_l_le_125": 60,
+        "b_ref_125_lt_l_le_200": 66,
+        "b_ref_l_gt_200": 79
+      },
+      "coverage": "documented",
+      "lengthCoverage": "unresearched",
+      "nachLaenge": {},
+      "missingGeometryFields": [],
+      "geometryStatus": "documented"
+    },
+    "M30": {
+      "vorbelegung": {
+        "kSW": 46,
+        "kH": 18.7,
+        "b": 66
+      },
+      "roh": {
+        "s_nom": 46,
+        "e_min_A": null,
+        "e_min_B": 50.85,
+        "k_nom": 18.7,
+        "k_max_A": null,
+        "k_max_B": 19.12,
+        "b_ref_l_le_125": 66,
+        "b_ref_125_lt_l_le_200": 72,
+        "b_ref_l_gt_200": 85
+      },
+      "coverage": "documented",
+      "lengthCoverage": "unresearched",
+      "nachLaenge": {},
+      "missingGeometryFields": [],
+      "geometryStatus": "documented"
+    }
+  },
+  "status": "partial",
+  "quellen": [
+    {
+      "id": "fe4014",
+      "url": "https://www.fasteners.eu/standards/ISO/4014/",
+      "titel": "fasteners.eu - ISO 4014 (Normenverzeichnis, Maßtabelle)",
+      "abgerufen": "2026-11-25",
+      "type": "supplied-research-source"
+    },
+    {
+      "id": "iteh4014_2022",
+      "url": "https://cdn.standards.iteh.ai/samples/72579/81f2b1e966b440d7a25f6734e508ea48/ISO-4014-2022.pdf",
+      "titel": "ISO 4014:2022 Vorschau-Sample (iTeh), Tabellen 1-4 (Produktklasse A M1,6-M24, B M16-M27)",
+      "abgerufen": "2026-11-25",
+      "type": "standard-excerpt"
+    },
+    {
+      "id": "feDIN931",
+      "url": "https://www.fasteners.eu/standards/DIN/931/",
+      "titel": "fasteners.eu - DIN 931",
+      "abgerufen": "2026-11-25",
+      "type": "supplied-research-source"
+    },
+    {
+      "id": "ee4014",
+      "url": "https://engineersedge.com/iso_hex_head_screw.htm",
+      "titel": "Engineers Edge - ISO Hex Head Screw ISO 4014 / 4017",
+      "abgerufen": "2026-11-25",
+      "type": "supplied-research-source"
+    }
+  ],
+  "abweichungen": [],
+  "normstatus": null,
+  "hinweise": [],
+  "schaftform": "abgesetzt",
+  "schemaVersion": 1,
+  "version": "2026-11-26",
+  "edition": "2022",
+  "editionStatus": "documented",
+  "fields": {
+    "M3": {
+      "s_nom": {
+        "nominal": 5.5,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "fe4014"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Aus bereitgestellter Maßrecherche übernommen; Einzelwert-Abdeckung und zweiter unabhängiger Beleg sind separat zu prüfen."
+      },
+      "e_min_A": {
+        "nominal": 6.01,
+        "min": 6.01,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "fe4014"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Aus bereitgestellter Maßrecherche übernommen; Einzelwert-Abdeckung und zweiter unabhängiger Beleg sind separat zu prüfen."
+      },
+      "e_min_B": {
+        "nominal": 5.88,
+        "min": 5.88,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "fe4014"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Aus bereitgestellter Maßrecherche übernommen; Einzelwert-Abdeckung und zweiter unabhängiger Beleg sind separat zu prüfen."
+      },
+      "k_nom": {
+        "nominal": 2,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "fe4014"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Aus bereitgestellter Maßrecherche übernommen; Einzelwert-Abdeckung und zweiter unabhängiger Beleg sind separat zu prüfen."
+      },
+      "k_max_A": {
+        "nominal": 2.125,
+        "min": null,
+        "max": 2.125,
+        "unit": "mm",
+        "sourceRefs": [
+          "fe4014"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Aus bereitgestellter Maßrecherche übernommen; Einzelwert-Abdeckung und zweiter unabhängiger Beleg sind separat zu prüfen."
+      },
+      "k_max_B": {
+        "nominal": 2.2,
+        "min": null,
+        "max": 2.2,
+        "unit": "mm",
+        "sourceRefs": [
+          "fe4014"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Aus bereitgestellter Maßrecherche übernommen; Einzelwert-Abdeckung und zweiter unabhängiger Beleg sind separat zu prüfen."
+      },
+      "b_ref_l_le_125": {
+        "nominal": 12,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "fe4014"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Aus bereitgestellter Maßrecherche übernommen; Einzelwert-Abdeckung und zweiter unabhängiger Beleg sind separat zu prüfen."
+      },
+      "b_ref_125_lt_l_le_200": {
+        "nominal": 18,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "fe4014"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Aus bereitgestellter Maßrecherche übernommen; Einzelwert-Abdeckung und zweiter unabhängiger Beleg sind separat zu prüfen."
+      },
+      "b_ref_l_gt_200": {
+        "nominal": null,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "fe4014"
+        ],
+        "status": "missing",
+        "verification": false,
+        "note": "Aus bereitgestellter Maßrecherche übernommen; Einzelwert-Abdeckung und zweiter unabhängiger Beleg sind separat zu prüfen."
+      }
+    },
+    "M4": {
+      "s_nom": {
+        "nominal": 7,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "fe4014"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Aus bereitgestellter Maßrecherche übernommen; Einzelwert-Abdeckung und zweiter unabhängiger Beleg sind separat zu prüfen."
+      },
+      "e_min_A": {
+        "nominal": 7.66,
+        "min": 7.66,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "fe4014"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Aus bereitgestellter Maßrecherche übernommen; Einzelwert-Abdeckung und zweiter unabhängiger Beleg sind separat zu prüfen."
+      },
+      "e_min_B": {
+        "nominal": 7.5,
+        "min": 7.5,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "fe4014"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Aus bereitgestellter Maßrecherche übernommen; Einzelwert-Abdeckung und zweiter unabhängiger Beleg sind separat zu prüfen."
+      },
+      "k_nom": {
+        "nominal": 2.8,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "fe4014"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Aus bereitgestellter Maßrecherche übernommen; Einzelwert-Abdeckung und zweiter unabhängiger Beleg sind separat zu prüfen."
+      },
+      "k_max_A": {
+        "nominal": 2.925,
+        "min": null,
+        "max": 2.925,
+        "unit": "mm",
+        "sourceRefs": [
+          "fe4014"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Aus bereitgestellter Maßrecherche übernommen; Einzelwert-Abdeckung und zweiter unabhängiger Beleg sind separat zu prüfen."
+      },
+      "k_max_B": {
+        "nominal": 3,
+        "min": null,
+        "max": 3,
+        "unit": "mm",
+        "sourceRefs": [
+          "fe4014"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Aus bereitgestellter Maßrecherche übernommen; Einzelwert-Abdeckung und zweiter unabhängiger Beleg sind separat zu prüfen."
+      },
+      "b_ref_l_le_125": {
+        "nominal": 14,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "fe4014"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Aus bereitgestellter Maßrecherche übernommen; Einzelwert-Abdeckung und zweiter unabhängiger Beleg sind separat zu prüfen."
+      },
+      "b_ref_125_lt_l_le_200": {
+        "nominal": 20,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "fe4014"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Aus bereitgestellter Maßrecherche übernommen; Einzelwert-Abdeckung und zweiter unabhängiger Beleg sind separat zu prüfen."
+      },
+      "b_ref_l_gt_200": {
+        "nominal": null,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "fe4014"
+        ],
+        "status": "missing",
+        "verification": false,
+        "note": "Aus bereitgestellter Maßrecherche übernommen; Einzelwert-Abdeckung und zweiter unabhängiger Beleg sind separat zu prüfen."
+      }
+    },
+    "M5": {
+      "s_nom": {
+        "nominal": 8,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "fe4014"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Aus bereitgestellter Maßrecherche übernommen; Einzelwert-Abdeckung und zweiter unabhängiger Beleg sind separat zu prüfen."
+      },
+      "e_min_A": {
+        "nominal": 8.79,
+        "min": 8.79,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "fe4014"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Aus bereitgestellter Maßrecherche übernommen; Einzelwert-Abdeckung und zweiter unabhängiger Beleg sind separat zu prüfen."
+      },
+      "e_min_B": {
+        "nominal": 8.63,
+        "min": 8.63,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "fe4014"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Aus bereitgestellter Maßrecherche übernommen; Einzelwert-Abdeckung und zweiter unabhängiger Beleg sind separat zu prüfen."
+      },
+      "k_nom": {
+        "nominal": 3.5,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "fe4014"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Aus bereitgestellter Maßrecherche übernommen; Einzelwert-Abdeckung und zweiter unabhängiger Beleg sind separat zu prüfen."
+      },
+      "k_max_A": {
+        "nominal": 3.65,
+        "min": null,
+        "max": 3.65,
+        "unit": "mm",
+        "sourceRefs": [
+          "fe4014"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Aus bereitgestellter Maßrecherche übernommen; Einzelwert-Abdeckung und zweiter unabhängiger Beleg sind separat zu prüfen."
+      },
+      "k_max_B": {
+        "nominal": 3.74,
+        "min": null,
+        "max": 3.74,
+        "unit": "mm",
+        "sourceRefs": [
+          "fe4014"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Aus bereitgestellter Maßrecherche übernommen; Einzelwert-Abdeckung und zweiter unabhängiger Beleg sind separat zu prüfen."
+      },
+      "b_ref_l_le_125": {
+        "nominal": 16,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "fe4014"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Aus bereitgestellter Maßrecherche übernommen; Einzelwert-Abdeckung und zweiter unabhängiger Beleg sind separat zu prüfen."
+      },
+      "b_ref_125_lt_l_le_200": {
+        "nominal": 22,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "fe4014"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Aus bereitgestellter Maßrecherche übernommen; Einzelwert-Abdeckung und zweiter unabhängiger Beleg sind separat zu prüfen."
+      },
+      "b_ref_l_gt_200": {
+        "nominal": null,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "fe4014"
+        ],
+        "status": "missing",
+        "verification": false,
+        "note": "Aus bereitgestellter Maßrecherche übernommen; Einzelwert-Abdeckung und zweiter unabhängiger Beleg sind separat zu prüfen."
+      }
+    },
+    "M6": {
+      "s_nom": {
+        "nominal": 10,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "fe4014"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Aus bereitgestellter Maßrecherche übernommen; Einzelwert-Abdeckung und zweiter unabhängiger Beleg sind separat zu prüfen."
+      },
+      "e_min_A": {
+        "nominal": 11.05,
+        "min": 11.05,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "fe4014"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Aus bereitgestellter Maßrecherche übernommen; Einzelwert-Abdeckung und zweiter unabhängiger Beleg sind separat zu prüfen."
+      },
+      "e_min_B": {
+        "nominal": 10.89,
+        "min": 10.89,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "fe4014"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Aus bereitgestellter Maßrecherche übernommen; Einzelwert-Abdeckung und zweiter unabhängiger Beleg sind separat zu prüfen."
+      },
+      "k_nom": {
+        "nominal": 4,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "fe4014"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Aus bereitgestellter Maßrecherche übernommen; Einzelwert-Abdeckung und zweiter unabhängiger Beleg sind separat zu prüfen."
+      },
+      "k_max_A": {
+        "nominal": 4.15,
+        "min": null,
+        "max": 4.15,
+        "unit": "mm",
+        "sourceRefs": [
+          "fe4014"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Aus bereitgestellter Maßrecherche übernommen; Einzelwert-Abdeckung und zweiter unabhängiger Beleg sind separat zu prüfen."
+      },
+      "k_max_B": {
+        "nominal": 4.24,
+        "min": null,
+        "max": 4.24,
+        "unit": "mm",
+        "sourceRefs": [
+          "fe4014"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Aus bereitgestellter Maßrecherche übernommen; Einzelwert-Abdeckung und zweiter unabhängiger Beleg sind separat zu prüfen."
+      },
+      "b_ref_l_le_125": {
+        "nominal": 18,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "fe4014"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Aus bereitgestellter Maßrecherche übernommen; Einzelwert-Abdeckung und zweiter unabhängiger Beleg sind separat zu prüfen."
+      },
+      "b_ref_125_lt_l_le_200": {
+        "nominal": 24,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "fe4014"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Aus bereitgestellter Maßrecherche übernommen; Einzelwert-Abdeckung und zweiter unabhängiger Beleg sind separat zu prüfen."
+      },
+      "b_ref_l_gt_200": {
+        "nominal": null,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "fe4014"
+        ],
+        "status": "missing",
+        "verification": false,
+        "note": "Aus bereitgestellter Maßrecherche übernommen; Einzelwert-Abdeckung und zweiter unabhängiger Beleg sind separat zu prüfen."
+      }
+    },
+    "M8": {
+      "s_nom": {
+        "nominal": 13,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "fe4014"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Aus bereitgestellter Maßrecherche übernommen; Einzelwert-Abdeckung und zweiter unabhängiger Beleg sind separat zu prüfen."
+      },
+      "e_min_A": {
+        "nominal": 14.38,
+        "min": 14.38,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "fe4014"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Aus bereitgestellter Maßrecherche übernommen; Einzelwert-Abdeckung und zweiter unabhängiger Beleg sind separat zu prüfen."
+      },
+      "e_min_B": {
+        "nominal": 14.2,
+        "min": 14.2,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "fe4014"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Aus bereitgestellter Maßrecherche übernommen; Einzelwert-Abdeckung und zweiter unabhängiger Beleg sind separat zu prüfen."
+      },
+      "k_nom": {
+        "nominal": 5.3,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "fe4014"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Aus bereitgestellter Maßrecherche übernommen; Einzelwert-Abdeckung und zweiter unabhängiger Beleg sind separat zu prüfen."
+      },
+      "k_max_A": {
+        "nominal": 5.45,
+        "min": null,
+        "max": 5.45,
+        "unit": "mm",
+        "sourceRefs": [
+          "fe4014"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Aus bereitgestellter Maßrecherche übernommen; Einzelwert-Abdeckung und zweiter unabhängiger Beleg sind separat zu prüfen."
+      },
+      "k_max_B": {
+        "nominal": 5.54,
+        "min": null,
+        "max": 5.54,
+        "unit": "mm",
+        "sourceRefs": [
+          "fe4014"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Aus bereitgestellter Maßrecherche übernommen; Einzelwert-Abdeckung und zweiter unabhängiger Beleg sind separat zu prüfen."
+      },
+      "b_ref_l_le_125": {
+        "nominal": 22,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "fe4014"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Aus bereitgestellter Maßrecherche übernommen; Einzelwert-Abdeckung und zweiter unabhängiger Beleg sind separat zu prüfen."
+      },
+      "b_ref_125_lt_l_le_200": {
+        "nominal": 28,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "fe4014"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Aus bereitgestellter Maßrecherche übernommen; Einzelwert-Abdeckung und zweiter unabhängiger Beleg sind separat zu prüfen."
+      },
+      "b_ref_l_gt_200": {
+        "nominal": null,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "fe4014"
+        ],
+        "status": "missing",
+        "verification": false,
+        "note": "Aus bereitgestellter Maßrecherche übernommen; Einzelwert-Abdeckung und zweiter unabhängiger Beleg sind separat zu prüfen."
+      }
+    },
+    "M10": {
+      "s_nom": {
+        "nominal": 16,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "fe4014"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Aus bereitgestellter Maßrecherche übernommen; Einzelwert-Abdeckung und zweiter unabhängiger Beleg sind separat zu prüfen."
+      },
+      "e_min_A": {
+        "nominal": 17.77,
+        "min": 17.77,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "fe4014"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Aus bereitgestellter Maßrecherche übernommen; Einzelwert-Abdeckung und zweiter unabhängiger Beleg sind separat zu prüfen."
+      },
+      "e_min_B": {
+        "nominal": 17.59,
+        "min": 17.59,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "fe4014"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Aus bereitgestellter Maßrecherche übernommen; Einzelwert-Abdeckung und zweiter unabhängiger Beleg sind separat zu prüfen."
+      },
+      "k_nom": {
+        "nominal": 6.4,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "fe4014"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Aus bereitgestellter Maßrecherche übernommen; Einzelwert-Abdeckung und zweiter unabhängiger Beleg sind separat zu prüfen."
+      },
+      "k_max_A": {
+        "nominal": 6.58,
+        "min": null,
+        "max": 6.58,
+        "unit": "mm",
+        "sourceRefs": [
+          "fe4014"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Aus bereitgestellter Maßrecherche übernommen; Einzelwert-Abdeckung und zweiter unabhängiger Beleg sind separat zu prüfen."
+      },
+      "k_max_B": {
+        "nominal": 6.69,
+        "min": null,
+        "max": 6.69,
+        "unit": "mm",
+        "sourceRefs": [
+          "fe4014"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Aus bereitgestellter Maßrecherche übernommen; Einzelwert-Abdeckung und zweiter unabhängiger Beleg sind separat zu prüfen."
+      },
+      "b_ref_l_le_125": {
+        "nominal": 26,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "fe4014"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Aus bereitgestellter Maßrecherche übernommen; Einzelwert-Abdeckung und zweiter unabhängiger Beleg sind separat zu prüfen."
+      },
+      "b_ref_125_lt_l_le_200": {
+        "nominal": 32,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "fe4014"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Aus bereitgestellter Maßrecherche übernommen; Einzelwert-Abdeckung und zweiter unabhängiger Beleg sind separat zu prüfen."
+      },
+      "b_ref_l_gt_200": {
+        "nominal": 45,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "fe4014"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Aus bereitgestellter Maßrecherche übernommen; Einzelwert-Abdeckung und zweiter unabhängiger Beleg sind separat zu prüfen."
+      }
+    },
+    "M12": {
+      "s_nom": {
+        "nominal": 18,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "fe4014"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Aus bereitgestellter Maßrecherche übernommen; Einzelwert-Abdeckung und zweiter unabhängiger Beleg sind separat zu prüfen."
+      },
+      "e_min_A": {
+        "nominal": 20.03,
+        "min": 20.03,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "fe4014"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Aus bereitgestellter Maßrecherche übernommen; Einzelwert-Abdeckung und zweiter unabhängiger Beleg sind separat zu prüfen."
+      },
+      "e_min_B": {
+        "nominal": 19.85,
+        "min": 19.85,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "fe4014"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Aus bereitgestellter Maßrecherche übernommen; Einzelwert-Abdeckung und zweiter unabhängiger Beleg sind separat zu prüfen."
+      },
+      "k_nom": {
+        "nominal": 7.5,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "fe4014"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Aus bereitgestellter Maßrecherche übernommen; Einzelwert-Abdeckung und zweiter unabhängiger Beleg sind separat zu prüfen."
+      },
+      "k_max_A": {
+        "nominal": 7.68,
+        "min": null,
+        "max": 7.68,
+        "unit": "mm",
+        "sourceRefs": [
+          "fe4014"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Aus bereitgestellter Maßrecherche übernommen; Einzelwert-Abdeckung und zweiter unabhängiger Beleg sind separat zu prüfen."
+      },
+      "k_max_B": {
+        "nominal": 7.79,
+        "min": null,
+        "max": 7.79,
+        "unit": "mm",
+        "sourceRefs": [
+          "fe4014"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Aus bereitgestellter Maßrecherche übernommen; Einzelwert-Abdeckung und zweiter unabhängiger Beleg sind separat zu prüfen."
+      },
+      "b_ref_l_le_125": {
+        "nominal": 30,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "fe4014"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Aus bereitgestellter Maßrecherche übernommen; Einzelwert-Abdeckung und zweiter unabhängiger Beleg sind separat zu prüfen."
+      },
+      "b_ref_125_lt_l_le_200": {
+        "nominal": 36,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "fe4014"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Aus bereitgestellter Maßrecherche übernommen; Einzelwert-Abdeckung und zweiter unabhängiger Beleg sind separat zu prüfen."
+      },
+      "b_ref_l_gt_200": {
+        "nominal": 49,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "fe4014"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Aus bereitgestellter Maßrecherche übernommen; Einzelwert-Abdeckung und zweiter unabhängiger Beleg sind separat zu prüfen."
+      }
+    },
+    "M14": {
+      "s_nom": {
+        "nominal": 21,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "fe4014"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Aus bereitgestellter Maßrecherche übernommen; Einzelwert-Abdeckung und zweiter unabhängiger Beleg sind separat zu prüfen."
+      },
+      "e_min_A": {
+        "nominal": 23.36,
+        "min": 23.36,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "fe4014"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Aus bereitgestellter Maßrecherche übernommen; Einzelwert-Abdeckung und zweiter unabhängiger Beleg sind separat zu prüfen."
+      },
+      "e_min_B": {
+        "nominal": 22.78,
+        "min": 22.78,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "fe4014"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Aus bereitgestellter Maßrecherche übernommen; Einzelwert-Abdeckung und zweiter unabhängiger Beleg sind separat zu prüfen."
+      },
+      "k_nom": {
+        "nominal": 8.8,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "fe4014"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Aus bereitgestellter Maßrecherche übernommen; Einzelwert-Abdeckung und zweiter unabhängiger Beleg sind separat zu prüfen."
+      },
+      "k_max_A": {
+        "nominal": 8.98,
+        "min": null,
+        "max": 8.98,
+        "unit": "mm",
+        "sourceRefs": [
+          "fe4014"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Aus bereitgestellter Maßrecherche übernommen; Einzelwert-Abdeckung und zweiter unabhängiger Beleg sind separat zu prüfen."
+      },
+      "k_max_B": {
+        "nominal": 9.09,
+        "min": null,
+        "max": 9.09,
+        "unit": "mm",
+        "sourceRefs": [
+          "fe4014"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Aus bereitgestellter Maßrecherche übernommen; Einzelwert-Abdeckung und zweiter unabhängiger Beleg sind separat zu prüfen."
+      },
+      "b_ref_l_le_125": {
+        "nominal": 34,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "fe4014"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Aus bereitgestellter Maßrecherche übernommen; Einzelwert-Abdeckung und zweiter unabhängiger Beleg sind separat zu prüfen."
+      },
+      "b_ref_125_lt_l_le_200": {
+        "nominal": 40,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "fe4014"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Aus bereitgestellter Maßrecherche übernommen; Einzelwert-Abdeckung und zweiter unabhängiger Beleg sind separat zu prüfen."
+      },
+      "b_ref_l_gt_200": {
+        "nominal": 53,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "fe4014"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Aus bereitgestellter Maßrecherche übernommen; Einzelwert-Abdeckung und zweiter unabhängiger Beleg sind separat zu prüfen."
+      }
+    },
+    "M16": {
+      "s_nom": {
+        "nominal": 24,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "fe4014"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Aus bereitgestellter Maßrecherche übernommen; Einzelwert-Abdeckung und zweiter unabhängiger Beleg sind separat zu prüfen."
+      },
+      "e_min_A": {
+        "nominal": 26.75,
+        "min": 26.75,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "fe4014"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Aus bereitgestellter Maßrecherche übernommen; Einzelwert-Abdeckung und zweiter unabhängiger Beleg sind separat zu prüfen."
+      },
+      "e_min_B": {
+        "nominal": 26.17,
+        "min": 26.17,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "fe4014"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Aus bereitgestellter Maßrecherche übernommen; Einzelwert-Abdeckung und zweiter unabhängiger Beleg sind separat zu prüfen."
+      },
+      "k_nom": {
+        "nominal": 10,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "fe4014"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Aus bereitgestellter Maßrecherche übernommen; Einzelwert-Abdeckung und zweiter unabhängiger Beleg sind separat zu prüfen."
+      },
+      "k_max_A": {
+        "nominal": 10.18,
+        "min": null,
+        "max": 10.18,
+        "unit": "mm",
+        "sourceRefs": [
+          "fe4014"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Aus bereitgestellter Maßrecherche übernommen; Einzelwert-Abdeckung und zweiter unabhängiger Beleg sind separat zu prüfen."
+      },
+      "k_max_B": {
+        "nominal": 10.29,
+        "min": null,
+        "max": 10.29,
+        "unit": "mm",
+        "sourceRefs": [
+          "fe4014"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Aus bereitgestellter Maßrecherche übernommen; Einzelwert-Abdeckung und zweiter unabhängiger Beleg sind separat zu prüfen."
+      },
+      "b_ref_l_le_125": {
+        "nominal": 38,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "fe4014"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Aus bereitgestellter Maßrecherche übernommen; Einzelwert-Abdeckung und zweiter unabhängiger Beleg sind separat zu prüfen."
+      },
+      "b_ref_125_lt_l_le_200": {
+        "nominal": 44,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "fe4014"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Aus bereitgestellter Maßrecherche übernommen; Einzelwert-Abdeckung und zweiter unabhängiger Beleg sind separat zu prüfen."
+      },
+      "b_ref_l_gt_200": {
+        "nominal": 57,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "fe4014"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Aus bereitgestellter Maßrecherche übernommen; Einzelwert-Abdeckung und zweiter unabhängiger Beleg sind separat zu prüfen."
+      }
+    },
+    "M18": {
+      "s_nom": {
+        "nominal": 27,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "fe4014"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Aus bereitgestellter Maßrecherche übernommen; Einzelwert-Abdeckung und zweiter unabhängiger Beleg sind separat zu prüfen."
+      },
+      "e_min_A": {
+        "nominal": 30.14,
+        "min": 30.14,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "fe4014"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Aus bereitgestellter Maßrecherche übernommen; Einzelwert-Abdeckung und zweiter unabhängiger Beleg sind separat zu prüfen."
+      },
+      "e_min_B": {
+        "nominal": 29.56,
+        "min": 29.56,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "fe4014"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Aus bereitgestellter Maßrecherche übernommen; Einzelwert-Abdeckung und zweiter unabhängiger Beleg sind separat zu prüfen."
+      },
+      "k_nom": {
+        "nominal": 11.5,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "fe4014"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Aus bereitgestellter Maßrecherche übernommen; Einzelwert-Abdeckung und zweiter unabhängiger Beleg sind separat zu prüfen."
+      },
+      "k_max_A": {
+        "nominal": 11.715,
+        "min": null,
+        "max": 11.715,
+        "unit": "mm",
+        "sourceRefs": [
+          "fe4014"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Aus bereitgestellter Maßrecherche übernommen; Einzelwert-Abdeckung und zweiter unabhängiger Beleg sind separat zu prüfen."
+      },
+      "k_max_B": {
+        "nominal": 11.85,
+        "min": null,
+        "max": 11.85,
+        "unit": "mm",
+        "sourceRefs": [
+          "fe4014"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Aus bereitgestellter Maßrecherche übernommen; Einzelwert-Abdeckung und zweiter unabhängiger Beleg sind separat zu prüfen."
+      },
+      "b_ref_l_le_125": {
+        "nominal": 42,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "fe4014"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Aus bereitgestellter Maßrecherche übernommen; Einzelwert-Abdeckung und zweiter unabhängiger Beleg sind separat zu prüfen."
+      },
+      "b_ref_125_lt_l_le_200": {
+        "nominal": 48,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "fe4014"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Aus bereitgestellter Maßrecherche übernommen; Einzelwert-Abdeckung und zweiter unabhängiger Beleg sind separat zu prüfen."
+      },
+      "b_ref_l_gt_200": {
+        "nominal": 61,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "fe4014"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Aus bereitgestellter Maßrecherche übernommen; Einzelwert-Abdeckung und zweiter unabhängiger Beleg sind separat zu prüfen."
+      }
+    },
+    "M20": {
+      "s_nom": {
+        "nominal": 30,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "fe4014"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Aus bereitgestellter Maßrecherche übernommen; Einzelwert-Abdeckung und zweiter unabhängiger Beleg sind separat zu prüfen."
+      },
+      "e_min_A": {
+        "nominal": 33.53,
+        "min": 33.53,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "fe4014"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Aus bereitgestellter Maßrecherche übernommen; Einzelwert-Abdeckung und zweiter unabhängiger Beleg sind separat zu prüfen."
+      },
+      "e_min_B": {
+        "nominal": 32.95,
+        "min": 32.95,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "fe4014"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Aus bereitgestellter Maßrecherche übernommen; Einzelwert-Abdeckung und zweiter unabhängiger Beleg sind separat zu prüfen."
+      },
+      "k_nom": {
+        "nominal": 12.5,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "fe4014"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Aus bereitgestellter Maßrecherche übernommen; Einzelwert-Abdeckung und zweiter unabhängiger Beleg sind separat zu prüfen."
+      },
+      "k_max_A": {
+        "nominal": 12.715,
+        "min": null,
+        "max": 12.715,
+        "unit": "mm",
+        "sourceRefs": [
+          "fe4014"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Aus bereitgestellter Maßrecherche übernommen; Einzelwert-Abdeckung und zweiter unabhängiger Beleg sind separat zu prüfen."
+      },
+      "k_max_B": {
+        "nominal": 12.85,
+        "min": null,
+        "max": 12.85,
+        "unit": "mm",
+        "sourceRefs": [
+          "fe4014"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Aus bereitgestellter Maßrecherche übernommen; Einzelwert-Abdeckung und zweiter unabhängiger Beleg sind separat zu prüfen."
+      },
+      "b_ref_l_le_125": {
+        "nominal": 46,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "fe4014"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Aus bereitgestellter Maßrecherche übernommen; Einzelwert-Abdeckung und zweiter unabhängiger Beleg sind separat zu prüfen."
+      },
+      "b_ref_125_lt_l_le_200": {
+        "nominal": 52,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "fe4014"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Aus bereitgestellter Maßrecherche übernommen; Einzelwert-Abdeckung und zweiter unabhängiger Beleg sind separat zu prüfen."
+      },
+      "b_ref_l_gt_200": {
+        "nominal": 65,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "fe4014"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Aus bereitgestellter Maßrecherche übernommen; Einzelwert-Abdeckung und zweiter unabhängiger Beleg sind separat zu prüfen."
+      }
+    },
+    "M22": {
+      "s_nom": {
+        "nominal": 34,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "fe4014"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Aus bereitgestellter Maßrecherche übernommen; Einzelwert-Abdeckung und zweiter unabhängiger Beleg sind separat zu prüfen."
+      },
+      "e_min_A": {
+        "nominal": 37.72,
+        "min": 37.72,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "fe4014"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Aus bereitgestellter Maßrecherche übernommen; Einzelwert-Abdeckung und zweiter unabhängiger Beleg sind separat zu prüfen."
+      },
+      "e_min_B": {
+        "nominal": 37.29,
+        "min": 37.29,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "fe4014"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Aus bereitgestellter Maßrecherche übernommen; Einzelwert-Abdeckung und zweiter unabhängiger Beleg sind separat zu prüfen."
+      },
+      "k_nom": {
+        "nominal": 14,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "fe4014"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Aus bereitgestellter Maßrecherche übernommen; Einzelwert-Abdeckung und zweiter unabhängiger Beleg sind separat zu prüfen."
+      },
+      "k_max_A": {
+        "nominal": 14.215,
+        "min": null,
+        "max": 14.215,
+        "unit": "mm",
+        "sourceRefs": [
+          "fe4014"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Aus bereitgestellter Maßrecherche übernommen; Einzelwert-Abdeckung und zweiter unabhängiger Beleg sind separat zu prüfen."
+      },
+      "k_max_B": {
+        "nominal": 14.35,
+        "min": null,
+        "max": 14.35,
+        "unit": "mm",
+        "sourceRefs": [
+          "fe4014"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Aus bereitgestellter Maßrecherche übernommen; Einzelwert-Abdeckung und zweiter unabhängiger Beleg sind separat zu prüfen."
+      },
+      "b_ref_l_le_125": {
+        "nominal": 50,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "fe4014"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Aus bereitgestellter Maßrecherche übernommen; Einzelwert-Abdeckung und zweiter unabhängiger Beleg sind separat zu prüfen."
+      },
+      "b_ref_125_lt_l_le_200": {
+        "nominal": 56,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "fe4014"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Aus bereitgestellter Maßrecherche übernommen; Einzelwert-Abdeckung und zweiter unabhängiger Beleg sind separat zu prüfen."
+      },
+      "b_ref_l_gt_200": {
+        "nominal": 69,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "fe4014"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Aus bereitgestellter Maßrecherche übernommen; Einzelwert-Abdeckung und zweiter unabhängiger Beleg sind separat zu prüfen."
+      }
+    },
+    "M24": {
+      "s_nom": {
+        "nominal": 36,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "fe4014"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Aus bereitgestellter Maßrecherche übernommen; Einzelwert-Abdeckung und zweiter unabhängiger Beleg sind separat zu prüfen."
+      },
+      "e_min_A": {
+        "nominal": 39.98,
+        "min": 39.98,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "fe4014"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Aus bereitgestellter Maßrecherche übernommen; Einzelwert-Abdeckung und zweiter unabhängiger Beleg sind separat zu prüfen."
+      },
+      "e_min_B": {
+        "nominal": 39.55,
+        "min": 39.55,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "fe4014"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Aus bereitgestellter Maßrecherche übernommen; Einzelwert-Abdeckung und zweiter unabhängiger Beleg sind separat zu prüfen."
+      },
+      "k_nom": {
+        "nominal": 15,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "fe4014"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Aus bereitgestellter Maßrecherche übernommen; Einzelwert-Abdeckung und zweiter unabhängiger Beleg sind separat zu prüfen."
+      },
+      "k_max_A": {
+        "nominal": 15.215,
+        "min": null,
+        "max": 15.215,
+        "unit": "mm",
+        "sourceRefs": [
+          "fe4014"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Aus bereitgestellter Maßrecherche übernommen; Einzelwert-Abdeckung und zweiter unabhängiger Beleg sind separat zu prüfen."
+      },
+      "k_max_B": {
+        "nominal": 15.35,
+        "min": null,
+        "max": 15.35,
+        "unit": "mm",
+        "sourceRefs": [
+          "fe4014"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Aus bereitgestellter Maßrecherche übernommen; Einzelwert-Abdeckung und zweiter unabhängiger Beleg sind separat zu prüfen."
+      },
+      "b_ref_l_le_125": {
+        "nominal": 54,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "fe4014"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Aus bereitgestellter Maßrecherche übernommen; Einzelwert-Abdeckung und zweiter unabhängiger Beleg sind separat zu prüfen."
+      },
+      "b_ref_125_lt_l_le_200": {
+        "nominal": 60,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "fe4014"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Aus bereitgestellter Maßrecherche übernommen; Einzelwert-Abdeckung und zweiter unabhängiger Beleg sind separat zu prüfen."
+      },
+      "b_ref_l_gt_200": {
+        "nominal": 73,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "fe4014"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Aus bereitgestellter Maßrecherche übernommen; Einzelwert-Abdeckung und zweiter unabhängiger Beleg sind separat zu prüfen."
+      }
+    },
+    "M27": {
+      "s_nom": {
+        "nominal": 41,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "fe4014"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Aus bereitgestellter Maßrecherche übernommen; Einzelwert-Abdeckung und zweiter unabhängiger Beleg sind separat zu prüfen."
+      },
+      "e_min_A": {
+        "nominal": null,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "fe4014"
+        ],
+        "status": "missing",
+        "verification": false,
+        "note": "Aus bereitgestellter Maßrecherche übernommen; Einzelwert-Abdeckung und zweiter unabhängiger Beleg sind separat zu prüfen."
+      },
+      "e_min_B": {
+        "nominal": 45.2,
+        "min": 45.2,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "fe4014"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Aus bereitgestellter Maßrecherche übernommen; Einzelwert-Abdeckung und zweiter unabhängiger Beleg sind separat zu prüfen."
+      },
+      "k_nom": {
+        "nominal": 17,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "fe4014"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Aus bereitgestellter Maßrecherche übernommen; Einzelwert-Abdeckung und zweiter unabhängiger Beleg sind separat zu prüfen."
+      },
+      "k_max_A": {
+        "nominal": null,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "fe4014"
+        ],
+        "status": "missing",
+        "verification": false,
+        "note": "Aus bereitgestellter Maßrecherche übernommen; Einzelwert-Abdeckung und zweiter unabhängiger Beleg sind separat zu prüfen."
+      },
+      "k_max_B": {
+        "nominal": 17.35,
+        "min": null,
+        "max": 17.35,
+        "unit": "mm",
+        "sourceRefs": [
+          "fe4014"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Aus bereitgestellter Maßrecherche übernommen; Einzelwert-Abdeckung und zweiter unabhängiger Beleg sind separat zu prüfen."
+      },
+      "b_ref_l_le_125": {
+        "nominal": 60,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "fe4014"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Aus bereitgestellter Maßrecherche übernommen; Einzelwert-Abdeckung und zweiter unabhängiger Beleg sind separat zu prüfen."
+      },
+      "b_ref_125_lt_l_le_200": {
+        "nominal": 66,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "fe4014"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Aus bereitgestellter Maßrecherche übernommen; Einzelwert-Abdeckung und zweiter unabhängiger Beleg sind separat zu prüfen."
+      },
+      "b_ref_l_gt_200": {
+        "nominal": 79,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "fe4014"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Aus bereitgestellter Maßrecherche übernommen; Einzelwert-Abdeckung und zweiter unabhängiger Beleg sind separat zu prüfen."
+      }
+    },
+    "M30": {
+      "s_nom": {
+        "nominal": 46,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "fe4014"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Aus bereitgestellter Maßrecherche übernommen; Einzelwert-Abdeckung und zweiter unabhängiger Beleg sind separat zu prüfen."
+      },
+      "e_min_A": {
+        "nominal": null,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "fe4014"
+        ],
+        "status": "missing",
+        "verification": false,
+        "note": "Aus bereitgestellter Maßrecherche übernommen; Einzelwert-Abdeckung und zweiter unabhängiger Beleg sind separat zu prüfen."
+      },
+      "e_min_B": {
+        "nominal": 50.85,
+        "min": 50.85,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "fe4014"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Aus bereitgestellter Maßrecherche übernommen; Einzelwert-Abdeckung und zweiter unabhängiger Beleg sind separat zu prüfen."
+      },
+      "k_nom": {
+        "nominal": 18.7,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "fe4014"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Aus bereitgestellter Maßrecherche übernommen; Einzelwert-Abdeckung und zweiter unabhängiger Beleg sind separat zu prüfen."
+      },
+      "k_max_A": {
+        "nominal": null,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "fe4014"
+        ],
+        "status": "missing",
+        "verification": false,
+        "note": "Aus bereitgestellter Maßrecherche übernommen; Einzelwert-Abdeckung und zweiter unabhängiger Beleg sind separat zu prüfen."
+      },
+      "k_max_B": {
+        "nominal": 19.12,
+        "min": null,
+        "max": 19.12,
+        "unit": "mm",
+        "sourceRefs": [
+          "fe4014"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Aus bereitgestellter Maßrecherche übernommen; Einzelwert-Abdeckung und zweiter unabhängiger Beleg sind separat zu prüfen."
+      },
+      "b_ref_l_le_125": {
+        "nominal": 66,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "fe4014"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Aus bereitgestellter Maßrecherche übernommen; Einzelwert-Abdeckung und zweiter unabhängiger Beleg sind separat zu prüfen."
+      },
+      "b_ref_125_lt_l_le_200": {
+        "nominal": 72,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "fe4014"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Aus bereitgestellter Maßrecherche übernommen; Einzelwert-Abdeckung und zweiter unabhängiger Beleg sind separat zu prüfen."
+      },
+      "b_ref_l_gt_200": {
+        "nominal": 85,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "fe4014"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Aus bereitgestellter Maßrecherche übernommen; Einzelwert-Abdeckung und zweiter unabhängiger Beleg sind separat zu prüfen."
+      }
+    }
+  },
+  "sourceMeta": {
+    "fe4014": {
+      "id": "fe4014",
+      "url": "https://www.fasteners.eu/standards/ISO/4014/",
+      "titel": "fasteners.eu - ISO 4014 (Normenverzeichnis, Maßtabelle)",
+      "abgerufen": "2026-11-25",
+      "type": "supplied-research-source"
+    },
+    "iteh4014_2022": {
+      "id": "iteh4014_2022",
+      "url": "https://cdn.standards.iteh.ai/samples/72579/81f2b1e966b440d7a25f6734e508ea48/ISO-4014-2022.pdf",
+      "titel": "ISO 4014:2022 Vorschau-Sample (iTeh), Tabellen 1-4 (Produktklasse A M1,6-M24, B M16-M27)",
+      "abgerufen": "2026-11-25",
+      "type": "standard-excerpt"
+    },
+    "feDIN931": {
+      "id": "feDIN931",
+      "url": "https://www.fasteners.eu/standards/DIN/931/",
+      "titel": "fasteners.eu - DIN 931",
+      "abgerufen": "2026-11-25",
+      "type": "supplied-research-source"
+    },
+    "ee4014": {
+      "id": "ee4014",
+      "url": "https://engineersedge.com/iso_hex_head_screw.htm",
+      "titel": "Engineers Edge - ISO Hex Head Screw ISO 4014 / 4017",
+      "abgerufen": "2026-11-25",
+      "type": "supplied-research-source"
+    }
+  },
+  "coverage": "documented",
+  "lengthCoverage": "unresearched",
+  "requiredGeometryFields": [
+    "kSW",
+    "kH"
+  ],
+  "sizeCoverage": {
+    "M3": {
+      "status": "documented"
+    },
+    "M3.5": {
+      "status": "unresearched",
+      "note": "Keine Größenzeile vorhanden; daraus folgt kein Normverbot."
+    },
+    "M4": {
+      "status": "documented"
+    },
+    "M5": {
+      "status": "documented"
+    },
+    "M6": {
+      "status": "documented"
+    },
+    "M7": {
+      "status": "unresearched",
+      "note": "Keine Größenzeile vorhanden; daraus folgt kein Normverbot."
+    },
+    "M8": {
+      "status": "documented"
+    },
+    "M10": {
+      "status": "documented"
+    },
+    "M12": {
+      "status": "documented"
+    },
+    "M14": {
+      "status": "documented"
+    },
+    "M16": {
+      "status": "documented"
+    },
+    "M18": {
+      "status": "documented"
+    },
+    "M20": {
+      "status": "documented"
+    },
+    "M22": {
+      "status": "documented"
+    },
+    "M24": {
+      "status": "documented"
+    },
+    "M27": {
+      "status": "documented"
+    },
+    "M30": {
+      "status": "documented"
+    },
+    "M33": {
+      "status": "unresearched",
+      "note": "Keine Größenzeile vorhanden; daraus folgt kein Normverbot."
+    }
+  },
+  "pruefdatum": "2026-11-26",
+  "klassen": {
+    "status": "unresearched",
+    "values": [],
+    "note": "Festigkeits-/Werkstoffklassen noch nicht vollständig aus dieser Norm belegt."
+  }
+}

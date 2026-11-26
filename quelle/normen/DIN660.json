@@ -1,0 +1,1435 @@
+{
+  "schemaVersion": 1,
+  "id": "DIN660",
+  "version": "2026-11-26",
+  "edition": "2012-01",
+  "label": "DIN 660 · Halbrundniet",
+  "alias": [
+    "ISO 1051 (Reihe)"
+  ],
+  "datasetKind": "part-standard",
+  "funktion": "niet",
+  "klasse": "bolzen",
+  "kopfTyp": "kugelabschnitt",
+  "antrieb": null,
+  "threadFamily": "none",
+  "schaftende": "voll",
+  "feldzuordnung": {
+    "sD": "d_nominal",
+    "kD": "dk_nom",
+    "kH": "k",
+    "sL": "l_nominal"
+  },
+  "groessen": {
+    "1": {
+      "vorbelegung": {
+        "sD": 1,
+        "kD": 1.8,
+        "kH": 0.6
+      },
+      "roh": {
+        "d_nominal": 1,
+        "dk_nom": 1.8,
+        "d_min": 0.93,
+        "k": 0.6,
+        "e_max": 0.5,
+        "l_min_aus_masstabelle": 2,
+        "l_max_aus_masstabelle": 40
+      },
+      "coverage": "documented",
+      "geometryStatus": "complete",
+      "missingGeometryFields": [],
+      "nachLaenge": {}
+    },
+    "2": {
+      "vorbelegung": {
+        "sD": 2,
+        "kD": 3.5,
+        "kH": 1.2
+      },
+      "roh": {
+        "d_nominal": 2,
+        "dk_nom": 3.5,
+        "d_min": 1.87,
+        "k": 1.2,
+        "e_max": 1,
+        "l_min_aus_masstabelle": 2,
+        "l_max_aus_masstabelle": 40
+      },
+      "coverage": "documented",
+      "geometryStatus": "complete",
+      "missingGeometryFields": [],
+      "nachLaenge": {}
+    },
+    "3": {
+      "vorbelegung": {
+        "sD": 3,
+        "kD": 5.2,
+        "kH": 1.8
+      },
+      "roh": {
+        "d_nominal": 3,
+        "dk_nom": 5.2,
+        "d_min": 2.87,
+        "k": 1.8,
+        "e_max": 1.5,
+        "l_min_aus_masstabelle": 3,
+        "l_max_aus_masstabelle": 40
+      },
+      "coverage": "documented",
+      "geometryStatus": "complete",
+      "missingGeometryFields": [],
+      "nachLaenge": {}
+    },
+    "4": {
+      "vorbelegung": {
+        "sD": 4,
+        "kD": 7,
+        "kH": 2.4
+      },
+      "roh": {
+        "d_nominal": 4,
+        "dk_nom": 7,
+        "d_min": 3.87,
+        "k": 2.4,
+        "e_max": 2,
+        "l_min_aus_masstabelle": 4,
+        "l_max_aus_masstabelle": 40
+      },
+      "coverage": "documented",
+      "geometryStatus": "complete",
+      "missingGeometryFields": [],
+      "nachLaenge": {
+        "10": {
+          "vorbelegung": {
+            "sL": 10
+          },
+          "roh": {
+            "l_nominal": 10
+          },
+          "fields": {
+            "l_nominal": {
+              "nominal": 10,
+              "min": 9.64,
+              "max": 10.36,
+              "unit": "mm",
+              "sourceRefs": [
+                "boellhoff",
+                "lederer"
+              ],
+              "status": "verified",
+              "verification": "independent-publishers-agree",
+              "note": "Kombination 4×10 im Lederer-Sortiment; Längengrenzen aus Böllhoff-Maßblatt. Handelsnachweis, keine vollständige Normlängenmatrix.",
+              "boundsSourceRefs": [
+                "boellhoff"
+              ]
+            }
+          },
+          "coverage": "documented",
+          "geometryStatus": "complete",
+          "missingGeometryFields": []
+        }
+      }
+    },
+    "5": {
+      "vorbelegung": {
+        "sD": 5,
+        "kD": 8.8,
+        "kH": 3
+      },
+      "roh": {
+        "d_nominal": 5,
+        "dk_nom": 8.8,
+        "d_min": 4.82,
+        "k": 3,
+        "e_max": 2.5,
+        "l_min_aus_masstabelle": 5,
+        "l_max_aus_masstabelle": 40
+      },
+      "coverage": "documented",
+      "geometryStatus": "complete",
+      "missingGeometryFields": [],
+      "nachLaenge": {}
+    },
+    "6": {
+      "vorbelegung": {
+        "sD": 6,
+        "kD": 10.5,
+        "kH": 3.6
+      },
+      "roh": {
+        "d_nominal": 6,
+        "dk_nom": 10.5,
+        "d_min": 5.82,
+        "k": 3.6,
+        "e_max": 3,
+        "l_min_aus_masstabelle": 6,
+        "l_max_aus_masstabelle": 40
+      },
+      "coverage": "documented",
+      "geometryStatus": "complete",
+      "missingGeometryFields": [],
+      "nachLaenge": {}
+    },
+    "7": {
+      "vorbelegung": {
+        "sD": 7,
+        "kD": 12.2,
+        "kH": 4.2
+      },
+      "roh": {
+        "d_nominal": 7,
+        "dk_nom": 12.2,
+        "d_min": 6.82,
+        "k": 4.2,
+        "e_max": 3.5,
+        "l_min_aus_masstabelle": 8,
+        "l_max_aus_masstabelle": 40
+      },
+      "coverage": "documented",
+      "geometryStatus": "complete",
+      "missingGeometryFields": [],
+      "nachLaenge": {}
+    },
+    "8": {
+      "vorbelegung": {
+        "sD": 8,
+        "kD": 14,
+        "kH": 4.8
+      },
+      "roh": {
+        "d_nominal": 8,
+        "dk_nom": 14,
+        "d_min": 7.76,
+        "k": 4.8,
+        "e_max": 4,
+        "l_min_aus_masstabelle": 8,
+        "l_max_aus_masstabelle": 40
+      },
+      "coverage": "documented",
+      "geometryStatus": "complete",
+      "missingGeometryFields": [],
+      "nachLaenge": {}
+    },
+    "1.2": {
+      "vorbelegung": {
+        "sD": 1.2,
+        "kD": 2.1,
+        "kH": 0.7
+      },
+      "roh": {
+        "d_nominal": 1.2,
+        "dk_nom": 2.1,
+        "d_min": 1.13,
+        "k": 0.7,
+        "e_max": 0.6,
+        "l_min_aus_masstabelle": 2,
+        "l_max_aus_masstabelle": 40
+      },
+      "coverage": "documented",
+      "geometryStatus": "complete",
+      "missingGeometryFields": [],
+      "nachLaenge": {}
+    },
+    "1.4": {
+      "vorbelegung": {
+        "sD": 1.4,
+        "kD": 2.4,
+        "kH": 0.8
+      },
+      "roh": {
+        "d_nominal": 1.4,
+        "dk_nom": 2.4,
+        "d_min": 1.33,
+        "k": 0.8,
+        "e_max": 0.7,
+        "l_min_aus_masstabelle": 2,
+        "l_max_aus_masstabelle": 40
+      },
+      "coverage": "documented",
+      "geometryStatus": "complete",
+      "missingGeometryFields": [],
+      "nachLaenge": {}
+    },
+    "1.6": {
+      "vorbelegung": {
+        "sD": 1.6,
+        "kD": 2.8,
+        "kH": 1
+      },
+      "roh": {
+        "d_nominal": 1.6,
+        "dk_nom": 2.8,
+        "d_min": 1.52,
+        "k": 1,
+        "e_max": 0.8,
+        "l_min_aus_masstabelle": 2,
+        "l_max_aus_masstabelle": 40
+      },
+      "coverage": "documented",
+      "geometryStatus": "complete",
+      "missingGeometryFields": [],
+      "nachLaenge": {}
+    },
+    "2.5": {
+      "vorbelegung": {
+        "sD": 2.5,
+        "kD": 4.4,
+        "kH": 1.5
+      },
+      "roh": {
+        "d_nominal": 2.5,
+        "dk_nom": 4.4,
+        "d_min": 2.37,
+        "k": 1.5,
+        "e_max": 1.25,
+        "l_min_aus_masstabelle": 3,
+        "l_max_aus_masstabelle": 40
+      },
+      "coverage": "documented",
+      "geometryStatus": "complete",
+      "missingGeometryFields": [],
+      "nachLaenge": {}
+    },
+    "3.5": {
+      "vorbelegung": {
+        "sD": 3.5,
+        "kD": 6.2,
+        "kH": 2.1
+      },
+      "roh": {
+        "d_nominal": 3.5,
+        "dk_nom": 6.2,
+        "d_min": 3.37,
+        "k": 2.1,
+        "e_max": 1.75,
+        "l_min_aus_masstabelle": 4,
+        "l_max_aus_masstabelle": 40
+      },
+      "coverage": "documented",
+      "geometryStatus": "complete",
+      "missingGeometryFields": [],
+      "nachLaenge": {}
+    }
+  },
+  "fields": {
+    "1": {
+      "d_nominal": {
+        "nominal": 1,
+        "sourceRefs": [
+          "DIN660-s1",
+          "fasenco"
+        ],
+        "status": "verified",
+        "verification": "independent-publishers-agree",
+        "note": "Zahlenwert in zwei voneinander getrennten Veröffentlichungen bestätigt; Normedition des Herstellerblatts nicht ausdrücklich genannt.",
+        "unit": "mm"
+      },
+      "dk_nom": {
+        "nominal": 1.8,
+        "sourceRefs": [
+          "DIN660-s1",
+          "fasenco"
+        ],
+        "status": "verified",
+        "verification": "independent-publishers-agree",
+        "note": "Zahlenwert in zwei voneinander getrennten Veröffentlichungen bestätigt; Normedition des Herstellerblatts nicht ausdrücklich genannt.",
+        "unit": "mm"
+      },
+      "d_min": {
+        "sourceRefs": [
+          "DIN660-s1",
+          "fasenco"
+        ],
+        "status": "verified",
+        "verification": "independent-publishers-agree",
+        "note": "Zahlenwert in zwei voneinander getrennten Veröffentlichungen bestätigt; Normedition des Herstellerblatts nicht ausdrücklich genannt.",
+        "unit": "mm",
+        "min": 0.93
+      },
+      "k": {
+        "nominal": 0.6,
+        "sourceRefs": [
+          "DIN660-s1",
+          "fasenco"
+        ],
+        "status": "verified",
+        "verification": "independent-publishers-agree",
+        "note": "Zahlenwert in zwei voneinander getrennten Veröffentlichungen bestätigt; Normedition des Herstellerblatts nicht ausdrücklich genannt.",
+        "unit": "mm"
+      },
+      "e_max": {
+        "sourceRefs": [
+          "DIN660-s1"
+        ],
+        "status": "single-source",
+        "verification": "norm-table-not-independently-verified",
+        "note": "max. Kopfexzentrizität/Rundlauf (Quelle definiert e nicht; Bedeutung nicht belegt)",
+        "unit": "mm",
+        "max": 0.5
+      },
+      "l_min_aus_masstabelle": {
+        "sourceRefs": [
+          "DIN660-s1"
+        ],
+        "status": "single-source",
+        "verification": "norm-table-not-independently-verified",
+        "note": "Grenze einer Katalog-/Gewichtstabelle, kein nachgewiesener Normgrenzwert.",
+        "unit": "mm",
+        "min": 2
+      },
+      "l_max_aus_masstabelle": {
+        "sourceRefs": [
+          "DIN660-s1"
+        ],
+        "status": "single-source",
+        "verification": "norm-table-not-independently-verified",
+        "note": "Grenze einer Katalog-/Gewichtstabelle, kein nachgewiesener Normgrenzwert.",
+        "unit": "mm",
+        "max": 40
+      }
+    },
+    "2": {
+      "d_nominal": {
+        "nominal": 2,
+        "sourceRefs": [
+          "DIN660-s1",
+          "fasenco"
+        ],
+        "status": "verified",
+        "verification": "independent-publishers-agree",
+        "note": "Zahlenwert in zwei voneinander getrennten Veröffentlichungen bestätigt; Normedition des Herstellerblatts nicht ausdrücklich genannt.",
+        "unit": "mm"
+      },
+      "dk_nom": {
+        "nominal": 3.5,
+        "sourceRefs": [
+          "DIN660-s1",
+          "fasenco"
+        ],
+        "status": "verified",
+        "verification": "independent-publishers-agree",
+        "note": "Zahlenwert in zwei voneinander getrennten Veröffentlichungen bestätigt; Normedition des Herstellerblatts nicht ausdrücklich genannt.",
+        "unit": "mm"
+      },
+      "d_min": {
+        "sourceRefs": [
+          "DIN660-s1",
+          "fasenco"
+        ],
+        "status": "verified",
+        "verification": "independent-publishers-agree",
+        "note": "Zahlenwert in zwei voneinander getrennten Veröffentlichungen bestätigt; Normedition des Herstellerblatts nicht ausdrücklich genannt.",
+        "unit": "mm",
+        "min": 1.87
+      },
+      "k": {
+        "nominal": 1.2,
+        "sourceRefs": [
+          "DIN660-s1",
+          "fasenco"
+        ],
+        "status": "verified",
+        "verification": "independent-publishers-agree",
+        "note": "Zahlenwert in zwei voneinander getrennten Veröffentlichungen bestätigt; Normedition des Herstellerblatts nicht ausdrücklich genannt.",
+        "unit": "mm"
+      },
+      "e_max": {
+        "sourceRefs": [
+          "DIN660-s1"
+        ],
+        "status": "single-source",
+        "verification": "norm-table-not-independently-verified",
+        "note": "max. Kopfexzentrizität/Rundlauf (Quelle definiert e nicht; Bedeutung nicht belegt)",
+        "unit": "mm",
+        "max": 1
+      },
+      "l_min_aus_masstabelle": {
+        "sourceRefs": [
+          "DIN660-s1"
+        ],
+        "status": "single-source",
+        "verification": "norm-table-not-independently-verified",
+        "note": "Grenze einer Katalog-/Gewichtstabelle, kein nachgewiesener Normgrenzwert.",
+        "unit": "mm",
+        "min": 2
+      },
+      "l_max_aus_masstabelle": {
+        "sourceRefs": [
+          "DIN660-s1"
+        ],
+        "status": "single-source",
+        "verification": "norm-table-not-independently-verified",
+        "note": "Grenze einer Katalog-/Gewichtstabelle, kein nachgewiesener Normgrenzwert.",
+        "unit": "mm",
+        "max": 40
+      }
+    },
+    "3": {
+      "d_nominal": {
+        "nominal": 3,
+        "sourceRefs": [
+          "DIN660-s1",
+          "fasenco",
+          "boellhoff"
+        ],
+        "status": "verified",
+        "verification": "independent-publishers-agree",
+        "note": "Zahlenwert in zwei voneinander getrennten Veröffentlichungen bestätigt; Normedition des Herstellerblatts nicht ausdrücklich genannt.",
+        "unit": "mm"
+      },
+      "dk_nom": {
+        "nominal": 5.2,
+        "sourceRefs": [
+          "DIN660-s1",
+          "fasenco",
+          "boellhoff"
+        ],
+        "status": "verified",
+        "verification": "independent-publishers-agree",
+        "note": "Zahlenwert in zwei voneinander getrennten Veröffentlichungen bestätigt; Normedition des Herstellerblatts nicht ausdrücklich genannt.",
+        "unit": "mm"
+      },
+      "d_min": {
+        "sourceRefs": [
+          "DIN660-s1",
+          "fasenco",
+          "boellhoff"
+        ],
+        "status": "verified",
+        "verification": "independent-publishers-agree",
+        "note": "Zahlenwert in zwei voneinander getrennten Veröffentlichungen bestätigt; Normedition des Herstellerblatts nicht ausdrücklich genannt.",
+        "unit": "mm",
+        "min": 2.87
+      },
+      "k": {
+        "nominal": 1.8,
+        "sourceRefs": [
+          "DIN660-s1",
+          "fasenco",
+          "boellhoff"
+        ],
+        "status": "verified",
+        "verification": "independent-publishers-agree",
+        "note": "Zahlenwert in zwei voneinander getrennten Veröffentlichungen bestätigt; Normedition des Herstellerblatts nicht ausdrücklich genannt.",
+        "unit": "mm"
+      },
+      "e_max": {
+        "sourceRefs": [
+          "DIN660-s1",
+          "boellhoff"
+        ],
+        "status": "verified",
+        "verification": "independent-publishers-agree",
+        "note": "Zahlenwert in zwei voneinander getrennten Veröffentlichungen bestätigt; Normedition des Herstellerblatts nicht ausdrücklich genannt.",
+        "unit": "mm",
+        "max": 1.5
+      },
+      "l_min_aus_masstabelle": {
+        "sourceRefs": [
+          "DIN660-s1"
+        ],
+        "status": "single-source",
+        "verification": "norm-table-not-independently-verified",
+        "note": "Grenze einer Katalog-/Gewichtstabelle, kein nachgewiesener Normgrenzwert.",
+        "unit": "mm",
+        "min": 3
+      },
+      "l_max_aus_masstabelle": {
+        "sourceRefs": [
+          "DIN660-s1"
+        ],
+        "status": "single-source",
+        "verification": "norm-table-not-independently-verified",
+        "note": "Grenze einer Katalog-/Gewichtstabelle, kein nachgewiesener Normgrenzwert.",
+        "unit": "mm",
+        "max": 40
+      }
+    },
+    "4": {
+      "d_nominal": {
+        "nominal": 4,
+        "sourceRefs": [
+          "DIN660-s1",
+          "fasenco",
+          "boellhoff"
+        ],
+        "status": "verified",
+        "verification": "independent-publishers-agree",
+        "note": "Zahlenwert in zwei voneinander getrennten Veröffentlichungen bestätigt; Normedition des Herstellerblatts nicht ausdrücklich genannt.",
+        "unit": "mm"
+      },
+      "dk_nom": {
+        "nominal": 7,
+        "sourceRefs": [
+          "DIN660-s1",
+          "fasenco",
+          "boellhoff"
+        ],
+        "status": "verified",
+        "verification": "independent-publishers-agree",
+        "note": "Zahlenwert in zwei voneinander getrennten Veröffentlichungen bestätigt; Normedition des Herstellerblatts nicht ausdrücklich genannt.",
+        "unit": "mm"
+      },
+      "d_min": {
+        "sourceRefs": [
+          "DIN660-s1",
+          "fasenco",
+          "boellhoff"
+        ],
+        "status": "verified",
+        "verification": "independent-publishers-agree",
+        "note": "Zahlenwert in zwei voneinander getrennten Veröffentlichungen bestätigt; Normedition des Herstellerblatts nicht ausdrücklich genannt.",
+        "unit": "mm",
+        "min": 3.87
+      },
+      "k": {
+        "nominal": 2.4,
+        "sourceRefs": [
+          "DIN660-s1",
+          "fasenco",
+          "boellhoff"
+        ],
+        "status": "verified",
+        "verification": "independent-publishers-agree",
+        "note": "Zahlenwert in zwei voneinander getrennten Veröffentlichungen bestätigt; Normedition des Herstellerblatts nicht ausdrücklich genannt.",
+        "unit": "mm"
+      },
+      "e_max": {
+        "sourceRefs": [
+          "DIN660-s1",
+          "boellhoff"
+        ],
+        "status": "verified",
+        "verification": "independent-publishers-agree",
+        "note": "Zahlenwert in zwei voneinander getrennten Veröffentlichungen bestätigt; Normedition des Herstellerblatts nicht ausdrücklich genannt.",
+        "unit": "mm",
+        "max": 2
+      },
+      "l_min_aus_masstabelle": {
+        "sourceRefs": [
+          "DIN660-s1"
+        ],
+        "status": "single-source",
+        "verification": "norm-table-not-independently-verified",
+        "note": "Grenze einer Katalog-/Gewichtstabelle, kein nachgewiesener Normgrenzwert.",
+        "unit": "mm",
+        "min": 4
+      },
+      "l_max_aus_masstabelle": {
+        "sourceRefs": [
+          "DIN660-s1"
+        ],
+        "status": "single-source",
+        "verification": "norm-table-not-independently-verified",
+        "note": "Grenze einer Katalog-/Gewichtstabelle, kein nachgewiesener Normgrenzwert.",
+        "unit": "mm",
+        "max": 40
+      }
+    },
+    "5": {
+      "d_nominal": {
+        "nominal": 5,
+        "sourceRefs": [
+          "DIN660-s1",
+          "fasenco",
+          "boellhoff"
+        ],
+        "status": "verified",
+        "verification": "independent-publishers-agree",
+        "note": "Zahlenwert in zwei voneinander getrennten Veröffentlichungen bestätigt; Normedition des Herstellerblatts nicht ausdrücklich genannt.",
+        "unit": "mm"
+      },
+      "dk_nom": {
+        "nominal": 8.8,
+        "sourceRefs": [
+          "DIN660-s1",
+          "fasenco",
+          "boellhoff"
+        ],
+        "status": "verified",
+        "verification": "independent-publishers-agree",
+        "note": "Zahlenwert in zwei voneinander getrennten Veröffentlichungen bestätigt; Normedition des Herstellerblatts nicht ausdrücklich genannt.",
+        "unit": "mm"
+      },
+      "d_min": {
+        "sourceRefs": [
+          "DIN660-s1",
+          "fasenco",
+          "boellhoff"
+        ],
+        "status": "verified",
+        "verification": "independent-publishers-agree",
+        "note": "Zahlenwert in zwei voneinander getrennten Veröffentlichungen bestätigt; Normedition des Herstellerblatts nicht ausdrücklich genannt.",
+        "unit": "mm",
+        "min": 4.82
+      },
+      "k": {
+        "nominal": 3,
+        "sourceRefs": [
+          "DIN660-s1",
+          "fasenco",
+          "boellhoff"
+        ],
+        "status": "verified",
+        "verification": "independent-publishers-agree",
+        "note": "Zahlenwert in zwei voneinander getrennten Veröffentlichungen bestätigt; Normedition des Herstellerblatts nicht ausdrücklich genannt.",
+        "unit": "mm"
+      },
+      "e_max": {
+        "sourceRefs": [
+          "DIN660-s1",
+          "boellhoff"
+        ],
+        "status": "verified",
+        "verification": "independent-publishers-agree",
+        "note": "Zahlenwert in zwei voneinander getrennten Veröffentlichungen bestätigt; Normedition des Herstellerblatts nicht ausdrücklich genannt.",
+        "unit": "mm",
+        "max": 2.5
+      },
+      "l_min_aus_masstabelle": {
+        "sourceRefs": [
+          "DIN660-s1"
+        ],
+        "status": "single-source",
+        "verification": "norm-table-not-independently-verified",
+        "note": "Grenze einer Katalog-/Gewichtstabelle, kein nachgewiesener Normgrenzwert.",
+        "unit": "mm",
+        "min": 5
+      },
+      "l_max_aus_masstabelle": {
+        "sourceRefs": [
+          "DIN660-s1"
+        ],
+        "status": "single-source",
+        "verification": "norm-table-not-independently-verified",
+        "note": "Grenze einer Katalog-/Gewichtstabelle, kein nachgewiesener Normgrenzwert.",
+        "unit": "mm",
+        "max": 40
+      }
+    },
+    "6": {
+      "d_nominal": {
+        "nominal": 6,
+        "sourceRefs": [
+          "DIN660-s1",
+          "fasenco",
+          "boellhoff"
+        ],
+        "status": "verified",
+        "verification": "independent-publishers-agree",
+        "note": "Zahlenwert in zwei voneinander getrennten Veröffentlichungen bestätigt; Normedition des Herstellerblatts nicht ausdrücklich genannt.",
+        "unit": "mm"
+      },
+      "dk_nom": {
+        "nominal": 10.5,
+        "sourceRefs": [
+          "DIN660-s1",
+          "fasenco",
+          "boellhoff"
+        ],
+        "status": "verified",
+        "verification": "independent-publishers-agree",
+        "note": "Zahlenwert in zwei voneinander getrennten Veröffentlichungen bestätigt; Normedition des Herstellerblatts nicht ausdrücklich genannt.",
+        "unit": "mm"
+      },
+      "d_min": {
+        "sourceRefs": [
+          "DIN660-s1",
+          "fasenco",
+          "boellhoff"
+        ],
+        "status": "verified",
+        "verification": "independent-publishers-agree",
+        "note": "Zahlenwert in zwei voneinander getrennten Veröffentlichungen bestätigt; Normedition des Herstellerblatts nicht ausdrücklich genannt.",
+        "unit": "mm",
+        "min": 5.82
+      },
+      "k": {
+        "nominal": 3.6,
+        "sourceRefs": [
+          "DIN660-s1",
+          "fasenco",
+          "boellhoff"
+        ],
+        "status": "verified",
+        "verification": "independent-publishers-agree",
+        "note": "Zahlenwert in zwei voneinander getrennten Veröffentlichungen bestätigt; Normedition des Herstellerblatts nicht ausdrücklich genannt.",
+        "unit": "mm"
+      },
+      "e_max": {
+        "sourceRefs": [
+          "DIN660-s1",
+          "boellhoff"
+        ],
+        "status": "verified",
+        "verification": "independent-publishers-agree",
+        "note": "Zahlenwert in zwei voneinander getrennten Veröffentlichungen bestätigt; Normedition des Herstellerblatts nicht ausdrücklich genannt.",
+        "unit": "mm",
+        "max": 3
+      },
+      "l_min_aus_masstabelle": {
+        "sourceRefs": [
+          "DIN660-s1"
+        ],
+        "status": "single-source",
+        "verification": "norm-table-not-independently-verified",
+        "note": "Grenze einer Katalog-/Gewichtstabelle, kein nachgewiesener Normgrenzwert.",
+        "unit": "mm",
+        "min": 6
+      },
+      "l_max_aus_masstabelle": {
+        "sourceRefs": [
+          "DIN660-s1"
+        ],
+        "status": "single-source",
+        "verification": "norm-table-not-independently-verified",
+        "note": "Grenze einer Katalog-/Gewichtstabelle, kein nachgewiesener Normgrenzwert.",
+        "unit": "mm",
+        "max": 40
+      }
+    },
+    "7": {
+      "d_nominal": {
+        "nominal": 7,
+        "sourceRefs": [
+          "DIN660-s1",
+          "fasenco"
+        ],
+        "status": "verified",
+        "verification": "independent-publishers-agree",
+        "note": "Zahlenwert in zwei voneinander getrennten Veröffentlichungen bestätigt; Normedition des Herstellerblatts nicht ausdrücklich genannt.",
+        "unit": "mm"
+      },
+      "dk_nom": {
+        "nominal": 12.2,
+        "sourceRefs": [
+          "DIN660-s1",
+          "fasenco"
+        ],
+        "status": "verified",
+        "verification": "independent-publishers-agree",
+        "note": "Zahlenwert in zwei voneinander getrennten Veröffentlichungen bestätigt; Normedition des Herstellerblatts nicht ausdrücklich genannt.",
+        "unit": "mm"
+      },
+      "d_min": {
+        "sourceRefs": [
+          "DIN660-s1",
+          "fasenco"
+        ],
+        "status": "verified",
+        "verification": "independent-publishers-agree",
+        "note": "Zahlenwert in zwei voneinander getrennten Veröffentlichungen bestätigt; Normedition des Herstellerblatts nicht ausdrücklich genannt.",
+        "unit": "mm",
+        "min": 6.82
+      },
+      "k": {
+        "nominal": 4.2,
+        "sourceRefs": [
+          "DIN660-s1",
+          "fasenco"
+        ],
+        "status": "verified",
+        "verification": "independent-publishers-agree",
+        "note": "Zahlenwert in zwei voneinander getrennten Veröffentlichungen bestätigt; Normedition des Herstellerblatts nicht ausdrücklich genannt.",
+        "unit": "mm"
+      },
+      "e_max": {
+        "sourceRefs": [
+          "DIN660-s1"
+        ],
+        "status": "single-source",
+        "verification": "norm-table-not-independently-verified",
+        "note": "max. Kopfexzentrizität/Rundlauf (Quelle definiert e nicht; Bedeutung nicht belegt)",
+        "unit": "mm",
+        "max": 3.5
+      },
+      "l_min_aus_masstabelle": {
+        "sourceRefs": [
+          "DIN660-s1"
+        ],
+        "status": "single-source",
+        "verification": "norm-table-not-independently-verified",
+        "note": "Grenze einer Katalog-/Gewichtstabelle, kein nachgewiesener Normgrenzwert.",
+        "unit": "mm",
+        "min": 8
+      },
+      "l_max_aus_masstabelle": {
+        "sourceRefs": [
+          "DIN660-s1"
+        ],
+        "status": "single-source",
+        "verification": "norm-table-not-independently-verified",
+        "note": "Grenze einer Katalog-/Gewichtstabelle, kein nachgewiesener Normgrenzwert.",
+        "unit": "mm",
+        "max": 40
+      }
+    },
+    "8": {
+      "d_nominal": {
+        "nominal": 8,
+        "sourceRefs": [
+          "DIN660-s1",
+          "fasenco"
+        ],
+        "status": "verified",
+        "verification": "independent-publishers-agree",
+        "note": "Zahlenwert in zwei voneinander getrennten Veröffentlichungen bestätigt; Normedition des Herstellerblatts nicht ausdrücklich genannt.",
+        "unit": "mm"
+      },
+      "dk_nom": {
+        "nominal": 14,
+        "sourceRefs": [
+          "DIN660-s1",
+          "fasenco"
+        ],
+        "status": "verified",
+        "verification": "independent-publishers-agree",
+        "note": "Zahlenwert in zwei voneinander getrennten Veröffentlichungen bestätigt; Normedition des Herstellerblatts nicht ausdrücklich genannt.",
+        "unit": "mm"
+      },
+      "d_min": {
+        "sourceRefs": [
+          "DIN660-s1",
+          "fasenco"
+        ],
+        "status": "verified",
+        "verification": "independent-publishers-agree",
+        "note": "Zahlenwert in zwei voneinander getrennten Veröffentlichungen bestätigt; Normedition des Herstellerblatts nicht ausdrücklich genannt.",
+        "unit": "mm",
+        "min": 7.76
+      },
+      "k": {
+        "nominal": 4.8,
+        "sourceRefs": [
+          "DIN660-s1",
+          "fasenco"
+        ],
+        "status": "verified",
+        "verification": "independent-publishers-agree",
+        "note": "Zahlenwert in zwei voneinander getrennten Veröffentlichungen bestätigt; Normedition des Herstellerblatts nicht ausdrücklich genannt.",
+        "unit": "mm"
+      },
+      "e_max": {
+        "sourceRefs": [
+          "DIN660-s1"
+        ],
+        "status": "single-source",
+        "verification": "norm-table-not-independently-verified",
+        "note": "max. Kopfexzentrizität/Rundlauf (Quelle definiert e nicht; Bedeutung nicht belegt)",
+        "unit": "mm",
+        "max": 4
+      },
+      "l_min_aus_masstabelle": {
+        "sourceRefs": [
+          "DIN660-s1"
+        ],
+        "status": "single-source",
+        "verification": "norm-table-not-independently-verified",
+        "note": "Grenze einer Katalog-/Gewichtstabelle, kein nachgewiesener Normgrenzwert.",
+        "unit": "mm",
+        "min": 8
+      },
+      "l_max_aus_masstabelle": {
+        "sourceRefs": [
+          "DIN660-s1"
+        ],
+        "status": "single-source",
+        "verification": "norm-table-not-independently-verified",
+        "note": "Grenze einer Katalog-/Gewichtstabelle, kein nachgewiesener Normgrenzwert.",
+        "unit": "mm",
+        "max": 40
+      }
+    },
+    "1.2": {
+      "d_nominal": {
+        "nominal": 1.2,
+        "sourceRefs": [
+          "DIN660-s1",
+          "fasenco"
+        ],
+        "status": "verified",
+        "verification": "independent-publishers-agree",
+        "note": "Zahlenwert in zwei voneinander getrennten Veröffentlichungen bestätigt; Normedition des Herstellerblatts nicht ausdrücklich genannt.",
+        "unit": "mm"
+      },
+      "dk_nom": {
+        "nominal": 2.1,
+        "sourceRefs": [
+          "DIN660-s1",
+          "fasenco"
+        ],
+        "status": "verified",
+        "verification": "independent-publishers-agree",
+        "note": "Zahlenwert in zwei voneinander getrennten Veröffentlichungen bestätigt; Normedition des Herstellerblatts nicht ausdrücklich genannt.",
+        "unit": "mm"
+      },
+      "d_min": {
+        "sourceRefs": [
+          "DIN660-s1",
+          "fasenco"
+        ],
+        "status": "verified",
+        "verification": "independent-publishers-agree",
+        "note": "Zahlenwert in zwei voneinander getrennten Veröffentlichungen bestätigt; Normedition des Herstellerblatts nicht ausdrücklich genannt.",
+        "unit": "mm",
+        "min": 1.13
+      },
+      "k": {
+        "nominal": 0.7,
+        "sourceRefs": [
+          "DIN660-s1",
+          "fasenco"
+        ],
+        "status": "verified",
+        "verification": "independent-publishers-agree",
+        "note": "Zahlenwert in zwei voneinander getrennten Veröffentlichungen bestätigt; Normedition des Herstellerblatts nicht ausdrücklich genannt.",
+        "unit": "mm"
+      },
+      "e_max": {
+        "sourceRefs": [
+          "DIN660-s1"
+        ],
+        "status": "single-source",
+        "verification": "norm-table-not-independently-verified",
+        "note": "max. Kopfexzentrizität/Rundlauf (Quelle definiert e nicht; Bedeutung nicht belegt)",
+        "unit": "mm",
+        "max": 0.6
+      },
+      "l_min_aus_masstabelle": {
+        "sourceRefs": [
+          "DIN660-s1"
+        ],
+        "status": "single-source",
+        "verification": "norm-table-not-independently-verified",
+        "note": "Grenze einer Katalog-/Gewichtstabelle, kein nachgewiesener Normgrenzwert.",
+        "unit": "mm",
+        "min": 2
+      },
+      "l_max_aus_masstabelle": {
+        "sourceRefs": [
+          "DIN660-s1"
+        ],
+        "status": "single-source",
+        "verification": "norm-table-not-independently-verified",
+        "note": "Grenze einer Katalog-/Gewichtstabelle, kein nachgewiesener Normgrenzwert.",
+        "unit": "mm",
+        "max": 40
+      }
+    },
+    "1.4": {
+      "d_nominal": {
+        "nominal": 1.4,
+        "sourceRefs": [
+          "DIN660-s1",
+          "fasenco"
+        ],
+        "status": "verified",
+        "verification": "independent-publishers-agree",
+        "note": "Zahlenwert in zwei voneinander getrennten Veröffentlichungen bestätigt; Normedition des Herstellerblatts nicht ausdrücklich genannt.",
+        "unit": "mm"
+      },
+      "dk_nom": {
+        "nominal": 2.4,
+        "sourceRefs": [
+          "DIN660-s1",
+          "fasenco"
+        ],
+        "status": "verified",
+        "verification": "independent-publishers-agree",
+        "note": "Zahlenwert in zwei voneinander getrennten Veröffentlichungen bestätigt; Normedition des Herstellerblatts nicht ausdrücklich genannt.",
+        "unit": "mm"
+      },
+      "d_min": {
+        "sourceRefs": [
+          "DIN660-s1",
+          "fasenco"
+        ],
+        "status": "verified",
+        "verification": "independent-publishers-agree",
+        "note": "Zahlenwert in zwei voneinander getrennten Veröffentlichungen bestätigt; Normedition des Herstellerblatts nicht ausdrücklich genannt.",
+        "unit": "mm",
+        "min": 1.33
+      },
+      "k": {
+        "nominal": 0.8,
+        "sourceRefs": [
+          "DIN660-s1",
+          "fasenco"
+        ],
+        "status": "verified",
+        "verification": "independent-publishers-agree",
+        "note": "Zahlenwert in zwei voneinander getrennten Veröffentlichungen bestätigt; Normedition des Herstellerblatts nicht ausdrücklich genannt.",
+        "unit": "mm"
+      },
+      "e_max": {
+        "sourceRefs": [
+          "DIN660-s1"
+        ],
+        "status": "single-source",
+        "verification": "norm-table-not-independently-verified",
+        "note": "max. Kopfexzentrizität/Rundlauf (Quelle definiert e nicht; Bedeutung nicht belegt)",
+        "unit": "mm",
+        "max": 0.7
+      },
+      "l_min_aus_masstabelle": {
+        "sourceRefs": [
+          "DIN660-s1"
+        ],
+        "status": "single-source",
+        "verification": "norm-table-not-independently-verified",
+        "note": "Grenze einer Katalog-/Gewichtstabelle, kein nachgewiesener Normgrenzwert.",
+        "unit": "mm",
+        "min": 2
+      },
+      "l_max_aus_masstabelle": {
+        "sourceRefs": [
+          "DIN660-s1"
+        ],
+        "status": "single-source",
+        "verification": "norm-table-not-independently-verified",
+        "note": "Grenze einer Katalog-/Gewichtstabelle, kein nachgewiesener Normgrenzwert.",
+        "unit": "mm",
+        "max": 40
+      }
+    },
+    "1.6": {
+      "d_nominal": {
+        "nominal": 1.6,
+        "sourceRefs": [
+          "DIN660-s1",
+          "fasenco"
+        ],
+        "status": "verified",
+        "verification": "independent-publishers-agree",
+        "note": "Zahlenwert in zwei voneinander getrennten Veröffentlichungen bestätigt; Normedition des Herstellerblatts nicht ausdrücklich genannt.",
+        "unit": "mm"
+      },
+      "dk_nom": {
+        "nominal": 2.8,
+        "sourceRefs": [
+          "DIN660-s1",
+          "fasenco"
+        ],
+        "status": "verified",
+        "verification": "independent-publishers-agree",
+        "note": "Zahlenwert in zwei voneinander getrennten Veröffentlichungen bestätigt; Normedition des Herstellerblatts nicht ausdrücklich genannt.",
+        "unit": "mm"
+      },
+      "d_min": {
+        "sourceRefs": [
+          "DIN660-s1",
+          "fasenco"
+        ],
+        "status": "verified",
+        "verification": "independent-publishers-agree",
+        "note": "Zahlenwert in zwei voneinander getrennten Veröffentlichungen bestätigt; Normedition des Herstellerblatts nicht ausdrücklich genannt.",
+        "unit": "mm",
+        "min": 1.52
+      },
+      "k": {
+        "nominal": 1,
+        "sourceRefs": [
+          "DIN660-s1",
+          "fasenco"
+        ],
+        "status": "verified",
+        "verification": "independent-publishers-agree",
+        "note": "Zahlenwert in zwei voneinander getrennten Veröffentlichungen bestätigt; Normedition des Herstellerblatts nicht ausdrücklich genannt.",
+        "unit": "mm"
+      },
+      "e_max": {
+        "sourceRefs": [
+          "DIN660-s1"
+        ],
+        "status": "single-source",
+        "verification": "norm-table-not-independently-verified",
+        "note": "max. Kopfexzentrizität/Rundlauf (Quelle definiert e nicht; Bedeutung nicht belegt)",
+        "unit": "mm",
+        "max": 0.8
+      },
+      "l_min_aus_masstabelle": {
+        "sourceRefs": [
+          "DIN660-s1"
+        ],
+        "status": "single-source",
+        "verification": "norm-table-not-independently-verified",
+        "note": "Grenze einer Katalog-/Gewichtstabelle, kein nachgewiesener Normgrenzwert.",
+        "unit": "mm",
+        "min": 2
+      },
+      "l_max_aus_masstabelle": {
+        "sourceRefs": [
+          "DIN660-s1"
+        ],
+        "status": "single-source",
+        "verification": "norm-table-not-independently-verified",
+        "note": "Grenze einer Katalog-/Gewichtstabelle, kein nachgewiesener Normgrenzwert.",
+        "unit": "mm",
+        "max": 40
+      }
+    },
+    "2.5": {
+      "d_nominal": {
+        "nominal": 2.5,
+        "sourceRefs": [
+          "DIN660-s1",
+          "fasenco"
+        ],
+        "status": "verified",
+        "verification": "independent-publishers-agree",
+        "note": "Zahlenwert in zwei voneinander getrennten Veröffentlichungen bestätigt; Normedition des Herstellerblatts nicht ausdrücklich genannt.",
+        "unit": "mm"
+      },
+      "dk_nom": {
+        "nominal": 4.4,
+        "sourceRefs": [
+          "DIN660-s1",
+          "fasenco"
+        ],
+        "status": "verified",
+        "verification": "independent-publishers-agree",
+        "note": "Zahlenwert in zwei voneinander getrennten Veröffentlichungen bestätigt; Normedition des Herstellerblatts nicht ausdrücklich genannt.",
+        "unit": "mm"
+      },
+      "d_min": {
+        "sourceRefs": [
+          "DIN660-s1",
+          "fasenco"
+        ],
+        "status": "verified",
+        "verification": "independent-publishers-agree",
+        "note": "Zahlenwert in zwei voneinander getrennten Veröffentlichungen bestätigt; Normedition des Herstellerblatts nicht ausdrücklich genannt.",
+        "unit": "mm",
+        "min": 2.37
+      },
+      "k": {
+        "nominal": 1.5,
+        "sourceRefs": [
+          "DIN660-s1",
+          "fasenco"
+        ],
+        "status": "verified",
+        "verification": "independent-publishers-agree",
+        "note": "Zahlenwert in zwei voneinander getrennten Veröffentlichungen bestätigt; Normedition des Herstellerblatts nicht ausdrücklich genannt.",
+        "unit": "mm"
+      },
+      "e_max": {
+        "sourceRefs": [
+          "DIN660-s1"
+        ],
+        "status": "single-source",
+        "verification": "norm-table-not-independently-verified",
+        "note": "max. Kopfexzentrizität/Rundlauf (Quelle definiert e nicht; Bedeutung nicht belegt)",
+        "unit": "mm",
+        "max": 1.25
+      },
+      "l_min_aus_masstabelle": {
+        "sourceRefs": [
+          "DIN660-s1"
+        ],
+        "status": "single-source",
+        "verification": "norm-table-not-independently-verified",
+        "note": "Grenze einer Katalog-/Gewichtstabelle, kein nachgewiesener Normgrenzwert.",
+        "unit": "mm",
+        "min": 3
+      },
+      "l_max_aus_masstabelle": {
+        "sourceRefs": [
+          "DIN660-s1"
+        ],
+        "status": "single-source",
+        "verification": "norm-table-not-independently-verified",
+        "note": "Grenze einer Katalog-/Gewichtstabelle, kein nachgewiesener Normgrenzwert.",
+        "unit": "mm",
+        "max": 40
+      }
+    },
+    "3.5": {
+      "d_nominal": {
+        "nominal": 3.5,
+        "sourceRefs": [
+          "DIN660-s1",
+          "fasenco"
+        ],
+        "status": "verified",
+        "verification": "independent-publishers-agree",
+        "note": "Zahlenwert in zwei voneinander getrennten Veröffentlichungen bestätigt; Normedition des Herstellerblatts nicht ausdrücklich genannt.",
+        "unit": "mm"
+      },
+      "dk_nom": {
+        "nominal": 6.2,
+        "sourceRefs": [
+          "DIN660-s1",
+          "fasenco"
+        ],
+        "status": "verified",
+        "verification": "independent-publishers-agree",
+        "note": "Zahlenwert in zwei voneinander getrennten Veröffentlichungen bestätigt; Normedition des Herstellerblatts nicht ausdrücklich genannt.",
+        "unit": "mm"
+      },
+      "d_min": {
+        "sourceRefs": [
+          "DIN660-s1",
+          "fasenco"
+        ],
+        "status": "verified",
+        "verification": "independent-publishers-agree",
+        "note": "Zahlenwert in zwei voneinander getrennten Veröffentlichungen bestätigt; Normedition des Herstellerblatts nicht ausdrücklich genannt.",
+        "unit": "mm",
+        "min": 3.37
+      },
+      "k": {
+        "nominal": 2.1,
+        "sourceRefs": [
+          "DIN660-s1",
+          "fasenco"
+        ],
+        "status": "verified",
+        "verification": "independent-publishers-agree",
+        "note": "Zahlenwert in zwei voneinander getrennten Veröffentlichungen bestätigt; Normedition des Herstellerblatts nicht ausdrücklich genannt.",
+        "unit": "mm"
+      },
+      "e_max": {
+        "sourceRefs": [
+          "DIN660-s1"
+        ],
+        "status": "single-source",
+        "verification": "norm-table-not-independently-verified",
+        "note": "max. Kopfexzentrizität/Rundlauf (Quelle definiert e nicht; Bedeutung nicht belegt)",
+        "unit": "mm",
+        "max": 1.75
+      },
+      "l_min_aus_masstabelle": {
+        "sourceRefs": [
+          "DIN660-s1"
+        ],
+        "status": "single-source",
+        "verification": "norm-table-not-independently-verified",
+        "note": "Grenze einer Katalog-/Gewichtstabelle, kein nachgewiesener Normgrenzwert.",
+        "unit": "mm",
+        "min": 4
+      },
+      "l_max_aus_masstabelle": {
+        "sourceRefs": [
+          "DIN660-s1"
+        ],
+        "status": "single-source",
+        "verification": "norm-table-not-independently-verified",
+        "note": "Grenze einer Katalog-/Gewichtstabelle, kein nachgewiesener Normgrenzwert.",
+        "unit": "mm",
+        "max": 40
+      }
+    }
+  },
+  "quellen": [
+    {
+      "url": "https://fasten.it/en/norms/norm/din_660",
+      "titel": "fasten.it DIN 660 (Maße 2012/1993, Gewichtstabellen)",
+      "abgerufen": "2026-11-25",
+      "id": "DIN660-s1",
+      "scope": "dimensions"
+    },
+    {
+      "url": "https://www.dinmedia.de/en/standard/din-660/144860491",
+      "titel": "DIN Media DIN 660:2012-01 Statusseite",
+      "abgerufen": "2026-11-25",
+      "id": "DIN660-s2",
+      "scope": "edition-status"
+    },
+    {
+      "url": "https://www.reca.co.at/de/wp-content/uploads/sites/6/2021/09/Befestigungstechnik_Kap.-11.pdf",
+      "titel": "RECA Befestigungstechnik Kap. 11 (Handelsprogramm, Querprüfung d1/k und Handelslängen)",
+      "abgerufen": "2026-11-25",
+      "id": "DIN660-s3",
+      "scope": "dimensions"
+    },
+    {
+      "url": "https://6sku3uaup9f9.din.de/en/standard/din-660/368577175",
+      "titel": "DIN 660:1944-03 (zurückgezogen, 1 bis 9 mm)",
+      "abgerufen": "2026-11-25",
+      "id": "DIN660-s4",
+      "scope": "edition-status"
+    },
+    {
+      "id": "fasenco",
+      "url": "https://www.fasenco.com/din-660/",
+      "titel": "Fasenco Maßtabelle DIN660",
+      "abgerufen": "2026-11-26",
+      "scope": "dimensions"
+    },
+    {
+      "id": "boellhoff",
+      "url": "https://eshop.boellhoff.de/out/media/pdf/DIN_660_Edelstahl_A2___en.pdf",
+      "titel": "Böllhoff DIN660 Maßblatt A2",
+      "abgerufen": "2026-11-26",
+      "scope": "dimensions"
+    },
+    {
+      "id": "lederer",
+      "url": "https://www.lederer-online.com/fileadmin/users/redakteur/redakteur_upload/DIN660.pdf",
+      "titel": "Lederer DIN660 Sortiment",
+      "abgerufen": "2026-11-26",
+      "scope": "dimensions"
+    }
+  ],
+  "status": "partial",
+  "coverage": "documented",
+  "pruefdatum": "2026-11-26",
+  "normstatus": {
+    "edition": "2012-01",
+    "status": "status-from-supplied-source",
+    "sourceRefs": [
+      "DIN660-s2",
+      "DIN660-s4"
+    ]
+  },
+  "hinweise": [
+    "Fehlende Größe oder Länge bedeutet fehlende Datenabdeckung, kein Normverbot.",
+    "Maßdaten sind einzeln belegt; Editionsstatus allein bestätigt keine Maßtabelle."
+  ],
+  "gaps": [
+    "Vollständige Normlängenmatrix je Größe und aktuelle Originalmaßtabelle nicht unabhängig bestätigt."
+  ],
+  "lengthDependentFields": [
+    "sL"
+  ],
+  "laengen": {
+    "values": [
+      2,
+      3,
+      4,
+      5,
+      6,
+      8,
+      10,
+      12,
+      14,
+      16,
+      18,
+      20,
+      22,
+      25,
+      28,
+      30,
+      32,
+      35,
+      38,
+      40
+    ],
+    "unit": "mm",
+    "kind": "catalog-weight-table-series",
+    "coverage": "documented",
+    "status": "single-source",
+    "sourceRefs": [
+      "DIN660-s1"
+    ],
+    "verification": "norm-length-matrix-not-verified",
+    "note": "Vollständige im Ausgangsbeleg erfasste Katalogreihe wiederhergestellt. Nicht als vollständige Normlängenmatrix je Durchmesser interpretiert."
+  },
+  "geometryModel": {
+    "kind": "spherical-cap",
+    "formula": "pi*h*(3*(D/2)^2+h^2)/6",
+    "note": "Idealisierter Kugelabschnitt aus Kopf-Ø und Kopfhöhe; keine zylindrische Ersatzscheibe."
+  }
+}

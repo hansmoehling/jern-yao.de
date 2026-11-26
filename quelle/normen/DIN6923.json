@@ -1,0 +1,1203 @@
+{
+  "schemaVersion": 1,
+  "version": "2026-11-26.1",
+  "id": "DIN6923",
+  "edition": "1983",
+  "label": "Sechskantmutter mit Bund, DIN-Geometrie",
+  "funktion": "mutter",
+  "klasse": "mutter",
+  "kopfTyp": "sechskant_bund",
+  "alias": [],
+  "feldzuordnung": {
+    "mSW": "s_nom",
+    "mH": "m_max",
+    "dc": "dc_max",
+    "c": "c_min"
+  },
+  "groessen": {
+    "M5": {
+      "vorbelegung": {
+        "mSW": 8,
+        "mH": 5,
+        "dc": 11.8,
+        "c": 1
+      },
+      "roh": {
+        "d_nom": 5,
+        "P": 0.8,
+        "s_nom": 8,
+        "s_min": 7.78,
+        "m_max": 5,
+        "m_min": 4.7,
+        "e_min": 8.79,
+        "c_min": 1,
+        "dc_max": 11.8,
+        "dw_min": 9.8,
+        "r_max": 0.3
+      },
+      "thread": {
+        "id": "M5x0.8",
+        "diameter": 5,
+        "pitch": 0.8,
+        "sourceRefs": [
+          "nufast6923"
+        ]
+      },
+      "geometryStatus": "dimensioned-envelope",
+      "missingGeometryFields": []
+    },
+    "M6": {
+      "vorbelegung": {
+        "mSW": 10,
+        "mH": 6,
+        "dc": 14.2,
+        "c": 1.1
+      },
+      "roh": {
+        "d_nom": 6,
+        "P": 1,
+        "s_nom": 10,
+        "s_min": 9.78,
+        "m_max": 6,
+        "m_min": 5.7,
+        "e_min": 11.05,
+        "c_min": 1.1,
+        "dc_max": 14.2,
+        "dw_min": 12.2,
+        "r_max": 0.36
+      },
+      "thread": {
+        "id": "M6x1",
+        "diameter": 6,
+        "pitch": 1,
+        "sourceRefs": [
+          "nufast6923"
+        ]
+      },
+      "geometryStatus": "dimensioned-envelope",
+      "missingGeometryFields": []
+    },
+    "M8": {
+      "vorbelegung": {
+        "mSW": 13,
+        "mH": 8,
+        "dc": 17.9,
+        "c": 1.2
+      },
+      "roh": {
+        "d_nom": 8,
+        "P": 1.25,
+        "s_nom": 13,
+        "s_min": 12.73,
+        "m_max": 8,
+        "m_min": 7.6,
+        "e_min": 14.38,
+        "c_min": 1.2,
+        "dc_max": 17.9,
+        "dw_min": 15.8,
+        "r_max": 0.48
+      },
+      "thread": {
+        "id": "M8x1.25",
+        "diameter": 8,
+        "pitch": 1.25,
+        "sourceRefs": [
+          "nufast6923"
+        ]
+      },
+      "geometryStatus": "dimensioned-envelope",
+      "missingGeometryFields": []
+    },
+    "M10": {
+      "vorbelegung": {
+        "mSW": 15,
+        "mH": 10,
+        "dc": 21.8,
+        "c": 1.5
+      },
+      "roh": {
+        "d_nom": 10,
+        "P": 1.5,
+        "s_nom": 15,
+        "s_min": 14.73,
+        "m_max": 10,
+        "m_min": 9.6,
+        "e_min": 16.64,
+        "c_min": 1.5,
+        "dc_max": 21.8,
+        "dw_min": 19.6,
+        "r_max": 0.6
+      },
+      "thread": {
+        "id": "M10x1.5",
+        "diameter": 10,
+        "pitch": 1.5,
+        "sourceRefs": [
+          "nufast6923"
+        ]
+      },
+      "geometryStatus": "dimensioned-envelope",
+      "missingGeometryFields": []
+    },
+    "M12": {
+      "vorbelegung": {
+        "mSW": 18,
+        "mH": 12,
+        "dc": 26,
+        "c": 1.8
+      },
+      "roh": {
+        "d_nom": 12,
+        "P": 1.75,
+        "s_nom": 18,
+        "s_min": 17.73,
+        "m_max": 12,
+        "m_min": 11.6,
+        "e_min": 20.03,
+        "c_min": 1.8,
+        "dc_max": 26,
+        "dw_min": 23.8,
+        "r_max": 0.72
+      },
+      "thread": {
+        "id": "M12x1.75",
+        "diameter": 12,
+        "pitch": 1.75,
+        "sourceRefs": [
+          "nufast6923"
+        ]
+      },
+      "geometryStatus": "dimensioned-envelope",
+      "missingGeometryFields": []
+    },
+    "M14": {
+      "vorbelegung": {
+        "mSW": 21,
+        "mH": 14,
+        "dc": 29.9,
+        "c": 2.1
+      },
+      "roh": {
+        "d_nom": 14,
+        "P": 2,
+        "s_nom": 21,
+        "s_min": 20.67,
+        "m_max": 14,
+        "m_min": 13.3,
+        "e_min": 23.36,
+        "c_min": 2.1,
+        "dc_max": 29.9,
+        "dw_min": 27.6,
+        "r_max": 0.88
+      },
+      "thread": {
+        "id": "M14x2",
+        "diameter": 14,
+        "pitch": 2,
+        "sourceRefs": [
+          "nufast6923"
+        ]
+      },
+      "geometryStatus": "dimensioned-envelope",
+      "missingGeometryFields": []
+    },
+    "M16": {
+      "vorbelegung": {
+        "mSW": 24,
+        "mH": 16,
+        "dc": 34.5,
+        "c": 2.4
+      },
+      "roh": {
+        "d_nom": 16,
+        "P": 2,
+        "s_nom": 24,
+        "s_min": 23.67,
+        "m_max": 16,
+        "m_min": 15.3,
+        "e_min": 26.75,
+        "c_min": 2.4,
+        "dc_max": 34.5,
+        "dw_min": 31.9,
+        "r_max": 0.96
+      },
+      "thread": {
+        "id": "M16x2",
+        "diameter": 16,
+        "pitch": 2,
+        "sourceRefs": [
+          "nufast6923"
+        ]
+      },
+      "geometryStatus": "dimensioned-envelope",
+      "missingGeometryFields": []
+    },
+    "M20": {
+      "vorbelegung": {
+        "mSW": 30,
+        "mH": 20,
+        "dc": 42.8,
+        "c": 3
+      },
+      "roh": {
+        "d_nom": 20,
+        "P": 2.5,
+        "s_nom": 30,
+        "s_min": 29.67,
+        "m_max": 20,
+        "m_min": 18.9,
+        "e_min": 32.95,
+        "c_min": 3,
+        "dc_max": 42.8,
+        "dw_min": 39.9,
+        "r_max": 1.2
+      },
+      "thread": {
+        "id": "M20x2.5",
+        "diameter": 20,
+        "pitch": 2.5,
+        "sourceRefs": [
+          "nufast6923"
+        ]
+      },
+      "geometryStatus": "dimensioned-envelope",
+      "missingGeometryFields": []
+    }
+  },
+  "fields": {
+    "M5": {
+      "P": {
+        "nominal": 0.8,
+        "sourceRefs": [
+          "nufast6923"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "s_nom": {
+        "nominal": 8,
+        "sourceRefs": [
+          "nufast6923",
+          "lederer6923"
+        ],
+        "status": "verified",
+        "verification": "independent-source-agreement",
+        "unit": "mm"
+      },
+      "s_min": {
+        "min": 7.78,
+        "sourceRefs": [
+          "nufast6923"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "m_max": {
+        "max": 5,
+        "sourceRefs": [
+          "nufast6923",
+          "lederer6923"
+        ],
+        "status": "verified",
+        "verification": "independent-source-agreement",
+        "unit": "mm"
+      },
+      "m_min": {
+        "min": 4.7,
+        "sourceRefs": [
+          "nufast6923"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "e_min": {
+        "min": 8.79,
+        "sourceRefs": [
+          "nufast6923",
+          "lederer6923"
+        ],
+        "status": "verified",
+        "verification": "independent-source-agreement",
+        "unit": "mm"
+      },
+      "c_min": {
+        "min": 1,
+        "sourceRefs": [
+          "nufast6923"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Mindestdicke; Randkontur und optionale Verzahnung nicht durch diesen Zahlenwert festgelegt."
+      },
+      "dc_max": {
+        "max": 11.8,
+        "sourceRefs": [
+          "nufast6923",
+          "lederer6923"
+        ],
+        "status": "verified",
+        "verification": "independent-source-agreement",
+        "unit": "mm"
+      },
+      "dw_min": {
+        "min": 9.8,
+        "sourceRefs": [
+          "nufast6923"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "r_max": {
+        "max": 0.3,
+        "sourceRefs": [
+          "nufast6923"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "d_nom": {
+        "nominal": 5,
+        "sourceRefs": [
+          "nufast6923"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      }
+    },
+    "M6": {
+      "P": {
+        "nominal": 1,
+        "sourceRefs": [
+          "nufast6923"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "s_nom": {
+        "nominal": 10,
+        "sourceRefs": [
+          "nufast6923",
+          "lederer6923"
+        ],
+        "status": "verified",
+        "verification": "independent-source-agreement",
+        "unit": "mm"
+      },
+      "s_min": {
+        "min": 9.78,
+        "sourceRefs": [
+          "nufast6923"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "m_max": {
+        "max": 6,
+        "sourceRefs": [
+          "nufast6923",
+          "lederer6923"
+        ],
+        "status": "verified",
+        "verification": "independent-source-agreement",
+        "unit": "mm"
+      },
+      "m_min": {
+        "min": 5.7,
+        "sourceRefs": [
+          "nufast6923"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "e_min": {
+        "min": 11.05,
+        "sourceRefs": [
+          "nufast6923",
+          "lederer6923"
+        ],
+        "status": "verified",
+        "verification": "independent-source-agreement",
+        "unit": "mm"
+      },
+      "c_min": {
+        "min": 1.1,
+        "sourceRefs": [
+          "nufast6923"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Mindestdicke; Randkontur und optionale Verzahnung nicht durch diesen Zahlenwert festgelegt."
+      },
+      "dc_max": {
+        "max": 14.2,
+        "sourceRefs": [
+          "nufast6923",
+          "lederer6923"
+        ],
+        "status": "verified",
+        "verification": "independent-source-agreement",
+        "unit": "mm"
+      },
+      "dw_min": {
+        "min": 12.2,
+        "sourceRefs": [
+          "nufast6923"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "r_max": {
+        "max": 0.36,
+        "sourceRefs": [
+          "nufast6923"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "d_nom": {
+        "nominal": 6,
+        "sourceRefs": [
+          "nufast6923"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      }
+    },
+    "M8": {
+      "P": {
+        "nominal": 1.25,
+        "sourceRefs": [
+          "nufast6923"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "s_nom": {
+        "nominal": 13,
+        "sourceRefs": [
+          "nufast6923",
+          "lederer6923"
+        ],
+        "status": "verified",
+        "verification": "independent-source-agreement",
+        "unit": "mm"
+      },
+      "s_min": {
+        "min": 12.73,
+        "sourceRefs": [
+          "nufast6923"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "m_max": {
+        "max": 8,
+        "sourceRefs": [
+          "nufast6923",
+          "lederer6923"
+        ],
+        "status": "verified",
+        "verification": "independent-source-agreement",
+        "unit": "mm"
+      },
+      "m_min": {
+        "min": 7.6,
+        "sourceRefs": [
+          "nufast6923"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "e_min": {
+        "min": 14.38,
+        "sourceRefs": [
+          "nufast6923",
+          "lederer6923"
+        ],
+        "status": "verified",
+        "verification": "independent-source-agreement",
+        "unit": "mm"
+      },
+      "c_min": {
+        "min": 1.2,
+        "sourceRefs": [
+          "nufast6923"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Mindestdicke; Randkontur und optionale Verzahnung nicht durch diesen Zahlenwert festgelegt."
+      },
+      "dc_max": {
+        "max": 17.9,
+        "sourceRefs": [
+          "nufast6923",
+          "lederer6923"
+        ],
+        "status": "verified",
+        "verification": "independent-source-agreement",
+        "unit": "mm"
+      },
+      "dw_min": {
+        "min": 15.8,
+        "sourceRefs": [
+          "nufast6923"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "r_max": {
+        "max": 0.48,
+        "sourceRefs": [
+          "nufast6923"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "d_nom": {
+        "nominal": 8,
+        "sourceRefs": [
+          "nufast6923"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      }
+    },
+    "M10": {
+      "P": {
+        "nominal": 1.5,
+        "sourceRefs": [
+          "nufast6923"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "s_nom": {
+        "nominal": 15,
+        "sourceRefs": [
+          "nufast6923",
+          "lederer6923"
+        ],
+        "status": "verified",
+        "verification": "independent-source-agreement",
+        "unit": "mm"
+      },
+      "s_min": {
+        "min": 14.73,
+        "sourceRefs": [
+          "nufast6923"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "m_max": {
+        "max": 10,
+        "sourceRefs": [
+          "nufast6923",
+          "lederer6923"
+        ],
+        "status": "verified",
+        "verification": "independent-source-agreement",
+        "unit": "mm"
+      },
+      "m_min": {
+        "min": 9.6,
+        "sourceRefs": [
+          "nufast6923"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "e_min": {
+        "min": 16.64,
+        "sourceRefs": [
+          "nufast6923",
+          "lederer6923"
+        ],
+        "status": "verified",
+        "verification": "independent-source-agreement",
+        "unit": "mm"
+      },
+      "c_min": {
+        "min": 1.5,
+        "sourceRefs": [
+          "nufast6923"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Mindestdicke; Randkontur und optionale Verzahnung nicht durch diesen Zahlenwert festgelegt."
+      },
+      "dc_max": {
+        "max": 21.8,
+        "sourceRefs": [
+          "nufast6923",
+          "lederer6923"
+        ],
+        "status": "verified",
+        "verification": "independent-source-agreement",
+        "unit": "mm"
+      },
+      "dw_min": {
+        "min": 19.6,
+        "sourceRefs": [
+          "nufast6923"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "r_max": {
+        "max": 0.6,
+        "sourceRefs": [
+          "nufast6923"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "d_nom": {
+        "nominal": 10,
+        "sourceRefs": [
+          "nufast6923"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      }
+    },
+    "M12": {
+      "P": {
+        "nominal": 1.75,
+        "sourceRefs": [
+          "nufast6923"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "s_nom": {
+        "nominal": 18,
+        "sourceRefs": [
+          "nufast6923",
+          "lederer6923"
+        ],
+        "status": "verified",
+        "verification": "independent-source-agreement",
+        "unit": "mm"
+      },
+      "s_min": {
+        "min": 17.73,
+        "sourceRefs": [
+          "nufast6923"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "m_max": {
+        "max": 12,
+        "sourceRefs": [
+          "nufast6923",
+          "lederer6923"
+        ],
+        "status": "verified",
+        "verification": "independent-source-agreement",
+        "unit": "mm"
+      },
+      "m_min": {
+        "min": 11.6,
+        "sourceRefs": [
+          "nufast6923"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "e_min": {
+        "min": 20.03,
+        "sourceRefs": [
+          "nufast6923",
+          "lederer6923"
+        ],
+        "status": "verified",
+        "verification": "independent-source-agreement",
+        "unit": "mm"
+      },
+      "c_min": {
+        "min": 1.8,
+        "sourceRefs": [
+          "nufast6923"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Mindestdicke; Randkontur und optionale Verzahnung nicht durch diesen Zahlenwert festgelegt."
+      },
+      "dc_max": {
+        "max": 26,
+        "sourceRefs": [
+          "nufast6923",
+          "lederer6923"
+        ],
+        "status": "verified",
+        "verification": "independent-source-agreement",
+        "unit": "mm"
+      },
+      "dw_min": {
+        "min": 23.8,
+        "sourceRefs": [
+          "nufast6923"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "r_max": {
+        "max": 0.72,
+        "sourceRefs": [
+          "nufast6923"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "d_nom": {
+        "nominal": 12,
+        "sourceRefs": [
+          "nufast6923"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      }
+    },
+    "M14": {
+      "P": {
+        "nominal": 2,
+        "sourceRefs": [
+          "nufast6923"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "s_nom": {
+        "nominal": 21,
+        "sourceRefs": [
+          "nufast6923"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "s_min": {
+        "min": 20.67,
+        "sourceRefs": [
+          "nufast6923"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "m_max": {
+        "max": 14,
+        "sourceRefs": [
+          "nufast6923"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "m_min": {
+        "min": 13.3,
+        "sourceRefs": [
+          "nufast6923"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "e_min": {
+        "min": 23.36,
+        "sourceRefs": [
+          "nufast6923"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "c_min": {
+        "min": 2.1,
+        "sourceRefs": [
+          "nufast6923"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Mindestdicke; Randkontur und optionale Verzahnung nicht durch diesen Zahlenwert festgelegt."
+      },
+      "dc_max": {
+        "max": 29.9,
+        "sourceRefs": [
+          "nufast6923"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "dw_min": {
+        "min": 27.6,
+        "sourceRefs": [
+          "nufast6923"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "r_max": {
+        "max": 0.88,
+        "sourceRefs": [
+          "nufast6923"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "d_nom": {
+        "nominal": 14,
+        "sourceRefs": [
+          "nufast6923"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      }
+    },
+    "M16": {
+      "P": {
+        "nominal": 2,
+        "sourceRefs": [
+          "nufast6923"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "s_nom": {
+        "nominal": 24,
+        "sourceRefs": [
+          "nufast6923"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "s_min": {
+        "min": 23.67,
+        "sourceRefs": [
+          "nufast6923"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "m_max": {
+        "max": 16,
+        "sourceRefs": [
+          "nufast6923"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "m_min": {
+        "min": 15.3,
+        "sourceRefs": [
+          "nufast6923"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "e_min": {
+        "min": 26.75,
+        "sourceRefs": [
+          "nufast6923"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "c_min": {
+        "min": 2.4,
+        "sourceRefs": [
+          "nufast6923"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Mindestdicke; Randkontur und optionale Verzahnung nicht durch diesen Zahlenwert festgelegt."
+      },
+      "dc_max": {
+        "max": 34.5,
+        "sourceRefs": [
+          "nufast6923"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "dw_min": {
+        "min": 31.9,
+        "sourceRefs": [
+          "nufast6923"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "r_max": {
+        "max": 0.96,
+        "sourceRefs": [
+          "nufast6923"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "d_nom": {
+        "nominal": 16,
+        "sourceRefs": [
+          "nufast6923"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      }
+    },
+    "M20": {
+      "P": {
+        "nominal": 2.5,
+        "sourceRefs": [
+          "nufast6923"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "s_nom": {
+        "nominal": 30,
+        "sourceRefs": [
+          "nufast6923"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "s_min": {
+        "min": 29.67,
+        "sourceRefs": [
+          "nufast6923"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "m_max": {
+        "max": 20,
+        "sourceRefs": [
+          "nufast6923"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "m_min": {
+        "min": 18.9,
+        "sourceRefs": [
+          "nufast6923"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "e_min": {
+        "min": 32.95,
+        "sourceRefs": [
+          "nufast6923"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "c_min": {
+        "min": 3,
+        "sourceRefs": [
+          "nufast6923"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Mindestdicke; Randkontur und optionale Verzahnung nicht durch diesen Zahlenwert festgelegt."
+      },
+      "dc_max": {
+        "max": 42.8,
+        "sourceRefs": [
+          "nufast6923"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "dw_min": {
+        "min": 39.9,
+        "sourceRefs": [
+          "nufast6923"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "r_max": {
+        "max": 1.2,
+        "sourceRefs": [
+          "nufast6923"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "d_nom": {
+        "nominal": 20,
+        "sourceRefs": [
+          "nufast6923"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      }
+    }
+  },
+  "sourceMeta": {
+    "nufast6923": {
+      "url": "https://www.nufast.co.uk/uploads/DIN6923.pdf",
+      "title": "Nufast DIN 6923 production drawing",
+      "locator": "2014-06-25, dimensional table; DIN 6923:1983 extract",
+      "kind": "manufacturer-drawing",
+      "edition": "1983",
+      "accessed": "2026-11-26"
+    },
+    "lederer6923": {
+      "url": "https://www.lederer-online.com/fileadmin/users/redakteur/redakteur_upload/DIN6923.pdf",
+      "title": "Lederer DIN6923 product dimensions",
+      "locator": "Printed page 193",
+      "kind": "supplier-product-catalog",
+      "edition": null,
+      "accessed": "2026-11-26"
+    }
+  },
+  "sourceStatus": "per-value",
+  "coverage": {
+    "diameterMin": 5,
+    "diameterMax": 30,
+    "unit": "mm",
+    "status": "partial",
+    "missingSizes": [
+      "M7",
+      "M18",
+      "M22",
+      "M24",
+      "M27",
+      "M30"
+    ],
+    "missingReason": "Keine ausgewerteten Maßnachweise für diese Größen; keine Aussage über Herstellbarkeit oder Lieferbarkeit."
+  },
+  "editionStatus": "historical-dimensions",
+  "shape": "sechskant_bund",
+  "threadSeries": "coarse",
+  "defaultPolicy": "Dokumentierte Kataloghöhe oder ausgewiesenes Höchstmaß als vorläufige Außenhülle; kein vollständiges Fertigteilmodell."
+}

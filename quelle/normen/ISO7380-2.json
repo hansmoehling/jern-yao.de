@@ -1,0 +1,755 @@
+{
+  "id": "ISO7380-2",
+  "version": "2026-11-26",
+  "schemaVersion": 1,
+  "label": "ISO 7380-2 · Flachrundkopf mit Bund, Innensechskant",
+  "edition": null,
+  "editionStatus": "manufacturer-dimensions",
+  "funktion": "schraube",
+  "klasse": "bolzen",
+  "kopfTyp": "kugelabschnitt_bund",
+  "antrieb": {
+    "art": "hex"
+  },
+  "feldzuordnung": {
+    "kD": "dc_max",
+    "kH": "k_max",
+    "iSW": "s_nom"
+  },
+  "groessen": {
+    "M3": {
+      "roh": {
+        "dc_max": 6.9,
+        "k_max": 1.65,
+        "s_nom": 2
+      },
+      "vorbelegung": {
+        "kD": 6.9,
+        "kH": 1.65,
+        "iSW": 2
+      },
+      "coverage": "documented",
+      "nachLaenge": {},
+      "lengthCoverage": "unresearched",
+      "missingGeometryFields": [
+        "iT",
+        "flangeHeight"
+      ],
+      "geometryStatus": "partial"
+    },
+    "M4": {
+      "roh": {
+        "dc_max": 9.4,
+        "k_max": 2.2,
+        "s_nom": 2.5
+      },
+      "vorbelegung": {
+        "kD": 9.4,
+        "kH": 2.2,
+        "iSW": 2.5
+      },
+      "coverage": "documented",
+      "nachLaenge": {},
+      "lengthCoverage": "unresearched",
+      "missingGeometryFields": [
+        "iT",
+        "flangeHeight"
+      ],
+      "geometryStatus": "partial"
+    },
+    "M5": {
+      "roh": {
+        "dc_max": 11.8,
+        "k_max": 2.75,
+        "s_nom": 3
+      },
+      "vorbelegung": {
+        "kD": 11.8,
+        "kH": 2.75,
+        "iSW": 3
+      },
+      "coverage": "documented",
+      "nachLaenge": {},
+      "lengthCoverage": "unresearched",
+      "missingGeometryFields": [
+        "iT",
+        "flangeHeight"
+      ],
+      "geometryStatus": "partial"
+    },
+    "M6": {
+      "roh": {
+        "dc_max": 13.6,
+        "k_max": 3.3,
+        "s_nom": 4
+      },
+      "vorbelegung": {
+        "kD": 13.6,
+        "kH": 3.3,
+        "iSW": 4
+      },
+      "coverage": "documented",
+      "nachLaenge": {},
+      "lengthCoverage": "unresearched",
+      "missingGeometryFields": [
+        "iT",
+        "flangeHeight"
+      ],
+      "geometryStatus": "partial"
+    },
+    "M8": {
+      "roh": {
+        "dc_max": 17.8,
+        "k_max": 4.4,
+        "s_nom": 5
+      },
+      "vorbelegung": {
+        "kD": 17.8,
+        "kH": 4.4,
+        "iSW": 5
+      },
+      "coverage": "documented",
+      "nachLaenge": {},
+      "lengthCoverage": "unresearched",
+      "missingGeometryFields": [
+        "iT",
+        "flangeHeight"
+      ],
+      "geometryStatus": "partial"
+    },
+    "M10": {
+      "roh": {
+        "dc_max": 21.9,
+        "k_max": 5.5,
+        "s_nom": 6
+      },
+      "vorbelegung": {
+        "kD": 21.9,
+        "kH": 5.5,
+        "iSW": 6
+      },
+      "coverage": "documented",
+      "nachLaenge": {},
+      "lengthCoverage": "unresearched",
+      "missingGeometryFields": [
+        "iT",
+        "flangeHeight"
+      ],
+      "geometryStatus": "partial"
+    },
+    "M12": {
+      "roh": {
+        "dc_max": 26,
+        "k_max": 6.6,
+        "s_nom": 8
+      },
+      "vorbelegung": {
+        "kD": 26,
+        "kH": 6.6,
+        "iSW": 8
+      },
+      "coverage": "documented",
+      "nachLaenge": {},
+      "lengthCoverage": "unresearched",
+      "missingGeometryFields": [
+        "iT",
+        "flangeHeight"
+      ],
+      "geometryStatus": "partial"
+    },
+    "M16": {
+      "roh": {
+        "dc_max": 34,
+        "k_max": 8.8,
+        "s_nom": 10
+      },
+      "vorbelegung": {
+        "kD": 34,
+        "kH": 8.8,
+        "iSW": 10
+      },
+      "coverage": "documented",
+      "nachLaenge": {},
+      "lengthCoverage": "unresearched",
+      "missingGeometryFields": [
+        "iT",
+        "flangeHeight"
+      ],
+      "geometryStatus": "partial"
+    }
+  },
+  "fields": {
+    "M3": {
+      "dc_max": {
+        "nominal": 6.9,
+        "min": null,
+        "max": 6.9,
+        "unit": "mm",
+        "sourceRefs": [
+          "cvt7380"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Zweitbeleg je Einzelwert noch offen."
+      },
+      "k_max": {
+        "nominal": 1.65,
+        "min": null,
+        "max": 1.65,
+        "unit": "mm",
+        "sourceRefs": [
+          "cvt7380"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Zweitbeleg je Einzelwert noch offen."
+      },
+      "s_nom": {
+        "nominal": 2,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "cvt7380"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Zweitbeleg je Einzelwert noch offen."
+      },
+      "iT": {
+        "nominal": null,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "note": "Für diese Geometrie noch nicht belegt; nicht aus ähnlicher Norm ergänzen."
+      },
+      "flangeHeight": {
+        "nominal": null,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "note": "Für diese Geometrie noch nicht belegt; nicht aus ähnlicher Norm ergänzen."
+      }
+    },
+    "M4": {
+      "dc_max": {
+        "nominal": 9.4,
+        "min": null,
+        "max": 9.4,
+        "unit": "mm",
+        "sourceRefs": [
+          "cvt7380"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Zweitbeleg je Einzelwert noch offen."
+      },
+      "k_max": {
+        "nominal": 2.2,
+        "min": null,
+        "max": 2.2,
+        "unit": "mm",
+        "sourceRefs": [
+          "cvt7380"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Zweitbeleg je Einzelwert noch offen."
+      },
+      "s_nom": {
+        "nominal": 2.5,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "cvt7380"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Zweitbeleg je Einzelwert noch offen."
+      },
+      "iT": {
+        "nominal": null,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "note": "Für diese Geometrie noch nicht belegt; nicht aus ähnlicher Norm ergänzen."
+      },
+      "flangeHeight": {
+        "nominal": null,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "note": "Für diese Geometrie noch nicht belegt; nicht aus ähnlicher Norm ergänzen."
+      }
+    },
+    "M5": {
+      "dc_max": {
+        "nominal": 11.8,
+        "min": null,
+        "max": 11.8,
+        "unit": "mm",
+        "sourceRefs": [
+          "cvt7380"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Zweitbeleg je Einzelwert noch offen."
+      },
+      "k_max": {
+        "nominal": 2.75,
+        "min": null,
+        "max": 2.75,
+        "unit": "mm",
+        "sourceRefs": [
+          "cvt7380"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Zweitbeleg je Einzelwert noch offen."
+      },
+      "s_nom": {
+        "nominal": 3,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "cvt7380"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Zweitbeleg je Einzelwert noch offen."
+      },
+      "iT": {
+        "nominal": null,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "note": "Für diese Geometrie noch nicht belegt; nicht aus ähnlicher Norm ergänzen."
+      },
+      "flangeHeight": {
+        "nominal": null,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "note": "Für diese Geometrie noch nicht belegt; nicht aus ähnlicher Norm ergänzen."
+      }
+    },
+    "M6": {
+      "dc_max": {
+        "nominal": 13.6,
+        "min": null,
+        "max": 13.6,
+        "unit": "mm",
+        "sourceRefs": [
+          "cvt7380"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Zweitbeleg je Einzelwert noch offen."
+      },
+      "k_max": {
+        "nominal": 3.3,
+        "min": null,
+        "max": 3.3,
+        "unit": "mm",
+        "sourceRefs": [
+          "cvt7380"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Zweitbeleg je Einzelwert noch offen."
+      },
+      "s_nom": {
+        "nominal": 4,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "cvt7380"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Zweitbeleg je Einzelwert noch offen."
+      },
+      "iT": {
+        "nominal": null,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "note": "Für diese Geometrie noch nicht belegt; nicht aus ähnlicher Norm ergänzen."
+      },
+      "flangeHeight": {
+        "nominal": null,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "note": "Für diese Geometrie noch nicht belegt; nicht aus ähnlicher Norm ergänzen."
+      }
+    },
+    "M8": {
+      "dc_max": {
+        "nominal": 17.8,
+        "min": null,
+        "max": 17.8,
+        "unit": "mm",
+        "sourceRefs": [
+          "cvt7380"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Zweitbeleg je Einzelwert noch offen."
+      },
+      "k_max": {
+        "nominal": 4.4,
+        "min": null,
+        "max": 4.4,
+        "unit": "mm",
+        "sourceRefs": [
+          "cvt7380"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Zweitbeleg je Einzelwert noch offen."
+      },
+      "s_nom": {
+        "nominal": 5,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "cvt7380"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Zweitbeleg je Einzelwert noch offen."
+      },
+      "iT": {
+        "nominal": null,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "note": "Für diese Geometrie noch nicht belegt; nicht aus ähnlicher Norm ergänzen."
+      },
+      "flangeHeight": {
+        "nominal": null,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "note": "Für diese Geometrie noch nicht belegt; nicht aus ähnlicher Norm ergänzen."
+      }
+    },
+    "M10": {
+      "dc_max": {
+        "nominal": 21.9,
+        "min": null,
+        "max": 21.9,
+        "unit": "mm",
+        "sourceRefs": [
+          "cvt7380"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Zweitbeleg je Einzelwert noch offen."
+      },
+      "k_max": {
+        "nominal": 5.5,
+        "min": null,
+        "max": 5.5,
+        "unit": "mm",
+        "sourceRefs": [
+          "cvt7380"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Zweitbeleg je Einzelwert noch offen."
+      },
+      "s_nom": {
+        "nominal": 6,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "cvt7380"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Zweitbeleg je Einzelwert noch offen."
+      },
+      "iT": {
+        "nominal": null,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "note": "Für diese Geometrie noch nicht belegt; nicht aus ähnlicher Norm ergänzen."
+      },
+      "flangeHeight": {
+        "nominal": null,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "note": "Für diese Geometrie noch nicht belegt; nicht aus ähnlicher Norm ergänzen."
+      }
+    },
+    "M12": {
+      "dc_max": {
+        "nominal": 26,
+        "min": null,
+        "max": 26,
+        "unit": "mm",
+        "sourceRefs": [
+          "cvt7380"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Zweitbeleg je Einzelwert noch offen."
+      },
+      "k_max": {
+        "nominal": 6.6,
+        "min": null,
+        "max": 6.6,
+        "unit": "mm",
+        "sourceRefs": [
+          "cvt7380"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Zweitbeleg je Einzelwert noch offen."
+      },
+      "s_nom": {
+        "nominal": 8,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "cvt7380"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Zweitbeleg je Einzelwert noch offen."
+      },
+      "iT": {
+        "nominal": null,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "note": "Für diese Geometrie noch nicht belegt; nicht aus ähnlicher Norm ergänzen."
+      },
+      "flangeHeight": {
+        "nominal": null,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "note": "Für diese Geometrie noch nicht belegt; nicht aus ähnlicher Norm ergänzen."
+      }
+    },
+    "M16": {
+      "dc_max": {
+        "nominal": 34,
+        "min": null,
+        "max": 34,
+        "unit": "mm",
+        "sourceRefs": [
+          "cvt7380"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Zweitbeleg je Einzelwert noch offen."
+      },
+      "k_max": {
+        "nominal": 8.8,
+        "min": null,
+        "max": 8.8,
+        "unit": "mm",
+        "sourceRefs": [
+          "cvt7380"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Zweitbeleg je Einzelwert noch offen."
+      },
+      "s_nom": {
+        "nominal": 10,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "cvt7380"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Zweitbeleg je Einzelwert noch offen."
+      },
+      "iT": {
+        "nominal": null,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "note": "Für diese Geometrie noch nicht belegt; nicht aus ähnlicher Norm ergänzen."
+      },
+      "flangeHeight": {
+        "nominal": null,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "note": "Für diese Geometrie noch nicht belegt; nicht aus ähnlicher Norm ergänzen."
+      }
+    }
+  },
+  "sourceMeta": {
+    "cvt7380": {
+      "url": "https://www.cvtcivata.com/Assets/Documents/DIN_EN_ISO_7380_2_20210331_085715.pdf",
+      "titel": "CVT ISO 7380-2, Herstellerdaten von 2021",
+      "type": "manufacturer",
+      "accessed": "2026-11-26"
+    }
+  },
+  "quellen": [
+    {
+      "id": "cvt7380",
+      "url": "https://www.cvtcivata.com/Assets/Documents/DIN_EN_ISO_7380_2_20210331_085715.pdf",
+      "titel": "CVT ISO 7380-2, Herstellerdaten von 2021",
+      "type": "manufacturer",
+      "accessed": "2026-11-26"
+    }
+  ],
+  "abweichungen": [],
+  "status": "partial",
+  "coverage": "documented",
+  "lengthCoverage": "unresearched",
+  "hinweise": [
+    "Herstellerdaten von 2021; nicht pauschal als Ausgabe 2022 verifiziert. Bundhöhe und Antriebstiefe fehlen."
+  ],
+  "normstatus": {
+    "status": "unresolved",
+    "note": "Ausgabe und Vollständigkeit nicht aus einer ähnlichen Norm ableiten."
+  },
+  "currentEdition": "2022",
+  "requiredGeometryFields": [
+    "kD",
+    "kH",
+    "iSW",
+    "iT",
+    "flangeHeight"
+  ],
+  "sizeCoverage": {
+    "M3": {
+      "status": "documented"
+    },
+    "M3.5": {
+      "status": "unresearched",
+      "note": "Keine Größenzeile vorhanden; daraus folgt kein Normverbot."
+    },
+    "M4": {
+      "status": "documented"
+    },
+    "M5": {
+      "status": "documented"
+    },
+    "M6": {
+      "status": "documented"
+    },
+    "M7": {
+      "status": "unresearched",
+      "note": "Keine Größenzeile vorhanden; daraus folgt kein Normverbot."
+    },
+    "M8": {
+      "status": "documented"
+    },
+    "M10": {
+      "status": "documented"
+    },
+    "M12": {
+      "status": "documented"
+    },
+    "M14": {
+      "status": "unresearched",
+      "note": "Keine Größenzeile vorhanden; daraus folgt kein Normverbot."
+    },
+    "M16": {
+      "status": "documented"
+    },
+    "M18": {
+      "status": "unresearched",
+      "note": "Keine Größenzeile vorhanden; daraus folgt kein Normverbot."
+    },
+    "M20": {
+      "status": "unresearched",
+      "note": "Keine Größenzeile vorhanden; daraus folgt kein Normverbot."
+    },
+    "M22": {
+      "status": "unresearched",
+      "note": "Keine Größenzeile vorhanden; daraus folgt kein Normverbot."
+    },
+    "M24": {
+      "status": "unresearched",
+      "note": "Keine Größenzeile vorhanden; daraus folgt kein Normverbot."
+    },
+    "M27": {
+      "status": "unresearched",
+      "note": "Keine Größenzeile vorhanden; daraus folgt kein Normverbot."
+    },
+    "M30": {
+      "status": "unresearched",
+      "note": "Keine Größenzeile vorhanden; daraus folgt kein Normverbot."
+    },
+    "M33": {
+      "status": "unresearched",
+      "note": "Keine Größenzeile vorhanden; daraus folgt kein Normverbot."
+    }
+  },
+  "pruefdatum": "2026-11-26",
+  "klassen": {
+    "status": "unresearched",
+    "values": [],
+    "note": "Festigkeits-/Werkstoffklassen noch nicht vollständig aus dieser Norm belegt."
+  }
+}

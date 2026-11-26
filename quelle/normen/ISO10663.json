@@ -1,0 +1,1461 @@
+{
+  "schemaVersion": 1,
+  "version": "2026-11-26.1",
+  "id": "ISO10663",
+  "edition": "2012",
+  "label": "Sechskantmutter mit Bund, Feingewinde",
+  "funktion": "mutter",
+  "klasse": "mutter",
+  "kopfTyp": "sechskant_bund",
+  "alias": [],
+  "feldzuordnung": {
+    "mSW": "s_nom",
+    "mH": "m_max",
+    "dc": "dc_max",
+    "c": "c_min"
+  },
+  "groessen": {
+    "M8x1": {
+      "vorbelegung": {
+        "mSW": 13,
+        "mH": 8,
+        "dc": 17.9,
+        "c": 1.2
+      },
+      "roh": {
+        "d_nom": 8,
+        "P": 1,
+        "s_nom": 13,
+        "s_min": 12.73,
+        "e_min": 14.38,
+        "m_max": 8,
+        "m_min": 7.64,
+        "c_min": 1.2,
+        "dc_max": 17.9,
+        "dw_min": 15.8,
+        "da_min": 8,
+        "da_max": 8.75,
+        "r_max": 0.5,
+        "mw_min": 4.6
+      },
+      "thread": {
+        "id": "M8x1",
+        "diameter": 8,
+        "pitch": 1,
+        "sourceRefs": [
+          "iso10663_2012"
+        ]
+      },
+      "geometryStatus": "dimensioned-envelope",
+      "missingGeometryFields": []
+    },
+    "M10x1.25": {
+      "vorbelegung": {
+        "mSW": 15,
+        "mH": 10,
+        "dc": 21.8,
+        "c": 1.5
+      },
+      "roh": {
+        "d_nom": 10,
+        "P": 1.25,
+        "s_nom": 15,
+        "s_min": 14.73,
+        "e_min": 16.64,
+        "m_max": 10,
+        "m_min": 9.64,
+        "c_min": 1.5,
+        "dc_max": 21.8,
+        "dw_min": 19.6,
+        "da_min": 10,
+        "da_max": 10.8,
+        "r_max": 0.6,
+        "mw_min": 5.6
+      },
+      "thread": {
+        "id": "M10x1.25",
+        "diameter": 10,
+        "pitch": 1.25,
+        "sourceRefs": [
+          "iso10663_2012"
+        ]
+      },
+      "geometryStatus": "dimensioned-envelope",
+      "missingGeometryFields": []
+    },
+    "M10x1": {
+      "vorbelegung": {
+        "mSW": 15,
+        "mH": 10,
+        "dc": 21.8,
+        "c": 1.5
+      },
+      "roh": {
+        "d_nom": 10,
+        "P": 1,
+        "s_nom": 15,
+        "s_min": 14.73,
+        "e_min": 16.64,
+        "m_max": 10,
+        "m_min": 9.64,
+        "c_min": 1.5,
+        "dc_max": 21.8,
+        "dw_min": 19.6,
+        "da_min": 10,
+        "da_max": 10.8,
+        "r_max": 0.6,
+        "mw_min": 5.6
+      },
+      "thread": {
+        "id": "M10x1",
+        "diameter": 10,
+        "pitch": 1,
+        "sourceRefs": [
+          "iso10663_2012"
+        ]
+      },
+      "geometryStatus": "dimensioned-envelope",
+      "missingGeometryFields": []
+    },
+    "M12x1.25": {
+      "vorbelegung": {
+        "mSW": 18,
+        "mH": 12,
+        "dc": 26,
+        "c": 1.8
+      },
+      "roh": {
+        "d_nom": 12,
+        "P": 1.25,
+        "s_nom": 18,
+        "s_min": 17.73,
+        "e_min": 20.03,
+        "m_max": 12,
+        "m_min": 11.57,
+        "c_min": 1.8,
+        "dc_max": 26,
+        "dw_min": 23.8,
+        "da_min": 12,
+        "da_max": 13,
+        "r_max": 0.7,
+        "mw_min": 6.8
+      },
+      "thread": {
+        "id": "M12x1.25",
+        "diameter": 12,
+        "pitch": 1.25,
+        "sourceRefs": [
+          "iso10663_2012"
+        ]
+      },
+      "geometryStatus": "dimensioned-envelope",
+      "missingGeometryFields": []
+    },
+    "M12x1.5": {
+      "vorbelegung": {
+        "mSW": 18,
+        "mH": 12,
+        "dc": 26,
+        "c": 1.8
+      },
+      "roh": {
+        "d_nom": 12,
+        "P": 1.5,
+        "s_nom": 18,
+        "s_min": 17.73,
+        "e_min": 20.03,
+        "m_max": 12,
+        "m_min": 11.57,
+        "c_min": 1.8,
+        "dc_max": 26,
+        "dw_min": 23.8,
+        "da_min": 12,
+        "da_max": 13,
+        "r_max": 0.7,
+        "mw_min": 6.8
+      },
+      "thread": {
+        "id": "M12x1.5",
+        "diameter": 12,
+        "pitch": 1.5,
+        "sourceRefs": [
+          "iso10663_2012"
+        ]
+      },
+      "geometryStatus": "dimensioned-envelope",
+      "missingGeometryFields": []
+    },
+    "M14x1.5": {
+      "vorbelegung": {
+        "mSW": 21,
+        "mH": 14,
+        "dc": 29.9,
+        "c": 2.1
+      },
+      "roh": {
+        "d_nom": 14,
+        "P": 1.5,
+        "s_nom": 21,
+        "s_min": 20.67,
+        "e_min": 23.36,
+        "m_max": 14,
+        "m_min": 13.3,
+        "c_min": 2.1,
+        "dc_max": 29.9,
+        "dw_min": 27.6,
+        "da_min": 14,
+        "da_max": 15.1,
+        "r_max": 0.9,
+        "mw_min": 7.7
+      },
+      "thread": {
+        "id": "M14x1.5",
+        "diameter": 14,
+        "pitch": 1.5,
+        "sourceRefs": [
+          "iso10663_2012"
+        ]
+      },
+      "geometryStatus": "dimensioned-envelope",
+      "missingGeometryFields": []
+    },
+    "M16x1.5": {
+      "vorbelegung": {
+        "mSW": 24,
+        "mH": 16,
+        "dc": 34.5,
+        "c": 2.4
+      },
+      "roh": {
+        "d_nom": 16,
+        "P": 1.5,
+        "s_nom": 24,
+        "s_min": 23.67,
+        "e_min": 26.75,
+        "m_max": 16,
+        "m_min": 15.3,
+        "c_min": 2.4,
+        "dc_max": 34.5,
+        "dw_min": 31.9,
+        "da_min": 16,
+        "da_max": 17.3,
+        "r_max": 1,
+        "mw_min": 8.9
+      },
+      "thread": {
+        "id": "M16x1.5",
+        "diameter": 16,
+        "pitch": 1.5,
+        "sourceRefs": [
+          "iso10663_2012"
+        ]
+      },
+      "geometryStatus": "dimensioned-envelope",
+      "missingGeometryFields": []
+    },
+    "M20x1.5": {
+      "vorbelegung": {
+        "mSW": 30,
+        "mH": 20,
+        "dc": 42.8,
+        "c": 3
+      },
+      "roh": {
+        "d_nom": 20,
+        "P": 1.5,
+        "s_nom": 30,
+        "s_min": 29.16,
+        "e_min": 32.95,
+        "m_max": 20,
+        "m_min": 18.7,
+        "c_min": 3,
+        "dc_max": 42.8,
+        "dw_min": 39.9,
+        "da_min": 20,
+        "da_max": 21.6,
+        "r_max": 1.2,
+        "mw_min": 10.7
+      },
+      "thread": {
+        "id": "M20x1.5",
+        "diameter": 20,
+        "pitch": 1.5,
+        "sourceRefs": [
+          "iso10663_2012"
+        ]
+      },
+      "geometryStatus": "dimensioned-envelope",
+      "missingGeometryFields": []
+    }
+  },
+  "fields": {
+    "M8x1": {
+      "P": {
+        "nominal": 1,
+        "sourceRefs": [
+          "iso10663_2012"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "s_nom": {
+        "nominal": 13,
+        "sourceRefs": [
+          "iso10663_2012"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "s_min": {
+        "min": 12.73,
+        "sourceRefs": [
+          "iso10663_2012"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "e_min": {
+        "min": 14.38,
+        "sourceRefs": [
+          "iso10663_2012"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "m_max": {
+        "max": 8,
+        "sourceRefs": [
+          "iso10663_2012"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "m_min": {
+        "min": 7.64,
+        "sourceRefs": [
+          "iso10663_2012"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "c_min": {
+        "min": 1.2,
+        "sourceRefs": [
+          "iso10663_2012"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Mindestdicke am Messdurchmesser dw_min; die Randkontur legt der Hersteller fest. Vorbelegung verwendet den Mindestwert, keine Norm-Nenndicke."
+      },
+      "dc_max": {
+        "max": 17.9,
+        "sourceRefs": [
+          "iso10663_2012"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "dw_min": {
+        "min": 15.8,
+        "sourceRefs": [
+          "iso10663_2012"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "da_min": {
+        "min": 8,
+        "sourceRefs": [
+          "iso10663_2012"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "da_max": {
+        "max": 8.75,
+        "sourceRefs": [
+          "iso10663_2012"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "r_max": {
+        "max": 0.5,
+        "sourceRefs": [
+          "iso10663_2012"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "mw_min": {
+        "min": 4.6,
+        "sourceRefs": [
+          "iso10663_2012"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "d_nom": {
+        "nominal": 8,
+        "sourceRefs": [
+          "iso10663_2012"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      }
+    },
+    "M10x1.25": {
+      "P": {
+        "nominal": 1.25,
+        "sourceRefs": [
+          "iso10663_2012"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "s_nom": {
+        "nominal": 15,
+        "sourceRefs": [
+          "iso10663_2012"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "s_min": {
+        "min": 14.73,
+        "sourceRefs": [
+          "iso10663_2012"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "e_min": {
+        "min": 16.64,
+        "sourceRefs": [
+          "iso10663_2012"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "m_max": {
+        "max": 10,
+        "sourceRefs": [
+          "iso10663_2012"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "m_min": {
+        "min": 9.64,
+        "sourceRefs": [
+          "iso10663_2012"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "c_min": {
+        "min": 1.5,
+        "sourceRefs": [
+          "iso10663_2012"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Mindestdicke am Messdurchmesser dw_min; die Randkontur legt der Hersteller fest. Vorbelegung verwendet den Mindestwert, keine Norm-Nenndicke."
+      },
+      "dc_max": {
+        "max": 21.8,
+        "sourceRefs": [
+          "iso10663_2012"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "dw_min": {
+        "min": 19.6,
+        "sourceRefs": [
+          "iso10663_2012"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "da_min": {
+        "min": 10,
+        "sourceRefs": [
+          "iso10663_2012"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "da_max": {
+        "max": 10.8,
+        "sourceRefs": [
+          "iso10663_2012"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "r_max": {
+        "max": 0.6,
+        "sourceRefs": [
+          "iso10663_2012"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "mw_min": {
+        "min": 5.6,
+        "sourceRefs": [
+          "iso10663_2012"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "d_nom": {
+        "nominal": 10,
+        "sourceRefs": [
+          "iso10663_2012"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      }
+    },
+    "M10x1": {
+      "P": {
+        "nominal": 1,
+        "sourceRefs": [
+          "iso10663_2012"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "s_nom": {
+        "nominal": 15,
+        "sourceRefs": [
+          "iso10663_2012"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "s_min": {
+        "min": 14.73,
+        "sourceRefs": [
+          "iso10663_2012"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "e_min": {
+        "min": 16.64,
+        "sourceRefs": [
+          "iso10663_2012"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "m_max": {
+        "max": 10,
+        "sourceRefs": [
+          "iso10663_2012"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "m_min": {
+        "min": 9.64,
+        "sourceRefs": [
+          "iso10663_2012"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "c_min": {
+        "min": 1.5,
+        "sourceRefs": [
+          "iso10663_2012"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Mindestdicke am Messdurchmesser dw_min; die Randkontur legt der Hersteller fest. Vorbelegung verwendet den Mindestwert, keine Norm-Nenndicke."
+      },
+      "dc_max": {
+        "max": 21.8,
+        "sourceRefs": [
+          "iso10663_2012"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "dw_min": {
+        "min": 19.6,
+        "sourceRefs": [
+          "iso10663_2012"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "da_min": {
+        "min": 10,
+        "sourceRefs": [
+          "iso10663_2012"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "da_max": {
+        "max": 10.8,
+        "sourceRefs": [
+          "iso10663_2012"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "r_max": {
+        "max": 0.6,
+        "sourceRefs": [
+          "iso10663_2012"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "mw_min": {
+        "min": 5.6,
+        "sourceRefs": [
+          "iso10663_2012"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "d_nom": {
+        "nominal": 10,
+        "sourceRefs": [
+          "iso10663_2012"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      }
+    },
+    "M12x1.25": {
+      "P": {
+        "nominal": 1.25,
+        "sourceRefs": [
+          "iso10663_2012"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "s_nom": {
+        "nominal": 18,
+        "sourceRefs": [
+          "iso10663_2012"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "s_min": {
+        "min": 17.73,
+        "sourceRefs": [
+          "iso10663_2012"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "e_min": {
+        "min": 20.03,
+        "sourceRefs": [
+          "iso10663_2012"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "m_max": {
+        "max": 12,
+        "sourceRefs": [
+          "iso10663_2012"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "m_min": {
+        "min": 11.57,
+        "sourceRefs": [
+          "iso10663_2012"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "c_min": {
+        "min": 1.8,
+        "sourceRefs": [
+          "iso10663_2012"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Mindestdicke am Messdurchmesser dw_min; die Randkontur legt der Hersteller fest. Vorbelegung verwendet den Mindestwert, keine Norm-Nenndicke."
+      },
+      "dc_max": {
+        "max": 26,
+        "sourceRefs": [
+          "iso10663_2012"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "dw_min": {
+        "min": 23.8,
+        "sourceRefs": [
+          "iso10663_2012"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "da_min": {
+        "min": 12,
+        "sourceRefs": [
+          "iso10663_2012"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "da_max": {
+        "max": 13,
+        "sourceRefs": [
+          "iso10663_2012"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "r_max": {
+        "max": 0.7,
+        "sourceRefs": [
+          "iso10663_2012"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "mw_min": {
+        "min": 6.8,
+        "sourceRefs": [
+          "iso10663_2012"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "d_nom": {
+        "nominal": 12,
+        "sourceRefs": [
+          "iso10663_2012"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      }
+    },
+    "M12x1.5": {
+      "P": {
+        "nominal": 1.5,
+        "sourceRefs": [
+          "iso10663_2012"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "s_nom": {
+        "nominal": 18,
+        "sourceRefs": [
+          "iso10663_2012"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "s_min": {
+        "min": 17.73,
+        "sourceRefs": [
+          "iso10663_2012"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "e_min": {
+        "min": 20.03,
+        "sourceRefs": [
+          "iso10663_2012"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "m_max": {
+        "max": 12,
+        "sourceRefs": [
+          "iso10663_2012"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "m_min": {
+        "min": 11.57,
+        "sourceRefs": [
+          "iso10663_2012"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "c_min": {
+        "min": 1.8,
+        "sourceRefs": [
+          "iso10663_2012"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Mindestdicke am Messdurchmesser dw_min; die Randkontur legt der Hersteller fest. Vorbelegung verwendet den Mindestwert, keine Norm-Nenndicke."
+      },
+      "dc_max": {
+        "max": 26,
+        "sourceRefs": [
+          "iso10663_2012"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "dw_min": {
+        "min": 23.8,
+        "sourceRefs": [
+          "iso10663_2012"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "da_min": {
+        "min": 12,
+        "sourceRefs": [
+          "iso10663_2012"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "da_max": {
+        "max": 13,
+        "sourceRefs": [
+          "iso10663_2012"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "r_max": {
+        "max": 0.7,
+        "sourceRefs": [
+          "iso10663_2012"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "mw_min": {
+        "min": 6.8,
+        "sourceRefs": [
+          "iso10663_2012"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "d_nom": {
+        "nominal": 12,
+        "sourceRefs": [
+          "iso10663_2012"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      }
+    },
+    "M14x1.5": {
+      "P": {
+        "nominal": 1.5,
+        "sourceRefs": [
+          "iso10663_2012"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "s_nom": {
+        "nominal": 21,
+        "sourceRefs": [
+          "iso10663_2012"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "s_min": {
+        "min": 20.67,
+        "sourceRefs": [
+          "iso10663_2012"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "e_min": {
+        "min": 23.36,
+        "sourceRefs": [
+          "iso10663_2012"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "m_max": {
+        "max": 14,
+        "sourceRefs": [
+          "iso10663_2012"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "m_min": {
+        "min": 13.3,
+        "sourceRefs": [
+          "iso10663_2012"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "c_min": {
+        "min": 2.1,
+        "sourceRefs": [
+          "iso10663_2012"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Mindestdicke am Messdurchmesser dw_min; die Randkontur legt der Hersteller fest. Vorbelegung verwendet den Mindestwert, keine Norm-Nenndicke."
+      },
+      "dc_max": {
+        "max": 29.9,
+        "sourceRefs": [
+          "iso10663_2012"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "dw_min": {
+        "min": 27.6,
+        "sourceRefs": [
+          "iso10663_2012"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "da_min": {
+        "min": 14,
+        "sourceRefs": [
+          "iso10663_2012"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "da_max": {
+        "max": 15.1,
+        "sourceRefs": [
+          "iso10663_2012"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "r_max": {
+        "max": 0.9,
+        "sourceRefs": [
+          "iso10663_2012"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "mw_min": {
+        "min": 7.7,
+        "sourceRefs": [
+          "iso10663_2012"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "d_nom": {
+        "nominal": 14,
+        "sourceRefs": [
+          "iso10663_2012"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      }
+    },
+    "M16x1.5": {
+      "P": {
+        "nominal": 1.5,
+        "sourceRefs": [
+          "iso10663_2012"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "s_nom": {
+        "nominal": 24,
+        "sourceRefs": [
+          "iso10663_2012"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "s_min": {
+        "min": 23.67,
+        "sourceRefs": [
+          "iso10663_2012"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "e_min": {
+        "min": 26.75,
+        "sourceRefs": [
+          "iso10663_2012"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "m_max": {
+        "max": 16,
+        "sourceRefs": [
+          "iso10663_2012"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "m_min": {
+        "min": 15.3,
+        "sourceRefs": [
+          "iso10663_2012"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "c_min": {
+        "min": 2.4,
+        "sourceRefs": [
+          "iso10663_2012"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Mindestdicke am Messdurchmesser dw_min; die Randkontur legt der Hersteller fest. Vorbelegung verwendet den Mindestwert, keine Norm-Nenndicke."
+      },
+      "dc_max": {
+        "max": 34.5,
+        "sourceRefs": [
+          "iso10663_2012"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "dw_min": {
+        "min": 31.9,
+        "sourceRefs": [
+          "iso10663_2012"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "da_min": {
+        "min": 16,
+        "sourceRefs": [
+          "iso10663_2012"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "da_max": {
+        "max": 17.3,
+        "sourceRefs": [
+          "iso10663_2012"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "r_max": {
+        "max": 1,
+        "sourceRefs": [
+          "iso10663_2012"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "mw_min": {
+        "min": 8.9,
+        "sourceRefs": [
+          "iso10663_2012"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "d_nom": {
+        "nominal": 16,
+        "sourceRefs": [
+          "iso10663_2012"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      }
+    },
+    "M20x1.5": {
+      "P": {
+        "nominal": 1.5,
+        "sourceRefs": [
+          "iso10663_2012"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "s_nom": {
+        "nominal": 30,
+        "sourceRefs": [
+          "iso10663_2012"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "s_min": {
+        "min": 29.16,
+        "sourceRefs": [
+          "iso10663_2012"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "e_min": {
+        "min": 32.95,
+        "sourceRefs": [
+          "iso10663_2012"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "m_max": {
+        "max": 20,
+        "sourceRefs": [
+          "iso10663_2012"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "m_min": {
+        "min": 18.7,
+        "sourceRefs": [
+          "iso10663_2012"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "c_min": {
+        "min": 3,
+        "sourceRefs": [
+          "iso10663_2012"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Mindestdicke am Messdurchmesser dw_min; die Randkontur legt der Hersteller fest. Vorbelegung verwendet den Mindestwert, keine Norm-Nenndicke."
+      },
+      "dc_max": {
+        "max": 42.8,
+        "sourceRefs": [
+          "iso10663_2012"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "dw_min": {
+        "min": 39.9,
+        "sourceRefs": [
+          "iso10663_2012"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "da_min": {
+        "min": 20,
+        "sourceRefs": [
+          "iso10663_2012"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "da_max": {
+        "max": 21.6,
+        "sourceRefs": [
+          "iso10663_2012"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "r_max": {
+        "max": 1.2,
+        "sourceRefs": [
+          "iso10663_2012"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "mw_min": {
+        "min": 10.7,
+        "sourceRefs": [
+          "iso10663_2012"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "d_nom": {
+        "nominal": 20,
+        "sourceRefs": [
+          "iso10663_2012"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      }
+    }
+  },
+  "sourceMeta": {
+    "iso10663_2012": {
+      "url": "https://cdn.standards.iteh.ai/samples/61527/1b933f06a0ca41d88989eb3fa2b4ea62/ISO-10663-2012.pdf",
+      "title": "ISO 10663:2012",
+      "locator": "Figure 1 and Table 1, printed pages 2–3",
+      "kind": "standard",
+      "edition": "2012",
+      "accessed": "2026-11-26"
+    }
+  },
+  "sourceStatus": "per-value",
+  "coverage": {
+    "diameterMin": 5,
+    "diameterMax": 30,
+    "unit": "mm",
+    "status": "documented-table-range",
+    "missingSizes": [
+      "M5",
+      "M6",
+      "M7",
+      "M18",
+      "M22",
+      "M24",
+      "M27",
+      "M30"
+    ],
+    "missingReason": "Keine Größe in Tabelle 1 dieser Ausgabe; keine Hochskalierung."
+  },
+  "editionStatus": "documented",
+  "shape": "sechskant_bund",
+  "threadSeries": "fine",
+  "defaultPolicy": "Dokumentierte Kataloghöhe oder ausgewiesenes Höchstmaß als vorläufige Außenhülle; kein vollständiges Fertigteilmodell."
+}

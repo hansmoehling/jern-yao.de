@@ -1,0 +1,2125 @@
+{
+  "schemaVersion": 1,
+  "version": "2026-11-26.1",
+  "id": "ISO8675",
+  "edition": "2023",
+  "label": "Niedrige Sechskantmutter, Typ 0, Feingewinde",
+  "funktion": "mutter",
+  "klasse": "mutter",
+  "kopfTyp": "sechskant",
+  "alias": [],
+  "feldzuordnung": {
+    "mSW": "s_nom",
+    "mH": "m_max"
+  },
+  "groessen": {
+    "M8x1": {
+      "vorbelegung": {
+        "mSW": 13,
+        "mH": 4
+      },
+      "roh": {
+        "d_nom": 8,
+        "P": 1,
+        "s_nom": 13,
+        "s_min": 12.73,
+        "e_min": 14.38,
+        "m_max": 4,
+        "m_min": 3.7,
+        "da_min": 8,
+        "da_max": 8.75,
+        "dw_min": 11.63
+      },
+      "thread": {
+        "id": "M8x1",
+        "diameter": 8,
+        "pitch": 1,
+        "sourceRefs": [
+          "iso8675_2023"
+        ]
+      },
+      "geometryStatus": "dimensioned",
+      "missingGeometryFields": []
+    },
+    "M10x1.25": {
+      "vorbelegung": {
+        "mSW": 16,
+        "mH": 5
+      },
+      "roh": {
+        "d_nom": 10,
+        "P": 1.25,
+        "s_nom": 16,
+        "s_min": 15.73,
+        "e_min": 17.77,
+        "m_max": 5,
+        "m_min": 4.7,
+        "da_min": 10,
+        "da_max": 10.8,
+        "dw_min": 14.63
+      },
+      "thread": {
+        "id": "M10x1.25",
+        "diameter": 10,
+        "pitch": 1.25,
+        "sourceRefs": [
+          "iso8675_2023"
+        ]
+      },
+      "geometryStatus": "dimensioned",
+      "missingGeometryFields": []
+    },
+    "M10x1": {
+      "vorbelegung": {
+        "mSW": 16,
+        "mH": 5
+      },
+      "roh": {
+        "d_nom": 10,
+        "P": 1,
+        "s_nom": 16,
+        "s_min": 15.73,
+        "e_min": 17.77,
+        "m_max": 5,
+        "m_min": 4.7,
+        "da_min": 10,
+        "da_max": 10.8,
+        "dw_min": 14.63
+      },
+      "thread": {
+        "id": "M10x1",
+        "diameter": 10,
+        "pitch": 1,
+        "sourceRefs": [
+          "iso8675_2023"
+        ]
+      },
+      "geometryStatus": "dimensioned",
+      "missingGeometryFields": []
+    },
+    "M12x1.5": {
+      "vorbelegung": {
+        "mSW": 18,
+        "mH": 6
+      },
+      "roh": {
+        "d_nom": 12,
+        "P": 1.5,
+        "s_nom": 18,
+        "s_min": 17.73,
+        "e_min": 20.03,
+        "m_max": 6,
+        "m_min": 5.7,
+        "da_min": 12,
+        "da_max": 12.96,
+        "dw_min": 16.63
+      },
+      "thread": {
+        "id": "M12x1.5",
+        "diameter": 12,
+        "pitch": 1.5,
+        "sourceRefs": [
+          "iso8675_2023"
+        ]
+      },
+      "geometryStatus": "dimensioned",
+      "missingGeometryFields": []
+    },
+    "M12x1.25": {
+      "vorbelegung": {
+        "mSW": 18,
+        "mH": 6
+      },
+      "roh": {
+        "d_nom": 12,
+        "P": 1.25,
+        "s_nom": 18,
+        "s_min": 17.73,
+        "e_min": 20.03,
+        "m_max": 6,
+        "m_min": 5.7,
+        "da_min": 12,
+        "da_max": 12.96,
+        "dw_min": 16.63
+      },
+      "thread": {
+        "id": "M12x1.25",
+        "diameter": 12,
+        "pitch": 1.25,
+        "sourceRefs": [
+          "iso8675_2023"
+        ]
+      },
+      "geometryStatus": "dimensioned",
+      "missingGeometryFields": []
+    },
+    "M14x1.5": {
+      "vorbelegung": {
+        "mSW": 21,
+        "mH": 7
+      },
+      "roh": {
+        "d_nom": 14,
+        "P": 1.5,
+        "s_nom": 21,
+        "s_min": 20.67,
+        "e_min": 23.36,
+        "m_max": 7,
+        "m_min": 6.42,
+        "da_min": 14,
+        "da_max": 15.12,
+        "dw_min": 19.64
+      },
+      "thread": {
+        "id": "M14x1.5",
+        "diameter": 14,
+        "pitch": 1.5,
+        "sourceRefs": [
+          "iso8675_2023"
+        ]
+      },
+      "geometryStatus": "dimensioned",
+      "missingGeometryFields": []
+    },
+    "M16x1.5": {
+      "vorbelegung": {
+        "mSW": 24,
+        "mH": 8
+      },
+      "roh": {
+        "d_nom": 16,
+        "P": 1.5,
+        "s_nom": 24,
+        "s_min": 23.67,
+        "e_min": 26.75,
+        "m_max": 8,
+        "m_min": 7.42,
+        "da_min": 16,
+        "da_max": 17.28,
+        "dw_min": 22.49
+      },
+      "thread": {
+        "id": "M16x1.5",
+        "diameter": 16,
+        "pitch": 1.5,
+        "sourceRefs": [
+          "iso8675_2023"
+        ]
+      },
+      "geometryStatus": "dimensioned",
+      "missingGeometryFields": []
+    },
+    "M18x2": {
+      "vorbelegung": {
+        "mSW": 27,
+        "mH": 9
+      },
+      "roh": {
+        "d_nom": 18,
+        "P": 2,
+        "s_nom": 27,
+        "s_min": 26.16,
+        "e_min": 29.56,
+        "m_max": 9,
+        "m_min": 8.42,
+        "da_min": 18,
+        "da_max": 19.44,
+        "dw_min": 24.85
+      },
+      "thread": {
+        "id": "M18x2",
+        "diameter": 18,
+        "pitch": 2,
+        "sourceRefs": [
+          "iso8675_2023"
+        ]
+      },
+      "geometryStatus": "dimensioned",
+      "missingGeometryFields": []
+    },
+    "M18x1.5": {
+      "vorbelegung": {
+        "mSW": 27,
+        "mH": 9
+      },
+      "roh": {
+        "d_nom": 18,
+        "P": 1.5,
+        "s_nom": 27,
+        "s_min": 26.16,
+        "e_min": 29.56,
+        "m_max": 9,
+        "m_min": 8.42,
+        "da_min": 18,
+        "da_max": 19.44,
+        "dw_min": 24.85
+      },
+      "thread": {
+        "id": "M18x1.5",
+        "diameter": 18,
+        "pitch": 1.5,
+        "sourceRefs": [
+          "iso8675_2023"
+        ]
+      },
+      "geometryStatus": "dimensioned",
+      "missingGeometryFields": []
+    },
+    "M20x2": {
+      "vorbelegung": {
+        "mSW": 30,
+        "mH": 10
+      },
+      "roh": {
+        "d_nom": 20,
+        "P": 2,
+        "s_nom": 30,
+        "s_min": 29.16,
+        "e_min": 32.95,
+        "m_max": 10,
+        "m_min": 9.1,
+        "da_min": 20,
+        "da_max": 21.6,
+        "dw_min": 27.7
+      },
+      "thread": {
+        "id": "M20x2",
+        "diameter": 20,
+        "pitch": 2,
+        "sourceRefs": [
+          "iso8675_2023"
+        ]
+      },
+      "geometryStatus": "dimensioned",
+      "missingGeometryFields": []
+    },
+    "M20x1.5": {
+      "vorbelegung": {
+        "mSW": 30,
+        "mH": 10
+      },
+      "roh": {
+        "d_nom": 20,
+        "P": 1.5,
+        "s_nom": 30,
+        "s_min": 29.16,
+        "e_min": 32.95,
+        "m_max": 10,
+        "m_min": 9.1,
+        "da_min": 20,
+        "da_max": 21.6,
+        "dw_min": 27.7
+      },
+      "thread": {
+        "id": "M20x1.5",
+        "diameter": 20,
+        "pitch": 1.5,
+        "sourceRefs": [
+          "iso8675_2023"
+        ]
+      },
+      "geometryStatus": "dimensioned",
+      "missingGeometryFields": []
+    },
+    "M22x2": {
+      "vorbelegung": {
+        "mSW": 34,
+        "mH": 11
+      },
+      "roh": {
+        "d_nom": 22,
+        "P": 2,
+        "s_nom": 34,
+        "s_min": 33,
+        "e_min": 37.29,
+        "m_max": 11,
+        "m_min": 9.9,
+        "da_min": 22,
+        "da_max": 23.76,
+        "dw_min": 31.35
+      },
+      "thread": {
+        "id": "M22x2",
+        "diameter": 22,
+        "pitch": 2,
+        "sourceRefs": [
+          "iso8675_2023"
+        ]
+      },
+      "geometryStatus": "dimensioned",
+      "missingGeometryFields": []
+    },
+    "M22x1.5": {
+      "vorbelegung": {
+        "mSW": 34,
+        "mH": 11
+      },
+      "roh": {
+        "d_nom": 22,
+        "P": 1.5,
+        "s_nom": 34,
+        "s_min": 33,
+        "e_min": 37.29,
+        "m_max": 11,
+        "m_min": 9.9,
+        "da_min": 22,
+        "da_max": 23.76,
+        "dw_min": 31.35
+      },
+      "thread": {
+        "id": "M22x1.5",
+        "diameter": 22,
+        "pitch": 1.5,
+        "sourceRefs": [
+          "iso8675_2023"
+        ]
+      },
+      "geometryStatus": "dimensioned",
+      "missingGeometryFields": []
+    },
+    "M24x2": {
+      "vorbelegung": {
+        "mSW": 36,
+        "mH": 12
+      },
+      "roh": {
+        "d_nom": 24,
+        "P": 2,
+        "s_nom": 36,
+        "s_min": 35,
+        "e_min": 39.55,
+        "m_max": 12,
+        "m_min": 10.9,
+        "da_min": 24,
+        "da_max": 25.92,
+        "dw_min": 33.25
+      },
+      "thread": {
+        "id": "M24x2",
+        "diameter": 24,
+        "pitch": 2,
+        "sourceRefs": [
+          "iso8675_2023"
+        ]
+      },
+      "geometryStatus": "dimensioned",
+      "missingGeometryFields": []
+    },
+    "M27x2": {
+      "vorbelegung": {
+        "mSW": 41,
+        "mH": 13.5
+      },
+      "roh": {
+        "d_nom": 27,
+        "P": 2,
+        "s_nom": 41,
+        "s_min": 40,
+        "e_min": 45.2,
+        "m_max": 13.5,
+        "m_min": 12.4,
+        "da_min": 27,
+        "da_max": 29.16,
+        "dw_min": 38
+      },
+      "thread": {
+        "id": "M27x2",
+        "diameter": 27,
+        "pitch": 2,
+        "sourceRefs": [
+          "iso8675_2023"
+        ]
+      },
+      "geometryStatus": "dimensioned",
+      "missingGeometryFields": []
+    },
+    "M30x2": {
+      "vorbelegung": {
+        "mSW": 46,
+        "mH": 15
+      },
+      "roh": {
+        "d_nom": 30,
+        "P": 2,
+        "s_nom": 46,
+        "s_min": 45,
+        "e_min": 50.85,
+        "m_max": 15,
+        "m_min": 13.9,
+        "da_min": 30,
+        "da_max": 32.4,
+        "dw_min": 42.75
+      },
+      "thread": {
+        "id": "M30x2",
+        "diameter": 30,
+        "pitch": 2,
+        "sourceRefs": [
+          "iso8675_2023"
+        ]
+      },
+      "geometryStatus": "dimensioned",
+      "missingGeometryFields": []
+    }
+  },
+  "fields": {
+    "M8x1": {
+      "P": {
+        "nominal": 1,
+        "sourceRefs": [
+          "iso8675_2023"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "s_nom": {
+        "nominal": 13,
+        "sourceRefs": [
+          "iso8675_2023"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "s_min": {
+        "min": 12.73,
+        "sourceRefs": [
+          "iso8675_2023"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "e_min": {
+        "min": 14.38,
+        "sourceRefs": [
+          "iso8675_2023"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "m_max": {
+        "max": 4,
+        "sourceRefs": [
+          "iso8675_2023"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "m_min": {
+        "min": 3.7,
+        "sourceRefs": [
+          "iso8675_2023"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "da_min": {
+        "min": 8,
+        "sourceRefs": [
+          "iso8675_2023"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "da_max": {
+        "max": 8.75,
+        "sourceRefs": [
+          "iso8675_2023"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "dw_min": {
+        "min": 11.63,
+        "sourceRefs": [
+          "iso8675_2023"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "d_nom": {
+        "nominal": 8,
+        "sourceRefs": [
+          "iso8675_2023"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      }
+    },
+    "M10x1.25": {
+      "P": {
+        "nominal": 1.25,
+        "sourceRefs": [
+          "iso8675_2023"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "s_nom": {
+        "nominal": 16,
+        "sourceRefs": [
+          "iso8675_2023"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "s_min": {
+        "min": 15.73,
+        "sourceRefs": [
+          "iso8675_2023"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "e_min": {
+        "min": 17.77,
+        "sourceRefs": [
+          "iso8675_2023"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "m_max": {
+        "max": 5,
+        "sourceRefs": [
+          "iso8675_2023"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "m_min": {
+        "min": 4.7,
+        "sourceRefs": [
+          "iso8675_2023"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "da_min": {
+        "min": 10,
+        "sourceRefs": [
+          "iso8675_2023"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "da_max": {
+        "max": 10.8,
+        "sourceRefs": [
+          "iso8675_2023"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "dw_min": {
+        "min": 14.63,
+        "sourceRefs": [
+          "iso8675_2023"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "d_nom": {
+        "nominal": 10,
+        "sourceRefs": [
+          "iso8675_2023"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      }
+    },
+    "M10x1": {
+      "P": {
+        "nominal": 1,
+        "sourceRefs": [
+          "iso8675_2023"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "s_nom": {
+        "nominal": 16,
+        "sourceRefs": [
+          "iso8675_2023"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "s_min": {
+        "min": 15.73,
+        "sourceRefs": [
+          "iso8675_2023"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "e_min": {
+        "min": 17.77,
+        "sourceRefs": [
+          "iso8675_2023"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "m_max": {
+        "max": 5,
+        "sourceRefs": [
+          "iso8675_2023"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "m_min": {
+        "min": 4.7,
+        "sourceRefs": [
+          "iso8675_2023"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "da_min": {
+        "min": 10,
+        "sourceRefs": [
+          "iso8675_2023"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "da_max": {
+        "max": 10.8,
+        "sourceRefs": [
+          "iso8675_2023"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "dw_min": {
+        "min": 14.63,
+        "sourceRefs": [
+          "iso8675_2023"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "d_nom": {
+        "nominal": 10,
+        "sourceRefs": [
+          "iso8675_2023"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      }
+    },
+    "M12x1.5": {
+      "P": {
+        "nominal": 1.5,
+        "sourceRefs": [
+          "iso8675_2023"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "s_nom": {
+        "nominal": 18,
+        "sourceRefs": [
+          "iso8675_2023"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "s_min": {
+        "min": 17.73,
+        "sourceRefs": [
+          "iso8675_2023"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "e_min": {
+        "min": 20.03,
+        "sourceRefs": [
+          "iso8675_2023"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "m_max": {
+        "max": 6,
+        "sourceRefs": [
+          "iso8675_2023"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "m_min": {
+        "min": 5.7,
+        "sourceRefs": [
+          "iso8675_2023"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "da_min": {
+        "min": 12,
+        "sourceRefs": [
+          "iso8675_2023"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "da_max": {
+        "max": 12.96,
+        "sourceRefs": [
+          "iso8675_2023"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "dw_min": {
+        "min": 16.63,
+        "sourceRefs": [
+          "iso8675_2023"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "d_nom": {
+        "nominal": 12,
+        "sourceRefs": [
+          "iso8675_2023"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      }
+    },
+    "M12x1.25": {
+      "P": {
+        "nominal": 1.25,
+        "sourceRefs": [
+          "iso8675_2023"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "s_nom": {
+        "nominal": 18,
+        "sourceRefs": [
+          "iso8675_2023"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "s_min": {
+        "min": 17.73,
+        "sourceRefs": [
+          "iso8675_2023"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "e_min": {
+        "min": 20.03,
+        "sourceRefs": [
+          "iso8675_2023"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "m_max": {
+        "max": 6,
+        "sourceRefs": [
+          "iso8675_2023"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "m_min": {
+        "min": 5.7,
+        "sourceRefs": [
+          "iso8675_2023"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "da_min": {
+        "min": 12,
+        "sourceRefs": [
+          "iso8675_2023"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "da_max": {
+        "max": 12.96,
+        "sourceRefs": [
+          "iso8675_2023"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "dw_min": {
+        "min": 16.63,
+        "sourceRefs": [
+          "iso8675_2023"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "d_nom": {
+        "nominal": 12,
+        "sourceRefs": [
+          "iso8675_2023"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      }
+    },
+    "M14x1.5": {
+      "P": {
+        "nominal": 1.5,
+        "sourceRefs": [
+          "iso8675_2023"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "s_nom": {
+        "nominal": 21,
+        "sourceRefs": [
+          "iso8675_2023"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "s_min": {
+        "min": 20.67,
+        "sourceRefs": [
+          "iso8675_2023"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "e_min": {
+        "min": 23.36,
+        "sourceRefs": [
+          "iso8675_2023"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "m_max": {
+        "max": 7,
+        "sourceRefs": [
+          "iso8675_2023"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "m_min": {
+        "min": 6.42,
+        "sourceRefs": [
+          "iso8675_2023"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "da_min": {
+        "min": 14,
+        "sourceRefs": [
+          "iso8675_2023"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "da_max": {
+        "max": 15.12,
+        "sourceRefs": [
+          "iso8675_2023"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "dw_min": {
+        "min": 19.64,
+        "sourceRefs": [
+          "iso8675_2023"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "d_nom": {
+        "nominal": 14,
+        "sourceRefs": [
+          "iso8675_2023"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      }
+    },
+    "M16x1.5": {
+      "P": {
+        "nominal": 1.5,
+        "sourceRefs": [
+          "iso8675_2023"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "s_nom": {
+        "nominal": 24,
+        "sourceRefs": [
+          "iso8675_2023"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "s_min": {
+        "min": 23.67,
+        "sourceRefs": [
+          "iso8675_2023"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "e_min": {
+        "min": 26.75,
+        "sourceRefs": [
+          "iso8675_2023"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "m_max": {
+        "max": 8,
+        "sourceRefs": [
+          "iso8675_2023"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "m_min": {
+        "min": 7.42,
+        "sourceRefs": [
+          "iso8675_2023"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "da_min": {
+        "min": 16,
+        "sourceRefs": [
+          "iso8675_2023"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "da_max": {
+        "max": 17.28,
+        "sourceRefs": [
+          "iso8675_2023"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "dw_min": {
+        "min": 22.49,
+        "sourceRefs": [
+          "iso8675_2023"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "d_nom": {
+        "nominal": 16,
+        "sourceRefs": [
+          "iso8675_2023"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      }
+    },
+    "M18x2": {
+      "P": {
+        "nominal": 2,
+        "sourceRefs": [
+          "iso8675_2023"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "s_nom": {
+        "nominal": 27,
+        "sourceRefs": [
+          "iso8675_2023"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "s_min": {
+        "min": 26.16,
+        "sourceRefs": [
+          "iso8675_2023"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "e_min": {
+        "min": 29.56,
+        "sourceRefs": [
+          "iso8675_2023"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "m_max": {
+        "max": 9,
+        "sourceRefs": [
+          "iso8675_2023"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "m_min": {
+        "min": 8.42,
+        "sourceRefs": [
+          "iso8675_2023"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "da_min": {
+        "min": 18,
+        "sourceRefs": [
+          "iso8675_2023"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "da_max": {
+        "max": 19.44,
+        "sourceRefs": [
+          "iso8675_2023"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "dw_min": {
+        "min": 24.85,
+        "sourceRefs": [
+          "iso8675_2023"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "d_nom": {
+        "nominal": 18,
+        "sourceRefs": [
+          "iso8675_2023"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      }
+    },
+    "M18x1.5": {
+      "P": {
+        "nominal": 1.5,
+        "sourceRefs": [
+          "iso8675_2023"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "s_nom": {
+        "nominal": 27,
+        "sourceRefs": [
+          "iso8675_2023"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "s_min": {
+        "min": 26.16,
+        "sourceRefs": [
+          "iso8675_2023"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "e_min": {
+        "min": 29.56,
+        "sourceRefs": [
+          "iso8675_2023"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "m_max": {
+        "max": 9,
+        "sourceRefs": [
+          "iso8675_2023"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "m_min": {
+        "min": 8.42,
+        "sourceRefs": [
+          "iso8675_2023"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "da_min": {
+        "min": 18,
+        "sourceRefs": [
+          "iso8675_2023"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "da_max": {
+        "max": 19.44,
+        "sourceRefs": [
+          "iso8675_2023"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "dw_min": {
+        "min": 24.85,
+        "sourceRefs": [
+          "iso8675_2023"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "d_nom": {
+        "nominal": 18,
+        "sourceRefs": [
+          "iso8675_2023"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      }
+    },
+    "M20x2": {
+      "P": {
+        "nominal": 2,
+        "sourceRefs": [
+          "iso8675_2023"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "s_nom": {
+        "nominal": 30,
+        "sourceRefs": [
+          "iso8675_2023"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "s_min": {
+        "min": 29.16,
+        "sourceRefs": [
+          "iso8675_2023"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "e_min": {
+        "min": 32.95,
+        "sourceRefs": [
+          "iso8675_2023"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "m_max": {
+        "max": 10,
+        "sourceRefs": [
+          "iso8675_2023"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "m_min": {
+        "min": 9.1,
+        "sourceRefs": [
+          "iso8675_2023"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "da_min": {
+        "min": 20,
+        "sourceRefs": [
+          "iso8675_2023"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "da_max": {
+        "max": 21.6,
+        "sourceRefs": [
+          "iso8675_2023"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "dw_min": {
+        "min": 27.7,
+        "sourceRefs": [
+          "iso8675_2023"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "d_nom": {
+        "nominal": 20,
+        "sourceRefs": [
+          "iso8675_2023"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      }
+    },
+    "M20x1.5": {
+      "P": {
+        "nominal": 1.5,
+        "sourceRefs": [
+          "iso8675_2023"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "s_nom": {
+        "nominal": 30,
+        "sourceRefs": [
+          "iso8675_2023"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "s_min": {
+        "min": 29.16,
+        "sourceRefs": [
+          "iso8675_2023"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "e_min": {
+        "min": 32.95,
+        "sourceRefs": [
+          "iso8675_2023"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "m_max": {
+        "max": 10,
+        "sourceRefs": [
+          "iso8675_2023"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "m_min": {
+        "min": 9.1,
+        "sourceRefs": [
+          "iso8675_2023"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "da_min": {
+        "min": 20,
+        "sourceRefs": [
+          "iso8675_2023"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "da_max": {
+        "max": 21.6,
+        "sourceRefs": [
+          "iso8675_2023"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "dw_min": {
+        "min": 27.7,
+        "sourceRefs": [
+          "iso8675_2023"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "d_nom": {
+        "nominal": 20,
+        "sourceRefs": [
+          "iso8675_2023"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      }
+    },
+    "M22x2": {
+      "P": {
+        "nominal": 2,
+        "sourceRefs": [
+          "iso8675_2023"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "s_nom": {
+        "nominal": 34,
+        "sourceRefs": [
+          "iso8675_2023"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "s_min": {
+        "min": 33,
+        "sourceRefs": [
+          "iso8675_2023"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "e_min": {
+        "min": 37.29,
+        "sourceRefs": [
+          "iso8675_2023"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "m_max": {
+        "max": 11,
+        "sourceRefs": [
+          "iso8675_2023"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "m_min": {
+        "min": 9.9,
+        "sourceRefs": [
+          "iso8675_2023"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "da_min": {
+        "min": 22,
+        "sourceRefs": [
+          "iso8675_2023"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "da_max": {
+        "max": 23.76,
+        "sourceRefs": [
+          "iso8675_2023"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "dw_min": {
+        "min": 31.35,
+        "sourceRefs": [
+          "iso8675_2023"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "d_nom": {
+        "nominal": 22,
+        "sourceRefs": [
+          "iso8675_2023"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      }
+    },
+    "M22x1.5": {
+      "P": {
+        "nominal": 1.5,
+        "sourceRefs": [
+          "iso8675_2023"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "s_nom": {
+        "nominal": 34,
+        "sourceRefs": [
+          "iso8675_2023"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "s_min": {
+        "min": 33,
+        "sourceRefs": [
+          "iso8675_2023"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "e_min": {
+        "min": 37.29,
+        "sourceRefs": [
+          "iso8675_2023"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "m_max": {
+        "max": 11,
+        "sourceRefs": [
+          "iso8675_2023"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "m_min": {
+        "min": 9.9,
+        "sourceRefs": [
+          "iso8675_2023"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "da_min": {
+        "min": 22,
+        "sourceRefs": [
+          "iso8675_2023"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "da_max": {
+        "max": 23.76,
+        "sourceRefs": [
+          "iso8675_2023"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "dw_min": {
+        "min": 31.35,
+        "sourceRefs": [
+          "iso8675_2023"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "d_nom": {
+        "nominal": 22,
+        "sourceRefs": [
+          "iso8675_2023"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      }
+    },
+    "M24x2": {
+      "P": {
+        "nominal": 2,
+        "sourceRefs": [
+          "iso8675_2023"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "s_nom": {
+        "nominal": 36,
+        "sourceRefs": [
+          "iso8675_2023"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "s_min": {
+        "min": 35,
+        "sourceRefs": [
+          "iso8675_2023"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "e_min": {
+        "min": 39.55,
+        "sourceRefs": [
+          "iso8675_2023"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "m_max": {
+        "max": 12,
+        "sourceRefs": [
+          "iso8675_2023"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "m_min": {
+        "min": 10.9,
+        "sourceRefs": [
+          "iso8675_2023"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "da_min": {
+        "min": 24,
+        "sourceRefs": [
+          "iso8675_2023"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "da_max": {
+        "max": 25.92,
+        "sourceRefs": [
+          "iso8675_2023"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "dw_min": {
+        "min": 33.25,
+        "sourceRefs": [
+          "iso8675_2023"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "d_nom": {
+        "nominal": 24,
+        "sourceRefs": [
+          "iso8675_2023"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      }
+    },
+    "M27x2": {
+      "P": {
+        "nominal": 2,
+        "sourceRefs": [
+          "iso8675_2023"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "s_nom": {
+        "nominal": 41,
+        "sourceRefs": [
+          "iso8675_2023"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "s_min": {
+        "min": 40,
+        "sourceRefs": [
+          "iso8675_2023"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "e_min": {
+        "min": 45.2,
+        "sourceRefs": [
+          "iso8675_2023"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "m_max": {
+        "max": 13.5,
+        "sourceRefs": [
+          "iso8675_2023"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "m_min": {
+        "min": 12.4,
+        "sourceRefs": [
+          "iso8675_2023"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "da_min": {
+        "min": 27,
+        "sourceRefs": [
+          "iso8675_2023"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "da_max": {
+        "max": 29.16,
+        "sourceRefs": [
+          "iso8675_2023"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "dw_min": {
+        "min": 38,
+        "sourceRefs": [
+          "iso8675_2023"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "d_nom": {
+        "nominal": 27,
+        "sourceRefs": [
+          "iso8675_2023"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      }
+    },
+    "M30x2": {
+      "P": {
+        "nominal": 2,
+        "sourceRefs": [
+          "iso8675_2023"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "s_nom": {
+        "nominal": 46,
+        "sourceRefs": [
+          "iso8675_2023"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "s_min": {
+        "min": 45,
+        "sourceRefs": [
+          "iso8675_2023"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "e_min": {
+        "min": 50.85,
+        "sourceRefs": [
+          "iso8675_2023"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "m_max": {
+        "max": 15,
+        "sourceRefs": [
+          "iso8675_2023"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "m_min": {
+        "min": 13.9,
+        "sourceRefs": [
+          "iso8675_2023"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "da_min": {
+        "min": 30,
+        "sourceRefs": [
+          "iso8675_2023"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "da_max": {
+        "max": 32.4,
+        "sourceRefs": [
+          "iso8675_2023"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "dw_min": {
+        "min": 42.75,
+        "sourceRefs": [
+          "iso8675_2023"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      },
+      "d_nom": {
+        "nominal": 30,
+        "sourceRefs": [
+          "iso8675_2023"
+        ],
+        "status": "single-source",
+        "verification": "one-primary-record",
+        "unit": "mm",
+        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+      }
+    }
+  },
+  "sourceMeta": {
+    "iso8675_2023": {
+      "url": "https://cdn.standards.iteh.ai/samples/75029/d2fba6b1d3264032b3f79764df6b8d5f/ISO-8675-2023.pdf",
+      "title": "ISO 8675:2023",
+      "locator": "Tables 1–2, printed page 3",
+      "kind": "standard",
+      "edition": "2023",
+      "accessed": "2026-11-26"
+    }
+  },
+  "sourceStatus": "per-value",
+  "coverage": {
+    "diameterMin": 5,
+    "diameterMax": 30,
+    "unit": "mm",
+    "status": "documented-table-range",
+    "missingSizes": [
+      "M5",
+      "M6",
+      "M7"
+    ],
+    "missingReason": "Außerhalb des Gewindebereichs dieser Ausgabe (M8 bis M39)."
+  },
+  "editionStatus": "documented",
+  "threadSeries": "fine",
+  "defaultPolicy": "Dokumentierte Kataloghöhe oder ausgewiesenes Höchstmaß als vorläufige Außenhülle; kein vollständiges Fertigteilmodell."
+}

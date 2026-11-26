@@ -1,0 +1,606 @@
+{
+  "schemaVersion": 1,
+  "version": "2026-11-26",
+  "families": [
+    {
+      "id": "DIN124",
+      "edition": "2011-03",
+      "file": "DIN124.json",
+      "sizes": 12
+    },
+    {
+      "id": "DIN1587",
+      "edition": "catalog-undated",
+      "file": "DIN1587.json",
+      "sizes": 13
+    },
+    {
+      "id": "DIN302",
+      "edition": "2011-03",
+      "file": "DIN302.json",
+      "sizes": 12
+    },
+    {
+      "id": "DIN439",
+      "edition": "catalog-undated",
+      "file": "DIN439.json",
+      "sizes": 33
+    },
+    {
+      "id": "DIN557",
+      "edition": "catalog-undated",
+      "file": "DIN557.json",
+      "sizes": 6
+    },
+    {
+      "id": "DIN562",
+      "edition": "catalog-undated",
+      "file": "DIN562.json",
+      "sizes": 4
+    },
+    {
+      "id": "DIN603",
+      "edition": null,
+      "file": "DIN603.json",
+      "sizes": 0
+    },
+    {
+      "id": "DIN660",
+      "edition": "2012-01",
+      "file": "DIN660.json",
+      "sizes": 13
+    },
+    {
+      "id": "DIN661",
+      "edition": "2011-03",
+      "file": "DIN661.json",
+      "sizes": 13
+    },
+    {
+      "id": "DIN662",
+      "edition": "2011-03",
+      "file": "DIN662.json",
+      "sizes": 8
+    },
+    {
+      "id": "DIN674",
+      "edition": "2011-03",
+      "file": "DIN674.json",
+      "sizes": 9
+    },
+    {
+      "id": "DIN6791",
+      "edition": "2012-05",
+      "file": "DIN6791.json",
+      "sizes": 10
+    },
+    {
+      "id": "DIN6792",
+      "edition": "2012-05",
+      "file": "DIN6792.json",
+      "sizes": 10
+    },
+    {
+      "id": "DIN6921",
+      "edition": null,
+      "file": "DIN6921.json",
+      "sizes": 7
+    },
+    {
+      "id": "DIN6923",
+      "edition": "1983",
+      "file": "DIN6923.json",
+      "sizes": 8
+    },
+    {
+      "id": "DIN6924",
+      "edition": "1987",
+      "file": "DIN6924.json",
+      "sizes": 13
+    },
+    {
+      "id": "DIN6926",
+      "edition": "1983",
+      "file": "DIN6926.json",
+      "sizes": 8
+    },
+    {
+      "id": "DIN6927",
+      "edition": "catalog-undated",
+      "file": "DIN6927.json",
+      "sizes": 15
+    },
+    {
+      "id": "DIN7338",
+      "edition": "2011-03",
+      "file": "DIN7338.json",
+      "sizes": 0
+    },
+    {
+      "id": "DIN7500",
+      "edition": null,
+      "file": "DIN7500.json",
+      "sizes": 0
+    },
+    {
+      "id": "DIN7984",
+      "edition": "2022-03",
+      "file": "DIN7984.json",
+      "sizes": 8
+    },
+    {
+      "id": "DIN835",
+      "edition": null,
+      "file": "DIN835.json",
+      "sizes": 0
+    },
+    {
+      "id": "DIN928",
+      "edition": "catalog-undated",
+      "file": "DIN928.json",
+      "sizes": 5
+    },
+    {
+      "id": "DIN929",
+      "edition": "catalog-undated",
+      "file": "DIN929.json",
+      "sizes": 6
+    },
+    {
+      "id": "DIN931",
+      "edition": null,
+      "file": "DIN931.json",
+      "sizes": 14
+    },
+    {
+      "id": "DIN933",
+      "edition": null,
+      "file": "DIN933.json",
+      "sizes": 16
+    },
+    {
+      "id": "DIN934",
+      "edition": "catalog-undated",
+      "file": "DIN934.json",
+      "sizes": 32
+    },
+    {
+      "id": "DIN936",
+      "edition": "catalog-undated",
+      "file": "DIN936.json",
+      "sizes": 11
+    },
+    {
+      "id": "DIN938",
+      "edition": null,
+      "file": "DIN938.json",
+      "sizes": 0
+    },
+    {
+      "id": "DIN939",
+      "edition": null,
+      "file": "DIN939.json",
+      "sizes": 0
+    },
+    {
+      "id": "DIN940",
+      "edition": null,
+      "file": "DIN940.json",
+      "sizes": 0
+    },
+    {
+      "id": "DIN960",
+      "edition": null,
+      "file": "DIN960.json",
+      "sizes": 0
+    },
+    {
+      "id": "DIN961",
+      "edition": null,
+      "file": "DIN961.json",
+      "sizes": 0
+    },
+    {
+      "id": "DIN980",
+      "edition": "catalog-undated",
+      "file": "DIN980.json",
+      "sizes": 30
+    },
+    {
+      "id": "DIN985",
+      "edition": "catalog-undated",
+      "file": "DIN985.json",
+      "sizes": 14
+    },
+    {
+      "id": "EN1662",
+      "edition": null,
+      "file": "EN1662.json",
+      "sizes": 7
+    },
+    {
+      "id": "EN1665",
+      "edition": null,
+      "file": "EN1665.json",
+      "sizes": 8
+    },
+    {
+      "id": "ISO1051",
+      "edition": "1999",
+      "file": "ISO1051.json",
+      "sizes": 25
+    },
+    {
+      "id": "ISO10511",
+      "edition": "2012",
+      "file": "ISO10511.json",
+      "sizes": 10
+    },
+    {
+      "id": "ISO10512",
+      "edition": "2012",
+      "file": "ISO10512.json",
+      "sizes": 10
+    },
+    {
+      "id": "ISO10513",
+      "edition": "2012",
+      "file": "ISO10513.json",
+      "sizes": 10
+    },
+    {
+      "id": "ISO10642",
+      "edition": "1997",
+      "file": "ISO10642.json",
+      "sizes": 10
+    },
+    {
+      "id": "ISO10663",
+      "edition": "2012",
+      "file": "ISO10663.json",
+      "sizes": 8
+    },
+    {
+      "id": "ISO13918",
+      "edition": "2017+AMD1:2021",
+      "file": "ISO13918.json",
+      "sizes": 0
+    },
+    {
+      "id": "ISO14579",
+      "edition": "2001",
+      "file": "ISO14579.json",
+      "sizes": 13
+    },
+    {
+      "id": "ISO14580",
+      "edition": "2011",
+      "file": "ISO14580.json",
+      "sizes": 7
+    },
+    {
+      "id": "ISO14581",
+      "edition": null,
+      "file": "ISO14581.json",
+      "sizes": 0
+    },
+    {
+      "id": "ISO14583",
+      "edition": null,
+      "file": "ISO14583.json",
+      "sizes": 6
+    },
+    {
+      "id": "ISO14584",
+      "edition": "2001",
+      "file": "ISO14584.json",
+      "sizes": 7
+    },
+    {
+      "id": "ISO15071",
+      "edition": "2011",
+      "file": "ISO15071.json",
+      "sizes": 7
+    },
+    {
+      "id": "ISO15072",
+      "edition": null,
+      "file": "ISO15072.json",
+      "sizes": 0
+    },
+    {
+      "id": "ISO1580",
+      "edition": "2011",
+      "file": "ISO1580.json",
+      "sizes": 7
+    },
+    {
+      "id": "ISO2009",
+      "edition": "2011",
+      "file": "ISO2009.json",
+      "sizes": 7
+    },
+    {
+      "id": "ISO2338",
+      "edition": "1997",
+      "file": "ISO2338.json",
+      "sizes": 19
+    },
+    {
+      "id": "ISO2340",
+      "edition": "1986",
+      "file": "ISO2340.json",
+      "sizes": 15
+    },
+    {
+      "id": "ISO2341",
+      "edition": "1986",
+      "file": "ISO2341.json",
+      "sizes": 18
+    },
+    {
+      "id": "ISO4014",
+      "edition": "2022",
+      "file": "ISO4014.json",
+      "sizes": 15
+    },
+    {
+      "id": "ISO4017",
+      "edition": "2022",
+      "file": "ISO4017.json",
+      "sizes": 17
+    },
+    {
+      "id": "ISO4026",
+      "edition": null,
+      "file": "ISO4026.json",
+      "sizes": 13
+    },
+    {
+      "id": "ISO4027",
+      "edition": null,
+      "file": "ISO4027.json",
+      "sizes": 13
+    },
+    {
+      "id": "ISO4028",
+      "edition": null,
+      "file": "ISO4028.json",
+      "sizes": 7
+    },
+    {
+      "id": "ISO4029",
+      "edition": null,
+      "file": "ISO4029.json",
+      "sizes": 13
+    },
+    {
+      "id": "ISO4032",
+      "edition": "2023",
+      "file": "ISO4032.json",
+      "sizes": 14
+    },
+    {
+      "id": "ISO4033",
+      "edition": "2023",
+      "file": "ISO4033.json",
+      "sizes": 14
+    },
+    {
+      "id": "ISO4035",
+      "edition": "2023",
+      "file": "ISO4035.json",
+      "sizes": 14
+    },
+    {
+      "id": "ISO4161",
+      "edition": "2012",
+      "file": "ISO4161.json",
+      "sizes": 8
+    },
+    {
+      "id": "ISO4162",
+      "edition": "1990",
+      "file": "ISO4162.json",
+      "sizes": 7
+    },
+    {
+      "id": "ISO4762",
+      "edition": "2004",
+      "file": "ISO4762.json",
+      "sizes": 13
+    },
+    {
+      "id": "ISO4766",
+      "edition": null,
+      "file": "ISO4766.json",
+      "sizes": 0
+    },
+    {
+      "id": "ISO7040",
+      "edition": "2012",
+      "file": "ISO7040.json",
+      "sizes": 10
+    },
+    {
+      "id": "ISO7042",
+      "edition": "2012",
+      "file": "ISO7042.json",
+      "sizes": 10
+    },
+    {
+      "id": "ISO7045",
+      "edition": "2011",
+      "file": "ISO7045.json",
+      "sizes": 6
+    },
+    {
+      "id": "ISO7046",
+      "edition": "2011",
+      "file": "ISO7046.json",
+      "sizes": 7
+    },
+    {
+      "id": "ISO7049",
+      "edition": null,
+      "file": "ISO7049.json",
+      "sizes": 0
+    },
+    {
+      "id": "ISO7050",
+      "edition": null,
+      "file": "ISO7050.json",
+      "sizes": 0
+    },
+    {
+      "id": "ISO7051",
+      "edition": null,
+      "file": "ISO7051.json",
+      "sizes": 0
+    },
+    {
+      "id": "ISO7379",
+      "edition": "1983",
+      "file": "ISO7379.json",
+      "sizes": 0
+    },
+    {
+      "id": "ISO7380-1",
+      "edition": "2022",
+      "file": "ISO7380-1.json",
+      "sizes": 8
+    },
+    {
+      "id": "ISO7380-2",
+      "edition": null,
+      "file": "ISO7380-2.json",
+      "sizes": 8
+    },
+    {
+      "id": "ISO7434",
+      "edition": null,
+      "file": "ISO7434.json",
+      "sizes": 0
+    },
+    {
+      "id": "ISO7435",
+      "edition": null,
+      "file": "ISO7435.json",
+      "sizes": 0
+    },
+    {
+      "id": "ISO7436",
+      "edition": null,
+      "file": "ISO7436.json",
+      "sizes": 0
+    },
+    {
+      "id": "ISO7719",
+      "edition": "2012",
+      "file": "ISO7719.json",
+      "sizes": 12
+    },
+    {
+      "id": "ISO7984",
+      "edition": null,
+      "file": "ISO7984.json",
+      "sizes": 0
+    },
+    {
+      "id": "ISO8673",
+      "edition": "2023",
+      "file": "ISO8673.json",
+      "sizes": 16
+    },
+    {
+      "id": "ISO8674",
+      "edition": "2023",
+      "file": "ISO8674.json",
+      "sizes": 16
+    },
+    {
+      "id": "ISO8675",
+      "edition": "2023",
+      "file": "ISO8675.json",
+      "sizes": 16
+    },
+    {
+      "id": "ISO8676",
+      "edition": "2022",
+      "file": "ISO8676.json",
+      "sizes": 12
+    },
+    {
+      "id": "ISO8677",
+      "edition": null,
+      "file": "ISO8677.json",
+      "sizes": 0
+    },
+    {
+      "id": "ISO8734",
+      "edition": "1997",
+      "file": "ISO8734.json",
+      "sizes": 13
+    },
+    {
+      "id": "ISO8735",
+      "edition": "1997",
+      "file": "ISO8735.json",
+      "sizes": 9
+    },
+    {
+      "id": "ISO8740",
+      "edition": "1997",
+      "file": "ISO8740.json",
+      "sizes": 10
+    },
+    {
+      "id": "ISO8741",
+      "edition": "1997",
+      "file": "ISO8741.json",
+      "sizes": 10
+    },
+    {
+      "id": "ISO8742",
+      "edition": "1997",
+      "file": "ISO8742.json",
+      "sizes": 10
+    },
+    {
+      "id": "ISO8743",
+      "edition": "1997",
+      "file": "ISO8743.json",
+      "sizes": 13
+    },
+    {
+      "id": "ISO8744",
+      "edition": "1997",
+      "file": "ISO8744.json",
+      "sizes": 10
+    },
+    {
+      "id": "ISO8745",
+      "edition": "1997",
+      "file": "ISO8745.json",
+      "sizes": 10
+    },
+    {
+      "id": "ISO8746",
+      "edition": "1997",
+      "file": "ISO8746.json",
+      "sizes": 8
+    },
+    {
+      "id": "ISO8747",
+      "edition": "1997",
+      "file": "ISO8747.json",
+      "sizes": 13
+    },
+    {
+      "id": "ISO8765",
+      "edition": null,
+      "file": "ISO8765.json",
+      "sizes": 0
+    }
+  ]
+}

@@ -1,0 +1,687 @@
+{
+  "id": "ISO4162",
+  "version": "2026-11-26",
+  "schemaVersion": 1,
+  "label": "ISO4162 · Sechskant mit Bund",
+  "edition": "1990",
+  "editionStatus": "historical-dimensions",
+  "funktion": "schraube",
+  "klasse": "bolzen",
+  "kopfTyp": "sechskant_bund",
+  "antrieb": {
+    "art": "none"
+  },
+  "feldzuordnung": {
+    "kSW": "s",
+    "kH": "k_max",
+    "kD": "dc_max"
+  },
+  "groessen": {
+    "M5": {
+      "roh": {
+        "s": 7,
+        "k_max": 5.6,
+        "dc_max": 11.4,
+        "e_min": 7.44
+      },
+      "vorbelegung": {
+        "kSW": 7,
+        "kH": 5.6,
+        "kD": 11.4
+      },
+      "coverage": "documented",
+      "nachLaenge": {},
+      "lengthCoverage": "unresearched",
+      "missingGeometryFields": [
+        "flangeHeight"
+      ],
+      "geometryStatus": "partial"
+    },
+    "M6": {
+      "roh": {
+        "s": 8,
+        "k_max": 6.8,
+        "dc_max": 13.6,
+        "e_min": 8.56
+      },
+      "vorbelegung": {
+        "kSW": 8,
+        "kH": 6.8,
+        "kD": 13.6
+      },
+      "coverage": "documented",
+      "nachLaenge": {},
+      "lengthCoverage": "unresearched",
+      "missingGeometryFields": [
+        "flangeHeight"
+      ],
+      "geometryStatus": "partial"
+    },
+    "M8": {
+      "roh": {
+        "s": 10,
+        "k_max": 8.5,
+        "dc_max": 17,
+        "e_min": 10.8
+      },
+      "vorbelegung": {
+        "kSW": 10,
+        "kH": 8.5,
+        "kD": 17
+      },
+      "coverage": "documented",
+      "nachLaenge": {},
+      "lengthCoverage": "unresearched",
+      "missingGeometryFields": [
+        "flangeHeight"
+      ],
+      "geometryStatus": "partial"
+    },
+    "M10": {
+      "roh": {
+        "s": 13,
+        "k_max": 9.7,
+        "dc_max": 20.8,
+        "e_min": 14.08
+      },
+      "vorbelegung": {
+        "kSW": 13,
+        "kH": 9.7,
+        "kD": 20.8
+      },
+      "coverage": "documented",
+      "nachLaenge": {},
+      "lengthCoverage": "unresearched",
+      "missingGeometryFields": [
+        "flangeHeight"
+      ],
+      "geometryStatus": "partial"
+    },
+    "M12": {
+      "roh": {
+        "s": 15,
+        "k_max": 11.9,
+        "dc_max": 24.7,
+        "e_min": 16.32
+      },
+      "vorbelegung": {
+        "kSW": 15,
+        "kH": 11.9,
+        "kD": 24.7
+      },
+      "coverage": "documented",
+      "nachLaenge": {},
+      "lengthCoverage": "unresearched",
+      "missingGeometryFields": [
+        "flangeHeight"
+      ],
+      "geometryStatus": "partial"
+    },
+    "M14": {
+      "roh": {
+        "s": 18,
+        "k_max": 12.9,
+        "dc_max": 28.6,
+        "e_min": 19.68
+      },
+      "vorbelegung": {
+        "kSW": 18,
+        "kH": 12.9,
+        "kD": 28.6
+      },
+      "coverage": "documented",
+      "nachLaenge": {},
+      "lengthCoverage": "unresearched",
+      "missingGeometryFields": [
+        "flangeHeight"
+      ],
+      "geometryStatus": "partial"
+    },
+    "M16": {
+      "roh": {
+        "s": 21,
+        "k_max": 15.1,
+        "dc_max": 32.8,
+        "e_min": 22.58
+      },
+      "vorbelegung": {
+        "kSW": 21,
+        "kH": 15.1,
+        "kD": 32.8
+      },
+      "coverage": "documented",
+      "nachLaenge": {},
+      "lengthCoverage": "unresearched",
+      "missingGeometryFields": [
+        "flangeHeight"
+      ],
+      "geometryStatus": "partial"
+    }
+  },
+  "fields": {
+    "M5": {
+      "s": {
+        "nominal": 7,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "fastenit1662"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Getrennte Maßreihe aus bereitgestellter Recherche; Bundhöhe und zweiter Primärbeleg noch offen."
+      },
+      "k_max": {
+        "nominal": 5.6,
+        "min": null,
+        "max": 5.6,
+        "unit": "mm",
+        "sourceRefs": [
+          "fastenit1662"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Getrennte Maßreihe aus bereitgestellter Recherche; Bundhöhe und zweiter Primärbeleg noch offen."
+      },
+      "dc_max": {
+        "nominal": 11.4,
+        "min": null,
+        "max": 11.4,
+        "unit": "mm",
+        "sourceRefs": [
+          "fastenit1662"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Getrennte Maßreihe aus bereitgestellter Recherche; Bundhöhe und zweiter Primärbeleg noch offen."
+      },
+      "e_min": {
+        "nominal": 7.44,
+        "min": 7.44,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "fastenit1662"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Getrennte Maßreihe aus bereitgestellter Recherche; Bundhöhe und zweiter Primärbeleg noch offen."
+      },
+      "flangeHeight": {
+        "nominal": null,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "note": "Für diese Geometrie noch nicht belegt; nicht aus ähnlicher Norm ergänzen."
+      }
+    },
+    "M6": {
+      "s": {
+        "nominal": 8,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "fastenit1662"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Getrennte Maßreihe aus bereitgestellter Recherche; Bundhöhe und zweiter Primärbeleg noch offen."
+      },
+      "k_max": {
+        "nominal": 6.8,
+        "min": null,
+        "max": 6.8,
+        "unit": "mm",
+        "sourceRefs": [
+          "fastenit1662"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Getrennte Maßreihe aus bereitgestellter Recherche; Bundhöhe und zweiter Primärbeleg noch offen."
+      },
+      "dc_max": {
+        "nominal": 13.6,
+        "min": null,
+        "max": 13.6,
+        "unit": "mm",
+        "sourceRefs": [
+          "fastenit1662"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Getrennte Maßreihe aus bereitgestellter Recherche; Bundhöhe und zweiter Primärbeleg noch offen."
+      },
+      "e_min": {
+        "nominal": 8.56,
+        "min": 8.56,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "fastenit1662"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Getrennte Maßreihe aus bereitgestellter Recherche; Bundhöhe und zweiter Primärbeleg noch offen."
+      },
+      "flangeHeight": {
+        "nominal": null,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "note": "Für diese Geometrie noch nicht belegt; nicht aus ähnlicher Norm ergänzen."
+      }
+    },
+    "M8": {
+      "s": {
+        "nominal": 10,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "fastenit1662"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Getrennte Maßreihe aus bereitgestellter Recherche; Bundhöhe und zweiter Primärbeleg noch offen."
+      },
+      "k_max": {
+        "nominal": 8.5,
+        "min": null,
+        "max": 8.5,
+        "unit": "mm",
+        "sourceRefs": [
+          "fastenit1662"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Getrennte Maßreihe aus bereitgestellter Recherche; Bundhöhe und zweiter Primärbeleg noch offen."
+      },
+      "dc_max": {
+        "nominal": 17,
+        "min": null,
+        "max": 17,
+        "unit": "mm",
+        "sourceRefs": [
+          "fastenit1662"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Getrennte Maßreihe aus bereitgestellter Recherche; Bundhöhe und zweiter Primärbeleg noch offen."
+      },
+      "e_min": {
+        "nominal": 10.8,
+        "min": 10.8,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "fastenit1662"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Getrennte Maßreihe aus bereitgestellter Recherche; Bundhöhe und zweiter Primärbeleg noch offen."
+      },
+      "flangeHeight": {
+        "nominal": null,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "note": "Für diese Geometrie noch nicht belegt; nicht aus ähnlicher Norm ergänzen."
+      }
+    },
+    "M10": {
+      "s": {
+        "nominal": 13,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "fastenit1662"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Getrennte Maßreihe aus bereitgestellter Recherche; Bundhöhe und zweiter Primärbeleg noch offen."
+      },
+      "k_max": {
+        "nominal": 9.7,
+        "min": null,
+        "max": 9.7,
+        "unit": "mm",
+        "sourceRefs": [
+          "fastenit1662"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Getrennte Maßreihe aus bereitgestellter Recherche; Bundhöhe und zweiter Primärbeleg noch offen."
+      },
+      "dc_max": {
+        "nominal": 20.8,
+        "min": null,
+        "max": 20.8,
+        "unit": "mm",
+        "sourceRefs": [
+          "fastenit1662"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Getrennte Maßreihe aus bereitgestellter Recherche; Bundhöhe und zweiter Primärbeleg noch offen."
+      },
+      "e_min": {
+        "nominal": 14.08,
+        "min": 14.08,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "fastenit1662"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Getrennte Maßreihe aus bereitgestellter Recherche; Bundhöhe und zweiter Primärbeleg noch offen."
+      },
+      "flangeHeight": {
+        "nominal": null,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "note": "Für diese Geometrie noch nicht belegt; nicht aus ähnlicher Norm ergänzen."
+      }
+    },
+    "M12": {
+      "s": {
+        "nominal": 15,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "fastenit1662"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Getrennte Maßreihe aus bereitgestellter Recherche; Bundhöhe und zweiter Primärbeleg noch offen."
+      },
+      "k_max": {
+        "nominal": 11.9,
+        "min": null,
+        "max": 11.9,
+        "unit": "mm",
+        "sourceRefs": [
+          "fastenit1662"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Getrennte Maßreihe aus bereitgestellter Recherche; Bundhöhe und zweiter Primärbeleg noch offen."
+      },
+      "dc_max": {
+        "nominal": 24.7,
+        "min": null,
+        "max": 24.7,
+        "unit": "mm",
+        "sourceRefs": [
+          "fastenit1662"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Getrennte Maßreihe aus bereitgestellter Recherche; Bundhöhe und zweiter Primärbeleg noch offen."
+      },
+      "e_min": {
+        "nominal": 16.32,
+        "min": 16.32,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "fastenit1662"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Getrennte Maßreihe aus bereitgestellter Recherche; Bundhöhe und zweiter Primärbeleg noch offen."
+      },
+      "flangeHeight": {
+        "nominal": null,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "note": "Für diese Geometrie noch nicht belegt; nicht aus ähnlicher Norm ergänzen."
+      }
+    },
+    "M14": {
+      "s": {
+        "nominal": 18,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "fastenit1662"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Getrennte Maßreihe aus bereitgestellter Recherche; Bundhöhe und zweiter Primärbeleg noch offen."
+      },
+      "k_max": {
+        "nominal": 12.9,
+        "min": null,
+        "max": 12.9,
+        "unit": "mm",
+        "sourceRefs": [
+          "fastenit1662"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Getrennte Maßreihe aus bereitgestellter Recherche; Bundhöhe und zweiter Primärbeleg noch offen."
+      },
+      "dc_max": {
+        "nominal": 28.6,
+        "min": null,
+        "max": 28.6,
+        "unit": "mm",
+        "sourceRefs": [
+          "fastenit1662"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Getrennte Maßreihe aus bereitgestellter Recherche; Bundhöhe und zweiter Primärbeleg noch offen."
+      },
+      "e_min": {
+        "nominal": 19.68,
+        "min": 19.68,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "fastenit1662"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Getrennte Maßreihe aus bereitgestellter Recherche; Bundhöhe und zweiter Primärbeleg noch offen."
+      },
+      "flangeHeight": {
+        "nominal": null,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "note": "Für diese Geometrie noch nicht belegt; nicht aus ähnlicher Norm ergänzen."
+      }
+    },
+    "M16": {
+      "s": {
+        "nominal": 21,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "fastenit1662"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Getrennte Maßreihe aus bereitgestellter Recherche; Bundhöhe und zweiter Primärbeleg noch offen."
+      },
+      "k_max": {
+        "nominal": 15.1,
+        "min": null,
+        "max": 15.1,
+        "unit": "mm",
+        "sourceRefs": [
+          "fastenit1662"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Getrennte Maßreihe aus bereitgestellter Recherche; Bundhöhe und zweiter Primärbeleg noch offen."
+      },
+      "dc_max": {
+        "nominal": 32.8,
+        "min": null,
+        "max": 32.8,
+        "unit": "mm",
+        "sourceRefs": [
+          "fastenit1662"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Getrennte Maßreihe aus bereitgestellter Recherche; Bundhöhe und zweiter Primärbeleg noch offen."
+      },
+      "e_min": {
+        "nominal": 22.58,
+        "min": 22.58,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "fastenit1662"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Getrennte Maßreihe aus bereitgestellter Recherche; Bundhöhe und zweiter Primärbeleg noch offen."
+      },
+      "flangeHeight": {
+        "nominal": null,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "note": "Für diese Geometrie noch nicht belegt; nicht aus ähnlicher Norm ergänzen."
+      }
+    }
+  },
+  "sourceMeta": {
+    "fastenit1662": {
+      "id": "fastenit1662",
+      "url": "https://fasten.it/de/norms/norm/din_en_1662",
+      "titel": "fasten.it - DIN EN 1662 / ISO 4162 1990 small series (nur über WebFetch-Zusammenfassung gelesen)",
+      "abgerufen": "2026-11-25"
+    }
+  },
+  "quellen": [
+    {
+      "id": "fastenit1662",
+      "url": "https://fasten.it/de/norms/norm/din_en_1662",
+      "titel": "fasten.it - DIN EN 1662 / ISO 4162 1990 small series (nur über WebFetch-Zusammenfassung gelesen)",
+      "abgerufen": "2026-11-25"
+    }
+  ],
+  "abweichungen": [],
+  "status": "partial",
+  "coverage": "documented",
+  "lengthCoverage": "unresearched",
+  "hinweise": [],
+  "normstatus": {
+    "status": "unresolved",
+    "note": "Ausgabe und Vollständigkeit nicht aus einer ähnlichen Norm ableiten."
+  },
+  "requiredGeometryFields": [
+    "kSW",
+    "kH",
+    "kD",
+    "flangeHeight"
+  ],
+  "sizeCoverage": {
+    "M3": {
+      "status": "unresearched",
+      "note": "Keine Größenzeile vorhanden; daraus folgt kein Normverbot."
+    },
+    "M3.5": {
+      "status": "unresearched",
+      "note": "Keine Größenzeile vorhanden; daraus folgt kein Normverbot."
+    },
+    "M4": {
+      "status": "unresearched",
+      "note": "Keine Größenzeile vorhanden; daraus folgt kein Normverbot."
+    },
+    "M5": {
+      "status": "documented"
+    },
+    "M6": {
+      "status": "documented"
+    },
+    "M7": {
+      "status": "unresearched",
+      "note": "Keine Größenzeile vorhanden; daraus folgt kein Normverbot."
+    },
+    "M8": {
+      "status": "documented"
+    },
+    "M10": {
+      "status": "documented"
+    },
+    "M12": {
+      "status": "documented"
+    },
+    "M14": {
+      "status": "documented"
+    },
+    "M16": {
+      "status": "documented"
+    },
+    "M18": {
+      "status": "unresearched",
+      "note": "Keine Größenzeile vorhanden; daraus folgt kein Normverbot."
+    },
+    "M20": {
+      "status": "unresearched",
+      "note": "Keine Größenzeile vorhanden; daraus folgt kein Normverbot."
+    },
+    "M22": {
+      "status": "unresearched",
+      "note": "Keine Größenzeile vorhanden; daraus folgt kein Normverbot."
+    },
+    "M24": {
+      "status": "unresearched",
+      "note": "Keine Größenzeile vorhanden; daraus folgt kein Normverbot."
+    },
+    "M27": {
+      "status": "unresearched",
+      "note": "Keine Größenzeile vorhanden; daraus folgt kein Normverbot."
+    },
+    "M30": {
+      "status": "unresearched",
+      "note": "Keine Größenzeile vorhanden; daraus folgt kein Normverbot."
+    },
+    "M33": {
+      "status": "unresearched",
+      "note": "Keine Größenzeile vorhanden; daraus folgt kein Normverbot."
+    }
+  },
+  "pruefdatum": "2026-11-26",
+  "klassen": {
+    "status": "unresearched",
+    "values": [],
+    "note": "Festigkeits-/Werkstoffklassen noch nicht vollständig aus dieser Norm belegt."
+  }
+}
