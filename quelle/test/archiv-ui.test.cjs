@@ -49,8 +49,9 @@ function setup(language,engine=E,showPrices,apiOptions,staged=false,integrated=f
  if(integrated){const reset=f.reset;f.reset=()=>{reset();for(const node of created)if(node.tagName==='SELECT')node.value=node.options[0]?.value||'';f.elements.typ.value='bolzen';};}
  f.querySelector=selector=>({set checked(value){if(value)f.elements.typ.value=selector.match(/value=([^\]]+)/)[1]}});
  get('daten').textContent=JSON.stringify(machines);get('praxis').textContent=JSON.stringify(praxis);
- const examples=['m8','m6','mu'].map(name=>{const el=new El();el.dataset.bsp=name;return el});
- const locale={language,t:s=>I.t(s,locale.language),apply(){}};
+ const examples=['m8','m6','mu'].map(name=>{const el=new El();el.dataset.bsp=name;el.disabled=true;return el});
+ const disabledDuringInit=[];
+ const locale={language,t:s=>I.t(s,locale.language),apply(){disabledDuringInit.push(examples.every(button=>button.disabled));}};
  const events={};const window={JYK:engine,JYI18N:I,JYLocale:locale,matchMedia:()=>({matches:false}),addEventListener:(name,fn)=>events[name]=fn,print(){this.printCount=(this.printCount||0)+1}};
  if(showPrices!==undefined)window.JY_SHOW_PRICES=showPrices;
  if(staged){window.JY_CONFIGURATOR_VERSION='kvp-v1';window.JYWireDefaults=require('../vorbelegung/draht.js');}
@@ -73,9 +74,21 @@ function setup(language,engine=E,showPrices,apiOptions,staged=false,integrated=f
  let geometryWizard;const createWizard=window.JYGeometryWizard.create;window.JYGeometryWizard.create=options=>(geometryWizard=createWizard(options));
  if(apiOptions)vm.runInNewContext(fs.readFileSync(path.join(__dirname,'..','drawing-preview.js'),'utf8'),context);
  vm.runInNewContext(source,context);
- return {get,f,a,examples,events,context,networkRequests,answers,timers,geometryWizard};
+ return {get,f,a,examples,events,context,networkRequests,answers,timers,geometryWizard,disabledDuringInit:[...disabledDuringInit]};
 }
 async function sendMail(p){if(!p.a.elements.email.value)p.a.elements.email.value='customer@example.invalid';p.a.elements.ok.checked=true;await p.get('senden').events.click();}
+test('example buttons stay disabled until final UI initialization has completed',()=>{
+ const html=fs.readFileSync(path.join(__dirname,'..','archiv-vorlage.html'),'utf8');
+ const buttons=[...html.matchAll(/<button\b[^>]*\bdata-bsp="[^"]+"[^>]*>/g)];
+ assert.equal(buttons.length,5);
+ for(const [tag]of buttons)assert.match(tag,/\sdisabled(?:\s|>)/);
+ for(const staged of [false,true]){
+  const p=setup('de',E,true,{},staged,staged);
+  assert.ok(p.disabledDuringInit.length>0);
+  assert.ok(p.disabledDuringInit.every(Boolean),'initial rendering and translation must finish before enabling examples');
+  for(const button of p.examples){assert.equal(button.disabled,false);assert.equal(typeof button.events.click,'function');}
+ }
+});
 test('the first example click with norm picker, previews and KVP starts from a fresh shared UI',()=>{
  for(const language of I.supported)for(const [example,id,size]of [['m6','ISO4762','M6'],['m8','ISO4017','M8'],['mu','ISO4032','M10']]){
   let input;const p=setup(language,{...E,auslegen(e){input=e;return E.auslegen(e);}},true,{},true,true);

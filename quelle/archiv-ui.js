@@ -695,4 +695,5 @@
   for(const mode of ['drawing','geometry']){$('parts-'+mode+'-tab').addEventListener('click',()=>selectPartsMode(mode));$('parts-'+mode+'-tab').addEventListener('keydown',event=>{if(['ArrowLeft','ArrowRight','Home','End'].includes(event.key)){event.preventDefault();selectPartsMode(event.key==='Home'?'drawing':event.key==='End'?'geometry':mode==='drawing'?'geometry':'drawing',true);}});}
   window.addEventListener('jy-languagechange',()=>{Array.from(sel.options).forEach(option=>{const variant=variantByValue.get(option.value);if(variant)option.textContent=optionLabel(variant);});if(staged)drawingMaterialOptions();standardKind=null;geometryWizard?.rerender();sichtbar();rechnen();L.apply();});
   sichtbar(); rechnen(); L.apply();
+  document.querySelectorAll('[data-bsp]').forEach(button=>{button.disabled=false;});
 })();
