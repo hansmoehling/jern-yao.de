@@ -247,7 +247,7 @@ test('all new visible material messages have the four required translations',()=
  for(const[key,values]of Object.entries(translations)){assert.ok(key);assert.equal(values.length,4);for(const value of values)assert.ok(typeof value==='string'&&value.trim());}
 });
 
-test('only gated drawing analysis receives the larger output budget and compact final-answer instruction',async t=>{
+test('drawing gate retains its larger output budget while ungated direct calls retain the legacy budget',async t=>{
  let round=0,expected=16000,signal;
  mock(t,async(url,request)=>{
   const body=JSON.parse(request.body);assert.equal(body.max_tokens,expected);
@@ -290,12 +290,16 @@ test('a technical interruption of gated drawing analysis gives a retry message i
  }
 });
 
-test('main-site and already stored legacy previews keep the original budget and failure text',async t=>{
- mock(t,async(url,request)=>{assert.equal(JSON.parse(request.body).max_tokens,6000);return Response.json({stop_reason:'max_tokens',content:[final()]});});
+test('main-site previews retain their original budget while saved testfield previews receive the completion fix',async t=>{
+ let budgets=[];
+ mock(t,async(url,request)=>{budgets.push(JSON.parse(request.body).max_tokens);return Response.json({stop_reason:'max_tokens',content:[final()]});});
  for(const origin of ['https://jernyao.de','https://www.jernyao.de','https://jern-yao.de']){
+  budgets=[];
   const env=environment(),receipt=await post(env,{origin,featureVersion:DRAWING_DEFAULTS_VERSION});
   if(origin==='https://jern-yao.de'){const record=stored(env,'anfrage:'+receipt.id);delete record.featureVersion;await env.SPEICHER.put('anfrage:'+receipt.id,JSON.stringify(record));}
   await worker.queue({messages:[{...queueMessage(receipt.id),attempts:2}]},env);
+  assert.deepEqual(budgets,[origin==='https://jern-yao.de'?16000:6000]);
+  assert.equal(stored(env,'diagnose:last:queue').code,'model_output_limit');
   assert.match(stored(env,'analyse:'+receipt.id).result.answer,/lesbare PDF-/);
  }
 });

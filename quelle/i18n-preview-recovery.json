@@ -1,0 +1,26 @@
+{
+  "Bitte eine positive Zahl innerhalb des zulässigen Bereichs eingeben.": [
+    "Inserire un numero positivo entro l’intervallo consentito.",
+    "Vnesite pozitivno število v dovoljenem območju.",
+    "Enter a positive number within the permitted range.",
+    "请输入允许范围内的正数。"
+  ],
+  "Die KI-Antwort wurde zu umfangreich und konnte nicht vollständig abgeschlossen werden.": [
+    "La risposta dell’IA è diventata troppo lunga e non è stato possibile completarla.",
+    "Odgovor umetne inteligence je postal predolg in ga ni bilo mogoče dokončati.",
+    "The AI response became too long and could not be completed.",
+    "AI 答复过长，未能完整生成。"
+  ],
+  "Die KI-Auswertung hat das Zeitlimit erreicht.": [
+    "L’analisi IA ha raggiunto il limite di tempo.",
+    "Analiza z umetno inteligenco je dosegla časovno omejitev.",
+    "The AI analysis reached its time limit.",
+    "AI 分析已达到时间上限。"
+  ],
+  "Die Auswertung wird automatisch erneut versucht.": [
+    "L’analisi verrà ritentata automaticamente.",
+    "Analiza se bo samodejno poskusila znova.",
+    "The analysis will be retried automatically.",
+    "系统将自动重试分析。"
+  ]
+}

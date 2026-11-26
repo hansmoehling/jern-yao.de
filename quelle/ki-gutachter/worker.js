@@ -71,10 +71,15 @@ async function authorised(env, id, token) {
   if (!intake || Date.parse(intake.createdAt) + TTL * 1000 < Date.now()) throw new HttpError(404, 'Diese Anfrage ist nicht mehr abrufbar.');
   return intake;
 }
-async function snapshot(env, id, pricePolicy,kind) {
+const PUBLIC_FAILURE_CODES=new Set(['model_output_limit','model_timeout','service_timeout','model_transport','service_transport','rate_limit','provider_overloaded','insufficient_credit','authentication_failed','model_unavailable','document_invalid']);
+function processingInfo(a){
+  const last=a?.diagnostics?.at(-1),code=last?.classification||last?.code;
+  return {attempt:a?.attempt||0,startedAt:a?.startedAt||null,updatedAt:a?.updatedAt||null,failureCode:last?(PUBLIC_FAILURE_CODES.has(code)?code:'service_failure'):null,retrying:!!last&&['queued','processing'].includes(a?.status)};
+}
+async function snapshot(env, id, pricePolicy,kind,testfield=false) {
   const [a, n] = await Promise.all([get(env, 'analyse:' + id), get(env, 'nachricht:' + id)]);
   if(kind==='enquiry')return {status:'received',kind,analysisStatus:'not_requested',...publicResult(null,{pricePolicy}),notificationStatus:n?.status||'pending'};
-  return { status: a?.status || 'queued', ...publicResult(a?.result,{pricePolicy}), notificationStatus: n?.status || 'pending' };
+  return { status: a?.status || 'queued', ...publicResult(a?.result,{pricePolicy}), notificationStatus: n?.status || 'pending',...(testfield?{processingInfo:processingInfo(a)}:{}) };
 }
 function signatureOK(bytes, ext) {
   const b = Array.from(bytes.slice(0, 16)), ascii = new TextDecoder().decode(bytes.slice(0, 16));
@@ -122,7 +127,7 @@ async function preview(req,env,cors,locale) {
     const saved=await get(env,'anfrage:'+old.id);
     if(saved?.kind!=='preview')throw new HttpError(503,'Die Vorschau konnte gerade nicht geladen werden. Bitte versuchen Sie es erneut.');
     if(!await get(env,'vorschauauftrag:'+old.id))await enqueuePreview(env,old.id);
-    const state=await snapshot(env,old.id,requestPricePolicy(req,pricePolicy,saved));
+    const state=await snapshot(env,old.id,requestPricePolicy(req,pricePolicy,saved),saved.kind,packageOneOrigin(saved.siteOrigin));
     if(!state.answer)state.language=language;
     return json({id:old.id,token:await tokenFor(env,old.id),...state,kind:'preview',notificationStatus:'not_requested'},200,cors);
   }
@@ -155,7 +160,7 @@ async function geometryPreview(req,env,cors,locale) {
     const saved=await get(env,'anfrage:'+old.id);
     if(saved?.kind!=='preview'||saved.previewSource!=='structured_geometry')throw new HttpError(503,'Die Vorschau konnte gerade nicht geladen werden. Bitte versuchen Sie es erneut.');
     if(!await get(env,'vorschauauftrag:'+old.id))await enqueuePreview(env,old.id);
-    const state=await snapshot(env,old.id,requestPricePolicy(req,pricePolicy,saved));if(!state.answer)state.language=language;
+    const state=await snapshot(env,old.id,requestPricePolicy(req,pricePolicy,saved),saved.kind,packageOneOrigin(saved.siteOrigin));if(!state.answer)state.language=language;
     return json({id:old.id,token:await tokenFor(env,old.id),...state,kind:'preview',previewSource:'structured_geometry',notificationStatus:'not_requested'},200,cors);
   }
   // Geometry and file previews share the same cost budget. A second route must
@@ -275,22 +280,24 @@ async function queued(message, env) {
     else {
       const old = await get(env, key);
       if (['ready', 'needs_info'].includes(old?.status)||isPreview&&old?.status==='failed') { message.ack(); return; }
-      await put(env, key, { status: 'processing', updatedAt: new Date().toISOString() });
+      const startedAt=new Date().toISOString(),protocol=packageOneOrigin(record.siteOrigin)?{attempt:message.attempts||1,startedAt,diagnostics:old?.diagnostics||[]}:{};
+      await put(env, key, { status: 'processing', updatedAt: startedAt,...protocol });
       const file = record.file?.readable ? await readFile(env, record.file) : null;
       const result = await analyse({ note: record.note, file, filename: record.file?.name, unreadableFile: !!record.file && !record.file.readable, geometrySpec:record.geometrySpec,geometryProcess:record.geometryProcess, language: normalizeLanguage(record.language),pricePolicy:storedPricePolicy(record),...storedFeatures(record),...(packageOneOrigin(record.siteOrigin)?{packageSix:true}:{}) }, env, { timeoutMs: 240000, maxRounds: 7 });
       const latest = await get(env, key);
-      if (!['ready', 'needs_info'].includes(latest?.status)) await put(env, key, { status: result.questions.length ? 'needs_info' : 'ready', result, updatedAt: new Date().toISOString() });
+      if (!['ready', 'needs_info'].includes(latest?.status)) await put(env, key, { status: result.questions.length ? 'needs_info' : 'ready', result, updatedAt: new Date().toISOString(),...protocol });
     }
     message.ack();
   } catch (error) {
-    await recordServiceDiagnostic(env, error, 'queue');
+    const diagnostic=await recordServiceDiagnostic(env, error, 'queue');
     const final = (message.attempts || 1) >= (isPreview?2:4);
     const latest = await get(env, key);
     if (isAnalysis && ['ready', 'needs_info'].includes(latest?.status) || kind === 'intake_mail' && latest?.status === 'sent') { message.ack(); return; }
     const language = normalizeLanguage(record?.language);
     const technicalDrawingFailure=isPreview&&storedFeatures(record).featureVersion===DRAWING_DEFAULTS_VERSION&&error?.diagnostic?.classification!=='document_invalid';
     const failureAnswer=technicalDrawingFailure?materialText('Die KI-Auswertung wurde technisch unterbrochen. Ihre Eingaben bleiben gespeichert. Bitte starten Sie die Auswertung erneut.',language):t(record?.previewSource==='structured_geometry'?'Die strukturierte Geometrie konnte nicht vollständig ausgearbeitet werden. Ihre Eingaben bleiben gespeichert.':isPreview?'Die Zeichnung konnte nicht vollständig ausgewertet werden. Bitte prüfen Sie die Datei oder ergänzen Sie eine lesbare PDF-/Bildansicht.':'Die automatische Ausarbeitung konnte nicht abgeschlossen werden. Ihre Anfrage ist gespeichert.',language);
-    await put(env, key, { status: final ? 'failed' : isAnalysis ? 'queued' : 'pending', updatedAt: new Date().toISOString(), ...(isAnalysis && final ? { result: { answer: failureAnswer, questions: [], proposal: null, sources: [], language } } : {}) });
+    const protocol=isAnalysis&&packageOneOrigin(record?.siteOrigin)?{attempt:message.attempts||1,startedAt:latest?.startedAt||null,diagnostics:[...(latest?.diagnostics||[]),...(diagnostic?[{...diagnostic,attempt:message.attempts||1}]:[])].slice(-4)}:{};
+    await put(env, key, { status: final ? 'failed' : isAnalysis ? 'queued' : 'pending', updatedAt: new Date().toISOString(),...protocol, ...(isAnalysis && final ? { result: { answer: failureAnswer, questions: [], proposal: null, sources: [], language } } : {}) });
     if(isPreview&&final){message.ack();return;}
     message.retry({ delaySeconds: 60 }); // Exhausted jobs reach the configured dead-letter queue.
   }
@@ -366,7 +373,7 @@ export default {
       if (url.pathname === '/rueckmeldung' && req.method === 'POST') return await kvpRequest(req,env,cors,locale,'feedback');
       if (url.pathname === '/erfahrung' && req.method === 'POST') return await kvpRequest(req,env,cors,locale,'experience');
       if (url.pathname === '/rangfolge' && req.method === 'POST') return await rankingRequest(req,env,cors,locale);
-      if (url.pathname === '/status' && req.method === 'GET') { const a = await authorised(env, url.searchParams.get('id'), url.searchParams.get('token')); const state = await snapshot(env, a.id,requestPricePolicy(req,url.searchParams.get('pricePolicy'),a),a.kind); if (!state.answer) state.language = normalizeLanguage(a.language); return json({...state,...(a.kind==='preview'?{kind:'preview',notificationStatus:'not_requested',...(a.previewSource==='structured_geometry'?{previewSource:a.previewSource}:{})}:{})}, 200, cors); }
+      if (url.pathname === '/status' && req.method === 'GET') { const a = await authorised(env, url.searchParams.get('id'), url.searchParams.get('token')); const state = await snapshot(env, a.id,requestPricePolicy(req,url.searchParams.get('pricePolicy'),a),a.kind,packageOneOrigin(a.siteOrigin)); if (!state.answer) state.language = normalizeLanguage(a.language); return json({...state,...(a.kind==='preview'?{kind:'preview',notificationStatus:'not_requested',...(a.previewSource==='structured_geometry'?{previewSource:a.previewSource}:{})}:{})}, 200, cors); }
       return json({ error: t('Nicht gefunden.', locale.value), language: locale.value }, 404, cors);
     } catch (e) { if (!(e instanceof HttpError)) await recordServiceDiagnostic(env, e, url.pathname === '/chat' ? 'chat' : 'request'); return json({ error: t(e instanceof HttpError ? e.message : 'Der Dienst konnte die Anfrage gerade nicht abschließen.', locale.value), language: locale.value }, e.status || 503, cors); }
   },
