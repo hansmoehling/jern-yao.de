@@ -845,7 +845,7 @@
     out.stufen.forEach(s => { if (!forceKnown || !volumeKnown || !Number.isFinite(s.F) || s.F <= 0) s.F = null; s.t = s.F === null ? null : s.F / 1000 / G; });
     // Reduzieren-mit-Vorstauchen: Kraft zum ersten Stauchschlag addieren
     for (let i = 0; i < out.stufen.length; i++) {
-      if (out.stufen[i].mit && out.stufen[i + 1]) { out.stufen[i + 1].F = out.stufen[i + 1].F === null || out.stufen[i].F === null ? null : out.stufen[i + 1].F + out.stufen[i].F; out.stufen[i + 1].t = out.stufen[i + 1].F === null ? null : out.stufen[i + 1].F / 1000 / G; out.stufen[i + 1].v = out.stufen[i].v.replace(', mit Vorstauchen', '') + ' und ' + out.stufen[i + 1].v; out.stufen[i + 1].operations = [...out.stufen[i].operations, ...out.stufen[i + 1].operations]; out.stufen.splice(i, 1); i--; }
+      if (out.stufen[i].mit && out.stufen[i + 1]) { out.stufen[i + 1].F = out.stufen[i + 1].F === null || out.stufen[i].F === null ? null : out.stufen[i + 1].F + out.stufen[i].F; out.stufen[i + 1].t = out.stufen[i + 1].F === null ? null : out.stufen[i + 1].F / 1000 / G; out.stufen[i + 1].operationParts = [out.stufen[i].v.replace(', mit Vorstauchen', ''), ...(out.stufen[i + 1].operationParts || [out.stufen[i + 1].v])]; out.stufen[i + 1].v = out.stufen[i + 1].operationParts.join(' und '); out.stufen[i + 1].operations = [...out.stufen[i].operations, ...out.stufen[i + 1].operations]; out.stufen.splice(i, 1); i--; }
     }
     const allForcesKnown = out.stufen.every(s => Number.isFinite(s.F) && s.F > 0);
     const Fmax = allForcesKnown ? Math.max(...out.stufen.map(s => s.F)) : null;
@@ -1126,6 +1126,7 @@
     if (e.machinePolicy!=='ranking-v1'&&!family.includes(o.f)) rejected.push('Maschinenfamilie');
     if (rejected.length) {
       result.status = 'unsuitable';
+      result.failedCriteria = rejected;
       result.rationale = 'Kein Stadienkonzept zugeordnet. Nicht erfüllt: ' + rejected.join(', ') + '.';
       return result;
     }
@@ -1137,16 +1138,18 @@
       return {
         number: index + 1,
         operation: stage.unassigned ? 'Zusatzoperation noch festzulegen' : stage.v,
+        ...(stage.operationParts&&!stage.unassigned?{operationParts:[...stage.operationParts]}:{}),
         location: [...new Set(operations.map(detail => detail.location))].join('; '),
         operations,
         kind: stage.unassigned ? 'unassigned' : operations.length > 1 ? 'combined' : 'single'
       };
     });
-    result.rationale = 'Gleiche berechnete Basisfolge: ' + a.stufen.length + ' Umformstufen; ' + required + ' benötigte Stationen auf ' + available + ' Maschinenstationen; ' + result.reserveStations + ' frei als Reserve.';
-    if (!result.blank) result.rationale += ' Abschnittlänge offen: Innenantriebsvolumen oder Teilemasse ergänzen.';
-    if (result.drive) result.rationale += ' Innenantrieb: ' + result.drive.label + ', Tiefe ' + z(result.drive.depth) + ' mm.';
-    if (required > a.stufen.length) result.rationale += ' Die Stationsvorgabe bindet weitere Plätze; deren Operationen sind noch festzulegen.';
-    if (a.stufen.some(stage => stage.unassigned)) result.rationale += ' Zusatzoperationen und ihre Lage sind noch festzulegen.';
+    result.rationaleParts = ['Gleiche berechnete Basisfolge: ' + a.stufen.length + ' Umformstufen; ' + required + ' benötigte Stationen auf ' + available + ' Maschinenstationen; ' + result.reserveStations + ' frei als Reserve.'];
+    if (!result.blank) result.rationaleParts.push('Abschnittlänge offen: Innenantriebsvolumen oder Teilemasse ergänzen.');
+    if (result.drive) result.rationaleParts.push('Innenantrieb: ' + result.drive.label + ', Tiefe ' + z(result.drive.depth) + ' mm.');
+    if (required > a.stufen.length) result.rationaleParts.push('Die Stationsvorgabe bindet weitere Plätze; deren Operationen sind noch festzulegen.');
+    if (a.stufen.some(stage => stage.unassigned)) result.rationaleParts.push('Zusatzoperationen und ihre Lage sind noch festzulegen.');
+    result.rationale=result.rationaleParts.join(' ');
     return result;
   }
 

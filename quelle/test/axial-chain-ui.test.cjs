@@ -38,3 +38,16 @@ test('sketch selects a segment without moving the parting plane, boundary contro
  click(view,{chainBoundary:'S2'});assert.equal(ui.getChain().parting,36);
  let prevented=false;root.events.keydown({key:'Enter',target:{dataset:{chainKind:'segment',chainId:'S1'}},preventDefault(){prevented=true;}});assert(prevented);assert.deepEqual(ui.getChain().segments.map(s=>s.id),['S1','S3','S2']);
 });
+
+test('switching language updates the stepped-pin design overview and printable summary while retaining all dimensions',()=>{
+ const catalog={};for(const file of fs.readdirSync(path.join(__dirname,'..')).filter(name=>/^i18n-.*\.json$/.test(name)).sort())Object.assign(catalog,JSON.parse(fs.readFileSync(path.join(__dirname,'..',file),'utf8').replace(/^\uFEFF/,'')));
+ const localeContext={module:{exports:{}}};vm.runInNewContext(fs.readFileSync(path.join(__dirname,'../i18n-runtime.js'),'utf8').replace('/*CATALOG*/',JSON.stringify(catalog)),localeContext);const I=localeContext.module.exports;
+ const locale={language:'de'},root=new Node(),view=new Node(),context={JYAxialChain:C,JYGeometryWizard:W,JYI18N:I,JYLocale:locale};vm.runInNewContext(fs.readFileSync(path.join(__dirname,'../axial-chain-ui.js'),'utf8'),context);
+ const template=require('../vorlagen/stufenbolzen.json'),ui=context.JYAxialChainUI.create({root,view,evaluate:G.evaluate,templates:[template],translate:text=>I.t(text,locale.language)});ui.setChain(C.fromTemplate(template));
+ const geometry=JSON.stringify(ui.getSpec()),expected={it:['Geometria del pezzo','Riepilogo della geometria','Fondo conico a 120°'],sl:['Zgradba dela','Pregled geometrije','Stožčasto dno 120°'],en:['Part geometry','Geometry overview','A 120° conical bottom'],zh:['零件构型','几何总览','120°锥底'],de:['Teilaufbau','Geometrieübersicht','120°-Kegelgrund']};
+ for(const [language,[heading,overview,note]]of Object.entries(expected)){
+  locale.language=language;ui.rerender();assert.ok(view.innerHTML.includes(heading));assert.ok(view.innerHTML.includes(overview));assert.ok(ui.summary().join('\n').includes(note));
+  if(language!=='de')assert.doesNotMatch(view.innerHTML+'\n'+ui.summary().join('\n'),/Werkzeugtrennkante|Stempelseite|Matrizenseite|Abstand von Trennkante|Körper|Aussparung|Kegelstumpf|Prozessannahme|Kegelspitze/);
+  assert.equal(JSON.stringify(ui.getSpec()),geometry,'language switching cannot alter the configured part');
+ }
+});

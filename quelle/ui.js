@@ -352,7 +352,7 @@
       const list = element('ol', null, 'stage-list');
       proposal.stages.forEach((stage, index) => {
         const li = element('li');
-        li.appendChild(element('strong', 'Stadium ' + readable(stage.number || index + 1) + ' · ' + readable(stage.operation)));
+        const heading=element('strong');heading.textContent=tr('Stadium')+' '+readable(stage.number||index+1)+' · '+window.JYConcept.stageText(stage,L.language);heading.dataset.originalText='';li.appendChild(heading);
         const detail = [stage.force_t != null ? number(stage.force_t, 't') : 'Kraft noch offen', readable(stage.rule)].filter(Boolean).join(' · ');
         if (detail) li.appendChild(element('div', detail, 'small'));
         list.appendChild(li);

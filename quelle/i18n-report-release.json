@@ -1,0 +1,9 @@
+{
+  "Reduzieren {a} → {b} ({r} %)": ["Ridurre {a} → {b} ({r} %)", "Reducirati {a} → {b} ({r} %)", "Reduce {a} → {b} ({r} %)", "缩径 {a} → {b}（{r} %）"],
+  "Kreuzschlitz Phillips {size}": ["Croce Phillips {size}", "Križna zareza Phillips {size}", "Phillips cross recess {size}", "Phillips 十字槽 {size}"],
+  "Kreuzschlitz Pozidriv {size}": ["Croce Pozidriv {size}", "Križna zareza Pozidriv {size}", "Pozidriv cross recess {size}", "Pozidriv 米字槽 {size}"],
+  "Bohrung am Schaftende rückwärts fließpressen Ø{diameter} × {depth}": ["Estrudere all'indietro il foro all'estremità del gambo Ø{diameter} × {depth}", "Povratno iztisniti izvrtino na koncu stebla Ø{diameter} × {depth}", "Backward-extrude the shaft-end bore Ø{diameter} × {depth}", "反挤压成形杆端孔 Ø{diameter} × {depth}"],
+  "Bohrung am Schaftende rückwärts fließpressen ({index}/{total}) Ø{diameter} × {depth}": ["Estrudere all'indietro il foro all'estremità del gambo ({index}/{total}) Ø{diameter} × {depth}", "Povratno iztisniti izvrtino na koncu stebla ({index}/{total}) Ø{diameter} × {depth}", "Backward-extrude the shaft-end bore ({index}/{total}) Ø{diameter} × {depth}", "反挤压成形杆端孔（{index}/{total}）Ø{diameter} × {depth}"],
+  "Schaftend-Napfwand abstrecken ({index}/{total})": ["Stirare la parete della cavità all'estremità del gambo ({index}/{total})", "Tanjšati steno votline na koncu stebla ({index}/{total})", "Iron the shaft-end cup wall ({index}/{total})", "减薄拉伸杆端杯壁（{index}/{total}）"],
+  "Kein Stadienkonzept zugeordnet. Nicht erfüllt: {criteria}.": ["Nessuna sequenza di formatura assegnata. Requisiti non soddisfatti: {criteria}.", "Zaporedje preoblikovanja ni dodeljeno. Neizpolnjene zahteve: {criteria}.", "No forming sequence assigned. Unmet requirements: {criteria}.", "未分配成形工序方案。未满足的要求：{criteria}。"]
+}

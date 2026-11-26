@@ -1,6 +1,24 @@
 (function(root){
 'use strict';
 const esc=value=>String(value==null?'':value).replace(/[&<>"']/g,ch=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[ch]));
+// Keep complete engine operations separate: translating a German sentence
+// assembled with "und" must not fall back to replacing individual words.
+function stageText(stage,language='de'){
+ const operation=typeof stage==='string'?stage:stage?.operation||stage?.v||'';
+ const legacy=/^(Reduzieren [\d,.]+ → [\d,.]+ \([\d,.]+ %\)) und ((?:Vorstauchen|Zwischenstauchen|Kopf fertigstauchen|Sechskantkopf fertigstauchen).*)$/.exec(operation);
+ const parts=Array.isArray(stage?.operationParts)&&stage.operationParts.length?stage.operationParts:legacy?legacy.slice(1):[operation];
+ return parts.map(part=>root.JYI18N.t(part,language)).join(' · ');
+}
+function rationaleText(concept,language='de'){
+ if(Array.isArray(concept?.failedCriteria)&&concept.failedCriteria.length)return root.JYI18N.t('Kein Stadienkonzept zugeordnet. Nicht erfüllt: {criteria}.',language).replace('{criteria}',concept.failedCriteria.map(key=>root.JYI18N.t(key,language)).join(', '));
+ const text=concept?.rationale||'';
+ const parts=Array.isArray(concept?.rationaleParts)&&concept.rationaleParts.length?concept.rationaleParts:text.startsWith('Gleiche berechnete Basisfolge: ')?text.split(/(?<=\.) (?=[A-ZÄÖÜ])/u):[text];
+ return parts.map(part=>root.JYI18N.t(part,language)).join(' ');
+}
+function locationText(stage,language='de'){
+ const locations=Array.isArray(stage?.operations)&&stage.operations.length?[...new Set(stage.operations.map(op=>op.location).filter(Boolean))]:[stage?.location].filter(Boolean);
+ return locations.map(value=>root.JYI18N.t(value,language)).join('; ');
+}
 function preparationText(preparation,language='de'){
  if(preparation?.type!=='inline-drawing')return '';
  const I=root.JYI18N,num=value=>typeof value==='number'&&Number.isFinite(value)?value.toLocaleString(I.numberLocale(language),{maximumFractionDigits:3}):I.t('nicht belegt',language);
@@ -18,14 +36,15 @@ function html(concept,language='de'){
  const preparation=preparationText(concept.preparation,language);
  if(preparation){out+='<p>'+esc(preparation)+'</p>';if(typeof concept.preparation.assumption==='string')out+='<p class="small">'+esc(tr(concept.preparation.assumption))+'</p>';}
  if(Array.isArray(concept.stages)&&concept.stages.length){out+='<ol>';for(const stage of concept.stages){
-  out+='<li><strong>'+esc(tr(concept.status==='incomplete'||stage.kind==='unassigned'?'Arbeitsschritt':'Stadium'))+' '+esc(stage.number)+': '+esc(tr(stage.operation||''))+'</strong>';
-  if(stage.location)out+='<div>'+esc(tr(stage.location))+'</div>';
+  out+='<li><strong>'+esc(tr(concept.status==='incomplete'||stage.kind==='unassigned'?'Arbeitsschritt':'Stadium'))+' '+esc(stage.number)+': '+esc(stageText(stage,language))+'</strong>';
+  const location=locationText(stage,language);
+  if(location)out+='<div>'+esc(location)+'</div>';
   if(Array.isArray(stage.operations)&&stage.operations.length>1)out+='<ul>'+stage.operations.map(op=>'<li>'+esc(tr(op.name||''))+(op.location?' · '+esc(tr(op.location)):'')+'</li>').join('')+'</ul>';
   out+='</li>';
  }out+='</ol>';}
- if(concept.rationale)out+='<p>'+esc(tr(concept.rationale))+'</p>';
+ if(concept.rationale||concept.rationaleParts)out+='<p>'+esc(rationaleText(concept,language))+'</p>';
  return out+'</section>';
 }
-root.JYConcept={html,preparationText};
-if(typeof module==='object'&&module.exports)module.exports={html,preparationText};
+root.JYConcept={html,preparationText,stageText,rationaleText,locationText};
+if(typeof module==='object'&&module.exports)module.exports={html,preparationText,stageText,rationaleText,locationText};
 })(typeof window==='object'?window:globalThis);

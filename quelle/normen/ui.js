@@ -8,8 +8,8 @@
     const el=(tag,text,attrs={})=>{const n=window.document.createElement(tag);if(text)n.textContent=tr(text);Object.assign(n,attrs);return n;};
     const title=el('h3','Norm wählen, Maße übernehmen');host.append(title);
     const grid=el('div',null,{className:'felder'});host.append(grid);
-    const controls={},wraps={};let lengthToggle,lengthValue,lengthOpen=false;
-    for(const [key,label]of [['kind','Teilefamilie'],['id','Normvorlage'],['form','Ausführung'],['groesse','Größe'],['laenge','Länge in mm'],['steigung','Steigung in mm'],['festigkeitsklasse','Festigkeitsklasse']]){
+    const controls={},wraps={},labels=[['kind','Teilefamilie'],['id','Normvorlage'],['form','Ausführung'],['groesse','Größe'],['laenge','Länge in mm'],['steigung','Steigung in mm'],['festigkeitsklasse','Festigkeitsklasse']];let lengthToggle,lengthValue,lengthOpen=false;
+    for(const [key,label]of labels){
       const wrap=el(key==='laenge'?'div':'label',null,{className:'feld'+(key==='id'?' voll':'')});wrap.append(el('span',label));wraps[key]=wrap;
       const select=el('select',null,{id:'norm-'+key});select.setAttribute('aria-label',tr(label));wrap.append(select);grid.append(wrap);controls[key]=select;
       if(key==='laenge'){
@@ -93,6 +93,15 @@
     }
     function apply(){applying=true;onApply(N.adapt(data,document));applying=false;render();if(!Object.keys(document.overrides).length&&!N.adapt(data,document).normMissingFields.length&&(kind()==='nut'||controls.laenge.value))detail.open=false;onChange();}
     function render(){
+      for(const [key,label]of labels){
+        const source=key==='laenge'&&family()?.id==='ISO13918'?'Länge vor dem Schweißen in mm':label;
+        wraps[key].children[0].textContent=tr(source);controls[key].setAttribute('aria-label',tr(source));
+      }
+      // Rebuild translated labels without resolving the norm again: a language
+      // change must keep dimensions, the chosen variant and all customer edits.
+      options(controls.id,[['','Ohne Normvorgabe'],...N.families(data,kind()).filter(f=>N.sizes(f).length||N.variants(f).length).map(f=>[f.id,N.familyLabel(f,tr)])],controls.id.value);
+      options(controls.form,N.variants(baseFamily()).map(v=>[v.id,v.id+' · '+tr(v.label)]),controls.form.value);
+      for(const option of controls.festigkeitsklasse.options)option.textContent=tr(option.value);
       refreshLength();
       title.textContent=tr('Norm wählen, Maße übernehmen');note.textContent=tr('Die Norm ist Ihre Vorlage. Ändern Sie nur, was bei Ihrem Teil abweicht.');
       status.textContent=document?N.reference(document,tr):tr('Freies Teil: Maße unten eingeben.');

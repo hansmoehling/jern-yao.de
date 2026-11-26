@@ -1,14 +1,14 @@
 const test=require('node:test'),assert=require('node:assert/strict'),fs=require('node:fs'),path=require('node:path'),vm=require('node:vm');
-const N=require('../normen/library.js'),R=require('../normen/resolver.js'),threads=require('../normen/gewinde.json');
+const N=require('../normen/library.js'),R=require('../normen/resolver.js'),threads=require('../normen/gewinde.json'),I=require('../i18n.js');
 class El{constructor(tag='div'){this.tagName=tag.toUpperCase();this.value='';this.name='';this.type='';this.checked=false;this.children=[];this.events={};this.parent=null;this.hidden=false;}append(...nodes){nodes.forEach(n=>{n.parent=this;this.children.push(n);});}replaceChildren(...nodes){this.children=[];this.append(...nodes);}setAttribute(k,v){this[k]=v;}addEventListener(k,fn){this.events[k]=fn;}focus(){this.focused=true;}contains(node){return node===this||this.children.some(child=>child.contains(node));}closest(tag){return this.tagName.toLowerCase()===tag?this:this.parent?.closest(tag);}get options(){return this.children;}get textContent(){return this._text||this.children.map(x=>x.textContent).join('');}set textContent(x){this._text=x;}}
-function setup(){
+function setup(language='de'){
  const host=new El(),form=new El('form'),detail=new El('details'),nodes=[];form.elements={typ:{value:'bolzen'},standardKind:{value:'screw'}};
  const events={},document={createElement(tag){const e=new El(tag);nodes.push(e);return e;},getElementById(){return detail;},addEventListener(name,fn){events[name]=fn;}};
  const data={schemaVersion:1,version:'test',threads,families:['ISO4762','ISO14579','DIN934','DIN7338','ISO13918'].map(id=>require('../normen/'+id+'.json'))};
  const window={document,JYNormLibrary:N,JYStandards:R};vm.runInNewContext(fs.readFileSync(path.join(__dirname,'../normen/ui.js'),'utf8'),{window});
  const part={d0:5.6,wst:'existing',nachricht:'unchanged customer text'};
- let applied;const picker=window.JYNormPicker.create({host,form,data,tr:x=>x,getType:()=>form.elements.typ.value,getPart:()=>({...part}),onApply:x=>{applied=x;},onChange(){}});
- return {picker,form,host,detail,part,events,get:id=>nodes.find(n=>n.id===id),get applied(){return applied;}};
+ let applied;const picker=window.JYNormPicker.create({host,form,data,tr:x=>I.t(x,language),getType:()=>form.elements.typ.value,getPart:()=>({...part}),onApply:x=>{applied=x;},onChange(){}});
+ return {picker,form,host,detail,part,events,setLanguage(value){language=value;picker.refreshType();},get:id=>nodes.find(n=>n.id===id),get applied(){return applied;}};
 }
 function edit(p,name,value,tagName='SELECT',type='',checked=false){p.form.events.change({target:{name,value,tagName,type,checked}});}
 
@@ -33,6 +33,21 @@ test('exported template snapshot follows wire and material edits made outside no
  assert.equal(p.picker.adapted().standardDocument.partSnapshot.wst,'customer-wire');
  assert.equal(p.picker.document().standardReference.id,'ISO4762');
  assert.deepEqual(Object.keys(p.picker.document().overrides),[]);
+});
+
+test('changing the locale refreshes every picker label and option without resetting the norm or edits',()=>{
+ const p=setup('it');p.picker.select({id:'ISO4762',groesse:'M6',laenge:35});edit(p,'kD','10.2','INPUT');
+ const before=JSON.stringify(p.picker.document());
+ for(const language of ['sl','en','zh','de','it']){
+  p.setLanguage(language);
+  for(const [key,source]of [['kind','Teilefamilie'],['id','Normvorlage'],['form','Ausführung'],['groesse','Größe'],['laenge','Länge in mm'],['steigung','Steigung in mm'],['festigkeitsklasse','Festigkeitsklasse']]){
+   const control=p.get('norm-'+key);assert.equal(control['aria-label'],I.t(source,language));assert.equal(control.parent.children[0].textContent,I.t(source,language));
+  }
+  assert.equal(p.get('norm-id').options[0].textContent,I.t('Ohne Normvorgabe',language));
+  assert.equal(p.get('norm-kind').options.find(option=>option.value==='rivet').textContent,I.t('Niet',language));
+  assert.equal(p.get('norm-laenge-toggle')['aria-label'],I.t('Länge in mm',language)+': 35 mm');
+  assert.equal(JSON.stringify(p.picker.document()),before);
+ }
 });
 
 test('length disclosure renders documented choices in the page and restores focus after selection or Escape',()=>{

@@ -1,12 +1,12 @@
 (function(){
 'use strict';
 const I=window.JYI18N;
-let remembered='de';try{remembered=localStorage.getItem('jy-language')||'de';}catch(_){}
+let remembered='de';try{remembered=localStorage.getItem('jy-language')||localStorage.getItem('jy-lang')||'de';}catch(_){}
 const url=new URL(window.location.href);
 let language=I.normalizeLanguage(url.searchParams.get('lang')||remembered);
 const sources=new WeakMap(),attributes=new WeakMap();
 const autonyms={de:'Deutsch',it:'Italiano',sl:'Slovenščina',en:'English',zh:'简体中文'};
-function sourceFor(node,value,map){const old=map.get(node);if(!old||value!==old.last){const next={source:value,last:value};map.set(node,next);return next;}return old;}
+function sourceFor(node,value,map){const old=map.get(node);if(!old||value!==old.last){const next={source:I.source?I.source(value):value,last:value};map.set(node,next);return next;}return old;}
 function apply(root=document.documentElement){
  document.documentElement.lang=I.htmlLang(language);
  const visit=node=>{
@@ -25,7 +25,7 @@ function apply(root=document.documentElement){
    for(const key of ['placeholder','aria-label','title','alt','data-question']){
     if(node.hasAttribute(key)){
      let map=attributes.get(node);if(!map){map={};attributes.set(node,map);}
-     const value=node.getAttribute(key);if(!map[key]||value!==map[key].last)map[key]={source:value,last:value};
+     const value=node.getAttribute(key);if(!map[key]||value!==map[key].last)map[key]={source:I.source?I.source(value):value,last:value};
      const translated=I.t(map[key].source,language);if(value!==translated)node.setAttribute(key,translated);map[key].last=translated;
     }
    }
@@ -42,7 +42,7 @@ function apply(root=document.documentElement){
  visit(root);
 }
 function setLanguage(value){
- language=I.normalizeLanguage(value);try{localStorage.setItem('jy-language',language);}catch(_){}
+ language=I.normalizeLanguage(value);try{localStorage.setItem('jy-language',language);localStorage.setItem('jy-lang',language);}catch(_){}
  const current=new URL(window.location.href);current.searchParams.set('lang',language);try{window.history.replaceState(null,'',current.href);}catch(_){}
  apply();window.dispatchEvent(new CustomEvent('jy-languagechange',{detail:{language}}));
 }

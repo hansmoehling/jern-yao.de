@@ -1,5 +1,6 @@
 const test=require('node:test'),assert=require('node:assert/strict');
 const W=require('../geometry-wizard.js'),G=require('../geometry-model.js');
+const fs=require('node:fs'),path=require('node:path'),vm=require('node:vm'),C=require('../axial-chain.js');
 const cylinder=(id,side,operation,diameter,length,start=0)=>({id,side,operation,shape:'cylinder',diameter,length,start,offsetX:0,offsetY:0});
 const spec=elements=>({version:1,coordinateSystem:'tool-parting-plane',elements,trimming:[]});
 class Node{constructor(){this.events={};this.dataset={};this.innerHTML='';}addEventListener(type,handler){this.events[type]=handler;}}
@@ -94,4 +95,22 @@ test('incomplete inputs remain invalid and reviewing another step preserves ente
  assert.equal(G.validate(controller.getSpec()).valid,false);
  for(const [key,value]of [['length','20'],['diameter','9,5']])root.events.input({target:{dataset:{geometryField:key,geometryKind:'element',element:'E1'},value,tagName:'INPUT'}});
  assert(G.validate(controller.getSpec()).valid);const saved=controller.getSpec();root.events.click({target:{closest:()=>({dataset:{geometryStep:'4'}})}});assert.deepEqual(controller.getSpec(),saved);assert(root.innerHTML.includes('Versatz X'));
+});
+
+test('real form-part templates produce complete localized geometry reports without changing their geometry',()=>{
+ const catalogue={};
+ for(const file of fs.readdirSync(path.join(__dirname,'..')).filter(name=>/^i18n-.*\.json$/.test(name)).sort())Object.assign(catalogue,JSON.parse(fs.readFileSync(path.join(__dirname,'..',file),'utf8').replace(/^\uFEFF/,'')));
+ const context={module:{exports:{}}};vm.runInNewContext(fs.readFileSync(path.join(__dirname,'../i18n-runtime.js'),'utf8').replace('/*CATALOG*/',JSON.stringify(catalogue)),context);const I=context.module.exports;
+ const expected={de:['Werkzeugtrennkante','Stempelseite','Matrizenseite'],it:['Piano di divisione degli utensili','Lato punzone','Lato matrice'],sl:['Delilna ravnina orodja','Stran pestiča','Stran matrice'],en:['Tool parting line','Punch side','Die side'],zh:['模具分型位置','冲头侧','凹模侧']};
+ for(const file of fs.readdirSync(path.join(__dirname,'../vorlagen')).filter(name=>name.endsWith('.json'))){
+  const template=JSON.parse(fs.readFileSync(path.join(__dirname,'../vorlagen',file),'utf8')),projection=C.project(C.fromTemplate(template)),before=JSON.stringify(projection.spec);assert.equal(projection.ok,true,file);
+  for(const [language,[parting,punch,die]]of Object.entries(expected)){
+   const tr=text=>I.t(text,language),fmt=value=>Number(value).toLocaleString(I.numberLocale(language),{maximumFractionDigits:3});
+   const report=[tr(template.label),...W.summary(projection.spec,tr,fmt),...template.notes.map(tr)].join('\n');
+   assert.ok(report.includes(parting+': z = 0 mm'),file+' '+language);assert.ok(report.includes(punch+':'));assert.ok(report.includes(die+':'));
+   if(language!=='de')assert.doesNotMatch(report,/Werkzeugtrennkante|Stempelseite|Matrizenseite|Abstand von Trennkante|Körper|Aussparung|Kegelstumpf|Prozessannahme|Kegelspitze|Modellnäherung|Stufenbolzen|Halbhohlniet|Kugelzapfen|Schweißbolzen/,file+' '+language);
+   for(const element of projection.spec.elements)assert.ok(report.includes(element.id+' · '),'stable geometry identifiers remain in the report');
+   assert.equal(JSON.stringify(projection.spec),before,'report localization cannot edit geometry');
+  }
+ }
 });

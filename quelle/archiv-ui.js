@@ -356,7 +356,7 @@
     if (e.typ !== 'mutter') kenn.splice(3, 0, ['Stauchverhältnis Kopf', w.sKopf ? fmt(w.sKopf, 2) : '·']);
     rendered($('kenn'),kenn.map(([k, v]) => '<div><dt>' + h(k) + '</dt><dd>' + v + '</dd></div>').join(''));
     for(const [id,text]of [['stages-heading',aus.qualitative?'Qualitative Operationsfolge':'Stadienfolge'],['stage-column-heading',aus.qualitative?'Arbeitsschritt':'Station']]){$(id).dataset.originalText='';$(id).textContent=tr(text);}
-    rendered($('stufen').tBodies[0],aus.stufen.map((s, i) => '<tr><td>' + (i + 1) + '</td><td>' + h(s.v) + '</td><td class="z">' + (s.t==null?h('Kraft noch offen'):fmt(s.t)+' t') + '</td><td class="z">' + (s.p==null?h('nicht belegt'):fmt(s.p,0)) + '</td><td class="z">Ø' + (s.matD==null?h('nicht belegt'):rounded(s.matD)) + (s.arm ? '<br><small>' + h(s.arm) + '</small>' : '') + '</td></tr>').join(''));
+    rendered($('stufen').tBodies[0],aus.stufen.map((s, i) => '<tr><td>' + (i + 1) + '</td><td>' + esc(window.JYConcept.stageText(s,L.language)) + '</td><td class="z">' + (s.t==null?h('Kraft noch offen'):fmt(s.t)+' t') + '</td><td class="z">' + (s.p==null?h('nicht belegt'):fmt(s.p,0)) + '</td><td class="z">Ø' + (s.matD==null?h('nicht belegt'):rounded(s.matD)) + (s.arm ? '<br><small>' + h(s.arm) + '</small>' : '') + '</td></tr>').join(''));
     // Karten
     const k = [];
     const rankingOptions={tr,fmt,eur,showPrices,practice:PRAXIS,requirements:{blankDiameter:w.d0,blankLength:w.L0,stations:w.stationen,partLength:w.Lteil,knockoutLength:w.ko,demandPerMinute:e.soll?.ausbringung}};
@@ -423,7 +423,7 @@
     if(geometrySelectedModel)lines.unshift(msg('Anfrage für {model}',{model:geometrySelectedModel}),'');
     if(variant)lines.push(tr('Werkstoff')+': '+materialLabel(variant));
     lines.push(tr('Vormaterial / Vorzug')+': '+preparationLabel(e.wirePreparation),tr('Draht-Ø an der Presse')+': '+fmt(e.d0)+' mm');
-    if(staged&&e.inputOrigins?.d0)lines.push(tr('Herkunft Drahtdurchmesser')+': '+(e.inputOrigins.d0.origin==='assumption'?tr('Drahtvorschlag · vorläufig')+' · '+e.inputOrigins.d0.reason:tr('Drahtdurchmesser aus Ihrer Eingabe')));
+    if(staged&&e.inputOrigins?.d0)lines.push(tr('Herkunft Drahtdurchmesser')+': '+(e.inputOrigins.d0.origin==='assumption'?tr('Drahtvorschlag · vorläufig')+' · '+tr(e.inputOrigins.d0.reason):tr('Drahtdurchmesser aus Ihrer Eingabe')));
     if(e.wirePreparation==='inline-drawing')lines.push(tr('Walzdraht-Ø vor dem Vorzug')+': '+fmt(e.rodDiameter)+' mm');
     if(e.rm)lines.push(tr('Drahtzugfestigkeit Rm an der Presse')+': '+fmt(e.rm)+' N/mm²');
     const complete=geometryWizard.isComplete();
@@ -431,11 +431,11 @@
     if(complete&&densityNotice(variant))lines.push(densityNotice(variant));
     if($('geometry-note').value.trim())lines.push('',tr('Ergänzungen zum Stadienkonzept')+': '+$('geometry-note').value);
     if(geometryResult?.answer)lines.push('',geometryResult.answer);
-    for(const stage of geometryResult?.proposal?.stages||[])lines.push(tr(stage.operation));
+    for(const stage of geometryResult?.proposal?.stages||[])lines.push(window.JYConcept.stageText(stage,L.language));
     for(const machine of geometryMachines().filter(m=>!geometrySelectedModel||m.model===geometrySelectedModel)){
       lines.push(machine.model+(showPrices&&Number.isFinite(machine.priceEUR)?' · '+eur(machine.priceEUR):''));
-      for(const stage of machine.concept?.stages||[])lines.push('  '+stage.number+'. '+tr(stage.operation||'')+(stage.location?' · '+tr(stage.location):''));
-      if(machine.concept?.rationale)lines.push(tr(machine.concept.rationale));
+      for(const stage of machine.concept?.stages||[])lines.push('  '+stage.number+'. '+window.JYConcept.stageText(stage,L.language)+(stage.location?' · '+window.JYConcept.locationText(stage,L.language):''));
+      if(machine.concept?.rationale)lines.push(window.JYConcept.rationaleText(machine.concept,L.language));
     }
     return lines.join('\n');
   }
@@ -443,8 +443,8 @@
     if(drawingActive()){
       const lines=[tr('Zeichnung')+': '+partsFile.name];if(drawingSelectedModel)lines.unshift(msg('Anfrage für {model}',{model:drawingSelectedModel}));
       if(drawingNote())lines.push(drawingNote());if(drawingResult?.answer)lines.push('',drawingResult.answer);
-      for(const stage of drawingResult?.proposal?.stages||[])lines.push(tr(stage.operation||''));
-      for(const machine of drawingMachines().filter(item=>!drawingSelectedModel||item.model===drawingSelectedModel)){lines.push(machine.model+(showPrices&&Number.isFinite(machine.priceEUR)?' · '+eur(machine.priceEUR):''));for(const stage of machine.concept?.stages||[])lines.push('  '+stage.number+'. '+tr(stage.operation||''));}
+      for(const stage of drawingResult?.proposal?.stages||[])lines.push(window.JYConcept.stageText(stage,L.language));
+      for(const machine of drawingMachines().filter(item=>!drawingSelectedModel||item.model===drawingSelectedModel)){lines.push(machine.model+(showPrices&&Number.isFinite(machine.priceEUR)?' · '+eur(machine.priceEUR):''));for(const stage of machine.concept?.stages||[])lines.push('  '+stage.number+'. '+window.JYConcept.stageText(stage,L.language));}
       return lines.join('\n');
     }
     if(formteilmodus())return geometrySummary();
@@ -462,7 +462,7 @@
     field('Vormaterial / Vorzug',preparationLabel(e.wirePreparation));
     if(e.wirePreparation==='inline-drawing')field('Walzdraht-Ø vor dem Vorzug',mm(e.rodDiameter));
     field('Draht-Ø an der Presse',mm(e.d0));
-    if(staged&&e.inputOrigins?.d0?.origin==='assumption')field('Herkunft Drahtdurchmesser',tr('Drahtvorschlag · vorläufig')+' · '+e.inputOrigins.d0.reason);
+    if(staged&&e.inputOrigins?.d0?.origin==='assumption')field('Herkunft Drahtdurchmesser',tr('Drahtvorschlag · vorläufig')+' · '+tr(e.inputOrigins.d0.reason));
     field('Drahtzugfestigkeit Rm an der Presse', m.Rm == null ? tr('nicht belegt') : fmt(m.Rm) + ' N/mm²');
     if(staged&&m.rmVorbelegung&&(m.rmVorbelegung.value!=null||m.rmVorbelegung.band))field('Herkunft Rm',tr(m.rmVorbelegung.origin==='customer'?'Kundenangabe':m.rmVorbelegung.value!=null?'Richtwert · vorläufig':'Vorläufiges Praxisband'));
     const variant=selectedVariant();
@@ -504,7 +504,7 @@
     field('Stationen',fmt(w.stationen,0)+(w.stationen==null?'':' (+1 '+tr('Reserve')+')'));
     field('Höchste Stationskraft',force(w.Fmax_t));field('Nennkraft nötig',force(w.FN_muss_t));
     if(aus.qualitative)lines.push(tr('Qualitative Operationsfolge'));
-    aus.stufen.forEach((stage,index)=>lines.push('  '+(aus.qualitative?tr('Arbeitsschritt')+' ':'')+(index+1)+'. '+tr(stage.v)+': '+force(stage.t)));
+    aus.stufen.forEach((stage,index)=>lines.push('  '+(aus.qualitative?tr('Arbeitsschritt')+' ':'')+(index+1)+'. '+window.JYConcept.stageText(stage,L.language)+': '+force(stage.t)));
     lines.push('',tr('Vorauswahl:'));
     const top=selected?[selected]:wahl.ranking?[wahl.ranking.recommendation,...wahl.ranking.alternatives].filter(Boolean):[...wahl.passend.slice(0,3),...(wahl.passend.length?[]:wahl.bedingt.slice(0,3))];
     const status={ok:'passt',knapp:'knapp',offen:'Klärung nötig',nein:'passt nicht'};

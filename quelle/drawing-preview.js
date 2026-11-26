@@ -46,7 +46,7 @@
     const proposal=data.proposal||{},parts=[];
     if(data.answer)parts.push('<div class="preview-answer formatted-answer">'+(window.JYAnswerFormat?window.JYAnswerFormat.html(data.answer):escape(data.answer))+'</div>');
     if(Array.isArray(proposal.input)&&proposal.input.length)parts.push('<h3>'+h('Aus Ihren Angaben')+'</h3><dl class="preview-facts">'+proposal.input.map(item=>'<div><dt>'+h(fieldLabels[item.field]||item.field)+'</dt><dd>'+escape(readable(item.value))+' '+escape(item.unit==='count'?'':readable(item.unit))+'</dd></div>').join('')+'</dl>');
-    if(Array.isArray(proposal.stages)&&proposal.stages.length)parts.push('<h3>'+h('Vorschlag zur Stadienfolge')+'</h3><ol>'+proposal.stages.map(stage=>'<li>'+h(stage.operation)+(Number.isFinite(stage.force_t)?' · '+escape(stage.force_t.toLocaleString(window.JYI18N.numberLocale(L.language),{maximumFractionDigits:2}))+' t':' · '+h('Kraft noch offen'))+'</li>').join('')+'</ol>');
+    if(Array.isArray(proposal.stages)&&proposal.stages.length)parts.push('<h3>'+h('Vorschlag zur Stadienfolge')+'</h3><ol>'+proposal.stages.map(stage=>'<li>'+escape(window.JYConcept?.stageText?window.JYConcept.stageText(stage,L.language):tr(stage.operation))+(Number.isFinite(stage.force_t)?' · '+escape(stage.force_t.toLocaleString(window.JYI18N.numberLocale(L.language),{maximumFractionDigits:2}))+' t':' · '+h('Kraft noch offen'))+'</li>').join('')+'</ol>');
     if(Array.isArray(proposal.machines)&&proposal.machines.length){
       parts.push('<h3>'+h('Maschinen zum Konzept')+'</h3>');
       for(const machine of proposal.machines){
