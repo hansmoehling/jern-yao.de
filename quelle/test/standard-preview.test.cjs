@@ -16,6 +16,44 @@ test('head drive and blind shaft-end bore are rendered at opposite ends with the
  assert(html.includes('Kegelgrund 120°'));assert(html.includes('Stirnansicht A'));
 });
 
+test('Torx, Phillips and Pozidriv remain visible before a recess volume is supplied',()=>{
+ const contours=[];
+ for(const [iTyp,iSize]of [['torx','T20'],['ph','PH2'],['pz','PZ2']]){
+  const input={...base,kopfTyp:'zylinder',kopfForm:'rund',kD:8,kH:4,iTyp,iSize,iT:2},analysis=E.auslegen(input);
+  assert.equal(analysis.antrieb.volumeStatus,'missing');assert.equal(analysis.werte.V,null);
+  const before=JSON.stringify({input,analysis}),html=P.render({input,analysis});
+  assert(html.includes('data-drive-family="'+iTyp+'"'));assert(html.includes(iSize));
+  assert.match(html,/data-preview="head-drive" data-start-mm="0" data-end-mm="2"[^>]*data-schematic="true"/);
+  assert(html.includes('Antriebsprofil schematisch; Tiefe nach Eingabe.'));assert(html.includes('— mm³'));
+  assert.equal(JSON.stringify({input,analysis}),before,'drawing a symbol cannot supply volume, force or validity');
+  const face=html.match(/<g data-preview="drive-face"[^>]*>[\s\S]*?<\/g>/)[0];contours.push(face.replace(iTyp,'family'));
+  assert.equal(face.includes('pozidriv-marks'),iTyp==='pz');assert(!/NaN|Infinity/.test(html));
+ }
+ assert.equal(new Set(contours).size,3,'all three profiles must remain visually distinct');
+});
+
+test('drive edits update profile, depth and designation without modifying calculator outputs',()=>{
+ const original={...base,kopfTyp:'zylinder',kopfForm:'rund',kD:10,kH:6,iTyp:'torx',iSize:'T20',iT:2,iVol:8};
+ for(const change of [{iTyp:'torx',iSize:'T25',iT:3},{iTyp:'ph',iSize:'PH1',iT:1.5},{iTyp:'pz',iSize:'PZ2',iT:2.5}]){
+  const input={...original,...change},analysis=E.auslegen(input),before=JSON.stringify(analysis),html=P.render({input,analysis,format:x=>x.toFixed(3)});
+  assert.match(html,new RegExp('data-preview="head-drive" data-start-mm="0" data-end-mm="'+change.iT+'"'));
+  assert(html.includes(change.iSize));assert.equal(JSON.stringify(analysis),before);
+  if(!analysis.fehlt.length)assert(html.includes(analysis.werte.V.toFixed(3)+' mm³'));
+ }
+ const emptyDepth={...original,iT:undefined},incomplete=preview(emptyDepth);
+ assert(incomplete.includes('data-drive-family="torx"'));assert(!incomplete.includes('data-preview="head-drive"'),'no invented depth');
+ const none=preview({...original,iTyp:'none'});assert(!none.includes('data-preview="drive-face"'));assert(!none.includes('data-preview="head-drive"'));
+});
+
+test('schematic slot and translated profile note cannot become an unmarked dimensional model',()=>{
+ const input={...base,kopfTyp:'zylinder',kopfForm:'rund',kD:8,kH:4,iTyp:'slot',iT:2,iSize:'<script>invalid</script>'};
+ const translations=require('../i18n-drive-preview.json'),note='Antriebsprofil schematisch; Tiefe nach Eingabe.';
+ for(const text of translations[note]){
+  const html=P.render({input,analysis:E.auslegen(input),translate:key=>key===note?text:key});
+  assert(html.includes('data-drive-family="slot" data-schematic="true"'));assert(html.includes(text));assert(!html.includes('<script>'));assert(html.includes('&lt;script&gt;'));
+ }
+});
+
 test('all analytical head families and explicit shaft ends produce finite silhouettes',()=>{
  for(const changes of [{kopfTyp:'zylinder'},{kopfTyp:'kugelabschnitt'},{kopfTyp:'linse',kC:1.4,capHeight:1},{kopfTyp:'kegelstumpf',kD:8,kH:2},{kopfTyp:'linsensenk',kD:8,kH:2,capHeight:1},{kopfTyp:'sechskant',kSW:7,kH:4},{kopfTyp:'sechskant_bund',kSW:7,kD:10,kH:4,flangeDiameter:10,flangeHeight:1},{kopfTyp:'kopflos',kD:0,kH:0,schaftende:'spitze',endDiameter:0,endLength:2},{schaftende:'zapfen',endDiameter:2,endLength:2}]){
   const input={...base,...changes},html=preview(input);assert(html.includes('data-preview="outer"'),JSON.stringify(changes));assert(!html.includes('NaN'));assert(!html.includes('Infinity'));

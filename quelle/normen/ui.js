@@ -8,12 +8,35 @@
     const el=(tag,text,attrs={})=>{const n=window.document.createElement(tag);if(text)n.textContent=tr(text);Object.assign(n,attrs);return n;};
     const title=el('h3','Norm wählen, Maße übernehmen');host.append(title);
     const grid=el('div',null,{className:'felder'});host.append(grid);
-    const controls={};
+    const controls={},wraps={};let lengthToggle,lengthValue,lengthOpen=false;
     for(const [key,label]of [['kind','Teilefamilie'],['id','Normvorlage'],['form','Ausführung'],['groesse','Größe'],['laenge','Länge in mm'],['steigung','Steigung in mm'],['festigkeitsklasse','Festigkeitsklasse']]){
-      const wrap=el('label',null,{className:'feld'+(key==='id'?' voll':'')});wrap.append(el('span',label));
+      const wrap=el(key==='laenge'?'div':'label',null,{className:'feld'+(key==='id'?' voll':'')});wrap.append(el('span',label));wraps[key]=wrap;
       const select=el('select',null,{id:'norm-'+key});select.setAttribute('aria-label',tr(label));wrap.append(select);grid.append(wrap);controls[key]=select;
+      if(key==='laenge'){
+        lengthToggle=el('button',null,{id:'norm-laenge-toggle',type:'button',className:'norm-length-toggle'});
+        lengthValue=el('span');const arrow=el('span','▾');arrow.setAttribute('aria-hidden','true');lengthToggle.append(lengthValue,arrow);
+        lengthToggle.setAttribute('aria-controls',select.id);lengthToggle.setAttribute('aria-expanded','false');lengthToggle.setAttribute('aria-haspopup','listbox');
+        wrap.replaceChildren(wrap.children[0],lengthToggle,select);select.hidden=true;
+        lengthToggle.addEventListener('click',()=>setLengthOpen(!lengthOpen,true));
+        lengthToggle.addEventListener('keydown',event=>{if(['ArrowDown','ArrowUp'].includes(event.key)){event.preventDefault();setLengthOpen(true,true);}});
+        select.addEventListener('click',()=>setLengthOpen(false,true));
+        select.addEventListener('keydown',event=>{if(event.key==='Escape'){event.preventDefault();setLengthOpen(false,true);}else if(['Enter',' '].includes(event.key)){event.preventDefault();choose('laenge');setLengthOpen(false,true);}});
+      }
       select.addEventListener('change',()=>choose(key));
     }
+    function setLengthOpen(open,focus=false){
+      lengthOpen=!!open&&!controls.laenge.disabled;controls.laenge.hidden=!lengthOpen;lengthToggle.setAttribute('aria-expanded',String(lengthOpen));
+      if(focus)(lengthOpen?controls.laenge:lengthToggle).focus();
+    }
+    function refreshLength(){
+      const field=controls.laenge,value=field.value?field.value+' mm':'—';lengthValue.textContent=value;
+      lengthToggle.disabled=field.disabled;lengthToggle.setAttribute('aria-label',tr(family()?.id==='ISO13918'?'Länge vor dem Schweißen in mm':'Länge in mm')+': '+value);
+      // size >= 2 guarantees an in-document list rather than an OS popup,
+      // including a family for which only one length is documented.
+      field.size=Math.max(2,Math.min(6,field.options.length));if(field.disabled)setLengthOpen(false);
+    }
+    window.document.addEventListener?.('click',event=>{if(lengthOpen&&!wraps.laenge.contains(event.target))setLengthOpen(false);});
+    host.addEventListener('focusout',event=>{if(lengthOpen&&event.relatedTarget&&!wraps.laenge.contains(event.relatedTarget))setLengthOpen(false);});
     const note=el('p','Die Norm ist Ihre Vorlage. Ändern Sie nur, was bei Ihrem Teil abweicht.',{className:'norm-intro'});host.append(note);
     const status=el('p',null,{className:'norm-reference'});status.setAttribute('role','status');host.append(status);
     const changes=el('div',null,{className:'norm-overrides'});host.append(changes);
@@ -27,8 +50,8 @@
       const f=family(),s=controls.groesse;
       options(s,N.sizes(f).map(x=>[x,x]),s.value);
       const ls=N.lengths(f,s.value);options(controls.laenge,ls.map(x=>[x,x]),controls.laenge.value||'30');
-      const lengthLabel=f?.id==='ISO13918'?'Länge vor dem Schweißen in mm':'Länge in mm';controls.laenge.closest('label').children[0].textContent=tr(lengthLabel);controls.laenge.setAttribute('aria-label',tr(lengthLabel));
-      controls.laenge.closest('label').hidden=kind()==='nut';controls.laenge.disabled=!ls.length;
+      const lengthLabel=f?.id==='ISO13918'?'Länge vor dem Schweißen in mm':'Länge in mm';wraps.laenge.children[0].textContent=tr(lengthLabel);controls.laenge.setAttribute('aria-label',tr(lengthLabel));
+      wraps.laenge.hidden=kind()==='nut';controls.laenge.disabled=!ls.length;setLengthOpen(false);refreshLength();
       const row=f?.groessen?.[s.value],allPitches=N.pitches(data,s.value),allowed=row?.steigungen;
       const fixedPitch=row?.thread?.pitch??row?.roh?.P??data.threads?.rows?.[s.value]?.coarse;
       const ps=Array.isArray(allowed)?allPitches.filter(p=>allowed.includes(p)):fixedPitch?[fixedPitch]:allPitches;
@@ -70,6 +93,7 @@
     }
     function apply(){applying=true;onApply(N.adapt(data,document));applying=false;render();if(!Object.keys(document.overrides).length&&!N.adapt(data,document).normMissingFields.length&&(kind()==='nut'||controls.laenge.value))detail.open=false;onChange();}
     function render(){
+      refreshLength();
       title.textContent=tr('Norm wählen, Maße übernehmen');note.textContent=tr('Die Norm ist Ihre Vorlage. Ändern Sie nur, was bei Ihrem Teil abweicht.');
       status.textContent=document?N.reference(document,tr):tr('Freies Teil: Maße unten eingeben.');
       changes.replaceChildren();

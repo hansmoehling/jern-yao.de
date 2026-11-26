@@ -104,6 +104,32 @@ test('the first example click with norm picker, previews and KVP starts from a f
  }
 });
 
+test('shortcut length changes propagate through native input/change order into dimensions, shaft geometry and calculation',()=>{
+ for(const language of I.supported)for(const [example,id,lengths]of [['m6','ISO4762',[35,40]],['m8','ISO4017',[50,60]]]){
+  let input,analysis,pending;
+  const p=setup(language,{...E,auslegen(e){input=e;analysis=E.auslegen(e);return analysis;}},true,{},true,true);
+  p.context.window.JYStandardPreview=require('../standard-preview.js');
+  p.context.setTimeout=fn=>{pending=fn;return 1;};p.context.clearTimeout=()=>{pending=null;};
+  p.examples.find(button=>button.dataset.bsp===example).events.click();
+  const field=p.get('norm-laenge'),headHeight=p.f.elements.kH.value;
+  let volume=analysis.werte.V,preview=p.get('geometry-view').innerHTML;
+  for(const length of lengths){
+   const toggle=p.get('norm-laenge-toggle');toggle.events.click();assert.equal(field.hidden,false);assert.equal(toggle.attributes['aria-expanded'],'true');
+   field.value=String(length);
+   p.f.events.input({target:field});field.events.change({target:field});p.f.events.change({target:field});field.events.click();pending?.();
+   assert.equal(field.value,String(length));assert.equal(p.f.elements.sL.value,String(length));assert.equal(input.sL,length);
+   assert.equal(field.hidden,true);assert.equal(toggle.attributes['aria-expanded'],'false');assert.equal(toggle.focused,true);
+   assert.equal(input.standardDocument.standardReference.id,id);assert.equal(input.standardDocument.standardReference.laenge,length);
+   assert.equal(p.f.elements.kH.value,headHeight);assert.deepEqual(Object.keys(input.standardDocument.overrides),[]);
+   assert.equal(E.boltGeometry(input).shaftLength,length);assert.deepEqual(analysis.fehlt,[]);
+   assert(analysis.werte.V>volume);volume=analysis.werte.V;
+   assert.notEqual(p.get('geometry-view').innerHTML,preview);preview=p.get('geometry-view').innerHTML;
+   const options=field.options.slice();p.f.events.change({target:p.f.elements.rm});
+   assert.ok(options.every((option,index)=>field.options[index]===option),'ordinary recalculation must not replace the open length options');
+  }
+ }
+});
+
 test('example reset clears a selected drawing while retaining a usable norm and KVP state',()=>{
  const p=setup('de',E,true,{},true,true);
  p.f.elements.typ.value='formteil';p.f.events.change({target:p.f.elements.typ});

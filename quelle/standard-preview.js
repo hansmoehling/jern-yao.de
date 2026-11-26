@@ -25,8 +25,8 @@
       }else notes.push(input.nutShape==='cap'?'Hutmutter: Außenhöhe und Schlüsselweite reichen nicht für eine vollständige Schnittkontur.':'Für die Mutternvorschau Außenmaße und Bohrung ergänzen.');
     }else{
       const profile=['trilobular','duo-taptite'].includes(input.threadFamily)||input.kopfForm==='krallen'||input.kopfTyp==='krallen';
-      // Reuse the same geometry helper as the engine. A profile area or a
-      // named drive size cannot be reverse-engineered into an exact contour.
+      // Reuse the engine geometry. Named drives get recognisable schematic
+      // profiles, never a fabricated metric contour or a new volume model.
       try{g=engine?.boltGeometry?.(input);}catch{g=null;}
       if(g&&!g.error){
         const outer=[];
@@ -40,8 +40,18 @@
           outer.push([g.headHeight+end,at(end)]);from=end;
         }
         const holes=[],drive=analysis.antrieb;
-        const driveType=drive?.family||input.iTyp;
+        const driveType=drive?.family||input.iTyp||(positive(input.iSW)?'hex':'none');
+        const schematicDrive=['torx','ph','pz','slot'].includes(driveType);
+        const faceDiameter=g.headHeight?g.headDiameter:g.segments[0].diameter;
+        const driveLabel=drive?.label||({hex:'Innensechskant',torx:'Torx',ph:'Kreuzschlitz Phillips',pz:'Kreuzschlitz Pozidriv',slot:'Schlitz'}[driveType]||'Innenantrieb')+(input.iSize?' '+input.iSize:'');
         if(driveType==='hex'&&positive(input.iSW)&&positive(input.iT))holes.push({id:'head-drive',points:[[0,input.iSW/2],[input.iT,input.iSW/2]]});
+        else if(schematicDrive){
+          // Width is deliberately illustrative; depth alone comes from input.
+          // No symbol dimensions are passed back to the calculation engine.
+          const r=faceDiameter*.23;
+          if(positive(input.iT))holes.push({id:'head-drive',schematic:true,points:[[0,r],[input.iT,['ph','pz'].includes(driveType)?r*.3:r]]});
+          notes.push('Antriebsprofil schematisch; Tiefe nach Eingabe.');
+        }
         else if(driveType&&driveType!=='none')notes.push('Das Innenprofil ist ohne maßhaltige Kontur nur als Bezeichnung dargestellt.');
         if(positive(input.nD)&&positive(input.nT))holes.push({id:'head-cavity',points:[[0,input.nD/2],[input.nT,input.nD/2]]});
         const end=g.cavity;
@@ -54,7 +64,7 @@
         }
         notes.push(...(end?.notes||[]));
         const shape=['sechskant','abgratet','sechskant_bund'].includes(g.type)?'hex':'circle';
-        svg=draw({L:g.totalLength,maxD:Math.max(g.headDiameter,g.shaftMax),outer,holes,headLength:g.headHeight,approximate:profile,front:{shape,sw:input.kSW,diameter:g.headHeight?g.headDiameter:g.segments[0].diameter,flange:g.type==='sechskant_bund'?input.flangeDiameter??input.dc:0,drive:driveType==='hex'?input.iSW:null,driveLabel:driveType&&driveType!=='none'?tr(drive?.label||input.iSize||'Innenantrieb'):''}});
+        svg=draw({L:g.totalLength,maxD:Math.max(g.headDiameter,g.shaftMax),outer,holes,headLength:g.headHeight,approximate:profile,front:{shape,sw:input.kSW,diameter:faceDiameter,flange:g.type==='sechskant_bund'?input.flangeDiameter??input.dc:0,drive:driveType==='hex'?input.iSW:null,schematicDrive:schematicDrive?driveType:null,driveLabel:driveType&&driveType!=='none'?tr(driveLabel):''}});
         if(g.headHeight)dimensions.push(['Kopf','Ø'+fmt(g.headDiameter)+' × '+fmt(g.headHeight)+' mm']);
         dimensions.push(['Schaft',g.segments.map(s=>'Ø'+fmt(s.diameter)+' × '+fmt(s.length)+' mm').join(' · ')]);
         if(g.tip)dimensions.push(['Spitze','Ø'+fmt(g.tip.diameter)+' × '+fmt(g.tip.length)+' mm']);
@@ -76,8 +86,17 @@
       else face+='<circle cx="'+cx+'" cy="'+cy+'" r="'+num((front.diameter||maxD)/2*scale)+'" fill="#c1d8e9" stroke="#24394d"'+(approximate?' stroke-dasharray="4 3"':'')+'/>';
       if(positive(front.hole))face+='<circle cx="'+cx+'" cy="'+cy+'" r="'+num(front.hole/2*scale)+'" fill="white" stroke="#24394d"/>';
       if(positive(front.drive))face+='<polygon points="'+poly(6,front.drive)+'" fill="white" stroke="#24394d"/>';
+      if(front.schematicDrive){
+        const family=front.schematicDrive,r=(front.diameter||maxD)*.23*scale;
+        const p=points=>points.map(([a,b])=>num(cx+a*r)+','+num(cy+b*r)).join(' ');
+        const cross=[[-.27,-1],[.27,-1],[.27,-.27],[1,-.27],[1,.27],[.27,.27],[.27,1],[-.27,1],[-.27,.27],[-1,.27],[-1,-.27],[-.27,-.27]];
+        const contour=family==='torx'?Array.from({length:96},(_,i)=>{const a=i*Math.PI/48,k=.8+.2*Math.cos(6*a);return [k*Math.cos(a),k*Math.sin(a)];}):family==='slot'?[[-1,-.22],[1,-.22],[1,.22],[-1,.22]]:cross;
+        face+='<g data-preview="drive-face" data-drive-family="'+family+'" data-schematic="true"><title>'+h('Antriebsprofil schematisch; Tiefe nach Eingabe.')+'</title><polygon points="'+p(contour)+'" fill="white" stroke="#24394d"/>';
+        if(family==='pz')face+='<path data-preview="pozidriv-marks" d="'+[-1,1].flatMap(a=>[-1,1].map(b=>'M'+num(cx+a*r*.43)+' '+num(cy+b*r*.43)+' L'+num(cx+a*r*.85)+' '+num(cy+b*r*.85))).join(' ')+'" stroke="#24394d" stroke-width="1.5"/>';
+        face+='</g>';
+      }
       const dim=(a,b,ypos,text)=>'<path d="M'+x(a)+' '+ypos+' H'+x(b)+' M'+x(a)+' '+(ypos-4)+' V'+(ypos+4)+' M'+x(b)+' '+(ypos-4)+' V'+(ypos+4)+'" fill="none" stroke="#526a80"/><text x="'+num((x(a)+x(b))/2)+'" y="'+(ypos+16)+'" text-anchor="middle" font-size="12">'+esc(text)+'</text>';
-      return '<svg viewBox="0 0 620 270" role="img" aria-label="'+h('Längsschnitt und Stirnansicht des Rechenmodells')+'"><title>'+h('Längsschnitt und Stirnansicht des Rechenmodells')+'</title><defs><clipPath id="'+id+'"><polygon points="'+outline+'"/></clipPath></defs><text x="35" y="22" font-size="13">'+h('Längsschnitt A → B')+'</text><text x="535" y="22" text-anchor="middle" font-size="13">'+h('Stirnansicht A')+'</text><polygon data-preview="outer" points="'+outline+'" fill="#c1d8e9" stroke="#24394d"'+(approximate?' stroke-dasharray="5 3"':'')+'/>'+holes.map(hole=>'<polygon data-preview="'+hole.id+'" data-start-mm="'+num(hole.points[0][0])+'" data-end-mm="'+num(hole.points.at(-1)[0])+'" points="'+points(hole.points)+'" fill="white" stroke="#24394d" clip-path="url(#'+id+')"/>').join('')+'<path d="M20 110 H440" stroke="#8094a4" stroke-dasharray="5 4"/>'+face+'<path d="M'+(cx-radius-9)+' 110 H'+(cx+radius+9)+' M535 '+(cy-radius-9)+' V'+(cy+radius+9)+'" stroke="#8094a4" stroke-dasharray="5 4"/>'+dim(0,L,207,tr('Gesamtlänge')+' '+String(format?format(L):num(L))+' mm')+(headLength>0&&headLength<L?dim(0,headLength,241,tr('Kopf'))+dim(headLength,L,241,tr('Schaft')):'')+(front.driveLabel?'<text x="535" y="205" text-anchor="middle" font-size="12">'+esc(front.driveLabel)+'</text>':'')+'</svg>';
+      return '<svg viewBox="0 0 620 270" role="img" aria-label="'+h('Längsschnitt und Stirnansicht des Rechenmodells')+'"><title>'+h('Längsschnitt und Stirnansicht des Rechenmodells')+'</title><defs><clipPath id="'+id+'"><polygon points="'+outline+'"/></clipPath></defs><text x="35" y="22" font-size="13">'+h('Längsschnitt A → B')+'</text><text x="535" y="22" text-anchor="middle" font-size="13">'+h('Stirnansicht A')+'</text><polygon data-preview="outer" points="'+outline+'" fill="#c1d8e9" stroke="#24394d"'+(approximate?' stroke-dasharray="5 3"':'')+'/>'+holes.map(hole=>'<polygon data-preview="'+hole.id+'" data-start-mm="'+num(hole.points[0][0])+'" data-end-mm="'+num(hole.points.at(-1)[0])+'" points="'+points(hole.points)+'" fill="white" stroke="#24394d"'+(hole.schematic?' data-schematic="true" stroke-dasharray="3 2"':'')+' clip-path="url(#'+id+')"/>').join('')+'<path d="M20 110 H440" stroke="#8094a4" stroke-dasharray="5 4"/>'+face+'<path d="M'+(cx-radius-9)+' 110 H'+(cx+radius+9)+' M535 '+(cy-radius-9)+' V'+(cy+radius+9)+'" stroke="#8094a4" stroke-dasharray="5 4"/>'+dim(0,L,207,tr('Gesamtlänge')+' '+String(format?format(L):num(L))+' mm')+(headLength>0&&headLength<L?dim(0,headLength,241,tr('Kopf'))+dim(headLength,L,241,tr('Schaft')):'')+(front.driveLabel?'<text x="535" y="205" text-anchor="middle" font-size="12">'+esc(front.driveLabel)+'</text>':'')+'</svg>';
     }
   }
   return Object.freeze({render});

@@ -1,14 +1,14 @@
 const test=require('node:test'),assert=require('node:assert/strict'),fs=require('node:fs'),path=require('node:path'),vm=require('node:vm');
 const N=require('../normen/library.js'),R=require('../normen/resolver.js'),threads=require('../normen/gewinde.json');
-class El{constructor(tag='div'){this.tagName=tag.toUpperCase();this.value='';this.name='';this.type='';this.checked=false;this.children=[];this.events={};this.parent=null;this.hidden=false;}append(...nodes){nodes.forEach(n=>{n.parent=this;this.children.push(n);});}replaceChildren(...nodes){this.children=[];this.append(...nodes);}setAttribute(k,v){this[k]=v;}addEventListener(k,fn){this.events[k]=fn;}closest(tag){return this.tagName.toLowerCase()===tag?this:this.parent?.closest(tag);}get options(){return this.children;}get textContent(){return this._text||this.children.map(x=>x.textContent).join('');}set textContent(x){this._text=x;}}
+class El{constructor(tag='div'){this.tagName=tag.toUpperCase();this.value='';this.name='';this.type='';this.checked=false;this.children=[];this.events={};this.parent=null;this.hidden=false;}append(...nodes){nodes.forEach(n=>{n.parent=this;this.children.push(n);});}replaceChildren(...nodes){this.children=[];this.append(...nodes);}setAttribute(k,v){this[k]=v;}addEventListener(k,fn){this.events[k]=fn;}focus(){this.focused=true;}contains(node){return node===this||this.children.some(child=>child.contains(node));}closest(tag){return this.tagName.toLowerCase()===tag?this:this.parent?.closest(tag);}get options(){return this.children;}get textContent(){return this._text||this.children.map(x=>x.textContent).join('');}set textContent(x){this._text=x;}}
 function setup(){
  const host=new El(),form=new El('form'),detail=new El('details'),nodes=[];form.elements={typ:{value:'bolzen'},standardKind:{value:'screw'}};
- const document={createElement(tag){const e=new El(tag);nodes.push(e);return e;},getElementById(){return detail;}};
+ const events={},document={createElement(tag){const e=new El(tag);nodes.push(e);return e;},getElementById(){return detail;},addEventListener(name,fn){events[name]=fn;}};
  const data={schemaVersion:1,version:'test',threads,families:['ISO4762','ISO14579','DIN934','DIN7338','ISO13918'].map(id=>require('../normen/'+id+'.json'))};
  const window={document,JYNormLibrary:N,JYStandards:R};vm.runInNewContext(fs.readFileSync(path.join(__dirname,'../normen/ui.js'),'utf8'),{window});
  const part={d0:5.6,wst:'existing',nachricht:'unchanged customer text'};
  let applied;const picker=window.JYNormPicker.create({host,form,data,tr:x=>x,getType:()=>form.elements.typ.value,getPart:()=>({...part}),onApply:x=>{applied=x;},onChange(){}});
- return {picker,form,host,detail,part,get:id=>nodes.find(n=>n.id===id),get applied(){return applied;}};
+ return {picker,form,host,detail,part,events,get:id=>nodes.find(n=>n.id===id),get applied(){return applied;}};
 }
 function edit(p,name,value,tagName='SELECT',type='',checked=false){p.form.events.change({target:{name,value,tagName,type,checked}});}
 
@@ -33,4 +33,22 @@ test('exported template snapshot follows wire and material edits made outside no
  assert.equal(p.picker.adapted().standardDocument.partSnapshot.wst,'customer-wire');
  assert.equal(p.picker.document().standardReference.id,'ISO4762');
  assert.deepEqual(Object.keys(p.picker.document().overrides),[]);
+});
+
+test('length disclosure renders documented choices in the page and restores focus after selection or Escape',()=>{
+ const p=setup(),button=p.get('norm-laenge-toggle'),list=p.get('norm-laenge');
+ assert.equal(button.disabled,true);assert.equal(list.hidden,true);
+ p.picker.select({id:'ISO4762',groesse:'M6',laenge:30});
+ assert.equal(button.disabled,false);assert(button.textContent.includes('30 mm'));
+ assert.equal(button['aria-controls'],'norm-laenge');assert.equal(button['aria-expanded'],'false');assert.equal(button['aria-haspopup'],'listbox');
+ assert.equal(list.size,6);
+ button.events.click();assert.equal(list.hidden,false);assert.equal(button['aria-expanded'],'true');assert.equal(list.focused,true);
+ assert.deepEqual(list.options.map(option=>Number(option.value)),N.lengths(require('../normen/ISO4762.json'),'M6').map(Number));
+ list.value='35';list.events.change();list.events.click();assert.equal(p.applied.sL,35);assert.equal(list.hidden,true);assert.equal(button.focused,true);assert(button.textContent.includes('35 mm'));
+ let prevented=false;button.events.keydown({key:'ArrowDown',preventDefault(){prevented=true;}});assert.equal(prevented,true);assert.equal(list.hidden,false);
+ button.focused=false;list.events.keydown({key:'ArrowDown',preventDefault(){throw Error('native arrow navigation must remain available');}});list.value='40';list.events.change();assert.equal(list.hidden,false);assert.equal(button.focused,false);assert.equal(p.applied.sL,40);
+ list.events.keydown({key:'Enter',preventDefault(){}});assert.equal(list.hidden,true);assert.equal(button.focused,true);
+ button.events.click();list.events.keydown({key:'Escape',preventDefault(){}});assert.equal(list.hidden,true);assert.equal(p.picker.document().standardReference.laenge,40);
+ button.events.click();p.events.click({target:button});assert.equal(list.hidden,false);
+ p.events.click({target:new El()});assert.equal(list.hidden,true);
 });
