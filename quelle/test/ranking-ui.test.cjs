@@ -44,6 +44,17 @@ test('all-ok recommendation cards stay compact while only open or tight checks a
   assert.doesNotMatch(needsChecks,/Prüfung \d/);
 });
 
+test('the machine grid scrolls inside its bounded result column',()=>{
+  const html=U.summaryHtml(fixture(),options);
+  assert.match(html,/<div class="ranking-table-scroll"><table>/);
+  const source=fs.readFileSync(path.join(__dirname,'../archiv-vorlage.html'),'utf8');
+  const rule=source.match(/\.ranking-table-scroll\s*\{([^}]+)\}/);
+  assert.ok(rule,'The grid needs its own scroll container in the shared expert template');
+  assert.match(rule[1],/overflow-x\s*:\s*auto\s*;/);
+  assert.match(rule[1],/max-width\s*:\s*100%\s*;/);
+  assert.match(rule[1],/min-width\s*:\s*0\s*;/);
+});
+
 test('open suitability and incomplete price order remain explicit',()=>{
   const ranking=fixture(),row=ranking.recommendation;
   row.gesamt='offen';row.k=[{krit:'Technische Prüfung',status:'offen',soll:'Kraft',ist:'offen'}];
