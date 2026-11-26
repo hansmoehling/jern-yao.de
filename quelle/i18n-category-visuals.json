@@ -1,4 +1,4 @@
 {
-  "Symbolische Schraube mit technischer Ansicht": ["Vite simbolica con vista tecnica", "Simbolni prikaz vijaka s tehničnim pogledom", "Symbolic screw with technical view", "螺钉示意图及技术视图"],
-  "Symbolische Sechskantmutter mit technischer Ansicht": ["Dado esagonale simbolico con vista tecnica", "Simbolni prikaz šesterokotne matice s tehničnim pogledom", "Symbolic hex nut with technical view", "六角螺母示意图及技术视图"]
+  "Verchromte Zylinderschraube mit Innensechskant nach DIN 912": ["Vite cromata a testa cilindrica con esagono incassato secondo DIN 912", "Kromiran vijak z valjasto glavo in notranjim šestkotnikom po DIN 912", "Chrome-plated hexagon socket head cap screw to DIN 912", "符合 DIN 912 的镀铬内六角圆柱头螺钉"],
+  "Verchromte Sechskantmutter": ["Dado esagonale cromato", "Kromirana šesterokotna matica", "Chrome-plated hex nut", "镀铬六角螺母"]
 }
