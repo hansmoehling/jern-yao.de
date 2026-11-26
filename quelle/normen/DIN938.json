@@ -3,103 +3,2255 @@
   "version": "2026-11-26",
   "schemaVersion": 1,
   "label": "DIN938 · Stiftschraube, Einschraubende etwa 1d",
-  "edition": null,
-  "editionStatus": "unresolved",
+  "edition": "2025-08",
+  "editionStatus": "current-manufacturer-table",
   "funktion": "stehbolzen",
   "klasse": "bolzen",
   "kopfTyp": "kopflos",
   "antrieb": {
     "art": "none"
   },
-  "feldzuordnung": {},
-  "groessen": {},
-  "fields": {},
-  "sourceMeta": {},
-  "quellen": [],
+  "feldzuordnung": {
+    "d": "d_nominal",
+    "metalEndLength": "bm"
+  },
+  "groessen": {
+    "M3": {
+      "vorbelegung": {
+        "d": 3,
+        "metalEndLength": 3
+      },
+      "roh": {
+        "d_nominal": 3,
+        "P": 0.5,
+        "bm": 3,
+        "b_le125": 12,
+        "b_le200": 18,
+        "b_gt200": null
+      },
+      "coverage": "documented",
+      "lengthCoverage": "unresearched",
+      "geometryStatus": "partial",
+      "missingGeometryFields": [
+        "nominalLength",
+        "threadRunout",
+        "endGeometry"
+      ],
+      "nachLaenge": {}
+    },
+    "M4": {
+      "vorbelegung": {
+        "d": 4,
+        "metalEndLength": 4
+      },
+      "roh": {
+        "d_nominal": 4,
+        "P": 0.7,
+        "bm": 4,
+        "b_le125": 14,
+        "b_le200": 20,
+        "b_gt200": null
+      },
+      "coverage": "documented",
+      "lengthCoverage": "unresearched",
+      "geometryStatus": "partial",
+      "missingGeometryFields": [
+        "nominalLength",
+        "threadRunout",
+        "endGeometry"
+      ],
+      "nachLaenge": {}
+    },
+    "M5": {
+      "vorbelegung": {
+        "d": 5,
+        "metalEndLength": 5
+      },
+      "roh": {
+        "d_nominal": 5,
+        "P": 0.8,
+        "bm": 5,
+        "b_le125": 16,
+        "b_le200": 22,
+        "b_gt200": null
+      },
+      "coverage": "documented",
+      "lengthCoverage": "unresearched",
+      "geometryStatus": "partial",
+      "missingGeometryFields": [
+        "nominalLength",
+        "threadRunout",
+        "endGeometry"
+      ],
+      "nachLaenge": {}
+    },
+    "M6": {
+      "vorbelegung": {
+        "d": 6,
+        "metalEndLength": 6
+      },
+      "roh": {
+        "d_nominal": 6,
+        "P": 1,
+        "bm": 6,
+        "b_le125": 18,
+        "b_le200": 24,
+        "b_gt200": null
+      },
+      "coverage": "documented",
+      "lengthCoverage": "unresearched",
+      "geometryStatus": "partial",
+      "missingGeometryFields": [
+        "nominalLength",
+        "threadRunout",
+        "endGeometry"
+      ],
+      "nachLaenge": {}
+    },
+    "M7": {
+      "vorbelegung": {
+        "d": 7,
+        "metalEndLength": 7
+      },
+      "roh": {
+        "d_nominal": 7,
+        "P": 1,
+        "bm": 7,
+        "b_le125": 20,
+        "b_le200": 26,
+        "b_gt200": null
+      },
+      "coverage": "documented",
+      "lengthCoverage": "unresearched",
+      "geometryStatus": "partial",
+      "missingGeometryFields": [
+        "nominalLength",
+        "threadRunout",
+        "endGeometry"
+      ],
+      "nachLaenge": {}
+    },
+    "M8": {
+      "vorbelegung": {
+        "d": 8,
+        "metalEndLength": 8
+      },
+      "roh": {
+        "d_nominal": 8,
+        "P": 1.25,
+        "bm": 8,
+        "b_le125": 22,
+        "b_le200": 28,
+        "b_gt200": null
+      },
+      "coverage": "documented",
+      "lengthCoverage": "unresearched",
+      "geometryStatus": "partial",
+      "missingGeometryFields": [
+        "nominalLength",
+        "threadRunout",
+        "endGeometry"
+      ],
+      "nachLaenge": {}
+    },
+    "M10": {
+      "vorbelegung": {
+        "d": 10,
+        "metalEndLength": 10
+      },
+      "roh": {
+        "d_nominal": 10,
+        "P": 1.5,
+        "bm": 10,
+        "b_le125": 26,
+        "b_le200": 32,
+        "b_gt200": 45
+      },
+      "coverage": "documented",
+      "lengthCoverage": "unresearched",
+      "geometryStatus": "partial",
+      "missingGeometryFields": [
+        "nominalLength",
+        "threadRunout",
+        "endGeometry"
+      ],
+      "nachLaenge": {}
+    },
+    "M12": {
+      "vorbelegung": {
+        "d": 12,
+        "metalEndLength": 12
+      },
+      "roh": {
+        "d_nominal": 12,
+        "P": 1.75,
+        "bm": 12,
+        "b_le125": 30,
+        "b_le200": 36,
+        "b_gt200": 49
+      },
+      "coverage": "documented",
+      "lengthCoverage": "unresearched",
+      "geometryStatus": "partial",
+      "missingGeometryFields": [
+        "nominalLength",
+        "threadRunout",
+        "endGeometry"
+      ],
+      "nachLaenge": {}
+    },
+    "M14": {
+      "vorbelegung": {
+        "d": 14,
+        "metalEndLength": 14
+      },
+      "roh": {
+        "d_nominal": 14,
+        "P": 2,
+        "bm": 14,
+        "b_le125": 34,
+        "b_le200": 40,
+        "b_gt200": 53
+      },
+      "coverage": "documented",
+      "lengthCoverage": "unresearched",
+      "geometryStatus": "partial",
+      "missingGeometryFields": [
+        "nominalLength",
+        "threadRunout",
+        "endGeometry"
+      ],
+      "nachLaenge": {}
+    },
+    "M16": {
+      "vorbelegung": {
+        "d": 16,
+        "metalEndLength": 16
+      },
+      "roh": {
+        "d_nominal": 16,
+        "P": 2,
+        "bm": 16,
+        "b_le125": 38,
+        "b_le200": 44,
+        "b_gt200": 57
+      },
+      "coverage": "documented",
+      "lengthCoverage": "unresearched",
+      "geometryStatus": "partial",
+      "missingGeometryFields": [
+        "nominalLength",
+        "threadRunout",
+        "endGeometry"
+      ],
+      "nachLaenge": {}
+    },
+    "M18": {
+      "vorbelegung": {
+        "d": 18,
+        "metalEndLength": 18
+      },
+      "roh": {
+        "d_nominal": 18,
+        "P": 2.5,
+        "bm": 18,
+        "b_le125": 42,
+        "b_le200": 48,
+        "b_gt200": 61
+      },
+      "coverage": "documented",
+      "lengthCoverage": "unresearched",
+      "geometryStatus": "partial",
+      "missingGeometryFields": [
+        "nominalLength",
+        "threadRunout",
+        "endGeometry"
+      ],
+      "nachLaenge": {}
+    },
+    "M20": {
+      "vorbelegung": {
+        "d": 20,
+        "metalEndLength": 20
+      },
+      "roh": {
+        "d_nominal": 20,
+        "P": 2.5,
+        "bm": 20,
+        "b_le125": 46,
+        "b_le200": 52,
+        "b_gt200": 65
+      },
+      "coverage": "documented",
+      "lengthCoverage": "unresearched",
+      "geometryStatus": "partial",
+      "missingGeometryFields": [
+        "nominalLength",
+        "threadRunout",
+        "endGeometry"
+      ],
+      "nachLaenge": {}
+    },
+    "M22": {
+      "vorbelegung": {
+        "d": 22,
+        "metalEndLength": 22
+      },
+      "roh": {
+        "d_nominal": 22,
+        "P": 2.5,
+        "bm": 22,
+        "b_le125": 50,
+        "b_le200": 56,
+        "b_gt200": 69
+      },
+      "coverage": "documented",
+      "lengthCoverage": "unresearched",
+      "geometryStatus": "partial",
+      "missingGeometryFields": [
+        "nominalLength",
+        "threadRunout",
+        "endGeometry"
+      ],
+      "nachLaenge": {}
+    },
+    "M24": {
+      "vorbelegung": {
+        "d": 24,
+        "metalEndLength": 24
+      },
+      "roh": {
+        "d_nominal": 24,
+        "P": 3,
+        "bm": 24,
+        "b_le125": 54,
+        "b_le200": 60,
+        "b_gt200": 73
+      },
+      "coverage": "documented",
+      "lengthCoverage": "unresearched",
+      "geometryStatus": "partial",
+      "missingGeometryFields": [
+        "nominalLength",
+        "threadRunout",
+        "endGeometry"
+      ],
+      "nachLaenge": {}
+    },
+    "M27": {
+      "vorbelegung": {
+        "d": 27,
+        "metalEndLength": 25
+      },
+      "roh": {
+        "d_nominal": 27,
+        "P": 3,
+        "bm": 25,
+        "b_le125": 60,
+        "b_le200": 66,
+        "b_gt200": 79
+      },
+      "coverage": "documented",
+      "lengthCoverage": "unresearched",
+      "geometryStatus": "partial",
+      "missingGeometryFields": [
+        "nominalLength",
+        "threadRunout",
+        "endGeometry"
+      ],
+      "nachLaenge": {}
+    },
+    "M30": {
+      "vorbelegung": {
+        "d": 30,
+        "metalEndLength": 30
+      },
+      "roh": {
+        "d_nominal": 30,
+        "P": 3.5,
+        "bm": 30,
+        "b_le125": 66,
+        "b_le200": 72,
+        "b_gt200": 85
+      },
+      "coverage": "documented",
+      "lengthCoverage": "unresearched",
+      "geometryStatus": "partial",
+      "missingGeometryFields": [
+        "nominalLength",
+        "threadRunout",
+        "endGeometry"
+      ],
+      "nachLaenge": {}
+    },
+    "M33": {
+      "vorbelegung": {
+        "d": 33,
+        "metalEndLength": 32
+      },
+      "roh": {
+        "d_nominal": 33,
+        "P": 3.5,
+        "bm": 32,
+        "b_le125": 72,
+        "b_le200": 78,
+        "b_gt200": 91
+      },
+      "coverage": "documented",
+      "lengthCoverage": "unresearched",
+      "geometryStatus": "partial",
+      "missingGeometryFields": [
+        "nominalLength",
+        "threadRunout",
+        "endGeometry"
+      ],
+      "nachLaenge": {}
+    },
+    "M36": {
+      "vorbelegung": {
+        "d": 36,
+        "metalEndLength": 35
+      },
+      "roh": {
+        "d_nominal": 36,
+        "P": 4,
+        "bm": 35,
+        "b_le125": 78,
+        "b_le200": 84,
+        "b_gt200": 97
+      },
+      "coverage": "documented",
+      "lengthCoverage": "unresearched",
+      "geometryStatus": "partial",
+      "missingGeometryFields": [
+        "nominalLength",
+        "threadRunout",
+        "endGeometry"
+      ],
+      "nachLaenge": {}
+    },
+    "M39": {
+      "vorbelegung": {
+        "d": 39,
+        "metalEndLength": 38
+      },
+      "roh": {
+        "d_nominal": 39,
+        "P": 4,
+        "bm": 38,
+        "b_le125": 84,
+        "b_le200": 90,
+        "b_gt200": 103
+      },
+      "coverage": "documented",
+      "lengthCoverage": "unresearched",
+      "geometryStatus": "partial",
+      "missingGeometryFields": [
+        "nominalLength",
+        "threadRunout",
+        "endGeometry"
+      ],
+      "nachLaenge": {}
+    },
+    "M42": {
+      "vorbelegung": {
+        "d": 42,
+        "metalEndLength": 42
+      },
+      "roh": {
+        "d_nominal": 42,
+        "P": 4.5,
+        "bm": 42,
+        "b_le125": 90,
+        "b_le200": 96,
+        "b_gt200": 109
+      },
+      "coverage": "documented",
+      "lengthCoverage": "unresearched",
+      "geometryStatus": "partial",
+      "missingGeometryFields": [
+        "nominalLength",
+        "threadRunout",
+        "endGeometry"
+      ],
+      "nachLaenge": {}
+    }
+  },
+  "fields": {
+    "M3": {
+      "d_nominal": {
+        "nominal": 3,
+        "unit": "mm",
+        "sourceRefs": [
+          "torqbolt"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Zweite unabhängige Bestätigung dieses Einzelwerts fehlt.",
+        "verificationMethod": "one-source-only"
+      },
+      "P": {
+        "nominal": 0.5,
+        "unit": "mm",
+        "sourceRefs": [
+          "torqbolt"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Zweite unabhängige Bestätigung dieses Einzelwerts fehlt.",
+        "verificationMethod": "one-source-only"
+      },
+      "bm": {
+        "nominal": 3,
+        "unit": "mm",
+        "sourceRefs": [
+          "torqbolt"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Zweite unabhängige Bestätigung dieses Einzelwerts fehlt.",
+        "verificationMethod": "one-source-only"
+      },
+      "b_le125": {
+        "nominal": 12,
+        "unit": "mm",
+        "sourceRefs": [
+          "torqbolt"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Zweite unabhängige Bestätigung dieses Einzelwerts fehlt.",
+        "dependsOn": [
+          "nominalLength",
+          "shortStudException"
+        ],
+        "verificationMethod": "one-source-only"
+      },
+      "b_le200": {
+        "nominal": 18,
+        "unit": "mm",
+        "sourceRefs": [
+          "torqbolt"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Zweite unabhängige Bestätigung dieses Einzelwerts fehlt.",
+        "dependsOn": [
+          "nominalLength",
+          "shortStudException"
+        ],
+        "verificationMethod": "one-source-only"
+      },
+      "b_gt200": {
+        "unit": "mm",
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "note": "Zweite unabhängige Bestätigung dieses Einzelwerts fehlt.",
+        "dependsOn": [
+          "nominalLength",
+          "shortStudException"
+        ],
+        "verificationMethod": "value-not-established"
+      }
+    },
+    "M4": {
+      "d_nominal": {
+        "nominal": 4,
+        "unit": "mm",
+        "sourceRefs": [
+          "torqbolt"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Zweite unabhängige Bestätigung dieses Einzelwerts fehlt.",
+        "verificationMethod": "one-source-only"
+      },
+      "P": {
+        "nominal": 0.7,
+        "unit": "mm",
+        "sourceRefs": [
+          "torqbolt"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Zweite unabhängige Bestätigung dieses Einzelwerts fehlt.",
+        "verificationMethod": "one-source-only"
+      },
+      "bm": {
+        "nominal": 4,
+        "unit": "mm",
+        "sourceRefs": [
+          "torqbolt"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Zweite unabhängige Bestätigung dieses Einzelwerts fehlt.",
+        "verificationMethod": "one-source-only"
+      },
+      "b_le125": {
+        "nominal": 14,
+        "unit": "mm",
+        "sourceRefs": [
+          "torqbolt"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Zweite unabhängige Bestätigung dieses Einzelwerts fehlt.",
+        "dependsOn": [
+          "nominalLength",
+          "shortStudException"
+        ],
+        "verificationMethod": "one-source-only"
+      },
+      "b_le200": {
+        "nominal": 20,
+        "unit": "mm",
+        "sourceRefs": [
+          "torqbolt"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Zweite unabhängige Bestätigung dieses Einzelwerts fehlt.",
+        "dependsOn": [
+          "nominalLength",
+          "shortStudException"
+        ],
+        "verificationMethod": "one-source-only"
+      },
+      "b_gt200": {
+        "unit": "mm",
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "note": "Zweite unabhängige Bestätigung dieses Einzelwerts fehlt.",
+        "dependsOn": [
+          "nominalLength",
+          "shortStudException"
+        ],
+        "verificationMethod": "value-not-established"
+      }
+    },
+    "M5": {
+      "d_nominal": {
+        "nominal": 5,
+        "unit": "mm",
+        "sourceRefs": [
+          "torqbolt"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Zweite unabhängige Bestätigung dieses Einzelwerts fehlt.",
+        "verificationMethod": "one-source-only"
+      },
+      "P": {
+        "nominal": 0.8,
+        "unit": "mm",
+        "sourceRefs": [
+          "torqbolt"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Zweite unabhängige Bestätigung dieses Einzelwerts fehlt.",
+        "verificationMethod": "one-source-only"
+      },
+      "bm": {
+        "nominal": 5,
+        "unit": "mm",
+        "sourceRefs": [
+          "torqbolt"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Zweite unabhängige Bestätigung dieses Einzelwerts fehlt.",
+        "verificationMethod": "one-source-only"
+      },
+      "b_le125": {
+        "nominal": 16,
+        "unit": "mm",
+        "sourceRefs": [
+          "torqbolt"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Zweite unabhängige Bestätigung dieses Einzelwerts fehlt.",
+        "dependsOn": [
+          "nominalLength",
+          "shortStudException"
+        ],
+        "verificationMethod": "one-source-only"
+      },
+      "b_le200": {
+        "nominal": 22,
+        "unit": "mm",
+        "sourceRefs": [
+          "torqbolt"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Zweite unabhängige Bestätigung dieses Einzelwerts fehlt.",
+        "dependsOn": [
+          "nominalLength",
+          "shortStudException"
+        ],
+        "verificationMethod": "one-source-only"
+      },
+      "b_gt200": {
+        "unit": "mm",
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "note": "Zweite unabhängige Bestätigung dieses Einzelwerts fehlt.",
+        "dependsOn": [
+          "nominalLength",
+          "shortStudException"
+        ],
+        "verificationMethod": "value-not-established"
+      }
+    },
+    "M6": {
+      "d_nominal": {
+        "nominal": 6,
+        "unit": "mm",
+        "sourceRefs": [
+          "torqbolt",
+          "jaeger"
+        ],
+        "status": "verified",
+        "verification": true,
+        "note": "Maßzahl durch die genannten unabhängigen Veröffentlichungen bestätigt.",
+        "verificationMethod": "independent-publishers-agree"
+      },
+      "P": {
+        "nominal": 1,
+        "unit": "mm",
+        "sourceRefs": [
+          "torqbolt",
+          "jaeger"
+        ],
+        "status": "verified",
+        "verification": true,
+        "note": "Maßzahl durch die genannten unabhängigen Veröffentlichungen bestätigt.",
+        "verificationMethod": "independent-publishers-agree"
+      },
+      "bm": {
+        "nominal": 6,
+        "unit": "mm",
+        "sourceRefs": [
+          "torqbolt",
+          "jaeger"
+        ],
+        "status": "verified",
+        "verification": true,
+        "note": "Maßzahl durch die genannten unabhängigen Veröffentlichungen bestätigt.",
+        "verificationMethod": "independent-publishers-agree"
+      },
+      "b_le125": {
+        "nominal": 18,
+        "unit": "mm",
+        "sourceRefs": [
+          "torqbolt",
+          "jaeger"
+        ],
+        "status": "verified",
+        "verification": true,
+        "note": "Maßzahl durch die genannten unabhängigen Veröffentlichungen bestätigt.",
+        "dependsOn": [
+          "nominalLength",
+          "shortStudException"
+        ],
+        "verificationMethod": "independent-publishers-agree"
+      },
+      "b_le200": {
+        "nominal": 24,
+        "unit": "mm",
+        "sourceRefs": [
+          "torqbolt",
+          "jaeger"
+        ],
+        "status": "verified",
+        "verification": true,
+        "note": "Maßzahl durch die genannten unabhängigen Veröffentlichungen bestätigt.",
+        "dependsOn": [
+          "nominalLength",
+          "shortStudException"
+        ],
+        "verificationMethod": "independent-publishers-agree"
+      },
+      "b_gt200": {
+        "unit": "mm",
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "note": "Zweite unabhängige Bestätigung dieses Einzelwerts fehlt.",
+        "dependsOn": [
+          "nominalLength",
+          "shortStudException"
+        ],
+        "verificationMethod": "value-not-established"
+      }
+    },
+    "M7": {
+      "d_nominal": {
+        "nominal": 7,
+        "unit": "mm",
+        "sourceRefs": [
+          "torqbolt"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Zweite unabhängige Bestätigung dieses Einzelwerts fehlt.",
+        "verificationMethod": "one-source-only"
+      },
+      "P": {
+        "nominal": 1,
+        "unit": "mm",
+        "sourceRefs": [
+          "torqbolt"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Zweite unabhängige Bestätigung dieses Einzelwerts fehlt.",
+        "verificationMethod": "one-source-only"
+      },
+      "bm": {
+        "nominal": 7,
+        "unit": "mm",
+        "sourceRefs": [
+          "torqbolt"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Zweite unabhängige Bestätigung dieses Einzelwerts fehlt.",
+        "verificationMethod": "one-source-only"
+      },
+      "b_le125": {
+        "nominal": 20,
+        "unit": "mm",
+        "sourceRefs": [
+          "torqbolt"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Zweite unabhängige Bestätigung dieses Einzelwerts fehlt.",
+        "dependsOn": [
+          "nominalLength",
+          "shortStudException"
+        ],
+        "verificationMethod": "one-source-only"
+      },
+      "b_le200": {
+        "nominal": 26,
+        "unit": "mm",
+        "sourceRefs": [
+          "torqbolt"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Zweite unabhängige Bestätigung dieses Einzelwerts fehlt.",
+        "dependsOn": [
+          "nominalLength",
+          "shortStudException"
+        ],
+        "verificationMethod": "one-source-only"
+      },
+      "b_gt200": {
+        "unit": "mm",
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "note": "Zweite unabhängige Bestätigung dieses Einzelwerts fehlt.",
+        "dependsOn": [
+          "nominalLength",
+          "shortStudException"
+        ],
+        "verificationMethod": "value-not-established"
+      }
+    },
+    "M8": {
+      "d_nominal": {
+        "nominal": 8,
+        "unit": "mm",
+        "sourceRefs": [
+          "torqbolt",
+          "jaeger"
+        ],
+        "status": "verified",
+        "verification": true,
+        "note": "Maßzahl durch die genannten unabhängigen Veröffentlichungen bestätigt.",
+        "verificationMethod": "independent-publishers-agree"
+      },
+      "P": {
+        "nominal": 1.25,
+        "unit": "mm",
+        "sourceRefs": [
+          "torqbolt",
+          "jaeger"
+        ],
+        "status": "verified",
+        "verification": true,
+        "note": "Maßzahl durch die genannten unabhängigen Veröffentlichungen bestätigt.",
+        "verificationMethod": "independent-publishers-agree"
+      },
+      "bm": {
+        "nominal": 8,
+        "unit": "mm",
+        "sourceRefs": [
+          "torqbolt",
+          "jaeger"
+        ],
+        "status": "verified",
+        "verification": true,
+        "note": "Maßzahl durch die genannten unabhängigen Veröffentlichungen bestätigt.",
+        "verificationMethod": "independent-publishers-agree"
+      },
+      "b_le125": {
+        "nominal": 22,
+        "unit": "mm",
+        "sourceRefs": [
+          "torqbolt",
+          "jaeger"
+        ],
+        "status": "verified",
+        "verification": true,
+        "note": "Maßzahl durch die genannten unabhängigen Veröffentlichungen bestätigt.",
+        "dependsOn": [
+          "nominalLength",
+          "shortStudException"
+        ],
+        "verificationMethod": "independent-publishers-agree"
+      },
+      "b_le200": {
+        "nominal": 28,
+        "unit": "mm",
+        "sourceRefs": [
+          "torqbolt",
+          "jaeger"
+        ],
+        "status": "verified",
+        "verification": true,
+        "note": "Maßzahl durch die genannten unabhängigen Veröffentlichungen bestätigt.",
+        "dependsOn": [
+          "nominalLength",
+          "shortStudException"
+        ],
+        "verificationMethod": "independent-publishers-agree"
+      },
+      "b_gt200": {
+        "unit": "mm",
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "note": "Zweite unabhängige Bestätigung dieses Einzelwerts fehlt.",
+        "dependsOn": [
+          "nominalLength",
+          "shortStudException"
+        ],
+        "verificationMethod": "value-not-established"
+      }
+    },
+    "M10": {
+      "d_nominal": {
+        "nominal": 10,
+        "unit": "mm",
+        "sourceRefs": [
+          "torqbolt",
+          "jaeger"
+        ],
+        "status": "verified",
+        "verification": true,
+        "note": "Maßzahl durch die genannten unabhängigen Veröffentlichungen bestätigt.",
+        "verificationMethod": "independent-publishers-agree"
+      },
+      "P": {
+        "nominal": 1.5,
+        "unit": "mm",
+        "sourceRefs": [
+          "torqbolt",
+          "jaeger"
+        ],
+        "status": "verified",
+        "verification": true,
+        "note": "Maßzahl durch die genannten unabhängigen Veröffentlichungen bestätigt.",
+        "verificationMethod": "independent-publishers-agree"
+      },
+      "bm": {
+        "nominal": 10,
+        "unit": "mm",
+        "sourceRefs": [
+          "torqbolt",
+          "jaeger"
+        ],
+        "status": "verified",
+        "verification": true,
+        "note": "Maßzahl durch die genannten unabhängigen Veröffentlichungen bestätigt.",
+        "verificationMethod": "independent-publishers-agree"
+      },
+      "b_le125": {
+        "nominal": 26,
+        "unit": "mm",
+        "sourceRefs": [
+          "torqbolt",
+          "jaeger"
+        ],
+        "status": "verified",
+        "verification": true,
+        "note": "Maßzahl durch die genannten unabhängigen Veröffentlichungen bestätigt.",
+        "dependsOn": [
+          "nominalLength",
+          "shortStudException"
+        ],
+        "verificationMethod": "independent-publishers-agree"
+      },
+      "b_le200": {
+        "nominal": 32,
+        "unit": "mm",
+        "sourceRefs": [
+          "torqbolt",
+          "jaeger"
+        ],
+        "status": "verified",
+        "verification": true,
+        "note": "Maßzahl durch die genannten unabhängigen Veröffentlichungen bestätigt.",
+        "dependsOn": [
+          "nominalLength",
+          "shortStudException"
+        ],
+        "verificationMethod": "independent-publishers-agree"
+      },
+      "b_gt200": {
+        "nominal": 45,
+        "unit": "mm",
+        "sourceRefs": [
+          "torqbolt",
+          "jaeger"
+        ],
+        "status": "verified",
+        "verification": true,
+        "note": "Maßzahl durch die genannten unabhängigen Veröffentlichungen bestätigt.",
+        "dependsOn": [
+          "nominalLength",
+          "shortStudException"
+        ],
+        "verificationMethod": "independent-publishers-agree"
+      }
+    },
+    "M12": {
+      "d_nominal": {
+        "nominal": 12,
+        "unit": "mm",
+        "sourceRefs": [
+          "torqbolt",
+          "jaeger"
+        ],
+        "status": "verified",
+        "verification": true,
+        "note": "Maßzahl durch die genannten unabhängigen Veröffentlichungen bestätigt.",
+        "verificationMethod": "independent-publishers-agree"
+      },
+      "P": {
+        "nominal": 1.75,
+        "unit": "mm",
+        "sourceRefs": [
+          "torqbolt",
+          "jaeger"
+        ],
+        "status": "verified",
+        "verification": true,
+        "note": "Maßzahl durch die genannten unabhängigen Veröffentlichungen bestätigt.",
+        "verificationMethod": "independent-publishers-agree"
+      },
+      "bm": {
+        "nominal": 12,
+        "unit": "mm",
+        "sourceRefs": [
+          "torqbolt",
+          "jaeger"
+        ],
+        "status": "verified",
+        "verification": true,
+        "note": "Maßzahl durch die genannten unabhängigen Veröffentlichungen bestätigt.",
+        "verificationMethod": "independent-publishers-agree"
+      },
+      "b_le125": {
+        "nominal": 30,
+        "unit": "mm",
+        "sourceRefs": [
+          "torqbolt",
+          "jaeger"
+        ],
+        "status": "verified",
+        "verification": true,
+        "note": "Maßzahl durch die genannten unabhängigen Veröffentlichungen bestätigt.",
+        "dependsOn": [
+          "nominalLength",
+          "shortStudException"
+        ],
+        "verificationMethod": "independent-publishers-agree"
+      },
+      "b_le200": {
+        "nominal": 36,
+        "unit": "mm",
+        "sourceRefs": [
+          "torqbolt",
+          "jaeger"
+        ],
+        "status": "verified",
+        "verification": true,
+        "note": "Maßzahl durch die genannten unabhängigen Veröffentlichungen bestätigt.",
+        "dependsOn": [
+          "nominalLength",
+          "shortStudException"
+        ],
+        "verificationMethod": "independent-publishers-agree"
+      },
+      "b_gt200": {
+        "nominal": 49,
+        "unit": "mm",
+        "sourceRefs": [
+          "torqbolt",
+          "jaeger"
+        ],
+        "status": "verified",
+        "verification": true,
+        "note": "Maßzahl durch die genannten unabhängigen Veröffentlichungen bestätigt.",
+        "dependsOn": [
+          "nominalLength",
+          "shortStudException"
+        ],
+        "verificationMethod": "independent-publishers-agree"
+      }
+    },
+    "M14": {
+      "d_nominal": {
+        "nominal": 14,
+        "unit": "mm",
+        "sourceRefs": [
+          "torqbolt"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Zweite unabhängige Bestätigung dieses Einzelwerts fehlt.",
+        "verificationMethod": "one-source-only"
+      },
+      "P": {
+        "nominal": 2,
+        "unit": "mm",
+        "sourceRefs": [
+          "torqbolt"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Zweite unabhängige Bestätigung dieses Einzelwerts fehlt.",
+        "verificationMethod": "one-source-only"
+      },
+      "bm": {
+        "nominal": 14,
+        "unit": "mm",
+        "sourceRefs": [
+          "torqbolt"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Zweite unabhängige Bestätigung dieses Einzelwerts fehlt.",
+        "verificationMethod": "one-source-only"
+      },
+      "b_le125": {
+        "nominal": 34,
+        "unit": "mm",
+        "sourceRefs": [
+          "torqbolt"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Zweite unabhängige Bestätigung dieses Einzelwerts fehlt.",
+        "dependsOn": [
+          "nominalLength",
+          "shortStudException"
+        ],
+        "verificationMethod": "one-source-only"
+      },
+      "b_le200": {
+        "nominal": 40,
+        "unit": "mm",
+        "sourceRefs": [
+          "torqbolt"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Zweite unabhängige Bestätigung dieses Einzelwerts fehlt.",
+        "dependsOn": [
+          "nominalLength",
+          "shortStudException"
+        ],
+        "verificationMethod": "one-source-only"
+      },
+      "b_gt200": {
+        "nominal": 53,
+        "unit": "mm",
+        "sourceRefs": [
+          "torqbolt"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Zweite unabhängige Bestätigung dieses Einzelwerts fehlt.",
+        "dependsOn": [
+          "nominalLength",
+          "shortStudException"
+        ],
+        "verificationMethod": "one-source-only"
+      }
+    },
+    "M16": {
+      "d_nominal": {
+        "nominal": 16,
+        "unit": "mm",
+        "sourceRefs": [
+          "torqbolt",
+          "jaeger"
+        ],
+        "status": "verified",
+        "verification": true,
+        "note": "Maßzahl durch die genannten unabhängigen Veröffentlichungen bestätigt.",
+        "verificationMethod": "independent-publishers-agree"
+      },
+      "P": {
+        "nominal": 2,
+        "unit": "mm",
+        "sourceRefs": [
+          "torqbolt",
+          "jaeger"
+        ],
+        "status": "verified",
+        "verification": true,
+        "note": "Maßzahl durch die genannten unabhängigen Veröffentlichungen bestätigt.",
+        "verificationMethod": "independent-publishers-agree"
+      },
+      "bm": {
+        "nominal": 16,
+        "unit": "mm",
+        "sourceRefs": [
+          "torqbolt",
+          "jaeger"
+        ],
+        "status": "verified",
+        "verification": true,
+        "note": "Maßzahl durch die genannten unabhängigen Veröffentlichungen bestätigt.",
+        "verificationMethod": "independent-publishers-agree"
+      },
+      "b_le125": {
+        "nominal": 38,
+        "unit": "mm",
+        "sourceRefs": [
+          "torqbolt",
+          "jaeger"
+        ],
+        "status": "verified",
+        "verification": true,
+        "note": "Maßzahl durch die genannten unabhängigen Veröffentlichungen bestätigt.",
+        "dependsOn": [
+          "nominalLength",
+          "shortStudException"
+        ],
+        "verificationMethod": "independent-publishers-agree"
+      },
+      "b_le200": {
+        "nominal": 44,
+        "unit": "mm",
+        "sourceRefs": [
+          "torqbolt",
+          "jaeger"
+        ],
+        "status": "verified",
+        "verification": true,
+        "note": "Maßzahl durch die genannten unabhängigen Veröffentlichungen bestätigt.",
+        "dependsOn": [
+          "nominalLength",
+          "shortStudException"
+        ],
+        "verificationMethod": "independent-publishers-agree"
+      },
+      "b_gt200": {
+        "nominal": 57,
+        "unit": "mm",
+        "sourceRefs": [
+          "torqbolt",
+          "jaeger"
+        ],
+        "status": "verified",
+        "verification": true,
+        "note": "Maßzahl durch die genannten unabhängigen Veröffentlichungen bestätigt.",
+        "dependsOn": [
+          "nominalLength",
+          "shortStudException"
+        ],
+        "verificationMethod": "independent-publishers-agree"
+      }
+    },
+    "M18": {
+      "d_nominal": {
+        "nominal": 18,
+        "unit": "mm",
+        "sourceRefs": [
+          "torqbolt"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Zweite unabhängige Bestätigung dieses Einzelwerts fehlt.",
+        "verificationMethod": "one-source-only"
+      },
+      "P": {
+        "nominal": 2.5,
+        "unit": "mm",
+        "sourceRefs": [
+          "torqbolt"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Zweite unabhängige Bestätigung dieses Einzelwerts fehlt.",
+        "verificationMethod": "one-source-only"
+      },
+      "bm": {
+        "nominal": 18,
+        "unit": "mm",
+        "sourceRefs": [
+          "torqbolt"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Zweite unabhängige Bestätigung dieses Einzelwerts fehlt.",
+        "verificationMethod": "one-source-only"
+      },
+      "b_le125": {
+        "nominal": 42,
+        "unit": "mm",
+        "sourceRefs": [
+          "torqbolt"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Zweite unabhängige Bestätigung dieses Einzelwerts fehlt.",
+        "dependsOn": [
+          "nominalLength",
+          "shortStudException"
+        ],
+        "verificationMethod": "one-source-only"
+      },
+      "b_le200": {
+        "nominal": 48,
+        "unit": "mm",
+        "sourceRefs": [
+          "torqbolt"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Zweite unabhängige Bestätigung dieses Einzelwerts fehlt.",
+        "dependsOn": [
+          "nominalLength",
+          "shortStudException"
+        ],
+        "verificationMethod": "one-source-only"
+      },
+      "b_gt200": {
+        "nominal": 61,
+        "unit": "mm",
+        "sourceRefs": [
+          "torqbolt"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Zweite unabhängige Bestätigung dieses Einzelwerts fehlt.",
+        "dependsOn": [
+          "nominalLength",
+          "shortStudException"
+        ],
+        "verificationMethod": "one-source-only"
+      }
+    },
+    "M20": {
+      "d_nominal": {
+        "nominal": 20,
+        "unit": "mm",
+        "sourceRefs": [
+          "torqbolt",
+          "jaeger"
+        ],
+        "status": "verified",
+        "verification": true,
+        "note": "Maßzahl durch die genannten unabhängigen Veröffentlichungen bestätigt.",
+        "verificationMethod": "independent-publishers-agree"
+      },
+      "P": {
+        "nominal": 2.5,
+        "unit": "mm",
+        "sourceRefs": [
+          "torqbolt",
+          "jaeger"
+        ],
+        "status": "verified",
+        "verification": true,
+        "note": "Maßzahl durch die genannten unabhängigen Veröffentlichungen bestätigt.",
+        "verificationMethod": "independent-publishers-agree"
+      },
+      "bm": {
+        "nominal": 20,
+        "unit": "mm",
+        "sourceRefs": [
+          "torqbolt",
+          "jaeger"
+        ],
+        "status": "verified",
+        "verification": true,
+        "note": "Maßzahl durch die genannten unabhängigen Veröffentlichungen bestätigt.",
+        "verificationMethod": "independent-publishers-agree"
+      },
+      "b_le125": {
+        "nominal": 46,
+        "unit": "mm",
+        "sourceRefs": [
+          "torqbolt",
+          "jaeger"
+        ],
+        "status": "verified",
+        "verification": true,
+        "note": "Maßzahl durch die genannten unabhängigen Veröffentlichungen bestätigt.",
+        "dependsOn": [
+          "nominalLength",
+          "shortStudException"
+        ],
+        "verificationMethod": "independent-publishers-agree"
+      },
+      "b_le200": {
+        "nominal": 52,
+        "unit": "mm",
+        "sourceRefs": [
+          "torqbolt",
+          "jaeger"
+        ],
+        "status": "verified",
+        "verification": true,
+        "note": "Maßzahl durch die genannten unabhängigen Veröffentlichungen bestätigt.",
+        "dependsOn": [
+          "nominalLength",
+          "shortStudException"
+        ],
+        "verificationMethod": "independent-publishers-agree"
+      },
+      "b_gt200": {
+        "nominal": 65,
+        "unit": "mm",
+        "sourceRefs": [
+          "torqbolt",
+          "jaeger"
+        ],
+        "status": "verified",
+        "verification": true,
+        "note": "Maßzahl durch die genannten unabhängigen Veröffentlichungen bestätigt.",
+        "dependsOn": [
+          "nominalLength",
+          "shortStudException"
+        ],
+        "verificationMethod": "independent-publishers-agree"
+      }
+    },
+    "M22": {
+      "d_nominal": {
+        "nominal": 22,
+        "unit": "mm",
+        "sourceRefs": [
+          "torqbolt"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Zweite unabhängige Bestätigung dieses Einzelwerts fehlt.",
+        "verificationMethod": "one-source-only"
+      },
+      "P": {
+        "nominal": 2.5,
+        "unit": "mm",
+        "sourceRefs": [
+          "torqbolt"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Zweite unabhängige Bestätigung dieses Einzelwerts fehlt.",
+        "verificationMethod": "one-source-only"
+      },
+      "bm": {
+        "nominal": 22,
+        "unit": "mm",
+        "sourceRefs": [
+          "torqbolt"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Zweite unabhängige Bestätigung dieses Einzelwerts fehlt.",
+        "verificationMethod": "one-source-only"
+      },
+      "b_le125": {
+        "nominal": 50,
+        "unit": "mm",
+        "sourceRefs": [
+          "torqbolt"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Zweite unabhängige Bestätigung dieses Einzelwerts fehlt.",
+        "dependsOn": [
+          "nominalLength",
+          "shortStudException"
+        ],
+        "verificationMethod": "one-source-only"
+      },
+      "b_le200": {
+        "nominal": 56,
+        "unit": "mm",
+        "sourceRefs": [
+          "torqbolt"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Zweite unabhängige Bestätigung dieses Einzelwerts fehlt.",
+        "dependsOn": [
+          "nominalLength",
+          "shortStudException"
+        ],
+        "verificationMethod": "one-source-only"
+      },
+      "b_gt200": {
+        "nominal": 69,
+        "unit": "mm",
+        "sourceRefs": [
+          "torqbolt"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Zweite unabhängige Bestätigung dieses Einzelwerts fehlt.",
+        "dependsOn": [
+          "nominalLength",
+          "shortStudException"
+        ],
+        "verificationMethod": "one-source-only"
+      }
+    },
+    "M24": {
+      "d_nominal": {
+        "nominal": 24,
+        "unit": "mm",
+        "sourceRefs": [
+          "torqbolt",
+          "jaeger"
+        ],
+        "status": "verified",
+        "verification": true,
+        "note": "Maßzahl durch die genannten unabhängigen Veröffentlichungen bestätigt.",
+        "verificationMethod": "independent-publishers-agree"
+      },
+      "P": {
+        "nominal": 3,
+        "unit": "mm",
+        "sourceRefs": [
+          "torqbolt",
+          "jaeger"
+        ],
+        "status": "verified",
+        "verification": true,
+        "note": "Maßzahl durch die genannten unabhängigen Veröffentlichungen bestätigt.",
+        "verificationMethod": "independent-publishers-agree"
+      },
+      "bm": {
+        "nominal": 24,
+        "unit": "mm",
+        "sourceRefs": [
+          "torqbolt",
+          "jaeger"
+        ],
+        "status": "verified",
+        "verification": true,
+        "note": "Maßzahl durch die genannten unabhängigen Veröffentlichungen bestätigt.",
+        "verificationMethod": "independent-publishers-agree"
+      },
+      "b_le125": {
+        "nominal": 54,
+        "unit": "mm",
+        "sourceRefs": [
+          "torqbolt",
+          "jaeger"
+        ],
+        "status": "verified",
+        "verification": true,
+        "note": "Maßzahl durch die genannten unabhängigen Veröffentlichungen bestätigt.",
+        "dependsOn": [
+          "nominalLength",
+          "shortStudException"
+        ],
+        "verificationMethod": "independent-publishers-agree"
+      },
+      "b_le200": {
+        "nominal": 60,
+        "unit": "mm",
+        "sourceRefs": [
+          "torqbolt",
+          "jaeger"
+        ],
+        "status": "verified",
+        "verification": true,
+        "note": "Maßzahl durch die genannten unabhängigen Veröffentlichungen bestätigt.",
+        "dependsOn": [
+          "nominalLength",
+          "shortStudException"
+        ],
+        "verificationMethod": "independent-publishers-agree"
+      },
+      "b_gt200": {
+        "nominal": 73,
+        "unit": "mm",
+        "sourceRefs": [
+          "torqbolt",
+          "jaeger"
+        ],
+        "status": "verified",
+        "verification": true,
+        "note": "Maßzahl durch die genannten unabhängigen Veröffentlichungen bestätigt.",
+        "dependsOn": [
+          "nominalLength",
+          "shortStudException"
+        ],
+        "verificationMethod": "independent-publishers-agree"
+      }
+    },
+    "M27": {
+      "d_nominal": {
+        "nominal": 27,
+        "unit": "mm",
+        "sourceRefs": [
+          "torqbolt"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Zweite unabhängige Bestätigung dieses Einzelwerts fehlt.",
+        "verificationMethod": "one-source-only"
+      },
+      "P": {
+        "nominal": 3,
+        "unit": "mm",
+        "sourceRefs": [
+          "torqbolt"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Zweite unabhängige Bestätigung dieses Einzelwerts fehlt.",
+        "verificationMethod": "one-source-only"
+      },
+      "bm": {
+        "nominal": 25,
+        "unit": "mm",
+        "sourceRefs": [
+          "torqbolt"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Zweite unabhängige Bestätigung dieses Einzelwerts fehlt.",
+        "verificationMethod": "one-source-only"
+      },
+      "b_le125": {
+        "nominal": 60,
+        "unit": "mm",
+        "sourceRefs": [
+          "torqbolt"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Zweite unabhängige Bestätigung dieses Einzelwerts fehlt.",
+        "dependsOn": [
+          "nominalLength",
+          "shortStudException"
+        ],
+        "verificationMethod": "one-source-only"
+      },
+      "b_le200": {
+        "nominal": 66,
+        "unit": "mm",
+        "sourceRefs": [
+          "torqbolt"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Zweite unabhängige Bestätigung dieses Einzelwerts fehlt.",
+        "dependsOn": [
+          "nominalLength",
+          "shortStudException"
+        ],
+        "verificationMethod": "one-source-only"
+      },
+      "b_gt200": {
+        "nominal": 79,
+        "unit": "mm",
+        "sourceRefs": [
+          "torqbolt"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Zweite unabhängige Bestätigung dieses Einzelwerts fehlt.",
+        "dependsOn": [
+          "nominalLength",
+          "shortStudException"
+        ],
+        "verificationMethod": "one-source-only"
+      }
+    },
+    "M30": {
+      "d_nominal": {
+        "nominal": 30,
+        "unit": "mm",
+        "sourceRefs": [
+          "torqbolt"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Zweite unabhängige Bestätigung dieses Einzelwerts fehlt.",
+        "verificationMethod": "one-source-only"
+      },
+      "P": {
+        "nominal": 3.5,
+        "unit": "mm",
+        "sourceRefs": [
+          "torqbolt"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Zweite unabhängige Bestätigung dieses Einzelwerts fehlt.",
+        "verificationMethod": "one-source-only"
+      },
+      "bm": {
+        "nominal": 30,
+        "unit": "mm",
+        "sourceRefs": [
+          "torqbolt"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Zweite unabhängige Bestätigung dieses Einzelwerts fehlt.",
+        "verificationMethod": "one-source-only"
+      },
+      "b_le125": {
+        "nominal": 66,
+        "unit": "mm",
+        "sourceRefs": [
+          "torqbolt"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Zweite unabhängige Bestätigung dieses Einzelwerts fehlt.",
+        "dependsOn": [
+          "nominalLength",
+          "shortStudException"
+        ],
+        "verificationMethod": "one-source-only"
+      },
+      "b_le200": {
+        "nominal": 72,
+        "unit": "mm",
+        "sourceRefs": [
+          "torqbolt"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Zweite unabhängige Bestätigung dieses Einzelwerts fehlt.",
+        "dependsOn": [
+          "nominalLength",
+          "shortStudException"
+        ],
+        "verificationMethod": "one-source-only"
+      },
+      "b_gt200": {
+        "nominal": 85,
+        "unit": "mm",
+        "sourceRefs": [
+          "torqbolt"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Zweite unabhängige Bestätigung dieses Einzelwerts fehlt.",
+        "dependsOn": [
+          "nominalLength",
+          "shortStudException"
+        ],
+        "verificationMethod": "one-source-only"
+      }
+    },
+    "M33": {
+      "d_nominal": {
+        "nominal": 33,
+        "unit": "mm",
+        "sourceRefs": [
+          "torqbolt"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Zweite unabhängige Bestätigung dieses Einzelwerts fehlt.",
+        "verificationMethod": "one-source-only"
+      },
+      "P": {
+        "nominal": 3.5,
+        "unit": "mm",
+        "sourceRefs": [
+          "torqbolt"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Zweite unabhängige Bestätigung dieses Einzelwerts fehlt.",
+        "verificationMethod": "one-source-only"
+      },
+      "bm": {
+        "nominal": 32,
+        "unit": "mm",
+        "sourceRefs": [
+          "torqbolt"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Zweite unabhängige Bestätigung dieses Einzelwerts fehlt.",
+        "verificationMethod": "one-source-only"
+      },
+      "b_le125": {
+        "nominal": 72,
+        "unit": "mm",
+        "sourceRefs": [
+          "torqbolt"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Zweite unabhängige Bestätigung dieses Einzelwerts fehlt.",
+        "dependsOn": [
+          "nominalLength",
+          "shortStudException"
+        ],
+        "verificationMethod": "one-source-only"
+      },
+      "b_le200": {
+        "nominal": 78,
+        "unit": "mm",
+        "sourceRefs": [
+          "torqbolt"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Zweite unabhängige Bestätigung dieses Einzelwerts fehlt.",
+        "dependsOn": [
+          "nominalLength",
+          "shortStudException"
+        ],
+        "verificationMethod": "one-source-only"
+      },
+      "b_gt200": {
+        "nominal": 91,
+        "unit": "mm",
+        "sourceRefs": [
+          "torqbolt"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Zweite unabhängige Bestätigung dieses Einzelwerts fehlt.",
+        "dependsOn": [
+          "nominalLength",
+          "shortStudException"
+        ],
+        "verificationMethod": "one-source-only"
+      }
+    },
+    "M36": {
+      "d_nominal": {
+        "nominal": 36,
+        "unit": "mm",
+        "sourceRefs": [
+          "torqbolt"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Zweite unabhängige Bestätigung dieses Einzelwerts fehlt.",
+        "verificationMethod": "one-source-only"
+      },
+      "P": {
+        "nominal": 4,
+        "unit": "mm",
+        "sourceRefs": [
+          "torqbolt"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Zweite unabhängige Bestätigung dieses Einzelwerts fehlt.",
+        "verificationMethod": "one-source-only"
+      },
+      "bm": {
+        "nominal": 35,
+        "unit": "mm",
+        "sourceRefs": [
+          "torqbolt"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Zweite unabhängige Bestätigung dieses Einzelwerts fehlt.",
+        "verificationMethod": "one-source-only"
+      },
+      "b_le125": {
+        "nominal": 78,
+        "unit": "mm",
+        "sourceRefs": [
+          "torqbolt"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Zweite unabhängige Bestätigung dieses Einzelwerts fehlt.",
+        "dependsOn": [
+          "nominalLength",
+          "shortStudException"
+        ],
+        "verificationMethod": "one-source-only"
+      },
+      "b_le200": {
+        "nominal": 84,
+        "unit": "mm",
+        "sourceRefs": [
+          "torqbolt"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Zweite unabhängige Bestätigung dieses Einzelwerts fehlt.",
+        "dependsOn": [
+          "nominalLength",
+          "shortStudException"
+        ],
+        "verificationMethod": "one-source-only"
+      },
+      "b_gt200": {
+        "nominal": 97,
+        "unit": "mm",
+        "sourceRefs": [
+          "torqbolt"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Zweite unabhängige Bestätigung dieses Einzelwerts fehlt.",
+        "dependsOn": [
+          "nominalLength",
+          "shortStudException"
+        ],
+        "verificationMethod": "one-source-only"
+      }
+    },
+    "M39": {
+      "d_nominal": {
+        "nominal": 39,
+        "unit": "mm",
+        "sourceRefs": [
+          "torqbolt"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Zweite unabhängige Bestätigung dieses Einzelwerts fehlt.",
+        "verificationMethod": "one-source-only"
+      },
+      "P": {
+        "nominal": 4,
+        "unit": "mm",
+        "sourceRefs": [
+          "torqbolt"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Zweite unabhängige Bestätigung dieses Einzelwerts fehlt.",
+        "verificationMethod": "one-source-only"
+      },
+      "bm": {
+        "nominal": 38,
+        "unit": "mm",
+        "sourceRefs": [
+          "torqbolt"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Zweite unabhängige Bestätigung dieses Einzelwerts fehlt.",
+        "verificationMethod": "one-source-only"
+      },
+      "b_le125": {
+        "nominal": 84,
+        "unit": "mm",
+        "sourceRefs": [
+          "torqbolt"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Zweite unabhängige Bestätigung dieses Einzelwerts fehlt.",
+        "dependsOn": [
+          "nominalLength",
+          "shortStudException"
+        ],
+        "verificationMethod": "one-source-only"
+      },
+      "b_le200": {
+        "nominal": 90,
+        "unit": "mm",
+        "sourceRefs": [
+          "torqbolt"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Zweite unabhängige Bestätigung dieses Einzelwerts fehlt.",
+        "dependsOn": [
+          "nominalLength",
+          "shortStudException"
+        ],
+        "verificationMethod": "one-source-only"
+      },
+      "b_gt200": {
+        "nominal": 103,
+        "unit": "mm",
+        "sourceRefs": [
+          "torqbolt"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Zweite unabhängige Bestätigung dieses Einzelwerts fehlt.",
+        "dependsOn": [
+          "nominalLength",
+          "shortStudException"
+        ],
+        "verificationMethod": "one-source-only"
+      }
+    },
+    "M42": {
+      "d_nominal": {
+        "nominal": 42,
+        "unit": "mm",
+        "sourceRefs": [
+          "torqbolt"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Zweite unabhängige Bestätigung dieses Einzelwerts fehlt.",
+        "verificationMethod": "one-source-only"
+      },
+      "P": {
+        "nominal": 4.5,
+        "unit": "mm",
+        "sourceRefs": [
+          "torqbolt"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Zweite unabhängige Bestätigung dieses Einzelwerts fehlt.",
+        "verificationMethod": "one-source-only"
+      },
+      "bm": {
+        "nominal": 42,
+        "unit": "mm",
+        "sourceRefs": [
+          "torqbolt"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Zweite unabhängige Bestätigung dieses Einzelwerts fehlt.",
+        "verificationMethod": "one-source-only"
+      },
+      "b_le125": {
+        "nominal": 90,
+        "unit": "mm",
+        "sourceRefs": [
+          "torqbolt"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Zweite unabhängige Bestätigung dieses Einzelwerts fehlt.",
+        "dependsOn": [
+          "nominalLength",
+          "shortStudException"
+        ],
+        "verificationMethod": "one-source-only"
+      },
+      "b_le200": {
+        "nominal": 96,
+        "unit": "mm",
+        "sourceRefs": [
+          "torqbolt"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Zweite unabhängige Bestätigung dieses Einzelwerts fehlt.",
+        "dependsOn": [
+          "nominalLength",
+          "shortStudException"
+        ],
+        "verificationMethod": "one-source-only"
+      },
+      "b_gt200": {
+        "nominal": 109,
+        "unit": "mm",
+        "sourceRefs": [
+          "torqbolt"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Zweite unabhängige Bestätigung dieses Einzelwerts fehlt.",
+        "dependsOn": [
+          "nominalLength",
+          "shortStudException"
+        ],
+        "verificationMethod": "one-source-only"
+      }
+    }
+  },
+  "sourceMeta": {
+    "torqbolt": {
+      "id": "torqbolt",
+      "url": "https://din938.com/din-938-stud-dimensions",
+      "titel": "TorqBolt DIN938:2025-08 Maßtabelle",
+      "type": "manufacturer",
+      "abgerufen": "2026-11-26"
+    },
+    "jaeger": {
+      "id": "jaeger",
+      "url": "https://responses.direktabo.de/get/1377/Technischer_Katalog.pdf",
+      "titel": "Schrauben-Jäger technischer Katalog Seite 136, DIN938",
+      "type": "supplier-datasheet",
+      "abgerufen": "2026-11-26"
+    },
+    "din-status": {
+      "id": "din-status",
+      "url": "https://www.dinmedia.de/de/norm/din-938/392482848",
+      "titel": "DIN938:2025-08 Status und Geltungsbereich",
+      "type": "standards-body",
+      "abgerufen": "2026-11-26"
+    }
+  },
+  "quellen": [
+    {
+      "id": "torqbolt",
+      "url": "https://din938.com/din-938-stud-dimensions",
+      "titel": "TorqBolt DIN938:2025-08 Maßtabelle",
+      "type": "manufacturer",
+      "abgerufen": "2026-11-26"
+    },
+    {
+      "id": "jaeger",
+      "url": "https://responses.direktabo.de/get/1377/Technischer_Katalog.pdf",
+      "titel": "Schrauben-Jäger technischer Katalog Seite 136, DIN938",
+      "type": "supplier-datasheet",
+      "abgerufen": "2026-11-26"
+    },
+    {
+      "id": "din-status",
+      "url": "https://www.dinmedia.de/de/norm/din-938/392482848",
+      "titel": "DIN938:2025-08 Status und Geltungsbereich",
+      "type": "standards-body",
+      "abgerufen": "2026-11-26"
+    }
+  ],
   "abweichungen": [],
   "status": "partial",
-  "coverage": "unresearched",
+  "coverage": "documented",
   "lengthCoverage": "unresearched",
   "hinweise": [
-    "Familie erfasst; vollständige Einzelmaß- und Längenrecherche steht noch aus. Keine Ersatzmaße einer ähnlichen Norm verwendet."
+    "Nennlänge l schließt das Einschraubende bm nicht ein; Gesamtlänge ist l+bm. Ohne l keine automatische Schaftlänge.",
+    "bm ist tabelliert und nicht durchgängig gleich d: M27=25, M33=32, M36=35, M39=38.",
+    "Kurzbolzen benötigen eine längenabhängige Gewindeauslaufprüfung; b-Referenzen werden nicht blind auf kurze Teile angewandt."
   ],
   "normstatus": {
-    "status": "unresolved",
-    "note": "Ausgabe und Vollständigkeit nicht aus einer ähnlichen Norm ableiten."
+    "edition": "2025-08",
+    "status": "current",
+    "sourceRefs": [
+      "din-status"
+    ],
+    "note": "Originalmaßtabellen nicht vollständig gegengeprüft; Einzelwerte tragen Hersteller-/Katalogbelege."
   },
-  "requiredGeometryFields": [],
+  "requiredGeometryFields": [
+    "nominalLength",
+    "endGeometry"
+  ],
   "sizeCoverage": {
     "M3": {
-      "status": "unresearched",
-      "note": "Keine Größenzeile vorhanden; daraus folgt kein Normverbot."
+      "status": "documented",
+      "note": "Maßdaten dieser Größe belegt; vollständige Längenmatrix und weitere Geometriedetails bleiben separat gekennzeichnet."
     },
     "M3.5": {
       "status": "unresearched",
       "note": "Keine Größenzeile vorhanden; daraus folgt kein Normverbot."
     },
     "M4": {
-      "status": "unresearched",
-      "note": "Keine Größenzeile vorhanden; daraus folgt kein Normverbot."
+      "status": "documented",
+      "note": "Maßdaten dieser Größe belegt; vollständige Längenmatrix und weitere Geometriedetails bleiben separat gekennzeichnet."
     },
     "M5": {
-      "status": "unresearched",
-      "note": "Keine Größenzeile vorhanden; daraus folgt kein Normverbot."
+      "status": "documented",
+      "note": "Maßdaten dieser Größe belegt; vollständige Längenmatrix und weitere Geometriedetails bleiben separat gekennzeichnet."
     },
     "M6": {
-      "status": "unresearched",
-      "note": "Keine Größenzeile vorhanden; daraus folgt kein Normverbot."
+      "status": "documented",
+      "note": "Maßdaten dieser Größe belegt; vollständige Längenmatrix und weitere Geometriedetails bleiben separat gekennzeichnet."
     },
     "M7": {
-      "status": "unresearched",
-      "note": "Keine Größenzeile vorhanden; daraus folgt kein Normverbot."
+      "status": "documented",
+      "note": "Maßdaten dieser Größe belegt; vollständige Längenmatrix und weitere Geometriedetails bleiben separat gekennzeichnet."
     },
     "M8": {
-      "status": "unresearched",
-      "note": "Keine Größenzeile vorhanden; daraus folgt kein Normverbot."
+      "status": "documented",
+      "note": "Maßdaten dieser Größe belegt; vollständige Längenmatrix und weitere Geometriedetails bleiben separat gekennzeichnet."
     },
     "M10": {
-      "status": "unresearched",
-      "note": "Keine Größenzeile vorhanden; daraus folgt kein Normverbot."
+      "status": "documented",
+      "note": "Maßdaten dieser Größe belegt; vollständige Längenmatrix und weitere Geometriedetails bleiben separat gekennzeichnet."
     },
     "M12": {
-      "status": "unresearched",
-      "note": "Keine Größenzeile vorhanden; daraus folgt kein Normverbot."
+      "status": "documented",
+      "note": "Maßdaten dieser Größe belegt; vollständige Längenmatrix und weitere Geometriedetails bleiben separat gekennzeichnet."
     },
     "M14": {
-      "status": "unresearched",
-      "note": "Keine Größenzeile vorhanden; daraus folgt kein Normverbot."
+      "status": "documented",
+      "note": "Maßdaten dieser Größe belegt; vollständige Längenmatrix und weitere Geometriedetails bleiben separat gekennzeichnet."
     },
     "M16": {
-      "status": "unresearched",
-      "note": "Keine Größenzeile vorhanden; daraus folgt kein Normverbot."
+      "status": "documented",
+      "note": "Maßdaten dieser Größe belegt; vollständige Längenmatrix und weitere Geometriedetails bleiben separat gekennzeichnet."
     },
     "M18": {
-      "status": "unresearched",
-      "note": "Keine Größenzeile vorhanden; daraus folgt kein Normverbot."
+      "status": "documented",
+      "note": "Maßdaten dieser Größe belegt; vollständige Längenmatrix und weitere Geometriedetails bleiben separat gekennzeichnet."
     },
     "M20": {
-      "status": "unresearched",
-      "note": "Keine Größenzeile vorhanden; daraus folgt kein Normverbot."
+      "status": "documented",
+      "note": "Maßdaten dieser Größe belegt; vollständige Längenmatrix und weitere Geometriedetails bleiben separat gekennzeichnet."
     },
     "M22": {
-      "status": "unresearched",
-      "note": "Keine Größenzeile vorhanden; daraus folgt kein Normverbot."
+      "status": "documented",
+      "note": "Maßdaten dieser Größe belegt; vollständige Längenmatrix und weitere Geometriedetails bleiben separat gekennzeichnet."
     },
     "M24": {
-      "status": "unresearched",
-      "note": "Keine Größenzeile vorhanden; daraus folgt kein Normverbot."
+      "status": "documented",
+      "note": "Maßdaten dieser Größe belegt; vollständige Längenmatrix und weitere Geometriedetails bleiben separat gekennzeichnet."
     },
     "M27": {
-      "status": "unresearched",
-      "note": "Keine Größenzeile vorhanden; daraus folgt kein Normverbot."
+      "status": "documented",
+      "note": "Maßdaten dieser Größe belegt; vollständige Längenmatrix und weitere Geometriedetails bleiben separat gekennzeichnet."
     },
     "M30": {
-      "status": "unresearched",
-      "note": "Keine Größenzeile vorhanden; daraus folgt kein Normverbot."
+      "status": "documented",
+      "note": "Maßdaten dieser Größe belegt; vollständige Längenmatrix und weitere Geometriedetails bleiben separat gekennzeichnet."
     },
     "M33": {
-      "status": "unresearched",
-      "note": "Keine Größenzeile vorhanden; daraus folgt kein Normverbot."
+      "status": "documented",
+      "note": "Maßdaten dieser Größe belegt; vollständige Längenmatrix und weitere Geometriedetails bleiben separat gekennzeichnet."
+    },
+    "M36": {
+      "status": "documented",
+      "note": "Maßdaten dieser Größe belegt; vollständige Längenmatrix und weitere Geometriedetails bleiben separat gekennzeichnet."
+    },
+    "M39": {
+      "status": "documented",
+      "note": "Maßdaten dieser Größe belegt; vollständige Längenmatrix und weitere Geometriedetails bleiben separat gekennzeichnet."
+    },
+    "M42": {
+      "status": "documented",
+      "note": "Maßdaten dieser Größe belegt; vollständige Längenmatrix und weitere Geometriedetails bleiben separat gekennzeichnet."
     }
   },
   "pruefdatum": "2026-11-26",
@@ -107,5 +2259,16 @@
     "status": "unresearched",
     "values": [],
     "note": "Festigkeits-/Werkstoffklassen noch nicht vollständig aus dieser Norm belegt."
-  }
+  },
+  "datasetKind": "part-standard",
+  "threadFamily": "metric",
+  "lengthDependentFields": [
+    "sL",
+    "b",
+    "nominalLength"
+  ],
+  "gaps": [
+    "Zweitbeleg je Größe außerhalb M6/M8/M10/M12/M16/M20/M24 fehlt.",
+    "Längenmatrix, Gewindeausläufe, Endformen und Feingewindevarianten sind noch nicht vollständig eingepflegt."
+  ]
 }

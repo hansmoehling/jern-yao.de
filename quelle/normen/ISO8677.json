@@ -2,34 +2,1577 @@
   "id": "ISO8677",
   "version": "2026-11-26",
   "schemaVersion": 1,
-  "label": "ISO8677 · Flachrundkopf mit großem Vierkantansatz",
-  "edition": null,
-  "editionStatus": "unresolved",
+  "label": "ISO8677 · Großer Flachrundkopf mit Vierkantansatz",
+  "edition": "1986",
+  "editionStatus": "withdrawn",
   "funktion": "schraube",
   "klasse": "bolzen",
   "kopfTyp": "flachrund",
   "antrieb": {
     "art": "none"
   },
-  "feldzuordnung": {},
-  "groessen": {},
-  "fields": {},
-  "sourceMeta": {},
-  "quellen": [],
+  "feldzuordnung": {
+    "d": "d_nominal",
+    "kD": "dk_nominal",
+    "kH": "k_max",
+    "squareNeckWidth": "v_max",
+    "squareNeckLength": "f_max"
+  },
+  "groessen": {
+    "M5": {
+      "vorbelegung": {
+        "d": 5,
+        "kD": 13,
+        "kH": 3.1,
+        "squareNeckWidth": 5.48,
+        "squareNeckLength": 4.1
+      },
+      "roh": {
+        "d_nominal": 5,
+        "P": 0.8,
+        "dk_nominal": 13,
+        "dk_min": 11.9,
+        "k_max": 3.1,
+        "k_min": 2.5,
+        "f_max": 4.1,
+        "f_min": 2.9,
+        "v_max": 5.48,
+        "v_min": 4.52,
+        "ds_max": 5.48,
+        "b_le120": 16,
+        "b_130_200": null,
+        "b_gt200": null
+      },
+      "coverage": "documented",
+      "lengthCoverage": "unresearched",
+      "geometryStatus": "partial",
+      "missingGeometryFields": [
+        "length",
+        "squareNeckTransition",
+        "headProfileDefinition"
+      ],
+      "nachLaenge": {}
+    },
+    "M6": {
+      "vorbelegung": {
+        "d": 6,
+        "kD": 16,
+        "kH": 3.6,
+        "squareNeckWidth": 6.48,
+        "squareNeckLength": 4.6
+      },
+      "roh": {
+        "d_nominal": 6,
+        "P": 1,
+        "dk_nominal": 16,
+        "dk_min": 14.9,
+        "k_max": 3.6,
+        "k_min": 3,
+        "f_max": 4.6,
+        "f_min": 3.4,
+        "v_max": 6.48,
+        "v_min": 5.52,
+        "ds_max": 6.48,
+        "b_le120": 18,
+        "b_130_200": null,
+        "b_gt200": null
+      },
+      "coverage": "documented",
+      "lengthCoverage": "unresearched",
+      "geometryStatus": "partial",
+      "missingGeometryFields": [
+        "length",
+        "squareNeckTransition",
+        "headProfileDefinition"
+      ],
+      "nachLaenge": {}
+    },
+    "M8": {
+      "vorbelegung": {
+        "d": 8,
+        "kD": 20,
+        "kH": 4.8,
+        "squareNeckWidth": 8.58,
+        "squareNeckLength": 5.6
+      },
+      "roh": {
+        "d_nominal": 8,
+        "P": 1.25,
+        "dk_nominal": 20,
+        "dk_min": 18.7,
+        "k_max": 4.8,
+        "k_min": 4,
+        "f_max": 5.6,
+        "f_min": 4.4,
+        "v_max": 8.58,
+        "v_min": 7.42,
+        "ds_max": 8.58,
+        "b_le120": 22,
+        "b_130_200": 28,
+        "b_gt200": null
+      },
+      "coverage": "documented",
+      "lengthCoverage": "unresearched",
+      "geometryStatus": "partial",
+      "missingGeometryFields": [
+        "length",
+        "squareNeckTransition",
+        "headProfileDefinition"
+      ],
+      "nachLaenge": {}
+    },
+    "M10": {
+      "vorbelegung": {
+        "d": 10,
+        "kD": 24,
+        "kH": 5.8,
+        "squareNeckWidth": 10.58,
+        "squareNeckLength": 6.6
+      },
+      "roh": {
+        "d_nominal": 10,
+        "P": 1.5,
+        "dk_nominal": 24,
+        "dk_min": 22.7,
+        "k_max": 5.8,
+        "k_min": 5,
+        "f_max": 6.6,
+        "f_min": 5.4,
+        "v_max": 10.58,
+        "v_min": 9.42,
+        "ds_max": 10.58,
+        "b_le120": 26,
+        "b_130_200": 32,
+        "b_gt200": null
+      },
+      "coverage": "documented",
+      "lengthCoverage": "unresearched",
+      "geometryStatus": "partial",
+      "missingGeometryFields": [
+        "length",
+        "squareNeckTransition",
+        "headProfileDefinition"
+      ],
+      "nachLaenge": {}
+    },
+    "M12": {
+      "vorbelegung": {
+        "d": 12,
+        "kD": 30,
+        "kH": 6.8,
+        "squareNeckWidth": 12.7,
+        "squareNeckLength": 8.8
+      },
+      "roh": {
+        "d_nominal": 12,
+        "P": 1.75,
+        "dk_nominal": 30,
+        "dk_min": 28.7,
+        "k_max": 6.8,
+        "k_min": 6,
+        "f_max": 8.8,
+        "f_min": 7.2,
+        "v_max": 12.7,
+        "v_min": 11.3,
+        "ds_max": 12.7,
+        "b_le120": 30,
+        "b_130_200": 36,
+        "b_gt200": null
+      },
+      "coverage": "documented",
+      "lengthCoverage": "unresearched",
+      "geometryStatus": "partial",
+      "missingGeometryFields": [
+        "length",
+        "squareNeckTransition",
+        "headProfileDefinition"
+      ],
+      "nachLaenge": {}
+    },
+    "M16": {
+      "vorbelegung": {
+        "d": 16,
+        "kD": 38,
+        "kH": 8.9,
+        "squareNeckWidth": 16.7,
+        "squareNeckLength": 12.9
+      },
+      "roh": {
+        "d_nominal": 16,
+        "P": 2,
+        "dk_nominal": 38,
+        "dk_min": 36.4,
+        "k_max": 8.9,
+        "k_min": 8,
+        "f_max": 12.9,
+        "f_min": 11.1,
+        "v_max": 16.7,
+        "v_min": 15.3,
+        "ds_max": 16.7,
+        "b_le120": 38,
+        "b_130_200": 44,
+        "b_gt200": 57
+      },
+      "coverage": "documented",
+      "lengthCoverage": "unresearched",
+      "geometryStatus": "partial",
+      "missingGeometryFields": [
+        "length",
+        "squareNeckTransition",
+        "headProfileDefinition"
+      ],
+      "nachLaenge": {}
+    },
+    "M20": {
+      "vorbelegung": {
+        "d": 20,
+        "kD": 46,
+        "kH": 10.9,
+        "squareNeckWidth": 20.84,
+        "squareNeckLength": 15.9
+      },
+      "roh": {
+        "d_nominal": 20,
+        "P": 2.5,
+        "dk_nominal": 46,
+        "dk_min": 44.4,
+        "k_max": 10.9,
+        "k_min": 10,
+        "f_max": 15.9,
+        "f_min": 14.1,
+        "v_max": 20.84,
+        "v_min": 19.16,
+        "ds_max": 20.84,
+        "b_le120": 46,
+        "b_130_200": 52,
+        "b_gt200": 65
+      },
+      "coverage": "documented",
+      "lengthCoverage": "unresearched",
+      "geometryStatus": "partial",
+      "missingGeometryFields": [
+        "length",
+        "squareNeckTransition",
+        "headProfileDefinition"
+      ],
+      "nachLaenge": {}
+    }
+  },
+  "fields": {
+    "M5": {
+      "d_nominal": {
+        "nominal": 5,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso1986",
+          "jnstar"
+        ],
+        "status": "verified",
+        "verification": true,
+        "note": "Maßzahl durch die genannten unabhängigen Veröffentlichungen bestätigt.",
+        "verificationMethod": "independent-publishers-agree"
+      },
+      "P": {
+        "nominal": 0.8,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso1986",
+          "jnstar"
+        ],
+        "status": "verified",
+        "verification": true,
+        "note": "Maßzahl durch die genannten unabhängigen Veröffentlichungen bestätigt.",
+        "verificationMethod": "independent-publishers-agree"
+      },
+      "dk_nominal": {
+        "nominal": 13,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso1986",
+          "jnstar"
+        ],
+        "status": "verified",
+        "verification": true,
+        "note": "Maßzahl durch die genannten unabhängigen Veröffentlichungen bestätigt.",
+        "verificationMethod": "independent-publishers-agree"
+      },
+      "dk_min": {
+        "min": 11.9,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso1986",
+          "jnstar"
+        ],
+        "status": "verified",
+        "verification": true,
+        "note": "Maßzahl durch die genannten unabhängigen Veröffentlichungen bestätigt.",
+        "verificationMethod": "independent-publishers-agree"
+      },
+      "k_max": {
+        "max": 3.1,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso1986",
+          "jnstar"
+        ],
+        "status": "verified",
+        "verification": true,
+        "note": "Maßzahl durch die genannten unabhängigen Veröffentlichungen bestätigt.",
+        "verificationMethod": "independent-publishers-agree"
+      },
+      "k_min": {
+        "min": 2.5,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso1986",
+          "jnstar"
+        ],
+        "status": "verified",
+        "verification": true,
+        "note": "Maßzahl durch die genannten unabhängigen Veröffentlichungen bestätigt.",
+        "verificationMethod": "independent-publishers-agree"
+      },
+      "f_max": {
+        "max": 4.1,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso1986",
+          "jnstar"
+        ],
+        "status": "verified",
+        "verification": true,
+        "note": "Maßzahl durch die genannten unabhängigen Veröffentlichungen bestätigt.",
+        "verificationMethod": "independent-publishers-agree"
+      },
+      "f_min": {
+        "min": 2.9,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso1986",
+          "jnstar"
+        ],
+        "status": "verified",
+        "verification": true,
+        "note": "Maßzahl durch die genannten unabhängigen Veröffentlichungen bestätigt.",
+        "verificationMethod": "independent-publishers-agree"
+      },
+      "v_max": {
+        "max": 5.48,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso1986",
+          "jnstar"
+        ],
+        "status": "verified",
+        "verification": true,
+        "note": "Maßzahl durch die genannten unabhängigen Veröffentlichungen bestätigt.",
+        "verificationMethod": "independent-publishers-agree"
+      },
+      "v_min": {
+        "min": 4.52,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso1986",
+          "jnstar"
+        ],
+        "status": "verified",
+        "verification": true,
+        "note": "Maßzahl durch die genannten unabhängigen Veröffentlichungen bestätigt.",
+        "verificationMethod": "independent-publishers-agree"
+      },
+      "ds_max": {
+        "max": 5.48,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso1986",
+          "jnstar"
+        ],
+        "status": "verified",
+        "verification": true,
+        "note": "Maßzahl durch die genannten unabhängigen Veröffentlichungen bestätigt.",
+        "verificationMethod": "independent-publishers-agree"
+      },
+      "b_le120": {
+        "nominal": 16,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso1986"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Referenzgewindelänge der historischen Norm; keine automatische Vollgewinde-/Teilgewindezuordnung ohne Längenzelle.",
+        "dependsOn": [
+          "length",
+          "threadExecution"
+        ],
+        "verificationMethod": "one-source-only"
+      },
+      "b_130_200": {
+        "unit": "mm",
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "note": "Referenzgewindelänge der historischen Norm; keine automatische Vollgewinde-/Teilgewindezuordnung ohne Längenzelle.",
+        "dependsOn": [
+          "length",
+          "threadExecution"
+        ],
+        "verificationMethod": "value-not-established"
+      },
+      "b_gt200": {
+        "unit": "mm",
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "note": "Referenzgewindelänge der historischen Norm; keine automatische Vollgewinde-/Teilgewindezuordnung ohne Längenzelle.",
+        "dependsOn": [
+          "length",
+          "threadExecution"
+        ],
+        "verificationMethod": "value-not-established"
+      }
+    },
+    "M6": {
+      "d_nominal": {
+        "nominal": 6,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso1986",
+          "jnstar"
+        ],
+        "status": "verified",
+        "verification": true,
+        "note": "Maßzahl durch die genannten unabhängigen Veröffentlichungen bestätigt.",
+        "verificationMethod": "independent-publishers-agree"
+      },
+      "P": {
+        "nominal": 1,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso1986",
+          "jnstar"
+        ],
+        "status": "verified",
+        "verification": true,
+        "note": "Maßzahl durch die genannten unabhängigen Veröffentlichungen bestätigt.",
+        "verificationMethod": "independent-publishers-agree"
+      },
+      "dk_nominal": {
+        "nominal": 16,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso1986",
+          "jnstar"
+        ],
+        "status": "verified",
+        "verification": true,
+        "note": "Maßzahl durch die genannten unabhängigen Veröffentlichungen bestätigt.",
+        "verificationMethod": "independent-publishers-agree"
+      },
+      "dk_min": {
+        "min": 14.9,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso1986",
+          "jnstar"
+        ],
+        "status": "verified",
+        "verification": true,
+        "note": "Maßzahl durch die genannten unabhängigen Veröffentlichungen bestätigt.",
+        "verificationMethod": "independent-publishers-agree"
+      },
+      "k_max": {
+        "max": 3.6,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso1986",
+          "jnstar"
+        ],
+        "status": "verified",
+        "verification": true,
+        "note": "Maßzahl durch die genannten unabhängigen Veröffentlichungen bestätigt.",
+        "verificationMethod": "independent-publishers-agree"
+      },
+      "k_min": {
+        "min": 3,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso1986",
+          "jnstar"
+        ],
+        "status": "verified",
+        "verification": true,
+        "note": "Maßzahl durch die genannten unabhängigen Veröffentlichungen bestätigt.",
+        "verificationMethod": "independent-publishers-agree"
+      },
+      "f_max": {
+        "max": 4.6,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso1986",
+          "jnstar"
+        ],
+        "status": "verified",
+        "verification": true,
+        "note": "Maßzahl durch die genannten unabhängigen Veröffentlichungen bestätigt.",
+        "verificationMethod": "independent-publishers-agree"
+      },
+      "f_min": {
+        "min": 3.4,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso1986",
+          "jnstar"
+        ],
+        "status": "verified",
+        "verification": true,
+        "note": "Maßzahl durch die genannten unabhängigen Veröffentlichungen bestätigt.",
+        "verificationMethod": "independent-publishers-agree"
+      },
+      "v_max": {
+        "max": 6.48,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso1986",
+          "jnstar"
+        ],
+        "status": "verified",
+        "verification": true,
+        "note": "Maßzahl durch die genannten unabhängigen Veröffentlichungen bestätigt.",
+        "verificationMethod": "independent-publishers-agree"
+      },
+      "v_min": {
+        "min": 5.52,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso1986",
+          "jnstar"
+        ],
+        "status": "verified",
+        "verification": true,
+        "note": "Maßzahl durch die genannten unabhängigen Veröffentlichungen bestätigt.",
+        "verificationMethod": "independent-publishers-agree"
+      },
+      "ds_max": {
+        "max": 6.48,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso1986",
+          "jnstar"
+        ],
+        "status": "verified",
+        "verification": true,
+        "note": "Maßzahl durch die genannten unabhängigen Veröffentlichungen bestätigt.",
+        "verificationMethod": "independent-publishers-agree"
+      },
+      "b_le120": {
+        "nominal": 18,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso1986"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Referenzgewindelänge der historischen Norm; keine automatische Vollgewinde-/Teilgewindezuordnung ohne Längenzelle.",
+        "dependsOn": [
+          "length",
+          "threadExecution"
+        ],
+        "verificationMethod": "one-source-only"
+      },
+      "b_130_200": {
+        "unit": "mm",
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "note": "Referenzgewindelänge der historischen Norm; keine automatische Vollgewinde-/Teilgewindezuordnung ohne Längenzelle.",
+        "dependsOn": [
+          "length",
+          "threadExecution"
+        ],
+        "verificationMethod": "value-not-established"
+      },
+      "b_gt200": {
+        "unit": "mm",
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "note": "Referenzgewindelänge der historischen Norm; keine automatische Vollgewinde-/Teilgewindezuordnung ohne Längenzelle.",
+        "dependsOn": [
+          "length",
+          "threadExecution"
+        ],
+        "verificationMethod": "value-not-established"
+      }
+    },
+    "M8": {
+      "d_nominal": {
+        "nominal": 8,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso1986",
+          "jnstar"
+        ],
+        "status": "verified",
+        "verification": true,
+        "note": "Maßzahl durch die genannten unabhängigen Veröffentlichungen bestätigt.",
+        "verificationMethod": "independent-publishers-agree"
+      },
+      "P": {
+        "nominal": 1.25,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso1986",
+          "jnstar"
+        ],
+        "status": "verified",
+        "verification": true,
+        "note": "Maßzahl durch die genannten unabhängigen Veröffentlichungen bestätigt.",
+        "verificationMethod": "independent-publishers-agree"
+      },
+      "dk_nominal": {
+        "nominal": 20,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso1986",
+          "jnstar"
+        ],
+        "status": "verified",
+        "verification": true,
+        "note": "Maßzahl durch die genannten unabhängigen Veröffentlichungen bestätigt.",
+        "verificationMethod": "independent-publishers-agree"
+      },
+      "dk_min": {
+        "min": 18.7,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso1986",
+          "jnstar"
+        ],
+        "status": "verified",
+        "verification": true,
+        "note": "Maßzahl durch die genannten unabhängigen Veröffentlichungen bestätigt.",
+        "verificationMethod": "independent-publishers-agree"
+      },
+      "k_max": {
+        "max": 4.8,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso1986",
+          "jnstar"
+        ],
+        "status": "verified",
+        "verification": true,
+        "note": "Maßzahl durch die genannten unabhängigen Veröffentlichungen bestätigt.",
+        "verificationMethod": "independent-publishers-agree"
+      },
+      "k_min": {
+        "min": 4,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso1986",
+          "jnstar"
+        ],
+        "status": "verified",
+        "verification": true,
+        "note": "Maßzahl durch die genannten unabhängigen Veröffentlichungen bestätigt.",
+        "verificationMethod": "independent-publishers-agree"
+      },
+      "f_max": {
+        "max": 5.6,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso1986",
+          "jnstar"
+        ],
+        "status": "verified",
+        "verification": true,
+        "note": "Maßzahl durch die genannten unabhängigen Veröffentlichungen bestätigt.",
+        "verificationMethod": "independent-publishers-agree"
+      },
+      "f_min": {
+        "min": 4.4,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso1986",
+          "jnstar"
+        ],
+        "status": "verified",
+        "verification": true,
+        "note": "Maßzahl durch die genannten unabhängigen Veröffentlichungen bestätigt.",
+        "verificationMethod": "independent-publishers-agree"
+      },
+      "v_max": {
+        "max": 8.58,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso1986",
+          "jnstar"
+        ],
+        "status": "verified",
+        "verification": true,
+        "note": "Maßzahl durch die genannten unabhängigen Veröffentlichungen bestätigt.",
+        "verificationMethod": "independent-publishers-agree"
+      },
+      "v_min": {
+        "min": 7.42,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso1986",
+          "jnstar"
+        ],
+        "status": "verified",
+        "verification": true,
+        "note": "Maßzahl durch die genannten unabhängigen Veröffentlichungen bestätigt.",
+        "verificationMethod": "independent-publishers-agree"
+      },
+      "ds_max": {
+        "max": 8.58,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso1986",
+          "jnstar"
+        ],
+        "status": "verified",
+        "verification": true,
+        "note": "Maßzahl durch die genannten unabhängigen Veröffentlichungen bestätigt.",
+        "verificationMethod": "independent-publishers-agree"
+      },
+      "b_le120": {
+        "nominal": 22,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso1986"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Referenzgewindelänge der historischen Norm; keine automatische Vollgewinde-/Teilgewindezuordnung ohne Längenzelle.",
+        "dependsOn": [
+          "length",
+          "threadExecution"
+        ],
+        "verificationMethod": "one-source-only"
+      },
+      "b_130_200": {
+        "nominal": 28,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso1986"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Referenzgewindelänge der historischen Norm; keine automatische Vollgewinde-/Teilgewindezuordnung ohne Längenzelle.",
+        "dependsOn": [
+          "length",
+          "threadExecution"
+        ],
+        "verificationMethod": "one-source-only"
+      },
+      "b_gt200": {
+        "unit": "mm",
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "note": "Referenzgewindelänge der historischen Norm; keine automatische Vollgewinde-/Teilgewindezuordnung ohne Längenzelle.",
+        "dependsOn": [
+          "length",
+          "threadExecution"
+        ],
+        "verificationMethod": "value-not-established"
+      }
+    },
+    "M10": {
+      "d_nominal": {
+        "nominal": 10,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso1986",
+          "jnstar"
+        ],
+        "status": "verified",
+        "verification": true,
+        "note": "Maßzahl durch die genannten unabhängigen Veröffentlichungen bestätigt.",
+        "verificationMethod": "independent-publishers-agree"
+      },
+      "P": {
+        "nominal": 1.5,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso1986",
+          "jnstar"
+        ],
+        "status": "verified",
+        "verification": true,
+        "note": "Maßzahl durch die genannten unabhängigen Veröffentlichungen bestätigt.",
+        "verificationMethod": "independent-publishers-agree"
+      },
+      "dk_nominal": {
+        "nominal": 24,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso1986",
+          "jnstar"
+        ],
+        "status": "verified",
+        "verification": true,
+        "note": "Maßzahl durch die genannten unabhängigen Veröffentlichungen bestätigt.",
+        "verificationMethod": "independent-publishers-agree"
+      },
+      "dk_min": {
+        "min": 22.7,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso1986",
+          "jnstar"
+        ],
+        "status": "verified",
+        "verification": true,
+        "note": "Maßzahl durch die genannten unabhängigen Veröffentlichungen bestätigt.",
+        "verificationMethod": "independent-publishers-agree"
+      },
+      "k_max": {
+        "max": 5.8,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso1986",
+          "jnstar"
+        ],
+        "status": "verified",
+        "verification": true,
+        "note": "Maßzahl durch die genannten unabhängigen Veröffentlichungen bestätigt.",
+        "verificationMethod": "independent-publishers-agree"
+      },
+      "k_min": {
+        "min": 5,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso1986",
+          "jnstar"
+        ],
+        "status": "verified",
+        "verification": true,
+        "note": "Maßzahl durch die genannten unabhängigen Veröffentlichungen bestätigt.",
+        "verificationMethod": "independent-publishers-agree"
+      },
+      "f_max": {
+        "max": 6.6,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso1986",
+          "jnstar"
+        ],
+        "status": "verified",
+        "verification": true,
+        "note": "Maßzahl durch die genannten unabhängigen Veröffentlichungen bestätigt.",
+        "verificationMethod": "independent-publishers-agree"
+      },
+      "f_min": {
+        "min": 5.4,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso1986",
+          "jnstar"
+        ],
+        "status": "verified",
+        "verification": true,
+        "note": "Maßzahl durch die genannten unabhängigen Veröffentlichungen bestätigt.",
+        "verificationMethod": "independent-publishers-agree"
+      },
+      "v_max": {
+        "max": 10.58,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso1986",
+          "jnstar"
+        ],
+        "status": "verified",
+        "verification": true,
+        "note": "Maßzahl durch die genannten unabhängigen Veröffentlichungen bestätigt.",
+        "verificationMethod": "independent-publishers-agree"
+      },
+      "v_min": {
+        "min": 9.42,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso1986",
+          "jnstar"
+        ],
+        "status": "verified",
+        "verification": true,
+        "note": "Maßzahl durch die genannten unabhängigen Veröffentlichungen bestätigt.",
+        "verificationMethod": "independent-publishers-agree"
+      },
+      "ds_max": {
+        "max": 10.58,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso1986",
+          "jnstar"
+        ],
+        "status": "verified",
+        "verification": true,
+        "note": "Maßzahl durch die genannten unabhängigen Veröffentlichungen bestätigt.",
+        "verificationMethod": "independent-publishers-agree"
+      },
+      "b_le120": {
+        "nominal": 26,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso1986"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Referenzgewindelänge der historischen Norm; keine automatische Vollgewinde-/Teilgewindezuordnung ohne Längenzelle.",
+        "dependsOn": [
+          "length",
+          "threadExecution"
+        ],
+        "verificationMethod": "one-source-only"
+      },
+      "b_130_200": {
+        "nominal": 32,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso1986"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Referenzgewindelänge der historischen Norm; keine automatische Vollgewinde-/Teilgewindezuordnung ohne Längenzelle.",
+        "dependsOn": [
+          "length",
+          "threadExecution"
+        ],
+        "verificationMethod": "one-source-only"
+      },
+      "b_gt200": {
+        "unit": "mm",
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "note": "Referenzgewindelänge der historischen Norm; keine automatische Vollgewinde-/Teilgewindezuordnung ohne Längenzelle.",
+        "dependsOn": [
+          "length",
+          "threadExecution"
+        ],
+        "verificationMethod": "value-not-established"
+      }
+    },
+    "M12": {
+      "d_nominal": {
+        "nominal": 12,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso1986",
+          "jnstar"
+        ],
+        "status": "verified",
+        "verification": true,
+        "note": "Maßzahl durch die genannten unabhängigen Veröffentlichungen bestätigt.",
+        "verificationMethod": "independent-publishers-agree"
+      },
+      "P": {
+        "nominal": 1.75,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso1986",
+          "jnstar"
+        ],
+        "status": "verified",
+        "verification": true,
+        "note": "Maßzahl durch die genannten unabhängigen Veröffentlichungen bestätigt.",
+        "verificationMethod": "independent-publishers-agree"
+      },
+      "dk_nominal": {
+        "nominal": 30,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso1986",
+          "jnstar"
+        ],
+        "status": "verified",
+        "verification": true,
+        "note": "Maßzahl durch die genannten unabhängigen Veröffentlichungen bestätigt.",
+        "verificationMethod": "independent-publishers-agree"
+      },
+      "dk_min": {
+        "min": 28.7,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso1986",
+          "jnstar"
+        ],
+        "status": "verified",
+        "verification": true,
+        "note": "Maßzahl durch die genannten unabhängigen Veröffentlichungen bestätigt.",
+        "verificationMethod": "independent-publishers-agree"
+      },
+      "k_max": {
+        "max": 6.8,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso1986",
+          "jnstar"
+        ],
+        "status": "verified",
+        "verification": true,
+        "note": "Maßzahl durch die genannten unabhängigen Veröffentlichungen bestätigt.",
+        "verificationMethod": "independent-publishers-agree"
+      },
+      "k_min": {
+        "min": 6,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso1986",
+          "jnstar"
+        ],
+        "status": "verified",
+        "verification": true,
+        "note": "Maßzahl durch die genannten unabhängigen Veröffentlichungen bestätigt.",
+        "verificationMethod": "independent-publishers-agree"
+      },
+      "f_max": {
+        "max": 8.8,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso1986",
+          "jnstar"
+        ],
+        "status": "verified",
+        "verification": true,
+        "note": "Maßzahl durch die genannten unabhängigen Veröffentlichungen bestätigt.",
+        "verificationMethod": "independent-publishers-agree"
+      },
+      "f_min": {
+        "min": 7.2,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso1986",
+          "jnstar"
+        ],
+        "status": "verified",
+        "verification": true,
+        "note": "Maßzahl durch die genannten unabhängigen Veröffentlichungen bestätigt.",
+        "verificationMethod": "independent-publishers-agree"
+      },
+      "v_max": {
+        "max": 12.7,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso1986",
+          "jnstar"
+        ],
+        "status": "verified",
+        "verification": true,
+        "note": "Maßzahl durch die genannten unabhängigen Veröffentlichungen bestätigt.",
+        "verificationMethod": "independent-publishers-agree"
+      },
+      "v_min": {
+        "min": 11.3,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso1986",
+          "jnstar"
+        ],
+        "status": "verified",
+        "verification": true,
+        "note": "Maßzahl durch die genannten unabhängigen Veröffentlichungen bestätigt.",
+        "verificationMethod": "independent-publishers-agree"
+      },
+      "ds_max": {
+        "max": 12.7,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso1986",
+          "jnstar"
+        ],
+        "status": "verified",
+        "verification": true,
+        "note": "Maßzahl durch die genannten unabhängigen Veröffentlichungen bestätigt.",
+        "verificationMethod": "independent-publishers-agree"
+      },
+      "b_le120": {
+        "nominal": 30,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso1986"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Referenzgewindelänge der historischen Norm; keine automatische Vollgewinde-/Teilgewindezuordnung ohne Längenzelle.",
+        "dependsOn": [
+          "length",
+          "threadExecution"
+        ],
+        "verificationMethod": "one-source-only"
+      },
+      "b_130_200": {
+        "nominal": 36,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso1986"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Referenzgewindelänge der historischen Norm; keine automatische Vollgewinde-/Teilgewindezuordnung ohne Längenzelle.",
+        "dependsOn": [
+          "length",
+          "threadExecution"
+        ],
+        "verificationMethod": "one-source-only"
+      },
+      "b_gt200": {
+        "unit": "mm",
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "note": "Referenzgewindelänge der historischen Norm; keine automatische Vollgewinde-/Teilgewindezuordnung ohne Längenzelle.",
+        "dependsOn": [
+          "length",
+          "threadExecution"
+        ],
+        "verificationMethod": "value-not-established"
+      }
+    },
+    "M16": {
+      "d_nominal": {
+        "nominal": 16,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso1986",
+          "jnstar"
+        ],
+        "status": "verified",
+        "verification": true,
+        "note": "Maßzahl durch die genannten unabhängigen Veröffentlichungen bestätigt.",
+        "verificationMethod": "independent-publishers-agree"
+      },
+      "P": {
+        "nominal": 2,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso1986",
+          "jnstar"
+        ],
+        "status": "verified",
+        "verification": true,
+        "note": "Maßzahl durch die genannten unabhängigen Veröffentlichungen bestätigt.",
+        "verificationMethod": "independent-publishers-agree"
+      },
+      "dk_nominal": {
+        "nominal": 38,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso1986",
+          "jnstar"
+        ],
+        "status": "verified",
+        "verification": true,
+        "note": "Maßzahl durch die genannten unabhängigen Veröffentlichungen bestätigt.",
+        "verificationMethod": "independent-publishers-agree"
+      },
+      "dk_min": {
+        "min": 36.4,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso1986",
+          "jnstar"
+        ],
+        "status": "verified",
+        "verification": true,
+        "note": "Maßzahl durch die genannten unabhängigen Veröffentlichungen bestätigt.",
+        "verificationMethod": "independent-publishers-agree"
+      },
+      "k_max": {
+        "max": 8.9,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso1986",
+          "jnstar"
+        ],
+        "status": "verified",
+        "verification": true,
+        "note": "Maßzahl durch die genannten unabhängigen Veröffentlichungen bestätigt.",
+        "verificationMethod": "independent-publishers-agree"
+      },
+      "k_min": {
+        "min": 8,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso1986",
+          "jnstar"
+        ],
+        "status": "verified",
+        "verification": true,
+        "note": "Maßzahl durch die genannten unabhängigen Veröffentlichungen bestätigt.",
+        "verificationMethod": "independent-publishers-agree"
+      },
+      "f_max": {
+        "max": 12.9,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso1986",
+          "jnstar"
+        ],
+        "status": "verified",
+        "verification": true,
+        "note": "Maßzahl durch die genannten unabhängigen Veröffentlichungen bestätigt.",
+        "verificationMethod": "independent-publishers-agree"
+      },
+      "f_min": {
+        "min": 11.1,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso1986",
+          "jnstar"
+        ],
+        "status": "verified",
+        "verification": true,
+        "note": "Maßzahl durch die genannten unabhängigen Veröffentlichungen bestätigt.",
+        "verificationMethod": "independent-publishers-agree"
+      },
+      "v_max": {
+        "max": 16.7,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso1986",
+          "jnstar"
+        ],
+        "status": "verified",
+        "verification": true,
+        "note": "Maßzahl durch die genannten unabhängigen Veröffentlichungen bestätigt.",
+        "verificationMethod": "independent-publishers-agree"
+      },
+      "v_min": {
+        "min": 15.3,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso1986",
+          "jnstar"
+        ],
+        "status": "verified",
+        "verification": true,
+        "note": "Maßzahl durch die genannten unabhängigen Veröffentlichungen bestätigt.",
+        "verificationMethod": "independent-publishers-agree"
+      },
+      "ds_max": {
+        "max": 16.7,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso1986",
+          "jnstar"
+        ],
+        "status": "verified",
+        "verification": true,
+        "note": "Maßzahl durch die genannten unabhängigen Veröffentlichungen bestätigt.",
+        "verificationMethod": "independent-publishers-agree"
+      },
+      "b_le120": {
+        "nominal": 38,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso1986"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Referenzgewindelänge der historischen Norm; keine automatische Vollgewinde-/Teilgewindezuordnung ohne Längenzelle.",
+        "dependsOn": [
+          "length",
+          "threadExecution"
+        ],
+        "verificationMethod": "one-source-only"
+      },
+      "b_130_200": {
+        "nominal": 44,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso1986"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Referenzgewindelänge der historischen Norm; keine automatische Vollgewinde-/Teilgewindezuordnung ohne Längenzelle.",
+        "dependsOn": [
+          "length",
+          "threadExecution"
+        ],
+        "verificationMethod": "one-source-only"
+      },
+      "b_gt200": {
+        "nominal": 57,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso1986"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Referenzgewindelänge der historischen Norm; keine automatische Vollgewinde-/Teilgewindezuordnung ohne Längenzelle.",
+        "dependsOn": [
+          "length",
+          "threadExecution"
+        ],
+        "verificationMethod": "one-source-only"
+      }
+    },
+    "M20": {
+      "d_nominal": {
+        "nominal": 20,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso1986",
+          "jnstar"
+        ],
+        "status": "verified",
+        "verification": true,
+        "note": "Maßzahl durch die genannten unabhängigen Veröffentlichungen bestätigt.",
+        "verificationMethod": "independent-publishers-agree"
+      },
+      "P": {
+        "nominal": 2.5,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso1986",
+          "jnstar"
+        ],
+        "status": "verified",
+        "verification": true,
+        "note": "Maßzahl durch die genannten unabhängigen Veröffentlichungen bestätigt.",
+        "verificationMethod": "independent-publishers-agree"
+      },
+      "dk_nominal": {
+        "nominal": 46,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso1986",
+          "jnstar"
+        ],
+        "status": "verified",
+        "verification": true,
+        "note": "Maßzahl durch die genannten unabhängigen Veröffentlichungen bestätigt.",
+        "verificationMethod": "independent-publishers-agree"
+      },
+      "dk_min": {
+        "min": 44.4,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso1986",
+          "jnstar"
+        ],
+        "status": "verified",
+        "verification": true,
+        "note": "Maßzahl durch die genannten unabhängigen Veröffentlichungen bestätigt.",
+        "verificationMethod": "independent-publishers-agree"
+      },
+      "k_max": {
+        "max": 10.9,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso1986",
+          "jnstar"
+        ],
+        "status": "verified",
+        "verification": true,
+        "note": "Maßzahl durch die genannten unabhängigen Veröffentlichungen bestätigt.",
+        "verificationMethod": "independent-publishers-agree"
+      },
+      "k_min": {
+        "min": 10,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso1986",
+          "jnstar"
+        ],
+        "status": "verified",
+        "verification": true,
+        "note": "Maßzahl durch die genannten unabhängigen Veröffentlichungen bestätigt.",
+        "verificationMethod": "independent-publishers-agree"
+      },
+      "f_max": {
+        "max": 15.9,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso1986",
+          "jnstar"
+        ],
+        "status": "verified",
+        "verification": true,
+        "note": "Maßzahl durch die genannten unabhängigen Veröffentlichungen bestätigt.",
+        "verificationMethod": "independent-publishers-agree"
+      },
+      "f_min": {
+        "min": 14.1,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso1986",
+          "jnstar"
+        ],
+        "status": "verified",
+        "verification": true,
+        "note": "Maßzahl durch die genannten unabhängigen Veröffentlichungen bestätigt.",
+        "verificationMethod": "independent-publishers-agree"
+      },
+      "v_max": {
+        "max": 20.84,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso1986",
+          "jnstar"
+        ],
+        "status": "verified",
+        "verification": true,
+        "note": "Maßzahl durch die genannten unabhängigen Veröffentlichungen bestätigt.",
+        "verificationMethod": "independent-publishers-agree"
+      },
+      "v_min": {
+        "min": 19.16,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso1986",
+          "jnstar"
+        ],
+        "status": "verified",
+        "verification": true,
+        "note": "Maßzahl durch die genannten unabhängigen Veröffentlichungen bestätigt.",
+        "verificationMethod": "independent-publishers-agree"
+      },
+      "ds_max": {
+        "max": 20.84,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso1986",
+          "jnstar"
+        ],
+        "status": "verified",
+        "verification": true,
+        "note": "Maßzahl durch die genannten unabhängigen Veröffentlichungen bestätigt.",
+        "verificationMethod": "independent-publishers-agree"
+      },
+      "b_le120": {
+        "nominal": 46,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso1986"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Referenzgewindelänge der historischen Norm; keine automatische Vollgewinde-/Teilgewindezuordnung ohne Längenzelle.",
+        "dependsOn": [
+          "length",
+          "threadExecution"
+        ],
+        "verificationMethod": "one-source-only"
+      },
+      "b_130_200": {
+        "nominal": 52,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso1986"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Referenzgewindelänge der historischen Norm; keine automatische Vollgewinde-/Teilgewindezuordnung ohne Längenzelle.",
+        "dependsOn": [
+          "length",
+          "threadExecution"
+        ],
+        "verificationMethod": "one-source-only"
+      },
+      "b_gt200": {
+        "nominal": 65,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso1986"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Referenzgewindelänge der historischen Norm; keine automatische Vollgewinde-/Teilgewindezuordnung ohne Längenzelle.",
+        "dependsOn": [
+          "length",
+          "threadExecution"
+        ],
+        "verificationMethod": "one-source-only"
+      }
+    }
+  },
+  "sourceMeta": {
+    "iso1986": {
+      "id": "iso1986",
+      "url": "https://cdn.standards.iteh.ai/samples/16077/2d08c204ab9a4726a93fedd20a645ad6/ISO-8677-1986.pdf",
+      "titel": "ISO8677:1986 Originalauszug, Tabelle 1",
+      "type": "standard-excerpt",
+      "abgerufen": "2026-11-26"
+    },
+    "jnstar": {
+      "id": "jnstar",
+      "url": "https://www.jnstarfastener.com/carriage-bolt/iso-8677-cup-head.html",
+      "titel": "Jinan Star Fastener ISO8677 Maßtabelle",
+      "type": "manufacturer",
+      "abgerufen": "2026-11-26"
+    },
+    "lindstrom": {
+      "id": "lindstrom",
+      "url": "https://www.lindstromfasteners.com/wp-content/uploads/2016/09/lindstromManual2.pdf",
+      "titel": "Lindstrom technisches Handbuch, ISO8677 separat von DIN603",
+      "type": "manufacturer-manual",
+      "abgerufen": "2026-11-26"
+    },
+    "iso-status": {
+      "id": "iso-status",
+      "url": "https://www.iso.org/ics/21.060.10/x/",
+      "titel": "ISO-Katalog: ISO8677:1986 zurückgezogen",
+      "type": "standards-body",
+      "abgerufen": "2026-11-26"
+    }
+  },
+  "quellen": [
+    {
+      "id": "iso1986",
+      "url": "https://cdn.standards.iteh.ai/samples/16077/2d08c204ab9a4726a93fedd20a645ad6/ISO-8677-1986.pdf",
+      "titel": "ISO8677:1986 Originalauszug, Tabelle 1",
+      "type": "standard-excerpt",
+      "abgerufen": "2026-11-26"
+    },
+    {
+      "id": "jnstar",
+      "url": "https://www.jnstarfastener.com/carriage-bolt/iso-8677-cup-head.html",
+      "titel": "Jinan Star Fastener ISO8677 Maßtabelle",
+      "type": "manufacturer",
+      "abgerufen": "2026-11-26"
+    },
+    {
+      "id": "lindstrom",
+      "url": "https://www.lindstromfasteners.com/wp-content/uploads/2016/09/lindstromManual2.pdf",
+      "titel": "Lindstrom technisches Handbuch, ISO8677 separat von DIN603",
+      "type": "manufacturer-manual",
+      "abgerufen": "2026-11-26"
+    },
+    {
+      "id": "iso-status",
+      "url": "https://www.iso.org/ics/21.060.10/x/",
+      "titel": "ISO-Katalog: ISO8677:1986 zurückgezogen",
+      "type": "standards-body",
+      "abgerufen": "2026-11-26"
+    }
+  ],
   "abweichungen": [],
   "status": "partial",
-  "coverage": "unresearched",
+  "coverage": "documented",
   "lengthCoverage": "unresearched",
   "hinweise": [
-    "Familie erfasst; vollständige Einzelmaß- und Längenrecherche steht noch aus. Keine Ersatzmaße einer ähnlichen Norm verwendet."
+    "Zurückgezogene historische Norm; eigener Maßsatz, keine Gleichsetzung mit DIN603.",
+    "Großer Kopf ist die Bedeutung von large head; der Vierkantansatz wird mit seinen eigenen Maßen geführt.",
+    "Für kurze Längen erlaubt die Norm Gewinde bis zum Vierkant; ohne konkrete Ausführung wird kein b automatisch eingesetzt."
   ],
   "normstatus": {
-    "status": "unresolved",
-    "note": "Ausgabe und Vollständigkeit nicht aus einer ähnlichen Norm ableiten."
+    "edition": "1986",
+    "status": "withdrawn",
+    "sourceRefs": [
+      "iso-status"
+    ]
   },
   "requiredGeometryFields": [
     "kD",
-    "kH"
+    "kH",
+    "squareNeckWidth",
+    "squareNeckLength"
   ],
   "sizeCoverage": {
     "M3": {
@@ -45,44 +1588,44 @@
       "note": "Keine Größenzeile vorhanden; daraus folgt kein Normverbot."
     },
     "M5": {
-      "status": "unresearched",
-      "note": "Keine Größenzeile vorhanden; daraus folgt kein Normverbot."
+      "status": "documented",
+      "note": "Maßdaten dieser Größe belegt; vollständige Längenmatrix und weitere Geometriedetails bleiben separat gekennzeichnet."
     },
     "M6": {
-      "status": "unresearched",
-      "note": "Keine Größenzeile vorhanden; daraus folgt kein Normverbot."
+      "status": "documented",
+      "note": "Maßdaten dieser Größe belegt; vollständige Längenmatrix und weitere Geometriedetails bleiben separat gekennzeichnet."
     },
     "M7": {
       "status": "unresearched",
       "note": "Keine Größenzeile vorhanden; daraus folgt kein Normverbot."
     },
     "M8": {
-      "status": "unresearched",
-      "note": "Keine Größenzeile vorhanden; daraus folgt kein Normverbot."
+      "status": "documented",
+      "note": "Maßdaten dieser Größe belegt; vollständige Längenmatrix und weitere Geometriedetails bleiben separat gekennzeichnet."
     },
     "M10": {
-      "status": "unresearched",
-      "note": "Keine Größenzeile vorhanden; daraus folgt kein Normverbot."
+      "status": "documented",
+      "note": "Maßdaten dieser Größe belegt; vollständige Längenmatrix und weitere Geometriedetails bleiben separat gekennzeichnet."
     },
     "M12": {
-      "status": "unresearched",
-      "note": "Keine Größenzeile vorhanden; daraus folgt kein Normverbot."
+      "status": "documented",
+      "note": "Maßdaten dieser Größe belegt; vollständige Längenmatrix und weitere Geometriedetails bleiben separat gekennzeichnet."
     },
     "M14": {
       "status": "unresearched",
       "note": "Keine Größenzeile vorhanden; daraus folgt kein Normverbot."
     },
     "M16": {
-      "status": "unresearched",
-      "note": "Keine Größenzeile vorhanden; daraus folgt kein Normverbot."
+      "status": "documented",
+      "note": "Maßdaten dieser Größe belegt; vollständige Längenmatrix und weitere Geometriedetails bleiben separat gekennzeichnet."
     },
     "M18": {
       "status": "unresearched",
       "note": "Keine Größenzeile vorhanden; daraus folgt kein Normverbot."
     },
     "M20": {
-      "status": "unresearched",
-      "note": "Keine Größenzeile vorhanden; daraus folgt kein Normverbot."
+      "status": "documented",
+      "note": "Maßdaten dieser Größe belegt; vollständige Längenmatrix und weitere Geometriedetails bleiben separat gekennzeichnet."
     },
     "M22": {
       "status": "unresearched",
@@ -110,5 +1653,50 @@
     "status": "unresearched",
     "values": [],
     "note": "Festigkeits-/Werkstoffklassen noch nicht vollständig aus dieser Norm belegt."
-  }
+  },
+  "datasetKind": "part-standard",
+  "threadFamily": "metric",
+  "lengthDependentFields": [
+    "sL",
+    "b"
+  ],
+  "laengen": {
+    "values": [
+      20,
+      25,
+      30,
+      35,
+      40,
+      45,
+      50,
+      55,
+      60,
+      65,
+      70,
+      75,
+      80,
+      90,
+      100,
+      110,
+      120,
+      130,
+      140,
+      150,
+      160,
+      180,
+      200
+    ],
+    "unit": "mm",
+    "coverage": "documented",
+    "status": "single-source",
+    "sourceRefs": [
+      "iso1986"
+    ],
+    "kind": "standard-length-series",
+    "note": "Längenreihe der historischen Norm. Das ist keine Behauptung, jede Größe sei mit jeder Länge kombiniert."
+  },
+  "gaps": [
+    "Vollständige Größen-Längenmatrix noch nicht erschlossen.",
+    "Kopfkontur und Vierkantübergänge erlauben Varianten; keine eindeutige vollständige Volumengeometrie aus den Grenzmaßen allein."
+  ]
 }

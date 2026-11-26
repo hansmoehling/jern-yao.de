@@ -1,0 +1,38 @@
+{
+  "id": "ring",
+  "label": "Dickes Ringteil",
+  "status": "illustrative-process-template",
+  "leadDiameterMm": 18,
+  "notes": [],
+  "chain": {
+    "version": 1,
+    "segments": [
+      {
+        "id": "S1",
+        "shape": "cylinder",
+        "diameter": 18,
+        "length": 8,
+        "offsetX": 0,
+        "offsetY": 0
+      }
+    ],
+    "recesses": [
+      {
+        "id": "I1",
+        "from": "A",
+        "shape": "cylinder",
+        "diameter": 10,
+        "length": 8,
+        "offsetX": 0,
+        "offsetY": 0
+      }
+    ],
+    "parting": 4,
+    "flipped": false,
+    "trimming": []
+  },
+  "leadDimension": {
+    "segmentId": "S1",
+    "field": "diameter"
+  }
+}

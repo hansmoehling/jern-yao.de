@@ -1,0 +1,44 @@
+{
+  "id": "stufenniet",
+  "label": "Stufenniet",
+  "status": "illustrative-process-template",
+  "leadDiameterMm": 6,
+  "notes": [],
+  "chain": {
+    "version": 1,
+    "segments": [
+      {
+        "id": "S1",
+        "shape": "cylinder",
+        "diameter": 10,
+        "length": 3,
+        "offsetX": 0,
+        "offsetY": 0
+      },
+      {
+        "id": "S2",
+        "shape": "cylinder",
+        "diameter": 6,
+        "length": 12,
+        "offsetX": 0,
+        "offsetY": 0
+      },
+      {
+        "id": "S3",
+        "shape": "cylinder",
+        "diameter": 4,
+        "length": 5,
+        "offsetX": 0,
+        "offsetY": 0
+      }
+    ],
+    "recesses": [],
+    "parting": 3,
+    "flipped": false,
+    "trimming": []
+  },
+  "leadDimension": {
+    "segmentId": "S2",
+    "field": "diameter"
+  }
+}

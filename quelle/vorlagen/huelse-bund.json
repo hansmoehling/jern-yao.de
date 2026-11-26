@@ -1,0 +1,46 @@
+{
+  "id": "huelse-bund",
+  "label": "Hülse mit Bund",
+  "status": "illustrative-process-template",
+  "leadDiameterMm": 10,
+  "notes": [],
+  "chain": {
+    "version": 1,
+    "segments": [
+      {
+        "id": "S1",
+        "shape": "cylinder",
+        "diameter": 14,
+        "length": 3,
+        "offsetX": 0,
+        "offsetY": 0
+      },
+      {
+        "id": "S2",
+        "shape": "cylinder",
+        "diameter": 10,
+        "length": 15,
+        "offsetX": 0,
+        "offsetY": 0
+      }
+    ],
+    "recesses": [
+      {
+        "id": "I1",
+        "from": "A",
+        "shape": "cylinder",
+        "diameter": 6,
+        "length": 18,
+        "offsetX": 0,
+        "offsetY": 0
+      }
+    ],
+    "parting": 3,
+    "flipped": false,
+    "trimming": []
+  },
+  "leadDimension": {
+    "segmentId": "S2",
+    "field": "diameter"
+  }
+}

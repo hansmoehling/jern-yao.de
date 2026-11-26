@@ -1,0 +1,92 @@
+{
+  "id": "stufenbolzen",
+  "label": "Stufenbolzen mit Körner und Halbhohlende",
+  "status": "illustrative-process-template",
+  "leadDiameterMm": 6,
+  "notes": [
+    "120°-Kegelgrund als Prozessannahme; Bohrtiefe einschließlich Kegelspitze."
+  ],
+  "chain": {
+    "version": 1,
+    "segments": [
+      {
+        "id": "S1",
+        "shape": "cylinder",
+        "diameter": 4,
+        "length": 3,
+        "offsetX": 0,
+        "offsetY": 0
+      },
+      {
+        "id": "S2",
+        "shape": "cylinder",
+        "diameter": 8,
+        "length": 3,
+        "offsetX": 0,
+        "offsetY": 0
+      },
+      {
+        "id": "S3",
+        "shape": "cylinder",
+        "diameter": 12,
+        "length": 3,
+        "offsetX": 0,
+        "offsetY": 0
+      },
+      {
+        "id": "S4",
+        "shape": "cylinder",
+        "diameter": 8,
+        "length": 6,
+        "offsetX": 0,
+        "offsetY": 0
+      },
+      {
+        "id": "S5",
+        "shape": "cylinder",
+        "diameter": 6,
+        "length": 12,
+        "offsetX": 0,
+        "offsetY": 0
+      },
+      {
+        "id": "S6",
+        "shape": "cylinder",
+        "diameter": 5,
+        "length": 8,
+        "offsetX": 0,
+        "offsetY": 0
+      }
+    ],
+    "recesses": [
+      {
+        "id": "I1",
+        "from": "A",
+        "shape": "cone",
+        "diameter": 2,
+        "diameterEnd": 0,
+        "length": 0.5773502691896258,
+        "offsetX": 0,
+        "offsetY": 0
+      },
+      {
+        "id": "I2",
+        "from": "B",
+        "shape": "cylinder",
+        "diameter": 3,
+        "length": 5,
+        "offsetX": 0,
+        "offsetY": 0,
+        "bottomShape": "cone",
+        "bottomAngle": 120
+      }
+    ],
+    "parting": 9,
+    "flipped": false,
+    "trimming": []
+  },
+  "leadDimension": {
+    "segmentId": "S5",
+    "field": "diameter"
+  }
+}

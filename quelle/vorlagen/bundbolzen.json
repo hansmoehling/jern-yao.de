@@ -1,0 +1,44 @@
+{
+  "id": "bundbolzen",
+  "label": "Bundbolzen",
+  "status": "illustrative-process-template",
+  "leadDiameterMm": 8,
+  "notes": [],
+  "chain": {
+    "version": 1,
+    "segments": [
+      {
+        "id": "S1",
+        "shape": "cylinder",
+        "diameter": 8,
+        "length": 12,
+        "offsetX": 0,
+        "offsetY": 0
+      },
+      {
+        "id": "S2",
+        "shape": "cylinder",
+        "diameter": 14,
+        "length": 4,
+        "offsetX": 0,
+        "offsetY": 0
+      },
+      {
+        "id": "S3",
+        "shape": "cylinder",
+        "diameter": 8,
+        "length": 20,
+        "offsetX": 0,
+        "offsetY": 0
+      }
+    ],
+    "recesses": [],
+    "parting": 16,
+    "flipped": false,
+    "trimming": []
+  },
+  "leadDimension": {
+    "segmentId": "S3",
+    "field": "diameter"
+  }
+}

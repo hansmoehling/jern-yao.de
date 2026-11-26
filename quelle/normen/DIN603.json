@@ -3,33 +3,1685 @@
   "version": "2026-11-26",
   "schemaVersion": 1,
   "label": "DIN603 · Flachrundkopf mit Vierkantansatz",
-  "edition": null,
-  "editionStatus": "unresolved",
+  "edition": "catalogue-unassigned",
+  "editionStatus": "manufacturer-edition-unspecified",
   "funktion": "schraube",
   "klasse": "bolzen",
   "kopfTyp": "flachrund",
   "antrieb": {
     "art": "none"
   },
-  "feldzuordnung": {},
-  "groessen": {},
-  "fields": {},
-  "sourceMeta": {},
-  "quellen": [],
+  "feldzuordnung": {
+    "d": "d_nominal",
+    "kD": "dk_max",
+    "kH": "k_max",
+    "squareNeckWidth": "v_max",
+    "squareNeckLength": "f_max"
+  },
+  "groessen": {
+    "M5": {
+      "vorbelegung": {
+        "d": 5,
+        "kD": 13.55,
+        "kH": 3.3,
+        "squareNeckWidth": 5.48,
+        "squareNeckLength": 4.1
+      },
+      "roh": {
+        "d_nominal": 5,
+        "P": 0.8,
+        "dk_max": 13.55,
+        "dk_min": 12.45,
+        "ds_max": 5,
+        "ds_min": 4.52,
+        "k_max": 3.3,
+        "k_min": 2.7,
+        "f_max": 4.1,
+        "f_min": 2.9,
+        "v_max": 5.48,
+        "v_min": 4.52,
+        "b_le125": 16,
+        "b_le200": 22,
+        "b_gt200": null
+      },
+      "coverage": "documented",
+      "lengthCoverage": "unresearched",
+      "geometryStatus": "partial",
+      "missingGeometryFields": [
+        "length",
+        "squareNeckTransition",
+        "headProfileDefinition"
+      ],
+      "nachLaenge": {}
+    },
+    "M6": {
+      "vorbelegung": {
+        "d": 6,
+        "kD": 16.55,
+        "kH": 3.88,
+        "squareNeckWidth": 6.48,
+        "squareNeckLength": 4.6
+      },
+      "roh": {
+        "d_nominal": 6,
+        "P": 1,
+        "dk_max": 16.55,
+        "dk_min": 15.45,
+        "ds_max": 6,
+        "ds_min": 5.52,
+        "k_max": 3.88,
+        "k_min": 3.12,
+        "f_max": 4.6,
+        "f_min": 3.4,
+        "v_max": 6.48,
+        "v_min": 5.52,
+        "b_le125": 18,
+        "b_le200": 24,
+        "b_gt200": null
+      },
+      "coverage": "documented",
+      "lengthCoverage": "unresearched",
+      "geometryStatus": "partial",
+      "missingGeometryFields": [
+        "length",
+        "squareNeckTransition",
+        "headProfileDefinition"
+      ],
+      "nachLaenge": {}
+    },
+    "M8": {
+      "vorbelegung": {
+        "d": 8,
+        "kD": 20.65,
+        "kH": 4.88,
+        "squareNeckWidth": 8.58,
+        "squareNeckLength": 5.6
+      },
+      "roh": {
+        "d_nominal": 8,
+        "P": 1.25,
+        "dk_max": 20.65,
+        "dk_min": 19.35,
+        "ds_max": 8,
+        "ds_min": 7.42,
+        "k_max": 4.88,
+        "k_min": 4.12,
+        "f_max": 5.6,
+        "f_min": 4.4,
+        "v_max": 8.58,
+        "v_min": 7.42,
+        "b_le125": 22,
+        "b_le200": 28,
+        "b_gt200": 41
+      },
+      "coverage": "documented",
+      "lengthCoverage": "unresearched",
+      "geometryStatus": "partial",
+      "missingGeometryFields": [
+        "length",
+        "squareNeckTransition",
+        "headProfileDefinition"
+      ],
+      "nachLaenge": {}
+    },
+    "M10": {
+      "vorbelegung": {
+        "d": 10,
+        "kD": 24.65,
+        "kH": 5.38,
+        "squareNeckWidth": 10.58,
+        "squareNeckLength": 6.6
+      },
+      "roh": {
+        "d_nominal": 10,
+        "P": 1.5,
+        "dk_max": 24.65,
+        "dk_min": 23.35,
+        "ds_max": 10,
+        "ds_min": 9.42,
+        "k_max": 5.38,
+        "k_min": 4.62,
+        "f_max": 6.6,
+        "f_min": 5.4,
+        "v_max": 10.58,
+        "v_min": 9.42,
+        "b_le125": 26,
+        "b_le200": 32,
+        "b_gt200": 45
+      },
+      "coverage": "documented",
+      "lengthCoverage": "unresearched",
+      "geometryStatus": "partial",
+      "missingGeometryFields": [
+        "length",
+        "squareNeckTransition",
+        "headProfileDefinition"
+      ],
+      "nachLaenge": {}
+    },
+    "M12": {
+      "vorbelegung": {
+        "d": 12,
+        "kD": 30.65,
+        "kH": 6.95,
+        "squareNeckWidth": 12.7,
+        "squareNeckLength": 8.75
+      },
+      "roh": {
+        "d_nominal": 12,
+        "P": 1.75,
+        "dk_max": 30.65,
+        "dk_min": 29.35,
+        "ds_max": 12,
+        "ds_min": 11.3,
+        "k_max": 6.95,
+        "k_min": 6.05,
+        "f_max": 8.75,
+        "f_min": 7.25,
+        "v_max": 12.7,
+        "v_min": 11.3,
+        "b_le125": 30,
+        "b_le200": 36,
+        "b_gt200": 49
+      },
+      "coverage": "documented",
+      "lengthCoverage": "unresearched",
+      "geometryStatus": "partial",
+      "missingGeometryFields": [
+        "length",
+        "squareNeckTransition",
+        "headProfileDefinition"
+      ],
+      "nachLaenge": {}
+    },
+    "M16": {
+      "vorbelegung": {
+        "d": 16,
+        "kD": 38.8,
+        "kH": 8.95,
+        "squareNeckWidth": 16.7,
+        "squareNeckLength": 12.9
+      },
+      "roh": {
+        "d_nominal": 16,
+        "P": 2,
+        "dk_max": 38.8,
+        "dk_min": 37.2,
+        "ds_max": 16,
+        "ds_min": 15.3,
+        "k_max": 8.95,
+        "k_min": 8.05,
+        "f_max": 12.9,
+        "f_min": 11.1,
+        "v_max": 16.7,
+        "v_min": 15.3,
+        "b_le125": 38,
+        "b_le200": 44,
+        "b_gt200": 57
+      },
+      "coverage": "documented",
+      "lengthCoverage": "unresearched",
+      "geometryStatus": "partial",
+      "missingGeometryFields": [
+        "length",
+        "squareNeckTransition",
+        "headProfileDefinition"
+      ],
+      "nachLaenge": {}
+    },
+    "M20": {
+      "vorbelegung": {
+        "d": 20,
+        "kD": 46.8,
+        "kH": 11.05,
+        "squareNeckWidth": 20.84,
+        "squareNeckLength": 15.9
+      },
+      "roh": {
+        "d_nominal": 20,
+        "P": 2.5,
+        "dk_max": 46.8,
+        "dk_min": 45.2,
+        "ds_max": 20,
+        "ds_min": 19.16,
+        "k_max": 11.05,
+        "k_min": 9.95,
+        "f_max": 15.9,
+        "f_min": 14.1,
+        "v_max": 20.84,
+        "v_min": 19.16,
+        "b_le125": 46,
+        "b_le200": 52,
+        "b_gt200": 65
+      },
+      "coverage": "documented",
+      "lengthCoverage": "unresearched",
+      "geometryStatus": "partial",
+      "missingGeometryFields": [
+        "length",
+        "squareNeckTransition",
+        "headProfileDefinition"
+      ],
+      "nachLaenge": {}
+    }
+  },
+  "fields": {
+    "M5": {
+      "d_nominal": {
+        "nominal": 5,
+        "unit": "mm",
+        "sourceRefs": [
+          "aramfix",
+          "sariv"
+        ],
+        "status": "verified",
+        "verification": true,
+        "note": "Maßzahl durch die genannten unabhängigen Veröffentlichungen bestätigt.",
+        "verificationMethod": "independent-publishers-agree"
+      },
+      "P": {
+        "nominal": 0.8,
+        "unit": "mm",
+        "sourceRefs": [
+          "aramfix"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Zweite unabhängige Bestätigung dieses Einzelwerts fehlt.",
+        "verificationMethod": "one-source-only"
+      },
+      "dk_max": {
+        "max": 13.55,
+        "unit": "mm",
+        "sourceRefs": [
+          "aramfix",
+          "sariv"
+        ],
+        "status": "conflict",
+        "verification": false,
+        "note": "Aramfix nennt13,55; SARIV13,5. Kein Mittelwert; Aramfix-Grenzwert bleibt transparent erhalten.",
+        "alternatives": [
+          {
+            "max": 13.55,
+            "sourceRefs": [
+              "aramfix"
+            ],
+            "preferred": true
+          },
+          {
+            "max": 13.5,
+            "sourceRefs": [
+              "sariv"
+            ]
+          }
+        ],
+        "verificationMethod": "catalogues-differ"
+      },
+      "dk_min": {
+        "min": 12.45,
+        "unit": "mm",
+        "sourceRefs": [
+          "aramfix"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Zweite unabhängige Bestätigung dieses Einzelwerts fehlt.",
+        "verificationMethod": "one-source-only"
+      },
+      "ds_max": {
+        "max": 5,
+        "unit": "mm",
+        "sourceRefs": [
+          "aramfix"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Zweite unabhängige Bestätigung dieses Einzelwerts fehlt.",
+        "verificationMethod": "one-source-only"
+      },
+      "ds_min": {
+        "min": 4.52,
+        "unit": "mm",
+        "sourceRefs": [
+          "aramfix"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Zweite unabhängige Bestätigung dieses Einzelwerts fehlt.",
+        "verificationMethod": "one-source-only"
+      },
+      "k_max": {
+        "max": 3.3,
+        "unit": "mm",
+        "sourceRefs": [
+          "aramfix",
+          "sariv"
+        ],
+        "status": "verified",
+        "verification": true,
+        "note": "Maßzahl durch die genannten unabhängigen Veröffentlichungen bestätigt.",
+        "verificationMethod": "independent-publishers-agree"
+      },
+      "k_min": {
+        "min": 2.7,
+        "unit": "mm",
+        "sourceRefs": [
+          "aramfix"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Zweite unabhängige Bestätigung dieses Einzelwerts fehlt.",
+        "verificationMethod": "one-source-only"
+      },
+      "f_max": {
+        "max": 4.1,
+        "unit": "mm",
+        "sourceRefs": [
+          "aramfix",
+          "sariv"
+        ],
+        "status": "verified",
+        "verification": true,
+        "note": "Maßzahl durch die genannten unabhängigen Veröffentlichungen bestätigt.",
+        "verificationMethod": "independent-publishers-agree"
+      },
+      "f_min": {
+        "min": 2.9,
+        "unit": "mm",
+        "sourceRefs": [
+          "aramfix"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Zweite unabhängige Bestätigung dieses Einzelwerts fehlt.",
+        "verificationMethod": "one-source-only"
+      },
+      "v_max": {
+        "max": 5.48,
+        "unit": "mm",
+        "sourceRefs": [
+          "aramfix",
+          "sariv"
+        ],
+        "status": "verified",
+        "verification": true,
+        "note": "Maßzahl durch die genannten unabhängigen Veröffentlichungen bestätigt.",
+        "verificationMethod": "independent-publishers-agree"
+      },
+      "v_min": {
+        "min": 4.52,
+        "unit": "mm",
+        "sourceRefs": [
+          "aramfix"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Zweite unabhängige Bestätigung dieses Einzelwerts fehlt.",
+        "verificationMethod": "one-source-only"
+      },
+      "b_le125": {
+        "nominal": 16,
+        "unit": "mm",
+        "sourceRefs": [
+          "aramfix",
+          "sariv"
+        ],
+        "status": "verified",
+        "verification": true,
+        "note": "Referenzgewindelänge für den benannten Längenbereich; kurze Vollgewindeausführung und Gewindeauslauf separat bestimmen.",
+        "dependsOn": [
+          "length",
+          "threadExecution"
+        ],
+        "verificationMethod": "independent-publishers-agree"
+      },
+      "b_le200": {
+        "nominal": 22,
+        "unit": "mm",
+        "sourceRefs": [
+          "aramfix",
+          "sariv"
+        ],
+        "status": "verified",
+        "verification": true,
+        "note": "Referenzgewindelänge für den benannten Längenbereich; kurze Vollgewindeausführung und Gewindeauslauf separat bestimmen.",
+        "dependsOn": [
+          "length",
+          "threadExecution"
+        ],
+        "verificationMethod": "independent-publishers-agree"
+      },
+      "b_gt200": {
+        "unit": "mm",
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "note": "Referenzgewindelänge für den benannten Längenbereich; kurze Vollgewindeausführung und Gewindeauslauf separat bestimmen.",
+        "dependsOn": [
+          "length",
+          "threadExecution"
+        ],
+        "verificationMethod": "value-not-established"
+      }
+    },
+    "M6": {
+      "d_nominal": {
+        "nominal": 6,
+        "unit": "mm",
+        "sourceRefs": [
+          "aramfix",
+          "boellhoff"
+        ],
+        "status": "verified",
+        "verification": true,
+        "note": "Maßzahl durch die genannten unabhängigen Veröffentlichungen bestätigt.",
+        "verificationMethod": "independent-publishers-agree"
+      },
+      "P": {
+        "nominal": 1,
+        "unit": "mm",
+        "sourceRefs": [
+          "aramfix",
+          "boellhoff"
+        ],
+        "status": "verified",
+        "verification": true,
+        "note": "Maßzahl durch die genannten unabhängigen Veröffentlichungen bestätigt.",
+        "verificationMethod": "independent-publishers-agree"
+      },
+      "dk_max": {
+        "max": 16.55,
+        "unit": "mm",
+        "sourceRefs": [
+          "aramfix",
+          "boellhoff"
+        ],
+        "status": "verified",
+        "verification": true,
+        "note": "Maßzahl durch die genannten unabhängigen Veröffentlichungen bestätigt.",
+        "verificationMethod": "independent-publishers-agree"
+      },
+      "dk_min": {
+        "min": 15.45,
+        "unit": "mm",
+        "sourceRefs": [
+          "aramfix",
+          "boellhoff"
+        ],
+        "status": "verified",
+        "verification": true,
+        "note": "Maßzahl durch die genannten unabhängigen Veröffentlichungen bestätigt.",
+        "verificationMethod": "independent-publishers-agree"
+      },
+      "ds_max": {
+        "max": 6,
+        "unit": "mm",
+        "sourceRefs": [
+          "aramfix",
+          "boellhoff"
+        ],
+        "status": "verified",
+        "verification": true,
+        "note": "Maßzahl durch die genannten unabhängigen Veröffentlichungen bestätigt.",
+        "verificationMethod": "independent-publishers-agree"
+      },
+      "ds_min": {
+        "min": 5.52,
+        "unit": "mm",
+        "sourceRefs": [
+          "aramfix",
+          "boellhoff"
+        ],
+        "status": "verified",
+        "verification": true,
+        "note": "Maßzahl durch die genannten unabhängigen Veröffentlichungen bestätigt.",
+        "verificationMethod": "independent-publishers-agree"
+      },
+      "k_max": {
+        "max": 3.88,
+        "unit": "mm",
+        "sourceRefs": [
+          "aramfix",
+          "boellhoff"
+        ],
+        "status": "verified",
+        "verification": true,
+        "note": "Maßzahl durch die genannten unabhängigen Veröffentlichungen bestätigt.",
+        "verificationMethod": "independent-publishers-agree"
+      },
+      "k_min": {
+        "min": 3.12,
+        "unit": "mm",
+        "sourceRefs": [
+          "aramfix",
+          "boellhoff"
+        ],
+        "status": "verified",
+        "verification": true,
+        "note": "Maßzahl durch die genannten unabhängigen Veröffentlichungen bestätigt.",
+        "verificationMethod": "independent-publishers-agree"
+      },
+      "f_max": {
+        "max": 4.6,
+        "unit": "mm",
+        "sourceRefs": [
+          "aramfix",
+          "boellhoff"
+        ],
+        "status": "verified",
+        "verification": true,
+        "note": "Maßzahl durch die genannten unabhängigen Veröffentlichungen bestätigt.",
+        "verificationMethod": "independent-publishers-agree"
+      },
+      "f_min": {
+        "min": 3.4,
+        "unit": "mm",
+        "sourceRefs": [
+          "aramfix",
+          "boellhoff"
+        ],
+        "status": "verified",
+        "verification": true,
+        "note": "Maßzahl durch die genannten unabhängigen Veröffentlichungen bestätigt.",
+        "verificationMethod": "independent-publishers-agree"
+      },
+      "v_max": {
+        "max": 6.48,
+        "unit": "mm",
+        "sourceRefs": [
+          "aramfix",
+          "boellhoff"
+        ],
+        "status": "verified",
+        "verification": true,
+        "note": "Maßzahl durch die genannten unabhängigen Veröffentlichungen bestätigt.",
+        "verificationMethod": "independent-publishers-agree"
+      },
+      "v_min": {
+        "min": 5.52,
+        "unit": "mm",
+        "sourceRefs": [
+          "aramfix",
+          "boellhoff"
+        ],
+        "status": "verified",
+        "verification": true,
+        "note": "Maßzahl durch die genannten unabhängigen Veröffentlichungen bestätigt.",
+        "verificationMethod": "independent-publishers-agree"
+      },
+      "b_le125": {
+        "nominal": 18,
+        "unit": "mm",
+        "sourceRefs": [
+          "aramfix",
+          "boellhoff"
+        ],
+        "status": "verified",
+        "verification": true,
+        "note": "Referenzgewindelänge für den benannten Längenbereich; kurze Vollgewindeausführung und Gewindeauslauf separat bestimmen.",
+        "dependsOn": [
+          "length",
+          "threadExecution"
+        ],
+        "verificationMethod": "independent-publishers-agree"
+      },
+      "b_le200": {
+        "nominal": 24,
+        "unit": "mm",
+        "sourceRefs": [
+          "aramfix",
+          "boellhoff"
+        ],
+        "status": "verified",
+        "verification": true,
+        "note": "Referenzgewindelänge für den benannten Längenbereich; kurze Vollgewindeausführung und Gewindeauslauf separat bestimmen.",
+        "dependsOn": [
+          "length",
+          "threadExecution"
+        ],
+        "verificationMethod": "independent-publishers-agree"
+      },
+      "b_gt200": {
+        "unit": "mm",
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "note": "Referenzgewindelänge für den benannten Längenbereich; kurze Vollgewindeausführung und Gewindeauslauf separat bestimmen.",
+        "dependsOn": [
+          "length",
+          "threadExecution"
+        ],
+        "verificationMethod": "value-not-established"
+      }
+    },
+    "M8": {
+      "d_nominal": {
+        "nominal": 8,
+        "unit": "mm",
+        "sourceRefs": [
+          "aramfix",
+          "boellhoff"
+        ],
+        "status": "verified",
+        "verification": true,
+        "note": "Maßzahl durch die genannten unabhängigen Veröffentlichungen bestätigt.",
+        "verificationMethod": "independent-publishers-agree"
+      },
+      "P": {
+        "nominal": 1.25,
+        "unit": "mm",
+        "sourceRefs": [
+          "aramfix",
+          "boellhoff"
+        ],
+        "status": "verified",
+        "verification": true,
+        "note": "Maßzahl durch die genannten unabhängigen Veröffentlichungen bestätigt.",
+        "verificationMethod": "independent-publishers-agree"
+      },
+      "dk_max": {
+        "max": 20.65,
+        "unit": "mm",
+        "sourceRefs": [
+          "aramfix",
+          "boellhoff"
+        ],
+        "status": "verified",
+        "verification": true,
+        "note": "Maßzahl durch die genannten unabhängigen Veröffentlichungen bestätigt.",
+        "verificationMethod": "independent-publishers-agree"
+      },
+      "dk_min": {
+        "min": 19.35,
+        "unit": "mm",
+        "sourceRefs": [
+          "aramfix",
+          "boellhoff"
+        ],
+        "status": "verified",
+        "verification": true,
+        "note": "Maßzahl durch die genannten unabhängigen Veröffentlichungen bestätigt.",
+        "verificationMethod": "independent-publishers-agree"
+      },
+      "ds_max": {
+        "max": 8,
+        "unit": "mm",
+        "sourceRefs": [
+          "aramfix",
+          "boellhoff"
+        ],
+        "status": "verified",
+        "verification": true,
+        "note": "Maßzahl durch die genannten unabhängigen Veröffentlichungen bestätigt.",
+        "verificationMethod": "independent-publishers-agree"
+      },
+      "ds_min": {
+        "min": 7.42,
+        "unit": "mm",
+        "sourceRefs": [
+          "aramfix",
+          "boellhoff"
+        ],
+        "status": "verified",
+        "verification": true,
+        "note": "Maßzahl durch die genannten unabhängigen Veröffentlichungen bestätigt.",
+        "verificationMethod": "independent-publishers-agree"
+      },
+      "k_max": {
+        "max": 4.88,
+        "unit": "mm",
+        "sourceRefs": [
+          "aramfix",
+          "boellhoff"
+        ],
+        "status": "verified",
+        "verification": true,
+        "note": "Maßzahl durch die genannten unabhängigen Veröffentlichungen bestätigt.",
+        "verificationMethod": "independent-publishers-agree"
+      },
+      "k_min": {
+        "min": 4.12,
+        "unit": "mm",
+        "sourceRefs": [
+          "aramfix",
+          "boellhoff"
+        ],
+        "status": "verified",
+        "verification": true,
+        "note": "Maßzahl durch die genannten unabhängigen Veröffentlichungen bestätigt.",
+        "verificationMethod": "independent-publishers-agree"
+      },
+      "f_max": {
+        "max": 5.6,
+        "unit": "mm",
+        "sourceRefs": [
+          "aramfix",
+          "boellhoff"
+        ],
+        "status": "verified",
+        "verification": true,
+        "note": "Maßzahl durch die genannten unabhängigen Veröffentlichungen bestätigt.",
+        "verificationMethod": "independent-publishers-agree"
+      },
+      "f_min": {
+        "min": 4.4,
+        "unit": "mm",
+        "sourceRefs": [
+          "aramfix",
+          "boellhoff"
+        ],
+        "status": "verified",
+        "verification": true,
+        "note": "Maßzahl durch die genannten unabhängigen Veröffentlichungen bestätigt.",
+        "verificationMethod": "independent-publishers-agree"
+      },
+      "v_max": {
+        "max": 8.58,
+        "unit": "mm",
+        "sourceRefs": [
+          "aramfix",
+          "boellhoff"
+        ],
+        "status": "verified",
+        "verification": true,
+        "note": "Maßzahl durch die genannten unabhängigen Veröffentlichungen bestätigt.",
+        "verificationMethod": "independent-publishers-agree"
+      },
+      "v_min": {
+        "min": 7.42,
+        "unit": "mm",
+        "sourceRefs": [
+          "aramfix",
+          "boellhoff"
+        ],
+        "status": "verified",
+        "verification": true,
+        "note": "Maßzahl durch die genannten unabhängigen Veröffentlichungen bestätigt.",
+        "verificationMethod": "independent-publishers-agree"
+      },
+      "b_le125": {
+        "nominal": 22,
+        "unit": "mm",
+        "sourceRefs": [
+          "aramfix",
+          "boellhoff"
+        ],
+        "status": "verified",
+        "verification": true,
+        "note": "Referenzgewindelänge für den benannten Längenbereich; kurze Vollgewindeausführung und Gewindeauslauf separat bestimmen.",
+        "dependsOn": [
+          "length",
+          "threadExecution"
+        ],
+        "verificationMethod": "independent-publishers-agree"
+      },
+      "b_le200": {
+        "nominal": 28,
+        "unit": "mm",
+        "sourceRefs": [
+          "aramfix",
+          "boellhoff"
+        ],
+        "status": "verified",
+        "verification": true,
+        "note": "Referenzgewindelänge für den benannten Längenbereich; kurze Vollgewindeausführung und Gewindeauslauf separat bestimmen.",
+        "dependsOn": [
+          "length",
+          "threadExecution"
+        ],
+        "verificationMethod": "independent-publishers-agree"
+      },
+      "b_gt200": {
+        "nominal": 41,
+        "unit": "mm",
+        "sourceRefs": [
+          "aramfix",
+          "boellhoff"
+        ],
+        "status": "verified",
+        "verification": true,
+        "note": "Referenzgewindelänge für den benannten Längenbereich; kurze Vollgewindeausführung und Gewindeauslauf separat bestimmen.",
+        "dependsOn": [
+          "length",
+          "threadExecution"
+        ],
+        "verificationMethod": "independent-publishers-agree"
+      }
+    },
+    "M10": {
+      "d_nominal": {
+        "nominal": 10,
+        "unit": "mm",
+        "sourceRefs": [
+          "aramfix",
+          "boellhoff"
+        ],
+        "status": "verified",
+        "verification": true,
+        "note": "Maßzahl durch die genannten unabhängigen Veröffentlichungen bestätigt.",
+        "verificationMethod": "independent-publishers-agree"
+      },
+      "P": {
+        "nominal": 1.5,
+        "unit": "mm",
+        "sourceRefs": [
+          "aramfix",
+          "boellhoff"
+        ],
+        "status": "verified",
+        "verification": true,
+        "note": "Maßzahl durch die genannten unabhängigen Veröffentlichungen bestätigt.",
+        "verificationMethod": "independent-publishers-agree"
+      },
+      "dk_max": {
+        "max": 24.65,
+        "unit": "mm",
+        "sourceRefs": [
+          "aramfix",
+          "boellhoff"
+        ],
+        "status": "verified",
+        "verification": true,
+        "note": "Maßzahl durch die genannten unabhängigen Veröffentlichungen bestätigt.",
+        "verificationMethod": "independent-publishers-agree"
+      },
+      "dk_min": {
+        "min": 23.35,
+        "unit": "mm",
+        "sourceRefs": [
+          "aramfix",
+          "boellhoff"
+        ],
+        "status": "verified",
+        "verification": true,
+        "note": "Maßzahl durch die genannten unabhängigen Veröffentlichungen bestätigt.",
+        "verificationMethod": "independent-publishers-agree"
+      },
+      "ds_max": {
+        "max": 10,
+        "unit": "mm",
+        "sourceRefs": [
+          "aramfix",
+          "boellhoff"
+        ],
+        "status": "verified",
+        "verification": true,
+        "note": "Maßzahl durch die genannten unabhängigen Veröffentlichungen bestätigt.",
+        "verificationMethod": "independent-publishers-agree"
+      },
+      "ds_min": {
+        "min": 9.42,
+        "unit": "mm",
+        "sourceRefs": [
+          "aramfix",
+          "boellhoff"
+        ],
+        "status": "verified",
+        "verification": true,
+        "note": "Maßzahl durch die genannten unabhängigen Veröffentlichungen bestätigt.",
+        "verificationMethod": "independent-publishers-agree"
+      },
+      "k_max": {
+        "max": 5.38,
+        "unit": "mm",
+        "sourceRefs": [
+          "aramfix",
+          "boellhoff"
+        ],
+        "status": "verified",
+        "verification": true,
+        "note": "Maßzahl durch die genannten unabhängigen Veröffentlichungen bestätigt.",
+        "verificationMethod": "independent-publishers-agree"
+      },
+      "k_min": {
+        "min": 4.62,
+        "unit": "mm",
+        "sourceRefs": [
+          "aramfix",
+          "boellhoff"
+        ],
+        "status": "verified",
+        "verification": true,
+        "note": "Maßzahl durch die genannten unabhängigen Veröffentlichungen bestätigt.",
+        "verificationMethod": "independent-publishers-agree"
+      },
+      "f_max": {
+        "max": 6.6,
+        "unit": "mm",
+        "sourceRefs": [
+          "aramfix",
+          "boellhoff"
+        ],
+        "status": "verified",
+        "verification": true,
+        "note": "Maßzahl durch die genannten unabhängigen Veröffentlichungen bestätigt.",
+        "verificationMethod": "independent-publishers-agree"
+      },
+      "f_min": {
+        "min": 5.4,
+        "unit": "mm",
+        "sourceRefs": [
+          "aramfix",
+          "boellhoff"
+        ],
+        "status": "verified",
+        "verification": true,
+        "note": "Maßzahl durch die genannten unabhängigen Veröffentlichungen bestätigt.",
+        "verificationMethod": "independent-publishers-agree"
+      },
+      "v_max": {
+        "max": 10.58,
+        "unit": "mm",
+        "sourceRefs": [
+          "aramfix",
+          "boellhoff"
+        ],
+        "status": "verified",
+        "verification": true,
+        "note": "Maßzahl durch die genannten unabhängigen Veröffentlichungen bestätigt.",
+        "verificationMethod": "independent-publishers-agree"
+      },
+      "v_min": {
+        "min": 9.42,
+        "unit": "mm",
+        "sourceRefs": [
+          "aramfix",
+          "boellhoff"
+        ],
+        "status": "verified",
+        "verification": true,
+        "note": "Maßzahl durch die genannten unabhängigen Veröffentlichungen bestätigt.",
+        "verificationMethod": "independent-publishers-agree"
+      },
+      "b_le125": {
+        "nominal": 26,
+        "unit": "mm",
+        "sourceRefs": [
+          "aramfix",
+          "boellhoff"
+        ],
+        "status": "verified",
+        "verification": true,
+        "note": "Referenzgewindelänge für den benannten Längenbereich; kurze Vollgewindeausführung und Gewindeauslauf separat bestimmen.",
+        "dependsOn": [
+          "length",
+          "threadExecution"
+        ],
+        "verificationMethod": "independent-publishers-agree"
+      },
+      "b_le200": {
+        "nominal": 32,
+        "unit": "mm",
+        "sourceRefs": [
+          "aramfix",
+          "boellhoff"
+        ],
+        "status": "verified",
+        "verification": true,
+        "note": "Referenzgewindelänge für den benannten Längenbereich; kurze Vollgewindeausführung und Gewindeauslauf separat bestimmen.",
+        "dependsOn": [
+          "length",
+          "threadExecution"
+        ],
+        "verificationMethod": "independent-publishers-agree"
+      },
+      "b_gt200": {
+        "nominal": 45,
+        "unit": "mm",
+        "sourceRefs": [
+          "aramfix",
+          "boellhoff"
+        ],
+        "status": "verified",
+        "verification": true,
+        "note": "Referenzgewindelänge für den benannten Längenbereich; kurze Vollgewindeausführung und Gewindeauslauf separat bestimmen.",
+        "dependsOn": [
+          "length",
+          "threadExecution"
+        ],
+        "verificationMethod": "independent-publishers-agree"
+      }
+    },
+    "M12": {
+      "d_nominal": {
+        "nominal": 12,
+        "unit": "mm",
+        "sourceRefs": [
+          "aramfix",
+          "sariv"
+        ],
+        "status": "verified",
+        "verification": true,
+        "note": "Maßzahl durch die genannten unabhängigen Veröffentlichungen bestätigt.",
+        "verificationMethod": "independent-publishers-agree"
+      },
+      "P": {
+        "nominal": 1.75,
+        "unit": "mm",
+        "sourceRefs": [
+          "aramfix"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Zweite unabhängige Bestätigung dieses Einzelwerts fehlt.",
+        "verificationMethod": "one-source-only"
+      },
+      "dk_max": {
+        "max": 30.65,
+        "unit": "mm",
+        "sourceRefs": [
+          "aramfix",
+          "sariv"
+        ],
+        "status": "verified",
+        "verification": true,
+        "note": "Maßzahl durch die genannten unabhängigen Veröffentlichungen bestätigt.",
+        "verificationMethod": "independent-publishers-agree"
+      },
+      "dk_min": {
+        "min": 29.35,
+        "unit": "mm",
+        "sourceRefs": [
+          "aramfix"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Zweite unabhängige Bestätigung dieses Einzelwerts fehlt.",
+        "verificationMethod": "one-source-only"
+      },
+      "ds_max": {
+        "max": 12,
+        "unit": "mm",
+        "sourceRefs": [
+          "aramfix"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Zweite unabhängige Bestätigung dieses Einzelwerts fehlt.",
+        "verificationMethod": "one-source-only"
+      },
+      "ds_min": {
+        "min": 11.3,
+        "unit": "mm",
+        "sourceRefs": [
+          "aramfix"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Zweite unabhängige Bestätigung dieses Einzelwerts fehlt.",
+        "verificationMethod": "one-source-only"
+      },
+      "k_max": {
+        "max": 6.95,
+        "unit": "mm",
+        "sourceRefs": [
+          "aramfix",
+          "sariv"
+        ],
+        "status": "verified",
+        "verification": true,
+        "note": "Maßzahl durch die genannten unabhängigen Veröffentlichungen bestätigt.",
+        "verificationMethod": "independent-publishers-agree"
+      },
+      "k_min": {
+        "min": 6.05,
+        "unit": "mm",
+        "sourceRefs": [
+          "aramfix"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Zweite unabhängige Bestätigung dieses Einzelwerts fehlt.",
+        "verificationMethod": "one-source-only"
+      },
+      "f_max": {
+        "max": 8.75,
+        "unit": "mm",
+        "sourceRefs": [
+          "aramfix",
+          "sariv"
+        ],
+        "status": "verified",
+        "verification": true,
+        "note": "Maßzahl durch die genannten unabhängigen Veröffentlichungen bestätigt.",
+        "verificationMethod": "independent-publishers-agree"
+      },
+      "f_min": {
+        "min": 7.25,
+        "unit": "mm",
+        "sourceRefs": [
+          "aramfix"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Zweite unabhängige Bestätigung dieses Einzelwerts fehlt.",
+        "verificationMethod": "one-source-only"
+      },
+      "v_max": {
+        "max": 12.7,
+        "unit": "mm",
+        "sourceRefs": [
+          "aramfix",
+          "sariv"
+        ],
+        "status": "verified",
+        "verification": true,
+        "note": "Maßzahl durch die genannten unabhängigen Veröffentlichungen bestätigt.",
+        "verificationMethod": "independent-publishers-agree"
+      },
+      "v_min": {
+        "min": 11.3,
+        "unit": "mm",
+        "sourceRefs": [
+          "aramfix"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Zweite unabhängige Bestätigung dieses Einzelwerts fehlt.",
+        "verificationMethod": "one-source-only"
+      },
+      "b_le125": {
+        "nominal": 30,
+        "unit": "mm",
+        "sourceRefs": [
+          "aramfix",
+          "sariv"
+        ],
+        "status": "verified",
+        "verification": true,
+        "note": "Referenzgewindelänge für den benannten Längenbereich; kurze Vollgewindeausführung und Gewindeauslauf separat bestimmen.",
+        "dependsOn": [
+          "length",
+          "threadExecution"
+        ],
+        "verificationMethod": "independent-publishers-agree"
+      },
+      "b_le200": {
+        "nominal": 36,
+        "unit": "mm",
+        "sourceRefs": [
+          "aramfix",
+          "sariv"
+        ],
+        "status": "verified",
+        "verification": true,
+        "note": "Referenzgewindelänge für den benannten Längenbereich; kurze Vollgewindeausführung und Gewindeauslauf separat bestimmen.",
+        "dependsOn": [
+          "length",
+          "threadExecution"
+        ],
+        "verificationMethod": "independent-publishers-agree"
+      },
+      "b_gt200": {
+        "nominal": 49,
+        "unit": "mm",
+        "sourceRefs": [
+          "aramfix",
+          "sariv"
+        ],
+        "status": "verified",
+        "verification": true,
+        "note": "Referenzgewindelänge für den benannten Längenbereich; kurze Vollgewindeausführung und Gewindeauslauf separat bestimmen.",
+        "dependsOn": [
+          "length",
+          "threadExecution"
+        ],
+        "verificationMethod": "independent-publishers-agree"
+      }
+    },
+    "M16": {
+      "d_nominal": {
+        "nominal": 16,
+        "unit": "mm",
+        "sourceRefs": [
+          "aramfix",
+          "sariv"
+        ],
+        "status": "verified",
+        "verification": true,
+        "note": "Maßzahl durch die genannten unabhängigen Veröffentlichungen bestätigt.",
+        "verificationMethod": "independent-publishers-agree"
+      },
+      "P": {
+        "nominal": 2,
+        "unit": "mm",
+        "sourceRefs": [
+          "aramfix"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Zweite unabhängige Bestätigung dieses Einzelwerts fehlt.",
+        "verificationMethod": "one-source-only"
+      },
+      "dk_max": {
+        "max": 38.8,
+        "unit": "mm",
+        "sourceRefs": [
+          "aramfix",
+          "sariv"
+        ],
+        "status": "verified",
+        "verification": true,
+        "note": "Maßzahl durch die genannten unabhängigen Veröffentlichungen bestätigt.",
+        "verificationMethod": "independent-publishers-agree"
+      },
+      "dk_min": {
+        "min": 37.2,
+        "unit": "mm",
+        "sourceRefs": [
+          "aramfix"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Zweite unabhängige Bestätigung dieses Einzelwerts fehlt.",
+        "verificationMethod": "one-source-only"
+      },
+      "ds_max": {
+        "max": 16,
+        "unit": "mm",
+        "sourceRefs": [
+          "aramfix"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Zweite unabhängige Bestätigung dieses Einzelwerts fehlt.",
+        "verificationMethod": "one-source-only"
+      },
+      "ds_min": {
+        "min": 15.3,
+        "unit": "mm",
+        "sourceRefs": [
+          "aramfix"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Zweite unabhängige Bestätigung dieses Einzelwerts fehlt.",
+        "verificationMethod": "one-source-only"
+      },
+      "k_max": {
+        "max": 8.95,
+        "unit": "mm",
+        "sourceRefs": [
+          "aramfix",
+          "sariv"
+        ],
+        "status": "verified",
+        "verification": true,
+        "note": "Maßzahl durch die genannten unabhängigen Veröffentlichungen bestätigt.",
+        "verificationMethod": "independent-publishers-agree"
+      },
+      "k_min": {
+        "min": 8.05,
+        "unit": "mm",
+        "sourceRefs": [
+          "aramfix"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Zweite unabhängige Bestätigung dieses Einzelwerts fehlt.",
+        "verificationMethod": "one-source-only"
+      },
+      "f_max": {
+        "max": 12.9,
+        "unit": "mm",
+        "sourceRefs": [
+          "aramfix",
+          "sariv"
+        ],
+        "status": "verified",
+        "verification": true,
+        "note": "Maßzahl durch die genannten unabhängigen Veröffentlichungen bestätigt.",
+        "verificationMethod": "independent-publishers-agree"
+      },
+      "f_min": {
+        "min": 11.1,
+        "unit": "mm",
+        "sourceRefs": [
+          "aramfix"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Zweite unabhängige Bestätigung dieses Einzelwerts fehlt.",
+        "verificationMethod": "one-source-only"
+      },
+      "v_max": {
+        "max": 16.7,
+        "unit": "mm",
+        "sourceRefs": [
+          "aramfix",
+          "sariv"
+        ],
+        "status": "verified",
+        "verification": true,
+        "note": "Maßzahl durch die genannten unabhängigen Veröffentlichungen bestätigt.",
+        "verificationMethod": "independent-publishers-agree"
+      },
+      "v_min": {
+        "min": 15.3,
+        "unit": "mm",
+        "sourceRefs": [
+          "aramfix"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Zweite unabhängige Bestätigung dieses Einzelwerts fehlt.",
+        "verificationMethod": "one-source-only"
+      },
+      "b_le125": {
+        "nominal": 38,
+        "unit": "mm",
+        "sourceRefs": [
+          "aramfix",
+          "sariv"
+        ],
+        "status": "verified",
+        "verification": true,
+        "note": "Referenzgewindelänge für den benannten Längenbereich; kurze Vollgewindeausführung und Gewindeauslauf separat bestimmen.",
+        "dependsOn": [
+          "length",
+          "threadExecution"
+        ],
+        "verificationMethod": "independent-publishers-agree"
+      },
+      "b_le200": {
+        "nominal": 44,
+        "unit": "mm",
+        "sourceRefs": [
+          "aramfix",
+          "sariv"
+        ],
+        "status": "verified",
+        "verification": true,
+        "note": "Referenzgewindelänge für den benannten Längenbereich; kurze Vollgewindeausführung und Gewindeauslauf separat bestimmen.",
+        "dependsOn": [
+          "length",
+          "threadExecution"
+        ],
+        "verificationMethod": "independent-publishers-agree"
+      },
+      "b_gt200": {
+        "nominal": 57,
+        "unit": "mm",
+        "sourceRefs": [
+          "aramfix",
+          "sariv"
+        ],
+        "status": "verified",
+        "verification": true,
+        "note": "Referenzgewindelänge für den benannten Längenbereich; kurze Vollgewindeausführung und Gewindeauslauf separat bestimmen.",
+        "dependsOn": [
+          "length",
+          "threadExecution"
+        ],
+        "verificationMethod": "independent-publishers-agree"
+      }
+    },
+    "M20": {
+      "d_nominal": {
+        "nominal": 20,
+        "unit": "mm",
+        "sourceRefs": [
+          "aramfix",
+          "sariv"
+        ],
+        "status": "verified",
+        "verification": true,
+        "note": "Maßzahl durch die genannten unabhängigen Veröffentlichungen bestätigt.",
+        "verificationMethod": "independent-publishers-agree"
+      },
+      "P": {
+        "nominal": 2.5,
+        "unit": "mm",
+        "sourceRefs": [
+          "aramfix"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Zweite unabhängige Bestätigung dieses Einzelwerts fehlt.",
+        "verificationMethod": "one-source-only"
+      },
+      "dk_max": {
+        "max": 46.8,
+        "unit": "mm",
+        "sourceRefs": [
+          "aramfix",
+          "sariv"
+        ],
+        "status": "verified",
+        "verification": true,
+        "note": "Maßzahl durch die genannten unabhängigen Veröffentlichungen bestätigt.",
+        "verificationMethod": "independent-publishers-agree"
+      },
+      "dk_min": {
+        "min": 45.2,
+        "unit": "mm",
+        "sourceRefs": [
+          "aramfix"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Zweite unabhängige Bestätigung dieses Einzelwerts fehlt.",
+        "verificationMethod": "one-source-only"
+      },
+      "ds_max": {
+        "max": 20,
+        "unit": "mm",
+        "sourceRefs": [
+          "aramfix"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Zweite unabhängige Bestätigung dieses Einzelwerts fehlt.",
+        "verificationMethod": "one-source-only"
+      },
+      "ds_min": {
+        "min": 19.16,
+        "unit": "mm",
+        "sourceRefs": [
+          "aramfix"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Zweite unabhängige Bestätigung dieses Einzelwerts fehlt.",
+        "verificationMethod": "one-source-only"
+      },
+      "k_max": {
+        "max": 11.05,
+        "unit": "mm",
+        "sourceRefs": [
+          "aramfix",
+          "sariv"
+        ],
+        "status": "verified",
+        "verification": true,
+        "note": "Maßzahl durch die genannten unabhängigen Veröffentlichungen bestätigt.",
+        "verificationMethod": "independent-publishers-agree"
+      },
+      "k_min": {
+        "min": 9.95,
+        "unit": "mm",
+        "sourceRefs": [
+          "aramfix"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Zweite unabhängige Bestätigung dieses Einzelwerts fehlt.",
+        "verificationMethod": "one-source-only"
+      },
+      "f_max": {
+        "max": 15.9,
+        "unit": "mm",
+        "sourceRefs": [
+          "aramfix",
+          "sariv"
+        ],
+        "status": "verified",
+        "verification": true,
+        "note": "Maßzahl durch die genannten unabhängigen Veröffentlichungen bestätigt.",
+        "verificationMethod": "independent-publishers-agree"
+      },
+      "f_min": {
+        "min": 14.1,
+        "unit": "mm",
+        "sourceRefs": [
+          "aramfix"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Zweite unabhängige Bestätigung dieses Einzelwerts fehlt.",
+        "verificationMethod": "one-source-only"
+      },
+      "v_max": {
+        "max": 20.84,
+        "unit": "mm",
+        "sourceRefs": [
+          "aramfix",
+          "sariv"
+        ],
+        "status": "verified",
+        "verification": true,
+        "note": "Maßzahl durch die genannten unabhängigen Veröffentlichungen bestätigt.",
+        "verificationMethod": "independent-publishers-agree"
+      },
+      "v_min": {
+        "min": 19.16,
+        "unit": "mm",
+        "sourceRefs": [
+          "aramfix"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "note": "Zweite unabhängige Bestätigung dieses Einzelwerts fehlt.",
+        "verificationMethod": "one-source-only"
+      },
+      "b_le125": {
+        "nominal": 46,
+        "unit": "mm",
+        "sourceRefs": [
+          "aramfix",
+          "sariv"
+        ],
+        "status": "verified",
+        "verification": true,
+        "note": "Referenzgewindelänge für den benannten Längenbereich; kurze Vollgewindeausführung und Gewindeauslauf separat bestimmen.",
+        "dependsOn": [
+          "length",
+          "threadExecution"
+        ],
+        "verificationMethod": "independent-publishers-agree"
+      },
+      "b_le200": {
+        "nominal": 52,
+        "unit": "mm",
+        "sourceRefs": [
+          "aramfix",
+          "sariv"
+        ],
+        "status": "verified",
+        "verification": true,
+        "note": "Referenzgewindelänge für den benannten Längenbereich; kurze Vollgewindeausführung und Gewindeauslauf separat bestimmen.",
+        "dependsOn": [
+          "length",
+          "threadExecution"
+        ],
+        "verificationMethod": "independent-publishers-agree"
+      },
+      "b_gt200": {
+        "nominal": 65,
+        "unit": "mm",
+        "sourceRefs": [
+          "aramfix",
+          "sariv"
+        ],
+        "status": "verified",
+        "verification": true,
+        "note": "Referenzgewindelänge für den benannten Längenbereich; kurze Vollgewindeausführung und Gewindeauslauf separat bestimmen.",
+        "dependsOn": [
+          "length",
+          "threadExecution"
+        ],
+        "verificationMethod": "independent-publishers-agree"
+      }
+    }
+  },
+  "sourceMeta": {
+    "aramfix": {
+      "id": "aramfix",
+      "url": "https://www.aramfix.com/content/files/d603cagll/datasheet%20din%20603.pdf",
+      "titel": "Aramfix DIN603 Maßblatt, Tabelle 1",
+      "type": "supplier-datasheet",
+      "abgerufen": "2026-11-26"
+    },
+    "boellhoff": {
+      "id": "boellhoff",
+      "url": "https://eshop.boellhoff.de/out/media/pdf/DIN_603_Stahl_4.8_gv___de.pdf",
+      "titel": "Böllhoff DIN603 Maßblatt M6/M8/M10",
+      "type": "manufacturer",
+      "abgerufen": "2026-11-26"
+    },
+    "sariv": {
+      "id": "sariv",
+      "url": "https://www.sariv.cz/en/catalog/fasteners/metric-screws/din-603-detail",
+      "titel": "SARIV DIN603 Maßtabelle",
+      "type": "manufacturer",
+      "abgerufen": "2026-11-26"
+    },
+    "din-status": {
+      "id": "din-status",
+      "url": "https://www.dinmedia.de/de/norm/din-603/402541098",
+      "titel": "DIN603:2026-08 Status und Änderungen",
+      "type": "standards-body",
+      "abgerufen": "2026-11-26"
+    }
+  },
+  "quellen": [
+    {
+      "id": "aramfix",
+      "url": "https://www.aramfix.com/content/files/d603cagll/datasheet%20din%20603.pdf",
+      "titel": "Aramfix DIN603 Maßblatt, Tabelle 1",
+      "type": "supplier-datasheet",
+      "abgerufen": "2026-11-26"
+    },
+    {
+      "id": "boellhoff",
+      "url": "https://eshop.boellhoff.de/out/media/pdf/DIN_603_Stahl_4.8_gv___de.pdf",
+      "titel": "Böllhoff DIN603 Maßblatt M6/M8/M10",
+      "type": "manufacturer",
+      "abgerufen": "2026-11-26"
+    },
+    {
+      "id": "sariv",
+      "url": "https://www.sariv.cz/en/catalog/fasteners/metric-screws/din-603-detail",
+      "titel": "SARIV DIN603 Maßtabelle",
+      "type": "manufacturer",
+      "abgerufen": "2026-11-26"
+    },
+    {
+      "id": "din-status",
+      "url": "https://www.dinmedia.de/de/norm/din-603/402541098",
+      "titel": "DIN603:2026-08 Status und Änderungen",
+      "type": "standards-body",
+      "abgerufen": "2026-11-26"
+    }
+  ],
   "abweichungen": [],
   "status": "partial",
-  "coverage": "unresearched",
+  "coverage": "documented",
   "lengthCoverage": "unresearched",
   "hinweise": [
-    "Familie erfasst; vollständige Einzelmaß- und Längenrecherche steht noch aus. Keine Ersatzmaße einer ähnlichen Norm verwendet."
+    "Vierkantansatz mit Breite v und Länge f gehört zur Geometrie; kein Ersatz durch einen reinen Rundschaft.",
+    "Kopf- und Ansatzgrenzmaße sind Vorbelegungen nach Maximalmaßregel; fehlende Nennwerte werden nicht gemittelt.",
+    "ISO8677 hat abweichende Kopfmaße und wird separat geführt."
   ],
   "normstatus": {
-    "status": "unresolved",
-    "note": "Ausgabe und Vollständigkeit nicht aus einer ähnlichen Norm ableiten."
+    "status": "edition-unassigned",
+    "note": "Herstellermaßblätter nennen keine DIN-Ausgabe. Sie werden nicht als vollständig geprüfte Ausgabe 2026-08 ausgegeben."
   },
   "requiredGeometryFields": [
     "kD",
-    "kH"
+    "kH",
+    "squareNeckWidth",
+    "squareNeckLength"
   ],
   "sizeCoverage": {
     "M3": {
@@ -45,44 +1697,44 @@
       "note": "Keine Größenzeile vorhanden; daraus folgt kein Normverbot."
     },
     "M5": {
-      "status": "unresearched",
-      "note": "Keine Größenzeile vorhanden; daraus folgt kein Normverbot."
+      "status": "documented",
+      "note": "Maßdaten dieser Größe belegt; vollständige Längenmatrix und weitere Geometriedetails bleiben separat gekennzeichnet."
     },
     "M6": {
-      "status": "unresearched",
-      "note": "Keine Größenzeile vorhanden; daraus folgt kein Normverbot."
+      "status": "documented",
+      "note": "Maßdaten dieser Größe belegt; vollständige Längenmatrix und weitere Geometriedetails bleiben separat gekennzeichnet."
     },
     "M7": {
       "status": "unresearched",
       "note": "Keine Größenzeile vorhanden; daraus folgt kein Normverbot."
     },
     "M8": {
-      "status": "unresearched",
-      "note": "Keine Größenzeile vorhanden; daraus folgt kein Normverbot."
+      "status": "documented",
+      "note": "Maßdaten dieser Größe belegt; vollständige Längenmatrix und weitere Geometriedetails bleiben separat gekennzeichnet."
     },
     "M10": {
-      "status": "unresearched",
-      "note": "Keine Größenzeile vorhanden; daraus folgt kein Normverbot."
+      "status": "documented",
+      "note": "Maßdaten dieser Größe belegt; vollständige Längenmatrix und weitere Geometriedetails bleiben separat gekennzeichnet."
     },
     "M12": {
-      "status": "unresearched",
-      "note": "Keine Größenzeile vorhanden; daraus folgt kein Normverbot."
+      "status": "documented",
+      "note": "Maßdaten dieser Größe belegt; vollständige Längenmatrix und weitere Geometriedetails bleiben separat gekennzeichnet."
     },
     "M14": {
       "status": "unresearched",
       "note": "Keine Größenzeile vorhanden; daraus folgt kein Normverbot."
     },
     "M16": {
-      "status": "unresearched",
-      "note": "Keine Größenzeile vorhanden; daraus folgt kein Normverbot."
+      "status": "documented",
+      "note": "Maßdaten dieser Größe belegt; vollständige Längenmatrix und weitere Geometriedetails bleiben separat gekennzeichnet."
     },
     "M18": {
       "status": "unresearched",
       "note": "Keine Größenzeile vorhanden; daraus folgt kein Normverbot."
     },
     "M20": {
-      "status": "unresearched",
-      "note": "Keine Größenzeile vorhanden; daraus folgt kein Normverbot."
+      "status": "documented",
+      "note": "Maßdaten dieser Größe belegt; vollständige Längenmatrix und weitere Geometriedetails bleiben separat gekennzeichnet."
     },
     "M22": {
       "status": "unresearched",
@@ -110,5 +1762,24 @@
     "status": "unresearched",
     "values": [],
     "note": "Festigkeits-/Werkstoffklassen noch nicht vollständig aus dieser Norm belegt."
-  }
+  },
+  "datasetKind": "part-standard",
+  "threadFamily": "metric",
+  "lengthDependentFields": [
+    "sL",
+    "b"
+  ],
+  "currentEdition": {
+    "edition": "2026-08",
+    "status": "current",
+    "sourceRefs": [
+      "din-status"
+    ],
+    "dimensionCoverage": "unresearched",
+    "note": "Ersetzt 2017-05; aktuelle Original-Maßtabelle noch nicht separat geprüft."
+  },
+  "gaps": [
+    "Aktuelle Originalausgabe 2026-08 und vollständige Größen-Längenmatrix noch nicht abgeglichen.",
+    "Herstellerkopfprofil und Übergang des Vierkantansatzes sind nicht vollständig geometrisch spezifiziert."
+  ]
 }

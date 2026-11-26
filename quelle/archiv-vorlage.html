@@ -189,6 +189,8 @@
   .norm-override{display:flex;align-items:center;justify-content:space-between;gap:10px;margin:8px 0;font-size:14px;flex-wrap:wrap}
   .norm-missing{font-size:14px}.norm-overrides .klein{font-size:14px}
   #norm-dimensions>summary{font-size:16px;font-weight:600;padding:12px 0}
+  .grid>*{min-width:0}fieldset{min-inline-size:0}.felder{grid-template-columns:repeat(2,minmax(0,1fr))}.feld{min-width:0}
+  .norm-reference,.norm-missing,.norm-override{overflow-wrap:anywhere}
 </style>
 
 </head>
@@ -211,10 +213,12 @@
     <div class="subline">Stadienfolge, Presskraft, Werkzeuggröße und Auswerferwege grob ausgelegt, dazu die passenden Jern-Yao-Modelle mit Richtpreis 2026.</div>
     <div class="rule"></div>
     <p class="lede">Schrauben und Muttern direkt auslegen. Formteile aus Körpern und Aussparungen aufbauen und ein Stadienkonzept ableiten.</p>
-    <div class="beispiele">Beispiele mit C4C, weichgeglüht:
-      <button type="button" class="chip" data-bsp="m8">M8-Flanschschraube</button>
-      <button type="button" class="chip" data-bsp="m6">M6-Zylinderschraube mit Innensechskant</button>
-      <button type="button" class="chip" data-bsp="mu">M10-Mutter</button>
+    <div class="beispiele">Direkt ausprobieren:
+      <button type="button" class="chip" data-bsp="m6">ISO 4762 · M6 × 30</button>
+      <button type="button" class="chip" data-bsp="m8">ISO 4017 · M8 × 40</button>
+      <button type="button" class="chip" data-bsp="niet">DIN 6791 · 4 × 12</button>
+      <button type="button" class="chip" data-bsp="mu">ISO 4032 · M10</button>
+      <button type="button" class="chip" data-bsp="stufen">Stufenbolzen mit Körner und Halbhohlende</button>
     </div>
   </div>
 
@@ -230,6 +234,7 @@
         <legend>1 · Teil</legend>
         <p id="calculation-method-note"><strong>Programmrechnung:</strong> Die Stadienberechnung erfolgt durch ein Berechnungsprogramm, nicht durch KI. Grundlage sind Ihre Eingaben und hinterlegte Umformregeln.</p>
         <div id="norm-picker" hidden></div>
+        <div id="norm-chain-actions" hidden><button type="button" class="knopf zwei" id="norm-to-chain">Als Formteil weiterbearbeiten</button><p id="norm-chain-status" class="klein" role="status"></p></div>
         <div id="parts-tabs" class="parts-tabs" role="tablist" aria-label="Formteil auslegen" hidden><button type="button" id="parts-drawing-tab" role="tab" aria-controls="parts-drawing-panel" aria-selected="true">Zeichnung scannen</button><button type="button" id="parts-geometry-tab" role="tab" aria-controls="geometry-panel" aria-selected="false" tabindex="-1">Teil aufbauen</button></div>
         <div id="parts-drawing-panel" role="tabpanel" aria-labelledby="parts-drawing-tab" hidden>
           <div class="parts-upload" id="parts-drop-zone"><label for="parts-file"><strong>Zeichnung auswählen oder hier ablegen</strong></label><p class="klein">PDF, PNG, JPG oder WebP für die KI-Analyse · bis 15 MB. CAD und TIFF können Sie als Original an Hans senden.</p><input id="parts-file" type="file" accept=".pdf,.png,.jpg,.jpeg,.webp,.tif,.tiff,.step,.stp,.dxf,.dwg,.igs,.iges" aria-describedby="parts-file-help parts-file-feedback"></div>
@@ -297,7 +302,7 @@
             <label class="feld" data-kopf="sechskant abgratet sechskant_bund"><span>Schlüsselweite in mm</span><input type="text" inputmode="decimal" name="kSW"></label>
             <label class="feld" data-kopf="rund sechskant abgratet krallen kugelabschnitt linse kegelstumpf linsensenk sechskant_bund"><span>Höhe in mm</span><input type="text" inputmode="decimal" name="kH"></label>
             <label class="feld" data-kopf="linse"><span>Zylindrischer Kopfrand in mm</span><input type="text" inputmode="decimal" name="kC"></label>
-            <label class="feld" data-kopf="linsensenk"><span>Wölbungshöhe in mm</span><input type="text" inputmode="decimal" name="capHeight"></label>
+            <label class="feld" data-kopf="linsensenk linse"><span>Wölbungshöhe in mm</span><input type="text" inputmode="decimal" name="capHeight"></label>
             <label class="feld" data-kopf="sechskant_bund"><span>Bund-Ø in mm</span><input type="text" inputmode="decimal" name="flangeDiameter"></label>
             <label class="feld" data-kopf="sechskant_bund"><span>Bundhöhe in mm</span><input type="text" inputmode="decimal" name="flangeHeight"></label>
             <label class="feld voll" data-kopf="krallen"><span>Kopf-Außenkonturvolumen ohne Innenantrieb in mm³ (optional)</span><input type="text" inputmode="decimal" name="kVol"></label>
@@ -458,6 +463,7 @@
 <script>/*DRAWING_PREVIEW*/</script>
 <script>/*GEOMETRY_MODEL*/</script>
 <script>/*GEOMETRY_WIZARD*/</script>
+<script>/*AXIAL_CHAIN*/</script>
 <script>/*STANDARD_FAMILIES*/</script>
 <script>/*NORM_LIBRARY*/</script>
 <script>/*WIRE_DEFAULTS*/</script>

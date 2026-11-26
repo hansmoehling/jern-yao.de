@@ -41,10 +41,285 @@
         "ds_max": 3
       },
       "coverage": "documented",
-      "lengthCoverage": "unresearched",
-      "nachLaenge": {},
+      "lengthCoverage": "partial",
+      "nachLaenge": {
+        "16": {
+          "coverage": "documented",
+          "geometryStatus": "documented",
+          "missingGeometryFields": [],
+          "vorbelegung": {
+            "b": 16,
+            "sL": 16,
+            "threadMode": "full"
+          },
+          "roh": {
+            "sL": 16,
+            "b_actual": 16,
+            "threadMode": "full"
+          },
+          "fields": {
+            "sL": {
+              "nominal": 16,
+              "min": 15.65,
+              "max": 16.35,
+              "unit": "mm",
+              "sourceRefs": [
+                "iteh4762_2004"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "note": "Nennlänge und Grenzen aus ISO4762:2004 Tabelle 1. Unbrako nennt abweichende eigene Längentoleranzen; diese werden nicht als Normgrenzen übernommen.",
+              "verificationMethod": "norm-length-cell"
+            },
+            "b_actual": {
+              "nominal": 16,
+              "unit": "mm",
+              "sourceRefs": [
+                "iteh4762_2004",
+                "unbrako"
+              ],
+              "status": "verified",
+              "verification": true,
+              "note": "Gewinde bis Kopf gemäß eigener Größenschwelle; Nennlänge als Vorbelegung, zulässiger unvollständiger Auslauf bleibt.",
+              "verificationMethod": "norm-table-and-manufacturer"
+            },
+            "threadMode": {
+              "nominal": "full",
+              "unit": null,
+              "sourceRefs": [
+                "iteh4762_2004",
+                "unbrako"
+              ],
+              "status": "verified",
+              "verification": true,
+              "note": "Größenspezifische Voll-/Teilgewindegrenze, unabhängig von M6 ausgewertet.",
+              "verificationMethod": "norm-table-and-manufacturer"
+            }
+          }
+        },
+        "20": {
+          "coverage": "documented",
+          "geometryStatus": "documented",
+          "missingGeometryFields": [],
+          "vorbelegung": {
+            "b": 20,
+            "sL": 20,
+            "threadMode": "full"
+          },
+          "roh": {
+            "sL": 20,
+            "b_actual": 20,
+            "threadMode": "full"
+          },
+          "fields": {
+            "sL": {
+              "nominal": 20,
+              "min": 19.58,
+              "max": 20.42,
+              "unit": "mm",
+              "sourceRefs": [
+                "iteh4762_2004"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "note": "Nennlänge und Grenzen aus ISO4762:2004 Tabelle 1. Unbrako nennt abweichende eigene Längentoleranzen; diese werden nicht als Normgrenzen übernommen.",
+              "verificationMethod": "norm-length-cell"
+            },
+            "b_actual": {
+              "nominal": 20,
+              "unit": "mm",
+              "sourceRefs": [
+                "iteh4762_2004",
+                "unbrako"
+              ],
+              "status": "verified",
+              "verification": true,
+              "note": "Gewinde bis Kopf gemäß eigener Größenschwelle; Nennlänge als Vorbelegung, zulässiger unvollständiger Auslauf bleibt.",
+              "verificationMethod": "norm-table-and-manufacturer"
+            },
+            "threadMode": {
+              "nominal": "full",
+              "unit": null,
+              "sourceRefs": [
+                "iteh4762_2004",
+                "unbrako"
+              ],
+              "status": "verified",
+              "verification": true,
+              "note": "Größenspezifische Voll-/Teilgewindegrenze, unabhängig von M6 ausgewertet.",
+              "verificationMethod": "norm-table-and-manufacturer"
+            }
+          }
+        },
+        "25": {
+          "coverage": "documented",
+          "geometryStatus": "documented",
+          "missingGeometryFields": [],
+          "vorbelegung": {
+            "b": 18,
+            "sL": 25,
+            "threadMode": "partial"
+          },
+          "roh": {
+            "sL": 25,
+            "b_actual": 18,
+            "threadMode": "partial",
+            "ls_min": 4.5,
+            "lg_max": 7
+          },
+          "fields": {
+            "sL": {
+              "nominal": 25,
+              "min": 24.58,
+              "max": 25.42,
+              "unit": "mm",
+              "sourceRefs": [
+                "iteh4762_2004"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "note": "Nennlänge und Grenzen aus ISO4762:2004 Tabelle 1. Unbrako nennt abweichende eigene Längentoleranzen; diese werden nicht als Normgrenzen übernommen.",
+              "verificationMethod": "norm-length-cell"
+            },
+            "b_actual": {
+              "nominal": 18,
+              "unit": "mm",
+              "sourceRefs": [
+                "iteh4762_2004",
+                "unbrako"
+              ],
+              "status": "verified",
+              "verification": true,
+              "note": "Referenzgewindelänge; keine Behauptung einer exakt vermessenen Gewindeauslaufgrenze. ls_min/lg_max sind separat erhalten.",
+              "verificationMethod": "norm-table-and-manufacturer"
+            },
+            "threadMode": {
+              "nominal": "partial",
+              "unit": null,
+              "sourceRefs": [
+                "iteh4762_2004",
+                "unbrako"
+              ],
+              "status": "verified",
+              "verification": true,
+              "note": "Größenspezifische Voll-/Teilgewindegrenze, unabhängig von M6 ausgewertet.",
+              "verificationMethod": "norm-table-and-manufacturer"
+            },
+            "ls_min": {
+              "min": 4.5,
+              "unit": "mm",
+              "sourceRefs": [
+                "iteh4762_2004",
+                "unbrako"
+              ],
+              "status": "verified",
+              "verification": true,
+              "note": "Originaltabellenzelle und Unbrako Body Length Minimum stimmen überein.",
+              "verificationMethod": "independent-publishers-agree"
+            },
+            "lg_max": {
+              "max": 7,
+              "unit": "mm",
+              "sourceRefs": [
+                "iteh4762_2004",
+                "unbrako"
+              ],
+              "status": "verified",
+              "verification": true,
+              "note": "Originaltabellenzelle und Unbrako Grip Length Maximum stimmen überein.",
+              "verificationMethod": "independent-publishers-agree"
+            }
+          }
+        },
+        "30": {
+          "coverage": "documented",
+          "geometryStatus": "documented",
+          "missingGeometryFields": [],
+          "vorbelegung": {
+            "b": 18,
+            "sL": 30,
+            "threadMode": "partial"
+          },
+          "roh": {
+            "sL": 30,
+            "b_actual": 18,
+            "threadMode": "partial",
+            "ls_min": 9.5,
+            "lg_max": 12
+          },
+          "fields": {
+            "sL": {
+              "nominal": 30,
+              "min": 29.58,
+              "max": 30.42,
+              "unit": "mm",
+              "sourceRefs": [
+                "iteh4762_2004"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "note": "Nennlänge und Grenzen aus ISO4762:2004 Tabelle 1. Unbrako nennt abweichende eigene Längentoleranzen; diese werden nicht als Normgrenzen übernommen.",
+              "verificationMethod": "norm-length-cell"
+            },
+            "b_actual": {
+              "nominal": 18,
+              "unit": "mm",
+              "sourceRefs": [
+                "iteh4762_2004",
+                "unbrako"
+              ],
+              "status": "verified",
+              "verification": true,
+              "note": "Referenzgewindelänge; keine Behauptung einer exakt vermessenen Gewindeauslaufgrenze. ls_min/lg_max sind separat erhalten.",
+              "verificationMethod": "norm-table-and-manufacturer"
+            },
+            "threadMode": {
+              "nominal": "partial",
+              "unit": null,
+              "sourceRefs": [
+                "iteh4762_2004",
+                "unbrako"
+              ],
+              "status": "verified",
+              "verification": true,
+              "note": "Größenspezifische Voll-/Teilgewindegrenze, unabhängig von M6 ausgewertet.",
+              "verificationMethod": "norm-table-and-manufacturer"
+            },
+            "ls_min": {
+              "min": 9.5,
+              "unit": "mm",
+              "sourceRefs": [
+                "iteh4762_2004",
+                "unbrako"
+              ],
+              "status": "verified",
+              "verification": true,
+              "note": "Originaltabellenzelle und Unbrako Body Length Minimum stimmen überein.",
+              "verificationMethod": "independent-publishers-agree"
+            },
+            "lg_max": {
+              "max": 12,
+              "unit": "mm",
+              "sourceRefs": [
+                "iteh4762_2004",
+                "unbrako"
+              ],
+              "status": "verified",
+              "verification": true,
+              "note": "Originaltabellenzelle und Unbrako Grip Length Maximum stimmen überein.",
+              "verificationMethod": "independent-publishers-agree"
+            }
+          }
+        }
+      },
       "missingGeometryFields": [],
-      "geometryStatus": "documented"
+      "geometryStatus": "documented",
+      "laengen": [
+        16,
+        20,
+        25,
+        30
+      ]
     },
     "M4": {
       "vorbelegung": {
@@ -68,10 +343,421 @@
         "ds_max": 4
       },
       "coverage": "documented",
-      "lengthCoverage": "unresearched",
-      "nachLaenge": {},
+      "lengthCoverage": "partial",
+      "nachLaenge": {
+        "16": {
+          "coverage": "documented",
+          "geometryStatus": "documented",
+          "missingGeometryFields": [],
+          "vorbelegung": {
+            "b": 16,
+            "sL": 16,
+            "threadMode": "full"
+          },
+          "roh": {
+            "sL": 16,
+            "b_actual": 16,
+            "threadMode": "full"
+          },
+          "fields": {
+            "sL": {
+              "nominal": 16,
+              "min": 15.65,
+              "max": 16.35,
+              "unit": "mm",
+              "sourceRefs": [
+                "iteh4762_2004"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "note": "Nennlänge und Grenzen aus ISO4762:2004 Tabelle 1. Unbrako nennt abweichende eigene Längentoleranzen; diese werden nicht als Normgrenzen übernommen.",
+              "verificationMethod": "norm-length-cell"
+            },
+            "b_actual": {
+              "nominal": 16,
+              "unit": "mm",
+              "sourceRefs": [
+                "iteh4762_2004",
+                "unbrako"
+              ],
+              "status": "verified",
+              "verification": true,
+              "note": "Gewinde bis Kopf gemäß eigener Größenschwelle; Nennlänge als Vorbelegung, zulässiger unvollständiger Auslauf bleibt.",
+              "verificationMethod": "norm-table-and-manufacturer"
+            },
+            "threadMode": {
+              "nominal": "full",
+              "unit": null,
+              "sourceRefs": [
+                "iteh4762_2004",
+                "unbrako"
+              ],
+              "status": "verified",
+              "verification": true,
+              "note": "Größenspezifische Voll-/Teilgewindegrenze, unabhängig von M6 ausgewertet.",
+              "verificationMethod": "norm-table-and-manufacturer"
+            }
+          }
+        },
+        "20": {
+          "coverage": "documented",
+          "geometryStatus": "documented",
+          "missingGeometryFields": [],
+          "vorbelegung": {
+            "b": 20,
+            "sL": 20,
+            "threadMode": "full"
+          },
+          "roh": {
+            "sL": 20,
+            "b_actual": 20,
+            "threadMode": "full"
+          },
+          "fields": {
+            "sL": {
+              "nominal": 20,
+              "min": 19.58,
+              "max": 20.42,
+              "unit": "mm",
+              "sourceRefs": [
+                "iteh4762_2004"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "note": "Nennlänge und Grenzen aus ISO4762:2004 Tabelle 1. Unbrako nennt abweichende eigene Längentoleranzen; diese werden nicht als Normgrenzen übernommen.",
+              "verificationMethod": "norm-length-cell"
+            },
+            "b_actual": {
+              "nominal": 20,
+              "unit": "mm",
+              "sourceRefs": [
+                "iteh4762_2004",
+                "unbrako"
+              ],
+              "status": "verified",
+              "verification": true,
+              "note": "Gewinde bis Kopf gemäß eigener Größenschwelle; Nennlänge als Vorbelegung, zulässiger unvollständiger Auslauf bleibt.",
+              "verificationMethod": "norm-table-and-manufacturer"
+            },
+            "threadMode": {
+              "nominal": "full",
+              "unit": null,
+              "sourceRefs": [
+                "iteh4762_2004",
+                "unbrako"
+              ],
+              "status": "verified",
+              "verification": true,
+              "note": "Größenspezifische Voll-/Teilgewindegrenze, unabhängig von M6 ausgewertet.",
+              "verificationMethod": "norm-table-and-manufacturer"
+            }
+          }
+        },
+        "25": {
+          "coverage": "documented",
+          "geometryStatus": "documented",
+          "missingGeometryFields": [],
+          "vorbelegung": {
+            "b": 25,
+            "sL": 25,
+            "threadMode": "full"
+          },
+          "roh": {
+            "sL": 25,
+            "b_actual": 25,
+            "threadMode": "full"
+          },
+          "fields": {
+            "sL": {
+              "nominal": 25,
+              "min": 24.58,
+              "max": 25.42,
+              "unit": "mm",
+              "sourceRefs": [
+                "iteh4762_2004"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "note": "Nennlänge und Grenzen aus ISO4762:2004 Tabelle 1. Unbrako nennt abweichende eigene Längentoleranzen; diese werden nicht als Normgrenzen übernommen.",
+              "verificationMethod": "norm-length-cell"
+            },
+            "b_actual": {
+              "nominal": 25,
+              "unit": "mm",
+              "sourceRefs": [
+                "iteh4762_2004",
+                "unbrako"
+              ],
+              "status": "verified",
+              "verification": true,
+              "note": "Gewinde bis Kopf gemäß eigener Größenschwelle; Nennlänge als Vorbelegung, zulässiger unvollständiger Auslauf bleibt.",
+              "verificationMethod": "norm-table-and-manufacturer"
+            },
+            "threadMode": {
+              "nominal": "full",
+              "unit": null,
+              "sourceRefs": [
+                "iteh4762_2004",
+                "unbrako"
+              ],
+              "status": "verified",
+              "verification": true,
+              "note": "Größenspezifische Voll-/Teilgewindegrenze, unabhängig von M6 ausgewertet.",
+              "verificationMethod": "norm-table-and-manufacturer"
+            }
+          }
+        },
+        "30": {
+          "coverage": "documented",
+          "geometryStatus": "documented",
+          "missingGeometryFields": [],
+          "vorbelegung": {
+            "b": 20,
+            "sL": 30,
+            "threadMode": "partial"
+          },
+          "roh": {
+            "sL": 30,
+            "b_actual": 20,
+            "threadMode": "partial",
+            "ls_min": 6.5,
+            "lg_max": 10
+          },
+          "fields": {
+            "sL": {
+              "nominal": 30,
+              "min": 29.58,
+              "max": 30.42,
+              "unit": "mm",
+              "sourceRefs": [
+                "iteh4762_2004"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "note": "Nennlänge und Grenzen aus ISO4762:2004 Tabelle 1. Unbrako nennt abweichende eigene Längentoleranzen; diese werden nicht als Normgrenzen übernommen.",
+              "verificationMethod": "norm-length-cell"
+            },
+            "b_actual": {
+              "nominal": 20,
+              "unit": "mm",
+              "sourceRefs": [
+                "iteh4762_2004",
+                "unbrako"
+              ],
+              "status": "verified",
+              "verification": true,
+              "note": "Referenzgewindelänge; keine Behauptung einer exakt vermessenen Gewindeauslaufgrenze. ls_min/lg_max sind separat erhalten.",
+              "verificationMethod": "norm-table-and-manufacturer"
+            },
+            "threadMode": {
+              "nominal": "partial",
+              "unit": null,
+              "sourceRefs": [
+                "iteh4762_2004",
+                "unbrako"
+              ],
+              "status": "verified",
+              "verification": true,
+              "note": "Größenspezifische Voll-/Teilgewindegrenze, unabhängig von M6 ausgewertet.",
+              "verificationMethod": "norm-table-and-manufacturer"
+            },
+            "ls_min": {
+              "min": 6.5,
+              "unit": "mm",
+              "sourceRefs": [
+                "iteh4762_2004",
+                "unbrako"
+              ],
+              "status": "verified",
+              "verification": true,
+              "note": "Originaltabellenzelle und Unbrako Body Length Minimum stimmen überein.",
+              "verificationMethod": "independent-publishers-agree"
+            },
+            "lg_max": {
+              "max": 10,
+              "unit": "mm",
+              "sourceRefs": [
+                "iteh4762_2004",
+                "unbrako"
+              ],
+              "status": "verified",
+              "verification": true,
+              "note": "Originaltabellenzelle und Unbrako Grip Length Maximum stimmen überein.",
+              "verificationMethod": "independent-publishers-agree"
+            }
+          }
+        },
+        "35": {
+          "coverage": "documented",
+          "geometryStatus": "documented",
+          "missingGeometryFields": [],
+          "vorbelegung": {
+            "b": 20,
+            "sL": 35,
+            "threadMode": "partial"
+          },
+          "roh": {
+            "sL": 35,
+            "b_actual": 20,
+            "threadMode": "partial",
+            "ls_min": 11.5,
+            "lg_max": 15
+          },
+          "fields": {
+            "sL": {
+              "nominal": 35,
+              "min": 34.5,
+              "max": 35.5,
+              "unit": "mm",
+              "sourceRefs": [
+                "iteh4762_2004"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "note": "Nennlänge und Grenzen aus ISO4762:2004 Tabelle 1. Unbrako nennt abweichende eigene Längentoleranzen; diese werden nicht als Normgrenzen übernommen.",
+              "verificationMethod": "norm-length-cell"
+            },
+            "b_actual": {
+              "nominal": 20,
+              "unit": "mm",
+              "sourceRefs": [
+                "iteh4762_2004",
+                "unbrako"
+              ],
+              "status": "verified",
+              "verification": true,
+              "note": "Referenzgewindelänge; keine Behauptung einer exakt vermessenen Gewindeauslaufgrenze. ls_min/lg_max sind separat erhalten.",
+              "verificationMethod": "norm-table-and-manufacturer"
+            },
+            "threadMode": {
+              "nominal": "partial",
+              "unit": null,
+              "sourceRefs": [
+                "iteh4762_2004",
+                "unbrako"
+              ],
+              "status": "verified",
+              "verification": true,
+              "note": "Größenspezifische Voll-/Teilgewindegrenze, unabhängig von M6 ausgewertet.",
+              "verificationMethod": "norm-table-and-manufacturer"
+            },
+            "ls_min": {
+              "min": 11.5,
+              "unit": "mm",
+              "sourceRefs": [
+                "iteh4762_2004",
+                "unbrako"
+              ],
+              "status": "verified",
+              "verification": true,
+              "note": "Originaltabellenzelle und Unbrako Body Length Minimum stimmen überein.",
+              "verificationMethod": "independent-publishers-agree"
+            },
+            "lg_max": {
+              "max": 15,
+              "unit": "mm",
+              "sourceRefs": [
+                "iteh4762_2004",
+                "unbrako"
+              ],
+              "status": "verified",
+              "verification": true,
+              "note": "Originaltabellenzelle und Unbrako Grip Length Maximum stimmen überein.",
+              "verificationMethod": "independent-publishers-agree"
+            }
+          }
+        },
+        "40": {
+          "coverage": "documented",
+          "geometryStatus": "documented",
+          "missingGeometryFields": [],
+          "vorbelegung": {
+            "b": 20,
+            "sL": 40,
+            "threadMode": "partial"
+          },
+          "roh": {
+            "sL": 40,
+            "b_actual": 20,
+            "threadMode": "partial",
+            "ls_min": 16.5,
+            "lg_max": 20
+          },
+          "fields": {
+            "sL": {
+              "nominal": 40,
+              "min": 39.5,
+              "max": 40.5,
+              "unit": "mm",
+              "sourceRefs": [
+                "iteh4762_2004"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "note": "Nennlänge und Grenzen aus ISO4762:2004 Tabelle 1. Unbrako nennt abweichende eigene Längentoleranzen; diese werden nicht als Normgrenzen übernommen.",
+              "verificationMethod": "norm-length-cell"
+            },
+            "b_actual": {
+              "nominal": 20,
+              "unit": "mm",
+              "sourceRefs": [
+                "iteh4762_2004",
+                "unbrako"
+              ],
+              "status": "verified",
+              "verification": true,
+              "note": "Referenzgewindelänge; keine Behauptung einer exakt vermessenen Gewindeauslaufgrenze. ls_min/lg_max sind separat erhalten.",
+              "verificationMethod": "norm-table-and-manufacturer"
+            },
+            "threadMode": {
+              "nominal": "partial",
+              "unit": null,
+              "sourceRefs": [
+                "iteh4762_2004",
+                "unbrako"
+              ],
+              "status": "verified",
+              "verification": true,
+              "note": "Größenspezifische Voll-/Teilgewindegrenze, unabhängig von M6 ausgewertet.",
+              "verificationMethod": "norm-table-and-manufacturer"
+            },
+            "ls_min": {
+              "min": 16.5,
+              "unit": "mm",
+              "sourceRefs": [
+                "iteh4762_2004",
+                "unbrako"
+              ],
+              "status": "verified",
+              "verification": true,
+              "note": "Originaltabellenzelle und Unbrako Body Length Minimum stimmen überein.",
+              "verificationMethod": "independent-publishers-agree"
+            },
+            "lg_max": {
+              "max": 20,
+              "unit": "mm",
+              "sourceRefs": [
+                "iteh4762_2004",
+                "unbrako"
+              ],
+              "status": "verified",
+              "verification": true,
+              "note": "Originaltabellenzelle und Unbrako Grip Length Maximum stimmen überein.",
+              "verificationMethod": "independent-publishers-agree"
+            }
+          }
+        }
+      },
       "missingGeometryFields": [],
-      "geometryStatus": "documented"
+      "geometryStatus": "documented",
+      "laengen": [
+        16,
+        20,
+        25,
+        30,
+        35,
+        40
+      ]
     },
     "M5": {
       "vorbelegung": {
@@ -95,10 +781,583 @@
         "ds_max": 5
       },
       "coverage": "documented",
-      "lengthCoverage": "unresearched",
-      "nachLaenge": {},
+      "lengthCoverage": "partial",
+      "nachLaenge": {
+        "16": {
+          "coverage": "documented",
+          "geometryStatus": "documented",
+          "missingGeometryFields": [],
+          "vorbelegung": {
+            "b": 16,
+            "sL": 16,
+            "threadMode": "full"
+          },
+          "roh": {
+            "sL": 16,
+            "b_actual": 16,
+            "threadMode": "full"
+          },
+          "fields": {
+            "sL": {
+              "nominal": 16,
+              "min": 15.65,
+              "max": 16.35,
+              "unit": "mm",
+              "sourceRefs": [
+                "iteh4762_2004"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "note": "Nennlänge und Grenzen aus ISO4762:2004 Tabelle 1. Unbrako nennt abweichende eigene Längentoleranzen; diese werden nicht als Normgrenzen übernommen.",
+              "verificationMethod": "norm-length-cell"
+            },
+            "b_actual": {
+              "nominal": 16,
+              "unit": "mm",
+              "sourceRefs": [
+                "iteh4762_2004",
+                "unbrako"
+              ],
+              "status": "verified",
+              "verification": true,
+              "note": "Gewinde bis Kopf gemäß eigener Größenschwelle; Nennlänge als Vorbelegung, zulässiger unvollständiger Auslauf bleibt.",
+              "verificationMethod": "norm-table-and-manufacturer"
+            },
+            "threadMode": {
+              "nominal": "full",
+              "unit": null,
+              "sourceRefs": [
+                "iteh4762_2004",
+                "unbrako"
+              ],
+              "status": "verified",
+              "verification": true,
+              "note": "Größenspezifische Voll-/Teilgewindegrenze, unabhängig von M6 ausgewertet.",
+              "verificationMethod": "norm-table-and-manufacturer"
+            }
+          }
+        },
+        "20": {
+          "coverage": "documented",
+          "geometryStatus": "documented",
+          "missingGeometryFields": [],
+          "vorbelegung": {
+            "b": 20,
+            "sL": 20,
+            "threadMode": "full"
+          },
+          "roh": {
+            "sL": 20,
+            "b_actual": 20,
+            "threadMode": "full"
+          },
+          "fields": {
+            "sL": {
+              "nominal": 20,
+              "min": 19.58,
+              "max": 20.42,
+              "unit": "mm",
+              "sourceRefs": [
+                "iteh4762_2004"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "note": "Nennlänge und Grenzen aus ISO4762:2004 Tabelle 1. Unbrako nennt abweichende eigene Längentoleranzen; diese werden nicht als Normgrenzen übernommen.",
+              "verificationMethod": "norm-length-cell"
+            },
+            "b_actual": {
+              "nominal": 20,
+              "unit": "mm",
+              "sourceRefs": [
+                "iteh4762_2004",
+                "unbrako"
+              ],
+              "status": "verified",
+              "verification": true,
+              "note": "Gewinde bis Kopf gemäß eigener Größenschwelle; Nennlänge als Vorbelegung, zulässiger unvollständiger Auslauf bleibt.",
+              "verificationMethod": "norm-table-and-manufacturer"
+            },
+            "threadMode": {
+              "nominal": "full",
+              "unit": null,
+              "sourceRefs": [
+                "iteh4762_2004",
+                "unbrako"
+              ],
+              "status": "verified",
+              "verification": true,
+              "note": "Größenspezifische Voll-/Teilgewindegrenze, unabhängig von M6 ausgewertet.",
+              "verificationMethod": "norm-table-and-manufacturer"
+            }
+          }
+        },
+        "25": {
+          "coverage": "documented",
+          "geometryStatus": "documented",
+          "missingGeometryFields": [],
+          "vorbelegung": {
+            "b": 25,
+            "sL": 25,
+            "threadMode": "full"
+          },
+          "roh": {
+            "sL": 25,
+            "b_actual": 25,
+            "threadMode": "full"
+          },
+          "fields": {
+            "sL": {
+              "nominal": 25,
+              "min": 24.58,
+              "max": 25.42,
+              "unit": "mm",
+              "sourceRefs": [
+                "iteh4762_2004"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "note": "Nennlänge und Grenzen aus ISO4762:2004 Tabelle 1. Unbrako nennt abweichende eigene Längentoleranzen; diese werden nicht als Normgrenzen übernommen.",
+              "verificationMethod": "norm-length-cell"
+            },
+            "b_actual": {
+              "nominal": 25,
+              "unit": "mm",
+              "sourceRefs": [
+                "iteh4762_2004",
+                "unbrako"
+              ],
+              "status": "verified",
+              "verification": true,
+              "note": "Gewinde bis Kopf gemäß eigener Größenschwelle; Nennlänge als Vorbelegung, zulässiger unvollständiger Auslauf bleibt.",
+              "verificationMethod": "norm-table-and-manufacturer"
+            },
+            "threadMode": {
+              "nominal": "full",
+              "unit": null,
+              "sourceRefs": [
+                "iteh4762_2004",
+                "unbrako"
+              ],
+              "status": "verified",
+              "verification": true,
+              "note": "Größenspezifische Voll-/Teilgewindegrenze, unabhängig von M6 ausgewertet.",
+              "verificationMethod": "norm-table-and-manufacturer"
+            }
+          }
+        },
+        "30": {
+          "coverage": "documented",
+          "geometryStatus": "documented",
+          "missingGeometryFields": [],
+          "vorbelegung": {
+            "b": 22,
+            "sL": 30,
+            "threadMode": "partial"
+          },
+          "roh": {
+            "sL": 30,
+            "b_actual": 22,
+            "threadMode": "partial",
+            "ls_min": 4,
+            "lg_max": 8
+          },
+          "fields": {
+            "sL": {
+              "nominal": 30,
+              "min": 29.58,
+              "max": 30.42,
+              "unit": "mm",
+              "sourceRefs": [
+                "iteh4762_2004"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "note": "Nennlänge und Grenzen aus ISO4762:2004 Tabelle 1. Unbrako nennt abweichende eigene Längentoleranzen; diese werden nicht als Normgrenzen übernommen.",
+              "verificationMethod": "norm-length-cell"
+            },
+            "b_actual": {
+              "nominal": 22,
+              "unit": "mm",
+              "sourceRefs": [
+                "iteh4762_2004",
+                "unbrako"
+              ],
+              "status": "verified",
+              "verification": true,
+              "note": "Referenzgewindelänge; keine Behauptung einer exakt vermessenen Gewindeauslaufgrenze. ls_min/lg_max sind separat erhalten.",
+              "verificationMethod": "norm-table-and-manufacturer"
+            },
+            "threadMode": {
+              "nominal": "partial",
+              "unit": null,
+              "sourceRefs": [
+                "iteh4762_2004",
+                "unbrako"
+              ],
+              "status": "verified",
+              "verification": true,
+              "note": "Größenspezifische Voll-/Teilgewindegrenze, unabhängig von M6 ausgewertet.",
+              "verificationMethod": "norm-table-and-manufacturer"
+            },
+            "ls_min": {
+              "min": 4,
+              "unit": "mm",
+              "sourceRefs": [
+                "iteh4762_2004",
+                "unbrako"
+              ],
+              "status": "verified",
+              "verification": true,
+              "note": "Originaltabellenzelle und Unbrako Body Length Minimum stimmen überein.",
+              "verificationMethod": "independent-publishers-agree"
+            },
+            "lg_max": {
+              "max": 8,
+              "unit": "mm",
+              "sourceRefs": [
+                "iteh4762_2004",
+                "unbrako"
+              ],
+              "status": "verified",
+              "verification": true,
+              "note": "Originaltabellenzelle und Unbrako Grip Length Maximum stimmen überein.",
+              "verificationMethod": "independent-publishers-agree"
+            }
+          }
+        },
+        "35": {
+          "coverage": "documented",
+          "geometryStatus": "documented",
+          "missingGeometryFields": [],
+          "vorbelegung": {
+            "b": 22,
+            "sL": 35,
+            "threadMode": "partial"
+          },
+          "roh": {
+            "sL": 35,
+            "b_actual": 22,
+            "threadMode": "partial",
+            "ls_min": 9,
+            "lg_max": 13
+          },
+          "fields": {
+            "sL": {
+              "nominal": 35,
+              "min": 34.5,
+              "max": 35.5,
+              "unit": "mm",
+              "sourceRefs": [
+                "iteh4762_2004"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "note": "Nennlänge und Grenzen aus ISO4762:2004 Tabelle 1. Unbrako nennt abweichende eigene Längentoleranzen; diese werden nicht als Normgrenzen übernommen.",
+              "verificationMethod": "norm-length-cell"
+            },
+            "b_actual": {
+              "nominal": 22,
+              "unit": "mm",
+              "sourceRefs": [
+                "iteh4762_2004",
+                "unbrako"
+              ],
+              "status": "verified",
+              "verification": true,
+              "note": "Referenzgewindelänge; keine Behauptung einer exakt vermessenen Gewindeauslaufgrenze. ls_min/lg_max sind separat erhalten.",
+              "verificationMethod": "norm-table-and-manufacturer"
+            },
+            "threadMode": {
+              "nominal": "partial",
+              "unit": null,
+              "sourceRefs": [
+                "iteh4762_2004",
+                "unbrako"
+              ],
+              "status": "verified",
+              "verification": true,
+              "note": "Größenspezifische Voll-/Teilgewindegrenze, unabhängig von M6 ausgewertet.",
+              "verificationMethod": "norm-table-and-manufacturer"
+            },
+            "ls_min": {
+              "min": 9,
+              "unit": "mm",
+              "sourceRefs": [
+                "iteh4762_2004",
+                "unbrako"
+              ],
+              "status": "verified",
+              "verification": true,
+              "note": "Originaltabellenzelle und Unbrako Body Length Minimum stimmen überein.",
+              "verificationMethod": "independent-publishers-agree"
+            },
+            "lg_max": {
+              "max": 13,
+              "unit": "mm",
+              "sourceRefs": [
+                "iteh4762_2004",
+                "unbrako"
+              ],
+              "status": "verified",
+              "verification": true,
+              "note": "Originaltabellenzelle und Unbrako Grip Length Maximum stimmen überein.",
+              "verificationMethod": "independent-publishers-agree"
+            }
+          }
+        },
+        "40": {
+          "coverage": "documented",
+          "geometryStatus": "documented",
+          "missingGeometryFields": [],
+          "vorbelegung": {
+            "b": 22,
+            "sL": 40,
+            "threadMode": "partial"
+          },
+          "roh": {
+            "sL": 40,
+            "b_actual": 22,
+            "threadMode": "partial",
+            "ls_min": 14,
+            "lg_max": 18
+          },
+          "fields": {
+            "sL": {
+              "nominal": 40,
+              "min": 39.5,
+              "max": 40.5,
+              "unit": "mm",
+              "sourceRefs": [
+                "iteh4762_2004"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "note": "Nennlänge und Grenzen aus ISO4762:2004 Tabelle 1. Unbrako nennt abweichende eigene Längentoleranzen; diese werden nicht als Normgrenzen übernommen.",
+              "verificationMethod": "norm-length-cell"
+            },
+            "b_actual": {
+              "nominal": 22,
+              "unit": "mm",
+              "sourceRefs": [
+                "iteh4762_2004",
+                "unbrako"
+              ],
+              "status": "verified",
+              "verification": true,
+              "note": "Referenzgewindelänge; keine Behauptung einer exakt vermessenen Gewindeauslaufgrenze. ls_min/lg_max sind separat erhalten.",
+              "verificationMethod": "norm-table-and-manufacturer"
+            },
+            "threadMode": {
+              "nominal": "partial",
+              "unit": null,
+              "sourceRefs": [
+                "iteh4762_2004",
+                "unbrako"
+              ],
+              "status": "verified",
+              "verification": true,
+              "note": "Größenspezifische Voll-/Teilgewindegrenze, unabhängig von M6 ausgewertet.",
+              "verificationMethod": "norm-table-and-manufacturer"
+            },
+            "ls_min": {
+              "min": 14,
+              "unit": "mm",
+              "sourceRefs": [
+                "iteh4762_2004",
+                "unbrako"
+              ],
+              "status": "verified",
+              "verification": true,
+              "note": "Originaltabellenzelle und Unbrako Body Length Minimum stimmen überein.",
+              "verificationMethod": "independent-publishers-agree"
+            },
+            "lg_max": {
+              "max": 18,
+              "unit": "mm",
+              "sourceRefs": [
+                "iteh4762_2004",
+                "unbrako"
+              ],
+              "status": "verified",
+              "verification": true,
+              "note": "Originaltabellenzelle und Unbrako Grip Length Maximum stimmen überein.",
+              "verificationMethod": "independent-publishers-agree"
+            }
+          }
+        },
+        "45": {
+          "coverage": "documented",
+          "geometryStatus": "documented",
+          "missingGeometryFields": [],
+          "vorbelegung": {
+            "b": 22,
+            "sL": 45,
+            "threadMode": "partial"
+          },
+          "roh": {
+            "sL": 45,
+            "b_actual": 22,
+            "threadMode": "partial",
+            "ls_min": 19,
+            "lg_max": 23
+          },
+          "fields": {
+            "sL": {
+              "nominal": 45,
+              "min": 44.5,
+              "max": 45.5,
+              "unit": "mm",
+              "sourceRefs": [
+                "iteh4762_2004"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "note": "Nennlänge und Grenzen aus ISO4762:2004 Tabelle 1. Unbrako nennt abweichende eigene Längentoleranzen; diese werden nicht als Normgrenzen übernommen.",
+              "verificationMethod": "norm-length-cell"
+            },
+            "b_actual": {
+              "nominal": 22,
+              "unit": "mm",
+              "sourceRefs": [
+                "iteh4762_2004",
+                "unbrako"
+              ],
+              "status": "verified",
+              "verification": true,
+              "note": "Referenzgewindelänge; keine Behauptung einer exakt vermessenen Gewindeauslaufgrenze. ls_min/lg_max sind separat erhalten.",
+              "verificationMethod": "norm-table-and-manufacturer"
+            },
+            "threadMode": {
+              "nominal": "partial",
+              "unit": null,
+              "sourceRefs": [
+                "iteh4762_2004",
+                "unbrako"
+              ],
+              "status": "verified",
+              "verification": true,
+              "note": "Größenspezifische Voll-/Teilgewindegrenze, unabhängig von M6 ausgewertet.",
+              "verificationMethod": "norm-table-and-manufacturer"
+            },
+            "ls_min": {
+              "min": 19,
+              "unit": "mm",
+              "sourceRefs": [
+                "iteh4762_2004",
+                "unbrako"
+              ],
+              "status": "verified",
+              "verification": true,
+              "note": "Originaltabellenzelle und Unbrako Body Length Minimum stimmen überein.",
+              "verificationMethod": "independent-publishers-agree"
+            },
+            "lg_max": {
+              "max": 23,
+              "unit": "mm",
+              "sourceRefs": [
+                "iteh4762_2004",
+                "unbrako"
+              ],
+              "status": "verified",
+              "verification": true,
+              "note": "Originaltabellenzelle und Unbrako Grip Length Maximum stimmen überein.",
+              "verificationMethod": "independent-publishers-agree"
+            }
+          }
+        },
+        "50": {
+          "coverage": "documented",
+          "geometryStatus": "documented",
+          "missingGeometryFields": [],
+          "vorbelegung": {
+            "b": 22,
+            "sL": 50,
+            "threadMode": "partial"
+          },
+          "roh": {
+            "sL": 50,
+            "b_actual": 22,
+            "threadMode": "partial",
+            "ls_min": 24,
+            "lg_max": 28
+          },
+          "fields": {
+            "sL": {
+              "nominal": 50,
+              "min": 49.5,
+              "max": 50.5,
+              "unit": "mm",
+              "sourceRefs": [
+                "iteh4762_2004"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "note": "Nennlänge und Grenzen aus ISO4762:2004 Tabelle 1. Unbrako nennt abweichende eigene Längentoleranzen; diese werden nicht als Normgrenzen übernommen.",
+              "verificationMethod": "norm-length-cell"
+            },
+            "b_actual": {
+              "nominal": 22,
+              "unit": "mm",
+              "sourceRefs": [
+                "iteh4762_2004",
+                "unbrako"
+              ],
+              "status": "verified",
+              "verification": true,
+              "note": "Referenzgewindelänge; keine Behauptung einer exakt vermessenen Gewindeauslaufgrenze. ls_min/lg_max sind separat erhalten.",
+              "verificationMethod": "norm-table-and-manufacturer"
+            },
+            "threadMode": {
+              "nominal": "partial",
+              "unit": null,
+              "sourceRefs": [
+                "iteh4762_2004",
+                "unbrako"
+              ],
+              "status": "verified",
+              "verification": true,
+              "note": "Größenspezifische Voll-/Teilgewindegrenze, unabhängig von M6 ausgewertet.",
+              "verificationMethod": "norm-table-and-manufacturer"
+            },
+            "ls_min": {
+              "min": 24,
+              "unit": "mm",
+              "sourceRefs": [
+                "iteh4762_2004",
+                "unbrako"
+              ],
+              "status": "verified",
+              "verification": true,
+              "note": "Originaltabellenzelle und Unbrako Body Length Minimum stimmen überein.",
+              "verificationMethod": "independent-publishers-agree"
+            },
+            "lg_max": {
+              "max": 28,
+              "unit": "mm",
+              "sourceRefs": [
+                "iteh4762_2004",
+                "unbrako"
+              ],
+              "status": "verified",
+              "verification": true,
+              "note": "Originaltabellenzelle und Unbrako Grip Length Maximum stimmen überein.",
+              "verificationMethod": "independent-publishers-agree"
+            }
+          }
+        }
+      },
       "missingGeometryFields": [],
-      "geometryStatus": "documented"
+      "geometryStatus": "documented",
+      "laengen": [
+        16,
+        20,
+        25,
+        30,
+        35,
+        40,
+        45,
+        50
+      ]
     },
     "M6": {
       "vorbelegung": {
@@ -126,33 +1385,46 @@
       "nachLaenge": {
         "16": {
           "coverage": "documented",
+          "geometryStatus": "documented",
+          "missingGeometryFields": [],
           "vorbelegung": {
             "b": 16,
             "sL": 16,
             "threadMode": "full"
           },
           "roh": {
-            "b_actual": 16,
             "sL": 16,
+            "b_actual": 16,
             "threadMode": "full"
           },
           "fields": {
             "sL": {
               "nominal": 16,
-              "min": null,
-              "max": null,
+              "min": 15.65,
+              "max": 16.35,
               "unit": "mm",
               "sourceRefs": [
                 "iteh4762_2004"
               ],
               "status": "single-source",
               "verification": false,
-              "note": "Nennlänge aus Normtabelle, Zweitbeleg je Längenzelle offen."
+              "note": "Nennlänge und Grenzen aus ISO4762:2004 Tabelle 1. Unbrako nennt abweichende eigene Längentoleranzen; diese werden nicht als Normgrenzen übernommen.",
+              "verificationMethod": "norm-length-cell"
+            },
+            "b_actual": {
+              "nominal": 16,
+              "unit": "mm",
+              "sourceRefs": [
+                "iteh4762_2004",
+                "unbrako"
+              ],
+              "status": "verified",
+              "verification": true,
+              "note": "Gewinde bis Kopf gemäß eigener Größenschwelle; Nennlänge als Vorbelegung, zulässiger unvollständiger Auslauf bleibt.",
+              "verificationMethod": "norm-table-and-manufacturer"
             },
             "threadMode": {
               "nominal": "full",
-              "min": null,
-              "max": null,
               "unit": null,
               "sourceRefs": [
                 "iteh4762_2004",
@@ -160,52 +1432,53 @@
               ],
               "status": "verified",
               "verification": true,
-              "note": "Vollgewindebereich aus schattierter ISO-Tabelle; Hersteller bestätigt bis 30 mm."
-            },
-            "b_actual": {
-              "nominal": 16,
-              "min": null,
-              "max": null,
-              "unit": "mm",
-              "sourceRefs": [
-                "iteh4762_2004",
-                "unbrako"
-              ],
-              "status": "verified",
-              "verification": true,
-              "note": "Gewinde bis Kopf; b_ref=24 ist hier nicht die tatsächliche Gewindelänge."
+              "note": "Größenspezifische Voll-/Teilgewindegrenze, unabhängig von M6 ausgewertet.",
+              "verificationMethod": "norm-table-and-manufacturer"
             }
           }
         },
         "20": {
           "coverage": "documented",
+          "geometryStatus": "documented",
+          "missingGeometryFields": [],
           "vorbelegung": {
             "b": 20,
             "sL": 20,
             "threadMode": "full"
           },
           "roh": {
-            "b_actual": 20,
             "sL": 20,
+            "b_actual": 20,
             "threadMode": "full"
           },
           "fields": {
             "sL": {
               "nominal": 20,
-              "min": null,
-              "max": null,
+              "min": 19.58,
+              "max": 20.42,
               "unit": "mm",
               "sourceRefs": [
                 "iteh4762_2004"
               ],
               "status": "single-source",
               "verification": false,
-              "note": "Nennlänge aus Normtabelle, Zweitbeleg je Längenzelle offen."
+              "note": "Nennlänge und Grenzen aus ISO4762:2004 Tabelle 1. Unbrako nennt abweichende eigene Längentoleranzen; diese werden nicht als Normgrenzen übernommen.",
+              "verificationMethod": "norm-length-cell"
+            },
+            "b_actual": {
+              "nominal": 20,
+              "unit": "mm",
+              "sourceRefs": [
+                "iteh4762_2004",
+                "unbrako"
+              ],
+              "status": "verified",
+              "verification": true,
+              "note": "Gewinde bis Kopf gemäß eigener Größenschwelle; Nennlänge als Vorbelegung, zulässiger unvollständiger Auslauf bleibt.",
+              "verificationMethod": "norm-table-and-manufacturer"
             },
             "threadMode": {
               "nominal": "full",
-              "min": null,
-              "max": null,
               "unit": null,
               "sourceRefs": [
                 "iteh4762_2004",
@@ -213,52 +1486,53 @@
               ],
               "status": "verified",
               "verification": true,
-              "note": "Vollgewindebereich aus schattierter ISO-Tabelle; Hersteller bestätigt bis 30 mm."
-            },
-            "b_actual": {
-              "nominal": 20,
-              "min": null,
-              "max": null,
-              "unit": "mm",
-              "sourceRefs": [
-                "iteh4762_2004",
-                "unbrako"
-              ],
-              "status": "verified",
-              "verification": true,
-              "note": "Gewinde bis Kopf; b_ref=24 ist hier nicht die tatsächliche Gewindelänge."
+              "note": "Größenspezifische Voll-/Teilgewindegrenze, unabhängig von M6 ausgewertet.",
+              "verificationMethod": "norm-table-and-manufacturer"
             }
           }
         },
         "25": {
           "coverage": "documented",
+          "geometryStatus": "documented",
+          "missingGeometryFields": [],
           "vorbelegung": {
             "b": 25,
             "sL": 25,
             "threadMode": "full"
           },
           "roh": {
-            "b_actual": 25,
             "sL": 25,
+            "b_actual": 25,
             "threadMode": "full"
           },
           "fields": {
             "sL": {
               "nominal": 25,
-              "min": null,
-              "max": null,
+              "min": 24.58,
+              "max": 25.42,
               "unit": "mm",
               "sourceRefs": [
                 "iteh4762_2004"
               ],
               "status": "single-source",
               "verification": false,
-              "note": "Nennlänge aus Normtabelle, Zweitbeleg je Längenzelle offen."
+              "note": "Nennlänge und Grenzen aus ISO4762:2004 Tabelle 1. Unbrako nennt abweichende eigene Längentoleranzen; diese werden nicht als Normgrenzen übernommen.",
+              "verificationMethod": "norm-length-cell"
+            },
+            "b_actual": {
+              "nominal": 25,
+              "unit": "mm",
+              "sourceRefs": [
+                "iteh4762_2004",
+                "unbrako"
+              ],
+              "status": "verified",
+              "verification": true,
+              "note": "Gewinde bis Kopf gemäß eigener Größenschwelle; Nennlänge als Vorbelegung, zulässiger unvollständiger Auslauf bleibt.",
+              "verificationMethod": "norm-table-and-manufacturer"
             },
             "threadMode": {
               "nominal": "full",
-              "min": null,
-              "max": null,
               "unit": null,
               "sourceRefs": [
                 "iteh4762_2004",
@@ -266,52 +1540,53 @@
               ],
               "status": "verified",
               "verification": true,
-              "note": "Vollgewindebereich aus schattierter ISO-Tabelle; Hersteller bestätigt bis 30 mm."
-            },
-            "b_actual": {
-              "nominal": 25,
-              "min": null,
-              "max": null,
-              "unit": "mm",
-              "sourceRefs": [
-                "iteh4762_2004",
-                "unbrako"
-              ],
-              "status": "verified",
-              "verification": true,
-              "note": "Gewinde bis Kopf; b_ref=24 ist hier nicht die tatsächliche Gewindelänge."
+              "note": "Größenspezifische Voll-/Teilgewindegrenze, unabhängig von M6 ausgewertet.",
+              "verificationMethod": "norm-table-and-manufacturer"
             }
           }
         },
         "30": {
           "coverage": "documented",
+          "geometryStatus": "documented",
+          "missingGeometryFields": [],
           "vorbelegung": {
             "b": 30,
             "sL": 30,
             "threadMode": "full"
           },
           "roh": {
-            "b_actual": 30,
             "sL": 30,
+            "b_actual": 30,
             "threadMode": "full"
           },
           "fields": {
             "sL": {
               "nominal": 30,
-              "min": null,
-              "max": null,
+              "min": 29.58,
+              "max": 30.42,
               "unit": "mm",
               "sourceRefs": [
                 "iteh4762_2004"
               ],
               "status": "single-source",
               "verification": false,
-              "note": "Nennlänge aus Normtabelle, Zweitbeleg je Längenzelle offen."
+              "note": "Nennlänge und Grenzen aus ISO4762:2004 Tabelle 1. Unbrako nennt abweichende eigene Längentoleranzen; diese werden nicht als Normgrenzen übernommen.",
+              "verificationMethod": "norm-length-cell"
+            },
+            "b_actual": {
+              "nominal": 30,
+              "unit": "mm",
+              "sourceRefs": [
+                "iteh4762_2004",
+                "unbrako"
+              ],
+              "status": "verified",
+              "verification": true,
+              "note": "Gewinde bis Kopf gemäß eigener Größenschwelle; Nennlänge als Vorbelegung, zulässiger unvollständiger Auslauf bleibt.",
+              "verificationMethod": "norm-table-and-manufacturer"
             },
             "threadMode": {
               "nominal": "full",
-              "min": null,
-              "max": null,
               "unit": null,
               "sourceRefs": [
                 "iteh4762_2004",
@@ -319,33 +1594,23 @@
               ],
               "status": "verified",
               "verification": true,
-              "note": "Vollgewindebereich aus schattierter ISO-Tabelle; Hersteller bestätigt bis 30 mm."
-            },
-            "b_actual": {
-              "nominal": 30,
-              "min": null,
-              "max": null,
-              "unit": "mm",
-              "sourceRefs": [
-                "iteh4762_2004",
-                "unbrako"
-              ],
-              "status": "verified",
-              "verification": true,
-              "note": "Gewinde bis Kopf; b_ref=24 ist hier nicht die tatsächliche Gewindelänge."
+              "note": "Größenspezifische Voll-/Teilgewindegrenze, unabhängig von M6 ausgewertet.",
+              "verificationMethod": "norm-table-and-manufacturer"
             }
           }
         },
         "35": {
           "coverage": "documented",
+          "geometryStatus": "documented",
+          "missingGeometryFields": [],
           "vorbelegung": {
             "b": 24,
             "sL": 35,
             "threadMode": "partial"
           },
           "roh": {
-            "b_actual": 24,
             "sL": 35,
+            "b_actual": 24,
             "threadMode": "partial",
             "ls_min": 6,
             "lg_max": 11
@@ -353,52 +1618,79 @@
           "fields": {
             "sL": {
               "nominal": 35,
-              "min": null,
-              "max": null,
+              "min": 34.5,
+              "max": 35.5,
               "unit": "mm",
               "sourceRefs": [
                 "iteh4762_2004"
               ],
               "status": "single-source",
               "verification": false,
-              "note": "Nennlänge aus Normtabelle, Zweitbeleg je Längenzelle offen."
-            },
-            "threadMode": {
-              "nominal": "partial",
-              "min": null,
-              "max": null,
-              "unit": null,
-              "sourceRefs": [
-                "iteh4762_2004"
-              ],
-              "status": "single-source",
-              "verification": false,
-              "note": "Vollgewindebereich aus schattierter ISO-Tabelle; Hersteller bestätigt bis 30 mm."
+              "note": "Nennlänge und Grenzen aus ISO4762:2004 Tabelle 1. Unbrako nennt abweichende eigene Längentoleranzen; diese werden nicht als Normgrenzen übernommen.",
+              "verificationMethod": "norm-length-cell"
             },
             "b_actual": {
               "nominal": 24,
-              "min": null,
-              "max": null,
               "unit": "mm",
               "sourceRefs": [
-                "iteh4762_2004"
+                "iteh4762_2004",
+                "unbrako"
               ],
-              "status": "single-source",
-              "verification": false,
-              "note": "b als Referenz; tatsächlicher Gewindeauslauf liegt innerhalb lg/ls."
+              "status": "verified",
+              "verification": true,
+              "note": "Referenzgewindelänge; keine Behauptung einer exakt vermessenen Gewindeauslaufgrenze. ls_min/lg_max sind separat erhalten.",
+              "verificationMethod": "norm-table-and-manufacturer"
+            },
+            "threadMode": {
+              "nominal": "partial",
+              "unit": null,
+              "sourceRefs": [
+                "iteh4762_2004",
+                "unbrako"
+              ],
+              "status": "verified",
+              "verification": true,
+              "note": "Größenspezifische Voll-/Teilgewindegrenze, unabhängig von M6 ausgewertet.",
+              "verificationMethod": "norm-table-and-manufacturer"
+            },
+            "ls_min": {
+              "min": 6,
+              "unit": "mm",
+              "sourceRefs": [
+                "iteh4762_2004",
+                "unbrako"
+              ],
+              "status": "verified",
+              "verification": true,
+              "note": "Originaltabellenzelle und Unbrako Body Length Minimum stimmen überein.",
+              "verificationMethod": "independent-publishers-agree"
+            },
+            "lg_max": {
+              "max": 11,
+              "unit": "mm",
+              "sourceRefs": [
+                "iteh4762_2004",
+                "unbrako"
+              ],
+              "status": "verified",
+              "verification": true,
+              "note": "Originaltabellenzelle und Unbrako Grip Length Maximum stimmen überein.",
+              "verificationMethod": "independent-publishers-agree"
             }
           }
         },
         "40": {
           "coverage": "documented",
+          "geometryStatus": "documented",
+          "missingGeometryFields": [],
           "vorbelegung": {
             "b": 24,
             "sL": 40,
             "threadMode": "partial"
           },
           "roh": {
-            "b_actual": 24,
             "sL": 40,
+            "b_actual": 24,
             "threadMode": "partial",
             "ls_min": 11,
             "lg_max": 16
@@ -406,52 +1698,79 @@
           "fields": {
             "sL": {
               "nominal": 40,
-              "min": null,
-              "max": null,
+              "min": 39.5,
+              "max": 40.5,
               "unit": "mm",
               "sourceRefs": [
                 "iteh4762_2004"
               ],
               "status": "single-source",
               "verification": false,
-              "note": "Nennlänge aus Normtabelle, Zweitbeleg je Längenzelle offen."
-            },
-            "threadMode": {
-              "nominal": "partial",
-              "min": null,
-              "max": null,
-              "unit": null,
-              "sourceRefs": [
-                "iteh4762_2004"
-              ],
-              "status": "single-source",
-              "verification": false,
-              "note": "Vollgewindebereich aus schattierter ISO-Tabelle; Hersteller bestätigt bis 30 mm."
+              "note": "Nennlänge und Grenzen aus ISO4762:2004 Tabelle 1. Unbrako nennt abweichende eigene Längentoleranzen; diese werden nicht als Normgrenzen übernommen.",
+              "verificationMethod": "norm-length-cell"
             },
             "b_actual": {
               "nominal": 24,
-              "min": null,
-              "max": null,
               "unit": "mm",
               "sourceRefs": [
-                "iteh4762_2004"
+                "iteh4762_2004",
+                "unbrako"
               ],
-              "status": "single-source",
-              "verification": false,
-              "note": "b als Referenz; tatsächlicher Gewindeauslauf liegt innerhalb lg/ls."
+              "status": "verified",
+              "verification": true,
+              "note": "Referenzgewindelänge; keine Behauptung einer exakt vermessenen Gewindeauslaufgrenze. ls_min/lg_max sind separat erhalten.",
+              "verificationMethod": "norm-table-and-manufacturer"
+            },
+            "threadMode": {
+              "nominal": "partial",
+              "unit": null,
+              "sourceRefs": [
+                "iteh4762_2004",
+                "unbrako"
+              ],
+              "status": "verified",
+              "verification": true,
+              "note": "Größenspezifische Voll-/Teilgewindegrenze, unabhängig von M6 ausgewertet.",
+              "verificationMethod": "norm-table-and-manufacturer"
+            },
+            "ls_min": {
+              "min": 11,
+              "unit": "mm",
+              "sourceRefs": [
+                "iteh4762_2004",
+                "unbrako"
+              ],
+              "status": "verified",
+              "verification": true,
+              "note": "Originaltabellenzelle und Unbrako Body Length Minimum stimmen überein.",
+              "verificationMethod": "independent-publishers-agree"
+            },
+            "lg_max": {
+              "max": 16,
+              "unit": "mm",
+              "sourceRefs": [
+                "iteh4762_2004",
+                "unbrako"
+              ],
+              "status": "verified",
+              "verification": true,
+              "note": "Originaltabellenzelle und Unbrako Grip Length Maximum stimmen überein.",
+              "verificationMethod": "independent-publishers-agree"
             }
           }
         },
         "45": {
           "coverage": "documented",
+          "geometryStatus": "documented",
+          "missingGeometryFields": [],
           "vorbelegung": {
             "b": 24,
             "sL": 45,
             "threadMode": "partial"
           },
           "roh": {
-            "b_actual": 24,
             "sL": 45,
+            "b_actual": 24,
             "threadMode": "partial",
             "ls_min": 16,
             "lg_max": 21
@@ -459,52 +1778,79 @@
           "fields": {
             "sL": {
               "nominal": 45,
-              "min": null,
-              "max": null,
+              "min": 44.5,
+              "max": 45.5,
               "unit": "mm",
               "sourceRefs": [
                 "iteh4762_2004"
               ],
               "status": "single-source",
               "verification": false,
-              "note": "Nennlänge aus Normtabelle, Zweitbeleg je Längenzelle offen."
-            },
-            "threadMode": {
-              "nominal": "partial",
-              "min": null,
-              "max": null,
-              "unit": null,
-              "sourceRefs": [
-                "iteh4762_2004"
-              ],
-              "status": "single-source",
-              "verification": false,
-              "note": "Vollgewindebereich aus schattierter ISO-Tabelle; Hersteller bestätigt bis 30 mm."
+              "note": "Nennlänge und Grenzen aus ISO4762:2004 Tabelle 1. Unbrako nennt abweichende eigene Längentoleranzen; diese werden nicht als Normgrenzen übernommen.",
+              "verificationMethod": "norm-length-cell"
             },
             "b_actual": {
               "nominal": 24,
-              "min": null,
-              "max": null,
               "unit": "mm",
               "sourceRefs": [
-                "iteh4762_2004"
+                "iteh4762_2004",
+                "unbrako"
               ],
-              "status": "single-source",
-              "verification": false,
-              "note": "b als Referenz; tatsächlicher Gewindeauslauf liegt innerhalb lg/ls."
+              "status": "verified",
+              "verification": true,
+              "note": "Referenzgewindelänge; keine Behauptung einer exakt vermessenen Gewindeauslaufgrenze. ls_min/lg_max sind separat erhalten.",
+              "verificationMethod": "norm-table-and-manufacturer"
+            },
+            "threadMode": {
+              "nominal": "partial",
+              "unit": null,
+              "sourceRefs": [
+                "iteh4762_2004",
+                "unbrako"
+              ],
+              "status": "verified",
+              "verification": true,
+              "note": "Größenspezifische Voll-/Teilgewindegrenze, unabhängig von M6 ausgewertet.",
+              "verificationMethod": "norm-table-and-manufacturer"
+            },
+            "ls_min": {
+              "min": 16,
+              "unit": "mm",
+              "sourceRefs": [
+                "iteh4762_2004",
+                "unbrako"
+              ],
+              "status": "verified",
+              "verification": true,
+              "note": "Originaltabellenzelle und Unbrako Body Length Minimum stimmen überein.",
+              "verificationMethod": "independent-publishers-agree"
+            },
+            "lg_max": {
+              "max": 21,
+              "unit": "mm",
+              "sourceRefs": [
+                "iteh4762_2004",
+                "unbrako"
+              ],
+              "status": "verified",
+              "verification": true,
+              "note": "Originaltabellenzelle und Unbrako Grip Length Maximum stimmen überein.",
+              "verificationMethod": "independent-publishers-agree"
             }
           }
         },
         "50": {
           "coverage": "documented",
+          "geometryStatus": "documented",
+          "missingGeometryFields": [],
           "vorbelegung": {
             "b": 24,
             "sL": 50,
             "threadMode": "partial"
           },
           "roh": {
-            "b_actual": 24,
             "sL": 50,
+            "b_actual": 24,
             "threadMode": "partial",
             "ls_min": 21,
             "lg_max": 26
@@ -512,52 +1858,79 @@
           "fields": {
             "sL": {
               "nominal": 50,
-              "min": null,
-              "max": null,
+              "min": 49.5,
+              "max": 50.5,
               "unit": "mm",
               "sourceRefs": [
                 "iteh4762_2004"
               ],
               "status": "single-source",
               "verification": false,
-              "note": "Nennlänge aus Normtabelle, Zweitbeleg je Längenzelle offen."
-            },
-            "threadMode": {
-              "nominal": "partial",
-              "min": null,
-              "max": null,
-              "unit": null,
-              "sourceRefs": [
-                "iteh4762_2004"
-              ],
-              "status": "single-source",
-              "verification": false,
-              "note": "Vollgewindebereich aus schattierter ISO-Tabelle; Hersteller bestätigt bis 30 mm."
+              "note": "Nennlänge und Grenzen aus ISO4762:2004 Tabelle 1. Unbrako nennt abweichende eigene Längentoleranzen; diese werden nicht als Normgrenzen übernommen.",
+              "verificationMethod": "norm-length-cell"
             },
             "b_actual": {
               "nominal": 24,
-              "min": null,
-              "max": null,
               "unit": "mm",
               "sourceRefs": [
-                "iteh4762_2004"
+                "iteh4762_2004",
+                "unbrako"
               ],
-              "status": "single-source",
-              "verification": false,
-              "note": "b als Referenz; tatsächlicher Gewindeauslauf liegt innerhalb lg/ls."
+              "status": "verified",
+              "verification": true,
+              "note": "Referenzgewindelänge; keine Behauptung einer exakt vermessenen Gewindeauslaufgrenze. ls_min/lg_max sind separat erhalten.",
+              "verificationMethod": "norm-table-and-manufacturer"
+            },
+            "threadMode": {
+              "nominal": "partial",
+              "unit": null,
+              "sourceRefs": [
+                "iteh4762_2004",
+                "unbrako"
+              ],
+              "status": "verified",
+              "verification": true,
+              "note": "Größenspezifische Voll-/Teilgewindegrenze, unabhängig von M6 ausgewertet.",
+              "verificationMethod": "norm-table-and-manufacturer"
+            },
+            "ls_min": {
+              "min": 21,
+              "unit": "mm",
+              "sourceRefs": [
+                "iteh4762_2004",
+                "unbrako"
+              ],
+              "status": "verified",
+              "verification": true,
+              "note": "Originaltabellenzelle und Unbrako Body Length Minimum stimmen überein.",
+              "verificationMethod": "independent-publishers-agree"
+            },
+            "lg_max": {
+              "max": 26,
+              "unit": "mm",
+              "sourceRefs": [
+                "iteh4762_2004",
+                "unbrako"
+              ],
+              "status": "verified",
+              "verification": true,
+              "note": "Originaltabellenzelle und Unbrako Grip Length Maximum stimmen überein.",
+              "verificationMethod": "independent-publishers-agree"
             }
           }
         },
         "55": {
           "coverage": "documented",
+          "geometryStatus": "documented",
+          "missingGeometryFields": [],
           "vorbelegung": {
             "b": 24,
             "sL": 55,
             "threadMode": "partial"
           },
           "roh": {
-            "b_actual": 24,
             "sL": 55,
+            "b_actual": 24,
             "threadMode": "partial",
             "ls_min": 26,
             "lg_max": 31
@@ -565,52 +1938,79 @@
           "fields": {
             "sL": {
               "nominal": 55,
-              "min": null,
-              "max": null,
+              "min": 54.4,
+              "max": 55.6,
               "unit": "mm",
               "sourceRefs": [
                 "iteh4762_2004"
               ],
               "status": "single-source",
               "verification": false,
-              "note": "Nennlänge aus Normtabelle, Zweitbeleg je Längenzelle offen."
-            },
-            "threadMode": {
-              "nominal": "partial",
-              "min": null,
-              "max": null,
-              "unit": null,
-              "sourceRefs": [
-                "iteh4762_2004"
-              ],
-              "status": "single-source",
-              "verification": false,
-              "note": "Vollgewindebereich aus schattierter ISO-Tabelle; Hersteller bestätigt bis 30 mm."
+              "note": "Nennlänge und Grenzen aus ISO4762:2004 Tabelle 1. Unbrako nennt abweichende eigene Längentoleranzen; diese werden nicht als Normgrenzen übernommen.",
+              "verificationMethod": "norm-length-cell"
             },
             "b_actual": {
               "nominal": 24,
-              "min": null,
-              "max": null,
               "unit": "mm",
               "sourceRefs": [
-                "iteh4762_2004"
+                "iteh4762_2004",
+                "unbrako"
               ],
-              "status": "single-source",
-              "verification": false,
-              "note": "b als Referenz; tatsächlicher Gewindeauslauf liegt innerhalb lg/ls."
+              "status": "verified",
+              "verification": true,
+              "note": "Referenzgewindelänge; keine Behauptung einer exakt vermessenen Gewindeauslaufgrenze. ls_min/lg_max sind separat erhalten.",
+              "verificationMethod": "norm-table-and-manufacturer"
+            },
+            "threadMode": {
+              "nominal": "partial",
+              "unit": null,
+              "sourceRefs": [
+                "iteh4762_2004",
+                "unbrako"
+              ],
+              "status": "verified",
+              "verification": true,
+              "note": "Größenspezifische Voll-/Teilgewindegrenze, unabhängig von M6 ausgewertet.",
+              "verificationMethod": "norm-table-and-manufacturer"
+            },
+            "ls_min": {
+              "min": 26,
+              "unit": "mm",
+              "sourceRefs": [
+                "iteh4762_2004",
+                "unbrako"
+              ],
+              "status": "verified",
+              "verification": true,
+              "note": "Originaltabellenzelle und Unbrako Body Length Minimum stimmen überein.",
+              "verificationMethod": "independent-publishers-agree"
+            },
+            "lg_max": {
+              "max": 31,
+              "unit": "mm",
+              "sourceRefs": [
+                "iteh4762_2004",
+                "unbrako"
+              ],
+              "status": "verified",
+              "verification": true,
+              "note": "Originaltabellenzelle und Unbrako Grip Length Maximum stimmen überein.",
+              "verificationMethod": "independent-publishers-agree"
             }
           }
         },
         "60": {
           "coverage": "documented",
+          "geometryStatus": "documented",
+          "missingGeometryFields": [],
           "vorbelegung": {
             "b": 24,
             "sL": 60,
             "threadMode": "partial"
           },
           "roh": {
-            "b_actual": 24,
             "sL": 60,
+            "b_actual": 24,
             "threadMode": "partial",
             "ls_min": 31,
             "lg_max": 36
@@ -618,39 +2018,64 @@
           "fields": {
             "sL": {
               "nominal": 60,
-              "min": null,
-              "max": null,
+              "min": 59.4,
+              "max": 60.6,
               "unit": "mm",
               "sourceRefs": [
                 "iteh4762_2004"
               ],
               "status": "single-source",
               "verification": false,
-              "note": "Nennlänge aus Normtabelle, Zweitbeleg je Längenzelle offen."
-            },
-            "threadMode": {
-              "nominal": "partial",
-              "min": null,
-              "max": null,
-              "unit": null,
-              "sourceRefs": [
-                "iteh4762_2004"
-              ],
-              "status": "single-source",
-              "verification": false,
-              "note": "Vollgewindebereich aus schattierter ISO-Tabelle; Hersteller bestätigt bis 30 mm."
+              "note": "Nennlänge und Grenzen aus ISO4762:2004 Tabelle 1. Unbrako nennt abweichende eigene Längentoleranzen; diese werden nicht als Normgrenzen übernommen.",
+              "verificationMethod": "norm-length-cell"
             },
             "b_actual": {
               "nominal": 24,
-              "min": null,
-              "max": null,
               "unit": "mm",
               "sourceRefs": [
-                "iteh4762_2004"
+                "iteh4762_2004",
+                "unbrako"
               ],
-              "status": "single-source",
-              "verification": false,
-              "note": "b als Referenz; tatsächlicher Gewindeauslauf liegt innerhalb lg/ls."
+              "status": "verified",
+              "verification": true,
+              "note": "Referenzgewindelänge; keine Behauptung einer exakt vermessenen Gewindeauslaufgrenze. ls_min/lg_max sind separat erhalten.",
+              "verificationMethod": "norm-table-and-manufacturer"
+            },
+            "threadMode": {
+              "nominal": "partial",
+              "unit": null,
+              "sourceRefs": [
+                "iteh4762_2004",
+                "unbrako"
+              ],
+              "status": "verified",
+              "verification": true,
+              "note": "Größenspezifische Voll-/Teilgewindegrenze, unabhängig von M6 ausgewertet.",
+              "verificationMethod": "norm-table-and-manufacturer"
+            },
+            "ls_min": {
+              "min": 31,
+              "unit": "mm",
+              "sourceRefs": [
+                "iteh4762_2004",
+                "unbrako"
+              ],
+              "status": "verified",
+              "verification": true,
+              "note": "Originaltabellenzelle und Unbrako Body Length Minimum stimmen überein.",
+              "verificationMethod": "independent-publishers-agree"
+            },
+            "lg_max": {
+              "max": 36,
+              "unit": "mm",
+              "sourceRefs": [
+                "iteh4762_2004",
+                "unbrako"
+              ],
+              "status": "verified",
+              "verification": true,
+              "note": "Originaltabellenzelle und Unbrako Grip Length Maximum stimmen überein.",
+              "verificationMethod": "independent-publishers-agree"
             }
           }
         }
@@ -692,10 +2117,938 @@
         "ds_max": 8
       },
       "coverage": "documented",
-      "lengthCoverage": "unresearched",
-      "nachLaenge": {},
+      "lengthCoverage": "partial",
+      "nachLaenge": {
+        "16": {
+          "coverage": "documented",
+          "geometryStatus": "documented",
+          "missingGeometryFields": [],
+          "vorbelegung": {
+            "b": 16,
+            "sL": 16,
+            "threadMode": "full"
+          },
+          "roh": {
+            "sL": 16,
+            "b_actual": 16,
+            "threadMode": "full"
+          },
+          "fields": {
+            "sL": {
+              "nominal": 16,
+              "min": 15.65,
+              "max": 16.35,
+              "unit": "mm",
+              "sourceRefs": [
+                "iteh4762_2004"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "note": "Nennlänge und Grenzen aus ISO4762:2004 Tabelle 1. Unbrako nennt abweichende eigene Längentoleranzen; diese werden nicht als Normgrenzen übernommen.",
+              "verificationMethod": "norm-length-cell"
+            },
+            "b_actual": {
+              "nominal": 16,
+              "unit": "mm",
+              "sourceRefs": [
+                "iteh4762_2004",
+                "unbrako"
+              ],
+              "status": "verified",
+              "verification": true,
+              "note": "Gewinde bis Kopf gemäß eigener Größenschwelle; Nennlänge als Vorbelegung, zulässiger unvollständiger Auslauf bleibt.",
+              "verificationMethod": "norm-table-and-manufacturer"
+            },
+            "threadMode": {
+              "nominal": "full",
+              "unit": null,
+              "sourceRefs": [
+                "iteh4762_2004",
+                "unbrako"
+              ],
+              "status": "verified",
+              "verification": true,
+              "note": "Größenspezifische Voll-/Teilgewindegrenze, unabhängig von M6 ausgewertet.",
+              "verificationMethod": "norm-table-and-manufacturer"
+            }
+          }
+        },
+        "20": {
+          "coverage": "documented",
+          "geometryStatus": "documented",
+          "missingGeometryFields": [],
+          "vorbelegung": {
+            "b": 20,
+            "sL": 20,
+            "threadMode": "full"
+          },
+          "roh": {
+            "sL": 20,
+            "b_actual": 20,
+            "threadMode": "full"
+          },
+          "fields": {
+            "sL": {
+              "nominal": 20,
+              "min": 19.58,
+              "max": 20.42,
+              "unit": "mm",
+              "sourceRefs": [
+                "iteh4762_2004"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "note": "Nennlänge und Grenzen aus ISO4762:2004 Tabelle 1. Unbrako nennt abweichende eigene Längentoleranzen; diese werden nicht als Normgrenzen übernommen.",
+              "verificationMethod": "norm-length-cell"
+            },
+            "b_actual": {
+              "nominal": 20,
+              "unit": "mm",
+              "sourceRefs": [
+                "iteh4762_2004",
+                "unbrako"
+              ],
+              "status": "verified",
+              "verification": true,
+              "note": "Gewinde bis Kopf gemäß eigener Größenschwelle; Nennlänge als Vorbelegung, zulässiger unvollständiger Auslauf bleibt.",
+              "verificationMethod": "norm-table-and-manufacturer"
+            },
+            "threadMode": {
+              "nominal": "full",
+              "unit": null,
+              "sourceRefs": [
+                "iteh4762_2004",
+                "unbrako"
+              ],
+              "status": "verified",
+              "verification": true,
+              "note": "Größenspezifische Voll-/Teilgewindegrenze, unabhängig von M6 ausgewertet.",
+              "verificationMethod": "norm-table-and-manufacturer"
+            }
+          }
+        },
+        "25": {
+          "coverage": "documented",
+          "geometryStatus": "documented",
+          "missingGeometryFields": [],
+          "vorbelegung": {
+            "b": 25,
+            "sL": 25,
+            "threadMode": "full"
+          },
+          "roh": {
+            "sL": 25,
+            "b_actual": 25,
+            "threadMode": "full"
+          },
+          "fields": {
+            "sL": {
+              "nominal": 25,
+              "min": 24.58,
+              "max": 25.42,
+              "unit": "mm",
+              "sourceRefs": [
+                "iteh4762_2004"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "note": "Nennlänge und Grenzen aus ISO4762:2004 Tabelle 1. Unbrako nennt abweichende eigene Längentoleranzen; diese werden nicht als Normgrenzen übernommen.",
+              "verificationMethod": "norm-length-cell"
+            },
+            "b_actual": {
+              "nominal": 25,
+              "unit": "mm",
+              "sourceRefs": [
+                "iteh4762_2004",
+                "unbrako"
+              ],
+              "status": "verified",
+              "verification": true,
+              "note": "Gewinde bis Kopf gemäß eigener Größenschwelle; Nennlänge als Vorbelegung, zulässiger unvollständiger Auslauf bleibt.",
+              "verificationMethod": "norm-table-and-manufacturer"
+            },
+            "threadMode": {
+              "nominal": "full",
+              "unit": null,
+              "sourceRefs": [
+                "iteh4762_2004",
+                "unbrako"
+              ],
+              "status": "verified",
+              "verification": true,
+              "note": "Größenspezifische Voll-/Teilgewindegrenze, unabhängig von M6 ausgewertet.",
+              "verificationMethod": "norm-table-and-manufacturer"
+            }
+          }
+        },
+        "30": {
+          "coverage": "documented",
+          "geometryStatus": "documented",
+          "missingGeometryFields": [],
+          "vorbelegung": {
+            "b": 30,
+            "sL": 30,
+            "threadMode": "full"
+          },
+          "roh": {
+            "sL": 30,
+            "b_actual": 30,
+            "threadMode": "full"
+          },
+          "fields": {
+            "sL": {
+              "nominal": 30,
+              "min": 29.58,
+              "max": 30.42,
+              "unit": "mm",
+              "sourceRefs": [
+                "iteh4762_2004"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "note": "Nennlänge und Grenzen aus ISO4762:2004 Tabelle 1. Unbrako nennt abweichende eigene Längentoleranzen; diese werden nicht als Normgrenzen übernommen.",
+              "verificationMethod": "norm-length-cell"
+            },
+            "b_actual": {
+              "nominal": 30,
+              "unit": "mm",
+              "sourceRefs": [
+                "iteh4762_2004",
+                "unbrako"
+              ],
+              "status": "verified",
+              "verification": true,
+              "note": "Gewinde bis Kopf gemäß eigener Größenschwelle; Nennlänge als Vorbelegung, zulässiger unvollständiger Auslauf bleibt.",
+              "verificationMethod": "norm-table-and-manufacturer"
+            },
+            "threadMode": {
+              "nominal": "full",
+              "unit": null,
+              "sourceRefs": [
+                "iteh4762_2004",
+                "unbrako"
+              ],
+              "status": "verified",
+              "verification": true,
+              "note": "Größenspezifische Voll-/Teilgewindegrenze, unabhängig von M6 ausgewertet.",
+              "verificationMethod": "norm-table-and-manufacturer"
+            }
+          }
+        },
+        "35": {
+          "coverage": "documented",
+          "geometryStatus": "documented",
+          "missingGeometryFields": [],
+          "vorbelegung": {
+            "b": 35,
+            "sL": 35,
+            "threadMode": "full"
+          },
+          "roh": {
+            "sL": 35,
+            "b_actual": 35,
+            "threadMode": "full"
+          },
+          "fields": {
+            "sL": {
+              "nominal": 35,
+              "min": 34.5,
+              "max": 35.5,
+              "unit": "mm",
+              "sourceRefs": [
+                "iteh4762_2004"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "note": "Nennlänge und Grenzen aus ISO4762:2004 Tabelle 1. Unbrako nennt abweichende eigene Längentoleranzen; diese werden nicht als Normgrenzen übernommen.",
+              "verificationMethod": "norm-length-cell"
+            },
+            "b_actual": {
+              "nominal": 35,
+              "unit": "mm",
+              "sourceRefs": [
+                "iteh4762_2004",
+                "unbrako"
+              ],
+              "status": "verified",
+              "verification": true,
+              "note": "Gewinde bis Kopf gemäß eigener Größenschwelle; Nennlänge als Vorbelegung, zulässiger unvollständiger Auslauf bleibt.",
+              "verificationMethod": "norm-table-and-manufacturer"
+            },
+            "threadMode": {
+              "nominal": "full",
+              "unit": null,
+              "sourceRefs": [
+                "iteh4762_2004",
+                "unbrako"
+              ],
+              "status": "verified",
+              "verification": true,
+              "note": "Größenspezifische Voll-/Teilgewindegrenze, unabhängig von M6 ausgewertet.",
+              "verificationMethod": "norm-table-and-manufacturer"
+            }
+          }
+        },
+        "40": {
+          "coverage": "documented",
+          "geometryStatus": "documented",
+          "missingGeometryFields": [],
+          "vorbelegung": {
+            "b": 28,
+            "sL": 40,
+            "threadMode": "partial"
+          },
+          "roh": {
+            "sL": 40,
+            "b_actual": 28,
+            "threadMode": "partial",
+            "ls_min": 5.75,
+            "lg_max": 12
+          },
+          "fields": {
+            "sL": {
+              "nominal": 40,
+              "min": 39.5,
+              "max": 40.5,
+              "unit": "mm",
+              "sourceRefs": [
+                "iteh4762_2004"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "note": "Nennlänge und Grenzen aus ISO4762:2004 Tabelle 1. Unbrako nennt abweichende eigene Längentoleranzen; diese werden nicht als Normgrenzen übernommen.",
+              "verificationMethod": "norm-length-cell"
+            },
+            "b_actual": {
+              "nominal": 28,
+              "unit": "mm",
+              "sourceRefs": [
+                "iteh4762_2004",
+                "unbrako"
+              ],
+              "status": "verified",
+              "verification": true,
+              "note": "Referenzgewindelänge; keine Behauptung einer exakt vermessenen Gewindeauslaufgrenze. ls_min/lg_max sind separat erhalten.",
+              "verificationMethod": "norm-table-and-manufacturer"
+            },
+            "threadMode": {
+              "nominal": "partial",
+              "unit": null,
+              "sourceRefs": [
+                "iteh4762_2004",
+                "unbrako"
+              ],
+              "status": "verified",
+              "verification": true,
+              "note": "Größenspezifische Voll-/Teilgewindegrenze, unabhängig von M6 ausgewertet.",
+              "verificationMethod": "norm-table-and-manufacturer"
+            },
+            "ls_min": {
+              "min": 5.75,
+              "unit": "mm",
+              "sourceRefs": [
+                "iteh4762_2004",
+                "unbrako",
+                "wds-m8x40"
+              ],
+              "status": "verified",
+              "verification": true,
+              "note": "Originaltabellenzelle und Unbrako Body Length Minimum stimmen überein.",
+              "verificationMethod": "independent-publishers-agree"
+            },
+            "lg_max": {
+              "max": 12,
+              "unit": "mm",
+              "sourceRefs": [
+                "iteh4762_2004",
+                "unbrako",
+                "wds-m8x40"
+              ],
+              "status": "verified",
+              "verification": true,
+              "note": "Originaltabellenzelle und Unbrako Grip Length Maximum stimmen überein.",
+              "verificationMethod": "independent-publishers-agree"
+            }
+          }
+        },
+        "45": {
+          "coverage": "documented",
+          "geometryStatus": "documented",
+          "missingGeometryFields": [],
+          "vorbelegung": {
+            "b": 28,
+            "sL": 45,
+            "threadMode": "partial"
+          },
+          "roh": {
+            "sL": 45,
+            "b_actual": 28,
+            "threadMode": "partial",
+            "ls_min": 10.75,
+            "lg_max": 17
+          },
+          "fields": {
+            "sL": {
+              "nominal": 45,
+              "min": 44.5,
+              "max": 45.5,
+              "unit": "mm",
+              "sourceRefs": [
+                "iteh4762_2004"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "note": "Nennlänge und Grenzen aus ISO4762:2004 Tabelle 1. Unbrako nennt abweichende eigene Längentoleranzen; diese werden nicht als Normgrenzen übernommen.",
+              "verificationMethod": "norm-length-cell"
+            },
+            "b_actual": {
+              "nominal": 28,
+              "unit": "mm",
+              "sourceRefs": [
+                "iteh4762_2004",
+                "unbrako"
+              ],
+              "status": "verified",
+              "verification": true,
+              "note": "Referenzgewindelänge; keine Behauptung einer exakt vermessenen Gewindeauslaufgrenze. ls_min/lg_max sind separat erhalten.",
+              "verificationMethod": "norm-table-and-manufacturer"
+            },
+            "threadMode": {
+              "nominal": "partial",
+              "unit": null,
+              "sourceRefs": [
+                "iteh4762_2004",
+                "unbrako"
+              ],
+              "status": "verified",
+              "verification": true,
+              "note": "Größenspezifische Voll-/Teilgewindegrenze, unabhängig von M6 ausgewertet.",
+              "verificationMethod": "norm-table-and-manufacturer"
+            },
+            "ls_min": {
+              "min": 10.75,
+              "unit": "mm",
+              "sourceRefs": [
+                "iteh4762_2004",
+                "unbrako"
+              ],
+              "status": "verified",
+              "verification": true,
+              "note": "Originaltabellenzelle und Unbrako Body Length Minimum stimmen überein.",
+              "verificationMethod": "independent-publishers-agree"
+            },
+            "lg_max": {
+              "max": 17,
+              "unit": "mm",
+              "sourceRefs": [
+                "iteh4762_2004",
+                "unbrako"
+              ],
+              "status": "verified",
+              "verification": true,
+              "note": "Originaltabellenzelle und Unbrako Grip Length Maximum stimmen überein.",
+              "verificationMethod": "independent-publishers-agree"
+            }
+          }
+        },
+        "50": {
+          "coverage": "documented",
+          "geometryStatus": "documented",
+          "missingGeometryFields": [],
+          "vorbelegung": {
+            "b": 28,
+            "sL": 50,
+            "threadMode": "partial"
+          },
+          "roh": {
+            "sL": 50,
+            "b_actual": 28,
+            "threadMode": "partial",
+            "ls_min": 15.75,
+            "lg_max": 22
+          },
+          "fields": {
+            "sL": {
+              "nominal": 50,
+              "min": 49.5,
+              "max": 50.5,
+              "unit": "mm",
+              "sourceRefs": [
+                "iteh4762_2004"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "note": "Nennlänge und Grenzen aus ISO4762:2004 Tabelle 1. Unbrako nennt abweichende eigene Längentoleranzen; diese werden nicht als Normgrenzen übernommen.",
+              "verificationMethod": "norm-length-cell"
+            },
+            "b_actual": {
+              "nominal": 28,
+              "unit": "mm",
+              "sourceRefs": [
+                "iteh4762_2004",
+                "unbrako"
+              ],
+              "status": "verified",
+              "verification": true,
+              "note": "Referenzgewindelänge; keine Behauptung einer exakt vermessenen Gewindeauslaufgrenze. ls_min/lg_max sind separat erhalten.",
+              "verificationMethod": "norm-table-and-manufacturer"
+            },
+            "threadMode": {
+              "nominal": "partial",
+              "unit": null,
+              "sourceRefs": [
+                "iteh4762_2004",
+                "unbrako"
+              ],
+              "status": "verified",
+              "verification": true,
+              "note": "Größenspezifische Voll-/Teilgewindegrenze, unabhängig von M6 ausgewertet.",
+              "verificationMethod": "norm-table-and-manufacturer"
+            },
+            "ls_min": {
+              "min": 15.75,
+              "unit": "mm",
+              "sourceRefs": [
+                "iteh4762_2004",
+                "unbrako"
+              ],
+              "status": "verified",
+              "verification": true,
+              "note": "Originaltabellenzelle und Unbrako Body Length Minimum stimmen überein.",
+              "verificationMethod": "independent-publishers-agree"
+            },
+            "lg_max": {
+              "max": 22,
+              "unit": "mm",
+              "sourceRefs": [
+                "iteh4762_2004",
+                "unbrako"
+              ],
+              "status": "verified",
+              "verification": true,
+              "note": "Originaltabellenzelle und Unbrako Grip Length Maximum stimmen überein.",
+              "verificationMethod": "independent-publishers-agree"
+            }
+          }
+        },
+        "55": {
+          "coverage": "documented",
+          "geometryStatus": "documented",
+          "missingGeometryFields": [],
+          "vorbelegung": {
+            "b": 28,
+            "sL": 55,
+            "threadMode": "partial"
+          },
+          "roh": {
+            "sL": 55,
+            "b_actual": 28,
+            "threadMode": "partial",
+            "ls_min": 20.75,
+            "lg_max": 27
+          },
+          "fields": {
+            "sL": {
+              "nominal": 55,
+              "min": 54.4,
+              "max": 55.6,
+              "unit": "mm",
+              "sourceRefs": [
+                "iteh4762_2004"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "note": "Nennlänge und Grenzen aus ISO4762:2004 Tabelle 1. Unbrako nennt abweichende eigene Längentoleranzen; diese werden nicht als Normgrenzen übernommen.",
+              "verificationMethod": "norm-length-cell"
+            },
+            "b_actual": {
+              "nominal": 28,
+              "unit": "mm",
+              "sourceRefs": [
+                "iteh4762_2004",
+                "unbrako"
+              ],
+              "status": "verified",
+              "verification": true,
+              "note": "Referenzgewindelänge; keine Behauptung einer exakt vermessenen Gewindeauslaufgrenze. ls_min/lg_max sind separat erhalten.",
+              "verificationMethod": "norm-table-and-manufacturer"
+            },
+            "threadMode": {
+              "nominal": "partial",
+              "unit": null,
+              "sourceRefs": [
+                "iteh4762_2004",
+                "unbrako"
+              ],
+              "status": "verified",
+              "verification": true,
+              "note": "Größenspezifische Voll-/Teilgewindegrenze, unabhängig von M6 ausgewertet.",
+              "verificationMethod": "norm-table-and-manufacturer"
+            },
+            "ls_min": {
+              "min": 20.75,
+              "unit": "mm",
+              "sourceRefs": [
+                "iteh4762_2004",
+                "unbrako"
+              ],
+              "status": "verified",
+              "verification": true,
+              "note": "Originaltabellenzelle und Unbrako Body Length Minimum stimmen überein.",
+              "verificationMethod": "independent-publishers-agree"
+            },
+            "lg_max": {
+              "max": 27,
+              "unit": "mm",
+              "sourceRefs": [
+                "iteh4762_2004",
+                "unbrako"
+              ],
+              "status": "verified",
+              "verification": true,
+              "note": "Originaltabellenzelle und Unbrako Grip Length Maximum stimmen überein.",
+              "verificationMethod": "independent-publishers-agree"
+            }
+          }
+        },
+        "60": {
+          "coverage": "documented",
+          "geometryStatus": "documented",
+          "missingGeometryFields": [],
+          "vorbelegung": {
+            "b": 28,
+            "sL": 60,
+            "threadMode": "partial"
+          },
+          "roh": {
+            "sL": 60,
+            "b_actual": 28,
+            "threadMode": "partial",
+            "ls_min": 25.75,
+            "lg_max": 32
+          },
+          "fields": {
+            "sL": {
+              "nominal": 60,
+              "min": 59.4,
+              "max": 60.6,
+              "unit": "mm",
+              "sourceRefs": [
+                "iteh4762_2004"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "note": "Nennlänge und Grenzen aus ISO4762:2004 Tabelle 1. Unbrako nennt abweichende eigene Längentoleranzen; diese werden nicht als Normgrenzen übernommen.",
+              "verificationMethod": "norm-length-cell"
+            },
+            "b_actual": {
+              "nominal": 28,
+              "unit": "mm",
+              "sourceRefs": [
+                "iteh4762_2004",
+                "unbrako"
+              ],
+              "status": "verified",
+              "verification": true,
+              "note": "Referenzgewindelänge; keine Behauptung einer exakt vermessenen Gewindeauslaufgrenze. ls_min/lg_max sind separat erhalten.",
+              "verificationMethod": "norm-table-and-manufacturer"
+            },
+            "threadMode": {
+              "nominal": "partial",
+              "unit": null,
+              "sourceRefs": [
+                "iteh4762_2004",
+                "unbrako"
+              ],
+              "status": "verified",
+              "verification": true,
+              "note": "Größenspezifische Voll-/Teilgewindegrenze, unabhängig von M6 ausgewertet.",
+              "verificationMethod": "norm-table-and-manufacturer"
+            },
+            "ls_min": {
+              "min": 25.75,
+              "unit": "mm",
+              "sourceRefs": [
+                "iteh4762_2004",
+                "unbrako"
+              ],
+              "status": "verified",
+              "verification": true,
+              "note": "Originaltabellenzelle und Unbrako Body Length Minimum stimmen überein.",
+              "verificationMethod": "independent-publishers-agree"
+            },
+            "lg_max": {
+              "max": 32,
+              "unit": "mm",
+              "sourceRefs": [
+                "iteh4762_2004",
+                "unbrako"
+              ],
+              "status": "verified",
+              "verification": true,
+              "note": "Originaltabellenzelle und Unbrako Grip Length Maximum stimmen überein.",
+              "verificationMethod": "independent-publishers-agree"
+            }
+          }
+        },
+        "65": {
+          "coverage": "documented",
+          "geometryStatus": "documented",
+          "missingGeometryFields": [],
+          "vorbelegung": {
+            "b": 28,
+            "sL": 65,
+            "threadMode": "partial"
+          },
+          "roh": {
+            "sL": 65,
+            "b_actual": 28,
+            "threadMode": "partial",
+            "ls_min": 30.75,
+            "lg_max": 37
+          },
+          "fields": {
+            "sL": {
+              "nominal": 65,
+              "min": 64.4,
+              "max": 65.6,
+              "unit": "mm",
+              "sourceRefs": [
+                "iteh4762_2004"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "note": "Nennlänge und Grenzen aus ISO4762:2004 Tabelle 1. Unbrako nennt abweichende eigene Längentoleranzen; diese werden nicht als Normgrenzen übernommen.",
+              "verificationMethod": "norm-length-cell"
+            },
+            "b_actual": {
+              "nominal": 28,
+              "unit": "mm",
+              "sourceRefs": [
+                "iteh4762_2004",
+                "unbrako"
+              ],
+              "status": "verified",
+              "verification": true,
+              "note": "Referenzgewindelänge; keine Behauptung einer exakt vermessenen Gewindeauslaufgrenze. ls_min/lg_max sind separat erhalten.",
+              "verificationMethod": "norm-table-and-manufacturer"
+            },
+            "threadMode": {
+              "nominal": "partial",
+              "unit": null,
+              "sourceRefs": [
+                "iteh4762_2004",
+                "unbrako"
+              ],
+              "status": "verified",
+              "verification": true,
+              "note": "Größenspezifische Voll-/Teilgewindegrenze, unabhängig von M6 ausgewertet.",
+              "verificationMethod": "norm-table-and-manufacturer"
+            },
+            "ls_min": {
+              "min": 30.75,
+              "unit": "mm",
+              "sourceRefs": [
+                "iteh4762_2004",
+                "unbrako"
+              ],
+              "status": "verified",
+              "verification": true,
+              "note": "Originaltabellenzelle und Unbrako Body Length Minimum stimmen überein.",
+              "verificationMethod": "independent-publishers-agree"
+            },
+            "lg_max": {
+              "max": 37,
+              "unit": "mm",
+              "sourceRefs": [
+                "iteh4762_2004",
+                "unbrako"
+              ],
+              "status": "verified",
+              "verification": true,
+              "note": "Originaltabellenzelle und Unbrako Grip Length Maximum stimmen überein.",
+              "verificationMethod": "independent-publishers-agree"
+            }
+          }
+        },
+        "70": {
+          "coverage": "documented",
+          "geometryStatus": "documented",
+          "missingGeometryFields": [],
+          "vorbelegung": {
+            "b": 28,
+            "sL": 70,
+            "threadMode": "partial"
+          },
+          "roh": {
+            "sL": 70,
+            "b_actual": 28,
+            "threadMode": "partial",
+            "ls_min": 35.75,
+            "lg_max": 42
+          },
+          "fields": {
+            "sL": {
+              "nominal": 70,
+              "min": 69.4,
+              "max": 70.6,
+              "unit": "mm",
+              "sourceRefs": [
+                "iteh4762_2004"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "note": "Nennlänge und Grenzen aus ISO4762:2004 Tabelle 1. Unbrako nennt abweichende eigene Längentoleranzen; diese werden nicht als Normgrenzen übernommen.",
+              "verificationMethod": "norm-length-cell"
+            },
+            "b_actual": {
+              "nominal": 28,
+              "unit": "mm",
+              "sourceRefs": [
+                "iteh4762_2004",
+                "unbrako"
+              ],
+              "status": "verified",
+              "verification": true,
+              "note": "Referenzgewindelänge; keine Behauptung einer exakt vermessenen Gewindeauslaufgrenze. ls_min/lg_max sind separat erhalten.",
+              "verificationMethod": "norm-table-and-manufacturer"
+            },
+            "threadMode": {
+              "nominal": "partial",
+              "unit": null,
+              "sourceRefs": [
+                "iteh4762_2004",
+                "unbrako"
+              ],
+              "status": "verified",
+              "verification": true,
+              "note": "Größenspezifische Voll-/Teilgewindegrenze, unabhängig von M6 ausgewertet.",
+              "verificationMethod": "norm-table-and-manufacturer"
+            },
+            "ls_min": {
+              "min": 35.75,
+              "unit": "mm",
+              "sourceRefs": [
+                "iteh4762_2004",
+                "unbrako"
+              ],
+              "status": "verified",
+              "verification": true,
+              "note": "Originaltabellenzelle und Unbrako Body Length Minimum stimmen überein.",
+              "verificationMethod": "independent-publishers-agree"
+            },
+            "lg_max": {
+              "max": 42,
+              "unit": "mm",
+              "sourceRefs": [
+                "iteh4762_2004",
+                "unbrako"
+              ],
+              "status": "verified",
+              "verification": true,
+              "note": "Originaltabellenzelle und Unbrako Grip Length Maximum stimmen überein.",
+              "verificationMethod": "independent-publishers-agree"
+            }
+          }
+        },
+        "80": {
+          "coverage": "documented",
+          "geometryStatus": "documented",
+          "missingGeometryFields": [],
+          "vorbelegung": {
+            "b": 28,
+            "sL": 80,
+            "threadMode": "partial"
+          },
+          "roh": {
+            "sL": 80,
+            "b_actual": 28,
+            "threadMode": "partial",
+            "ls_min": 45.75,
+            "lg_max": 52
+          },
+          "fields": {
+            "sL": {
+              "nominal": 80,
+              "min": 79.4,
+              "max": 80.6,
+              "unit": "mm",
+              "sourceRefs": [
+                "iteh4762_2004"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "note": "Nennlänge und Grenzen aus ISO4762:2004 Tabelle 1. Unbrako nennt abweichende eigene Längentoleranzen; diese werden nicht als Normgrenzen übernommen.",
+              "verificationMethod": "norm-length-cell"
+            },
+            "b_actual": {
+              "nominal": 28,
+              "unit": "mm",
+              "sourceRefs": [
+                "iteh4762_2004",
+                "unbrako"
+              ],
+              "status": "verified",
+              "verification": true,
+              "note": "Referenzgewindelänge; keine Behauptung einer exakt vermessenen Gewindeauslaufgrenze. ls_min/lg_max sind separat erhalten.",
+              "verificationMethod": "norm-table-and-manufacturer"
+            },
+            "threadMode": {
+              "nominal": "partial",
+              "unit": null,
+              "sourceRefs": [
+                "iteh4762_2004",
+                "unbrako"
+              ],
+              "status": "verified",
+              "verification": true,
+              "note": "Größenspezifische Voll-/Teilgewindegrenze, unabhängig von M6 ausgewertet.",
+              "verificationMethod": "norm-table-and-manufacturer"
+            },
+            "ls_min": {
+              "min": 45.75,
+              "unit": "mm",
+              "sourceRefs": [
+                "iteh4762_2004",
+                "unbrako"
+              ],
+              "status": "verified",
+              "verification": true,
+              "note": "Originaltabellenzelle und Unbrako Body Length Minimum stimmen überein.",
+              "verificationMethod": "independent-publishers-agree"
+            },
+            "lg_max": {
+              "max": 52,
+              "unit": "mm",
+              "sourceRefs": [
+                "iteh4762_2004",
+                "unbrako"
+              ],
+              "status": "verified",
+              "verification": true,
+              "note": "Originaltabellenzelle und Unbrako Grip Length Maximum stimmen überein.",
+              "verificationMethod": "independent-publishers-agree"
+            }
+          }
+        }
+      },
       "missingGeometryFields": [],
-      "geometryStatus": "documented"
+      "geometryStatus": "documented",
+      "laengen": [
+        16,
+        20,
+        25,
+        30,
+        35,
+        40,
+        45,
+        50,
+        55,
+        60,
+        65,
+        70,
+        80
+      ]
     },
     "M10": {
       "vorbelegung": {
@@ -719,10 +3072,1017 @@
         "ds_max": 10
       },
       "coverage": "documented",
-      "lengthCoverage": "unresearched",
-      "nachLaenge": {},
+      "lengthCoverage": "partial",
+      "nachLaenge": {
+        "20": {
+          "coverage": "documented",
+          "geometryStatus": "documented",
+          "missingGeometryFields": [],
+          "vorbelegung": {
+            "b": 20,
+            "sL": 20,
+            "threadMode": "full"
+          },
+          "roh": {
+            "sL": 20,
+            "b_actual": 20,
+            "threadMode": "full"
+          },
+          "fields": {
+            "sL": {
+              "nominal": 20,
+              "min": 19.58,
+              "max": 20.42,
+              "unit": "mm",
+              "sourceRefs": [
+                "iteh4762_2004"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "note": "Nennlänge und Grenzen aus ISO4762:2004 Tabelle 1. Unbrako nennt abweichende eigene Längentoleranzen; diese werden nicht als Normgrenzen übernommen.",
+              "verificationMethod": "norm-length-cell"
+            },
+            "b_actual": {
+              "nominal": 20,
+              "unit": "mm",
+              "sourceRefs": [
+                "iteh4762_2004",
+                "unbrako"
+              ],
+              "status": "verified",
+              "verification": true,
+              "note": "Gewinde bis Kopf gemäß eigener Größenschwelle; Nennlänge als Vorbelegung, zulässiger unvollständiger Auslauf bleibt.",
+              "verificationMethod": "norm-table-and-manufacturer"
+            },
+            "threadMode": {
+              "nominal": "full",
+              "unit": null,
+              "sourceRefs": [
+                "iteh4762_2004",
+                "unbrako"
+              ],
+              "status": "verified",
+              "verification": true,
+              "note": "Größenspezifische Voll-/Teilgewindegrenze, unabhängig von M6 ausgewertet.",
+              "verificationMethod": "norm-table-and-manufacturer"
+            }
+          }
+        },
+        "25": {
+          "coverage": "documented",
+          "geometryStatus": "documented",
+          "missingGeometryFields": [],
+          "vorbelegung": {
+            "b": 25,
+            "sL": 25,
+            "threadMode": "full"
+          },
+          "roh": {
+            "sL": 25,
+            "b_actual": 25,
+            "threadMode": "full"
+          },
+          "fields": {
+            "sL": {
+              "nominal": 25,
+              "min": 24.58,
+              "max": 25.42,
+              "unit": "mm",
+              "sourceRefs": [
+                "iteh4762_2004"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "note": "Nennlänge und Grenzen aus ISO4762:2004 Tabelle 1. Unbrako nennt abweichende eigene Längentoleranzen; diese werden nicht als Normgrenzen übernommen.",
+              "verificationMethod": "norm-length-cell"
+            },
+            "b_actual": {
+              "nominal": 25,
+              "unit": "mm",
+              "sourceRefs": [
+                "iteh4762_2004",
+                "unbrako"
+              ],
+              "status": "verified",
+              "verification": true,
+              "note": "Gewinde bis Kopf gemäß eigener Größenschwelle; Nennlänge als Vorbelegung, zulässiger unvollständiger Auslauf bleibt.",
+              "verificationMethod": "norm-table-and-manufacturer"
+            },
+            "threadMode": {
+              "nominal": "full",
+              "unit": null,
+              "sourceRefs": [
+                "iteh4762_2004",
+                "unbrako"
+              ],
+              "status": "verified",
+              "verification": true,
+              "note": "Größenspezifische Voll-/Teilgewindegrenze, unabhängig von M6 ausgewertet.",
+              "verificationMethod": "norm-table-and-manufacturer"
+            }
+          }
+        },
+        "30": {
+          "coverage": "documented",
+          "geometryStatus": "documented",
+          "missingGeometryFields": [],
+          "vorbelegung": {
+            "b": 30,
+            "sL": 30,
+            "threadMode": "full"
+          },
+          "roh": {
+            "sL": 30,
+            "b_actual": 30,
+            "threadMode": "full"
+          },
+          "fields": {
+            "sL": {
+              "nominal": 30,
+              "min": 29.58,
+              "max": 30.42,
+              "unit": "mm",
+              "sourceRefs": [
+                "iteh4762_2004"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "note": "Nennlänge und Grenzen aus ISO4762:2004 Tabelle 1. Unbrako nennt abweichende eigene Längentoleranzen; diese werden nicht als Normgrenzen übernommen.",
+              "verificationMethod": "norm-length-cell"
+            },
+            "b_actual": {
+              "nominal": 30,
+              "unit": "mm",
+              "sourceRefs": [
+                "iteh4762_2004",
+                "unbrako"
+              ],
+              "status": "verified",
+              "verification": true,
+              "note": "Gewinde bis Kopf gemäß eigener Größenschwelle; Nennlänge als Vorbelegung, zulässiger unvollständiger Auslauf bleibt.",
+              "verificationMethod": "norm-table-and-manufacturer"
+            },
+            "threadMode": {
+              "nominal": "full",
+              "unit": null,
+              "sourceRefs": [
+                "iteh4762_2004",
+                "unbrako"
+              ],
+              "status": "verified",
+              "verification": true,
+              "note": "Größenspezifische Voll-/Teilgewindegrenze, unabhängig von M6 ausgewertet.",
+              "verificationMethod": "norm-table-and-manufacturer"
+            }
+          }
+        },
+        "35": {
+          "coverage": "documented",
+          "geometryStatus": "documented",
+          "missingGeometryFields": [],
+          "vorbelegung": {
+            "b": 35,
+            "sL": 35,
+            "threadMode": "full"
+          },
+          "roh": {
+            "sL": 35,
+            "b_actual": 35,
+            "threadMode": "full"
+          },
+          "fields": {
+            "sL": {
+              "nominal": 35,
+              "min": 34.5,
+              "max": 35.5,
+              "unit": "mm",
+              "sourceRefs": [
+                "iteh4762_2004"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "note": "Nennlänge und Grenzen aus ISO4762:2004 Tabelle 1. Unbrako nennt abweichende eigene Längentoleranzen; diese werden nicht als Normgrenzen übernommen.",
+              "verificationMethod": "norm-length-cell"
+            },
+            "b_actual": {
+              "nominal": 35,
+              "unit": "mm",
+              "sourceRefs": [
+                "iteh4762_2004",
+                "unbrako"
+              ],
+              "status": "verified",
+              "verification": true,
+              "note": "Gewinde bis Kopf gemäß eigener Größenschwelle; Nennlänge als Vorbelegung, zulässiger unvollständiger Auslauf bleibt.",
+              "verificationMethod": "norm-table-and-manufacturer"
+            },
+            "threadMode": {
+              "nominal": "full",
+              "unit": null,
+              "sourceRefs": [
+                "iteh4762_2004",
+                "unbrako"
+              ],
+              "status": "verified",
+              "verification": true,
+              "note": "Größenspezifische Voll-/Teilgewindegrenze, unabhängig von M6 ausgewertet.",
+              "verificationMethod": "norm-table-and-manufacturer"
+            }
+          }
+        },
+        "40": {
+          "coverage": "documented",
+          "geometryStatus": "documented",
+          "missingGeometryFields": [],
+          "vorbelegung": {
+            "b": 40,
+            "sL": 40,
+            "threadMode": "full"
+          },
+          "roh": {
+            "sL": 40,
+            "b_actual": 40,
+            "threadMode": "full"
+          },
+          "fields": {
+            "sL": {
+              "nominal": 40,
+              "min": 39.5,
+              "max": 40.5,
+              "unit": "mm",
+              "sourceRefs": [
+                "iteh4762_2004"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "note": "Nennlänge und Grenzen aus ISO4762:2004 Tabelle 1. Unbrako nennt abweichende eigene Längentoleranzen; diese werden nicht als Normgrenzen übernommen.",
+              "verificationMethod": "norm-length-cell"
+            },
+            "b_actual": {
+              "nominal": 40,
+              "unit": "mm",
+              "sourceRefs": [
+                "iteh4762_2004",
+                "unbrako"
+              ],
+              "status": "verified",
+              "verification": true,
+              "note": "Gewinde bis Kopf gemäß eigener Größenschwelle; Nennlänge als Vorbelegung, zulässiger unvollständiger Auslauf bleibt.",
+              "verificationMethod": "norm-table-and-manufacturer"
+            },
+            "threadMode": {
+              "nominal": "full",
+              "unit": null,
+              "sourceRefs": [
+                "iteh4762_2004",
+                "unbrako"
+              ],
+              "status": "verified",
+              "verification": true,
+              "note": "Größenspezifische Voll-/Teilgewindegrenze, unabhängig von M6 ausgewertet.",
+              "verificationMethod": "norm-table-and-manufacturer"
+            }
+          }
+        },
+        "45": {
+          "coverage": "documented",
+          "geometryStatus": "documented",
+          "missingGeometryFields": [],
+          "vorbelegung": {
+            "b": 32,
+            "sL": 45,
+            "threadMode": "partial"
+          },
+          "roh": {
+            "sL": 45,
+            "b_actual": 32,
+            "threadMode": "partial",
+            "ls_min": 5.5,
+            "lg_max": 13
+          },
+          "fields": {
+            "sL": {
+              "nominal": 45,
+              "min": 44.5,
+              "max": 45.5,
+              "unit": "mm",
+              "sourceRefs": [
+                "iteh4762_2004"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "note": "Nennlänge und Grenzen aus ISO4762:2004 Tabelle 1. Unbrako nennt abweichende eigene Längentoleranzen; diese werden nicht als Normgrenzen übernommen.",
+              "verificationMethod": "norm-length-cell"
+            },
+            "b_actual": {
+              "nominal": 32,
+              "unit": "mm",
+              "sourceRefs": [
+                "iteh4762_2004",
+                "unbrako"
+              ],
+              "status": "verified",
+              "verification": true,
+              "note": "Referenzgewindelänge; keine Behauptung einer exakt vermessenen Gewindeauslaufgrenze. ls_min/lg_max sind separat erhalten.",
+              "verificationMethod": "norm-table-and-manufacturer"
+            },
+            "threadMode": {
+              "nominal": "partial",
+              "unit": null,
+              "sourceRefs": [
+                "iteh4762_2004",
+                "unbrako"
+              ],
+              "status": "verified",
+              "verification": true,
+              "note": "Größenspezifische Voll-/Teilgewindegrenze, unabhängig von M6 ausgewertet.",
+              "verificationMethod": "norm-table-and-manufacturer"
+            },
+            "ls_min": {
+              "min": 5.5,
+              "unit": "mm",
+              "sourceRefs": [
+                "iteh4762_2004",
+                "unbrako"
+              ],
+              "status": "verified",
+              "verification": true,
+              "note": "Originaltabellenzelle und Unbrako Body Length Minimum stimmen überein.",
+              "verificationMethod": "independent-publishers-agree"
+            },
+            "lg_max": {
+              "max": 13,
+              "unit": "mm",
+              "sourceRefs": [
+                "iteh4762_2004",
+                "unbrako"
+              ],
+              "status": "verified",
+              "verification": true,
+              "note": "Originaltabellenzelle und Unbrako Grip Length Maximum stimmen überein.",
+              "verificationMethod": "independent-publishers-agree"
+            }
+          }
+        },
+        "50": {
+          "coverage": "documented",
+          "geometryStatus": "documented",
+          "missingGeometryFields": [],
+          "vorbelegung": {
+            "b": 32,
+            "sL": 50,
+            "threadMode": "partial"
+          },
+          "roh": {
+            "sL": 50,
+            "b_actual": 32,
+            "threadMode": "partial",
+            "ls_min": 10.5,
+            "lg_max": 18
+          },
+          "fields": {
+            "sL": {
+              "nominal": 50,
+              "min": 49.5,
+              "max": 50.5,
+              "unit": "mm",
+              "sourceRefs": [
+                "iteh4762_2004"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "note": "Nennlänge und Grenzen aus ISO4762:2004 Tabelle 1. Unbrako nennt abweichende eigene Längentoleranzen; diese werden nicht als Normgrenzen übernommen.",
+              "verificationMethod": "norm-length-cell"
+            },
+            "b_actual": {
+              "nominal": 32,
+              "unit": "mm",
+              "sourceRefs": [
+                "iteh4762_2004",
+                "unbrako"
+              ],
+              "status": "verified",
+              "verification": true,
+              "note": "Referenzgewindelänge; keine Behauptung einer exakt vermessenen Gewindeauslaufgrenze. ls_min/lg_max sind separat erhalten.",
+              "verificationMethod": "norm-table-and-manufacturer"
+            },
+            "threadMode": {
+              "nominal": "partial",
+              "unit": null,
+              "sourceRefs": [
+                "iteh4762_2004",
+                "unbrako"
+              ],
+              "status": "verified",
+              "verification": true,
+              "note": "Größenspezifische Voll-/Teilgewindegrenze, unabhängig von M6 ausgewertet.",
+              "verificationMethod": "norm-table-and-manufacturer"
+            },
+            "ls_min": {
+              "min": 10.5,
+              "unit": "mm",
+              "sourceRefs": [
+                "iteh4762_2004",
+                "unbrako"
+              ],
+              "status": "verified",
+              "verification": true,
+              "note": "Originaltabellenzelle und Unbrako Body Length Minimum stimmen überein.",
+              "verificationMethod": "independent-publishers-agree"
+            },
+            "lg_max": {
+              "max": 18,
+              "unit": "mm",
+              "sourceRefs": [
+                "iteh4762_2004",
+                "unbrako"
+              ],
+              "status": "verified",
+              "verification": true,
+              "note": "Originaltabellenzelle und Unbrako Grip Length Maximum stimmen überein.",
+              "verificationMethod": "independent-publishers-agree"
+            }
+          }
+        },
+        "55": {
+          "coverage": "documented",
+          "geometryStatus": "documented",
+          "missingGeometryFields": [],
+          "vorbelegung": {
+            "b": 32,
+            "sL": 55,
+            "threadMode": "partial"
+          },
+          "roh": {
+            "sL": 55,
+            "b_actual": 32,
+            "threadMode": "partial",
+            "ls_min": 15.5,
+            "lg_max": 23
+          },
+          "fields": {
+            "sL": {
+              "nominal": 55,
+              "min": 54.4,
+              "max": 55.6,
+              "unit": "mm",
+              "sourceRefs": [
+                "iteh4762_2004"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "note": "Nennlänge und Grenzen aus ISO4762:2004 Tabelle 1. Unbrako nennt abweichende eigene Längentoleranzen; diese werden nicht als Normgrenzen übernommen.",
+              "verificationMethod": "norm-length-cell"
+            },
+            "b_actual": {
+              "nominal": 32,
+              "unit": "mm",
+              "sourceRefs": [
+                "iteh4762_2004",
+                "unbrako"
+              ],
+              "status": "verified",
+              "verification": true,
+              "note": "Referenzgewindelänge; keine Behauptung einer exakt vermessenen Gewindeauslaufgrenze. ls_min/lg_max sind separat erhalten.",
+              "verificationMethod": "norm-table-and-manufacturer"
+            },
+            "threadMode": {
+              "nominal": "partial",
+              "unit": null,
+              "sourceRefs": [
+                "iteh4762_2004",
+                "unbrako"
+              ],
+              "status": "verified",
+              "verification": true,
+              "note": "Größenspezifische Voll-/Teilgewindegrenze, unabhängig von M6 ausgewertet.",
+              "verificationMethod": "norm-table-and-manufacturer"
+            },
+            "ls_min": {
+              "min": 15.5,
+              "unit": "mm",
+              "sourceRefs": [
+                "iteh4762_2004",
+                "unbrako"
+              ],
+              "status": "verified",
+              "verification": true,
+              "note": "Originaltabellenzelle und Unbrako Body Length Minimum stimmen überein.",
+              "verificationMethod": "independent-publishers-agree"
+            },
+            "lg_max": {
+              "max": 23,
+              "unit": "mm",
+              "sourceRefs": [
+                "iteh4762_2004",
+                "unbrako"
+              ],
+              "status": "verified",
+              "verification": true,
+              "note": "Originaltabellenzelle und Unbrako Grip Length Maximum stimmen überein.",
+              "verificationMethod": "independent-publishers-agree"
+            }
+          }
+        },
+        "60": {
+          "coverage": "documented",
+          "geometryStatus": "documented",
+          "missingGeometryFields": [],
+          "vorbelegung": {
+            "b": 32,
+            "sL": 60,
+            "threadMode": "partial"
+          },
+          "roh": {
+            "sL": 60,
+            "b_actual": 32,
+            "threadMode": "partial",
+            "ls_min": 20.5,
+            "lg_max": 28
+          },
+          "fields": {
+            "sL": {
+              "nominal": 60,
+              "min": 59.4,
+              "max": 60.6,
+              "unit": "mm",
+              "sourceRefs": [
+                "iteh4762_2004"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "note": "Nennlänge und Grenzen aus ISO4762:2004 Tabelle 1. Unbrako nennt abweichende eigene Längentoleranzen; diese werden nicht als Normgrenzen übernommen.",
+              "verificationMethod": "norm-length-cell"
+            },
+            "b_actual": {
+              "nominal": 32,
+              "unit": "mm",
+              "sourceRefs": [
+                "iteh4762_2004",
+                "unbrako"
+              ],
+              "status": "verified",
+              "verification": true,
+              "note": "Referenzgewindelänge; keine Behauptung einer exakt vermessenen Gewindeauslaufgrenze. ls_min/lg_max sind separat erhalten.",
+              "verificationMethod": "norm-table-and-manufacturer"
+            },
+            "threadMode": {
+              "nominal": "partial",
+              "unit": null,
+              "sourceRefs": [
+                "iteh4762_2004",
+                "unbrako"
+              ],
+              "status": "verified",
+              "verification": true,
+              "note": "Größenspezifische Voll-/Teilgewindegrenze, unabhängig von M6 ausgewertet.",
+              "verificationMethod": "norm-table-and-manufacturer"
+            },
+            "ls_min": {
+              "min": 20.5,
+              "unit": "mm",
+              "sourceRefs": [
+                "iteh4762_2004",
+                "unbrako"
+              ],
+              "status": "verified",
+              "verification": true,
+              "note": "Originaltabellenzelle und Unbrako Body Length Minimum stimmen überein.",
+              "verificationMethod": "independent-publishers-agree"
+            },
+            "lg_max": {
+              "max": 28,
+              "unit": "mm",
+              "sourceRefs": [
+                "iteh4762_2004",
+                "unbrako"
+              ],
+              "status": "verified",
+              "verification": true,
+              "note": "Originaltabellenzelle und Unbrako Grip Length Maximum stimmen überein.",
+              "verificationMethod": "independent-publishers-agree"
+            }
+          }
+        },
+        "65": {
+          "coverage": "documented",
+          "geometryStatus": "documented",
+          "missingGeometryFields": [],
+          "vorbelegung": {
+            "b": 32,
+            "sL": 65,
+            "threadMode": "partial"
+          },
+          "roh": {
+            "sL": 65,
+            "b_actual": 32,
+            "threadMode": "partial",
+            "ls_min": 25.5,
+            "lg_max": 33
+          },
+          "fields": {
+            "sL": {
+              "nominal": 65,
+              "min": 64.4,
+              "max": 65.6,
+              "unit": "mm",
+              "sourceRefs": [
+                "iteh4762_2004"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "note": "Nennlänge und Grenzen aus ISO4762:2004 Tabelle 1. Unbrako nennt abweichende eigene Längentoleranzen; diese werden nicht als Normgrenzen übernommen.",
+              "verificationMethod": "norm-length-cell"
+            },
+            "b_actual": {
+              "nominal": 32,
+              "unit": "mm",
+              "sourceRefs": [
+                "iteh4762_2004",
+                "unbrako"
+              ],
+              "status": "verified",
+              "verification": true,
+              "note": "Referenzgewindelänge; keine Behauptung einer exakt vermessenen Gewindeauslaufgrenze. ls_min/lg_max sind separat erhalten.",
+              "verificationMethod": "norm-table-and-manufacturer"
+            },
+            "threadMode": {
+              "nominal": "partial",
+              "unit": null,
+              "sourceRefs": [
+                "iteh4762_2004",
+                "unbrako"
+              ],
+              "status": "verified",
+              "verification": true,
+              "note": "Größenspezifische Voll-/Teilgewindegrenze, unabhängig von M6 ausgewertet.",
+              "verificationMethod": "norm-table-and-manufacturer"
+            },
+            "ls_min": {
+              "min": 25.5,
+              "unit": "mm",
+              "sourceRefs": [
+                "iteh4762_2004",
+                "unbrako"
+              ],
+              "status": "verified",
+              "verification": true,
+              "note": "Originaltabellenzelle und Unbrako Body Length Minimum stimmen überein.",
+              "verificationMethod": "independent-publishers-agree"
+            },
+            "lg_max": {
+              "max": 33,
+              "unit": "mm",
+              "sourceRefs": [
+                "iteh4762_2004",
+                "unbrako"
+              ],
+              "status": "verified",
+              "verification": true,
+              "note": "Originaltabellenzelle und Unbrako Grip Length Maximum stimmen überein.",
+              "verificationMethod": "independent-publishers-agree"
+            }
+          }
+        },
+        "70": {
+          "coverage": "documented",
+          "geometryStatus": "documented",
+          "missingGeometryFields": [],
+          "vorbelegung": {
+            "b": 32,
+            "sL": 70,
+            "threadMode": "partial"
+          },
+          "roh": {
+            "sL": 70,
+            "b_actual": 32,
+            "threadMode": "partial",
+            "ls_min": 30.5,
+            "lg_max": 38
+          },
+          "fields": {
+            "sL": {
+              "nominal": 70,
+              "min": 69.4,
+              "max": 70.6,
+              "unit": "mm",
+              "sourceRefs": [
+                "iteh4762_2004"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "note": "Nennlänge und Grenzen aus ISO4762:2004 Tabelle 1. Unbrako nennt abweichende eigene Längentoleranzen; diese werden nicht als Normgrenzen übernommen.",
+              "verificationMethod": "norm-length-cell"
+            },
+            "b_actual": {
+              "nominal": 32,
+              "unit": "mm",
+              "sourceRefs": [
+                "iteh4762_2004",
+                "unbrako"
+              ],
+              "status": "verified",
+              "verification": true,
+              "note": "Referenzgewindelänge; keine Behauptung einer exakt vermessenen Gewindeauslaufgrenze. ls_min/lg_max sind separat erhalten.",
+              "verificationMethod": "norm-table-and-manufacturer"
+            },
+            "threadMode": {
+              "nominal": "partial",
+              "unit": null,
+              "sourceRefs": [
+                "iteh4762_2004",
+                "unbrako"
+              ],
+              "status": "verified",
+              "verification": true,
+              "note": "Größenspezifische Voll-/Teilgewindegrenze, unabhängig von M6 ausgewertet.",
+              "verificationMethod": "norm-table-and-manufacturer"
+            },
+            "ls_min": {
+              "min": 30.5,
+              "unit": "mm",
+              "sourceRefs": [
+                "iteh4762_2004",
+                "unbrako"
+              ],
+              "status": "verified",
+              "verification": true,
+              "note": "Originaltabellenzelle und Unbrako Body Length Minimum stimmen überein.",
+              "verificationMethod": "independent-publishers-agree"
+            },
+            "lg_max": {
+              "max": 38,
+              "unit": "mm",
+              "sourceRefs": [
+                "iteh4762_2004",
+                "unbrako"
+              ],
+              "status": "verified",
+              "verification": true,
+              "note": "Originaltabellenzelle und Unbrako Grip Length Maximum stimmen überein.",
+              "verificationMethod": "independent-publishers-agree"
+            }
+          }
+        },
+        "80": {
+          "coverage": "documented",
+          "geometryStatus": "documented",
+          "missingGeometryFields": [],
+          "vorbelegung": {
+            "b": 32,
+            "sL": 80,
+            "threadMode": "partial"
+          },
+          "roh": {
+            "sL": 80,
+            "b_actual": 32,
+            "threadMode": "partial",
+            "ls_min": 40.5,
+            "lg_max": 48
+          },
+          "fields": {
+            "sL": {
+              "nominal": 80,
+              "min": 79.4,
+              "max": 80.6,
+              "unit": "mm",
+              "sourceRefs": [
+                "iteh4762_2004"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "note": "Nennlänge und Grenzen aus ISO4762:2004 Tabelle 1. Unbrako nennt abweichende eigene Längentoleranzen; diese werden nicht als Normgrenzen übernommen.",
+              "verificationMethod": "norm-length-cell"
+            },
+            "b_actual": {
+              "nominal": 32,
+              "unit": "mm",
+              "sourceRefs": [
+                "iteh4762_2004",
+                "unbrako"
+              ],
+              "status": "verified",
+              "verification": true,
+              "note": "Referenzgewindelänge; keine Behauptung einer exakt vermessenen Gewindeauslaufgrenze. ls_min/lg_max sind separat erhalten.",
+              "verificationMethod": "norm-table-and-manufacturer"
+            },
+            "threadMode": {
+              "nominal": "partial",
+              "unit": null,
+              "sourceRefs": [
+                "iteh4762_2004",
+                "unbrako"
+              ],
+              "status": "verified",
+              "verification": true,
+              "note": "Größenspezifische Voll-/Teilgewindegrenze, unabhängig von M6 ausgewertet.",
+              "verificationMethod": "norm-table-and-manufacturer"
+            },
+            "ls_min": {
+              "min": 40.5,
+              "unit": "mm",
+              "sourceRefs": [
+                "iteh4762_2004",
+                "unbrako"
+              ],
+              "status": "verified",
+              "verification": true,
+              "note": "Originaltabellenzelle und Unbrako Body Length Minimum stimmen überein.",
+              "verificationMethod": "independent-publishers-agree"
+            },
+            "lg_max": {
+              "max": 48,
+              "unit": "mm",
+              "sourceRefs": [
+                "iteh4762_2004",
+                "unbrako"
+              ],
+              "status": "verified",
+              "verification": true,
+              "note": "Originaltabellenzelle und Unbrako Grip Length Maximum stimmen überein.",
+              "verificationMethod": "independent-publishers-agree"
+            }
+          }
+        },
+        "90": {
+          "coverage": "documented",
+          "geometryStatus": "documented",
+          "missingGeometryFields": [],
+          "vorbelegung": {
+            "b": 32,
+            "sL": 90,
+            "threadMode": "partial"
+          },
+          "roh": {
+            "sL": 90,
+            "b_actual": 32,
+            "threadMode": "partial",
+            "ls_min": 50.5,
+            "lg_max": 58
+          },
+          "fields": {
+            "sL": {
+              "nominal": 90,
+              "min": 89.3,
+              "max": 90.7,
+              "unit": "mm",
+              "sourceRefs": [
+                "iteh4762_2004"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "note": "Nennlänge und Grenzen aus ISO4762:2004 Tabelle 1. Unbrako nennt abweichende eigene Längentoleranzen; diese werden nicht als Normgrenzen übernommen.",
+              "verificationMethod": "norm-length-cell"
+            },
+            "b_actual": {
+              "nominal": 32,
+              "unit": "mm",
+              "sourceRefs": [
+                "iteh4762_2004",
+                "unbrako"
+              ],
+              "status": "verified",
+              "verification": true,
+              "note": "Referenzgewindelänge; keine Behauptung einer exakt vermessenen Gewindeauslaufgrenze. ls_min/lg_max sind separat erhalten.",
+              "verificationMethod": "norm-table-and-manufacturer"
+            },
+            "threadMode": {
+              "nominal": "partial",
+              "unit": null,
+              "sourceRefs": [
+                "iteh4762_2004",
+                "unbrako"
+              ],
+              "status": "verified",
+              "verification": true,
+              "note": "Größenspezifische Voll-/Teilgewindegrenze, unabhängig von M6 ausgewertet.",
+              "verificationMethod": "norm-table-and-manufacturer"
+            },
+            "ls_min": {
+              "min": 50.5,
+              "unit": "mm",
+              "sourceRefs": [
+                "iteh4762_2004",
+                "unbrako"
+              ],
+              "status": "verified",
+              "verification": true,
+              "note": "Originaltabellenzelle und Unbrako Body Length Minimum stimmen überein.",
+              "verificationMethod": "independent-publishers-agree"
+            },
+            "lg_max": {
+              "max": 58,
+              "unit": "mm",
+              "sourceRefs": [
+                "iteh4762_2004",
+                "unbrako"
+              ],
+              "status": "verified",
+              "verification": true,
+              "note": "Originaltabellenzelle und Unbrako Grip Length Maximum stimmen überein.",
+              "verificationMethod": "independent-publishers-agree"
+            }
+          }
+        },
+        "100": {
+          "coverage": "documented",
+          "geometryStatus": "documented",
+          "missingGeometryFields": [],
+          "vorbelegung": {
+            "b": 32,
+            "sL": 100,
+            "threadMode": "partial"
+          },
+          "roh": {
+            "sL": 100,
+            "b_actual": 32,
+            "threadMode": "partial",
+            "ls_min": 60.5,
+            "lg_max": 68
+          },
+          "fields": {
+            "sL": {
+              "nominal": 100,
+              "min": 99.3,
+              "max": 100.7,
+              "unit": "mm",
+              "sourceRefs": [
+                "iteh4762_2004"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "note": "Nennlänge und Grenzen aus ISO4762:2004 Tabelle 1. Unbrako nennt abweichende eigene Längentoleranzen; diese werden nicht als Normgrenzen übernommen.",
+              "verificationMethod": "norm-length-cell"
+            },
+            "b_actual": {
+              "nominal": 32,
+              "unit": "mm",
+              "sourceRefs": [
+                "iteh4762_2004",
+                "unbrako"
+              ],
+              "status": "verified",
+              "verification": true,
+              "note": "Referenzgewindelänge; keine Behauptung einer exakt vermessenen Gewindeauslaufgrenze. ls_min/lg_max sind separat erhalten.",
+              "verificationMethod": "norm-table-and-manufacturer"
+            },
+            "threadMode": {
+              "nominal": "partial",
+              "unit": null,
+              "sourceRefs": [
+                "iteh4762_2004",
+                "unbrako"
+              ],
+              "status": "verified",
+              "verification": true,
+              "note": "Größenspezifische Voll-/Teilgewindegrenze, unabhängig von M6 ausgewertet.",
+              "verificationMethod": "norm-table-and-manufacturer"
+            },
+            "ls_min": {
+              "min": 60.5,
+              "unit": "mm",
+              "sourceRefs": [
+                "iteh4762_2004",
+                "unbrako"
+              ],
+              "status": "verified",
+              "verification": true,
+              "note": "Originaltabellenzelle und Unbrako Body Length Minimum stimmen überein.",
+              "verificationMethod": "independent-publishers-agree"
+            },
+            "lg_max": {
+              "max": 68,
+              "unit": "mm",
+              "sourceRefs": [
+                "iteh4762_2004",
+                "unbrako"
+              ],
+              "status": "verified",
+              "verification": true,
+              "note": "Originaltabellenzelle und Unbrako Grip Length Maximum stimmen überein.",
+              "verificationMethod": "independent-publishers-agree"
+            }
+          }
+        }
+      },
       "missingGeometryFields": [],
-      "geometryStatus": "documented"
+      "geometryStatus": "documented",
+      "laengen": [
+        20,
+        25,
+        30,
+        35,
+        40,
+        45,
+        50,
+        55,
+        60,
+        65,
+        70,
+        80,
+        90,
+        100
+      ]
     },
     "M12": {
       "vorbelegung": {
@@ -746,10 +4106,1072 @@
         "ds_max": 12
       },
       "coverage": "documented",
-      "lengthCoverage": "unresearched",
-      "nachLaenge": {},
+      "lengthCoverage": "partial",
+      "nachLaenge": {
+        "25": {
+          "coverage": "documented",
+          "geometryStatus": "documented",
+          "missingGeometryFields": [],
+          "vorbelegung": {
+            "b": 25,
+            "sL": 25,
+            "threadMode": "full"
+          },
+          "roh": {
+            "sL": 25,
+            "b_actual": 25,
+            "threadMode": "full"
+          },
+          "fields": {
+            "sL": {
+              "nominal": 25,
+              "min": 24.58,
+              "max": 25.42,
+              "unit": "mm",
+              "sourceRefs": [
+                "iteh4762_2004"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "note": "Nennlänge und Grenzen aus ISO4762:2004 Tabelle 1. Unbrako nennt abweichende eigene Längentoleranzen; diese werden nicht als Normgrenzen übernommen.",
+              "verificationMethod": "norm-length-cell"
+            },
+            "b_actual": {
+              "nominal": 25,
+              "unit": "mm",
+              "sourceRefs": [
+                "iteh4762_2004",
+                "unbrako"
+              ],
+              "status": "verified",
+              "verification": true,
+              "note": "Gewinde bis Kopf gemäß eigener Größenschwelle; Nennlänge als Vorbelegung, zulässiger unvollständiger Auslauf bleibt.",
+              "verificationMethod": "norm-table-and-manufacturer"
+            },
+            "threadMode": {
+              "nominal": "full",
+              "unit": null,
+              "sourceRefs": [
+                "iteh4762_2004",
+                "unbrako"
+              ],
+              "status": "verified",
+              "verification": true,
+              "note": "Größenspezifische Voll-/Teilgewindegrenze, unabhängig von M6 ausgewertet.",
+              "verificationMethod": "norm-table-and-manufacturer"
+            }
+          }
+        },
+        "30": {
+          "coverage": "documented",
+          "geometryStatus": "documented",
+          "missingGeometryFields": [],
+          "vorbelegung": {
+            "b": 30,
+            "sL": 30,
+            "threadMode": "full"
+          },
+          "roh": {
+            "sL": 30,
+            "b_actual": 30,
+            "threadMode": "full"
+          },
+          "fields": {
+            "sL": {
+              "nominal": 30,
+              "min": 29.58,
+              "max": 30.42,
+              "unit": "mm",
+              "sourceRefs": [
+                "iteh4762_2004"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "note": "Nennlänge und Grenzen aus ISO4762:2004 Tabelle 1. Unbrako nennt abweichende eigene Längentoleranzen; diese werden nicht als Normgrenzen übernommen.",
+              "verificationMethod": "norm-length-cell"
+            },
+            "b_actual": {
+              "nominal": 30,
+              "unit": "mm",
+              "sourceRefs": [
+                "iteh4762_2004",
+                "unbrako"
+              ],
+              "status": "verified",
+              "verification": true,
+              "note": "Gewinde bis Kopf gemäß eigener Größenschwelle; Nennlänge als Vorbelegung, zulässiger unvollständiger Auslauf bleibt.",
+              "verificationMethod": "norm-table-and-manufacturer"
+            },
+            "threadMode": {
+              "nominal": "full",
+              "unit": null,
+              "sourceRefs": [
+                "iteh4762_2004",
+                "unbrako"
+              ],
+              "status": "verified",
+              "verification": true,
+              "note": "Größenspezifische Voll-/Teilgewindegrenze, unabhängig von M6 ausgewertet.",
+              "verificationMethod": "norm-table-and-manufacturer"
+            }
+          }
+        },
+        "35": {
+          "coverage": "documented",
+          "geometryStatus": "documented",
+          "missingGeometryFields": [],
+          "vorbelegung": {
+            "b": 35,
+            "sL": 35,
+            "threadMode": "full"
+          },
+          "roh": {
+            "sL": 35,
+            "b_actual": 35,
+            "threadMode": "full"
+          },
+          "fields": {
+            "sL": {
+              "nominal": 35,
+              "min": 34.5,
+              "max": 35.5,
+              "unit": "mm",
+              "sourceRefs": [
+                "iteh4762_2004"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "note": "Nennlänge und Grenzen aus ISO4762:2004 Tabelle 1. Unbrako nennt abweichende eigene Längentoleranzen; diese werden nicht als Normgrenzen übernommen.",
+              "verificationMethod": "norm-length-cell"
+            },
+            "b_actual": {
+              "nominal": 35,
+              "unit": "mm",
+              "sourceRefs": [
+                "iteh4762_2004",
+                "unbrako"
+              ],
+              "status": "verified",
+              "verification": true,
+              "note": "Gewinde bis Kopf gemäß eigener Größenschwelle; Nennlänge als Vorbelegung, zulässiger unvollständiger Auslauf bleibt.",
+              "verificationMethod": "norm-table-and-manufacturer"
+            },
+            "threadMode": {
+              "nominal": "full",
+              "unit": null,
+              "sourceRefs": [
+                "iteh4762_2004",
+                "unbrako"
+              ],
+              "status": "verified",
+              "verification": true,
+              "note": "Größenspezifische Voll-/Teilgewindegrenze, unabhängig von M6 ausgewertet.",
+              "verificationMethod": "norm-table-and-manufacturer"
+            }
+          }
+        },
+        "40": {
+          "coverage": "documented",
+          "geometryStatus": "documented",
+          "missingGeometryFields": [],
+          "vorbelegung": {
+            "b": 40,
+            "sL": 40,
+            "threadMode": "full"
+          },
+          "roh": {
+            "sL": 40,
+            "b_actual": 40,
+            "threadMode": "full"
+          },
+          "fields": {
+            "sL": {
+              "nominal": 40,
+              "min": 39.5,
+              "max": 40.5,
+              "unit": "mm",
+              "sourceRefs": [
+                "iteh4762_2004"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "note": "Nennlänge und Grenzen aus ISO4762:2004 Tabelle 1. Unbrako nennt abweichende eigene Längentoleranzen; diese werden nicht als Normgrenzen übernommen.",
+              "verificationMethod": "norm-length-cell"
+            },
+            "b_actual": {
+              "nominal": 40,
+              "unit": "mm",
+              "sourceRefs": [
+                "iteh4762_2004",
+                "unbrako"
+              ],
+              "status": "verified",
+              "verification": true,
+              "note": "Gewinde bis Kopf gemäß eigener Größenschwelle; Nennlänge als Vorbelegung, zulässiger unvollständiger Auslauf bleibt.",
+              "verificationMethod": "norm-table-and-manufacturer"
+            },
+            "threadMode": {
+              "nominal": "full",
+              "unit": null,
+              "sourceRefs": [
+                "iteh4762_2004",
+                "unbrako"
+              ],
+              "status": "verified",
+              "verification": true,
+              "note": "Größenspezifische Voll-/Teilgewindegrenze, unabhängig von M6 ausgewertet.",
+              "verificationMethod": "norm-table-and-manufacturer"
+            }
+          }
+        },
+        "45": {
+          "coverage": "documented",
+          "geometryStatus": "documented",
+          "missingGeometryFields": [],
+          "vorbelegung": {
+            "b": 45,
+            "sL": 45,
+            "threadMode": "full"
+          },
+          "roh": {
+            "sL": 45,
+            "b_actual": 45,
+            "threadMode": "full"
+          },
+          "fields": {
+            "sL": {
+              "nominal": 45,
+              "min": 44.5,
+              "max": 45.5,
+              "unit": "mm",
+              "sourceRefs": [
+                "iteh4762_2004"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "note": "Nennlänge und Grenzen aus ISO4762:2004 Tabelle 1. Unbrako nennt abweichende eigene Längentoleranzen; diese werden nicht als Normgrenzen übernommen.",
+              "verificationMethod": "norm-length-cell"
+            },
+            "b_actual": {
+              "nominal": 45,
+              "unit": "mm",
+              "sourceRefs": [
+                "iteh4762_2004",
+                "unbrako"
+              ],
+              "status": "verified",
+              "verification": true,
+              "note": "Gewinde bis Kopf gemäß eigener Größenschwelle; Nennlänge als Vorbelegung, zulässiger unvollständiger Auslauf bleibt.",
+              "verificationMethod": "norm-table-and-manufacturer"
+            },
+            "threadMode": {
+              "nominal": "full",
+              "unit": null,
+              "sourceRefs": [
+                "iteh4762_2004",
+                "unbrako"
+              ],
+              "status": "verified",
+              "verification": true,
+              "note": "Größenspezifische Voll-/Teilgewindegrenze, unabhängig von M6 ausgewertet.",
+              "verificationMethod": "norm-table-and-manufacturer"
+            }
+          }
+        },
+        "50": {
+          "coverage": "documented",
+          "geometryStatus": "documented",
+          "missingGeometryFields": [],
+          "vorbelegung": {
+            "b": 50,
+            "sL": 50,
+            "threadMode": "full"
+          },
+          "roh": {
+            "sL": 50,
+            "b_actual": 50,
+            "threadMode": "full"
+          },
+          "fields": {
+            "sL": {
+              "nominal": 50,
+              "min": 49.5,
+              "max": 50.5,
+              "unit": "mm",
+              "sourceRefs": [
+                "iteh4762_2004"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "note": "Nennlänge und Grenzen aus ISO4762:2004 Tabelle 1. Unbrako nennt abweichende eigene Längentoleranzen; diese werden nicht als Normgrenzen übernommen.",
+              "verificationMethod": "norm-length-cell"
+            },
+            "b_actual": {
+              "nominal": 50,
+              "unit": "mm",
+              "sourceRefs": [
+                "iteh4762_2004",
+                "unbrako"
+              ],
+              "status": "verified",
+              "verification": true,
+              "note": "Gewinde bis Kopf gemäß eigener Größenschwelle; Nennlänge als Vorbelegung, zulässiger unvollständiger Auslauf bleibt.",
+              "verificationMethod": "norm-table-and-manufacturer"
+            },
+            "threadMode": {
+              "nominal": "full",
+              "unit": null,
+              "sourceRefs": [
+                "iteh4762_2004",
+                "unbrako"
+              ],
+              "status": "verified",
+              "verification": true,
+              "note": "Größenspezifische Voll-/Teilgewindegrenze, unabhängig von M6 ausgewertet.",
+              "verificationMethod": "norm-table-and-manufacturer"
+            }
+          }
+        },
+        "55": {
+          "coverage": "documented",
+          "geometryStatus": "documented",
+          "missingGeometryFields": [],
+          "vorbelegung": {
+            "b": 36,
+            "sL": 55,
+            "threadMode": "partial"
+          },
+          "roh": {
+            "sL": 55,
+            "b_actual": 36,
+            "threadMode": "partial",
+            "ls_min": 10.25,
+            "lg_max": 19
+          },
+          "fields": {
+            "sL": {
+              "nominal": 55,
+              "min": 54.4,
+              "max": 55.6,
+              "unit": "mm",
+              "sourceRefs": [
+                "iteh4762_2004"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "note": "Nennlänge und Grenzen aus ISO4762:2004 Tabelle 1. Unbrako nennt abweichende eigene Längentoleranzen; diese werden nicht als Normgrenzen übernommen.",
+              "verificationMethod": "norm-length-cell"
+            },
+            "b_actual": {
+              "nominal": 36,
+              "unit": "mm",
+              "sourceRefs": [
+                "iteh4762_2004",
+                "unbrako"
+              ],
+              "status": "verified",
+              "verification": true,
+              "note": "Referenzgewindelänge; keine Behauptung einer exakt vermessenen Gewindeauslaufgrenze. ls_min/lg_max sind separat erhalten.",
+              "verificationMethod": "norm-table-and-manufacturer"
+            },
+            "threadMode": {
+              "nominal": "partial",
+              "unit": null,
+              "sourceRefs": [
+                "iteh4762_2004",
+                "unbrako"
+              ],
+              "status": "verified",
+              "verification": true,
+              "note": "Größenspezifische Voll-/Teilgewindegrenze, unabhängig von M6 ausgewertet.",
+              "verificationMethod": "norm-table-and-manufacturer"
+            },
+            "ls_min": {
+              "min": 10.25,
+              "unit": "mm",
+              "sourceRefs": [
+                "iteh4762_2004",
+                "unbrako"
+              ],
+              "status": "verified",
+              "verification": true,
+              "note": "Originaltabellenzelle und Unbrako Body Length Minimum stimmen überein.",
+              "verificationMethod": "independent-publishers-agree"
+            },
+            "lg_max": {
+              "max": 19,
+              "unit": "mm",
+              "sourceRefs": [
+                "iteh4762_2004",
+                "unbrako"
+              ],
+              "status": "verified",
+              "verification": true,
+              "note": "Originaltabellenzelle und Unbrako Grip Length Maximum stimmen überein.",
+              "verificationMethod": "independent-publishers-agree"
+            }
+          }
+        },
+        "60": {
+          "coverage": "documented",
+          "geometryStatus": "documented",
+          "missingGeometryFields": [],
+          "vorbelegung": {
+            "b": 36,
+            "sL": 60,
+            "threadMode": "partial"
+          },
+          "roh": {
+            "sL": 60,
+            "b_actual": 36,
+            "threadMode": "partial",
+            "ls_min": 15.25,
+            "lg_max": 24
+          },
+          "fields": {
+            "sL": {
+              "nominal": 60,
+              "min": 59.4,
+              "max": 60.6,
+              "unit": "mm",
+              "sourceRefs": [
+                "iteh4762_2004"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "note": "Nennlänge und Grenzen aus ISO4762:2004 Tabelle 1. Unbrako nennt abweichende eigene Längentoleranzen; diese werden nicht als Normgrenzen übernommen.",
+              "verificationMethod": "norm-length-cell"
+            },
+            "b_actual": {
+              "nominal": 36,
+              "unit": "mm",
+              "sourceRefs": [
+                "iteh4762_2004",
+                "unbrako"
+              ],
+              "status": "verified",
+              "verification": true,
+              "note": "Referenzgewindelänge; keine Behauptung einer exakt vermessenen Gewindeauslaufgrenze. ls_min/lg_max sind separat erhalten.",
+              "verificationMethod": "norm-table-and-manufacturer"
+            },
+            "threadMode": {
+              "nominal": "partial",
+              "unit": null,
+              "sourceRefs": [
+                "iteh4762_2004",
+                "unbrako"
+              ],
+              "status": "verified",
+              "verification": true,
+              "note": "Größenspezifische Voll-/Teilgewindegrenze, unabhängig von M6 ausgewertet.",
+              "verificationMethod": "norm-table-and-manufacturer"
+            },
+            "ls_min": {
+              "min": 15.25,
+              "unit": "mm",
+              "sourceRefs": [
+                "iteh4762_2004",
+                "unbrako"
+              ],
+              "status": "verified",
+              "verification": true,
+              "note": "Originaltabellenzelle und Unbrako Body Length Minimum stimmen überein.",
+              "verificationMethod": "independent-publishers-agree"
+            },
+            "lg_max": {
+              "max": 24,
+              "unit": "mm",
+              "sourceRefs": [
+                "iteh4762_2004",
+                "unbrako"
+              ],
+              "status": "verified",
+              "verification": true,
+              "note": "Originaltabellenzelle und Unbrako Grip Length Maximum stimmen überein.",
+              "verificationMethod": "independent-publishers-agree"
+            }
+          }
+        },
+        "65": {
+          "coverage": "documented",
+          "geometryStatus": "documented",
+          "missingGeometryFields": [],
+          "vorbelegung": {
+            "b": 36,
+            "sL": 65,
+            "threadMode": "partial"
+          },
+          "roh": {
+            "sL": 65,
+            "b_actual": 36,
+            "threadMode": "partial",
+            "ls_min": 20.25,
+            "lg_max": 29
+          },
+          "fields": {
+            "sL": {
+              "nominal": 65,
+              "min": 64.4,
+              "max": 65.6,
+              "unit": "mm",
+              "sourceRefs": [
+                "iteh4762_2004"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "note": "Nennlänge und Grenzen aus ISO4762:2004 Tabelle 1. Unbrako nennt abweichende eigene Längentoleranzen; diese werden nicht als Normgrenzen übernommen.",
+              "verificationMethod": "norm-length-cell"
+            },
+            "b_actual": {
+              "nominal": 36,
+              "unit": "mm",
+              "sourceRefs": [
+                "iteh4762_2004",
+                "unbrako"
+              ],
+              "status": "verified",
+              "verification": true,
+              "note": "Referenzgewindelänge; keine Behauptung einer exakt vermessenen Gewindeauslaufgrenze. ls_min/lg_max sind separat erhalten.",
+              "verificationMethod": "norm-table-and-manufacturer"
+            },
+            "threadMode": {
+              "nominal": "partial",
+              "unit": null,
+              "sourceRefs": [
+                "iteh4762_2004",
+                "unbrako"
+              ],
+              "status": "verified",
+              "verification": true,
+              "note": "Größenspezifische Voll-/Teilgewindegrenze, unabhängig von M6 ausgewertet.",
+              "verificationMethod": "norm-table-and-manufacturer"
+            },
+            "ls_min": {
+              "min": 20.25,
+              "unit": "mm",
+              "sourceRefs": [
+                "iteh4762_2004",
+                "unbrako"
+              ],
+              "status": "verified",
+              "verification": true,
+              "note": "Originaltabellenzelle und Unbrako Body Length Minimum stimmen überein.",
+              "verificationMethod": "independent-publishers-agree"
+            },
+            "lg_max": {
+              "max": 29,
+              "unit": "mm",
+              "sourceRefs": [
+                "iteh4762_2004",
+                "unbrako"
+              ],
+              "status": "verified",
+              "verification": true,
+              "note": "Originaltabellenzelle und Unbrako Grip Length Maximum stimmen überein.",
+              "verificationMethod": "independent-publishers-agree"
+            }
+          }
+        },
+        "70": {
+          "coverage": "documented",
+          "geometryStatus": "documented",
+          "missingGeometryFields": [],
+          "vorbelegung": {
+            "b": 36,
+            "sL": 70,
+            "threadMode": "partial"
+          },
+          "roh": {
+            "sL": 70,
+            "b_actual": 36,
+            "threadMode": "partial",
+            "ls_min": 25.25,
+            "lg_max": 34
+          },
+          "fields": {
+            "sL": {
+              "nominal": 70,
+              "min": 69.4,
+              "max": 70.6,
+              "unit": "mm",
+              "sourceRefs": [
+                "iteh4762_2004"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "note": "Nennlänge und Grenzen aus ISO4762:2004 Tabelle 1. Unbrako nennt abweichende eigene Längentoleranzen; diese werden nicht als Normgrenzen übernommen.",
+              "verificationMethod": "norm-length-cell"
+            },
+            "b_actual": {
+              "nominal": 36,
+              "unit": "mm",
+              "sourceRefs": [
+                "iteh4762_2004",
+                "unbrako"
+              ],
+              "status": "verified",
+              "verification": true,
+              "note": "Referenzgewindelänge; keine Behauptung einer exakt vermessenen Gewindeauslaufgrenze. ls_min/lg_max sind separat erhalten.",
+              "verificationMethod": "norm-table-and-manufacturer"
+            },
+            "threadMode": {
+              "nominal": "partial",
+              "unit": null,
+              "sourceRefs": [
+                "iteh4762_2004",
+                "unbrako"
+              ],
+              "status": "verified",
+              "verification": true,
+              "note": "Größenspezifische Voll-/Teilgewindegrenze, unabhängig von M6 ausgewertet.",
+              "verificationMethod": "norm-table-and-manufacturer"
+            },
+            "ls_min": {
+              "min": 25.25,
+              "unit": "mm",
+              "sourceRefs": [
+                "iteh4762_2004",
+                "unbrako"
+              ],
+              "status": "verified",
+              "verification": true,
+              "note": "Originaltabellenzelle und Unbrako Body Length Minimum stimmen überein.",
+              "verificationMethod": "independent-publishers-agree"
+            },
+            "lg_max": {
+              "max": 34,
+              "unit": "mm",
+              "sourceRefs": [
+                "iteh4762_2004",
+                "unbrako"
+              ],
+              "status": "verified",
+              "verification": true,
+              "note": "Originaltabellenzelle und Unbrako Grip Length Maximum stimmen überein.",
+              "verificationMethod": "independent-publishers-agree"
+            }
+          }
+        },
+        "80": {
+          "coverage": "documented",
+          "geometryStatus": "documented",
+          "missingGeometryFields": [],
+          "vorbelegung": {
+            "b": 36,
+            "sL": 80,
+            "threadMode": "partial"
+          },
+          "roh": {
+            "sL": 80,
+            "b_actual": 36,
+            "threadMode": "partial",
+            "ls_min": 35.25,
+            "lg_max": 44
+          },
+          "fields": {
+            "sL": {
+              "nominal": 80,
+              "min": 79.4,
+              "max": 80.6,
+              "unit": "mm",
+              "sourceRefs": [
+                "iteh4762_2004"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "note": "Nennlänge und Grenzen aus ISO4762:2004 Tabelle 1. Unbrako nennt abweichende eigene Längentoleranzen; diese werden nicht als Normgrenzen übernommen.",
+              "verificationMethod": "norm-length-cell"
+            },
+            "b_actual": {
+              "nominal": 36,
+              "unit": "mm",
+              "sourceRefs": [
+                "iteh4762_2004",
+                "unbrako"
+              ],
+              "status": "verified",
+              "verification": true,
+              "note": "Referenzgewindelänge; keine Behauptung einer exakt vermessenen Gewindeauslaufgrenze. ls_min/lg_max sind separat erhalten.",
+              "verificationMethod": "norm-table-and-manufacturer"
+            },
+            "threadMode": {
+              "nominal": "partial",
+              "unit": null,
+              "sourceRefs": [
+                "iteh4762_2004",
+                "unbrako"
+              ],
+              "status": "verified",
+              "verification": true,
+              "note": "Größenspezifische Voll-/Teilgewindegrenze, unabhängig von M6 ausgewertet.",
+              "verificationMethod": "norm-table-and-manufacturer"
+            },
+            "ls_min": {
+              "min": 35.25,
+              "unit": "mm",
+              "sourceRefs": [
+                "iteh4762_2004",
+                "unbrako"
+              ],
+              "status": "verified",
+              "verification": true,
+              "note": "Originaltabellenzelle und Unbrako Body Length Minimum stimmen überein.",
+              "verificationMethod": "independent-publishers-agree"
+            },
+            "lg_max": {
+              "max": 44,
+              "unit": "mm",
+              "sourceRefs": [
+                "iteh4762_2004",
+                "unbrako"
+              ],
+              "status": "verified",
+              "verification": true,
+              "note": "Originaltabellenzelle und Unbrako Grip Length Maximum stimmen überein.",
+              "verificationMethod": "independent-publishers-agree"
+            }
+          }
+        },
+        "90": {
+          "coverage": "documented",
+          "geometryStatus": "documented",
+          "missingGeometryFields": [],
+          "vorbelegung": {
+            "b": 36,
+            "sL": 90,
+            "threadMode": "partial"
+          },
+          "roh": {
+            "sL": 90,
+            "b_actual": 36,
+            "threadMode": "partial",
+            "ls_min": 45.25,
+            "lg_max": 54
+          },
+          "fields": {
+            "sL": {
+              "nominal": 90,
+              "min": 89.3,
+              "max": 90.7,
+              "unit": "mm",
+              "sourceRefs": [
+                "iteh4762_2004"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "note": "Nennlänge und Grenzen aus ISO4762:2004 Tabelle 1. Unbrako nennt abweichende eigene Längentoleranzen; diese werden nicht als Normgrenzen übernommen.",
+              "verificationMethod": "norm-length-cell"
+            },
+            "b_actual": {
+              "nominal": 36,
+              "unit": "mm",
+              "sourceRefs": [
+                "iteh4762_2004",
+                "unbrako"
+              ],
+              "status": "verified",
+              "verification": true,
+              "note": "Referenzgewindelänge; keine Behauptung einer exakt vermessenen Gewindeauslaufgrenze. ls_min/lg_max sind separat erhalten.",
+              "verificationMethod": "norm-table-and-manufacturer"
+            },
+            "threadMode": {
+              "nominal": "partial",
+              "unit": null,
+              "sourceRefs": [
+                "iteh4762_2004",
+                "unbrako"
+              ],
+              "status": "verified",
+              "verification": true,
+              "note": "Größenspezifische Voll-/Teilgewindegrenze, unabhängig von M6 ausgewertet.",
+              "verificationMethod": "norm-table-and-manufacturer"
+            },
+            "ls_min": {
+              "min": 45.25,
+              "unit": "mm",
+              "sourceRefs": [
+                "iteh4762_2004",
+                "unbrako"
+              ],
+              "status": "verified",
+              "verification": true,
+              "note": "Originaltabellenzelle und Unbrako Body Length Minimum stimmen überein.",
+              "verificationMethod": "independent-publishers-agree"
+            },
+            "lg_max": {
+              "max": 54,
+              "unit": "mm",
+              "sourceRefs": [
+                "iteh4762_2004",
+                "unbrako"
+              ],
+              "status": "verified",
+              "verification": true,
+              "note": "Originaltabellenzelle und Unbrako Grip Length Maximum stimmen überein.",
+              "verificationMethod": "independent-publishers-agree"
+            }
+          }
+        },
+        "100": {
+          "coverage": "documented",
+          "geometryStatus": "documented",
+          "missingGeometryFields": [],
+          "vorbelegung": {
+            "b": 36,
+            "sL": 100,
+            "threadMode": "partial"
+          },
+          "roh": {
+            "sL": 100,
+            "b_actual": 36,
+            "threadMode": "partial",
+            "ls_min": 55.25,
+            "lg_max": 64
+          },
+          "fields": {
+            "sL": {
+              "nominal": 100,
+              "min": 99.3,
+              "max": 100.7,
+              "unit": "mm",
+              "sourceRefs": [
+                "iteh4762_2004"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "note": "Nennlänge und Grenzen aus ISO4762:2004 Tabelle 1. Unbrako nennt abweichende eigene Längentoleranzen; diese werden nicht als Normgrenzen übernommen.",
+              "verificationMethod": "norm-length-cell"
+            },
+            "b_actual": {
+              "nominal": 36,
+              "unit": "mm",
+              "sourceRefs": [
+                "iteh4762_2004",
+                "unbrako"
+              ],
+              "status": "verified",
+              "verification": true,
+              "note": "Referenzgewindelänge; keine Behauptung einer exakt vermessenen Gewindeauslaufgrenze. ls_min/lg_max sind separat erhalten.",
+              "verificationMethod": "norm-table-and-manufacturer"
+            },
+            "threadMode": {
+              "nominal": "partial",
+              "unit": null,
+              "sourceRefs": [
+                "iteh4762_2004",
+                "unbrako"
+              ],
+              "status": "verified",
+              "verification": true,
+              "note": "Größenspezifische Voll-/Teilgewindegrenze, unabhängig von M6 ausgewertet.",
+              "verificationMethod": "norm-table-and-manufacturer"
+            },
+            "ls_min": {
+              "min": 55.25,
+              "unit": "mm",
+              "sourceRefs": [
+                "iteh4762_2004",
+                "unbrako"
+              ],
+              "status": "verified",
+              "verification": true,
+              "note": "Originaltabellenzelle und Unbrako Body Length Minimum stimmen überein.",
+              "verificationMethod": "independent-publishers-agree"
+            },
+            "lg_max": {
+              "max": 64,
+              "unit": "mm",
+              "sourceRefs": [
+                "iteh4762_2004",
+                "unbrako"
+              ],
+              "status": "verified",
+              "verification": true,
+              "note": "Originaltabellenzelle und Unbrako Grip Length Maximum stimmen überein.",
+              "verificationMethod": "independent-publishers-agree"
+            }
+          }
+        },
+        "110": {
+          "coverage": "documented",
+          "geometryStatus": "documented",
+          "missingGeometryFields": [],
+          "vorbelegung": {
+            "b": 36,
+            "sL": 110,
+            "threadMode": "partial"
+          },
+          "roh": {
+            "sL": 110,
+            "b_actual": 36,
+            "threadMode": "partial",
+            "ls_min": 65.25,
+            "lg_max": 74
+          },
+          "fields": {
+            "sL": {
+              "nominal": 110,
+              "min": 109.3,
+              "max": 110.7,
+              "unit": "mm",
+              "sourceRefs": [
+                "iteh4762_2004"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "note": "Nennlänge und Grenzen aus ISO4762:2004 Tabelle 1. Unbrako nennt abweichende eigene Längentoleranzen; diese werden nicht als Normgrenzen übernommen.",
+              "verificationMethod": "norm-length-cell"
+            },
+            "b_actual": {
+              "nominal": 36,
+              "unit": "mm",
+              "sourceRefs": [
+                "iteh4762_2004",
+                "unbrako"
+              ],
+              "status": "verified",
+              "verification": true,
+              "note": "Referenzgewindelänge; keine Behauptung einer exakt vermessenen Gewindeauslaufgrenze. ls_min/lg_max sind separat erhalten.",
+              "verificationMethod": "norm-table-and-manufacturer"
+            },
+            "threadMode": {
+              "nominal": "partial",
+              "unit": null,
+              "sourceRefs": [
+                "iteh4762_2004",
+                "unbrako"
+              ],
+              "status": "verified",
+              "verification": true,
+              "note": "Größenspezifische Voll-/Teilgewindegrenze, unabhängig von M6 ausgewertet.",
+              "verificationMethod": "norm-table-and-manufacturer"
+            },
+            "ls_min": {
+              "min": 65.25,
+              "unit": "mm",
+              "sourceRefs": [
+                "iteh4762_2004",
+                "unbrako"
+              ],
+              "status": "verified",
+              "verification": true,
+              "note": "Originaltabellenzelle und Unbrako Body Length Minimum stimmen überein.",
+              "verificationMethod": "independent-publishers-agree"
+            },
+            "lg_max": {
+              "max": 74,
+              "unit": "mm",
+              "sourceRefs": [
+                "iteh4762_2004",
+                "unbrako"
+              ],
+              "status": "verified",
+              "verification": true,
+              "note": "Originaltabellenzelle und Unbrako Grip Length Maximum stimmen überein.",
+              "verificationMethod": "independent-publishers-agree"
+            }
+          }
+        },
+        "120": {
+          "coverage": "documented",
+          "geometryStatus": "documented",
+          "missingGeometryFields": [],
+          "vorbelegung": {
+            "b": 36,
+            "sL": 120,
+            "threadMode": "partial"
+          },
+          "roh": {
+            "sL": 120,
+            "b_actual": 36,
+            "threadMode": "partial",
+            "ls_min": 75.25,
+            "lg_max": 84
+          },
+          "fields": {
+            "sL": {
+              "nominal": 120,
+              "min": 119.3,
+              "max": 120.7,
+              "unit": "mm",
+              "sourceRefs": [
+                "iteh4762_2004"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "note": "Nennlänge und Grenzen aus ISO4762:2004 Tabelle 1. Unbrako nennt abweichende eigene Längentoleranzen; diese werden nicht als Normgrenzen übernommen.",
+              "verificationMethod": "norm-length-cell"
+            },
+            "b_actual": {
+              "nominal": 36,
+              "unit": "mm",
+              "sourceRefs": [
+                "iteh4762_2004",
+                "unbrako"
+              ],
+              "status": "verified",
+              "verification": true,
+              "note": "Referenzgewindelänge; keine Behauptung einer exakt vermessenen Gewindeauslaufgrenze. ls_min/lg_max sind separat erhalten.",
+              "verificationMethod": "norm-table-and-manufacturer"
+            },
+            "threadMode": {
+              "nominal": "partial",
+              "unit": null,
+              "sourceRefs": [
+                "iteh4762_2004",
+                "unbrako"
+              ],
+              "status": "verified",
+              "verification": true,
+              "note": "Größenspezifische Voll-/Teilgewindegrenze, unabhängig von M6 ausgewertet.",
+              "verificationMethod": "norm-table-and-manufacturer"
+            },
+            "ls_min": {
+              "min": 75.25,
+              "unit": "mm",
+              "sourceRefs": [
+                "iteh4762_2004",
+                "unbrako"
+              ],
+              "status": "verified",
+              "verification": true,
+              "note": "Originaltabellenzelle und Unbrako Body Length Minimum stimmen überein.",
+              "verificationMethod": "independent-publishers-agree"
+            },
+            "lg_max": {
+              "max": 84,
+              "unit": "mm",
+              "sourceRefs": [
+                "iteh4762_2004",
+                "unbrako"
+              ],
+              "status": "verified",
+              "verification": true,
+              "note": "Originaltabellenzelle und Unbrako Grip Length Maximum stimmen überein.",
+              "verificationMethod": "independent-publishers-agree"
+            }
+          }
+        }
+      },
       "missingGeometryFields": [],
-      "geometryStatus": "documented"
+      "geometryStatus": "documented",
+      "laengen": [
+        25,
+        30,
+        35,
+        40,
+        45,
+        50,
+        55,
+        60,
+        65,
+        70,
+        80,
+        90,
+        100,
+        110,
+        120
+      ]
     },
     "M14": {
       "vorbelegung": {
@@ -957,6 +5379,13 @@
       "titel": "Böllhoff DIN912/ISO4762 Maßblatt",
       "type": "manufacturer",
       "accessed": "2026-11-26"
+    },
+    {
+      "id": "wds-m8x40",
+      "url": "https://www.wdscomponents.com/en-gb/m8x40-mm-iso-4762-a2-stainless-socket-cap-screw-thread",
+      "titel": "WDS ISO4762 M8×40, L3=5,75 und L4=12",
+      "type": "manufacturer",
+      "abgerufen": "2026-11-26"
     }
   ],
   "abweichungen": [
@@ -995,7 +5424,8 @@
   "hinweise": [
     "b nur für l bis 125 mm belegt",
     "M6×30: Vollgewinde. Für Teilgewinde sind lg/ls Grenzmaße; b_ref allein beschreibt keinen exakten glatten Schaft. Weitere Längenzellen bleiben ausdrücklich unvollständig.",
-    "M18/M22/M27/M33 aus kombinierten DIN912/ISO4762-Herstellertabellen nicht als ISO-Normgrößen übernommen; Normzuordnung bleibt offen."
+    "M18/M22/M27/M33 aus kombinierten DIN912/ISO4762-Herstellertabellen nicht als ISO-Normgrößen übernommen; Normzuordnung bleibt offen.",
+    "Längenabhängige Daten M3–M12 erweitert: jede eigene Vollgewindeschwelle und die belegten ls/lg-Zellen aus ISO4762:2004 und Unbrako. Eine fehlende Zeile bleibt eine Datenlücke, kein Normausschluss."
   ],
   "schemaVersion": 1,
   "version": "2026-11-26",
@@ -2967,20 +7397,29 @@
       "type": "supplied-research-source"
     },
     "unbrako": {
+      "id": "unbrako",
       "url": "https://www.unbrako.com.au/images/downloads/unbrako-technical-brochure.pdf",
       "titel": "Unbrako technical brochure",
       "type": "manufacturer",
       "accessed": "2026-11-26"
     },
     "boell912": {
+      "id": "boell912",
       "url": "https://eshop.boellhoff.de/out/media/pdf/DIN_912_Stahl_12.9___de.pdf",
       "titel": "Böllhoff DIN912/ISO4762 Maßblatt",
       "type": "manufacturer",
       "accessed": "2026-11-26"
+    },
+    "wds-m8x40": {
+      "id": "wds-m8x40",
+      "url": "https://www.wdscomponents.com/en-gb/m8x40-mm-iso-4762-a2-stainless-socket-cap-screw-thread",
+      "titel": "WDS ISO4762 M8×40, L3=5,75 und L4=12",
+      "type": "manufacturer",
+      "abgerufen": "2026-11-26"
     }
   },
   "coverage": "documented",
-  "lengthCoverage": "unresearched",
+  "lengthCoverage": "partial",
   "requiredGeometryFields": [
     "kD",
     "kH",

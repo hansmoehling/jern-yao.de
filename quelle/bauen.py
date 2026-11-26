@@ -77,6 +77,7 @@ def build():
             values['/*DRAWING_PREVIEW*/']=(Q/'drawing-preview.js').read_text(encoding='utf-8-sig')
             values['/*GEOMETRY_MODEL*/']=(Q/'geometry-model.js').read_text(encoding='utf-8-sig')
             values['/*GEOMETRY_WIZARD*/']=(Q/'geometry-wizard.js').read_text(encoding='utf-8-sig')
+            values['/*AXIAL_CHAIN*/']='\n'.join((Q/file).read_text(encoding='utf-8') for file in ['axial-chain.js','axial-chain-ui.js','normen/to-chain.js'])+'\nwindow.JY_CHAIN_TEMPLATES='+json.dumps([json.loads(p.read_text(encoding='utf-8')) for p in sorted((Q/'vorlagen').glob('*.json'))],ensure_ascii=False,separators=(',',':')).replace('</','<\\/')+';'
             values['/*STANDARD_FAMILIES*/']=(Q/'standard-families.js').read_text(encoding='utf-8-sig')
             values['/*NORM_LIBRARY*/']='window.JY_NORM_DATA='+json.dumps(norm_library,ensure_ascii=False,separators=(',',':')).replace('</','<\\/')+';\n'+'\n'.join((Q/'normen'/file).read_text(encoding='utf-8') for file in ['resolver.js','library.js','ui.js'])
             values['/*WIRE_DEFAULTS*/']=embed_defaults((Q/'vorbelegung/draht.js').read_text(encoding='utf-8-sig'),'WIRE_PRESETS','vorbelegung/draht.json')

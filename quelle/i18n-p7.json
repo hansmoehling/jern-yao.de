@@ -1,0 +1,44 @@
+{
+  "Die Erfahrungsdaten werden noch eingerichtet.": [
+    "I dati di esperienza sono ancora in fase di configurazione.",
+    "Podatki iz izkušenj se še pripravljajo.",
+    "The experience data is still being set up.",
+    "经验数据仍在配置中。"
+  ],
+  "Technische Rückmeldung oder Merkmale sind ungültig.": [
+    "Il riscontro tecnico o le caratteristiche non sono validi.",
+    "Tehnična povratna informacija ali značilnosti niso veljavne.",
+    "The technical feedback or features are invalid.",
+    "技术反馈或特征无效。"
+  ],
+  "Diese Version der Erfahrungsfunktion ist nicht freigegeben.": [
+    "Questa versione della funzione basata sull'esperienza non è approvata.",
+    "Ta različica funkcije izkušenj ni odobrena.",
+    "This version of the experience feature is not approved.",
+    "此版本的经验功能尚未获批。"
+  ],
+  "Bitte der anonymen technischen Rückmeldung ausdrücklich zustimmen.": [
+    "Acconsentire esplicitamente all'invio del riscontro tecnico anonimo.",
+    "Izrecno soglašajte s pošiljanjem anonimne tehnične povratne informacije.",
+    "Please explicitly consent to anonymous technical feedback.",
+    "请明确同意提交匿名技术反馈。"
+  ],
+  "Anonyme technische Rückmeldung erlauben": [
+    "Consentire il riscontro tecnico anonimo",
+    "Dovoli anonimno tehnično povratno informacijo",
+    "Allow anonymous technical feedback",
+    "允许匿名技术反馈"
+  ],
+  "Nur technische Merkmale speichern; keine Zeichnung, Namen oder Kontaktdaten.": [
+    "Memorizzare solo le caratteristiche tecniche, senza disegni, nomi o dati di contatto.",
+    "Shrani samo tehnične značilnosti, brez risbe, imen ali kontaktnih podatkov.",
+    "Store technical features only, without drawings, names or contact details.",
+    "仅存储技术特征，不存储图纸、姓名或联系方式。"
+  ],
+  "Rückmeldung gespeichert – noch ungeprüft.": [
+    "Riscontro salvato, non ancora verificato.",
+    "Povratna informacija je shranjena, še ni preverjena.",
+    "Feedback saved; awaiting review.",
+    "反馈已保存，等待审核。"
+  ]
+}

@@ -1,0 +1,48 @@
+{
+  "id": "kugelzapfen",
+  "label": "Kugelzapfen – Volumenmodell",
+  "status": "illustrative-process-template",
+  "leadDiameterMm": 6,
+  "notes": [
+    "Kugel durch zwei Kegelstümpfe gleichen Volumens ersetzt. Die Kontur ist eine Modellnäherung."
+  ],
+  "chain": {
+    "version": 1,
+    "segments": [
+      {
+        "id": "S1",
+        "shape": "cone",
+        "diameter": 6.180339887498949,
+        "diameterEnd": 10,
+        "length": 5,
+        "offsetX": 0,
+        "offsetY": 0
+      },
+      {
+        "id": "S2",
+        "shape": "cone",
+        "diameter": 10,
+        "diameterEnd": 6.180339887498949,
+        "length": 5,
+        "offsetX": 0,
+        "offsetY": 0
+      },
+      {
+        "id": "S3",
+        "shape": "cylinder",
+        "diameter": 6,
+        "length": 20,
+        "offsetX": 0,
+        "offsetY": 0
+      }
+    ],
+    "recesses": [],
+    "parting": 10,
+    "flipped": false,
+    "trimming": []
+  },
+  "leadDimension": {
+    "segmentId": "S3",
+    "field": "diameter"
+  }
+}

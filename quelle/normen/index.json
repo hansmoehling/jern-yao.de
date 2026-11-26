@@ -40,9 +40,9 @@
     },
     {
       "id": "DIN603",
-      "edition": null,
+      "edition": "catalogue-unassigned",
       "file": "DIN603.json",
-      "sizes": 0
+      "sizes": 7
     },
     {
       "id": "DIN660",
@@ -172,15 +172,15 @@
     },
     {
       "id": "DIN938",
-      "edition": null,
+      "edition": "2025-08",
       "file": "DIN938.json",
-      "sizes": 0
+      "sizes": 20
     },
     {
       "id": "DIN939",
-      "edition": null,
+      "edition": "1995-02",
       "file": "DIN939.json",
-      "sizes": 0
+      "sizes": 19
     },
     {
       "id": "DIN940",
@@ -532,9 +532,9 @@
     },
     {
       "id": "ISO8677",
-      "edition": null,
+      "edition": "1986",
       "file": "ISO8677.json",
-      "sizes": 0
+      "sizes": 7
     },
     {
       "id": "ISO8734",

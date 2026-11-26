@@ -1,0 +1,58 @@
+{
+  "id": "halbhohlniet",
+  "label": "Halbhohlniet in Sonderform",
+  "status": "illustrative-process-template",
+  "leadDiameterMm": 5,
+  "notes": [
+    "120°-Kegelgrund als Prozessannahme; Bohrtiefe einschließlich Kegelspitze."
+  ],
+  "chain": {
+    "version": 1,
+    "segments": [
+      {
+        "id": "S1",
+        "shape": "cylinder",
+        "diameter": 9,
+        "length": 2,
+        "offsetX": 0,
+        "offsetY": 0
+      },
+      {
+        "id": "S2",
+        "shape": "cylinder",
+        "diameter": 5,
+        "length": 10,
+        "offsetX": 0,
+        "offsetY": 0
+      },
+      {
+        "id": "S3",
+        "shape": "cylinder",
+        "diameter": 4,
+        "length": 4,
+        "offsetX": 0,
+        "offsetY": 0
+      }
+    ],
+    "recesses": [
+      {
+        "id": "I1",
+        "from": "B",
+        "shape": "cylinder",
+        "diameter": 2.5,
+        "length": 5,
+        "offsetX": 0,
+        "offsetY": 0,
+        "bottomShape": "cone",
+        "bottomAngle": 120
+      }
+    ],
+    "parting": 2,
+    "flipped": false,
+    "trimming": []
+  },
+  "leadDimension": {
+    "segmentId": "S2",
+    "field": "diameter"
+  }
+}

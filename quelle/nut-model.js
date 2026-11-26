@@ -25,6 +25,7 @@
     for(const key of ['mSW','mH','mLoch','mFlansch','mFlanschH','mM','threadPitch']){
       if(present(e[key])&&(typeof e[key]!=='number'||!Number.isFinite(e[key])||e[key]<0))return fail(r,'number-invalid','Ungültiger Zahlenwert: '+key);
     }
+    if(present(e.threadPitch)&&e.threadPitch===0)return fail(r,'thread-pitch-invalid','Gewindesteigung muss positiv sein.');
     if(!positive(e.mSW)||!positive(e.mH))return fail(r,'body-missing','Schlüsselweite und Höhe der Mutter vollständig angeben.','partial');
     r.totalHeight=e.mH;
     if(shape==='cap'){

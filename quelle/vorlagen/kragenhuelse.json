@@ -1,0 +1,46 @@
+{
+  "id": "kragenhuelse",
+  "label": "Kragenhülse",
+  "status": "illustrative-process-template",
+  "leadDiameterMm": 10,
+  "notes": [],
+  "chain": {
+    "version": 1,
+    "segments": [
+      {
+        "id": "S1",
+        "shape": "cylinder",
+        "diameter": 12,
+        "length": 2,
+        "offsetX": 0,
+        "offsetY": 0
+      },
+      {
+        "id": "S2",
+        "shape": "cylinder",
+        "diameter": 10,
+        "length": 18,
+        "offsetX": 0,
+        "offsetY": 0
+      }
+    ],
+    "recesses": [
+      {
+        "id": "I1",
+        "from": "A",
+        "shape": "cylinder",
+        "diameter": 7,
+        "length": 20,
+        "offsetX": 0,
+        "offsetY": 0
+      }
+    ],
+    "parting": 2,
+    "flipped": false,
+    "trimming": []
+  },
+  "leadDimension": {
+    "segmentId": "S2",
+    "field": "diameter"
+  }
+}

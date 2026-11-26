@@ -68,6 +68,7 @@ test('invalid numeric values and numeric overflow fail without NaN output',()=>{
   for(const value of ['13',NaN,Infinity,-1])assert.equal(nutModel({mSW:value,mH:8,mLoch:6.8}).valid,false);
   const huge=nutModel({mSW:1e308,mH:8,mLoch:6.8});assert.equal(huge.valid,false);assert.equal(huge.volume,null);
   assert.equal(nutModel({nutShape:'unknown',mSW:13,mH:8,mLoch:6.8}).valid,false);
+  assert.equal(nutModel({mM:8,mSW:13,mH:8,threadPitch:0}).valid,false,'zero pitch is not silently replaced by coarse pitch');
 });
 
 test('data options are immutable and an explicit missing dataset does not trigger a hidden fallback',()=>{

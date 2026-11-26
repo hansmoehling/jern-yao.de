@@ -1,0 +1,46 @@
+{
+  "id": "mutter-kragen",
+  "label": "Mutter mit Kragen",
+  "status": "illustrative-process-template",
+  "leadDiameterMm": 12,
+  "notes": [],
+  "chain": {
+    "version": 1,
+    "segments": [
+      {
+        "id": "S1",
+        "shape": "hex",
+        "acrossFlats": 14,
+        "length": 8,
+        "offsetX": 0,
+        "offsetY": 0
+      },
+      {
+        "id": "S2",
+        "shape": "cylinder",
+        "diameter": 12,
+        "length": 3,
+        "offsetX": 0,
+        "offsetY": 0
+      }
+    ],
+    "recesses": [
+      {
+        "id": "I1",
+        "from": "A",
+        "shape": "cylinder",
+        "diameter": 8.68,
+        "length": 11,
+        "offsetX": 0,
+        "offsetY": 0
+      }
+    ],
+    "parting": 8,
+    "flipped": false,
+    "trimming": []
+  },
+  "leadDimension": {
+    "segmentId": "S2",
+    "field": "diameter"
+  }
+}

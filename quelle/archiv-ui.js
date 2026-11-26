@@ -283,6 +283,7 @@
   function rechnen() {
     sichtbar();
     vorbelegen();
+    if(staged&&$('norm-chain-actions'))$('norm-chain-actions').hidden=typ()!=='bolzen';
     if(lastType!==typ()){lastType=typ();anfrageAuswahlLoeschen();}
     if(formteilmodus()){
       letzte=null;$('aus').hidden=true;$('leer').hidden=true;drawingGallery();
@@ -531,6 +532,19 @@
     mu: { typ: 'mutter', d0: '13', mM: '10', mSW: '16', mH: '8' }
   };
   document.querySelectorAll('[data-bsp]').forEach(btn => btn.addEventListener('click', () => {
+    if(staged&&normPicker){
+      normPicker.reset();materialMode='auto';wireMode='auto';wireOption=null;wireSignature='';
+      f.reset();setDrawingFile(null);anfrageAuswahlLoeschen();
+      if(btn.dataset.bsp==='stufen'){
+        sel.value=variants.find(v=>v.material.id==='C4C'&&v.curve.state==='soft-annealed')?.value||'';
+        geometryWizard.setChain(window.JYAxialChain.fromTemplate(window.JY_CHAIN_TEMPLATES.find(t=>t.id==='stufenbolzen')));
+        f.elements.typ.value='formteil';selectPartsMode('geometry');
+      }else{
+        const choices={m6:{id:'ISO4762',groesse:'M6',laenge:30,festigkeitsklasse:'8.8'},m8:{id:'ISO4017',groesse:'M8',laenge:40,festigkeitsklasse:'8.8'},niet:{id:'DIN6791',groesse:'4',laenge:12,festigkeitsklasse:'Stahl'},mu:{id:'ISO4032',groesse:'M10',festigkeitsklasse:'8'}};
+        normPicker.select(choices[btn.dataset.bsp]);rechnen();
+      }
+      return;
+    }
     if(staged){wireMode='custom';wireOption=null;wireSignature='';}
     f.reset(); a.elements.ok.checked = false;
     setDrawingFile(null);
@@ -602,11 +616,19 @@
         const rule=window.JY_NORM_DATA.materials.rules.find(rule=>rule.kind===kind&&rule.classes.includes(preset.propertyClass));
         const materialDefault=rule&&variants.find(v=>v.material.id===rule.materialId&&v.curve.state===rule.state);
         if(materialMode==='auto'&&materialDefault){sel.value=materialDefault.value;materialDefaultKey=kind+':'+preset.propertyClass;}
-        wireMode='auto';wireSignature='';anfrageAuswahlLoeschen();
+        wireSignature='';anfrageAuswahlLoeschen();
       },onChange:rechnen});
     $('norm-picker').hidden=false;
   }
-  geometryWizard=window.JYGeometryWizard?.create({root:$('geometry-wizard'),view:$('geometry-view'),translate:tr,evaluate:(spec,options)=>window.JYGeometry?.evaluate(spec,options),onChange(){geometrySelectedModel=null;anfrageAuswahlZeigen();rechnen();}})||null;
+  geometryWizard=(staged&&window.JYAxialChainUI?window.JYAxialChainUI:window.JYGeometryWizard)?.create({root:$('geometry-wizard'),view:$('geometry-view'),translate:tr,templates:window.JY_CHAIN_TEMPLATES||[],evaluate:(spec,options)=>window.JYGeometry?.evaluate(spec,options),onChange(){geometrySelectedModel=null;anfrageAuswahlZeigen();rechnen();}})||null;
+  if(staged&&$('norm-to-chain'))$('norm-to-chain').addEventListener('click',()=>{
+    const status=$('norm-chain-status');status.dataset.originalText='';
+    try{
+      const e=lesen(),chain=window.JYNormToChain.fromBolt(e,E.boltGeometry(e));
+      geometryWizard.setChain(chain);wireMode='custom';wireOption=null;f.elements.d0.value=String(e.d0||'');f.elements.typ.value='formteil';selectPartsMode('geometry');
+      status.textContent='';$('geometry-panel').scrollIntoView({block:'start',behavior:'smooth'});
+    }catch(error){status.textContent=tr(error.message);}
+  });
   if(window.JYDrawingPreview)drawingPreview=window.JYDrawingPreview.create({button:$('parts-drawing-analyse'),progress:$('parts-drawing-progress'),status:$('parts-drawing-status'),result:$('parts-drawing-result'),refresh:$('parts-drawing-refresh'),showWhenEmpty:true,getFile:()=>drawingActive()?partsFile:null,getNote:drawingNote,getMaterialChoice:drawingMaterialChoice,canChooseMachine:model=>MASCHINEN.some(machine=>machine.m===model),onInvalidate(){drawingResult=null;drawingSelectedModel=null;anfrageAuswahlZeigen();drawingGallery();},onResult(data){drawingResult=data;drawingGallery();knoepfe();},onChooseMachine(model){if(!drawingMachines().some(machine=>machine.model===model))return;drawingSelectedModel=model;anfrageAuswahlZeigen();a.elements.email.focus({preventScroll:true});$('anfrage').scrollIntoView({behavior:window.matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth',block:'start'});}});
   if(window.JYDrawingPreview?.apiBase&&geometryWizard)geometryPreview=window.JYDrawingPreview.create({button:$('geometry-analyse'),progress:$('geometry-progress'),status:$('geometry-status'),result:$('geometry-result'),refresh:$('geometry-refresh'),getGeometry:geometryInput,getNote:geometryNote,canChooseMachine:model=>MASCHINEN.some(machine=>machine.m===model),onInvalidate(){geometryResult=null;geometrySelectedModel=null;anfrageAuswahlZeigen();},onResult(data){geometryResult=data;knoepfe();},onChooseMachine(model){if(!geometryMachines().some(machine=>machine.model===model))return;geometrySelectedModel=model;anfrageAuswahlZeigen();a.elements.email.focus({preventScroll:true});$('anfrage').scrollIntoView({behavior:window.matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth',block:'start'});}});
   $('geometry-note').addEventListener('input',()=>{geometryPreview?.update();knoepfe();});
