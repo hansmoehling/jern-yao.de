@@ -1,6 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import worker from '../worker.js';
+import {PUBLIC_KNOWLEDGE_VERSION} from '../knowledge-publication.js';
 import Engine from '../../engine.js';
 import {coaxialDrawingTopology} from './topology-fixture.js';
 
@@ -51,7 +52,7 @@ test('same preview retries reuse job and result; changed input or price policy c
  for(const opts of [{notiz:'Changed geometry'},{language:'en'},{file:drawing('changed.pdf')},{file:drawing('drawing.pdf','%PDF-1.7 another part')}])assert.equal((await post(e,opts)).httpStatus,409);
  const old=await post(e,{origin:LEGACY,pricePolicy:'technical-only'});assert.notEqual(old.id,first.id);
  assert.equal((await post(e,{origin:LEGACY,pricePolicy:'with-prices'})).httpStatus,409);
- await e.SPEICHER.put('analyse:'+first.id,JSON.stringify({status:'ready',result:{answer:'Vorstauchen, dann Fertigstauchen.',questions:[],language:'de',sources:[]}}));
+ await e.SPEICHER.put('analyse:'+first.id,JSON.stringify({status:'ready',result:{answer:'Vorstauchen, dann Fertigstauchen.',questions:[],language:'de',sources:[],knowledgePublicationVersion:PUBLIC_KNOWLEDGE_VERSION}}));
  const ready=await post(e);assert.equal(ready.status,'ready');assert.equal(ready.answer,'Vorstauchen, dann Fertigstauchen.');assert.equal(e._jobs.length,2);
 });
 

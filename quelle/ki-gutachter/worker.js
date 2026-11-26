@@ -1,4 +1,5 @@
 import { analyse, publicResult, loadKnowledge, MODEL, providerFailure, recordServiceDiagnostic } from './analysis.js';
+import {PUBLIC_KNOWLEDGE_VERSION} from './knowledge-publication.js';
 import I18N from '../i18n.js';
 import { geometryContext } from './geometry-context.js';
 import {DRAWING_DEFAULTS_VERSION,validateMaterialChoice,materialText,CHOICE_ERROR} from './material-choice.js';
@@ -45,7 +46,7 @@ async function readiness(env) {
   const checks = configured(env); let knowledgeStatus = 'missing';
   if (checks.storage) { try { knowledgeStatus = (await loadKnowledge(env)).status; } catch { knowledgeStatus = 'invalid'; } }
   checks.knowledge = ['versioned', 'legacy'].includes(knowledgeStatus);
-  return { ready: Object.values(checks).every(Boolean), checks, knowledgeStatus, credentialsVerified: false, model: env.MODELL || MODEL };
+  return { ready: Object.values(checks).every(Boolean), checks, knowledgeStatus,knowledgePublicationVersion:PUBLIC_KNOWLEDGE_VERSION, credentialsVerified: false, model: env.MODELL || MODEL };
 }
 async function requireReady(env) { if (!Object.entries(configured(env)).filter(([name])=>name!=='model').every(([,ready])=>ready)) throw new HttpError(503, 'Der Anfragedienst wird noch eingerichtet. Bitte wenden Sie sich direkt an Hans.'); }
 async function requirePreviewReady(env,{geometry=false}={}) {
@@ -80,6 +81,10 @@ function processingInfo(a){
 async function snapshot(env, id, pricePolicy,kind,testfield=false) {
   const [a, n] = await Promise.all([get(env, 'analyse:' + id), get(env, 'nachricht:' + id)]);
   if(kind==='enquiry')return {status:'received',kind,analysisStatus:'not_requested',...publicResult(null,{pricePolicy}),notificationStatus:n?.status||'pending'};
+  if(a?.result&&a.result.knowledgePublicationVersion!==PUBLIC_KNOWLEDGE_VERSION){
+    const language=normalizeLanguage(a.result.language);
+    return {status:'failed',...publicResult({answer:t('Diese frühere Auswertung ist nicht mehr zur Anzeige freigegeben. Bitte starten Sie eine neue Auswertung.',language),language,knowledgePublicationVersion:PUBLIC_KNOWLEDGE_VERSION},{pricePolicy}),notificationStatus:n?.status||'pending',resultSuperseded:true};
+  }
   return { status: a?.status || 'queued', ...publicResult(a?.result,{pricePolicy}), notificationStatus: n?.status || 'pending',...(testfield?{processingInfo:processingInfo(a)}:{}) };
 }
 function signatureOK(bytes, ext) {
@@ -235,7 +240,8 @@ async function chat(req, env, cors, locale) {
   if (!message) throw new HttpError(400, 'Bitte schreiben Sie Ihre Frage.');
   let request = null, history = [];
   if (body.requestId || body.token) { request = await authorised(env, body.requestId, body.token); history = await get(env, 'chat:' + request.id) || []; if (typeof body.language !== 'string' && !locale.explicit) locale.value = normalizeLanguage(request.language); }
-  else if (Array.isArray(body.history)) history = body.history.slice(-12).filter(x => x && ['user', 'assistant'].includes(x.role)).map(x => ({ role: x.role, content: txt(x.content || x.message, 4000) }));
+  else if (Array.isArray(body.history)) history = body.history.slice(-12).filter(x => x && ['user', 'assistant'].includes(x.role)).map(x => ({ role: x.role, content: txt(x.content || x.message, 4000),...(x.knowledgePublicationVersion===PUBLIC_KNOWLEDGE_VERSION?{knowledgePublicationVersion:PUBLIC_KNOWLEDGE_VERSION}:{}) }));
+  history=history.filter(item=>item.role==='user'||item.role==='assistant'&&item.knowledgePublicationVersion===PUBLIC_KNOWLEDGE_VERSION);
   const pricePolicy=requestPricePolicy(req,body.pricePolicy,request);
   await throttle(req, env, 'chat', 40);
   const file = request?.file?.readable ? await readFile(env, request.file) : null;
@@ -243,7 +249,7 @@ async function chat(req, env, cors, locale) {
   try { result = await analyse({ note: request?.note || '', message, history, file, filename: request?.file?.name, unreadableFile: !!request?.file && !request.file.readable, geometrySpec:request?.geometrySpec,geometryProcess:request?.geometryProcess, language: locale.value,pricePolicy,...storedFeatures(request),...(packageOneOrigin(req.headers.get('Origin'))&&(!request||packageOneOrigin(request.siteOrigin))?{packageSix:true}:{}) }, env, { timeoutMs: 120000, maxRounds: 5 }); }
   catch (error) { await recordServiceDiagnostic(env, error, 'chat'); throw new HttpError(503, 'Die Antwort konnte gerade nicht fertiggestellt werden. Ihre bisherige Anfrage bleibt erhalten. Bitte versuchen Sie es erneut.'); }
   if (request) {
-    await put(env, 'chat:' + request.id, [...history, { role: 'user', content: message }, { role: 'assistant', content: result.answer }].slice(-20));
+    await put(env, 'chat:' + request.id, [...history, { role: 'user', content: message }, { role: 'assistant', content: result.answer,knowledgePublicationVersion:result.knowledgePublicationVersion }].slice(-20));
     await put(env, 'analyse:' + request.id, { status: result.questions.length ? 'needs_info' : 'ready', result, updatedAt: new Date().toISOString() });
   }
   return json({ ...publicResult(result,{pricePolicy}), status: result.questions.length ? 'needs_info' : 'ready' }, 200, cors);
@@ -298,7 +304,7 @@ async function queued(message, env) {
     const technicalDrawingFailure=isPreview&&storedFeatures(record).featureVersion===DRAWING_DEFAULTS_VERSION&&error?.diagnostic?.classification!=='document_invalid';
     const failureAnswer=technicalDrawingFailure?materialText('Die KI-Auswertung wurde technisch unterbrochen. Ihre Eingaben bleiben gespeichert. Bitte starten Sie die Auswertung erneut.',language):t(record?.previewSource==='structured_geometry'?'Die strukturierte Geometrie konnte nicht vollständig ausgearbeitet werden. Ihre Eingaben bleiben gespeichert.':isPreview?'Die Zeichnung konnte nicht vollständig ausgewertet werden. Bitte prüfen Sie die Datei oder ergänzen Sie eine lesbare PDF-/Bildansicht.':'Die automatische Ausarbeitung konnte nicht abgeschlossen werden. Ihre Anfrage ist gespeichert.',language);
     const protocol=isAnalysis&&packageOneOrigin(record?.siteOrigin)?{attempt:message.attempts||1,startedAt:latest?.startedAt||null,diagnostics:[...(latest?.diagnostics||[]),...(diagnostic?[{...diagnostic,attempt:message.attempts||1}]:[])].slice(-4)}:{};
-    await put(env, key, { status: final ? 'failed' : isAnalysis ? 'queued' : 'pending', updatedAt: new Date().toISOString(),...protocol, ...(isAnalysis && final ? { result: { answer: failureAnswer, questions: [], proposal: null, sources: [], language } } : {}) });
+    await put(env, key, { status: final ? 'failed' : isAnalysis ? 'queued' : 'pending', updatedAt: new Date().toISOString(),...protocol, ...(isAnalysis && final ? { result: { answer: failureAnswer, questions: [], proposal: null, sources: [], language,knowledgePublicationVersion:PUBLIC_KNOWLEDGE_VERSION } } : {}) });
     if(isPreview&&final){message.ack();return;}
     message.retry({ delaySeconds: 60 }); // Exhausted jobs reach the configured dead-letter queue.
   }

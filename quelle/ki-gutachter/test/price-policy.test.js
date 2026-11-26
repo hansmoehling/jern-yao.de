@@ -1,4 +1,5 @@
 import test from 'node:test';
+import {PUBLIC_KNOWLEDGE_VERSION} from '../knowledge-publication.js';
 import assert from 'node:assert/strict';
 import worker from '../worker.js';
 import {analyse,publicResult,screen} from '../analysis.js';
@@ -113,7 +114,7 @@ test('linked follow-up retains saved technical policy and strips older monetary 
 
 test('status sanitizes stale monetary prose and fields using intake policy, including nested results',async()=>{
  const e=env(),r=await legacyIntake(e,PUBLIC);
- await e.SPEICHER.put('analyse:'+r.id,JSON.stringify({status:'ready',result:{pricePolicy:FULL,answer:'Preis: 543210 EUR. Die Maschine hat fünf Stationen.',questions:['Passt das Budget von 432109 EUR?'],proposal:{machines:[{model:'JBF-7B4S',priceEUR:543210,priceRangeEUR:[432109,654321],concept:{rp:543210,lo:432109,hi:654321,stages:[{number:1,operation:'Vorstauchen'}]}}]},sources:[],language:'de'}}));
+ await e.SPEICHER.put('analyse:'+r.id,JSON.stringify({status:'ready',result:{knowledgePublicationVersion:PUBLIC_KNOWLEDGE_VERSION,pricePolicy:FULL,answer:'Preis: 543210 EUR. Die Maschine hat fünf Stationen.',questions:['Passt das Budget von 432109 EUR?'],proposal:{machines:[{model:'JBF-7B4S',priceEUR:543210,priceRangeEUR:[432109,654321],concept:{rp:543210,lo:432109,hi:654321,stages:[{number:1,operation:'Vorstauchen'}]}}]},sources:[],language:'de'}}));
  const result=await status(e,r,LEGACY);assertNoPrices(result);assert.equal(result.answer,'Die Maschine hat fünf Stationen.');assert.deepEqual(result.questions,[]);assert.equal(result.proposal.machines[0].concept.stages.length,1);
 });
 

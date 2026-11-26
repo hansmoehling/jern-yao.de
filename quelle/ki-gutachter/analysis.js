@@ -6,6 +6,7 @@ import I18N from '../i18n.js';
 import { geometryContext } from './geometry-context.js';
 import {catalogModel,modelMentions,qualitativeCatalog,qualitativeMachineCards,withQualitativeMachines} from './qualitative-machines.js';
 import {drawingDefaultsEnabled,resolveDrawingMaterial,defaultMaterialChoice,materialText,MATERIAL_QUESTION,asksMaterialAndState} from './material-choice.js';
+import {PUBLIC_KNOWLEDGE_VERSION,projectPublicKnowledge} from './knowledge-publication.js';
 const {t,normalizeLanguage}=I18N;
 const RESPONSE_LANGUAGE={de:'Antworte in Deutsch.',it:'Rispondi in italiano.',sl:'Odgovarjaj v slovenščini.',en:'Respond in English.',zh:'请使用简体中文回答。'};
 const INCOMPLETE_DRAWING={
@@ -81,6 +82,7 @@ const LIMITS=[
  'Preise sind gespeicherte Richtwerte mit Bandbreite, kein aktuelles Angebot. Ausbringung ist eine Planungsschätzung.'
 ];
 const SYSTEM=[
+ 'Modellbetrachtungen im Projektwissen sind konstruierte Verfahrensbeispiele, keine belegten Kundenaufträge oder bestätigten Betriebserfahrungen. Benenne sie bei Verwendung kurz als Beispiel. Ihre Temperaturen, Werkstoffe und Prozessideen ersetzen weder konkrete Kundenangaben noch belegte Fließkurven oder Berechnungen. Keine Verbindung zu privaten Originalfällen, internen Kartenkennungen oder unveröffentlichten Quellen herstellen oder erklären.',
  'Bei nicht hinreichend definiertem Teil ist die endgültige Wahl zwischen JPF und JBP Sache der Technologen in Taiwan. Beide dürfen als konkrete qualitative Anfragekandidaten erscheinen, wenn Drahtschnitt-Nennmaß und geplante Stationszahl plausibel passen. Fehlende Produkt-, Auswerfer- oder Transferdetails sind dann eine gezielte offene Frage in der Begründung, kein pauschaler Ausschluss und kein Grund für einen künstlich eindeutigen Sieger. Nur soweit durch bekannte Maße begründet eine Vorzugsvariante zuerst nennen.',
  'Qualitative Maschinenkandidaten: projektwissen enthält catalogModels als serverseitigen technischen Katalog. Wenn Werkstoff, Fließkurve, Kräfte oder Pressdrücke fehlen, orientiere die Maschinengröße am Nennmaß des Drahtschnitts (nominalCutoffDiameterMm) und an den Stufen deines geometrischen Stadienkonzepts. Die bekannte Abschnittlänge mit cutoffLengthMm vergleichen. Fehlende Kraftwerte allein verhindern keinen anfragbaren Kandidaten; Material, Rm, Kraft, Pressdruck und Auslastung bleiben offen und dürfen nicht erfunden oder freigegeben werden. Produktlänge, Einstecktiefe, KO, PKO, Wendelänge und Transfer entscheiden über die Vorzugsfamilie. Mehrere technisch mögliche Familien dürfen gemeinsam genannt werden; die begründete Vorzugsvariante zuerst. Kein starrer Bauteilname-zu-Familie-Zwang. Null im Katalog bedeutet fehlende Angabe, keine Nullkapazität; fehlende Auswerfer- oder Transferdaten konkret offen benennen. Bekannte mechanische harte Ausschlüsse bleiben Ausschlüsse. Nenne Modelle als qualitative Anfragekandidaten mit konkreter Begründung, nicht als berechnet oder bestätigt geeignet. Keine bloßen Modelllisten. Der Server macht aus befürworteten Katalogmodellen im Antworttext sichtbare anfragbare Karten. Numerische safeResult-Daten sind dafür keine Voraussetzung.',
  'Wenn structuredGeometry vorliegt, stammt die Geometrie aus dem Formteilbaukasten, nicht aus einer Zeichnung. Die Elemente, Werkzeugtrennkante z=0, Stempel-/Matrizenseite, additiven und subtraktiven Konturen, Beschnittflächen und Achsversätze sind ausdrücklich vom Nutzer eingegebene strukturierte Geometrie. Die mitgelieferten Geometriewerte wurden serverseitig berechnet. Nenne diese Quelle als strukturierte Geometrie; behaupte niemals, dazu eine Zeichnung gesehen zu haben. Verlange für ein qualitatives Konzept keine zusätzliche Datei, wenn die erforderlichen Konturen bereits im Baukasten beschrieben sind. Frage nur zu konkret fehlenden oder widersprüchlichen Merkmalen nach.',
@@ -155,7 +157,7 @@ function resultForPolicy(result,pricePolicy){
  return {...safe,pricePolicy:PRICE_POLICY_TECHNICAL};
 }
 function safeKnowledge(raw){
- return String(raw||'').split(/\r?\n/).filter(line=>!/https?:\/\/(?:drive|mail|docs)\.google\.com|[\w.+-]+@[\w.-]+\.[a-z]{2,}|(?:[A-Z]:\\|\/Users\/|\/home\/)|sourceId|gmail|attachmentId|messageId|Fundstelle|nur.{0,25}intern|nie.{0,25}Kunden|nur.{0,25}Entwurf/i.test(line)).join('\n').slice(0,90000);
+ return projectPublicKnowledge(raw).split(/\r?\n/).filter(line=>!/https?:\/\/(?:drive|mail|docs)\.google\.com|[\w.+-]+@[\w.-]+\.[a-z]{2,}|(?:[A-Z]:\\|\/Users\/|\/home\/)|sourceId|gmail|attachmentId|messageId|Fundstelle|nur.{0,25}intern|nie.{0,25}Kunden|nur.{0,25}Entwurf/i.test(line)).join('\n').slice(0,90000);
 }
 export async function loadKnowledge(env,{stageManifest}={}){
  if(stageManifest!==undefined&&stageManifest!=='konzept:manifest:kvp-v1')throw new Error('knowledge_manifest_invalid');
@@ -168,10 +170,10 @@ export async function loadKnowledge(env,{stageManifest}={}){
   for(const key of [m.keys.regeln,m.keys.wissenskarten])if(!/^konzept:[a-f0-9]+:(regeln|wissenskarten)$/.test(key))throw new Error('knowledge_key_invalid');
   const [rules,cards]=await Promise.all([env.SPEICHER.get(m.keys.regeln),env.SPEICHER.get(m.keys.wissenskarten)]);
   if(!rules||!cards)throw new Error('knowledge_snapshot_incomplete');
-  return {version:String(m.version),status:'versioned',rules:safeKnowledge(rules),cards:safeKnowledge(cards),createdAt:m.createdAt||null};
+  return {version:String(m.version),publicationVersion:PUBLIC_KNOWLEDGE_VERSION,status:'versioned',rules:safeKnowledge(rules),cards:safeKnowledge(cards),createdAt:m.createdAt||null};
  }
  const [rules,cards]=await Promise.all([env.SPEICHER.get('regeln'),env.SPEICHER.get('wissenskarten')]);
- return {version:'legacy-unversioned',status:rules&&cards?'legacy':'missing',rules:safeKnowledge(rules),cards:safeKnowledge(cards),createdAt:null};
+ return {version:'legacy-unversioned',publicationVersion:PUBLIC_KNOWLEDGE_VERSION,status:rules&&cards?'legacy':'missing',rules:safeKnowledge(rules),cards:safeKnowledge(cards),createdAt:null};
 }
 function originalText(c){return [c.note,c.message,...(c.history||[]).filter(h=>h.role==='user').map(h=>h.content)].filter(Boolean).join('\n');}
 function withoutExplicitAnnealNegation(text){
@@ -433,6 +435,7 @@ function sourcesFor(state){
 }
 function safeAnswer(answer,state){
  if(!answer||answer.length>12000)return false;
+ if(/(?<![\p{L}\p{N}_])K32(?![\p{L}\p{N}_])/u.test(answer))return false;
  if(state.geometry?.basis==='partial-geometry'&&(/\d[\d.,]*\s*(?:(?:kg|g|grams?|gramm|grammi)\b|克|千克|公斤)/i.test(answer)||/(?:Abschnitt(?:slänge|smaß|maße)?|blank(?:\s+length)?|spezzone|odrez(?:ek|ka)|下料长度|坯料长度)[^.!?\n]{0,45}\d[\d.,]*\s*mm\b/i.test(answer)))return false;
  if(state.topologyRestriction&&/\d[\d.,]*\s*(?:kN|MN|N|tf|tonnes?|tons?|Tonnen|t)\b/i.test(answer))return false;
  if(state.invalidatedMaterialCalculation&&!state.proposal&&/\d[\d.,]*\s*(?:kN|MN|N|tf|tonnes?|tons?|Tonnen|t)\b/i.test(answer))return false;
@@ -447,13 +450,13 @@ export function publicResult(result,{pricePolicy}={}){
  const policy=pricePolicy===PRICE_POLICY_TECHNICAL||result?.pricePolicy===PRICE_POLICY_TECHNICAL?PRICE_POLICY_TECHNICAL:PRICE_POLICY_FULL;
  const language=normalizeLanguage(result?.language),safe=resultForPolicy(result,policy);
  const answer=typeof safe?.answer==='string'?safe.answer:result?.answer&&policy===PRICE_POLICY_TECHNICAL?PRICE_RESPONSE[language]:'';
- return {answer,proposal:safe?.proposal||null,questions:Array.isArray(safe?.questions)?safe.questions:[],sources:Array.isArray(safe?.sources)?safe.sources:[],language,pricePolicy:policy,...(safe?.geometry?{geometry:safe.geometry}:{}),...(safe?.materialContext?{materialContext:safe.materialContext}:{})};
+ return {answer,proposal:safe?.proposal||null,questions:Array.isArray(safe?.questions)?safe.questions:[],sources:Array.isArray(safe?.sources)?safe.sources:[],language,pricePolicy:policy,...(safe?.knowledgePublicationVersion?{knowledgePublicationVersion:safe.knowledgePublicationVersion}:{}),...(safe?.geometry?{geometry:safe.geometry}:{}),...(safe?.materialContext?{materialContext:safe.materialContext}:{})};
 }
 export async function analyse(context,env,{timeoutMs=120000,maxRounds=5}={}){
  const deadline=Date.now()+timeoutMs;
  const language=normalizeLanguage(context.language);
  const pricePolicy=context.pricePolicy===PRICE_POLICY_TECHNICAL?PRICE_POLICY_TECHNICAL:PRICE_POLICY_FULL;
- context={...context,language,pricePolicy};
+ context={...context,language,pricePolicy,history:(Array.isArray(context.history)?context.history:[]).filter(item=>item?.role==='user'||item?.role==='assistant'&&item.knowledgePublicationVersion===PUBLIC_KNOWLEDGE_VERSION)};
  const defaults=drawingDefaultsEnabled(context);
  // Completion and knowledge policy belong to the server-gated testfield, not
  // to the presence of an uploaded drawing. Structured geometry and chat need
@@ -491,7 +494,7 @@ export async function analyse(context,env,{timeoutMs=120000,maxRounds=5}={}){
    const source={id:'material:'+material.origin,label:material.sourceLabel+' · '+material.materialId,origin:material.origin,...(material.assumption?{assumption:true,reason:material.reason}:{})};
    result.sources=[...(result.sources||[]).filter(item=>!item.id.startsWith('material:')),source];
   }
-  return resultForPolicy({...result,...(state.geometry?{geometry:state.geometry}:{})},pricePolicy);
+  return resultForPolicy({...result,knowledgePublicationVersion:PUBLIC_KNOWLEDGE_VERSION,...(state.geometry?{geometry:state.geometry}:{})},pricePolicy);
  };
  const knownTopologyIssue=topologyGate({},context);
  if(['unsupported','drawing_required','structured_geometry','geometry_invalid'].includes(knownTopologyIssue?.topology?.status)){state.topologyRestriction=knownTopologyIssue;state.questions=knownTopologyIssue.questions.map(question=>t(question,language));}

@@ -496,7 +496,7 @@
     if (!apiBase || chatBusy || !chatForm.reportValidity()) return;
     const text = $('chat-input').value.trim();
     if (!text) return;
-    const priorHistory = history.slice(-12).map(item => ({ role: item.role, content: item.content.slice(0, 4000) }));
+    const priorHistory = history.slice(-12).map(item => ({ role: item.role, content: item.content.slice(0, 4000),...(item.knowledgePublicationVersion?{knowledgePublicationVersion:item.knowledgePublicationVersion}:{}) }));
     const body = { message: text, history: priorHistory, language:L.language };
     if (!showPrices) body.pricePolicy = 'technical-only';
     // Keep the actual UTF-8 JSON below the service's 64 KB limit, including long
@@ -507,7 +507,7 @@
     try {
       const response = await api('/chat', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body) });
       if (typeof response.answer !== 'string' || !response.answer.trim()) throw new Error('Es liegt noch keine Antwort vor. Bitte versuchen Sie es erneut.');
-      history.push({ role: 'user', content: text }, { role: 'assistant', content: response.answer });
+      history.push({ role: 'user', content: text }, { role: 'assistant', content: response.answer,knowledgePublicationVersion:response.knowledgePublicationVersion });
       appendChat('assistant', response.answer, response);
       if ($('chat-input').value.trim() === text) $('chat-input').value = '';
       $('chat-examples').hidden = true;
