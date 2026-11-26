@@ -1,0 +1,68 @@
+{
+  "Stadienkonzept und Prüfung im Einzelnen": [
+    "Concetto delle fasi e verifica dettagliata",
+    "Koncept stopenj in podroben pregled",
+    "Stage concept and detailed checks",
+    "工序方案与详细检查"
+  ],
+  "Alle geprüften Modelle ({count})": [
+    "Tutti i modelli verificati ({count})",
+    "Vsi preverjeni modeli ({count})",
+    "All checked models ({count})",
+    "所有已检查型号（{count}）"
+  ],
+  "Prüfung": [
+    "Verifica",
+    "Preverjanje",
+    "Check",
+    "检查"
+  ],
+  "Die Normvorlage enthält noch keine vollständige Rohteilkontur. Fehlende Geometrie im Baukasten ergänzen.": [
+    "Il modello normativo non contiene ancora il contorno completo del grezzo. Completare la geometria nel configuratore.",
+    "Standardna predloga še ne vsebuje celotnega obrisa surovca. Manjkajočo geometrijo dopolnite v gradniku.",
+    "The standard template does not yet contain the complete blank contour. Complete the missing geometry in the builder.",
+    "标准模板尚未包含完整的坯件轮廓。请在几何构建器中补充缺失的几何信息。"
+  ],
+  "Drahtwege vergleichen": [
+    "Confrontare le alternative di filo",
+    "Primerjaj različice žice",
+    "Compare wire routes",
+    "比较线材工艺方案"
+  ],
+  "Draht Ø{diameter} mm: {model}": [
+    "Filo Ø{diameter} mm: {model}",
+    "Žica Ø{diameter} mm: {model}",
+    "Wire Ø{diameter} mm: {model}",
+    "线材 Ø{diameter} mm：{model}"
+  ],
+  "{stages} Stadien, Abschnittlänge {length} mm": [
+    "{stages} fasi, lunghezza spezzone {length} mm",
+    "{stages} faz, dolžina odrezka {length} mm",
+    "{stages} stages, blank length {length} mm",
+    "{stages} 道工序，坯料长度 {length} mm"
+  ],
+  "Etwa {percent} % mehr nutzbare Ausbringung pro Investition.": [
+    "Circa il {percent} % in più di produzione utile per investimento.",
+    "Približno {percent} % več uporabne proizvodnje na vložek.",
+    "Approximately {percent} % more usable output per investment.",
+    "单位投资的可用产出约高 {percent} %。"
+  ],
+  "Diesen Drahtweg berechnen": [
+    "Calcolare questa alternativa di filo",
+    "Izračunaj to različico žice",
+    "Calculate this wire route",
+    "计算此线材工艺方案"
+  ],
+  "Dünnere Stauchvarianten benötigen einen passenden geglühten Drahtzustand. Der gewählte Werkstoffzustand wird nicht automatisch geändert.": [
+    "Le varianti di ricalcatura con filo più sottile richiedono uno stato ricotto adeguato. Lo stato del materiale selezionato non viene modificato automaticamente.",
+    "Različice nakrčevanja s tanjšo žico potrebujejo ustrezno žarjeno stanje žice. Izbrano stanje materiala se ne spremeni samodejno.",
+    "Upsetting routes with thinner wire need a suitable annealed wire condition. The selected material condition is not changed automatically.",
+    "使用较细线材的镦粗方案需要适合的退火状态。已选材料状态不会自动更改。"
+  ],
+  "Änderungsempfehlung ab {percent} % Vorteil; vorläufige Schwelle. Gleiche Ausbringungsbasis, ohne Werkzeug- und Betriebskosten.": [
+    "Modifica raccomandata da un vantaggio del {percent} %; soglia provvisoria. Stessa base di produzione, esclusi i costi di attrezzaggio e di esercizio.",
+    "Sprememba je priporočena od {percent} % prednosti; začasni prag. Enaka osnova proizvodnje, brez stroškov orodij in obratovanja.",
+    "Change recommended from a {percent} % benefit; provisional threshold. Same output basis, excluding tooling and operating costs.",
+    "改善达到 {percent} % 时建议变更；此阈值为暂定值。采用相同产出依据，未计入模具与运营成本。"
+  ]
+}

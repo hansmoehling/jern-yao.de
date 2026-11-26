@@ -1,0 +1,368 @@
+{
+  "Prüfungen erfüllt": [
+    "Verifiche soddisfatte",
+    "Preverjanja uspešna",
+    "Checks passed",
+    "检查通过"
+  ],
+  "Grenzbereich": [
+    "Vicino al limite",
+    "Blizu meje",
+    "Near the limit",
+    "接近极限"
+  ],
+  "Technische Prüfung offen": [
+    "Verifica tecnica ancora aperta",
+    "Tehnično preverjanje še odprto",
+    "Technical assessment pending",
+    "技术评估待完成"
+  ],
+  "Ausgeschlossen": [
+    "Escluso",
+    "Izključeno",
+    "Excluded",
+    "已排除"
+  ],
+  "Größe kleiner": [
+    "Classe dimensionale inferiore",
+    "Manjši velikostni razred",
+    "Smaller size class",
+    "更小规格"
+  ],
+  "Größe größer": [
+    "Classe dimensionale superiore",
+    "Večji velikostni razred",
+    "Larger size class",
+    "更大规格"
+  ],
+  "Eine Stationsstufe weniger": [
+    "Un livello di stazioni in meno",
+    "Ena stopnja postaj manj",
+    "One station level fewer",
+    "较少工位级别"
+  ],
+  "Eine Stationsstufe mehr": [
+    "Un livello di stazioni in più",
+    "Ena stopnja postaj več",
+    "One station level more",
+    "较多工位级别"
+  ],
+  "Kürzere Längenstufe": [
+    "Versione di lunghezza inferiore",
+    "Krajša dolžinska različica",
+    "Shorter length variant",
+    "较短长度型号"
+  ],
+  "Längere Längenstufe": [
+    "Versione di lunghezza superiore",
+    "Daljša dolžinska različica",
+    "Longer length variant",
+    "较长长度型号"
+  ],
+  "Geschlossenes Abschermesser bestätigen lassen.": [
+    "Far confermare la cesoia chiusa.",
+    "Zahtevajte potrditev zaprtega odreznega noža.",
+    "Request confirmation of a closed cutoff knife.",
+    "请确认封闭式剪切刀。"
+  ],
+  "Variante mit geschlossenem Abschermesser anfragen.": [
+    "Richiedere una variante con cesoia chiusa.",
+    "Povprašajte po različici z zaprtim odreznim nožem.",
+    "Enquire about a variant with a closed cutoff knife.",
+    "请询问配备封闭式剪切刀的型号。"
+  ],
+  "Universal- oder Quertransfer bestätigen lassen.": [
+    "Far confermare il trasferimento universale o trasversale.",
+    "Zahtevajte potrditev univerzalnega ali prečnega prenosa.",
+    "Request confirmation of universal or transverse transfer.",
+    "请确认通用或横向传送机构。"
+  ],
+  "Draht-Ø {wire} mm bei Abschnitt-Ø bis {capacity} mm": [
+    "Ø filo {wire} mm con Ø massimo di taglio {capacity} mm",
+    "Ø žice {wire} mm pri največjem Ø odreza {capacity} mm",
+    "Wire Ø {wire} mm with cutoff capacity up to Ø {capacity} mm",
+    "线材直径 {wire} mm，最大剪切直径 {capacity} mm"
+  ],
+  "Draht-Ø noch offen; Abschnitt-Ø bis {capacity} mm": [
+    "Ø filo ancora da definire; Ø di taglio fino a {capacity} mm",
+    "Ø žice še ni določen; Ø odreza do {capacity} mm",
+    "Wire diameter pending; cutoff diameter up to {capacity} mm",
+    "线材直径待定；最大剪切直径 {capacity} mm"
+  ],
+  "Abschnitt-Ø muss noch geprüft werden": [
+    "Il diametro di taglio deve ancora essere verificato",
+    "Ø odreza je treba še preveriti",
+    "Cutoff diameter still needs checking",
+    "剪切直径仍需核查"
+  ],
+  "{required} Stadien bei {available} Stationen": [
+    "{required} fasi con {available} stazioni",
+    "{required} faz pri {available} postajah",
+    "{required} forming stages with {available} stations",
+    "{required} 道成形工序，机器有 {available} 个工位"
+  ],
+  "{available} Stationen; Stadienfolge noch offen": [
+    "{available} stazioni; sequenza delle fasi ancora da definire",
+    "{available} postaj; zaporedje faz še ni določeno",
+    "{available} stations; forming sequence pending",
+    "{available} 个工位；成形工序待定"
+  ],
+  "Abschnittlänge {length} mm; Maschinenbereich {minimum} bis {maximum} mm": [
+    "Lunghezza spezzone {length} mm; campo macchina da {minimum} a {maximum} mm",
+    "Dolžina odrezka {length} mm; območje stroja od {minimum} do {maximum} mm",
+    "Blank length {length} mm; machine range {minimum} to {maximum} mm",
+    "坯料长度 {length} mm；机器范围 {minimum} 至 {maximum} mm"
+  ],
+  "Abschnittlänge muss noch geprüft werden": [
+    "La lunghezza dello spezzone deve ancora essere verificata",
+    "Dolžino odrezka je treba še preveriti",
+    "Blank length still needs checking",
+    "坯料长度仍需核查"
+  ],
+  "Teillänge {length} mm bei Produktlänge bis {capacity} mm": [
+    "Lunghezza pezzo {length} mm con capacità fino a {capacity} mm",
+    "Dolžina kosa {length} mm pri zmogljivosti do {capacity} mm",
+    "Part length {length} mm with product length capacity up to {capacity} mm",
+    "零件长度 {length} mm，最大产品长度 {capacity} mm"
+  ],
+  "Kraftauslastung {percent} %": [
+    "Utilizzo della forza {percent} %",
+    "Izkoriščenost sile {percent} %",
+    "Force utilization {percent} %",
+    "压力利用率 {percent} %"
+  ],
+  "keine Reservestation": [
+    "nessuna stazione di riserva",
+    "brez rezervne postaje",
+    "no spare station",
+    "无备用工位"
+  ],
+  "{count} Reservestation(en)": [
+    "Stazioni di riserva: {count}",
+    "Rezervne postaje: {count}",
+    "Spare stations: {count}",
+    "备用工位：{count}"
+  ],
+  "Universaltransfer": [
+    "Trasferimento universale",
+    "Univerzalni prenos",
+    "Universal transfer",
+    "通用传送机构"
+  ],
+  "Quertransfer": [
+    "Trasferimento trasversale",
+    "Prečni prenos",
+    "Transverse transfer",
+    "横向传送机构"
+  ],
+  "Richtpreis {price}": [
+    "Prezzo indicativo {price}",
+    "Okvirna cena {price}",
+    "Indicative price {price}",
+    "参考价格 {price}"
+  ],
+  "Kein belastbarer Preisvergleich verfügbar.": [
+    "Nessun confronto di prezzo attendibile disponibile.",
+    "Zanesljiva primerjava cen ni na voljo.",
+    "No reliable price comparison available.",
+    "暂无可靠的价格比较。"
+  ],
+  "etwa gleich teuer wie {model}": [
+    "prezzo circa uguale a {model}",
+    "približno enaka cena kot {model}",
+    "about the same price as {model}",
+    "价格与 {model} 大致相同"
+  ],
+  "ca. {percent} % preiswerter als {model}": [
+    "circa il {percent} % meno costoso di {model}",
+    "približno {percent} % ceneje kot {model}",
+    "approximately {percent} % cheaper than {model}",
+    "比 {model} 约便宜 {percent} %"
+  ],
+  "ca. {percent} % teurer als {model}": [
+    "circa il {percent} % più costoso di {model}",
+    "približno {percent} % dražje kot {model}",
+    "approximately {percent} % dearer than {model}",
+    "比 {model} 约贵 {percent} %"
+  ],
+  "etwa gleiche nutzbare Ausbringung pro Investition": [
+    "produzione utile per investimento circa uguale",
+    "približno enaka uporabna proizvodnja na vložek",
+    "about the same usable output per investment",
+    "单位投资的可用产出大致相同"
+  ],
+  "etwa {percent} % mehr nutzbare Ausbringung pro Investition": [
+    "circa il {percent} % in più di produzione utile per investimento",
+    "približno {percent} % več uporabne proizvodnje na vložek",
+    "approximately {percent} % more usable output per investment",
+    "单位投资的可用产出约高 {percent} %"
+  ],
+  "etwa {percent} % weniger nutzbare Ausbringung pro Investition": [
+    "circa il {percent} % in meno di produzione utile per investimento",
+    "približno {percent} % manj uporabne proizvodnje na vložek",
+    "approximately {percent} % less usable output per investment",
+    "单位投资的可用产出约低 {percent} %"
+  ],
+  "aber": [
+    "ma",
+    "vendar",
+    "but",
+    "但"
+  ],
+  "und": [
+    "e",
+    "in",
+    "and",
+    "且"
+  ],
+  "Vergleichsbasis: Praxiswerte für beide Modelle.": [
+    "Base di confronto: valori pratici per entrambi i modelli.",
+    "Osnova primerjave: vrednosti iz prakse za oba modela.",
+    "Comparison basis: practical output values for both models.",
+    "比较依据：两种型号均采用实际生产数据。"
+  ],
+  "Vergleichsbasis: Kataloghubzahl beider Modelle × {factor} %.": [
+    "Base di confronto: cadenza di catalogo di entrambi i modelli × {factor} %.",
+    "Osnova primerjave: kataloško število hodov obeh modelov × {factor} %.",
+    "Comparison basis: catalogue stroke rate for both models × {factor} %.",
+    "比较依据：两种型号的目录冲次均乘以 {factor} %。"
+  ],
+  "Nutzbare Ausbringung auf den Bedarf von {demand} Stück/min begrenzt.": [
+    "Produzione utile limitata al fabbisogno di {demand} pezzi/min.",
+    "Uporabna proizvodnja je omejena na potrebo {demand} kosov/min.",
+    "Usable output capped at the required {demand} parts/min.",
+    "可用产出按需求上限 {demand} 件/分钟计算。"
+  ],
+  "Ohne Werkzeug- und Betriebskosten; keine berechnete Amortisationszeit.": [
+    "Esclusi i costi di attrezzaggio e di esercizio; nessun tempo di ammortamento calcolato.",
+    "Brez stroškov orodij in obratovanja; čas vračila naložbe ni izračunan.",
+    "Excludes tooling and operating costs; no calculated payback period.",
+    "未计入模具与运营成本；未计算投资回收期。"
+  ],
+  "Für den Ausbringungsvergleich fehlt eine gemeinsame belastbare Grundlage.": [
+    "Manca una base comune attendibile per confrontare la produzione.",
+    "Za primerjavo proizvodnje manjka skupna zanesljiva osnova.",
+    "A shared reliable basis for comparing output is missing.",
+    "产出比较缺少共同且可靠的依据。"
+  ],
+  "Rotativer Transfer wird nicht angeboten.": [
+    "Il trasferimento rotativo non viene offerto.",
+    "Rotacijski prenos ni v ponudbi.",
+    "Rotary transfer is not offered.",
+    "不提供旋转式传送机构。"
+  ],
+  "Technische Prüfung": [
+    "Verifica tecnica",
+    "Tehnično preverjanje",
+    "Technical assessment",
+    "技术评估"
+  ],
+  "Bedarf: {value}": [
+    "Richiesto: {value}",
+    "Zahteva: {value}",
+    "Required: {value}",
+    "需求：{value}"
+  ],
+  "Maschine: {value}": [
+    "Macchina: {value}",
+    "Stroj: {value}",
+    "Machine: {value}",
+    "机器：{value}"
+  ],
+  "Warum diese? Maschinenraster": [
+    "Perché questa? Griglia delle macchine",
+    "Zakaj ta? Mreža strojev",
+    "Why this one? Machine grid",
+    "为何选择此机型？机型矩阵"
+  ],
+  "Baureihe {series}, Größenklasse {size}": [
+    "Serie {series}, classe dimensionale {size}",
+    "Serija {series}, velikostni razred {size}",
+    "Series {series}, size class {size}",
+    "系列 {series}，规格级别 {size}"
+  ],
+  "Stationen und vorhandene Längenstufen": [
+    "Stazioni e varianti di lunghezza disponibili",
+    "Postaje in obstoječe dolžinske različice",
+    "Stations and available length variants",
+    "工位与现有长度型号"
+  ],
+  "Stationen": [
+    "Stazioni",
+    "Postaje",
+    "Stations",
+    "工位"
+  ],
+  "Empfehlung": [
+    "Raccomandazione",
+    "Priporočilo",
+    "Recommendation",
+    "推荐"
+  ],
+  "Kein Katalogmodell": [
+    "Nessun modello a catalogo",
+    "Ni modela v katalogu",
+    "No catalogue model",
+    "无目录型号"
+  ],
+  "Keine Empfehlung aus den geprüften Modellen.": [
+    "Nessuna raccomandazione tra i modelli verificati.",
+    "Med preverjenimi modeli ni priporočila.",
+    "No recommendation among the checked models.",
+    "已检查的型号中暂无推荐。"
+  ],
+  "Vorauswahl: {model}; technische Eignung noch offen.": [
+    "Preselezione: {model}; idoneità tecnica ancora da verificare.",
+    "Predizbor: {model}; tehnična primernost še ni potrjena.",
+    "Shortlist: {model}; technical suitability still pending.",
+    "初选：{model}；技术适用性仍待确认。"
+  ],
+  "Empfehlung: {model}.": [
+    "Raccomandazione: {model}.",
+    "Priporočilo: {model}.",
+    "Recommendation: {model}.",
+    "推荐：{model}。"
+  ],
+  "Niedrigster Richtpreis innerhalb der noch offenen Vorauswahl.": [
+    "Prezzo indicativo più basso nella preselezione ancora da verificare.",
+    "Najnižja okvirna cena znotraj še nepotrjenega predizbora.",
+    "Lowest indicative price within the shortlist still awaiting assessment.",
+    "在尚待技术确认的初选范围内，参考价格最低。"
+  ],
+  "Niedrigster Richtpreis unter den Kandidaten mit vergleichbarem technischem Prüfstatus.": [
+    "Prezzo indicativo più basso tra i candidati con stato di verifica tecnica comparabile.",
+    "Najnižja okvirna cena med kandidati s primerljivim stanjem tehničnega preverjanja.",
+    "Lowest indicative price among candidates with comparable technical assessment status.",
+    "在技术检查状态可比的候选机型中，参考价格最低。"
+  ],
+  "Preisrang nicht vollständig verfügbar; Reihenfolge nach technischer Bewertung.": [
+    "Classifica prezzi incompleta; ordine secondo la valutazione tecnica.",
+    "Cenovna razvrstitev ni popolna; vrstni red temelji na tehnični oceni.",
+    "Complete price ranking unavailable; order follows technical assessment.",
+    "价格排序不完整；按技术评估结果排序。"
+  ],
+  "Einzelne Prüfungen liegen im Grenzbereich.": [
+    "Alcune verifiche sono vicine al limite.",
+    "Posamezna preverjanja so blizu meje.",
+    "Some checks are near the limit.",
+    "部分检查接近极限。"
+  ],
+  "{count} Katalogmodelle technisch geprüft.": [
+    "{count} modelli a catalogo verificati tecnicamente.",
+    "Tehnično preverjenih kataloških modelov: {count}.",
+    "{count} catalogue models technically checked.",
+    "已对 {count} 个目录型号进行技术检查。"
+  ],
+  "Alternative {number}": [
+    "Alternativa {number}",
+    "Alternativa {number}",
+    "Alternative {number}",
+    "备选 {number}"
+  ],
+  "Kein Ausbringungsvergleich: Modell technisch ausgeschlossen.": [
+    "Nessun confronto di produzione: modello tecnicamente escluso.",
+    "Brez primerjave proizvodnje: model je tehnično izključen.",
+    "No output comparison: model technically excluded.",
+    "不比较产出：该型号已因技术原因排除。"
+  ]
+}

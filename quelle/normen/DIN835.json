@@ -4,102 +4,1784 @@
   "schemaVersion": 1,
   "label": "DIN835 · Stiftschraube, Einschraubende etwa 2d",
   "edition": null,
-  "editionStatus": "unresolved",
+  "editionStatus": "manufacturer-edition-unassigned",
   "funktion": "stehbolzen",
   "klasse": "bolzen",
   "kopfTyp": "kopflos",
   "antrieb": {
     "art": "none"
   },
-  "feldzuordnung": {},
-  "groessen": {},
-  "fields": {},
-  "sourceMeta": {},
-  "quellen": [],
-  "abweichungen": [],
-  "status": "partial",
-  "coverage": "unresearched",
-  "lengthCoverage": "unresearched",
-  "hinweise": [
-    "Familie erfasst; vollständige Einzelmaß- und Längenrecherche steht noch aus. Keine Ersatzmaße einer ähnlichen Norm verwendet."
-  ],
-  "normstatus": {
-    "status": "unresolved",
-    "note": "Ausgabe und Vollständigkeit nicht aus einer ähnlichen Norm ableiten."
+  "feldzuordnung": {
+    "d": "d_nominal",
+    "metalEndLength": "bm"
   },
-  "requiredGeometryFields": [],
-  "sizeCoverage": {
-    "M3": {
-      "status": "unresearched",
-      "note": "Keine Größenzeile vorhanden; daraus folgt kein Normverbot."
-    },
-    "M3.5": {
-      "status": "unresearched",
-      "note": "Keine Größenzeile vorhanden; daraus folgt kein Normverbot."
-    },
+  "groessen": {
     "M4": {
-      "status": "unresearched",
-      "note": "Keine Größenzeile vorhanden; daraus folgt kein Normverbot."
+      "roh": {
+        "d_nominal": 4,
+        "bm": 8,
+        "ds_min": 3.82,
+        "ds_max": 4
+      },
+      "vorbelegung": {
+        "d": 4,
+        "metalEndLength": 8
+      },
+      "coverage": "documented",
+      "geometryStatus": "partial",
+      "missingGeometryFields": [
+        "nominalLength",
+        "nutEndThreadLength",
+        "threadRunout",
+        "endGeometry"
+      ],
+      "nachLaenge": {},
+      "lengthCoverage": "unresearched"
     },
     "M5": {
-      "status": "unresearched",
-      "note": "Keine Größenzeile vorhanden; daraus folgt kein Normverbot."
+      "roh": {
+        "d_nominal": 5,
+        "bm": 10,
+        "ds_min": 4.82,
+        "ds_max": 5
+      },
+      "vorbelegung": {
+        "d": 5,
+        "metalEndLength": 10
+      },
+      "coverage": "documented",
+      "geometryStatus": "partial",
+      "missingGeometryFields": [
+        "nominalLength",
+        "nutEndThreadLength",
+        "threadRunout",
+        "endGeometry"
+      ],
+      "nachLaenge": {},
+      "lengthCoverage": "unresearched"
     },
     "M6": {
-      "status": "unresearched",
-      "note": "Keine Größenzeile vorhanden; daraus folgt kein Normverbot."
+      "roh": {
+        "d_nominal": 6,
+        "bm": 12,
+        "ds_min": 5.82,
+        "ds_max": 6
+      },
+      "vorbelegung": {
+        "d": 6,
+        "metalEndLength": 12
+      },
+      "coverage": "documented",
+      "geometryStatus": "partial",
+      "missingGeometryFields": [
+        "nominalLength",
+        "nutEndThreadLength",
+        "threadRunout",
+        "endGeometry"
+      ],
+      "nachLaenge": {},
+      "lengthCoverage": "unresearched"
     },
     "M7": {
-      "status": "unresearched",
-      "note": "Keine Größenzeile vorhanden; daraus folgt kein Normverbot."
+      "roh": {
+        "d_nominal": 7,
+        "bm": 14,
+        "ds_min": 6.78,
+        "ds_max": 7
+      },
+      "vorbelegung": {
+        "d": 7,
+        "metalEndLength": 14
+      },
+      "coverage": "documented",
+      "geometryStatus": "partial",
+      "missingGeometryFields": [
+        "nominalLength",
+        "nutEndThreadLength",
+        "threadRunout",
+        "endGeometry"
+      ],
+      "nachLaenge": {},
+      "lengthCoverage": "unresearched"
     },
     "M8": {
-      "status": "unresearched",
-      "note": "Keine Größenzeile vorhanden; daraus folgt kein Normverbot."
+      "roh": {
+        "d_nominal": 8,
+        "bm": 16,
+        "ds_min": 7.78,
+        "ds_max": 8
+      },
+      "vorbelegung": {
+        "d": 8,
+        "metalEndLength": 16
+      },
+      "coverage": "documented",
+      "geometryStatus": "partial",
+      "missingGeometryFields": [
+        "nominalLength",
+        "nutEndThreadLength",
+        "threadRunout",
+        "endGeometry"
+      ],
+      "nachLaenge": {},
+      "lengthCoverage": "unresearched"
     },
     "M10": {
-      "status": "unresearched",
-      "note": "Keine Größenzeile vorhanden; daraus folgt kein Normverbot."
+      "roh": {
+        "d_nominal": 10,
+        "bm": 20,
+        "ds_min": 9.78,
+        "ds_max": 10
+      },
+      "vorbelegung": {
+        "d": 10,
+        "metalEndLength": 20
+      },
+      "coverage": "documented",
+      "geometryStatus": "partial",
+      "missingGeometryFields": [
+        "nominalLength",
+        "nutEndThreadLength",
+        "threadRunout",
+        "endGeometry"
+      ],
+      "nachLaenge": {},
+      "lengthCoverage": "unresearched"
     },
     "M12": {
-      "status": "unresearched",
-      "note": "Keine Größenzeile vorhanden; daraus folgt kein Normverbot."
+      "roh": {
+        "d_nominal": 12,
+        "bm": 24,
+        "ds_min": 11.73,
+        "ds_max": 12
+      },
+      "vorbelegung": {
+        "d": 12,
+        "metalEndLength": 24
+      },
+      "coverage": "documented",
+      "geometryStatus": "partial",
+      "missingGeometryFields": [
+        "nominalLength",
+        "nutEndThreadLength",
+        "threadRunout",
+        "endGeometry"
+      ],
+      "nachLaenge": {},
+      "lengthCoverage": "unresearched"
     },
     "M14": {
-      "status": "unresearched",
-      "note": "Keine Größenzeile vorhanden; daraus folgt kein Normverbot."
+      "roh": {
+        "d_nominal": 14,
+        "bm": 28,
+        "ds_min": 13.73,
+        "ds_max": 14
+      },
+      "vorbelegung": {
+        "d": 14,
+        "metalEndLength": 28
+      },
+      "coverage": "documented",
+      "geometryStatus": "partial",
+      "missingGeometryFields": [
+        "nominalLength",
+        "nutEndThreadLength",
+        "threadRunout",
+        "endGeometry"
+      ],
+      "nachLaenge": {},
+      "lengthCoverage": "unresearched"
     },
     "M16": {
-      "status": "unresearched",
-      "note": "Keine Größenzeile vorhanden; daraus folgt kein Normverbot."
+      "roh": {
+        "d_nominal": 16,
+        "bm": 32,
+        "ds_min": 15.73,
+        "ds_max": 16
+      },
+      "vorbelegung": {
+        "d": 16,
+        "metalEndLength": 32
+      },
+      "coverage": "documented",
+      "geometryStatus": "partial",
+      "missingGeometryFields": [
+        "nominalLength",
+        "nutEndThreadLength",
+        "threadRunout",
+        "endGeometry"
+      ],
+      "nachLaenge": {},
+      "lengthCoverage": "unresearched"
     },
     "M18": {
-      "status": "unresearched",
-      "note": "Keine Größenzeile vorhanden; daraus folgt kein Normverbot."
+      "roh": {
+        "d_nominal": 18,
+        "bm": 36,
+        "ds_min": 17.73,
+        "ds_max": 18
+      },
+      "vorbelegung": {
+        "d": 18,
+        "metalEndLength": 36
+      },
+      "coverage": "documented",
+      "geometryStatus": "partial",
+      "missingGeometryFields": [
+        "nominalLength",
+        "nutEndThreadLength",
+        "threadRunout",
+        "endGeometry"
+      ],
+      "nachLaenge": {},
+      "lengthCoverage": "unresearched"
     },
     "M20": {
-      "status": "unresearched",
-      "note": "Keine Größenzeile vorhanden; daraus folgt kein Normverbot."
+      "roh": {
+        "d_nominal": 20,
+        "bm": 40,
+        "ds_min": 19.67,
+        "ds_max": 20
+      },
+      "vorbelegung": {
+        "d": 20,
+        "metalEndLength": 40
+      },
+      "coverage": "documented",
+      "geometryStatus": "partial",
+      "missingGeometryFields": [
+        "nominalLength",
+        "nutEndThreadLength",
+        "threadRunout",
+        "endGeometry"
+      ],
+      "nachLaenge": {},
+      "lengthCoverage": "unresearched"
     },
     "M22": {
-      "status": "unresearched",
-      "note": "Keine Größenzeile vorhanden; daraus folgt kein Normverbot."
+      "roh": {
+        "d_nominal": 22,
+        "bm": 44,
+        "ds_min": 21.67,
+        "ds_max": 22
+      },
+      "vorbelegung": {
+        "d": 22,
+        "metalEndLength": 44
+      },
+      "coverage": "documented",
+      "geometryStatus": "partial",
+      "missingGeometryFields": [
+        "nominalLength",
+        "nutEndThreadLength",
+        "threadRunout",
+        "endGeometry"
+      ],
+      "nachLaenge": {},
+      "lengthCoverage": "unresearched"
     },
     "M24": {
-      "status": "unresearched",
-      "note": "Keine Größenzeile vorhanden; daraus folgt kein Normverbot."
+      "roh": {
+        "d_nominal": 24,
+        "bm": 48,
+        "ds_min": 23.67,
+        "ds_max": 24
+      },
+      "vorbelegung": {
+        "d": 24,
+        "metalEndLength": 48
+      },
+      "coverage": "documented",
+      "geometryStatus": "partial",
+      "missingGeometryFields": [
+        "nominalLength",
+        "nutEndThreadLength",
+        "threadRunout",
+        "endGeometry"
+      ],
+      "nachLaenge": {},
+      "lengthCoverage": "unresearched"
+    }
+  },
+  "fields": {
+    "M4": {
+      "d_nominal": {
+        "nominal": 4,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "jinan"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "single-primary-source",
+        "note": "Eine Primärquelle; unabhängiger Zweitbeleg dieses Einzelwerts noch offen."
+      },
+      "bm": {
+        "nominal": 8,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "jinan"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "single-primary-source",
+        "note": "Eine Primärquelle; unabhängiger Zweitbeleg dieses Einzelwerts noch offen."
+      },
+      "ds_min": {
+        "nominal": 3.82,
+        "min": 3.82,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "jinan"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "single-primary-source",
+        "note": "Eine Primärquelle; unabhängiger Zweitbeleg dieses Einzelwerts noch offen."
+      },
+      "ds_max": {
+        "nominal": 4,
+        "min": null,
+        "max": 4,
+        "unit": "mm",
+        "sourceRefs": [
+          "jinan"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "single-primary-source",
+        "note": "Eine Primärquelle; unabhängiger Zweitbeleg dieses Einzelwerts noch offen."
+      },
+      "nominalLength": {
+        "nominal": null,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "verificationMethod": "not-available",
+        "note": "Einzelwert nicht belegt; keine Ersatzmaße aus einer ähnlichen Norm."
+      },
+      "nutEndThreadLength": {
+        "nominal": null,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "verificationMethod": "not-available",
+        "note": "Einzelwert nicht belegt; keine Ersatzmaße aus einer ähnlichen Norm."
+      },
+      "threadRunout": {
+        "nominal": null,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "verificationMethod": "not-available",
+        "note": "Einzelwert nicht belegt; keine Ersatzmaße aus einer ähnlichen Norm."
+      },
+      "endGeometry": {
+        "nominal": null,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "verificationMethod": "not-available",
+        "note": "Einzelwert nicht belegt; keine Ersatzmaße aus einer ähnlichen Norm."
+      }
+    },
+    "M5": {
+      "d_nominal": {
+        "nominal": 5,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "jinan",
+          "jf"
+        ],
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "independent-primary-sources",
+        "note": "In zwei unabhängig veröffentlichten Primärquellen abgeglichen."
+      },
+      "bm": {
+        "nominal": 10,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "jinan",
+          "jf"
+        ],
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "independent-primary-sources",
+        "note": "In zwei unabhängig veröffentlichten Primärquellen abgeglichen."
+      },
+      "ds_min": {
+        "nominal": 4.82,
+        "min": 4.82,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "jinan"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "single-primary-source",
+        "note": "Eine Primärquelle; unabhängiger Zweitbeleg dieses Einzelwerts noch offen."
+      },
+      "ds_max": {
+        "nominal": 5,
+        "min": null,
+        "max": 5,
+        "unit": "mm",
+        "sourceRefs": [
+          "jinan"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "single-primary-source",
+        "note": "Eine Primärquelle; unabhängiger Zweitbeleg dieses Einzelwerts noch offen."
+      },
+      "nominalLength": {
+        "nominal": null,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "verificationMethod": "not-available",
+        "note": "Einzelwert nicht belegt; keine Ersatzmaße aus einer ähnlichen Norm."
+      },
+      "nutEndThreadLength": {
+        "nominal": null,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "verificationMethod": "not-available",
+        "note": "Einzelwert nicht belegt; keine Ersatzmaße aus einer ähnlichen Norm."
+      },
+      "threadRunout": {
+        "nominal": null,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "verificationMethod": "not-available",
+        "note": "Einzelwert nicht belegt; keine Ersatzmaße aus einer ähnlichen Norm."
+      },
+      "endGeometry": {
+        "nominal": null,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "verificationMethod": "not-available",
+        "note": "Einzelwert nicht belegt; keine Ersatzmaße aus einer ähnlichen Norm."
+      }
+    },
+    "M6": {
+      "d_nominal": {
+        "nominal": 6,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "jinan",
+          "jf"
+        ],
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "independent-primary-sources",
+        "note": "In zwei unabhängig veröffentlichten Primärquellen abgeglichen."
+      },
+      "bm": {
+        "nominal": 12,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "jinan",
+          "jf"
+        ],
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "independent-primary-sources",
+        "note": "In zwei unabhängig veröffentlichten Primärquellen abgeglichen."
+      },
+      "ds_min": {
+        "nominal": 5.82,
+        "min": 5.82,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "jinan"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "single-primary-source",
+        "note": "Eine Primärquelle; unabhängiger Zweitbeleg dieses Einzelwerts noch offen."
+      },
+      "ds_max": {
+        "nominal": 6,
+        "min": null,
+        "max": 6,
+        "unit": "mm",
+        "sourceRefs": [
+          "jinan"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "single-primary-source",
+        "note": "Eine Primärquelle; unabhängiger Zweitbeleg dieses Einzelwerts noch offen."
+      },
+      "nominalLength": {
+        "nominal": null,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "verificationMethod": "not-available",
+        "note": "Einzelwert nicht belegt; keine Ersatzmaße aus einer ähnlichen Norm."
+      },
+      "nutEndThreadLength": {
+        "nominal": null,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "verificationMethod": "not-available",
+        "note": "Einzelwert nicht belegt; keine Ersatzmaße aus einer ähnlichen Norm."
+      },
+      "threadRunout": {
+        "nominal": null,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "verificationMethod": "not-available",
+        "note": "Einzelwert nicht belegt; keine Ersatzmaße aus einer ähnlichen Norm."
+      },
+      "endGeometry": {
+        "nominal": null,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "verificationMethod": "not-available",
+        "note": "Einzelwert nicht belegt; keine Ersatzmaße aus einer ähnlichen Norm."
+      }
+    },
+    "M7": {
+      "d_nominal": {
+        "nominal": 7,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "jinan"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "single-primary-source",
+        "note": "Eine Primärquelle; unabhängiger Zweitbeleg dieses Einzelwerts noch offen."
+      },
+      "bm": {
+        "nominal": 14,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "jinan"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "single-primary-source",
+        "note": "Eine Primärquelle; unabhängiger Zweitbeleg dieses Einzelwerts noch offen."
+      },
+      "ds_min": {
+        "nominal": 6.78,
+        "min": 6.78,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "jinan"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "single-primary-source",
+        "note": "Eine Primärquelle; unabhängiger Zweitbeleg dieses Einzelwerts noch offen."
+      },
+      "ds_max": {
+        "nominal": 7,
+        "min": null,
+        "max": 7,
+        "unit": "mm",
+        "sourceRefs": [
+          "jinan"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "single-primary-source",
+        "note": "Eine Primärquelle; unabhängiger Zweitbeleg dieses Einzelwerts noch offen."
+      },
+      "nominalLength": {
+        "nominal": null,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "verificationMethod": "not-available",
+        "note": "Einzelwert nicht belegt; keine Ersatzmaße aus einer ähnlichen Norm."
+      },
+      "nutEndThreadLength": {
+        "nominal": null,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "verificationMethod": "not-available",
+        "note": "Einzelwert nicht belegt; keine Ersatzmaße aus einer ähnlichen Norm."
+      },
+      "threadRunout": {
+        "nominal": null,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "verificationMethod": "not-available",
+        "note": "Einzelwert nicht belegt; keine Ersatzmaße aus einer ähnlichen Norm."
+      },
+      "endGeometry": {
+        "nominal": null,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "verificationMethod": "not-available",
+        "note": "Einzelwert nicht belegt; keine Ersatzmaße aus einer ähnlichen Norm."
+      }
+    },
+    "M8": {
+      "d_nominal": {
+        "nominal": 8,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "jinan",
+          "jf"
+        ],
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "independent-primary-sources",
+        "note": "In zwei unabhängig veröffentlichten Primärquellen abgeglichen."
+      },
+      "bm": {
+        "nominal": 16,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "jinan",
+          "jf"
+        ],
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "independent-primary-sources",
+        "note": "In zwei unabhängig veröffentlichten Primärquellen abgeglichen."
+      },
+      "ds_min": {
+        "nominal": 7.78,
+        "min": 7.78,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "jinan"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "single-primary-source",
+        "note": "Eine Primärquelle; unabhängiger Zweitbeleg dieses Einzelwerts noch offen."
+      },
+      "ds_max": {
+        "nominal": 8,
+        "min": null,
+        "max": 8,
+        "unit": "mm",
+        "sourceRefs": [
+          "jinan"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "single-primary-source",
+        "note": "Eine Primärquelle; unabhängiger Zweitbeleg dieses Einzelwerts noch offen."
+      },
+      "nominalLength": {
+        "nominal": null,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "verificationMethod": "not-available",
+        "note": "Einzelwert nicht belegt; keine Ersatzmaße aus einer ähnlichen Norm."
+      },
+      "nutEndThreadLength": {
+        "nominal": null,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "verificationMethod": "not-available",
+        "note": "Einzelwert nicht belegt; keine Ersatzmaße aus einer ähnlichen Norm."
+      },
+      "threadRunout": {
+        "nominal": null,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "verificationMethod": "not-available",
+        "note": "Einzelwert nicht belegt; keine Ersatzmaße aus einer ähnlichen Norm."
+      },
+      "endGeometry": {
+        "nominal": null,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "verificationMethod": "not-available",
+        "note": "Einzelwert nicht belegt; keine Ersatzmaße aus einer ähnlichen Norm."
+      }
+    },
+    "M10": {
+      "d_nominal": {
+        "nominal": 10,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "jinan",
+          "jf"
+        ],
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "independent-primary-sources",
+        "note": "In zwei unabhängig veröffentlichten Primärquellen abgeglichen."
+      },
+      "bm": {
+        "nominal": 20,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "jinan",
+          "jf"
+        ],
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "independent-primary-sources",
+        "note": "In zwei unabhängig veröffentlichten Primärquellen abgeglichen."
+      },
+      "ds_min": {
+        "nominal": 9.78,
+        "min": 9.78,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "jinan"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "single-primary-source",
+        "note": "Eine Primärquelle; unabhängiger Zweitbeleg dieses Einzelwerts noch offen."
+      },
+      "ds_max": {
+        "nominal": 10,
+        "min": null,
+        "max": 10,
+        "unit": "mm",
+        "sourceRefs": [
+          "jinan"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "single-primary-source",
+        "note": "Eine Primärquelle; unabhängiger Zweitbeleg dieses Einzelwerts noch offen."
+      },
+      "nominalLength": {
+        "nominal": null,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "verificationMethod": "not-available",
+        "note": "Einzelwert nicht belegt; keine Ersatzmaße aus einer ähnlichen Norm."
+      },
+      "nutEndThreadLength": {
+        "nominal": null,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "verificationMethod": "not-available",
+        "note": "Einzelwert nicht belegt; keine Ersatzmaße aus einer ähnlichen Norm."
+      },
+      "threadRunout": {
+        "nominal": null,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "verificationMethod": "not-available",
+        "note": "Einzelwert nicht belegt; keine Ersatzmaße aus einer ähnlichen Norm."
+      },
+      "endGeometry": {
+        "nominal": null,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "verificationMethod": "not-available",
+        "note": "Einzelwert nicht belegt; keine Ersatzmaße aus einer ähnlichen Norm."
+      }
+    },
+    "M12": {
+      "d_nominal": {
+        "nominal": 12,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "jinan",
+          "jf"
+        ],
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "independent-primary-sources",
+        "note": "In zwei unabhängig veröffentlichten Primärquellen abgeglichen."
+      },
+      "bm": {
+        "nominal": 24,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "jinan",
+          "jf"
+        ],
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "independent-primary-sources",
+        "note": "In zwei unabhängig veröffentlichten Primärquellen abgeglichen."
+      },
+      "ds_min": {
+        "nominal": 11.73,
+        "min": 11.73,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "jinan"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "single-primary-source",
+        "note": "Eine Primärquelle; unabhängiger Zweitbeleg dieses Einzelwerts noch offen."
+      },
+      "ds_max": {
+        "nominal": 12,
+        "min": null,
+        "max": 12,
+        "unit": "mm",
+        "sourceRefs": [
+          "jinan"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "single-primary-source",
+        "note": "Eine Primärquelle; unabhängiger Zweitbeleg dieses Einzelwerts noch offen."
+      },
+      "nominalLength": {
+        "nominal": null,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "verificationMethod": "not-available",
+        "note": "Einzelwert nicht belegt; keine Ersatzmaße aus einer ähnlichen Norm."
+      },
+      "nutEndThreadLength": {
+        "nominal": null,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "verificationMethod": "not-available",
+        "note": "Einzelwert nicht belegt; keine Ersatzmaße aus einer ähnlichen Norm."
+      },
+      "threadRunout": {
+        "nominal": null,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "verificationMethod": "not-available",
+        "note": "Einzelwert nicht belegt; keine Ersatzmaße aus einer ähnlichen Norm."
+      },
+      "endGeometry": {
+        "nominal": null,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "verificationMethod": "not-available",
+        "note": "Einzelwert nicht belegt; keine Ersatzmaße aus einer ähnlichen Norm."
+      }
+    },
+    "M14": {
+      "d_nominal": {
+        "nominal": 14,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "jinan"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "single-primary-source",
+        "note": "Eine Primärquelle; unabhängiger Zweitbeleg dieses Einzelwerts noch offen."
+      },
+      "bm": {
+        "nominal": 28,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "jinan"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "single-primary-source",
+        "note": "Eine Primärquelle; unabhängiger Zweitbeleg dieses Einzelwerts noch offen."
+      },
+      "ds_min": {
+        "nominal": 13.73,
+        "min": 13.73,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "jinan"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "single-primary-source",
+        "note": "Eine Primärquelle; unabhängiger Zweitbeleg dieses Einzelwerts noch offen."
+      },
+      "ds_max": {
+        "nominal": 14,
+        "min": null,
+        "max": 14,
+        "unit": "mm",
+        "sourceRefs": [
+          "jinan"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "single-primary-source",
+        "note": "Eine Primärquelle; unabhängiger Zweitbeleg dieses Einzelwerts noch offen."
+      },
+      "nominalLength": {
+        "nominal": null,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "verificationMethod": "not-available",
+        "note": "Einzelwert nicht belegt; keine Ersatzmaße aus einer ähnlichen Norm."
+      },
+      "nutEndThreadLength": {
+        "nominal": null,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "verificationMethod": "not-available",
+        "note": "Einzelwert nicht belegt; keine Ersatzmaße aus einer ähnlichen Norm."
+      },
+      "threadRunout": {
+        "nominal": null,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "verificationMethod": "not-available",
+        "note": "Einzelwert nicht belegt; keine Ersatzmaße aus einer ähnlichen Norm."
+      },
+      "endGeometry": {
+        "nominal": null,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "verificationMethod": "not-available",
+        "note": "Einzelwert nicht belegt; keine Ersatzmaße aus einer ähnlichen Norm."
+      }
+    },
+    "M16": {
+      "d_nominal": {
+        "nominal": 16,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "jinan",
+          "jf"
+        ],
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "independent-primary-sources",
+        "note": "In zwei unabhängig veröffentlichten Primärquellen abgeglichen."
+      },
+      "bm": {
+        "nominal": 32,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "jinan",
+          "jf"
+        ],
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "independent-primary-sources",
+        "note": "In zwei unabhängig veröffentlichten Primärquellen abgeglichen."
+      },
+      "ds_min": {
+        "nominal": 15.73,
+        "min": 15.73,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "jinan"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "single-primary-source",
+        "note": "Eine Primärquelle; unabhängiger Zweitbeleg dieses Einzelwerts noch offen."
+      },
+      "ds_max": {
+        "nominal": 16,
+        "min": null,
+        "max": 16,
+        "unit": "mm",
+        "sourceRefs": [
+          "jinan"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "single-primary-source",
+        "note": "Eine Primärquelle; unabhängiger Zweitbeleg dieses Einzelwerts noch offen."
+      },
+      "nominalLength": {
+        "nominal": null,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "verificationMethod": "not-available",
+        "note": "Einzelwert nicht belegt; keine Ersatzmaße aus einer ähnlichen Norm."
+      },
+      "nutEndThreadLength": {
+        "nominal": null,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "verificationMethod": "not-available",
+        "note": "Einzelwert nicht belegt; keine Ersatzmaße aus einer ähnlichen Norm."
+      },
+      "threadRunout": {
+        "nominal": null,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "verificationMethod": "not-available",
+        "note": "Einzelwert nicht belegt; keine Ersatzmaße aus einer ähnlichen Norm."
+      },
+      "endGeometry": {
+        "nominal": null,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "verificationMethod": "not-available",
+        "note": "Einzelwert nicht belegt; keine Ersatzmaße aus einer ähnlichen Norm."
+      }
+    },
+    "M18": {
+      "d_nominal": {
+        "nominal": 18,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "jinan"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "single-primary-source",
+        "note": "Eine Primärquelle; unabhängiger Zweitbeleg dieses Einzelwerts noch offen."
+      },
+      "bm": {
+        "nominal": 36,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "jinan"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "single-primary-source",
+        "note": "Eine Primärquelle; unabhängiger Zweitbeleg dieses Einzelwerts noch offen."
+      },
+      "ds_min": {
+        "nominal": 17.73,
+        "min": 17.73,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "jinan"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "single-primary-source",
+        "note": "Eine Primärquelle; unabhängiger Zweitbeleg dieses Einzelwerts noch offen."
+      },
+      "ds_max": {
+        "nominal": 18,
+        "min": null,
+        "max": 18,
+        "unit": "mm",
+        "sourceRefs": [
+          "jinan"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "single-primary-source",
+        "note": "Eine Primärquelle; unabhängiger Zweitbeleg dieses Einzelwerts noch offen."
+      },
+      "nominalLength": {
+        "nominal": null,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "verificationMethod": "not-available",
+        "note": "Einzelwert nicht belegt; keine Ersatzmaße aus einer ähnlichen Norm."
+      },
+      "nutEndThreadLength": {
+        "nominal": null,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "verificationMethod": "not-available",
+        "note": "Einzelwert nicht belegt; keine Ersatzmaße aus einer ähnlichen Norm."
+      },
+      "threadRunout": {
+        "nominal": null,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "verificationMethod": "not-available",
+        "note": "Einzelwert nicht belegt; keine Ersatzmaße aus einer ähnlichen Norm."
+      },
+      "endGeometry": {
+        "nominal": null,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "verificationMethod": "not-available",
+        "note": "Einzelwert nicht belegt; keine Ersatzmaße aus einer ähnlichen Norm."
+      }
+    },
+    "M20": {
+      "d_nominal": {
+        "nominal": 20,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "jinan",
+          "jf"
+        ],
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "independent-primary-sources",
+        "note": "In zwei unabhängig veröffentlichten Primärquellen abgeglichen."
+      },
+      "bm": {
+        "nominal": 40,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "jinan",
+          "jf"
+        ],
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "independent-primary-sources",
+        "note": "In zwei unabhängig veröffentlichten Primärquellen abgeglichen."
+      },
+      "ds_min": {
+        "nominal": 19.67,
+        "min": 19.67,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "jinan"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "single-primary-source",
+        "note": "Eine Primärquelle; unabhängiger Zweitbeleg dieses Einzelwerts noch offen."
+      },
+      "ds_max": {
+        "nominal": 20,
+        "min": null,
+        "max": 20,
+        "unit": "mm",
+        "sourceRefs": [
+          "jinan"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "single-primary-source",
+        "note": "Eine Primärquelle; unabhängiger Zweitbeleg dieses Einzelwerts noch offen."
+      },
+      "nominalLength": {
+        "nominal": null,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "verificationMethod": "not-available",
+        "note": "Einzelwert nicht belegt; keine Ersatzmaße aus einer ähnlichen Norm."
+      },
+      "nutEndThreadLength": {
+        "nominal": null,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "verificationMethod": "not-available",
+        "note": "Einzelwert nicht belegt; keine Ersatzmaße aus einer ähnlichen Norm."
+      },
+      "threadRunout": {
+        "nominal": null,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "verificationMethod": "not-available",
+        "note": "Einzelwert nicht belegt; keine Ersatzmaße aus einer ähnlichen Norm."
+      },
+      "endGeometry": {
+        "nominal": null,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "verificationMethod": "not-available",
+        "note": "Einzelwert nicht belegt; keine Ersatzmaße aus einer ähnlichen Norm."
+      }
+    },
+    "M22": {
+      "d_nominal": {
+        "nominal": 22,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "jinan"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "single-primary-source",
+        "note": "Eine Primärquelle; unabhängiger Zweitbeleg dieses Einzelwerts noch offen."
+      },
+      "bm": {
+        "nominal": 44,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "jinan"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "single-primary-source",
+        "note": "Eine Primärquelle; unabhängiger Zweitbeleg dieses Einzelwerts noch offen."
+      },
+      "ds_min": {
+        "nominal": 21.67,
+        "min": 21.67,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "jinan"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "single-primary-source",
+        "note": "Eine Primärquelle; unabhängiger Zweitbeleg dieses Einzelwerts noch offen."
+      },
+      "ds_max": {
+        "nominal": 22,
+        "min": null,
+        "max": 22,
+        "unit": "mm",
+        "sourceRefs": [
+          "jinan"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "single-primary-source",
+        "note": "Eine Primärquelle; unabhängiger Zweitbeleg dieses Einzelwerts noch offen."
+      },
+      "nominalLength": {
+        "nominal": null,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "verificationMethod": "not-available",
+        "note": "Einzelwert nicht belegt; keine Ersatzmaße aus einer ähnlichen Norm."
+      },
+      "nutEndThreadLength": {
+        "nominal": null,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "verificationMethod": "not-available",
+        "note": "Einzelwert nicht belegt; keine Ersatzmaße aus einer ähnlichen Norm."
+      },
+      "threadRunout": {
+        "nominal": null,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "verificationMethod": "not-available",
+        "note": "Einzelwert nicht belegt; keine Ersatzmaße aus einer ähnlichen Norm."
+      },
+      "endGeometry": {
+        "nominal": null,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "verificationMethod": "not-available",
+        "note": "Einzelwert nicht belegt; keine Ersatzmaße aus einer ähnlichen Norm."
+      }
+    },
+    "M24": {
+      "d_nominal": {
+        "nominal": 24,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "jinan",
+          "jf"
+        ],
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "independent-primary-sources",
+        "note": "In zwei unabhängig veröffentlichten Primärquellen abgeglichen."
+      },
+      "bm": {
+        "nominal": 48,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "jinan",
+          "jf"
+        ],
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "independent-primary-sources",
+        "note": "In zwei unabhängig veröffentlichten Primärquellen abgeglichen."
+      },
+      "ds_min": {
+        "nominal": 23.67,
+        "min": 23.67,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "jinan"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "single-primary-source",
+        "note": "Eine Primärquelle; unabhängiger Zweitbeleg dieses Einzelwerts noch offen."
+      },
+      "ds_max": {
+        "nominal": 24,
+        "min": null,
+        "max": 24,
+        "unit": "mm",
+        "sourceRefs": [
+          "jinan"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "single-primary-source",
+        "note": "Eine Primärquelle; unabhängiger Zweitbeleg dieses Einzelwerts noch offen."
+      },
+      "nominalLength": {
+        "nominal": null,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "verificationMethod": "not-available",
+        "note": "Einzelwert nicht belegt; keine Ersatzmaße aus einer ähnlichen Norm."
+      },
+      "nutEndThreadLength": {
+        "nominal": null,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "verificationMethod": "not-available",
+        "note": "Einzelwert nicht belegt; keine Ersatzmaße aus einer ähnlichen Norm."
+      },
+      "threadRunout": {
+        "nominal": null,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "verificationMethod": "not-available",
+        "note": "Einzelwert nicht belegt; keine Ersatzmaße aus einer ähnlichen Norm."
+      },
+      "endGeometry": {
+        "nominal": null,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "verificationMethod": "not-available",
+        "note": "Einzelwert nicht belegt; keine Ersatzmaße aus einer ähnlichen Norm."
+      }
+    }
+  },
+  "sourceMeta": {
+    "jinan": {
+      "id": "jinan",
+      "url": "https://www.jnstarfastener.com/double-ended-bolt/din-835-double-ended.html",
+      "titel": "Jinan Star Fastener: DIN 835 Maßtabelle",
+      "type": "manufacturer",
+      "locator": "Product Specification",
+      "abgerufen": "2026-11-26"
+    },
+    "jf": {
+      "id": "jf",
+      "url": "https://www.jfeindia.com/din-835.html",
+      "titel": "JF Engineering: DIN 835 Maßtabelle",
+      "type": "manufacturer",
+      "locator": "Dimensions for DIN 835",
+      "abgerufen": "2026-11-26"
+    },
+    "din-status": {
+      "id": "din-status",
+      "url": "https://www.dinmedia.de/en/standard/din-835/392482260",
+      "titel": "DIN 835:2025-08 Status und Bereich",
+      "type": "standards-body",
+      "locator": "Overview",
+      "abgerufen": "2026-11-26"
+    }
+  },
+  "quellen": [
+    {
+      "id": "jinan",
+      "url": "https://www.jnstarfastener.com/double-ended-bolt/din-835-double-ended.html",
+      "titel": "Jinan Star Fastener: DIN 835 Maßtabelle",
+      "type": "manufacturer",
+      "locator": "Product Specification",
+      "abgerufen": "2026-11-26"
+    },
+    {
+      "id": "jf",
+      "url": "https://www.jfeindia.com/din-835.html",
+      "titel": "JF Engineering: DIN 835 Maßtabelle",
+      "type": "manufacturer",
+      "locator": "Dimensions for DIN 835",
+      "abgerufen": "2026-11-26"
+    },
+    {
+      "id": "din-status",
+      "url": "https://www.dinmedia.de/en/standard/din-835/392482260",
+      "titel": "DIN 835:2025-08 Status und Bereich",
+      "type": "standards-body",
+      "locator": "Overview",
+      "abgerufen": "2026-11-26"
+    }
+  ],
+  "abweichungen": [],
+  "status": "partial",
+  "coverage": "documented",
+  "lengthCoverage": "unresearched",
+  "hinweise": [
+    "Nennlänge, Gesamtlänge und Einschraubende sind getrennte Größen. Ohne belegte Längen-/Auslaufzuordnung wird keine Schaftlänge vorbelegt.",
+    "Belegte Durchmesser M4 bis M24; Feingewinde und Kurzbolzenregel sind hier noch nicht vollständig erfasst."
+  ],
+  "normstatus": {
+    "status": "current",
+    "edition": "2025-08",
+    "sourceRefs": [
+      "din-status"
+    ],
+    "note": "Maßzeilen aus undatierten Herstellerblättern; kein Nachweis ihrer vollständigen Übereinstimmung mit Ausgabe 2025."
+  },
+  "requiredGeometryFields": [
+    "nominalLength",
+    "nutEndThreadLength",
+    "threadRunout",
+    "endGeometry"
+  ],
+  "sizeCoverage": {
+    "M3": {
+      "status": "not-in-standard",
+      "sourceRefs": [
+        "din-status"
+      ],
+      "note": "Außerhalb des belegten Größenbereichs dieser Normausgabe."
+    },
+    "M3.5": {
+      "status": "not-in-standard",
+      "sourceRefs": [
+        "din-status"
+      ],
+      "note": "Außerhalb des belegten Größenbereichs dieser Normausgabe."
+    },
+    "M4": {
+      "status": "documented",
+      "sourceRefs": [
+        "jinan"
+      ]
+    },
+    "M5": {
+      "status": "documented",
+      "sourceRefs": [
+        "jinan"
+      ]
+    },
+    "M6": {
+      "status": "documented",
+      "sourceRefs": [
+        "jinan"
+      ]
+    },
+    "M7": {
+      "status": "documented",
+      "sourceRefs": [
+        "jinan"
+      ]
+    },
+    "M8": {
+      "status": "documented",
+      "sourceRefs": [
+        "jinan"
+      ]
+    },
+    "M10": {
+      "status": "documented",
+      "sourceRefs": [
+        "jinan"
+      ]
+    },
+    "M12": {
+      "status": "documented",
+      "sourceRefs": [
+        "jinan"
+      ]
+    },
+    "M14": {
+      "status": "documented",
+      "sourceRefs": [
+        "jinan"
+      ]
+    },
+    "M16": {
+      "status": "documented",
+      "sourceRefs": [
+        "jinan"
+      ]
+    },
+    "M18": {
+      "status": "documented",
+      "sourceRefs": [
+        "jinan"
+      ]
+    },
+    "M20": {
+      "status": "documented",
+      "sourceRefs": [
+        "jinan"
+      ]
+    },
+    "M22": {
+      "status": "documented",
+      "sourceRefs": [
+        "jinan"
+      ]
+    },
+    "M24": {
+      "status": "documented",
+      "sourceRefs": [
+        "jinan"
+      ]
     },
     "M27": {
-      "status": "unresearched",
-      "note": "Keine Größenzeile vorhanden; daraus folgt kein Normverbot."
+      "status": "not-in-standard",
+      "sourceRefs": [
+        "din-status"
+      ],
+      "note": "Außerhalb des belegten Größenbereichs dieser Normausgabe."
     },
     "M30": {
-      "status": "unresearched",
-      "note": "Keine Größenzeile vorhanden; daraus folgt kein Normverbot."
+      "status": "not-in-standard",
+      "sourceRefs": [
+        "din-status"
+      ],
+      "note": "Außerhalb des belegten Größenbereichs dieser Normausgabe."
     },
     "M33": {
-      "status": "unresearched",
-      "note": "Keine Größenzeile vorhanden; daraus folgt kein Normverbot."
+      "status": "not-in-standard",
+      "sourceRefs": [
+        "din-status"
+      ],
+      "note": "Außerhalb des belegten Größenbereichs dieser Normausgabe."
     }
   },
   "pruefdatum": "2026-11-26",
@@ -107,5 +1789,24 @@
     "status": "unresearched",
     "values": [],
     "note": "Festigkeits-/Werkstoffklassen noch nicht vollständig aus dieser Norm belegt."
+  },
+  "datasetKind": "part-standard",
+  "gaps": [
+    "Längenmatrix, nutzbare Gewindelänge und Endkontur fehlen.",
+    "Maßabgleich mit aktueller Ausgabe 2025-08 fehlt."
+  ],
+  "geometryStatus": "partial",
+  "currentEdition": "2025-08",
+  "threadFamily": "metric",
+  "lengthDependentFields": [
+    "sL",
+    "b",
+    "nominalLength"
+  ],
+  "currentEditionEvidence": {
+    "sourceRefs": [
+      "din-status"
+    ],
+    "dimensionCoverage": "unresearched"
   }
 }

@@ -22,8 +22,9 @@ def technical_catalog(text):
     match = re.search(pattern, text, flags=re.S)
     assert match, 'Machine catalogue missing'
     machines = json.loads(match[2])
-    # Preserve the engine's stable price-based order without exporting the prices.
-    machines.sort(key=lambda machine: machine.get('rp') or 9e9)
+    # A public ordering by price would reveal the complete private price rank.
+    # The staged ranking service returns only the displayed relative comparisons.
+    machines.sort(key=lambda machine: machine.get('m', ''))
     for machine in machines:
         for key in ('rp', 'lo', 'hi'):
             machine.pop(key, None)

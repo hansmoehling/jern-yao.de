@@ -27,13 +27,20 @@ test('trilobular shaft uses true profile area; envelope diameter is neither area
  const fromMass=E.auslegen({...e,sArea:undefined,masse:10});safe(fromMass);close(fromMass.werte.V,10/7.85*1000);close(fromMass.werte.L0,10/7.85*1000/circle(7));assert.equal(fromMass.geometry.bodyAreaMm2,null);
 });
 
-test('Duo-Taptite has a separate measured tip section with no circular or conical proxy',()=>{
- const e={...base,threadFamily:'duo-taptite',sArea:40,tipArea:25,tipLength:5};const a=E.auslegen(e);safe(a);close(a.geometry.shaftVolumeMm3,40*25+25*5);close(a.werte.V,circle(13)*5+1125);assert.equal(a.geometry.tipDiameterMm,null);
- const missing=E.auslegen({...e,tipArea:undefined});safe(missing);assert.equal(missing.werte.V,null);assert.equal(missing.werte.L0,null);assert.ok(missing.stufen.some(s=>s.v==='Duo-Spitzenprofil formen'));
+test('Duo-Taptite retains its real shaft area while thread-tip dimensions belong to rolling',()=>{
+ const reference=E.auslegen({...base,threadFamily:'trilobular',sArea:40});
+ for(const tip of [{tipArea:25,tipLength:5},{},{tipArea:60,tipLength:35}]){
+  const e={...base,threadFamily:'duo-taptite',sArea:40,...tip},a=E.auslegen(e);safe(a);close(a.geometry.shaftVolumeMm3,40*30);close(a.werte.V,circle(13)*5+1200);assert.equal(a.geometry.tipLengthMm,0);assert.equal(a.geometry.tipDiameterMm,null);assert.deepEqual(a.werte,reference.werte);assert.deepEqual(a.stufen,reference.stufen);assert(!a.stufen.some(s=>/Spitze/.test(s.v)));assert.equal(a.secondaryOperations[0].code,'thread-tip-rolling');
+ }
+ const missing=E.auslegen({...base,threadFamily:'duo-taptite',tipArea:25,tipLength:5});safe(missing);assert.equal(missing.werte.V,null);assert.match(missing.werte.volumeReason,/Profilquerschnitt des Schafts/);
 });
 
-for(const family of ['self-tapping','thermoplastic'])test(family+' conical tip is subtracted from the full shaft length, not added to it',()=>{
- const e={...base,threadFamily:family,tipLength:6,tipDiameter:2};const a=E.auslegen(e);safe(a);close(a.geometry.shaftVolumeMm3,circle(8)*24+Math.PI*6*(64+16+4)/12);close(a.werte.Lteil,35);assert.equal(a.geometry.bodyLengthMm,24);assert.ok(a.stufen.some(s=>s.v==='Konusspitze formen'));assert.ok(!JSON.stringify(a).includes('Doppeldruck'));
+for(const family of ['self-tapping','thermoplastic'])test(family+' rolled thread tip leaves the cold-formed blank cylindrical and stages unchanged',()=>{
+ const reference=E.auslegen(base);
+ for(const tip of [{tipLength:6,tipDiameter:2},{tipLength:31,tipDiameter:9},{tipLength:NaN,tipDiameter:'later'}]){
+  const e={...base,threadFamily:family,...tip},a=E.auslegen(e);assert.deepEqual(a.fehlt,[]);assert.deepEqual(a.werte,reference.werte);assert.deepEqual(a.stufen,reference.stufen);assert.ok(a.werte.Fmax_t>0);
+  assert.ok(!a.stufen.some(s=>/Spitze/.test(s.v)));assert.ok(a.hinweise.some(s=>/Gewindespitze entsteht beim Walzen/.test(s)));assert.equal(a.secondaryOperations[0].code,'thread-tip-rolling');assert.ok(!JSON.stringify(a).includes('Doppeldruck'));
+ }
 });
 
 test('claw head is an exterior drive; its net outside volume is required and an inner recess remains separate',()=>{
@@ -52,7 +59,7 @@ test('unsupported profile operations remain owned engineering checks with no fab
 
 test('impossible walls, tips, profile areas and declared mass fail instead of yielding NaN or nominal-shaft estimates',()=>{
  const headless={...base,standardKind:'headless',kD:0,kH:0,iTyp:'hex',iSW:4,iT:5};
- const cases=[{...headless,iSW:8},{...headless,iT:30},{...headless,kD:13,kH:5},{...headless,iVol:400},{...base,threadFamily:'trilobular',sArea:60},{...base,threadFamily:'trilobular',sArea:'40'},{...base,threadFamily:'duo-taptite',sArea:40,tipArea:25},{...base,threadFamily:'duo-taptite',sArea:40,tipArea:60,tipLength:5},{...base,threadFamily:'thermoplastic',tipLength:31,tipDiameter:0},{...base,threadFamily:'thermoplastic',tipLength:3,tipDiameter:9},{...base,kopfForm:'krallen',kVol:1000},{...headless,masse:1000},{...headless,tipLength:10,tipDiameter:0,iT:29},{...headless,lStempel:31}];
+ const cases=[{...headless,iSW:8},{...headless,iT:30},{...headless,kD:13,kH:5},{...headless,iVol:400},{...base,threadFamily:'trilobular',sArea:60},{...base,threadFamily:'trilobular',sArea:'40'},{...base,threadFamily:'duo-taptite',sArea:60},{...base,threadFamily:'thermoplastic',schaftende:'spitze',endLength:31,endDiameter:0},{...base,threadFamily:'thermoplastic',schaftende:'spitze',endLength:3,endDiameter:9},{...base,kopfForm:'krallen',kVol:1000},{...headless,masse:1000},{...headless,tipLength:10,tipDiameter:0,iT:29},{...headless,lStempel:31}];
  for(const e of cases){const a=E.auslegen(e);assert.ok(a.fehlt.length,JSON.stringify(e));assert.deepEqual(a.werte,{});assert.deepEqual(a.stufen,[]);}
 });
 

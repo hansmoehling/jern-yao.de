@@ -17,6 +17,12 @@ const negative=/(?:ungeeignet|nicht\s+(?:[\p{L}]+\s+){0,3}(?:geeignet|empfehlens
 const affirmative=/(?:Kandidat|geeignet|machbar|Machbarkeit|plausibel|in\s+(?:Frage|Betracht)|anfrag|prüf|empfehl|vorzugs|erste\s+Wahl|näher|nahe\s+an|möglich|m[oö]gliche\s+Option|candidate|suitable|feasib|consider|recommend|enquir|inquir|shortlist|viable|plausible|promising|potential|closer|prefer|candidat|adatt|idone|valut|propor|consigli|fattibil|richied|kandidat|primeren|prever|predlag|izvedljiv|možnost|候选|可行|适合|考虑|推荐|询价|询问|接近|建议)/iu;
 const quotedOrComparison=/(?:[“”„«»"「」『』]|\b(?:Beispiel|example|esempio|primerjava|Vergleichsmodell|comparison\s+only|Kunde\s+(?:nennt|fragt|sagt)|Nutzer\s+(?:nennt|fragt|sagt)|customer\s+(?:asks|said|mentions))\b)/iu;
 const hardExcluded=row=>row?.status==='nein'||row?.concept?.status==='excluded'||row?.criteria?.some(criterion=>criterion.status==='nein');
+function packageSixOrder(rows){
+ const tier=row=>['ok','knapp'].includes(row.status)?0:row.status==='offen'?1:2;
+ const price=row=>{const n=catalogModel(row.model)?.rp;return Number.isFinite(n)&&n>0?n:Infinity;};
+ const seen=new Set(),excluded=new Set(rows.filter(hardExcluded).map(row=>normalize(row.model)));
+ return rows.filter(row=>{const m=catalogModel(row?.model);if(!m||excluded.has(normalize(m.m))||seen.has(m.m))return false;seen.add(m.m);return true;}).sort((a,b)=>tier(a)-tier(b)||price(a)-price(b)||a.model.localeCompare(b.model,'en')).slice(0,3);
+}
 function knownMechanicalExclusion(machine,proposal){
  if(!proposal?.calculation)return false;
  const values=proposal.calculation.values||{},input=proposal.calculation.input||{};
@@ -29,7 +35,7 @@ function knownMechanicalExclusion(machine,proposal){
  return !!values.wenden&&exceeds(values.Lteil,machine.kor);
 }
 
-export function qualitativeMachineCards(answer,suggestions=[],proposal=null,excludedModels=[]){
+export function qualitativeMachineCards(answer,suggestions=[],proposal=null,excludedModels=[],options={}){
  const excluded=new Set([...excludedModels,...(proposal?.machines||[]).filter(hardExcluded).map(row=>row.model)].map(normalize));
  const existing=new Set((proposal?.machines||[]).map(row=>normalize(row.model)));
  const declared=new Map((Array.isArray(suggestions)?suggestions:[]).filter(item=>item&&typeof item.model==='string'&&typeof item.reason==='string'&&item.reason.trim()).map(item=>[normalize(item.model),item.reason.trim()]));
@@ -60,7 +66,8 @@ export function qualitativeMachineCards(answer,suggestions=[],proposal=null,excl
   if(model&&answer.includes(reason)&&!negative.test(reason)&&places.some(clause=>!/[?？]/u.test(clause)&&!quotedOrComparison.test(clause)))positive.set(key,{model,reason:reason.slice(0,800)});
  }
  const order=[...new Set([...declared.keys(),...positive.keys()])];
- return order.filter(key=>positive.has(key)&&!excluded.has(key)&&!existing.has(key)&&!knownMechanicalExclusion(positive.get(key).model,proposal)).slice(0,5).map(key=>{
+ const eligible=order.filter(key=>positive.has(key)&&!excluded.has(key)&&!existing.has(key)&&!knownMechanicalExclusion(positive.get(key).model,proposal));
+ const cards=(options.packageSix===true?eligible:eligible.slice(0,5)).map(key=>{
   const entry=positive.get(key);
   const m=entry.model;
   return {model:m.m,status:'offen',selectionBasis:'qualitative',reason:entry.reason,catalog:{id:m.kat,page:m.s},
@@ -68,10 +75,19 @@ export function qualitativeMachineCards(answer,suggestions=[],proposal=null,excl
    utilization:null,planningOutput:null,criteria:[],openPoints:[],concept:null,
    priceEUR:m.rp||null,priceRangeEUR:m.lo&&m.hi?[m.lo,m.hi]:null};
  });
+ return options.packageSix===true?packageSixOrder(cards):cards;
 }
 
-export function withQualitativeMachines(proposal,cards,knowledgeVersion){
- if(!cards.length)return proposal;
- if(proposal)return {...proposal,machines:[...proposal.machines,...cards]};
- return {classification:'qualitative',selectionBasis:'qualitative',machines:cards,input:[],stages:[],assumptions:[],calculationBasis:[],limits:[],rules:[],calculation:null,knowledgeVersion};
+export function withQualitativeMachines(proposal,cards,knowledgeVersion,options={}){
+ if(options.packageSix===true&&proposal?.calculation){
+  // Preserve the numerical ranker's deliberately different alternatives. Text
+  // candidates can only fill free places, never replace checked recommendations.
+  const known=(proposal.machines||[]).filter(row=>!hardExcluded(row)),excluded=new Set((proposal.machines||[]).filter(hardExcluded).map(row=>normalize(row.model)));
+  const extra=packageSixOrder(cards.filter(row=>!excluded.has(normalize(row.model))&&!known.some(item=>normalize(item.model)===normalize(row.model))));
+  return {...proposal,machines:[...known,...extra].slice(0,3)};
+ }
+ if(!cards.length)return options.packageSix===true&&proposal?{...proposal,machines:packageSixOrder(proposal.machines||[])}:proposal;
+ const rows=[...(proposal?.machines||[]),...cards],selected=options.packageSix===true?packageSixOrder(rows):rows;
+ if(proposal)return {...proposal,machines:selected};
+ return {classification:'qualitative',selectionBasis:'qualitative',machines:selected,input:[],stages:[],assumptions:[],calculationBasis:[],limits:[],rules:[],calculation:null,knowledgeVersion};
 }

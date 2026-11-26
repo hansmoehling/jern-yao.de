@@ -3,6 +3,11 @@ import I18N from '../i18n.js';
 import { geometryContext } from './geometry-context.js';
 import {DRAWING_DEFAULTS_VERSION,validateMaterialChoice,materialText,CHOICE_ERROR} from './material-choice.js';
 import {prepareDecision,recordDecision} from './decision-log.js';
+import {prepareFeedback,storeFeedback,validateExperienceRequest,experience} from './src/kvp.js';
+import P7_TRANSLATIONS from '../i18n-p7.json' with {type:'json'};
+import MachineRanking from '../machine-ranking.js';
+import machineCatalog from '../maschinen.json' with {type:'json'};
+import machinePractice from '../praxis.json' with {type:'json'};
 const {t,normalizeLanguage}=I18N;
 
 const TTL = 30 * 86400;
@@ -229,7 +234,7 @@ async function chat(req, env, cors, locale) {
   await throttle(req, env, 'chat', 40);
   const file = request?.file?.readable ? await readFile(env, request.file) : null;
   let result;
-  try { result = await analyse({ note: request?.note || '', message, history, file, filename: request?.file?.name, unreadableFile: !!request?.file && !request.file.readable, geometrySpec:request?.geometrySpec,geometryProcess:request?.geometryProcess, language: locale.value,pricePolicy,...storedFeatures(request) }, env, { timeoutMs: 120000, maxRounds: 5 }); }
+  try { result = await analyse({ note: request?.note || '', message, history, file, filename: request?.file?.name, unreadableFile: !!request?.file && !request.file.readable, geometrySpec:request?.geometrySpec,geometryProcess:request?.geometryProcess, language: locale.value,pricePolicy,...storedFeatures(request),...(packageOneOrigin(req.headers.get('Origin'))&&(!request||packageOneOrigin(request.siteOrigin))?{packageSix:true}:{}) }, env, { timeoutMs: 120000, maxRounds: 5 }); }
   catch (error) { await recordServiceDiagnostic(env, error, 'chat'); throw new HttpError(503, 'Die Antwort konnte gerade nicht fertiggestellt werden. Ihre bisherige Anfrage bleibt erhalten. Bitte versuchen Sie es erneut.'); }
   if (request) {
     await put(env, 'chat:' + request.id, [...history, { role: 'user', content: message }, { role: 'assistant', content: result.answer }].slice(-20));
@@ -272,7 +277,7 @@ async function queued(message, env) {
       if (['ready', 'needs_info'].includes(old?.status)||isPreview&&old?.status==='failed') { message.ack(); return; }
       await put(env, key, { status: 'processing', updatedAt: new Date().toISOString() });
       const file = record.file?.readable ? await readFile(env, record.file) : null;
-      const result = await analyse({ note: record.note, file, filename: record.file?.name, unreadableFile: !!record.file && !record.file.readable, geometrySpec:record.geometrySpec,geometryProcess:record.geometryProcess, language: normalizeLanguage(record.language),pricePolicy:storedPricePolicy(record),...storedFeatures(record) }, env, { timeoutMs: 240000, maxRounds: 7 });
+      const result = await analyse({ note: record.note, file, filename: record.file?.name, unreadableFile: !!record.file && !record.file.readable, geometrySpec:record.geometrySpec,geometryProcess:record.geometryProcess, language: normalizeLanguage(record.language),pricePolicy:storedPricePolicy(record),...storedFeatures(record),...(packageOneOrigin(record.siteOrigin)?{packageSix:true}:{}) }, env, { timeoutMs: 240000, maxRounds: 7 });
       const latest = await get(env, key);
       if (!['ready', 'needs_info'].includes(latest?.status)) await put(env, key, { status: result.questions.length ? 'needs_info' : 'ready', result, updatedAt: new Date().toISOString() });
     }
@@ -290,6 +295,60 @@ async function queued(message, env) {
     message.retry({ delaySeconds: 60 }); // Exhausted jobs reach the configured dead-letter queue.
   }
 }
+const p7Text=(key,language)=>P7_TRANSLATIONS[key]?.[['it','sl','en','zh'].indexOf(language)]||key;
+async function rankingRequest(req,env,cors,locale){
+  if(req.headers.get('Origin')!=='https://jern-yao.de')throw new HttpError(404,'Nicht gefunden.');
+  if(!env.SPEICHER?.get||!env.SPEICHER?.put)throw new HttpError(503,'Der Fachchat wird noch eingerichtet.');
+  const invalid=()=>{throw new HttpError(400,'Die Nachricht konnte nicht gelesen werden.');};
+  const only=(obj,keys)=>obj&&typeof obj==='object'&&!Array.isArray(obj)&&Object.keys(obj).every(k=>keys.includes(k));
+  let body;try{body=JSON.parse(new TextDecoder().decode(await readBounded(req,8192)));}catch(error){if(error instanceof HttpError)throw error;invalid();}
+  if(!only(body,['featureVersion','candidates','demandPerMinute'])||body.featureVersion!=='kvp-v1'||!Array.isArray(body.candidates)||body.candidates.length<1||body.candidates.length>12)invalid();
+  if(body.demandPerMinute!==undefined&&(typeof body.demandPerMinute!=='number'||!Number.isFinite(body.demandPerMinute)||body.demandPerMinute<=0||body.demandPerMinute>10000))invalid();
+  const scores=['force','stations','size','length','output'],seen=new Set(),rows=[];
+  for(const row of body.candidates){
+    if(!only(row,['model','status','suitability'])||!['ok','knapp','offen','nein'].includes(row.status)||!only(row.suitability,scores)||!Object.keys(row.suitability).length)invalid();
+    const model=machineCatalog.find(m=>m.m===row.model);if(!model||seen.has(model.m))invalid();seen.add(model.m);
+    let weighted=0,total=0;
+    for(const [key,value]of Object.entries(row.suitability)){if(typeof value!=='number'||!Number.isFinite(value)||value<0||value>1)invalid();const weight=MachineRanking.DEFAULT_WEIGHTS[key];weighted+=weight*value;total+=weight;}
+    rows.push({model,status:row.status,score:total?weighted/total:0});
+  }
+  await throttle(req,env,'ranking-v1',60);
+  // These are submitted normalized technical assessments, not a new geometry
+  // calculation. Only server catalog values determine prices and comparisons.
+  const transferOf=model=>{
+    const record=model.ausfuehrung||{},raw=record.transfer,entry=raw&&typeof raw==='object'?raw:null;
+    const verified=entry?(entry.verified===true||entry.status==='verified'||entry.verification==='verified'):(record.verified===true||record.status==='verified'||record.verification==='verified');
+    const value=entry?entry.value:raw;return verified&&['universal','quer','rotativ'].includes(value)?value:'unbekannt';
+  };
+  const tier=row=>row.status==='offen'?1:0,eligible=rows.filter(r=>r.status!=='nein'&&transferOf(r.model)!=='rotativ');
+  const priced=new Map([0,1].map(t=>[t,eligible.filter(r=>tier(r)===t).every(r=>Number.isFinite(r.model.rp)&&r.model.rp>0)]));
+  eligible.sort((a,b)=>tier(a)-tier(b)||(priced.get(tier(a))?a.model.rp-b.model.rp:0)||b.score-a.score||a.model.m.localeCompare(b.model.m,'en'));
+  const selected=eligible.slice(0,1),capability=row=>[row.model.st,row.model.cd,transferOf(row.model)].join('|'),capabilities=new Set(selected.map(capability));
+  for(const row of eligible.slice(1))if(selected.length<3&&!capabilities.has(capability(row))){selected.push(row);capabilities.add(capability(row));}
+  for(const row of eligible.slice(1))if(selected.length<3&&!selected.includes(row))selected.push(row);
+  const models=selected.map((row,index)=>{
+    if(!index)return {model:row.model.m,comparison:null};
+    const c=MachineRanking.compareVariants(selected[0].model,row.model,{practice:machinePractice,...(body.demandPerMinute?{demandPerMinute:body.demandPerMinute}:{})});
+    return {model:row.model.m,comparison:{price:c.price,efficiency:c.efficiency,connector:c.connector,basis:c.basis?{source:c.basis.source,toolCostsIncluded:false}:null,uncertainties:c.uncertainties.map(item=>({code:item.code}))}};
+  });
+  return json({version:'ranking-v1',basis:'submitted-technical-status',models},200,cors);
+}
+async function kvpRequest(req,env,cors,locale,kind){
+  // Exact deployment boundary: ALLOWED_ORIGINS cannot enable this on another site.
+  if(req.headers.get('Origin')!=='https://jern-yao.de')throw new HttpError(404,'Nicht gefunden.');
+  if(!env.SPEICHER?.get||!env.SPEICHER?.put)throw new HttpError(503,p7Text('Die Erfahrungsdaten werden noch eingerichtet.',locale.value));
+  const bytes=await readBounded(req,8192);let body;
+  try{body=JSON.parse(new TextDecoder().decode(bytes));}catch{throw new HttpError(400,p7Text('Technische Rückmeldung oder Merkmale sind ungültig.',locale.value));}
+  if(!body||typeof body!=='object'||Array.isArray(body))throw new HttpError(400,p7Text('Technische Rückmeldung oder Merkmale sind ungültig.',locale.value));
+  if(body.language!==undefined){locale.value=normalizeLanguage(body.language);delete body.language;}
+  if(body.featureVersion!==undefined&&body.featureVersion!=='kvp-v1')throw new HttpError(400,p7Text('Diese Version der Erfahrungsfunktion ist nicht freigegeben.',locale.value));
+  delete body.featureVersion;
+  try{if(kind==='feedback')prepareFeedback(body);else validateExperienceRequest(body);}
+  catch(error){throw new HttpError(400,p7Text(error.message==='learning_opt_in_required'?'Bitte der anonymen technischen Rückmeldung ausdrücklich zustimmen.':'Technische Rückmeldung oder Merkmale sind ungültig.',locale.value));}
+  await throttle(req,env,'kvp-'+kind,kind==='feedback'?30:60);
+  const result=kind==='feedback'?await storeFeedback(env,body):await experience(env,body);
+  return json({...result,language:locale.value},kind==='feedback'?202:200,cors);
+}
 export default {
   async fetch(req, env) {
     const url = new URL(req.url), origin = req.headers.get('Origin');
@@ -304,6 +363,9 @@ export default {
       if (url.pathname === '/preview' && req.method === 'POST') return await preview(req, env, cors, locale);
       if (url.pathname === '/geometry-preview' && req.method === 'POST') return await geometryPreview(req, env, cors, locale);
       if (url.pathname === '/chat' && req.method === 'POST') return await chat(req, env, cors, locale);
+      if (url.pathname === '/rueckmeldung' && req.method === 'POST') return await kvpRequest(req,env,cors,locale,'feedback');
+      if (url.pathname === '/erfahrung' && req.method === 'POST') return await kvpRequest(req,env,cors,locale,'experience');
+      if (url.pathname === '/rangfolge' && req.method === 'POST') return await rankingRequest(req,env,cors,locale);
       if (url.pathname === '/status' && req.method === 'GET') { const a = await authorised(env, url.searchParams.get('id'), url.searchParams.get('token')); const state = await snapshot(env, a.id,requestPricePolicy(req,url.searchParams.get('pricePolicy'),a),a.kind); if (!state.answer) state.language = normalizeLanguage(a.language); return json({...state,...(a.kind==='preview'?{kind:'preview',notificationStatus:'not_requested',...(a.previewSource==='structured_geometry'?{previewSource:a.previewSource}:{})}:{})}, 200, cors); }
       return json({ error: t('Nicht gefunden.', locale.value), language: locale.value }, 404, cors);
     } catch (e) { if (!(e instanceof HttpError)) await recordServiceDiagnostic(env, e, url.pathname === '/chat' ? 'chat' : 'request'); return json({ error: t(e instanceof HttpError ? e.message : 'Der Dienst konnte die Anfrage gerade nicht abschließen.', locale.value), language: locale.value }, e.status || 503, cors); }

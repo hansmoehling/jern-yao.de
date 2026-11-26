@@ -4,50 +4,131 @@
   "schemaVersion": 1,
   "label": "DIN7500 · Gewindefurchende Schraube; Kopfform wählen",
   "edition": null,
-  "editionStatus": "unresolved",
+  "editionStatus": "manufacturer-edition-unassigned",
   "funktion": "schraube",
   "klasse": "bolzen",
   "kopfTyp": null,
   "antrieb": {
     "art": "none"
   },
-  "feldzuordnung": {},
+  "feldzuordnung": {
+    "kD": "dk_max",
+    "kH": "k_max",
+    "iSize": "recess_no_Z"
+  },
   "groessen": {},
   "fields": {},
-  "sourceMeta": {},
-  "quellen": [],
+  "sourceMeta": {
+    "boellhoffC": {
+      "id": "boellhoffC",
+      "url": "https://eshop.boellhoff.de/out/media/pdf/DIN_7500_C_Stahl_gv___en.pdf",
+      "titel": "Böllhoff DIN7500 C, Kopf nach ISO7045, PZ",
+      "type": "manufacturer",
+      "locator": "Maß- und Liefermatrix, Seite 1",
+      "abgerufen": "2026-11-26"
+    },
+    "boellhoffM": {
+      "id": "boellhoffM",
+      "url": "https://eshop.boellhoff.de/out/media/pdf/DIN_7500_M_Stahl_gv___de.pdf",
+      "titel": "Böllhoff DIN7500 M, Kopf nach DIN965, PZ",
+      "type": "manufacturer",
+      "locator": "Maß- und Liefermatrix, Seite 1",
+      "abgerufen": "2026-11-26"
+    },
+    "din-status": {
+      "id": "din-status",
+      "url": "https://www.dinmedia.de/de/norm/din-7500-1/335454929",
+      "titel": "DIN7500-1:2021-07 Status/Geltungsbereich",
+      "type": "standards-body",
+      "locator": "Einführungsbeitrag",
+      "abgerufen": "2026-11-26"
+    }
+  },
+  "quellen": [
+    {
+      "id": "boellhoffC",
+      "url": "https://eshop.boellhoff.de/out/media/pdf/DIN_7500_C_Stahl_gv___en.pdf",
+      "titel": "Böllhoff DIN7500 C, Kopf nach ISO7045, PZ",
+      "type": "manufacturer",
+      "locator": "Maß- und Liefermatrix, Seite 1",
+      "abgerufen": "2026-11-26"
+    },
+    {
+      "id": "boellhoffM",
+      "url": "https://eshop.boellhoff.de/out/media/pdf/DIN_7500_M_Stahl_gv___de.pdf",
+      "titel": "Böllhoff DIN7500 M, Kopf nach DIN965, PZ",
+      "type": "manufacturer",
+      "locator": "Maß- und Liefermatrix, Seite 1",
+      "abgerufen": "2026-11-26"
+    },
+    {
+      "id": "din-status",
+      "url": "https://www.dinmedia.de/de/norm/din-7500-1/335454929",
+      "titel": "DIN7500-1:2021-07 Status/Geltungsbereich",
+      "type": "standards-body",
+      "locator": "Einführungsbeitrag",
+      "abgerufen": "2026-11-26"
+    }
+  ],
   "abweichungen": [],
   "status": "partial",
-  "coverage": "unresearched",
-  "lengthCoverage": "unresearched",
+  "coverage": "documented",
+  "lengthCoverage": "documented-manufacturer-subset",
   "hinweise": [
-    "Familie erfasst; vollständige Einzelmaß- und Längenrecherche steht noch aus. Keine Ersatzmaße einer ähnlichen Norm verwendet."
+    "C und M sind hier ausdrücklich belegte Böllhoff-Kopfausführungen. Keine Mischung mit abweichenden DIN7985-/ISO7045-Katalogköpfen anderer Anbieter.",
+    "Die Tabellen liefern keine vollständige trilobulare Rohteilfläche und keine belastbare Furchbereichskontur.",
+    "DIN7500-1 betrifft gewindefurchende Schrauben; ISO898-1-Festigkeitsklassen sind dafür nicht direkt anzuwenden."
   ],
   "normstatus": {
-    "status": "unresolved",
-    "note": "Ausgabe und Vollständigkeit nicht aus einer ähnlichen Norm ableiten."
+    "status": "current",
+    "edition": "2021-07",
+    "sourceRefs": [
+      "din-status"
+    ],
+    "note": "Herstellerkopf-Ausführungen ohne Zuordnung zur vollständigen aktuellen Normausgabe."
   },
-  "requiredGeometryFields": [],
+  "requiredGeometryFields": [
+    "headVariant",
+    "sArea",
+    "recessVolumeModel",
+    "formingLeadProfile"
+  ],
   "sizeCoverage": {
     "M3": {
-      "status": "unresearched",
-      "note": "Keine Größenzeile vorhanden; daraus folgt kein Normverbot."
+      "status": "documented",
+      "sourceRefs": [
+        "boellhoffC",
+        "boellhoffM"
+      ],
+      "note": "Maße hängen von der gewählten C-/M-Kopfausführung ab."
     },
     "M3.5": {
       "status": "unresearched",
       "note": "Keine Größenzeile vorhanden; daraus folgt kein Normverbot."
     },
     "M4": {
-      "status": "unresearched",
-      "note": "Keine Größenzeile vorhanden; daraus folgt kein Normverbot."
+      "status": "documented",
+      "sourceRefs": [
+        "boellhoffC",
+        "boellhoffM"
+      ],
+      "note": "Maße hängen von der gewählten C-/M-Kopfausführung ab."
     },
     "M5": {
-      "status": "unresearched",
-      "note": "Keine Größenzeile vorhanden; daraus folgt kein Normverbot."
+      "status": "documented",
+      "sourceRefs": [
+        "boellhoffC",
+        "boellhoffM"
+      ],
+      "note": "Maße hängen von der gewählten C-/M-Kopfausführung ab."
     },
     "M6": {
-      "status": "unresearched",
-      "note": "Keine Größenzeile vorhanden; daraus folgt kein Normverbot."
+      "status": "documented",
+      "sourceRefs": [
+        "boellhoffC",
+        "boellhoffM"
+      ],
+      "note": "Maße hängen von der gewählten C-/M-Kopfausführung ab."
     },
     "M7": {
       "status": "unresearched",
@@ -66,46 +147,2543 @@
       "note": "Keine Größenzeile vorhanden; daraus folgt kein Normverbot."
     },
     "M14": {
-      "status": "unresearched",
-      "note": "Keine Größenzeile vorhanden; daraus folgt kein Normverbot."
+      "status": "not-in-standard",
+      "sourceRefs": [
+        "din-status"
+      ],
+      "note": "Außerhalb des belegten Größenbereichs dieser Normausgabe."
     },
     "M16": {
-      "status": "unresearched",
-      "note": "Keine Größenzeile vorhanden; daraus folgt kein Normverbot."
+      "status": "not-in-standard",
+      "sourceRefs": [
+        "din-status"
+      ],
+      "note": "Außerhalb des belegten Größenbereichs dieser Normausgabe."
     },
     "M18": {
-      "status": "unresearched",
-      "note": "Keine Größenzeile vorhanden; daraus folgt kein Normverbot."
+      "status": "not-in-standard",
+      "sourceRefs": [
+        "din-status"
+      ],
+      "note": "Außerhalb des belegten Größenbereichs dieser Normausgabe."
     },
     "M20": {
-      "status": "unresearched",
-      "note": "Keine Größenzeile vorhanden; daraus folgt kein Normverbot."
+      "status": "not-in-standard",
+      "sourceRefs": [
+        "din-status"
+      ],
+      "note": "Außerhalb des belegten Größenbereichs dieser Normausgabe."
     },
     "M22": {
-      "status": "unresearched",
-      "note": "Keine Größenzeile vorhanden; daraus folgt kein Normverbot."
+      "status": "not-in-standard",
+      "sourceRefs": [
+        "din-status"
+      ],
+      "note": "Außerhalb des belegten Größenbereichs dieser Normausgabe."
     },
     "M24": {
-      "status": "unresearched",
-      "note": "Keine Größenzeile vorhanden; daraus folgt kein Normverbot."
+      "status": "not-in-standard",
+      "sourceRefs": [
+        "din-status"
+      ],
+      "note": "Außerhalb des belegten Größenbereichs dieser Normausgabe."
     },
     "M27": {
-      "status": "unresearched",
-      "note": "Keine Größenzeile vorhanden; daraus folgt kein Normverbot."
+      "status": "not-in-standard",
+      "sourceRefs": [
+        "din-status"
+      ],
+      "note": "Außerhalb des belegten Größenbereichs dieser Normausgabe."
     },
     "M30": {
-      "status": "unresearched",
-      "note": "Keine Größenzeile vorhanden; daraus folgt kein Normverbot."
+      "status": "not-in-standard",
+      "sourceRefs": [
+        "din-status"
+      ],
+      "note": "Außerhalb des belegten Größenbereichs dieser Normausgabe."
     },
     "M33": {
-      "status": "unresearched",
-      "note": "Keine Größenzeile vorhanden; daraus folgt kein Normverbot."
+      "status": "not-in-standard",
+      "sourceRefs": [
+        "din-status"
+      ],
+      "note": "Außerhalb des belegten Größenbereichs dieser Normausgabe."
     }
   },
   "pruefdatum": "2026-11-26",
   "klassen": {
-    "status": "unresearched",
+    "status": "not-applicable",
     "values": [],
-    "note": "Festigkeits-/Werkstoffklassen noch nicht vollständig aus dieser Norm belegt."
+    "sourceRefs": [
+      "din-status"
+    ],
+    "note": "ISO898-1 laut DIN7500-1-Geltungsbereich nicht anwendbar; keine 8.8-Vorbelegung aus dieser Norm."
+  },
+  "datasetKind": "part-standard",
+  "gaps": [
+    "Weitere Kopfvarianten und Größen M8–M12 sind noch nicht als eigene Maßreihen belegt.",
+    "Trilobularer Querschnitt, Furchbereich, Antriebsvolumen und unabhängige Zweitbelege fehlen."
+  ],
+  "geometryStatus": "partial",
+  "part": "DIN7500-1",
+  "currentEdition": "2021-07",
+  "threadFamily": "trilobular",
+  "lengthDependentFields": [
+    "sL",
+    "totalLength",
+    "b"
+  ],
+  "variants": [
+    {
+      "id": "C",
+      "label": "Linsenkopf nach ISO7045 · Böllhoff · PZ",
+      "kopfTyp": "linse",
+      "antrieb": {
+        "art": "pz"
+      },
+      "threadFamily": "trilobular",
+      "schaftende": "voll",
+      "feldzuordnung": {
+        "kD": "dk_max",
+        "kH": "k_max",
+        "iSize": "recess_no_Z",
+        "sL": "l_nominal"
+      },
+      "sizeData": {
+        "M3": {
+          "roh": {
+            "P": 0.5,
+            "dk_max": 5.6,
+            "dk_min": 5.3,
+            "k_max": 2.4,
+            "recess_no_Z": 1
+          },
+          "vorbelegung": {
+            "kD": 5.6,
+            "kH": 2.4,
+            "iSize": 1
+          },
+          "coverage": "documented",
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "sArea",
+            "recessVolumeModel",
+            "formingLeadProfile"
+          ],
+          "nachLaenge": {
+            "5": {
+              "vorbelegung": {
+                "sL": 5
+              },
+              "roh": {
+                "l_nominal": 5
+              },
+              "fields": {
+                "l_nominal": {
+                  "nominal": 5,
+                  "min": null,
+                  "max": null,
+                  "unit": "mm",
+                  "sourceRefs": [
+                    "boellhoffC"
+                  ],
+                  "status": "single-source",
+                  "verification": false,
+                  "verificationMethod": "single-primary-source",
+                  "note": "Belegte Längenzeile; unabhängiger Zweitbeleg offen. Belegte Böllhoff-Lieferkombination; keine vollständige Normlängenreihe."
+                }
+              },
+              "geometryStatus": "partial",
+              "missingGeometryFields": [
+                "sArea",
+                "recessVolumeModel",
+                "formingLeadProfile"
+              ]
+            },
+            "6": {
+              "vorbelegung": {
+                "sL": 6
+              },
+              "roh": {
+                "l_nominal": 6
+              },
+              "fields": {
+                "l_nominal": {
+                  "nominal": 6,
+                  "min": null,
+                  "max": null,
+                  "unit": "mm",
+                  "sourceRefs": [
+                    "boellhoffC"
+                  ],
+                  "status": "single-source",
+                  "verification": false,
+                  "verificationMethod": "single-primary-source",
+                  "note": "Belegte Längenzeile; unabhängiger Zweitbeleg offen. Belegte Böllhoff-Lieferkombination; keine vollständige Normlängenreihe."
+                }
+              },
+              "geometryStatus": "partial",
+              "missingGeometryFields": [
+                "sArea",
+                "recessVolumeModel",
+                "formingLeadProfile"
+              ]
+            },
+            "8": {
+              "vorbelegung": {
+                "sL": 8
+              },
+              "roh": {
+                "l_nominal": 8
+              },
+              "fields": {
+                "l_nominal": {
+                  "nominal": 8,
+                  "min": null,
+                  "max": null,
+                  "unit": "mm",
+                  "sourceRefs": [
+                    "boellhoffC"
+                  ],
+                  "status": "single-source",
+                  "verification": false,
+                  "verificationMethod": "single-primary-source",
+                  "note": "Belegte Längenzeile; unabhängiger Zweitbeleg offen. Belegte Böllhoff-Lieferkombination; keine vollständige Normlängenreihe."
+                }
+              },
+              "geometryStatus": "partial",
+              "missingGeometryFields": [
+                "sArea",
+                "recessVolumeModel",
+                "formingLeadProfile"
+              ]
+            },
+            "10": {
+              "vorbelegung": {
+                "sL": 10
+              },
+              "roh": {
+                "l_nominal": 10
+              },
+              "fields": {
+                "l_nominal": {
+                  "nominal": 10,
+                  "min": null,
+                  "max": null,
+                  "unit": "mm",
+                  "sourceRefs": [
+                    "boellhoffC"
+                  ],
+                  "status": "single-source",
+                  "verification": false,
+                  "verificationMethod": "single-primary-source",
+                  "note": "Belegte Längenzeile; unabhängiger Zweitbeleg offen. Belegte Böllhoff-Lieferkombination; keine vollständige Normlängenreihe."
+                }
+              },
+              "geometryStatus": "partial",
+              "missingGeometryFields": [
+                "sArea",
+                "recessVolumeModel",
+                "formingLeadProfile"
+              ]
+            },
+            "12": {
+              "vorbelegung": {
+                "sL": 12
+              },
+              "roh": {
+                "l_nominal": 12
+              },
+              "fields": {
+                "l_nominal": {
+                  "nominal": 12,
+                  "min": null,
+                  "max": null,
+                  "unit": "mm",
+                  "sourceRefs": [
+                    "boellhoffC"
+                  ],
+                  "status": "single-source",
+                  "verification": false,
+                  "verificationMethod": "single-primary-source",
+                  "note": "Belegte Längenzeile; unabhängiger Zweitbeleg offen. Belegte Böllhoff-Lieferkombination; keine vollständige Normlängenreihe."
+                }
+              },
+              "geometryStatus": "partial",
+              "missingGeometryFields": [
+                "sArea",
+                "recessVolumeModel",
+                "formingLeadProfile"
+              ]
+            },
+            "16": {
+              "vorbelegung": {
+                "sL": 16
+              },
+              "roh": {
+                "l_nominal": 16
+              },
+              "fields": {
+                "l_nominal": {
+                  "nominal": 16,
+                  "min": null,
+                  "max": null,
+                  "unit": "mm",
+                  "sourceRefs": [
+                    "boellhoffC"
+                  ],
+                  "status": "single-source",
+                  "verification": false,
+                  "verificationMethod": "single-primary-source",
+                  "note": "Belegte Längenzeile; unabhängiger Zweitbeleg offen. Belegte Böllhoff-Lieferkombination; keine vollständige Normlängenreihe."
+                }
+              },
+              "geometryStatus": "partial",
+              "missingGeometryFields": [
+                "sArea",
+                "recessVolumeModel",
+                "formingLeadProfile"
+              ]
+            },
+            "20": {
+              "vorbelegung": {
+                "sL": 20
+              },
+              "roh": {
+                "l_nominal": 20
+              },
+              "fields": {
+                "l_nominal": {
+                  "nominal": 20,
+                  "min": null,
+                  "max": null,
+                  "unit": "mm",
+                  "sourceRefs": [
+                    "boellhoffC"
+                  ],
+                  "status": "single-source",
+                  "verification": false,
+                  "verificationMethod": "single-primary-source",
+                  "note": "Belegte Längenzeile; unabhängiger Zweitbeleg offen. Belegte Böllhoff-Lieferkombination; keine vollständige Normlängenreihe."
+                }
+              },
+              "geometryStatus": "partial",
+              "missingGeometryFields": [
+                "sArea",
+                "recessVolumeModel",
+                "formingLeadProfile"
+              ]
+            },
+            "25": {
+              "vorbelegung": {
+                "sL": 25
+              },
+              "roh": {
+                "l_nominal": 25
+              },
+              "fields": {
+                "l_nominal": {
+                  "nominal": 25,
+                  "min": null,
+                  "max": null,
+                  "unit": "mm",
+                  "sourceRefs": [
+                    "boellhoffC"
+                  ],
+                  "status": "single-source",
+                  "verification": false,
+                  "verificationMethod": "single-primary-source",
+                  "note": "Belegte Längenzeile; unabhängiger Zweitbeleg offen. Belegte Böllhoff-Lieferkombination; keine vollständige Normlängenreihe."
+                }
+              },
+              "geometryStatus": "partial",
+              "missingGeometryFields": [
+                "sArea",
+                "recessVolumeModel",
+                "formingLeadProfile"
+              ]
+            },
+            "30": {
+              "vorbelegung": {
+                "sL": 30
+              },
+              "roh": {
+                "l_nominal": 30
+              },
+              "fields": {
+                "l_nominal": {
+                  "nominal": 30,
+                  "min": null,
+                  "max": null,
+                  "unit": "mm",
+                  "sourceRefs": [
+                    "boellhoffC"
+                  ],
+                  "status": "single-source",
+                  "verification": false,
+                  "verificationMethod": "single-primary-source",
+                  "note": "Belegte Längenzeile; unabhängiger Zweitbeleg offen. Belegte Böllhoff-Lieferkombination; keine vollständige Normlängenreihe."
+                }
+              },
+              "geometryStatus": "partial",
+              "missingGeometryFields": [
+                "sArea",
+                "recessVolumeModel",
+                "formingLeadProfile"
+              ]
+            }
+          },
+          "lengthCoverage": "documented-subset",
+          "laengen": [
+            5,
+            6,
+            8,
+            10,
+            12,
+            16,
+            20,
+            25,
+            30
+          ]
+        },
+        "M4": {
+          "roh": {
+            "P": 0.7,
+            "dk_max": 8,
+            "dk_min": 7.64,
+            "k_max": 3.1,
+            "recess_no_Z": 2
+          },
+          "vorbelegung": {
+            "kD": 8,
+            "kH": 3.1,
+            "iSize": 2
+          },
+          "coverage": "documented",
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "sArea",
+            "recessVolumeModel",
+            "formingLeadProfile"
+          ],
+          "nachLaenge": {
+            "6": {
+              "vorbelegung": {
+                "sL": 6
+              },
+              "roh": {
+                "l_nominal": 6
+              },
+              "fields": {
+                "l_nominal": {
+                  "nominal": 6,
+                  "min": null,
+                  "max": null,
+                  "unit": "mm",
+                  "sourceRefs": [
+                    "boellhoffC"
+                  ],
+                  "status": "single-source",
+                  "verification": false,
+                  "verificationMethod": "single-primary-source",
+                  "note": "Belegte Längenzeile; unabhängiger Zweitbeleg offen. Belegte Böllhoff-Lieferkombination; keine vollständige Normlängenreihe."
+                }
+              },
+              "geometryStatus": "partial",
+              "missingGeometryFields": [
+                "sArea",
+                "recessVolumeModel",
+                "formingLeadProfile"
+              ]
+            },
+            "8": {
+              "vorbelegung": {
+                "sL": 8
+              },
+              "roh": {
+                "l_nominal": 8
+              },
+              "fields": {
+                "l_nominal": {
+                  "nominal": 8,
+                  "min": null,
+                  "max": null,
+                  "unit": "mm",
+                  "sourceRefs": [
+                    "boellhoffC"
+                  ],
+                  "status": "single-source",
+                  "verification": false,
+                  "verificationMethod": "single-primary-source",
+                  "note": "Belegte Längenzeile; unabhängiger Zweitbeleg offen. Belegte Böllhoff-Lieferkombination; keine vollständige Normlängenreihe."
+                }
+              },
+              "geometryStatus": "partial",
+              "missingGeometryFields": [
+                "sArea",
+                "recessVolumeModel",
+                "formingLeadProfile"
+              ]
+            },
+            "10": {
+              "vorbelegung": {
+                "sL": 10
+              },
+              "roh": {
+                "l_nominal": 10
+              },
+              "fields": {
+                "l_nominal": {
+                  "nominal": 10,
+                  "min": null,
+                  "max": null,
+                  "unit": "mm",
+                  "sourceRefs": [
+                    "boellhoffC"
+                  ],
+                  "status": "single-source",
+                  "verification": false,
+                  "verificationMethod": "single-primary-source",
+                  "note": "Belegte Längenzeile; unabhängiger Zweitbeleg offen. Belegte Böllhoff-Lieferkombination; keine vollständige Normlängenreihe."
+                }
+              },
+              "geometryStatus": "partial",
+              "missingGeometryFields": [
+                "sArea",
+                "recessVolumeModel",
+                "formingLeadProfile"
+              ]
+            },
+            "12": {
+              "vorbelegung": {
+                "sL": 12
+              },
+              "roh": {
+                "l_nominal": 12
+              },
+              "fields": {
+                "l_nominal": {
+                  "nominal": 12,
+                  "min": null,
+                  "max": null,
+                  "unit": "mm",
+                  "sourceRefs": [
+                    "boellhoffC"
+                  ],
+                  "status": "single-source",
+                  "verification": false,
+                  "verificationMethod": "single-primary-source",
+                  "note": "Belegte Längenzeile; unabhängiger Zweitbeleg offen. Belegte Böllhoff-Lieferkombination; keine vollständige Normlängenreihe."
+                }
+              },
+              "geometryStatus": "partial",
+              "missingGeometryFields": [
+                "sArea",
+                "recessVolumeModel",
+                "formingLeadProfile"
+              ]
+            },
+            "16": {
+              "vorbelegung": {
+                "sL": 16
+              },
+              "roh": {
+                "l_nominal": 16
+              },
+              "fields": {
+                "l_nominal": {
+                  "nominal": 16,
+                  "min": null,
+                  "max": null,
+                  "unit": "mm",
+                  "sourceRefs": [
+                    "boellhoffC"
+                  ],
+                  "status": "single-source",
+                  "verification": false,
+                  "verificationMethod": "single-primary-source",
+                  "note": "Belegte Längenzeile; unabhängiger Zweitbeleg offen. Belegte Böllhoff-Lieferkombination; keine vollständige Normlängenreihe."
+                }
+              },
+              "geometryStatus": "partial",
+              "missingGeometryFields": [
+                "sArea",
+                "recessVolumeModel",
+                "formingLeadProfile"
+              ]
+            },
+            "20": {
+              "vorbelegung": {
+                "sL": 20
+              },
+              "roh": {
+                "l_nominal": 20
+              },
+              "fields": {
+                "l_nominal": {
+                  "nominal": 20,
+                  "min": null,
+                  "max": null,
+                  "unit": "mm",
+                  "sourceRefs": [
+                    "boellhoffC"
+                  ],
+                  "status": "single-source",
+                  "verification": false,
+                  "verificationMethod": "single-primary-source",
+                  "note": "Belegte Längenzeile; unabhängiger Zweitbeleg offen. Belegte Böllhoff-Lieferkombination; keine vollständige Normlängenreihe."
+                }
+              },
+              "geometryStatus": "partial",
+              "missingGeometryFields": [
+                "sArea",
+                "recessVolumeModel",
+                "formingLeadProfile"
+              ]
+            },
+            "25": {
+              "vorbelegung": {
+                "sL": 25
+              },
+              "roh": {
+                "l_nominal": 25
+              },
+              "fields": {
+                "l_nominal": {
+                  "nominal": 25,
+                  "min": null,
+                  "max": null,
+                  "unit": "mm",
+                  "sourceRefs": [
+                    "boellhoffC"
+                  ],
+                  "status": "single-source",
+                  "verification": false,
+                  "verificationMethod": "single-primary-source",
+                  "note": "Belegte Längenzeile; unabhängiger Zweitbeleg offen. Belegte Böllhoff-Lieferkombination; keine vollständige Normlängenreihe."
+                }
+              },
+              "geometryStatus": "partial",
+              "missingGeometryFields": [
+                "sArea",
+                "recessVolumeModel",
+                "formingLeadProfile"
+              ]
+            },
+            "45": {
+              "vorbelegung": {
+                "sL": 45
+              },
+              "roh": {
+                "l_nominal": 45
+              },
+              "fields": {
+                "l_nominal": {
+                  "nominal": 45,
+                  "min": null,
+                  "max": null,
+                  "unit": "mm",
+                  "sourceRefs": [
+                    "boellhoffC"
+                  ],
+                  "status": "single-source",
+                  "verification": false,
+                  "verificationMethod": "single-primary-source",
+                  "note": "Belegte Längenzeile; unabhängiger Zweitbeleg offen. Belegte Böllhoff-Lieferkombination; keine vollständige Normlängenreihe."
+                }
+              },
+              "geometryStatus": "partial",
+              "missingGeometryFields": [
+                "sArea",
+                "recessVolumeModel",
+                "formingLeadProfile"
+              ]
+            }
+          },
+          "lengthCoverage": "documented-subset",
+          "laengen": [
+            6,
+            8,
+            10,
+            12,
+            16,
+            20,
+            25,
+            45
+          ]
+        },
+        "M5": {
+          "roh": {
+            "P": 0.8,
+            "dk_max": 9.5,
+            "dk_min": 9.14,
+            "k_max": 3.7,
+            "recess_no_Z": 2
+          },
+          "vorbelegung": {
+            "kD": 9.5,
+            "kH": 3.7,
+            "iSize": 2
+          },
+          "coverage": "documented",
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "sArea",
+            "recessVolumeModel",
+            "formingLeadProfile"
+          ],
+          "nachLaenge": {
+            "6": {
+              "vorbelegung": {
+                "sL": 6
+              },
+              "roh": {
+                "l_nominal": 6
+              },
+              "fields": {
+                "l_nominal": {
+                  "nominal": 6,
+                  "min": null,
+                  "max": null,
+                  "unit": "mm",
+                  "sourceRefs": [
+                    "boellhoffC"
+                  ],
+                  "status": "single-source",
+                  "verification": false,
+                  "verificationMethod": "single-primary-source",
+                  "note": "Belegte Längenzeile; unabhängiger Zweitbeleg offen. Belegte Böllhoff-Lieferkombination; keine vollständige Normlängenreihe."
+                }
+              },
+              "geometryStatus": "partial",
+              "missingGeometryFields": [
+                "sArea",
+                "recessVolumeModel",
+                "formingLeadProfile"
+              ]
+            },
+            "8": {
+              "vorbelegung": {
+                "sL": 8
+              },
+              "roh": {
+                "l_nominal": 8
+              },
+              "fields": {
+                "l_nominal": {
+                  "nominal": 8,
+                  "min": null,
+                  "max": null,
+                  "unit": "mm",
+                  "sourceRefs": [
+                    "boellhoffC"
+                  ],
+                  "status": "single-source",
+                  "verification": false,
+                  "verificationMethod": "single-primary-source",
+                  "note": "Belegte Längenzeile; unabhängiger Zweitbeleg offen. Belegte Böllhoff-Lieferkombination; keine vollständige Normlängenreihe."
+                }
+              },
+              "geometryStatus": "partial",
+              "missingGeometryFields": [
+                "sArea",
+                "recessVolumeModel",
+                "formingLeadProfile"
+              ]
+            },
+            "10": {
+              "vorbelegung": {
+                "sL": 10
+              },
+              "roh": {
+                "l_nominal": 10
+              },
+              "fields": {
+                "l_nominal": {
+                  "nominal": 10,
+                  "min": null,
+                  "max": null,
+                  "unit": "mm",
+                  "sourceRefs": [
+                    "boellhoffC"
+                  ],
+                  "status": "single-source",
+                  "verification": false,
+                  "verificationMethod": "single-primary-source",
+                  "note": "Belegte Längenzeile; unabhängiger Zweitbeleg offen. Belegte Böllhoff-Lieferkombination; keine vollständige Normlängenreihe."
+                }
+              },
+              "geometryStatus": "partial",
+              "missingGeometryFields": [
+                "sArea",
+                "recessVolumeModel",
+                "formingLeadProfile"
+              ]
+            },
+            "12": {
+              "vorbelegung": {
+                "sL": 12
+              },
+              "roh": {
+                "l_nominal": 12
+              },
+              "fields": {
+                "l_nominal": {
+                  "nominal": 12,
+                  "min": null,
+                  "max": null,
+                  "unit": "mm",
+                  "sourceRefs": [
+                    "boellhoffC"
+                  ],
+                  "status": "single-source",
+                  "verification": false,
+                  "verificationMethod": "single-primary-source",
+                  "note": "Belegte Längenzeile; unabhängiger Zweitbeleg offen. Belegte Böllhoff-Lieferkombination; keine vollständige Normlängenreihe."
+                }
+              },
+              "geometryStatus": "partial",
+              "missingGeometryFields": [
+                "sArea",
+                "recessVolumeModel",
+                "formingLeadProfile"
+              ]
+            },
+            "16": {
+              "vorbelegung": {
+                "sL": 16
+              },
+              "roh": {
+                "l_nominal": 16
+              },
+              "fields": {
+                "l_nominal": {
+                  "nominal": 16,
+                  "min": null,
+                  "max": null,
+                  "unit": "mm",
+                  "sourceRefs": [
+                    "boellhoffC"
+                  ],
+                  "status": "single-source",
+                  "verification": false,
+                  "verificationMethod": "single-primary-source",
+                  "note": "Belegte Längenzeile; unabhängiger Zweitbeleg offen. Belegte Böllhoff-Lieferkombination; keine vollständige Normlängenreihe."
+                }
+              },
+              "geometryStatus": "partial",
+              "missingGeometryFields": [
+                "sArea",
+                "recessVolumeModel",
+                "formingLeadProfile"
+              ]
+            },
+            "20": {
+              "vorbelegung": {
+                "sL": 20
+              },
+              "roh": {
+                "l_nominal": 20
+              },
+              "fields": {
+                "l_nominal": {
+                  "nominal": 20,
+                  "min": null,
+                  "max": null,
+                  "unit": "mm",
+                  "sourceRefs": [
+                    "boellhoffC"
+                  ],
+                  "status": "single-source",
+                  "verification": false,
+                  "verificationMethod": "single-primary-source",
+                  "note": "Belegte Längenzeile; unabhängiger Zweitbeleg offen. Belegte Böllhoff-Lieferkombination; keine vollständige Normlängenreihe."
+                }
+              },
+              "geometryStatus": "partial",
+              "missingGeometryFields": [
+                "sArea",
+                "recessVolumeModel",
+                "formingLeadProfile"
+              ]
+            },
+            "40": {
+              "vorbelegung": {
+                "sL": 40
+              },
+              "roh": {
+                "l_nominal": 40
+              },
+              "fields": {
+                "l_nominal": {
+                  "nominal": 40,
+                  "min": null,
+                  "max": null,
+                  "unit": "mm",
+                  "sourceRefs": [
+                    "boellhoffC"
+                  ],
+                  "status": "single-source",
+                  "verification": false,
+                  "verificationMethod": "single-primary-source",
+                  "note": "Belegte Längenzeile; unabhängiger Zweitbeleg offen. Belegte Böllhoff-Lieferkombination; keine vollständige Normlängenreihe."
+                }
+              },
+              "geometryStatus": "partial",
+              "missingGeometryFields": [
+                "sArea",
+                "recessVolumeModel",
+                "formingLeadProfile"
+              ]
+            }
+          },
+          "lengthCoverage": "documented-subset",
+          "laengen": [
+            6,
+            8,
+            10,
+            12,
+            16,
+            20,
+            40
+          ]
+        },
+        "M6": {
+          "roh": {
+            "P": 1,
+            "dk_max": 12,
+            "dk_min": 11.57,
+            "k_max": 4.6,
+            "recess_no_Z": 3
+          },
+          "vorbelegung": {
+            "kD": 12,
+            "kH": 4.6,
+            "iSize": 3
+          },
+          "coverage": "documented",
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "sArea",
+            "recessVolumeModel",
+            "formingLeadProfile"
+          ],
+          "nachLaenge": {
+            "10": {
+              "vorbelegung": {
+                "sL": 10
+              },
+              "roh": {
+                "l_nominal": 10
+              },
+              "fields": {
+                "l_nominal": {
+                  "nominal": 10,
+                  "min": null,
+                  "max": null,
+                  "unit": "mm",
+                  "sourceRefs": [
+                    "boellhoffC"
+                  ],
+                  "status": "single-source",
+                  "verification": false,
+                  "verificationMethod": "single-primary-source",
+                  "note": "Belegte Längenzeile; unabhängiger Zweitbeleg offen. Belegte Böllhoff-Lieferkombination; keine vollständige Normlängenreihe."
+                }
+              },
+              "geometryStatus": "partial",
+              "missingGeometryFields": [
+                "sArea",
+                "recessVolumeModel",
+                "formingLeadProfile"
+              ]
+            },
+            "12": {
+              "vorbelegung": {
+                "sL": 12
+              },
+              "roh": {
+                "l_nominal": 12
+              },
+              "fields": {
+                "l_nominal": {
+                  "nominal": 12,
+                  "min": null,
+                  "max": null,
+                  "unit": "mm",
+                  "sourceRefs": [
+                    "boellhoffC"
+                  ],
+                  "status": "single-source",
+                  "verification": false,
+                  "verificationMethod": "single-primary-source",
+                  "note": "Belegte Längenzeile; unabhängiger Zweitbeleg offen. Belegte Böllhoff-Lieferkombination; keine vollständige Normlängenreihe."
+                }
+              },
+              "geometryStatus": "partial",
+              "missingGeometryFields": [
+                "sArea",
+                "recessVolumeModel",
+                "formingLeadProfile"
+              ]
+            },
+            "16": {
+              "vorbelegung": {
+                "sL": 16
+              },
+              "roh": {
+                "l_nominal": 16
+              },
+              "fields": {
+                "l_nominal": {
+                  "nominal": 16,
+                  "min": null,
+                  "max": null,
+                  "unit": "mm",
+                  "sourceRefs": [
+                    "boellhoffC"
+                  ],
+                  "status": "single-source",
+                  "verification": false,
+                  "verificationMethod": "single-primary-source",
+                  "note": "Belegte Längenzeile; unabhängiger Zweitbeleg offen. Belegte Böllhoff-Lieferkombination; keine vollständige Normlängenreihe."
+                }
+              },
+              "geometryStatus": "partial",
+              "missingGeometryFields": [
+                "sArea",
+                "recessVolumeModel",
+                "formingLeadProfile"
+              ]
+            },
+            "20": {
+              "vorbelegung": {
+                "sL": 20
+              },
+              "roh": {
+                "l_nominal": 20
+              },
+              "fields": {
+                "l_nominal": {
+                  "nominal": 20,
+                  "min": null,
+                  "max": null,
+                  "unit": "mm",
+                  "sourceRefs": [
+                    "boellhoffC"
+                  ],
+                  "status": "single-source",
+                  "verification": false,
+                  "verificationMethod": "single-primary-source",
+                  "note": "Belegte Längenzeile; unabhängiger Zweitbeleg offen. Belegte Böllhoff-Lieferkombination; keine vollständige Normlängenreihe."
+                }
+              },
+              "geometryStatus": "partial",
+              "missingGeometryFields": [
+                "sArea",
+                "recessVolumeModel",
+                "formingLeadProfile"
+              ]
+            },
+            "30": {
+              "vorbelegung": {
+                "sL": 30
+              },
+              "roh": {
+                "l_nominal": 30
+              },
+              "fields": {
+                "l_nominal": {
+                  "nominal": 30,
+                  "min": null,
+                  "max": null,
+                  "unit": "mm",
+                  "sourceRefs": [
+                    "boellhoffC"
+                  ],
+                  "status": "single-source",
+                  "verification": false,
+                  "verificationMethod": "single-primary-source",
+                  "note": "Belegte Längenzeile; unabhängiger Zweitbeleg offen. Belegte Böllhoff-Lieferkombination; keine vollständige Normlängenreihe."
+                }
+              },
+              "geometryStatus": "partial",
+              "missingGeometryFields": [
+                "sArea",
+                "recessVolumeModel",
+                "formingLeadProfile"
+              ]
+            }
+          },
+          "lengthCoverage": "documented-subset",
+          "laengen": [
+            10,
+            12,
+            16,
+            20,
+            30
+          ]
+        }
+      },
+      "fields": {
+        "M3": {
+          "P": {
+            "nominal": 0.5,
+            "min": null,
+            "max": null,
+            "unit": "mm",
+            "sourceRefs": [
+              "boellhoffC"
+            ],
+            "status": "single-source",
+            "verification": false,
+            "verificationMethod": "single-primary-source",
+            "note": "Eine Primärquelle; unabhängiger Zweitbeleg dieses Einzelwerts noch offen."
+          },
+          "dk_max": {
+            "nominal": 5.6,
+            "min": null,
+            "max": 5.6,
+            "unit": "mm",
+            "sourceRefs": [
+              "boellhoffC"
+            ],
+            "status": "single-source",
+            "verification": false,
+            "verificationMethod": "single-primary-source",
+            "note": "Eine Primärquelle; unabhängiger Zweitbeleg dieses Einzelwerts noch offen."
+          },
+          "dk_min": {
+            "nominal": 5.3,
+            "min": 5.3,
+            "max": null,
+            "unit": "mm",
+            "sourceRefs": [
+              "boellhoffC"
+            ],
+            "status": "single-source",
+            "verification": false,
+            "verificationMethod": "single-primary-source",
+            "note": "Eine Primärquelle; unabhängiger Zweitbeleg dieses Einzelwerts noch offen."
+          },
+          "k_max": {
+            "nominal": 2.4,
+            "min": null,
+            "max": 2.4,
+            "unit": "mm",
+            "sourceRefs": [
+              "boellhoffC"
+            ],
+            "status": "single-source",
+            "verification": false,
+            "verificationMethod": "single-primary-source",
+            "note": "Eine Primärquelle; unabhängiger Zweitbeleg dieses Einzelwerts noch offen."
+          },
+          "recess_no_Z": {
+            "nominal": 1,
+            "min": null,
+            "max": null,
+            "unit": null,
+            "sourceRefs": [
+              "boellhoffC"
+            ],
+            "status": "single-source",
+            "verification": false,
+            "verificationMethod": "single-primary-source",
+            "note": "Eine Primärquelle; unabhängiger Zweitbeleg dieses Einzelwerts noch offen."
+          },
+          "sArea": {
+            "nominal": null,
+            "min": null,
+            "max": null,
+            "unit": "mm",
+            "sourceRefs": [],
+            "status": "missing",
+            "verification": false,
+            "verificationMethod": "not-available",
+            "note": "Einzelwert nicht belegt; keine Ersatzmaße aus einer ähnlichen Norm."
+          },
+          "recessVolumeModel": {
+            "nominal": null,
+            "min": null,
+            "max": null,
+            "unit": "mm",
+            "sourceRefs": [],
+            "status": "missing",
+            "verification": false,
+            "verificationMethod": "not-available",
+            "note": "Einzelwert nicht belegt; keine Ersatzmaße aus einer ähnlichen Norm."
+          },
+          "formingLeadProfile": {
+            "nominal": null,
+            "min": null,
+            "max": null,
+            "unit": "mm",
+            "sourceRefs": [],
+            "status": "missing",
+            "verification": false,
+            "verificationMethod": "not-available",
+            "note": "Einzelwert nicht belegt; keine Ersatzmaße aus einer ähnlichen Norm."
+          }
+        },
+        "M4": {
+          "P": {
+            "nominal": 0.7,
+            "min": null,
+            "max": null,
+            "unit": "mm",
+            "sourceRefs": [
+              "boellhoffC"
+            ],
+            "status": "single-source",
+            "verification": false,
+            "verificationMethod": "single-primary-source",
+            "note": "Eine Primärquelle; unabhängiger Zweitbeleg dieses Einzelwerts noch offen."
+          },
+          "dk_max": {
+            "nominal": 8,
+            "min": null,
+            "max": 8,
+            "unit": "mm",
+            "sourceRefs": [
+              "boellhoffC"
+            ],
+            "status": "single-source",
+            "verification": false,
+            "verificationMethod": "single-primary-source",
+            "note": "Eine Primärquelle; unabhängiger Zweitbeleg dieses Einzelwerts noch offen."
+          },
+          "dk_min": {
+            "nominal": 7.64,
+            "min": 7.64,
+            "max": null,
+            "unit": "mm",
+            "sourceRefs": [
+              "boellhoffC"
+            ],
+            "status": "single-source",
+            "verification": false,
+            "verificationMethod": "single-primary-source",
+            "note": "Eine Primärquelle; unabhängiger Zweitbeleg dieses Einzelwerts noch offen."
+          },
+          "k_max": {
+            "nominal": 3.1,
+            "min": null,
+            "max": 3.1,
+            "unit": "mm",
+            "sourceRefs": [
+              "boellhoffC"
+            ],
+            "status": "single-source",
+            "verification": false,
+            "verificationMethod": "single-primary-source",
+            "note": "Eine Primärquelle; unabhängiger Zweitbeleg dieses Einzelwerts noch offen."
+          },
+          "recess_no_Z": {
+            "nominal": 2,
+            "min": null,
+            "max": null,
+            "unit": null,
+            "sourceRefs": [
+              "boellhoffC"
+            ],
+            "status": "single-source",
+            "verification": false,
+            "verificationMethod": "single-primary-source",
+            "note": "Eine Primärquelle; unabhängiger Zweitbeleg dieses Einzelwerts noch offen."
+          },
+          "sArea": {
+            "nominal": null,
+            "min": null,
+            "max": null,
+            "unit": "mm",
+            "sourceRefs": [],
+            "status": "missing",
+            "verification": false,
+            "verificationMethod": "not-available",
+            "note": "Einzelwert nicht belegt; keine Ersatzmaße aus einer ähnlichen Norm."
+          },
+          "recessVolumeModel": {
+            "nominal": null,
+            "min": null,
+            "max": null,
+            "unit": "mm",
+            "sourceRefs": [],
+            "status": "missing",
+            "verification": false,
+            "verificationMethod": "not-available",
+            "note": "Einzelwert nicht belegt; keine Ersatzmaße aus einer ähnlichen Norm."
+          },
+          "formingLeadProfile": {
+            "nominal": null,
+            "min": null,
+            "max": null,
+            "unit": "mm",
+            "sourceRefs": [],
+            "status": "missing",
+            "verification": false,
+            "verificationMethod": "not-available",
+            "note": "Einzelwert nicht belegt; keine Ersatzmaße aus einer ähnlichen Norm."
+          }
+        },
+        "M5": {
+          "P": {
+            "nominal": 0.8,
+            "min": null,
+            "max": null,
+            "unit": "mm",
+            "sourceRefs": [
+              "boellhoffC"
+            ],
+            "status": "single-source",
+            "verification": false,
+            "verificationMethod": "single-primary-source",
+            "note": "Eine Primärquelle; unabhängiger Zweitbeleg dieses Einzelwerts noch offen."
+          },
+          "dk_max": {
+            "nominal": 9.5,
+            "min": null,
+            "max": 9.5,
+            "unit": "mm",
+            "sourceRefs": [
+              "boellhoffC"
+            ],
+            "status": "single-source",
+            "verification": false,
+            "verificationMethod": "single-primary-source",
+            "note": "Eine Primärquelle; unabhängiger Zweitbeleg dieses Einzelwerts noch offen."
+          },
+          "dk_min": {
+            "nominal": 9.14,
+            "min": 9.14,
+            "max": null,
+            "unit": "mm",
+            "sourceRefs": [
+              "boellhoffC"
+            ],
+            "status": "single-source",
+            "verification": false,
+            "verificationMethod": "single-primary-source",
+            "note": "Eine Primärquelle; unabhängiger Zweitbeleg dieses Einzelwerts noch offen."
+          },
+          "k_max": {
+            "nominal": 3.7,
+            "min": null,
+            "max": 3.7,
+            "unit": "mm",
+            "sourceRefs": [
+              "boellhoffC"
+            ],
+            "status": "single-source",
+            "verification": false,
+            "verificationMethod": "single-primary-source",
+            "note": "Eine Primärquelle; unabhängiger Zweitbeleg dieses Einzelwerts noch offen."
+          },
+          "recess_no_Z": {
+            "nominal": 2,
+            "min": null,
+            "max": null,
+            "unit": null,
+            "sourceRefs": [
+              "boellhoffC"
+            ],
+            "status": "single-source",
+            "verification": false,
+            "verificationMethod": "single-primary-source",
+            "note": "Eine Primärquelle; unabhängiger Zweitbeleg dieses Einzelwerts noch offen."
+          },
+          "sArea": {
+            "nominal": null,
+            "min": null,
+            "max": null,
+            "unit": "mm",
+            "sourceRefs": [],
+            "status": "missing",
+            "verification": false,
+            "verificationMethod": "not-available",
+            "note": "Einzelwert nicht belegt; keine Ersatzmaße aus einer ähnlichen Norm."
+          },
+          "recessVolumeModel": {
+            "nominal": null,
+            "min": null,
+            "max": null,
+            "unit": "mm",
+            "sourceRefs": [],
+            "status": "missing",
+            "verification": false,
+            "verificationMethod": "not-available",
+            "note": "Einzelwert nicht belegt; keine Ersatzmaße aus einer ähnlichen Norm."
+          },
+          "formingLeadProfile": {
+            "nominal": null,
+            "min": null,
+            "max": null,
+            "unit": "mm",
+            "sourceRefs": [],
+            "status": "missing",
+            "verification": false,
+            "verificationMethod": "not-available",
+            "note": "Einzelwert nicht belegt; keine Ersatzmaße aus einer ähnlichen Norm."
+          }
+        },
+        "M6": {
+          "P": {
+            "nominal": 1,
+            "min": null,
+            "max": null,
+            "unit": "mm",
+            "sourceRefs": [
+              "boellhoffC"
+            ],
+            "status": "single-source",
+            "verification": false,
+            "verificationMethod": "single-primary-source",
+            "note": "Eine Primärquelle; unabhängiger Zweitbeleg dieses Einzelwerts noch offen."
+          },
+          "dk_max": {
+            "nominal": 12,
+            "min": null,
+            "max": 12,
+            "unit": "mm",
+            "sourceRefs": [
+              "boellhoffC"
+            ],
+            "status": "single-source",
+            "verification": false,
+            "verificationMethod": "single-primary-source",
+            "note": "Eine Primärquelle; unabhängiger Zweitbeleg dieses Einzelwerts noch offen."
+          },
+          "dk_min": {
+            "nominal": 11.57,
+            "min": 11.57,
+            "max": null,
+            "unit": "mm",
+            "sourceRefs": [
+              "boellhoffC"
+            ],
+            "status": "single-source",
+            "verification": false,
+            "verificationMethod": "single-primary-source",
+            "note": "Eine Primärquelle; unabhängiger Zweitbeleg dieses Einzelwerts noch offen."
+          },
+          "k_max": {
+            "nominal": 4.6,
+            "min": null,
+            "max": 4.6,
+            "unit": "mm",
+            "sourceRefs": [
+              "boellhoffC"
+            ],
+            "status": "single-source",
+            "verification": false,
+            "verificationMethod": "single-primary-source",
+            "note": "Eine Primärquelle; unabhängiger Zweitbeleg dieses Einzelwerts noch offen."
+          },
+          "recess_no_Z": {
+            "nominal": 3,
+            "min": null,
+            "max": null,
+            "unit": null,
+            "sourceRefs": [
+              "boellhoffC"
+            ],
+            "status": "single-source",
+            "verification": false,
+            "verificationMethod": "single-primary-source",
+            "note": "Eine Primärquelle; unabhängiger Zweitbeleg dieses Einzelwerts noch offen."
+          },
+          "sArea": {
+            "nominal": null,
+            "min": null,
+            "max": null,
+            "unit": "mm",
+            "sourceRefs": [],
+            "status": "missing",
+            "verification": false,
+            "verificationMethod": "not-available",
+            "note": "Einzelwert nicht belegt; keine Ersatzmaße aus einer ähnlichen Norm."
+          },
+          "recessVolumeModel": {
+            "nominal": null,
+            "min": null,
+            "max": null,
+            "unit": "mm",
+            "sourceRefs": [],
+            "status": "missing",
+            "verification": false,
+            "verificationMethod": "not-available",
+            "note": "Einzelwert nicht belegt; keine Ersatzmaße aus einer ähnlichen Norm."
+          },
+          "formingLeadProfile": {
+            "nominal": null,
+            "min": null,
+            "max": null,
+            "unit": "mm",
+            "sourceRefs": [],
+            "status": "missing",
+            "verification": false,
+            "verificationMethod": "not-available",
+            "note": "Einzelwert nicht belegt; keine Ersatzmaße aus einer ähnlichen Norm."
+          }
+        }
+      },
+      "geometryStatus": "partial",
+      "lengthCoverage": "documented-manufacturer-subset",
+      "requiredGeometryFields": [
+        "sArea",
+        "recessVolumeModel",
+        "formingLeadProfile"
+      ]
+    },
+    {
+      "id": "M",
+      "label": "Senkkopf nach DIN965 · Böllhoff · PZ",
+      "kopfTyp": "kegelstumpf",
+      "antrieb": {
+        "art": "pz"
+      },
+      "threadFamily": "trilobular",
+      "schaftende": "voll",
+      "feldzuordnung": {
+        "kD": "dk_max",
+        "kH": "k_max",
+        "iSize": "recess_no_Z",
+        "totalLength": "l_nominal"
+      },
+      "sizeData": {
+        "M3": {
+          "roh": {
+            "P": 0.5,
+            "dk_max": 5.5,
+            "dk_min": 5.2,
+            "k_max": 1.65,
+            "recess_no_Z": 1
+          },
+          "vorbelegung": {
+            "kD": 5.5,
+            "kH": 1.65,
+            "iSize": 1
+          },
+          "coverage": "documented",
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "sArea",
+            "recessVolumeModel",
+            "formingLeadProfile",
+            "headToShaftLength"
+          ],
+          "nachLaenge": {
+            "6": {
+              "vorbelegung": {
+                "totalLength": 6
+              },
+              "roh": {
+                "l_nominal": 6
+              },
+              "fields": {
+                "l_nominal": {
+                  "nominal": 6,
+                  "min": null,
+                  "max": null,
+                  "unit": "mm",
+                  "sourceRefs": [
+                    "boellhoffM"
+                  ],
+                  "status": "single-source",
+                  "verification": false,
+                  "verificationMethod": "single-primary-source",
+                  "note": "Belegte Längenzeile; unabhängiger Zweitbeleg offen. Belegte Böllhoff-Lieferkombination; keine vollständige Normlängenreihe."
+                }
+              },
+              "geometryStatus": "partial",
+              "missingGeometryFields": [
+                "sArea",
+                "recessVolumeModel",
+                "formingLeadProfile",
+                "headToShaftLength"
+              ]
+            },
+            "10": {
+              "vorbelegung": {
+                "totalLength": 10
+              },
+              "roh": {
+                "l_nominal": 10
+              },
+              "fields": {
+                "l_nominal": {
+                  "nominal": 10,
+                  "min": null,
+                  "max": null,
+                  "unit": "mm",
+                  "sourceRefs": [
+                    "boellhoffM"
+                  ],
+                  "status": "single-source",
+                  "verification": false,
+                  "verificationMethod": "single-primary-source",
+                  "note": "Belegte Längenzeile; unabhängiger Zweitbeleg offen. Belegte Böllhoff-Lieferkombination; keine vollständige Normlängenreihe."
+                }
+              },
+              "geometryStatus": "partial",
+              "missingGeometryFields": [
+                "sArea",
+                "recessVolumeModel",
+                "formingLeadProfile",
+                "headToShaftLength"
+              ]
+            },
+            "12": {
+              "vorbelegung": {
+                "totalLength": 12
+              },
+              "roh": {
+                "l_nominal": 12
+              },
+              "fields": {
+                "l_nominal": {
+                  "nominal": 12,
+                  "min": null,
+                  "max": null,
+                  "unit": "mm",
+                  "sourceRefs": [
+                    "boellhoffM"
+                  ],
+                  "status": "single-source",
+                  "verification": false,
+                  "verificationMethod": "single-primary-source",
+                  "note": "Belegte Längenzeile; unabhängiger Zweitbeleg offen. Belegte Böllhoff-Lieferkombination; keine vollständige Normlängenreihe."
+                }
+              },
+              "geometryStatus": "partial",
+              "missingGeometryFields": [
+                "sArea",
+                "recessVolumeModel",
+                "formingLeadProfile",
+                "headToShaftLength"
+              ]
+            }
+          },
+          "lengthCoverage": "documented-subset",
+          "laengen": [
+            6,
+            10,
+            12
+          ]
+        },
+        "M4": {
+          "roh": {
+            "P": 0.7,
+            "dk_max": 8.4,
+            "dk_min": 8.04,
+            "k_max": 2.7,
+            "recess_no_Z": 2
+          },
+          "vorbelegung": {
+            "kD": 8.4,
+            "kH": 2.7,
+            "iSize": 2
+          },
+          "coverage": "documented",
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "sArea",
+            "recessVolumeModel",
+            "formingLeadProfile",
+            "headToShaftLength"
+          ],
+          "nachLaenge": {
+            "8": {
+              "vorbelegung": {
+                "totalLength": 8
+              },
+              "roh": {
+                "l_nominal": 8
+              },
+              "fields": {
+                "l_nominal": {
+                  "nominal": 8,
+                  "min": null,
+                  "max": null,
+                  "unit": "mm",
+                  "sourceRefs": [
+                    "boellhoffM"
+                  ],
+                  "status": "single-source",
+                  "verification": false,
+                  "verificationMethod": "single-primary-source",
+                  "note": "Belegte Längenzeile; unabhängiger Zweitbeleg offen. Belegte Böllhoff-Lieferkombination; keine vollständige Normlängenreihe."
+                }
+              },
+              "geometryStatus": "partial",
+              "missingGeometryFields": [
+                "sArea",
+                "recessVolumeModel",
+                "formingLeadProfile",
+                "headToShaftLength"
+              ]
+            },
+            "10": {
+              "vorbelegung": {
+                "totalLength": 10
+              },
+              "roh": {
+                "l_nominal": 10
+              },
+              "fields": {
+                "l_nominal": {
+                  "nominal": 10,
+                  "min": null,
+                  "max": null,
+                  "unit": "mm",
+                  "sourceRefs": [
+                    "boellhoffM"
+                  ],
+                  "status": "single-source",
+                  "verification": false,
+                  "verificationMethod": "single-primary-source",
+                  "note": "Belegte Längenzeile; unabhängiger Zweitbeleg offen. Belegte Böllhoff-Lieferkombination; keine vollständige Normlängenreihe."
+                }
+              },
+              "geometryStatus": "partial",
+              "missingGeometryFields": [
+                "sArea",
+                "recessVolumeModel",
+                "formingLeadProfile",
+                "headToShaftLength"
+              ]
+            },
+            "12": {
+              "vorbelegung": {
+                "totalLength": 12
+              },
+              "roh": {
+                "l_nominal": 12
+              },
+              "fields": {
+                "l_nominal": {
+                  "nominal": 12,
+                  "min": null,
+                  "max": null,
+                  "unit": "mm",
+                  "sourceRefs": [
+                    "boellhoffM"
+                  ],
+                  "status": "single-source",
+                  "verification": false,
+                  "verificationMethod": "single-primary-source",
+                  "note": "Belegte Längenzeile; unabhängiger Zweitbeleg offen. Belegte Böllhoff-Lieferkombination; keine vollständige Normlängenreihe."
+                }
+              },
+              "geometryStatus": "partial",
+              "missingGeometryFields": [
+                "sArea",
+                "recessVolumeModel",
+                "formingLeadProfile",
+                "headToShaftLength"
+              ]
+            },
+            "20": {
+              "vorbelegung": {
+                "totalLength": 20
+              },
+              "roh": {
+                "l_nominal": 20
+              },
+              "fields": {
+                "l_nominal": {
+                  "nominal": 20,
+                  "min": null,
+                  "max": null,
+                  "unit": "mm",
+                  "sourceRefs": [
+                    "boellhoffM"
+                  ],
+                  "status": "single-source",
+                  "verification": false,
+                  "verificationMethod": "single-primary-source",
+                  "note": "Belegte Längenzeile; unabhängiger Zweitbeleg offen. Belegte Böllhoff-Lieferkombination; keine vollständige Normlängenreihe."
+                }
+              },
+              "geometryStatus": "partial",
+              "missingGeometryFields": [
+                "sArea",
+                "recessVolumeModel",
+                "formingLeadProfile",
+                "headToShaftLength"
+              ]
+            }
+          },
+          "lengthCoverage": "documented-subset",
+          "laengen": [
+            8,
+            10,
+            12,
+            20
+          ]
+        },
+        "M5": {
+          "roh": {
+            "P": 0.8,
+            "dk_max": 9.3,
+            "dk_min": 8.94,
+            "k_max": 2.7,
+            "recess_no_Z": 2
+          },
+          "vorbelegung": {
+            "kD": 9.3,
+            "kH": 2.7,
+            "iSize": 2
+          },
+          "coverage": "documented",
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "sArea",
+            "recessVolumeModel",
+            "formingLeadProfile",
+            "headToShaftLength"
+          ],
+          "nachLaenge": {
+            "10": {
+              "vorbelegung": {
+                "totalLength": 10
+              },
+              "roh": {
+                "l_nominal": 10
+              },
+              "fields": {
+                "l_nominal": {
+                  "nominal": 10,
+                  "min": null,
+                  "max": null,
+                  "unit": "mm",
+                  "sourceRefs": [
+                    "boellhoffM"
+                  ],
+                  "status": "single-source",
+                  "verification": false,
+                  "verificationMethod": "single-primary-source",
+                  "note": "Belegte Längenzeile; unabhängiger Zweitbeleg offen. Belegte Böllhoff-Lieferkombination; keine vollständige Normlängenreihe."
+                }
+              },
+              "geometryStatus": "partial",
+              "missingGeometryFields": [
+                "sArea",
+                "recessVolumeModel",
+                "formingLeadProfile",
+                "headToShaftLength"
+              ]
+            },
+            "20": {
+              "vorbelegung": {
+                "totalLength": 20
+              },
+              "roh": {
+                "l_nominal": 20
+              },
+              "fields": {
+                "l_nominal": {
+                  "nominal": 20,
+                  "min": null,
+                  "max": null,
+                  "unit": "mm",
+                  "sourceRefs": [
+                    "boellhoffM"
+                  ],
+                  "status": "single-source",
+                  "verification": false,
+                  "verificationMethod": "single-primary-source",
+                  "note": "Belegte Längenzeile; unabhängiger Zweitbeleg offen. Belegte Böllhoff-Lieferkombination; keine vollständige Normlängenreihe."
+                }
+              },
+              "geometryStatus": "partial",
+              "missingGeometryFields": [
+                "sArea",
+                "recessVolumeModel",
+                "formingLeadProfile",
+                "headToShaftLength"
+              ]
+            },
+            "25": {
+              "vorbelegung": {
+                "totalLength": 25
+              },
+              "roh": {
+                "l_nominal": 25
+              },
+              "fields": {
+                "l_nominal": {
+                  "nominal": 25,
+                  "min": null,
+                  "max": null,
+                  "unit": "mm",
+                  "sourceRefs": [
+                    "boellhoffM"
+                  ],
+                  "status": "single-source",
+                  "verification": false,
+                  "verificationMethod": "single-primary-source",
+                  "note": "Belegte Längenzeile; unabhängiger Zweitbeleg offen. Belegte Böllhoff-Lieferkombination; keine vollständige Normlängenreihe."
+                }
+              },
+              "geometryStatus": "partial",
+              "missingGeometryFields": [
+                "sArea",
+                "recessVolumeModel",
+                "formingLeadProfile",
+                "headToShaftLength"
+              ]
+            },
+            "40": {
+              "vorbelegung": {
+                "totalLength": 40
+              },
+              "roh": {
+                "l_nominal": 40
+              },
+              "fields": {
+                "l_nominal": {
+                  "nominal": 40,
+                  "min": null,
+                  "max": null,
+                  "unit": "mm",
+                  "sourceRefs": [
+                    "boellhoffM"
+                  ],
+                  "status": "single-source",
+                  "verification": false,
+                  "verificationMethod": "single-primary-source",
+                  "note": "Belegte Längenzeile; unabhängiger Zweitbeleg offen. Belegte Böllhoff-Lieferkombination; keine vollständige Normlängenreihe."
+                }
+              },
+              "geometryStatus": "partial",
+              "missingGeometryFields": [
+                "sArea",
+                "recessVolumeModel",
+                "formingLeadProfile",
+                "headToShaftLength"
+              ]
+            }
+          },
+          "lengthCoverage": "documented-subset",
+          "laengen": [
+            10,
+            20,
+            25,
+            40
+          ]
+        },
+        "M6": {
+          "roh": {
+            "P": 1,
+            "dk_max": 11.3,
+            "dk_min": 10.87,
+            "k_max": 3.3,
+            "recess_no_Z": 3
+          },
+          "vorbelegung": {
+            "kD": 11.3,
+            "kH": 3.3,
+            "iSize": 3
+          },
+          "coverage": "documented",
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "sArea",
+            "recessVolumeModel",
+            "formingLeadProfile",
+            "headToShaftLength"
+          ],
+          "nachLaenge": {
+            "12": {
+              "vorbelegung": {
+                "totalLength": 12
+              },
+              "roh": {
+                "l_nominal": 12
+              },
+              "fields": {
+                "l_nominal": {
+                  "nominal": 12,
+                  "min": null,
+                  "max": null,
+                  "unit": "mm",
+                  "sourceRefs": [
+                    "boellhoffM"
+                  ],
+                  "status": "single-source",
+                  "verification": false,
+                  "verificationMethod": "single-primary-source",
+                  "note": "Belegte Längenzeile; unabhängiger Zweitbeleg offen. Belegte Böllhoff-Lieferkombination; keine vollständige Normlängenreihe."
+                }
+              },
+              "geometryStatus": "partial",
+              "missingGeometryFields": [
+                "sArea",
+                "recessVolumeModel",
+                "formingLeadProfile",
+                "headToShaftLength"
+              ]
+            },
+            "16": {
+              "vorbelegung": {
+                "totalLength": 16
+              },
+              "roh": {
+                "l_nominal": 16
+              },
+              "fields": {
+                "l_nominal": {
+                  "nominal": 16,
+                  "min": null,
+                  "max": null,
+                  "unit": "mm",
+                  "sourceRefs": [
+                    "boellhoffM"
+                  ],
+                  "status": "single-source",
+                  "verification": false,
+                  "verificationMethod": "single-primary-source",
+                  "note": "Belegte Längenzeile; unabhängiger Zweitbeleg offen. Belegte Böllhoff-Lieferkombination; keine vollständige Normlängenreihe."
+                }
+              },
+              "geometryStatus": "partial",
+              "missingGeometryFields": [
+                "sArea",
+                "recessVolumeModel",
+                "formingLeadProfile",
+                "headToShaftLength"
+              ]
+            },
+            "30": {
+              "vorbelegung": {
+                "totalLength": 30
+              },
+              "roh": {
+                "l_nominal": 30
+              },
+              "fields": {
+                "l_nominal": {
+                  "nominal": 30,
+                  "min": null,
+                  "max": null,
+                  "unit": "mm",
+                  "sourceRefs": [
+                    "boellhoffM"
+                  ],
+                  "status": "single-source",
+                  "verification": false,
+                  "verificationMethod": "single-primary-source",
+                  "note": "Belegte Längenzeile; unabhängiger Zweitbeleg offen. Belegte Böllhoff-Lieferkombination; keine vollständige Normlängenreihe."
+                }
+              },
+              "geometryStatus": "partial",
+              "missingGeometryFields": [
+                "sArea",
+                "recessVolumeModel",
+                "formingLeadProfile",
+                "headToShaftLength"
+              ]
+            },
+            "40": {
+              "vorbelegung": {
+                "totalLength": 40
+              },
+              "roh": {
+                "l_nominal": 40
+              },
+              "fields": {
+                "l_nominal": {
+                  "nominal": 40,
+                  "min": null,
+                  "max": null,
+                  "unit": "mm",
+                  "sourceRefs": [
+                    "boellhoffM"
+                  ],
+                  "status": "single-source",
+                  "verification": false,
+                  "verificationMethod": "single-primary-source",
+                  "note": "Belegte Längenzeile; unabhängiger Zweitbeleg offen. Belegte Böllhoff-Lieferkombination; keine vollständige Normlängenreihe."
+                }
+              },
+              "geometryStatus": "partial",
+              "missingGeometryFields": [
+                "sArea",
+                "recessVolumeModel",
+                "formingLeadProfile",
+                "headToShaftLength"
+              ]
+            }
+          },
+          "lengthCoverage": "documented-subset",
+          "laengen": [
+            12,
+            16,
+            30,
+            40
+          ]
+        }
+      },
+      "fields": {
+        "M3": {
+          "P": {
+            "nominal": 0.5,
+            "min": null,
+            "max": null,
+            "unit": "mm",
+            "sourceRefs": [
+              "boellhoffM"
+            ],
+            "status": "single-source",
+            "verification": false,
+            "verificationMethod": "single-primary-source",
+            "note": "Eine Primärquelle; unabhängiger Zweitbeleg dieses Einzelwerts noch offen."
+          },
+          "dk_max": {
+            "nominal": 5.5,
+            "min": null,
+            "max": 5.5,
+            "unit": "mm",
+            "sourceRefs": [
+              "boellhoffM"
+            ],
+            "status": "single-source",
+            "verification": false,
+            "verificationMethod": "single-primary-source",
+            "note": "Eine Primärquelle; unabhängiger Zweitbeleg dieses Einzelwerts noch offen."
+          },
+          "dk_min": {
+            "nominal": 5.2,
+            "min": 5.2,
+            "max": null,
+            "unit": "mm",
+            "sourceRefs": [
+              "boellhoffM"
+            ],
+            "status": "single-source",
+            "verification": false,
+            "verificationMethod": "single-primary-source",
+            "note": "Eine Primärquelle; unabhängiger Zweitbeleg dieses Einzelwerts noch offen."
+          },
+          "k_max": {
+            "nominal": 1.65,
+            "min": null,
+            "max": 1.65,
+            "unit": "mm",
+            "sourceRefs": [
+              "boellhoffM"
+            ],
+            "status": "single-source",
+            "verification": false,
+            "verificationMethod": "single-primary-source",
+            "note": "Eine Primärquelle; unabhängiger Zweitbeleg dieses Einzelwerts noch offen."
+          },
+          "recess_no_Z": {
+            "nominal": 1,
+            "min": null,
+            "max": null,
+            "unit": null,
+            "sourceRefs": [
+              "boellhoffM"
+            ],
+            "status": "single-source",
+            "verification": false,
+            "verificationMethod": "single-primary-source",
+            "note": "Eine Primärquelle; unabhängiger Zweitbeleg dieses Einzelwerts noch offen."
+          },
+          "sArea": {
+            "nominal": null,
+            "min": null,
+            "max": null,
+            "unit": "mm",
+            "sourceRefs": [],
+            "status": "missing",
+            "verification": false,
+            "verificationMethod": "not-available",
+            "note": "Einzelwert nicht belegt; keine Ersatzmaße aus einer ähnlichen Norm."
+          },
+          "recessVolumeModel": {
+            "nominal": null,
+            "min": null,
+            "max": null,
+            "unit": "mm",
+            "sourceRefs": [],
+            "status": "missing",
+            "verification": false,
+            "verificationMethod": "not-available",
+            "note": "Einzelwert nicht belegt; keine Ersatzmaße aus einer ähnlichen Norm."
+          },
+          "formingLeadProfile": {
+            "nominal": null,
+            "min": null,
+            "max": null,
+            "unit": "mm",
+            "sourceRefs": [],
+            "status": "missing",
+            "verification": false,
+            "verificationMethod": "not-available",
+            "note": "Einzelwert nicht belegt; keine Ersatzmaße aus einer ähnlichen Norm."
+          },
+          "headToShaftLength": {
+            "nominal": null,
+            "min": null,
+            "max": null,
+            "unit": "mm",
+            "sourceRefs": [],
+            "status": "missing",
+            "verification": false,
+            "verificationMethod": "not-available",
+            "note": "Einzelwert nicht belegt; keine Ersatzmaße aus einer ähnlichen Norm."
+          }
+        },
+        "M4": {
+          "P": {
+            "nominal": 0.7,
+            "min": null,
+            "max": null,
+            "unit": "mm",
+            "sourceRefs": [
+              "boellhoffM"
+            ],
+            "status": "single-source",
+            "verification": false,
+            "verificationMethod": "single-primary-source",
+            "note": "Eine Primärquelle; unabhängiger Zweitbeleg dieses Einzelwerts noch offen."
+          },
+          "dk_max": {
+            "nominal": 8.4,
+            "min": null,
+            "max": 8.4,
+            "unit": "mm",
+            "sourceRefs": [
+              "boellhoffM"
+            ],
+            "status": "single-source",
+            "verification": false,
+            "verificationMethod": "single-primary-source",
+            "note": "Eine Primärquelle; unabhängiger Zweitbeleg dieses Einzelwerts noch offen."
+          },
+          "dk_min": {
+            "nominal": 8.04,
+            "min": 8.04,
+            "max": null,
+            "unit": "mm",
+            "sourceRefs": [
+              "boellhoffM"
+            ],
+            "status": "single-source",
+            "verification": false,
+            "verificationMethod": "single-primary-source",
+            "note": "Eine Primärquelle; unabhängiger Zweitbeleg dieses Einzelwerts noch offen."
+          },
+          "k_max": {
+            "nominal": 2.7,
+            "min": null,
+            "max": 2.7,
+            "unit": "mm",
+            "sourceRefs": [
+              "boellhoffM"
+            ],
+            "status": "single-source",
+            "verification": false,
+            "verificationMethod": "single-primary-source",
+            "note": "Eine Primärquelle; unabhängiger Zweitbeleg dieses Einzelwerts noch offen."
+          },
+          "recess_no_Z": {
+            "nominal": 2,
+            "min": null,
+            "max": null,
+            "unit": null,
+            "sourceRefs": [
+              "boellhoffM"
+            ],
+            "status": "single-source",
+            "verification": false,
+            "verificationMethod": "single-primary-source",
+            "note": "Eine Primärquelle; unabhängiger Zweitbeleg dieses Einzelwerts noch offen."
+          },
+          "sArea": {
+            "nominal": null,
+            "min": null,
+            "max": null,
+            "unit": "mm",
+            "sourceRefs": [],
+            "status": "missing",
+            "verification": false,
+            "verificationMethod": "not-available",
+            "note": "Einzelwert nicht belegt; keine Ersatzmaße aus einer ähnlichen Norm."
+          },
+          "recessVolumeModel": {
+            "nominal": null,
+            "min": null,
+            "max": null,
+            "unit": "mm",
+            "sourceRefs": [],
+            "status": "missing",
+            "verification": false,
+            "verificationMethod": "not-available",
+            "note": "Einzelwert nicht belegt; keine Ersatzmaße aus einer ähnlichen Norm."
+          },
+          "formingLeadProfile": {
+            "nominal": null,
+            "min": null,
+            "max": null,
+            "unit": "mm",
+            "sourceRefs": [],
+            "status": "missing",
+            "verification": false,
+            "verificationMethod": "not-available",
+            "note": "Einzelwert nicht belegt; keine Ersatzmaße aus einer ähnlichen Norm."
+          },
+          "headToShaftLength": {
+            "nominal": null,
+            "min": null,
+            "max": null,
+            "unit": "mm",
+            "sourceRefs": [],
+            "status": "missing",
+            "verification": false,
+            "verificationMethod": "not-available",
+            "note": "Einzelwert nicht belegt; keine Ersatzmaße aus einer ähnlichen Norm."
+          }
+        },
+        "M5": {
+          "P": {
+            "nominal": 0.8,
+            "min": null,
+            "max": null,
+            "unit": "mm",
+            "sourceRefs": [
+              "boellhoffM"
+            ],
+            "status": "single-source",
+            "verification": false,
+            "verificationMethod": "single-primary-source",
+            "note": "Eine Primärquelle; unabhängiger Zweitbeleg dieses Einzelwerts noch offen."
+          },
+          "dk_max": {
+            "nominal": 9.3,
+            "min": null,
+            "max": 9.3,
+            "unit": "mm",
+            "sourceRefs": [
+              "boellhoffM"
+            ],
+            "status": "single-source",
+            "verification": false,
+            "verificationMethod": "single-primary-source",
+            "note": "Eine Primärquelle; unabhängiger Zweitbeleg dieses Einzelwerts noch offen."
+          },
+          "dk_min": {
+            "nominal": 8.94,
+            "min": 8.94,
+            "max": null,
+            "unit": "mm",
+            "sourceRefs": [
+              "boellhoffM"
+            ],
+            "status": "single-source",
+            "verification": false,
+            "verificationMethod": "single-primary-source",
+            "note": "Eine Primärquelle; unabhängiger Zweitbeleg dieses Einzelwerts noch offen."
+          },
+          "k_max": {
+            "nominal": 2.7,
+            "min": null,
+            "max": 2.7,
+            "unit": "mm",
+            "sourceRefs": [
+              "boellhoffM"
+            ],
+            "status": "single-source",
+            "verification": false,
+            "verificationMethod": "single-primary-source",
+            "note": "Eine Primärquelle; unabhängiger Zweitbeleg dieses Einzelwerts noch offen."
+          },
+          "recess_no_Z": {
+            "nominal": 2,
+            "min": null,
+            "max": null,
+            "unit": null,
+            "sourceRefs": [
+              "boellhoffM"
+            ],
+            "status": "single-source",
+            "verification": false,
+            "verificationMethod": "single-primary-source",
+            "note": "Eine Primärquelle; unabhängiger Zweitbeleg dieses Einzelwerts noch offen."
+          },
+          "sArea": {
+            "nominal": null,
+            "min": null,
+            "max": null,
+            "unit": "mm",
+            "sourceRefs": [],
+            "status": "missing",
+            "verification": false,
+            "verificationMethod": "not-available",
+            "note": "Einzelwert nicht belegt; keine Ersatzmaße aus einer ähnlichen Norm."
+          },
+          "recessVolumeModel": {
+            "nominal": null,
+            "min": null,
+            "max": null,
+            "unit": "mm",
+            "sourceRefs": [],
+            "status": "missing",
+            "verification": false,
+            "verificationMethod": "not-available",
+            "note": "Einzelwert nicht belegt; keine Ersatzmaße aus einer ähnlichen Norm."
+          },
+          "formingLeadProfile": {
+            "nominal": null,
+            "min": null,
+            "max": null,
+            "unit": "mm",
+            "sourceRefs": [],
+            "status": "missing",
+            "verification": false,
+            "verificationMethod": "not-available",
+            "note": "Einzelwert nicht belegt; keine Ersatzmaße aus einer ähnlichen Norm."
+          },
+          "headToShaftLength": {
+            "nominal": null,
+            "min": null,
+            "max": null,
+            "unit": "mm",
+            "sourceRefs": [],
+            "status": "missing",
+            "verification": false,
+            "verificationMethod": "not-available",
+            "note": "Einzelwert nicht belegt; keine Ersatzmaße aus einer ähnlichen Norm."
+          }
+        },
+        "M6": {
+          "P": {
+            "nominal": 1,
+            "min": null,
+            "max": null,
+            "unit": "mm",
+            "sourceRefs": [
+              "boellhoffM"
+            ],
+            "status": "single-source",
+            "verification": false,
+            "verificationMethod": "single-primary-source",
+            "note": "Eine Primärquelle; unabhängiger Zweitbeleg dieses Einzelwerts noch offen."
+          },
+          "dk_max": {
+            "nominal": 11.3,
+            "min": null,
+            "max": 11.3,
+            "unit": "mm",
+            "sourceRefs": [
+              "boellhoffM"
+            ],
+            "status": "single-source",
+            "verification": false,
+            "verificationMethod": "single-primary-source",
+            "note": "Eine Primärquelle; unabhängiger Zweitbeleg dieses Einzelwerts noch offen."
+          },
+          "dk_min": {
+            "nominal": 10.87,
+            "min": 10.87,
+            "max": null,
+            "unit": "mm",
+            "sourceRefs": [
+              "boellhoffM"
+            ],
+            "status": "single-source",
+            "verification": false,
+            "verificationMethod": "single-primary-source",
+            "note": "Eine Primärquelle; unabhängiger Zweitbeleg dieses Einzelwerts noch offen."
+          },
+          "k_max": {
+            "nominal": 3.3,
+            "min": null,
+            "max": 3.3,
+            "unit": "mm",
+            "sourceRefs": [
+              "boellhoffM"
+            ],
+            "status": "single-source",
+            "verification": false,
+            "verificationMethod": "single-primary-source",
+            "note": "Eine Primärquelle; unabhängiger Zweitbeleg dieses Einzelwerts noch offen."
+          },
+          "recess_no_Z": {
+            "nominal": 3,
+            "min": null,
+            "max": null,
+            "unit": null,
+            "sourceRefs": [
+              "boellhoffM"
+            ],
+            "status": "single-source",
+            "verification": false,
+            "verificationMethod": "single-primary-source",
+            "note": "Eine Primärquelle; unabhängiger Zweitbeleg dieses Einzelwerts noch offen."
+          },
+          "sArea": {
+            "nominal": null,
+            "min": null,
+            "max": null,
+            "unit": "mm",
+            "sourceRefs": [],
+            "status": "missing",
+            "verification": false,
+            "verificationMethod": "not-available",
+            "note": "Einzelwert nicht belegt; keine Ersatzmaße aus einer ähnlichen Norm."
+          },
+          "recessVolumeModel": {
+            "nominal": null,
+            "min": null,
+            "max": null,
+            "unit": "mm",
+            "sourceRefs": [],
+            "status": "missing",
+            "verification": false,
+            "verificationMethod": "not-available",
+            "note": "Einzelwert nicht belegt; keine Ersatzmaße aus einer ähnlichen Norm."
+          },
+          "formingLeadProfile": {
+            "nominal": null,
+            "min": null,
+            "max": null,
+            "unit": "mm",
+            "sourceRefs": [],
+            "status": "missing",
+            "verification": false,
+            "verificationMethod": "not-available",
+            "note": "Einzelwert nicht belegt; keine Ersatzmaße aus einer ähnlichen Norm."
+          },
+          "headToShaftLength": {
+            "nominal": null,
+            "min": null,
+            "max": null,
+            "unit": "mm",
+            "sourceRefs": [],
+            "status": "missing",
+            "verification": false,
+            "verificationMethod": "not-available",
+            "note": "Einzelwert nicht belegt; keine Ersatzmaße aus einer ähnlichen Norm."
+          }
+        }
+      },
+      "geometryStatus": "partial",
+      "lengthCoverage": "documented-manufacturer-subset",
+      "requiredGeometryFields": [
+        "sArea",
+        "recessVolumeModel",
+        "formingLeadProfile"
+      ]
+    }
+  ],
+  "currentEditionEvidence": {
+    "sourceRefs": [
+      "din-status"
+    ],
+    "dimensionCoverage": "unresearched"
   }
 }

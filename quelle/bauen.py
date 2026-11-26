@@ -58,6 +58,7 @@ def build():
     (Q/'normen/index.json').write_text(json.dumps({'schemaVersion':1,'version':norm_library['version'],'families':[{'id':n['id'],'edition':n.get('edition'),'file':n['id']+'.json','sizes':len(n.get('groessen',{}))} for n in norms]},ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
     engine=embed_defaults((Q/'engine.js').read_text(encoding='utf-8-sig'),'RM_PRESETS','vorbelegung/rm.json')
     engine=embed_defaults((Q/'nut-model.js').read_text(encoding='utf-8'),'NUT_THREADS','normen/gewinde.json')+'\n'+engine
+    engine=embed_defaults((Q/'machine-ranking.js').read_text(encoding='utf-8'),'RANKING_DEFAULTS','vorbelegung/rangfolge.json')+'\n'+engine
     replacements={
         '/*DATEN*/':json.dumps(json.loads((Q/'maschinen.json').read_text(encoding='utf-8-sig')),ensure_ascii=False,separators=(',',':')),
         '/*PRAXIS*/':json.dumps(json.loads((Q/'praxis.json').read_text(encoding='utf-8-sig')),ensure_ascii=False,separators=(',',':')),
@@ -78,6 +79,9 @@ def build():
             values['/*GEOMETRY_MODEL*/']=(Q/'geometry-model.js').read_text(encoding='utf-8-sig')
             values['/*GEOMETRY_WIZARD*/']=(Q/'geometry-wizard.js').read_text(encoding='utf-8-sig')
             values['/*AXIAL_CHAIN*/']='\n'.join((Q/file).read_text(encoding='utf-8') for file in ['axial-chain.js','axial-chain-ui.js','normen/to-chain.js'])+'\nwindow.JY_CHAIN_TEMPLATES='+json.dumps([json.loads(p.read_text(encoding='utf-8')) for p in sorted((Q/'vorlagen').glob('*.json'))],ensure_ascii=False,separators=(',',':')).replace('</','<\\/')+';'
+            values['/*RANKING_UI*/']='\n'.join((Q/file).read_text(encoding='utf-8') for file in ['ranking-ui.js','wire-optimization.js'])
+            values['/*KVP_UI*/']='\n'.join((Q/file).read_text(encoding='utf-8') for file in ['kvp-context.js','kvp-ui.js'])
+            values['/*STANDARD_PREVIEW*/']=(Q/'standard-preview.js').read_text(encoding='utf-8')
             values['/*STANDARD_FAMILIES*/']=(Q/'standard-families.js').read_text(encoding='utf-8-sig')
             values['/*NORM_LIBRARY*/']='window.JY_NORM_DATA='+json.dumps(norm_library,ensure_ascii=False,separators=(',',':')).replace('</','<\\/')+';\n'+'\n'.join((Q/'normen'/file).read_text(encoding='utf-8') for file in ['resolver.js','library.js','ui.js'])
             values['/*WIRE_DEFAULTS*/']=embed_defaults((Q/'vorbelegung/draht.js').read_text(encoding='utf-8-sig'),'WIRE_PRESETS','vorbelegung/draht.json')

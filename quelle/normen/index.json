@@ -132,7 +132,7 @@
       "id": "DIN835",
       "edition": null,
       "file": "DIN835.json",
-      "sizes": 0
+      "sizes": 13
     },
     {
       "id": "DIN928",
@@ -184,21 +184,21 @@
     },
     {
       "id": "DIN940",
-      "edition": null,
+      "edition": "2010-07",
       "file": "DIN940.json",
-      "sizes": 0
+      "sizes": 13
     },
     {
       "id": "DIN960",
-      "edition": null,
+      "edition": "1990-01",
       "file": "DIN960.json",
-      "sizes": 0
+      "sizes": 12
     },
     {
       "id": "DIN961",
-      "edition": null,
+      "edition": "1990-01",
       "file": "DIN961.json",
-      "sizes": 0
+      "sizes": 12
     },
     {
       "id": "DIN980",
@@ -280,9 +280,9 @@
     },
     {
       "id": "ISO14581",
-      "edition": null,
+      "edition": "2013",
       "file": "ISO14581.json",
-      "sizes": 0
+      "sizes": 7
     },
     {
       "id": "ISO14583",
@@ -304,9 +304,9 @@
     },
     {
       "id": "ISO15072",
-      "edition": null,
+      "edition": "2012",
       "file": "ISO15072.json",
-      "sizes": 0
+      "sizes": 7
     },
     {
       "id": "ISO1580",
@@ -412,9 +412,9 @@
     },
     {
       "id": "ISO4766",
-      "edition": null,
+      "edition": "2024",
       "file": "ISO4766.json",
-      "sizes": 0
+      "sizes": 12
     },
     {
       "id": "ISO7040",
@@ -442,27 +442,27 @@
     },
     {
       "id": "ISO7049",
-      "edition": null,
+      "edition": "2011",
       "file": "ISO7049.json",
-      "sizes": 0
+      "sizes": 9
     },
     {
       "id": "ISO7050",
-      "edition": null,
+      "edition": "2011",
       "file": "ISO7050.json",
-      "sizes": 0
+      "sizes": 9
     },
     {
       "id": "ISO7051",
-      "edition": null,
+      "edition": "2011",
       "file": "ISO7051.json",
-      "sizes": 0
+      "sizes": 9
     },
     {
       "id": "ISO7379",
       "edition": "1983",
       "file": "ISO7379.json",
-      "sizes": 0
+      "sizes": 7
     },
     {
       "id": "ISO7380-1",
@@ -478,21 +478,21 @@
     },
     {
       "id": "ISO7434",
-      "edition": null,
+      "edition": "catalog-undated",
       "file": "ISO7434.json",
-      "sizes": 0
+      "sizes": 7
     },
     {
       "id": "ISO7435",
-      "edition": null,
+      "edition": "2024",
       "file": "ISO7435.json",
-      "sizes": 0
+      "sizes": 11
     },
     {
       "id": "ISO7436",
-      "edition": null,
+      "edition": "2024",
       "file": "ISO7436.json",
-      "sizes": 0
+      "sizes": 11
     },
     {
       "id": "ISO7719",
@@ -598,9 +598,9 @@
     },
     {
       "id": "ISO8765",
-      "edition": null,
+      "edition": "2022",
       "file": "ISO8765.json",
-      "sizes": 0
+      "sizes": 9
     }
   ]
 }

@@ -11,96 +11,5294 @@
   "antrieb": {
     "art": "hex"
   },
-  "feldzuordnung": {},
-  "groessen": {},
-  "fields": {},
+  "feldzuordnung": {
+    "kD": "dk_max_plain",
+    "kH": "k_max",
+    "iSW": "s_nom",
+    "iT": "t_min"
+  },
+  "groessen": {
+    "M5": {
+      "roh": {
+        "d_nom": 5,
+        "ds_nom": 6.5,
+        "P": 0.8,
+        "ds_max": 6.487,
+        "ds_min": 6.451,
+        "b_max": 9.75,
+        "b_min": 9.25,
+        "dk_max_plain": 10,
+        "dk_max_knurled": 10.22,
+        "dk_min": 9.78,
+        "dg1_min": 5.92,
+        "dg2_max": 3.86,
+        "dg2_min": 3.68,
+        "da1_max": 7.5,
+        "da2_max": 5,
+        "e_min": 3.44,
+        "k_max": 4.5,
+        "k_min": 4.32,
+        "g1_max": 2.5,
+        "g2_max": 2,
+        "r1_min": 0.25,
+        "r2_min": 0.5,
+        "s_nom": 3,
+        "s_max": 3.08,
+        "s_min": 3.02,
+        "t_min": 2.4,
+        "w_min": 1
+      },
+      "vorbelegung": {
+        "kD": 10,
+        "kH": 4.5,
+        "iSW": 3,
+        "iT": 2.4
+      },
+      "steigungen": [
+        0.8
+      ],
+      "coverage": "documented",
+      "geometryStatus": "partial",
+      "missingGeometryFields": [
+        "shaftLengthDistribution"
+      ],
+      "lengthCoverage": "unresearched",
+      "nachLaenge": {},
+      "laengen": []
+    },
+    "M6": {
+      "roh": {
+        "d_nom": 6,
+        "ds_nom": 8,
+        "P": 1,
+        "ds_max": 7.987,
+        "ds_min": 7.951,
+        "b_max": 11.25,
+        "b_min": 10.75,
+        "dk_max_plain": 13,
+        "dk_max_knurled": 13.27,
+        "dk_min": 12.73,
+        "dg1_min": 7.42,
+        "dg2_max": 4.58,
+        "dg2_min": 4.4,
+        "da1_max": 9.2,
+        "da2_max": 6,
+        "e_min": 4.58,
+        "k_max": 5.5,
+        "k_min": 5.32,
+        "g1_max": 2.5,
+        "g2_max": 2.5,
+        "r1_min": 0.4,
+        "r2_min": 0.53,
+        "s_nom": 4,
+        "s_max": 4.095,
+        "s_min": 4.02,
+        "t_min": 3.3,
+        "w_min": 1.15
+      },
+      "vorbelegung": {
+        "kD": 13,
+        "kH": 5.5,
+        "iSW": 4,
+        "iT": 3.3
+      },
+      "steigungen": [
+        1
+      ],
+      "coverage": "documented",
+      "geometryStatus": "partial",
+      "missingGeometryFields": [
+        "shaftLengthDistribution"
+      ],
+      "lengthCoverage": "partial",
+      "nachLaenge": {
+        "16": {
+          "coverage": "documented",
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "shaftLengthDistribution"
+          ],
+          "roh": {
+            "shoulderLength": 16,
+            "shoulderLength_min": 16,
+            "shoulderLength_max": 16.25
+          },
+          "vorbelegung": {},
+          "fields": {
+            "shoulderLength": {
+              "nominal": 16,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso7379_1983",
+                "ganter7379"
+              ],
+              "status": "verified",
+              "verification": true,
+              "verificationMethod": "norm-and-manufacturer-compared",
+              "note": "Norm-Längenreihe mit Ganter-Größenkombination bestätigt. Schulterlänge ohne Gewindefortsatz."
+            },
+            "shoulderLength_min": {
+              "nominal": 16,
+              "min": 16,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso7379_1983",
+                "ganter7379"
+              ],
+              "status": "verified",
+              "verification": true,
+              "verificationMethod": "norm-and-manufacturer-compared",
+              "note": "Grenzmaß der Schulterlänge l, nicht der gesamten Unterkopflänge."
+            },
+            "shoulderLength_max": {
+              "nominal": 16.25,
+              "min": null,
+              "max": 16.25,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso7379_1983",
+                "ganter7379"
+              ],
+              "status": "verified",
+              "verification": true,
+              "verificationMethod": "norm-and-manufacturer-compared",
+              "note": "Grenzmaß der Schulterlänge l, nicht der gesamten Unterkopflänge."
+            }
+          }
+        },
+        "20": {
+          "coverage": "documented",
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "shaftLengthDistribution"
+          ],
+          "roh": {
+            "shoulderLength": 20,
+            "shoulderLength_min": 20,
+            "shoulderLength_max": 20.25
+          },
+          "vorbelegung": {},
+          "fields": {
+            "shoulderLength": {
+              "nominal": 20,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso7379_1983",
+                "ganter7379"
+              ],
+              "status": "verified",
+              "verification": true,
+              "verificationMethod": "norm-and-manufacturer-compared",
+              "note": "Norm-Längenreihe mit Ganter-Größenkombination bestätigt. Schulterlänge ohne Gewindefortsatz."
+            },
+            "shoulderLength_min": {
+              "nominal": 20,
+              "min": 20,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso7379_1983",
+                "ganter7379"
+              ],
+              "status": "verified",
+              "verification": true,
+              "verificationMethod": "norm-and-manufacturer-compared",
+              "note": "Grenzmaß der Schulterlänge l, nicht der gesamten Unterkopflänge."
+            },
+            "shoulderLength_max": {
+              "nominal": 20.25,
+              "min": null,
+              "max": 20.25,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso7379_1983",
+                "ganter7379"
+              ],
+              "status": "verified",
+              "verification": true,
+              "verificationMethod": "norm-and-manufacturer-compared",
+              "note": "Grenzmaß der Schulterlänge l, nicht der gesamten Unterkopflänge."
+            }
+          }
+        },
+        "25": {
+          "coverage": "documented",
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "shaftLengthDistribution"
+          ],
+          "roh": {
+            "shoulderLength": 25,
+            "shoulderLength_min": 25,
+            "shoulderLength_max": 25.25
+          },
+          "vorbelegung": {},
+          "fields": {
+            "shoulderLength": {
+              "nominal": 25,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso7379_1983",
+                "ganter7379"
+              ],
+              "status": "verified",
+              "verification": true,
+              "verificationMethod": "norm-and-manufacturer-compared",
+              "note": "Norm-Längenreihe mit Ganter-Größenkombination bestätigt. Schulterlänge ohne Gewindefortsatz."
+            },
+            "shoulderLength_min": {
+              "nominal": 25,
+              "min": 25,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso7379_1983",
+                "ganter7379"
+              ],
+              "status": "verified",
+              "verification": true,
+              "verificationMethod": "norm-and-manufacturer-compared",
+              "note": "Grenzmaß der Schulterlänge l, nicht der gesamten Unterkopflänge."
+            },
+            "shoulderLength_max": {
+              "nominal": 25.25,
+              "min": null,
+              "max": 25.25,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso7379_1983",
+                "ganter7379"
+              ],
+              "status": "verified",
+              "verification": true,
+              "verificationMethod": "norm-and-manufacturer-compared",
+              "note": "Grenzmaß der Schulterlänge l, nicht der gesamten Unterkopflänge."
+            }
+          }
+        },
+        "30": {
+          "coverage": "documented",
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "shaftLengthDistribution"
+          ],
+          "roh": {
+            "shoulderLength": 30,
+            "shoulderLength_min": 30,
+            "shoulderLength_max": 30.25
+          },
+          "vorbelegung": {},
+          "fields": {
+            "shoulderLength": {
+              "nominal": 30,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso7379_1983",
+                "ganter7379"
+              ],
+              "status": "verified",
+              "verification": true,
+              "verificationMethod": "norm-and-manufacturer-compared",
+              "note": "Norm-Längenreihe mit Ganter-Größenkombination bestätigt. Schulterlänge ohne Gewindefortsatz."
+            },
+            "shoulderLength_min": {
+              "nominal": 30,
+              "min": 30,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso7379_1983",
+                "ganter7379"
+              ],
+              "status": "verified",
+              "verification": true,
+              "verificationMethod": "norm-and-manufacturer-compared",
+              "note": "Grenzmaß der Schulterlänge l, nicht der gesamten Unterkopflänge."
+            },
+            "shoulderLength_max": {
+              "nominal": 30.25,
+              "min": null,
+              "max": 30.25,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso7379_1983",
+                "ganter7379"
+              ],
+              "status": "verified",
+              "verification": true,
+              "verificationMethod": "norm-and-manufacturer-compared",
+              "note": "Grenzmaß der Schulterlänge l, nicht der gesamten Unterkopflänge."
+            }
+          }
+        },
+        "40": {
+          "coverage": "documented",
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "shaftLengthDistribution"
+          ],
+          "roh": {
+            "shoulderLength": 40,
+            "shoulderLength_min": 40,
+            "shoulderLength_max": 40.25
+          },
+          "vorbelegung": {},
+          "fields": {
+            "shoulderLength": {
+              "nominal": 40,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso7379_1983",
+                "ganter7379"
+              ],
+              "status": "verified",
+              "verification": true,
+              "verificationMethod": "norm-and-manufacturer-compared",
+              "note": "Norm-Längenreihe mit Ganter-Größenkombination bestätigt. Schulterlänge ohne Gewindefortsatz."
+            },
+            "shoulderLength_min": {
+              "nominal": 40,
+              "min": 40,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso7379_1983",
+                "ganter7379"
+              ],
+              "status": "verified",
+              "verification": true,
+              "verificationMethod": "norm-and-manufacturer-compared",
+              "note": "Grenzmaß der Schulterlänge l, nicht der gesamten Unterkopflänge."
+            },
+            "shoulderLength_max": {
+              "nominal": 40.25,
+              "min": null,
+              "max": 40.25,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso7379_1983",
+                "ganter7379"
+              ],
+              "status": "verified",
+              "verification": true,
+              "verificationMethod": "norm-and-manufacturer-compared",
+              "note": "Grenzmaß der Schulterlänge l, nicht der gesamten Unterkopflänge."
+            }
+          }
+        },
+        "50": {
+          "coverage": "documented",
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "shaftLengthDistribution"
+          ],
+          "roh": {
+            "shoulderLength": 50,
+            "shoulderLength_min": 50,
+            "shoulderLength_max": 50.25
+          },
+          "vorbelegung": {},
+          "fields": {
+            "shoulderLength": {
+              "nominal": 50,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso7379_1983",
+                "ganter7379"
+              ],
+              "status": "verified",
+              "verification": true,
+              "verificationMethod": "norm-and-manufacturer-compared",
+              "note": "Norm-Längenreihe mit Ganter-Größenkombination bestätigt. Schulterlänge ohne Gewindefortsatz."
+            },
+            "shoulderLength_min": {
+              "nominal": 50,
+              "min": 50,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso7379_1983",
+                "ganter7379"
+              ],
+              "status": "verified",
+              "verification": true,
+              "verificationMethod": "norm-and-manufacturer-compared",
+              "note": "Grenzmaß der Schulterlänge l, nicht der gesamten Unterkopflänge."
+            },
+            "shoulderLength_max": {
+              "nominal": 50.25,
+              "min": null,
+              "max": 50.25,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso7379_1983",
+                "ganter7379"
+              ],
+              "status": "verified",
+              "verification": true,
+              "verificationMethod": "norm-and-manufacturer-compared",
+              "note": "Grenzmaß der Schulterlänge l, nicht der gesamten Unterkopflänge."
+            }
+          }
+        },
+        "60": {
+          "coverage": "documented",
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "shaftLengthDistribution"
+          ],
+          "roh": {
+            "shoulderLength": 60,
+            "shoulderLength_min": 60,
+            "shoulderLength_max": 60.25
+          },
+          "vorbelegung": {},
+          "fields": {
+            "shoulderLength": {
+              "nominal": 60,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso7379_1983",
+                "ganter7379"
+              ],
+              "status": "verified",
+              "verification": true,
+              "verificationMethod": "norm-and-manufacturer-compared",
+              "note": "Norm-Längenreihe mit Ganter-Größenkombination bestätigt. Schulterlänge ohne Gewindefortsatz."
+            },
+            "shoulderLength_min": {
+              "nominal": 60,
+              "min": 60,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso7379_1983",
+                "ganter7379"
+              ],
+              "status": "verified",
+              "verification": true,
+              "verificationMethod": "norm-and-manufacturer-compared",
+              "note": "Grenzmaß der Schulterlänge l, nicht der gesamten Unterkopflänge."
+            },
+            "shoulderLength_max": {
+              "nominal": 60.25,
+              "min": null,
+              "max": 60.25,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso7379_1983",
+                "ganter7379"
+              ],
+              "status": "verified",
+              "verification": true,
+              "verificationMethod": "norm-and-manufacturer-compared",
+              "note": "Grenzmaß der Schulterlänge l, nicht der gesamten Unterkopflänge."
+            }
+          }
+        },
+        "70": {
+          "coverage": "documented",
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "shaftLengthDistribution"
+          ],
+          "roh": {
+            "shoulderLength": 70,
+            "shoulderLength_min": 70,
+            "shoulderLength_max": 70.25
+          },
+          "vorbelegung": {},
+          "fields": {
+            "shoulderLength": {
+              "nominal": 70,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso7379_1983",
+                "ganter7379"
+              ],
+              "status": "verified",
+              "verification": true,
+              "verificationMethod": "norm-and-manufacturer-compared",
+              "note": "Norm-Längenreihe mit Ganter-Größenkombination bestätigt. Schulterlänge ohne Gewindefortsatz."
+            },
+            "shoulderLength_min": {
+              "nominal": 70,
+              "min": 70,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso7379_1983",
+                "ganter7379"
+              ],
+              "status": "verified",
+              "verification": true,
+              "verificationMethod": "norm-and-manufacturer-compared",
+              "note": "Grenzmaß der Schulterlänge l, nicht der gesamten Unterkopflänge."
+            },
+            "shoulderLength_max": {
+              "nominal": 70.25,
+              "min": null,
+              "max": 70.25,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso7379_1983",
+                "ganter7379"
+              ],
+              "status": "verified",
+              "verification": true,
+              "verificationMethod": "norm-and-manufacturer-compared",
+              "note": "Grenzmaß der Schulterlänge l, nicht der gesamten Unterkopflänge."
+            }
+          }
+        },
+        "80": {
+          "coverage": "documented",
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "shaftLengthDistribution"
+          ],
+          "roh": {
+            "shoulderLength": 80,
+            "shoulderLength_min": 80,
+            "shoulderLength_max": 80.25
+          },
+          "vorbelegung": {},
+          "fields": {
+            "shoulderLength": {
+              "nominal": 80,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso7379_1983",
+                "ganter7379"
+              ],
+              "status": "verified",
+              "verification": true,
+              "verificationMethod": "norm-and-manufacturer-compared",
+              "note": "Norm-Längenreihe mit Ganter-Größenkombination bestätigt. Schulterlänge ohne Gewindefortsatz."
+            },
+            "shoulderLength_min": {
+              "nominal": 80,
+              "min": 80,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso7379_1983",
+                "ganter7379"
+              ],
+              "status": "verified",
+              "verification": true,
+              "verificationMethod": "norm-and-manufacturer-compared",
+              "note": "Grenzmaß der Schulterlänge l, nicht der gesamten Unterkopflänge."
+            },
+            "shoulderLength_max": {
+              "nominal": 80.25,
+              "min": null,
+              "max": 80.25,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso7379_1983",
+                "ganter7379"
+              ],
+              "status": "verified",
+              "verification": true,
+              "verificationMethod": "norm-and-manufacturer-compared",
+              "note": "Grenzmaß der Schulterlänge l, nicht der gesamten Unterkopflänge."
+            }
+          }
+        },
+        "90": {
+          "coverage": "documented",
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "shaftLengthDistribution"
+          ],
+          "roh": {
+            "shoulderLength": 90,
+            "shoulderLength_min": 90,
+            "shoulderLength_max": 90.25
+          },
+          "vorbelegung": {},
+          "fields": {
+            "shoulderLength": {
+              "nominal": 90,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso7379_1983",
+                "ganter7379"
+              ],
+              "status": "verified",
+              "verification": true,
+              "verificationMethod": "norm-and-manufacturer-compared",
+              "note": "Norm-Längenreihe mit Ganter-Größenkombination bestätigt. Schulterlänge ohne Gewindefortsatz."
+            },
+            "shoulderLength_min": {
+              "nominal": 90,
+              "min": 90,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso7379_1983",
+                "ganter7379"
+              ],
+              "status": "verified",
+              "verification": true,
+              "verificationMethod": "norm-and-manufacturer-compared",
+              "note": "Grenzmaß der Schulterlänge l, nicht der gesamten Unterkopflänge."
+            },
+            "shoulderLength_max": {
+              "nominal": 90.25,
+              "min": null,
+              "max": 90.25,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso7379_1983",
+                "ganter7379"
+              ],
+              "status": "verified",
+              "verification": true,
+              "verificationMethod": "norm-and-manufacturer-compared",
+              "note": "Grenzmaß der Schulterlänge l, nicht der gesamten Unterkopflänge."
+            }
+          }
+        },
+        "100": {
+          "coverage": "documented",
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "shaftLengthDistribution"
+          ],
+          "roh": {
+            "shoulderLength": 100,
+            "shoulderLength_min": 100,
+            "shoulderLength_max": 100.25
+          },
+          "vorbelegung": {},
+          "fields": {
+            "shoulderLength": {
+              "nominal": 100,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso7379_1983",
+                "ganter7379"
+              ],
+              "status": "verified",
+              "verification": true,
+              "verificationMethod": "norm-and-manufacturer-compared",
+              "note": "Norm-Längenreihe mit Ganter-Größenkombination bestätigt. Schulterlänge ohne Gewindefortsatz."
+            },
+            "shoulderLength_min": {
+              "nominal": 100,
+              "min": 100,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso7379_1983",
+                "ganter7379"
+              ],
+              "status": "verified",
+              "verification": true,
+              "verificationMethod": "norm-and-manufacturer-compared",
+              "note": "Grenzmaß der Schulterlänge l, nicht der gesamten Unterkopflänge."
+            },
+            "shoulderLength_max": {
+              "nominal": 100.25,
+              "min": null,
+              "max": 100.25,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso7379_1983",
+                "ganter7379"
+              ],
+              "status": "verified",
+              "verification": true,
+              "verificationMethod": "norm-and-manufacturer-compared",
+              "note": "Grenzmaß der Schulterlänge l, nicht der gesamten Unterkopflänge."
+            }
+          }
+        }
+      },
+      "laengen": [
+        16,
+        20,
+        25,
+        30,
+        40,
+        50,
+        60,
+        70,
+        80,
+        90,
+        100
+      ]
+    },
+    "M8": {
+      "roh": {
+        "d_nom": 8,
+        "ds_nom": 10,
+        "P": 1.25,
+        "ds_max": 9.987,
+        "ds_min": 9.951,
+        "b_max": 13.25,
+        "b_min": 12.75,
+        "dk_max_plain": 16,
+        "dk_max_knurled": 16.27,
+        "dk_min": 15.73,
+        "dg1_min": 9.42,
+        "dg2_max": 6.25,
+        "dg2_min": 6.03,
+        "da1_max": 11.2,
+        "da2_max": 8,
+        "e_min": 5.72,
+        "k_max": 7,
+        "k_min": 6.78,
+        "g1_max": 2.5,
+        "g2_max": 3.1,
+        "r1_min": 0.6,
+        "r2_min": 0.64,
+        "s_nom": 5,
+        "s_max": 5.095,
+        "s_min": 5.02,
+        "t_min": 4.2,
+        "w_min": 1.6
+      },
+      "vorbelegung": {
+        "kD": 16,
+        "kH": 7,
+        "iSW": 5,
+        "iT": 4.2
+      },
+      "steigungen": [
+        1.25
+      ],
+      "coverage": "documented",
+      "geometryStatus": "partial",
+      "missingGeometryFields": [
+        "shaftLengthDistribution"
+      ],
+      "lengthCoverage": "partial",
+      "nachLaenge": {
+        "16": {
+          "coverage": "documented",
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "shaftLengthDistribution"
+          ],
+          "roh": {
+            "shoulderLength": 16,
+            "shoulderLength_min": 16,
+            "shoulderLength_max": 16.25
+          },
+          "vorbelegung": {},
+          "fields": {
+            "shoulderLength": {
+              "nominal": 16,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso7379_1983",
+                "ganter7379"
+              ],
+              "status": "verified",
+              "verification": true,
+              "verificationMethod": "norm-and-manufacturer-compared",
+              "note": "Norm-Längenreihe mit Ganter-Größenkombination bestätigt. Schulterlänge ohne Gewindefortsatz."
+            },
+            "shoulderLength_min": {
+              "nominal": 16,
+              "min": 16,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso7379_1983",
+                "ganter7379"
+              ],
+              "status": "verified",
+              "verification": true,
+              "verificationMethod": "norm-and-manufacturer-compared",
+              "note": "Grenzmaß der Schulterlänge l, nicht der gesamten Unterkopflänge."
+            },
+            "shoulderLength_max": {
+              "nominal": 16.25,
+              "min": null,
+              "max": 16.25,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso7379_1983",
+                "ganter7379"
+              ],
+              "status": "verified",
+              "verification": true,
+              "verificationMethod": "norm-and-manufacturer-compared",
+              "note": "Grenzmaß der Schulterlänge l, nicht der gesamten Unterkopflänge."
+            }
+          }
+        },
+        "20": {
+          "coverage": "documented",
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "shaftLengthDistribution"
+          ],
+          "roh": {
+            "shoulderLength": 20,
+            "shoulderLength_min": 20,
+            "shoulderLength_max": 20.25
+          },
+          "vorbelegung": {},
+          "fields": {
+            "shoulderLength": {
+              "nominal": 20,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso7379_1983",
+                "ganter7379"
+              ],
+              "status": "verified",
+              "verification": true,
+              "verificationMethod": "norm-and-manufacturer-compared",
+              "note": "Norm-Längenreihe mit Ganter-Größenkombination bestätigt. Schulterlänge ohne Gewindefortsatz."
+            },
+            "shoulderLength_min": {
+              "nominal": 20,
+              "min": 20,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso7379_1983",
+                "ganter7379"
+              ],
+              "status": "verified",
+              "verification": true,
+              "verificationMethod": "norm-and-manufacturer-compared",
+              "note": "Grenzmaß der Schulterlänge l, nicht der gesamten Unterkopflänge."
+            },
+            "shoulderLength_max": {
+              "nominal": 20.25,
+              "min": null,
+              "max": 20.25,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso7379_1983",
+                "ganter7379"
+              ],
+              "status": "verified",
+              "verification": true,
+              "verificationMethod": "norm-and-manufacturer-compared",
+              "note": "Grenzmaß der Schulterlänge l, nicht der gesamten Unterkopflänge."
+            }
+          }
+        },
+        "25": {
+          "coverage": "documented",
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "shaftLengthDistribution"
+          ],
+          "roh": {
+            "shoulderLength": 25,
+            "shoulderLength_min": 25,
+            "shoulderLength_max": 25.25
+          },
+          "vorbelegung": {},
+          "fields": {
+            "shoulderLength": {
+              "nominal": 25,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso7379_1983",
+                "ganter7379"
+              ],
+              "status": "verified",
+              "verification": true,
+              "verificationMethod": "norm-and-manufacturer-compared",
+              "note": "Norm-Längenreihe mit Ganter-Größenkombination bestätigt. Schulterlänge ohne Gewindefortsatz."
+            },
+            "shoulderLength_min": {
+              "nominal": 25,
+              "min": 25,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso7379_1983",
+                "ganter7379"
+              ],
+              "status": "verified",
+              "verification": true,
+              "verificationMethod": "norm-and-manufacturer-compared",
+              "note": "Grenzmaß der Schulterlänge l, nicht der gesamten Unterkopflänge."
+            },
+            "shoulderLength_max": {
+              "nominal": 25.25,
+              "min": null,
+              "max": 25.25,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso7379_1983",
+                "ganter7379"
+              ],
+              "status": "verified",
+              "verification": true,
+              "verificationMethod": "norm-and-manufacturer-compared",
+              "note": "Grenzmaß der Schulterlänge l, nicht der gesamten Unterkopflänge."
+            }
+          }
+        },
+        "30": {
+          "coverage": "documented",
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "shaftLengthDistribution"
+          ],
+          "roh": {
+            "shoulderLength": 30,
+            "shoulderLength_min": 30,
+            "shoulderLength_max": 30.25
+          },
+          "vorbelegung": {},
+          "fields": {
+            "shoulderLength": {
+              "nominal": 30,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso7379_1983",
+                "ganter7379"
+              ],
+              "status": "verified",
+              "verification": true,
+              "verificationMethod": "norm-and-manufacturer-compared",
+              "note": "Norm-Längenreihe mit Ganter-Größenkombination bestätigt. Schulterlänge ohne Gewindefortsatz."
+            },
+            "shoulderLength_min": {
+              "nominal": 30,
+              "min": 30,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso7379_1983",
+                "ganter7379"
+              ],
+              "status": "verified",
+              "verification": true,
+              "verificationMethod": "norm-and-manufacturer-compared",
+              "note": "Grenzmaß der Schulterlänge l, nicht der gesamten Unterkopflänge."
+            },
+            "shoulderLength_max": {
+              "nominal": 30.25,
+              "min": null,
+              "max": 30.25,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso7379_1983",
+                "ganter7379"
+              ],
+              "status": "verified",
+              "verification": true,
+              "verificationMethod": "norm-and-manufacturer-compared",
+              "note": "Grenzmaß der Schulterlänge l, nicht der gesamten Unterkopflänge."
+            }
+          }
+        },
+        "40": {
+          "coverage": "documented",
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "shaftLengthDistribution"
+          ],
+          "roh": {
+            "shoulderLength": 40,
+            "shoulderLength_min": 40,
+            "shoulderLength_max": 40.25
+          },
+          "vorbelegung": {},
+          "fields": {
+            "shoulderLength": {
+              "nominal": 40,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso7379_1983",
+                "ganter7379"
+              ],
+              "status": "verified",
+              "verification": true,
+              "verificationMethod": "norm-and-manufacturer-compared",
+              "note": "Norm-Längenreihe mit Ganter-Größenkombination bestätigt. Schulterlänge ohne Gewindefortsatz."
+            },
+            "shoulderLength_min": {
+              "nominal": 40,
+              "min": 40,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso7379_1983",
+                "ganter7379"
+              ],
+              "status": "verified",
+              "verification": true,
+              "verificationMethod": "norm-and-manufacturer-compared",
+              "note": "Grenzmaß der Schulterlänge l, nicht der gesamten Unterkopflänge."
+            },
+            "shoulderLength_max": {
+              "nominal": 40.25,
+              "min": null,
+              "max": 40.25,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso7379_1983",
+                "ganter7379"
+              ],
+              "status": "verified",
+              "verification": true,
+              "verificationMethod": "norm-and-manufacturer-compared",
+              "note": "Grenzmaß der Schulterlänge l, nicht der gesamten Unterkopflänge."
+            }
+          }
+        },
+        "50": {
+          "coverage": "documented",
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "shaftLengthDistribution"
+          ],
+          "roh": {
+            "shoulderLength": 50,
+            "shoulderLength_min": 50,
+            "shoulderLength_max": 50.25
+          },
+          "vorbelegung": {},
+          "fields": {
+            "shoulderLength": {
+              "nominal": 50,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso7379_1983",
+                "ganter7379"
+              ],
+              "status": "verified",
+              "verification": true,
+              "verificationMethod": "norm-and-manufacturer-compared",
+              "note": "Norm-Längenreihe mit Ganter-Größenkombination bestätigt. Schulterlänge ohne Gewindefortsatz."
+            },
+            "shoulderLength_min": {
+              "nominal": 50,
+              "min": 50,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso7379_1983",
+                "ganter7379"
+              ],
+              "status": "verified",
+              "verification": true,
+              "verificationMethod": "norm-and-manufacturer-compared",
+              "note": "Grenzmaß der Schulterlänge l, nicht der gesamten Unterkopflänge."
+            },
+            "shoulderLength_max": {
+              "nominal": 50.25,
+              "min": null,
+              "max": 50.25,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso7379_1983",
+                "ganter7379"
+              ],
+              "status": "verified",
+              "verification": true,
+              "verificationMethod": "norm-and-manufacturer-compared",
+              "note": "Grenzmaß der Schulterlänge l, nicht der gesamten Unterkopflänge."
+            }
+          }
+        },
+        "60": {
+          "coverage": "documented",
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "shaftLengthDistribution"
+          ],
+          "roh": {
+            "shoulderLength": 60,
+            "shoulderLength_min": 60,
+            "shoulderLength_max": 60.25
+          },
+          "vorbelegung": {},
+          "fields": {
+            "shoulderLength": {
+              "nominal": 60,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso7379_1983",
+                "ganter7379"
+              ],
+              "status": "verified",
+              "verification": true,
+              "verificationMethod": "norm-and-manufacturer-compared",
+              "note": "Norm-Längenreihe mit Ganter-Größenkombination bestätigt. Schulterlänge ohne Gewindefortsatz."
+            },
+            "shoulderLength_min": {
+              "nominal": 60,
+              "min": 60,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso7379_1983",
+                "ganter7379"
+              ],
+              "status": "verified",
+              "verification": true,
+              "verificationMethod": "norm-and-manufacturer-compared",
+              "note": "Grenzmaß der Schulterlänge l, nicht der gesamten Unterkopflänge."
+            },
+            "shoulderLength_max": {
+              "nominal": 60.25,
+              "min": null,
+              "max": 60.25,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso7379_1983",
+                "ganter7379"
+              ],
+              "status": "verified",
+              "verification": true,
+              "verificationMethod": "norm-and-manufacturer-compared",
+              "note": "Grenzmaß der Schulterlänge l, nicht der gesamten Unterkopflänge."
+            }
+          }
+        },
+        "70": {
+          "coverage": "documented",
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "shaftLengthDistribution"
+          ],
+          "roh": {
+            "shoulderLength": 70,
+            "shoulderLength_min": 70,
+            "shoulderLength_max": 70.25
+          },
+          "vorbelegung": {},
+          "fields": {
+            "shoulderLength": {
+              "nominal": 70,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso7379_1983",
+                "ganter7379"
+              ],
+              "status": "verified",
+              "verification": true,
+              "verificationMethod": "norm-and-manufacturer-compared",
+              "note": "Norm-Längenreihe mit Ganter-Größenkombination bestätigt. Schulterlänge ohne Gewindefortsatz."
+            },
+            "shoulderLength_min": {
+              "nominal": 70,
+              "min": 70,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso7379_1983",
+                "ganter7379"
+              ],
+              "status": "verified",
+              "verification": true,
+              "verificationMethod": "norm-and-manufacturer-compared",
+              "note": "Grenzmaß der Schulterlänge l, nicht der gesamten Unterkopflänge."
+            },
+            "shoulderLength_max": {
+              "nominal": 70.25,
+              "min": null,
+              "max": 70.25,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso7379_1983",
+                "ganter7379"
+              ],
+              "status": "verified",
+              "verification": true,
+              "verificationMethod": "norm-and-manufacturer-compared",
+              "note": "Grenzmaß der Schulterlänge l, nicht der gesamten Unterkopflänge."
+            }
+          }
+        },
+        "80": {
+          "coverage": "documented",
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "shaftLengthDistribution"
+          ],
+          "roh": {
+            "shoulderLength": 80,
+            "shoulderLength_min": 80,
+            "shoulderLength_max": 80.25
+          },
+          "vorbelegung": {},
+          "fields": {
+            "shoulderLength": {
+              "nominal": 80,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso7379_1983",
+                "ganter7379"
+              ],
+              "status": "verified",
+              "verification": true,
+              "verificationMethod": "norm-and-manufacturer-compared",
+              "note": "Norm-Längenreihe mit Ganter-Größenkombination bestätigt. Schulterlänge ohne Gewindefortsatz."
+            },
+            "shoulderLength_min": {
+              "nominal": 80,
+              "min": 80,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso7379_1983",
+                "ganter7379"
+              ],
+              "status": "verified",
+              "verification": true,
+              "verificationMethod": "norm-and-manufacturer-compared",
+              "note": "Grenzmaß der Schulterlänge l, nicht der gesamten Unterkopflänge."
+            },
+            "shoulderLength_max": {
+              "nominal": 80.25,
+              "min": null,
+              "max": 80.25,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso7379_1983",
+                "ganter7379"
+              ],
+              "status": "verified",
+              "verification": true,
+              "verificationMethod": "norm-and-manufacturer-compared",
+              "note": "Grenzmaß der Schulterlänge l, nicht der gesamten Unterkopflänge."
+            }
+          }
+        },
+        "90": {
+          "coverage": "documented",
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "shaftLengthDistribution"
+          ],
+          "roh": {
+            "shoulderLength": 90,
+            "shoulderLength_min": 90,
+            "shoulderLength_max": 90.25
+          },
+          "vorbelegung": {},
+          "fields": {
+            "shoulderLength": {
+              "nominal": 90,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso7379_1983",
+                "ganter7379"
+              ],
+              "status": "verified",
+              "verification": true,
+              "verificationMethod": "norm-and-manufacturer-compared",
+              "note": "Norm-Längenreihe mit Ganter-Größenkombination bestätigt. Schulterlänge ohne Gewindefortsatz."
+            },
+            "shoulderLength_min": {
+              "nominal": 90,
+              "min": 90,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso7379_1983",
+                "ganter7379"
+              ],
+              "status": "verified",
+              "verification": true,
+              "verificationMethod": "norm-and-manufacturer-compared",
+              "note": "Grenzmaß der Schulterlänge l, nicht der gesamten Unterkopflänge."
+            },
+            "shoulderLength_max": {
+              "nominal": 90.25,
+              "min": null,
+              "max": 90.25,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso7379_1983",
+                "ganter7379"
+              ],
+              "status": "verified",
+              "verification": true,
+              "verificationMethod": "norm-and-manufacturer-compared",
+              "note": "Grenzmaß der Schulterlänge l, nicht der gesamten Unterkopflänge."
+            }
+          }
+        },
+        "100": {
+          "coverage": "documented",
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "shaftLengthDistribution"
+          ],
+          "roh": {
+            "shoulderLength": 100,
+            "shoulderLength_min": 100,
+            "shoulderLength_max": 100.25
+          },
+          "vorbelegung": {},
+          "fields": {
+            "shoulderLength": {
+              "nominal": 100,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso7379_1983",
+                "ganter7379"
+              ],
+              "status": "verified",
+              "verification": true,
+              "verificationMethod": "norm-and-manufacturer-compared",
+              "note": "Norm-Längenreihe mit Ganter-Größenkombination bestätigt. Schulterlänge ohne Gewindefortsatz."
+            },
+            "shoulderLength_min": {
+              "nominal": 100,
+              "min": 100,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso7379_1983",
+                "ganter7379"
+              ],
+              "status": "verified",
+              "verification": true,
+              "verificationMethod": "norm-and-manufacturer-compared",
+              "note": "Grenzmaß der Schulterlänge l, nicht der gesamten Unterkopflänge."
+            },
+            "shoulderLength_max": {
+              "nominal": 100.25,
+              "min": null,
+              "max": 100.25,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso7379_1983",
+                "ganter7379"
+              ],
+              "status": "verified",
+              "verification": true,
+              "verificationMethod": "norm-and-manufacturer-compared",
+              "note": "Grenzmaß der Schulterlänge l, nicht der gesamten Unterkopflänge."
+            }
+          }
+        }
+      },
+      "laengen": [
+        16,
+        20,
+        25,
+        30,
+        40,
+        50,
+        60,
+        70,
+        80,
+        90,
+        100
+      ]
+    },
+    "M10": {
+      "roh": {
+        "d_nom": 10,
+        "ds_nom": 13,
+        "P": 1.5,
+        "ds_max": 12.984,
+        "ds_min": 12.941,
+        "b_max": 16.4,
+        "b_min": 15.6,
+        "dk_max_plain": 18,
+        "dk_max_knurled": 18.27,
+        "dk_min": 17.73,
+        "dg1_min": 12.42,
+        "dg2_max": 7.91,
+        "dg2_min": 7.69,
+        "da1_max": 15.2,
+        "da2_max": 10,
+        "e_min": 6.86,
+        "k_max": 9,
+        "k_min": 8.78,
+        "g1_max": 2.5,
+        "g2_max": 3.7,
+        "r1_min": 0.6,
+        "r2_min": 0.77,
+        "s_nom": 6,
+        "s_max": 6.095,
+        "s_min": 6.02,
+        "t_min": 4.9,
+        "w_min": 1.8
+      },
+      "vorbelegung": {
+        "kD": 18,
+        "kH": 9,
+        "iSW": 6,
+        "iT": 4.9
+      },
+      "steigungen": [
+        1.5
+      ],
+      "coverage": "documented",
+      "geometryStatus": "partial",
+      "missingGeometryFields": [
+        "shaftLengthDistribution"
+      ],
+      "lengthCoverage": "unresearched",
+      "nachLaenge": {},
+      "laengen": []
+    },
+    "M12": {
+      "roh": {
+        "d_nom": 12,
+        "ds_nom": 16,
+        "P": 1.75,
+        "ds_max": 15.984,
+        "ds_min": 15.941,
+        "b_max": 18.4,
+        "b_min": 17.6,
+        "dk_max_plain": 24,
+        "dk_max_knurled": 24.33,
+        "dk_min": 23.67,
+        "dg1_min": 15.42,
+        "dg2_max": 9.57,
+        "dg2_min": 9.35,
+        "da1_max": 18.2,
+        "da2_max": 12,
+        "e_min": 9.15,
+        "k_max": 11,
+        "k_min": 10.73,
+        "g1_max": 2.5,
+        "g2_max": 4.4,
+        "r1_min": 0.6,
+        "r2_min": 0.87,
+        "s_nom": 8,
+        "s_max": 8.115,
+        "s_min": 8.025,
+        "t_min": 6.6,
+        "w_min": 2
+      },
+      "vorbelegung": {
+        "kD": 24,
+        "kH": 11,
+        "iSW": 8,
+        "iT": 6.6
+      },
+      "steigungen": [
+        1.75
+      ],
+      "coverage": "documented",
+      "geometryStatus": "partial",
+      "missingGeometryFields": [
+        "shaftLengthDistribution"
+      ],
+      "lengthCoverage": "partial",
+      "nachLaenge": {
+        "25": {
+          "coverage": "documented",
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "shaftLengthDistribution"
+          ],
+          "roh": {
+            "shoulderLength": 25,
+            "shoulderLength_min": 25,
+            "shoulderLength_max": 25.25
+          },
+          "vorbelegung": {},
+          "fields": {
+            "shoulderLength": {
+              "nominal": 25,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso7379_1983",
+                "ganter7379"
+              ],
+              "status": "verified",
+              "verification": true,
+              "verificationMethod": "norm-and-manufacturer-compared",
+              "note": "Norm-Längenreihe mit Ganter-Größenkombination bestätigt. Schulterlänge ohne Gewindefortsatz."
+            },
+            "shoulderLength_min": {
+              "nominal": 25,
+              "min": 25,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso7379_1983",
+                "ganter7379"
+              ],
+              "status": "verified",
+              "verification": true,
+              "verificationMethod": "norm-and-manufacturer-compared",
+              "note": "Grenzmaß der Schulterlänge l, nicht der gesamten Unterkopflänge."
+            },
+            "shoulderLength_max": {
+              "nominal": 25.25,
+              "min": null,
+              "max": 25.25,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso7379_1983",
+                "ganter7379"
+              ],
+              "status": "verified",
+              "verification": true,
+              "verificationMethod": "norm-and-manufacturer-compared",
+              "note": "Grenzmaß der Schulterlänge l, nicht der gesamten Unterkopflänge."
+            }
+          }
+        },
+        "30": {
+          "coverage": "documented",
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "shaftLengthDistribution"
+          ],
+          "roh": {
+            "shoulderLength": 30,
+            "shoulderLength_min": 30,
+            "shoulderLength_max": 30.25
+          },
+          "vorbelegung": {},
+          "fields": {
+            "shoulderLength": {
+              "nominal": 30,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso7379_1983",
+                "ganter7379"
+              ],
+              "status": "verified",
+              "verification": true,
+              "verificationMethod": "norm-and-manufacturer-compared",
+              "note": "Norm-Längenreihe mit Ganter-Größenkombination bestätigt. Schulterlänge ohne Gewindefortsatz."
+            },
+            "shoulderLength_min": {
+              "nominal": 30,
+              "min": 30,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso7379_1983",
+                "ganter7379"
+              ],
+              "status": "verified",
+              "verification": true,
+              "verificationMethod": "norm-and-manufacturer-compared",
+              "note": "Grenzmaß der Schulterlänge l, nicht der gesamten Unterkopflänge."
+            },
+            "shoulderLength_max": {
+              "nominal": 30.25,
+              "min": null,
+              "max": 30.25,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso7379_1983",
+                "ganter7379"
+              ],
+              "status": "verified",
+              "verification": true,
+              "verificationMethod": "norm-and-manufacturer-compared",
+              "note": "Grenzmaß der Schulterlänge l, nicht der gesamten Unterkopflänge."
+            }
+          }
+        },
+        "40": {
+          "coverage": "documented",
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "shaftLengthDistribution"
+          ],
+          "roh": {
+            "shoulderLength": 40,
+            "shoulderLength_min": 40,
+            "shoulderLength_max": 40.25
+          },
+          "vorbelegung": {},
+          "fields": {
+            "shoulderLength": {
+              "nominal": 40,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso7379_1983",
+                "ganter7379"
+              ],
+              "status": "verified",
+              "verification": true,
+              "verificationMethod": "norm-and-manufacturer-compared",
+              "note": "Norm-Längenreihe mit Ganter-Größenkombination bestätigt. Schulterlänge ohne Gewindefortsatz."
+            },
+            "shoulderLength_min": {
+              "nominal": 40,
+              "min": 40,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso7379_1983",
+                "ganter7379"
+              ],
+              "status": "verified",
+              "verification": true,
+              "verificationMethod": "norm-and-manufacturer-compared",
+              "note": "Grenzmaß der Schulterlänge l, nicht der gesamten Unterkopflänge."
+            },
+            "shoulderLength_max": {
+              "nominal": 40.25,
+              "min": null,
+              "max": 40.25,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso7379_1983",
+                "ganter7379"
+              ],
+              "status": "verified",
+              "verification": true,
+              "verificationMethod": "norm-and-manufacturer-compared",
+              "note": "Grenzmaß der Schulterlänge l, nicht der gesamten Unterkopflänge."
+            }
+          }
+        },
+        "50": {
+          "coverage": "documented",
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "shaftLengthDistribution"
+          ],
+          "roh": {
+            "shoulderLength": 50,
+            "shoulderLength_min": 50,
+            "shoulderLength_max": 50.25
+          },
+          "vorbelegung": {},
+          "fields": {
+            "shoulderLength": {
+              "nominal": 50,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso7379_1983",
+                "ganter7379"
+              ],
+              "status": "verified",
+              "verification": true,
+              "verificationMethod": "norm-and-manufacturer-compared",
+              "note": "Norm-Längenreihe mit Ganter-Größenkombination bestätigt. Schulterlänge ohne Gewindefortsatz."
+            },
+            "shoulderLength_min": {
+              "nominal": 50,
+              "min": 50,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso7379_1983",
+                "ganter7379"
+              ],
+              "status": "verified",
+              "verification": true,
+              "verificationMethod": "norm-and-manufacturer-compared",
+              "note": "Grenzmaß der Schulterlänge l, nicht der gesamten Unterkopflänge."
+            },
+            "shoulderLength_max": {
+              "nominal": 50.25,
+              "min": null,
+              "max": 50.25,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso7379_1983",
+                "ganter7379"
+              ],
+              "status": "verified",
+              "verification": true,
+              "verificationMethod": "norm-and-manufacturer-compared",
+              "note": "Grenzmaß der Schulterlänge l, nicht der gesamten Unterkopflänge."
+            }
+          }
+        },
+        "60": {
+          "coverage": "documented",
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "shaftLengthDistribution"
+          ],
+          "roh": {
+            "shoulderLength": 60,
+            "shoulderLength_min": 60,
+            "shoulderLength_max": 60.25
+          },
+          "vorbelegung": {},
+          "fields": {
+            "shoulderLength": {
+              "nominal": 60,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso7379_1983",
+                "ganter7379"
+              ],
+              "status": "verified",
+              "verification": true,
+              "verificationMethod": "norm-and-manufacturer-compared",
+              "note": "Norm-Längenreihe mit Ganter-Größenkombination bestätigt. Schulterlänge ohne Gewindefortsatz."
+            },
+            "shoulderLength_min": {
+              "nominal": 60,
+              "min": 60,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso7379_1983",
+                "ganter7379"
+              ],
+              "status": "verified",
+              "verification": true,
+              "verificationMethod": "norm-and-manufacturer-compared",
+              "note": "Grenzmaß der Schulterlänge l, nicht der gesamten Unterkopflänge."
+            },
+            "shoulderLength_max": {
+              "nominal": 60.25,
+              "min": null,
+              "max": 60.25,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso7379_1983",
+                "ganter7379"
+              ],
+              "status": "verified",
+              "verification": true,
+              "verificationMethod": "norm-and-manufacturer-compared",
+              "note": "Grenzmaß der Schulterlänge l, nicht der gesamten Unterkopflänge."
+            }
+          }
+        },
+        "70": {
+          "coverage": "documented",
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "shaftLengthDistribution"
+          ],
+          "roh": {
+            "shoulderLength": 70,
+            "shoulderLength_min": 70,
+            "shoulderLength_max": 70.25
+          },
+          "vorbelegung": {},
+          "fields": {
+            "shoulderLength": {
+              "nominal": 70,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso7379_1983",
+                "ganter7379"
+              ],
+              "status": "verified",
+              "verification": true,
+              "verificationMethod": "norm-and-manufacturer-compared",
+              "note": "Norm-Längenreihe mit Ganter-Größenkombination bestätigt. Schulterlänge ohne Gewindefortsatz."
+            },
+            "shoulderLength_min": {
+              "nominal": 70,
+              "min": 70,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso7379_1983",
+                "ganter7379"
+              ],
+              "status": "verified",
+              "verification": true,
+              "verificationMethod": "norm-and-manufacturer-compared",
+              "note": "Grenzmaß der Schulterlänge l, nicht der gesamten Unterkopflänge."
+            },
+            "shoulderLength_max": {
+              "nominal": 70.25,
+              "min": null,
+              "max": 70.25,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso7379_1983",
+                "ganter7379"
+              ],
+              "status": "verified",
+              "verification": true,
+              "verificationMethod": "norm-and-manufacturer-compared",
+              "note": "Grenzmaß der Schulterlänge l, nicht der gesamten Unterkopflänge."
+            }
+          }
+        },
+        "80": {
+          "coverage": "documented",
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "shaftLengthDistribution"
+          ],
+          "roh": {
+            "shoulderLength": 80,
+            "shoulderLength_min": 80,
+            "shoulderLength_max": 80.25
+          },
+          "vorbelegung": {},
+          "fields": {
+            "shoulderLength": {
+              "nominal": 80,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso7379_1983",
+                "ganter7379"
+              ],
+              "status": "verified",
+              "verification": true,
+              "verificationMethod": "norm-and-manufacturer-compared",
+              "note": "Norm-Längenreihe mit Ganter-Größenkombination bestätigt. Schulterlänge ohne Gewindefortsatz."
+            },
+            "shoulderLength_min": {
+              "nominal": 80,
+              "min": 80,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso7379_1983",
+                "ganter7379"
+              ],
+              "status": "verified",
+              "verification": true,
+              "verificationMethod": "norm-and-manufacturer-compared",
+              "note": "Grenzmaß der Schulterlänge l, nicht der gesamten Unterkopflänge."
+            },
+            "shoulderLength_max": {
+              "nominal": 80.25,
+              "min": null,
+              "max": 80.25,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso7379_1983",
+                "ganter7379"
+              ],
+              "status": "verified",
+              "verification": true,
+              "verificationMethod": "norm-and-manufacturer-compared",
+              "note": "Grenzmaß der Schulterlänge l, nicht der gesamten Unterkopflänge."
+            }
+          }
+        },
+        "90": {
+          "coverage": "documented",
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "shaftLengthDistribution"
+          ],
+          "roh": {
+            "shoulderLength": 90,
+            "shoulderLength_min": 90,
+            "shoulderLength_max": 90.25
+          },
+          "vorbelegung": {},
+          "fields": {
+            "shoulderLength": {
+              "nominal": 90,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso7379_1983",
+                "ganter7379"
+              ],
+              "status": "verified",
+              "verification": true,
+              "verificationMethod": "norm-and-manufacturer-compared",
+              "note": "Norm-Längenreihe mit Ganter-Größenkombination bestätigt. Schulterlänge ohne Gewindefortsatz."
+            },
+            "shoulderLength_min": {
+              "nominal": 90,
+              "min": 90,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso7379_1983",
+                "ganter7379"
+              ],
+              "status": "verified",
+              "verification": true,
+              "verificationMethod": "norm-and-manufacturer-compared",
+              "note": "Grenzmaß der Schulterlänge l, nicht der gesamten Unterkopflänge."
+            },
+            "shoulderLength_max": {
+              "nominal": 90.25,
+              "min": null,
+              "max": 90.25,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso7379_1983",
+                "ganter7379"
+              ],
+              "status": "verified",
+              "verification": true,
+              "verificationMethod": "norm-and-manufacturer-compared",
+              "note": "Grenzmaß der Schulterlänge l, nicht der gesamten Unterkopflänge."
+            }
+          }
+        },
+        "100": {
+          "coverage": "documented",
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "shaftLengthDistribution"
+          ],
+          "roh": {
+            "shoulderLength": 100,
+            "shoulderLength_min": 100,
+            "shoulderLength_max": 100.25
+          },
+          "vorbelegung": {},
+          "fields": {
+            "shoulderLength": {
+              "nominal": 100,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso7379_1983",
+                "ganter7379"
+              ],
+              "status": "verified",
+              "verification": true,
+              "verificationMethod": "norm-and-manufacturer-compared",
+              "note": "Norm-Längenreihe mit Ganter-Größenkombination bestätigt. Schulterlänge ohne Gewindefortsatz."
+            },
+            "shoulderLength_min": {
+              "nominal": 100,
+              "min": 100,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso7379_1983",
+                "ganter7379"
+              ],
+              "status": "verified",
+              "verification": true,
+              "verificationMethod": "norm-and-manufacturer-compared",
+              "note": "Grenzmaß der Schulterlänge l, nicht der gesamten Unterkopflänge."
+            },
+            "shoulderLength_max": {
+              "nominal": 100.25,
+              "min": null,
+              "max": 100.25,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso7379_1983",
+                "ganter7379"
+              ],
+              "status": "verified",
+              "verification": true,
+              "verificationMethod": "norm-and-manufacturer-compared",
+              "note": "Grenzmaß der Schulterlänge l, nicht der gesamten Unterkopflänge."
+            }
+          }
+        }
+      },
+      "laengen": [
+        25,
+        30,
+        40,
+        50,
+        60,
+        70,
+        80,
+        90,
+        100
+      ]
+    },
+    "M16": {
+      "roh": {
+        "d_nom": 16,
+        "ds_nom": 20,
+        "P": 2,
+        "ds_max": 19.98,
+        "ds_min": 19.928,
+        "b_max": 22.4,
+        "b_min": 21.6,
+        "dk_max_plain": 30,
+        "dk_max_knurled": 30.33,
+        "dk_min": 29.67,
+        "dg1_min": 19.42,
+        "dg2_max": 13.33,
+        "dg2_min": 12.96,
+        "da1_max": 22.4,
+        "da2_max": 16,
+        "e_min": 11.43,
+        "k_max": 14,
+        "k_min": 13.73,
+        "g1_max": 2.5,
+        "g2_max": 5,
+        "r1_min": 0.8,
+        "r2_min": 1.14,
+        "s_nom": 10,
+        "s_max": 10.115,
+        "s_min": 10.025,
+        "t_min": 8.8,
+        "w_min": 3.2
+      },
+      "vorbelegung": {
+        "kD": 30,
+        "kH": 14,
+        "iSW": 10,
+        "iT": 8.8
+      },
+      "steigungen": [
+        2
+      ],
+      "coverage": "documented",
+      "geometryStatus": "partial",
+      "missingGeometryFields": [
+        "shaftLengthDistribution"
+      ],
+      "lengthCoverage": "partial",
+      "nachLaenge": {
+        "30": {
+          "coverage": "documented",
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "shaftLengthDistribution"
+          ],
+          "roh": {
+            "shoulderLength": 30,
+            "shoulderLength_min": 30,
+            "shoulderLength_max": 30.25
+          },
+          "vorbelegung": {},
+          "fields": {
+            "shoulderLength": {
+              "nominal": 30,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso7379_1983",
+                "ganter7379"
+              ],
+              "status": "verified",
+              "verification": true,
+              "verificationMethod": "norm-and-manufacturer-compared",
+              "note": "Norm-Längenreihe mit Ganter-Größenkombination bestätigt. Schulterlänge ohne Gewindefortsatz."
+            },
+            "shoulderLength_min": {
+              "nominal": 30,
+              "min": 30,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso7379_1983",
+                "ganter7379"
+              ],
+              "status": "verified",
+              "verification": true,
+              "verificationMethod": "norm-and-manufacturer-compared",
+              "note": "Grenzmaß der Schulterlänge l, nicht der gesamten Unterkopflänge."
+            },
+            "shoulderLength_max": {
+              "nominal": 30.25,
+              "min": null,
+              "max": 30.25,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso7379_1983",
+                "ganter7379"
+              ],
+              "status": "verified",
+              "verification": true,
+              "verificationMethod": "norm-and-manufacturer-compared",
+              "note": "Grenzmaß der Schulterlänge l, nicht der gesamten Unterkopflänge."
+            }
+          }
+        },
+        "40": {
+          "coverage": "documented",
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "shaftLengthDistribution"
+          ],
+          "roh": {
+            "shoulderLength": 40,
+            "shoulderLength_min": 40,
+            "shoulderLength_max": 40.25
+          },
+          "vorbelegung": {},
+          "fields": {
+            "shoulderLength": {
+              "nominal": 40,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso7379_1983",
+                "ganter7379"
+              ],
+              "status": "verified",
+              "verification": true,
+              "verificationMethod": "norm-and-manufacturer-compared",
+              "note": "Norm-Längenreihe mit Ganter-Größenkombination bestätigt. Schulterlänge ohne Gewindefortsatz."
+            },
+            "shoulderLength_min": {
+              "nominal": 40,
+              "min": 40,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso7379_1983",
+                "ganter7379"
+              ],
+              "status": "verified",
+              "verification": true,
+              "verificationMethod": "norm-and-manufacturer-compared",
+              "note": "Grenzmaß der Schulterlänge l, nicht der gesamten Unterkopflänge."
+            },
+            "shoulderLength_max": {
+              "nominal": 40.25,
+              "min": null,
+              "max": 40.25,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso7379_1983",
+                "ganter7379"
+              ],
+              "status": "verified",
+              "verification": true,
+              "verificationMethod": "norm-and-manufacturer-compared",
+              "note": "Grenzmaß der Schulterlänge l, nicht der gesamten Unterkopflänge."
+            }
+          }
+        },
+        "50": {
+          "coverage": "documented",
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "shaftLengthDistribution"
+          ],
+          "roh": {
+            "shoulderLength": 50,
+            "shoulderLength_min": 50,
+            "shoulderLength_max": 50.25
+          },
+          "vorbelegung": {},
+          "fields": {
+            "shoulderLength": {
+              "nominal": 50,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso7379_1983",
+                "ganter7379"
+              ],
+              "status": "verified",
+              "verification": true,
+              "verificationMethod": "norm-and-manufacturer-compared",
+              "note": "Norm-Längenreihe mit Ganter-Größenkombination bestätigt. Schulterlänge ohne Gewindefortsatz."
+            },
+            "shoulderLength_min": {
+              "nominal": 50,
+              "min": 50,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso7379_1983",
+                "ganter7379"
+              ],
+              "status": "verified",
+              "verification": true,
+              "verificationMethod": "norm-and-manufacturer-compared",
+              "note": "Grenzmaß der Schulterlänge l, nicht der gesamten Unterkopflänge."
+            },
+            "shoulderLength_max": {
+              "nominal": 50.25,
+              "min": null,
+              "max": 50.25,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso7379_1983",
+                "ganter7379"
+              ],
+              "status": "verified",
+              "verification": true,
+              "verificationMethod": "norm-and-manufacturer-compared",
+              "note": "Grenzmaß der Schulterlänge l, nicht der gesamten Unterkopflänge."
+            }
+          }
+        },
+        "60": {
+          "coverage": "documented",
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "shaftLengthDistribution"
+          ],
+          "roh": {
+            "shoulderLength": 60,
+            "shoulderLength_min": 60,
+            "shoulderLength_max": 60.25
+          },
+          "vorbelegung": {},
+          "fields": {
+            "shoulderLength": {
+              "nominal": 60,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso7379_1983",
+                "ganter7379"
+              ],
+              "status": "verified",
+              "verification": true,
+              "verificationMethod": "norm-and-manufacturer-compared",
+              "note": "Norm-Längenreihe mit Ganter-Größenkombination bestätigt. Schulterlänge ohne Gewindefortsatz."
+            },
+            "shoulderLength_min": {
+              "nominal": 60,
+              "min": 60,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso7379_1983",
+                "ganter7379"
+              ],
+              "status": "verified",
+              "verification": true,
+              "verificationMethod": "norm-and-manufacturer-compared",
+              "note": "Grenzmaß der Schulterlänge l, nicht der gesamten Unterkopflänge."
+            },
+            "shoulderLength_max": {
+              "nominal": 60.25,
+              "min": null,
+              "max": 60.25,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso7379_1983",
+                "ganter7379"
+              ],
+              "status": "verified",
+              "verification": true,
+              "verificationMethod": "norm-and-manufacturer-compared",
+              "note": "Grenzmaß der Schulterlänge l, nicht der gesamten Unterkopflänge."
+            }
+          }
+        },
+        "70": {
+          "coverage": "documented",
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "shaftLengthDistribution"
+          ],
+          "roh": {
+            "shoulderLength": 70,
+            "shoulderLength_min": 70,
+            "shoulderLength_max": 70.25
+          },
+          "vorbelegung": {},
+          "fields": {
+            "shoulderLength": {
+              "nominal": 70,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso7379_1983",
+                "ganter7379"
+              ],
+              "status": "verified",
+              "verification": true,
+              "verificationMethod": "norm-and-manufacturer-compared",
+              "note": "Norm-Längenreihe mit Ganter-Größenkombination bestätigt. Schulterlänge ohne Gewindefortsatz."
+            },
+            "shoulderLength_min": {
+              "nominal": 70,
+              "min": 70,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso7379_1983",
+                "ganter7379"
+              ],
+              "status": "verified",
+              "verification": true,
+              "verificationMethod": "norm-and-manufacturer-compared",
+              "note": "Grenzmaß der Schulterlänge l, nicht der gesamten Unterkopflänge."
+            },
+            "shoulderLength_max": {
+              "nominal": 70.25,
+              "min": null,
+              "max": 70.25,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso7379_1983",
+                "ganter7379"
+              ],
+              "status": "verified",
+              "verification": true,
+              "verificationMethod": "norm-and-manufacturer-compared",
+              "note": "Grenzmaß der Schulterlänge l, nicht der gesamten Unterkopflänge."
+            }
+          }
+        },
+        "80": {
+          "coverage": "documented",
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "shaftLengthDistribution"
+          ],
+          "roh": {
+            "shoulderLength": 80,
+            "shoulderLength_min": 80,
+            "shoulderLength_max": 80.25
+          },
+          "vorbelegung": {},
+          "fields": {
+            "shoulderLength": {
+              "nominal": 80,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso7379_1983",
+                "ganter7379"
+              ],
+              "status": "verified",
+              "verification": true,
+              "verificationMethod": "norm-and-manufacturer-compared",
+              "note": "Norm-Längenreihe mit Ganter-Größenkombination bestätigt. Schulterlänge ohne Gewindefortsatz."
+            },
+            "shoulderLength_min": {
+              "nominal": 80,
+              "min": 80,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso7379_1983",
+                "ganter7379"
+              ],
+              "status": "verified",
+              "verification": true,
+              "verificationMethod": "norm-and-manufacturer-compared",
+              "note": "Grenzmaß der Schulterlänge l, nicht der gesamten Unterkopflänge."
+            },
+            "shoulderLength_max": {
+              "nominal": 80.25,
+              "min": null,
+              "max": 80.25,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso7379_1983",
+                "ganter7379"
+              ],
+              "status": "verified",
+              "verification": true,
+              "verificationMethod": "norm-and-manufacturer-compared",
+              "note": "Grenzmaß der Schulterlänge l, nicht der gesamten Unterkopflänge."
+            }
+          }
+        },
+        "90": {
+          "coverage": "documented",
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "shaftLengthDistribution"
+          ],
+          "roh": {
+            "shoulderLength": 90,
+            "shoulderLength_min": 90,
+            "shoulderLength_max": 90.25
+          },
+          "vorbelegung": {},
+          "fields": {
+            "shoulderLength": {
+              "nominal": 90,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso7379_1983",
+                "ganter7379"
+              ],
+              "status": "verified",
+              "verification": true,
+              "verificationMethod": "norm-and-manufacturer-compared",
+              "note": "Norm-Längenreihe mit Ganter-Größenkombination bestätigt. Schulterlänge ohne Gewindefortsatz."
+            },
+            "shoulderLength_min": {
+              "nominal": 90,
+              "min": 90,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso7379_1983",
+                "ganter7379"
+              ],
+              "status": "verified",
+              "verification": true,
+              "verificationMethod": "norm-and-manufacturer-compared",
+              "note": "Grenzmaß der Schulterlänge l, nicht der gesamten Unterkopflänge."
+            },
+            "shoulderLength_max": {
+              "nominal": 90.25,
+              "min": null,
+              "max": 90.25,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso7379_1983",
+                "ganter7379"
+              ],
+              "status": "verified",
+              "verification": true,
+              "verificationMethod": "norm-and-manufacturer-compared",
+              "note": "Grenzmaß der Schulterlänge l, nicht der gesamten Unterkopflänge."
+            }
+          }
+        },
+        "100": {
+          "coverage": "documented",
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "shaftLengthDistribution"
+          ],
+          "roh": {
+            "shoulderLength": 100,
+            "shoulderLength_min": 100,
+            "shoulderLength_max": 100.25
+          },
+          "vorbelegung": {},
+          "fields": {
+            "shoulderLength": {
+              "nominal": 100,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso7379_1983",
+                "ganter7379"
+              ],
+              "status": "verified",
+              "verification": true,
+              "verificationMethod": "norm-and-manufacturer-compared",
+              "note": "Norm-Längenreihe mit Ganter-Größenkombination bestätigt. Schulterlänge ohne Gewindefortsatz."
+            },
+            "shoulderLength_min": {
+              "nominal": 100,
+              "min": 100,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso7379_1983",
+                "ganter7379"
+              ],
+              "status": "verified",
+              "verification": true,
+              "verificationMethod": "norm-and-manufacturer-compared",
+              "note": "Grenzmaß der Schulterlänge l, nicht der gesamten Unterkopflänge."
+            },
+            "shoulderLength_max": {
+              "nominal": 100.25,
+              "min": null,
+              "max": 100.25,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso7379_1983",
+                "ganter7379"
+              ],
+              "status": "verified",
+              "verification": true,
+              "verificationMethod": "norm-and-manufacturer-compared",
+              "note": "Grenzmaß der Schulterlänge l, nicht der gesamten Unterkopflänge."
+            }
+          }
+        }
+      },
+      "laengen": [
+        30,
+        40,
+        50,
+        60,
+        70,
+        80,
+        90,
+        100
+      ]
+    },
+    "M20": {
+      "roh": {
+        "d_nom": 20,
+        "ds_nom": 25,
+        "P": 2.5,
+        "ds_max": 24.98,
+        "ds_min": 24.928,
+        "b_max": 27.4,
+        "b_min": 26.6,
+        "dk_max_plain": 36,
+        "dk_max_knurled": 36.39,
+        "dk_min": 35.61,
+        "dg1_min": 24.42,
+        "dg2_max": 16.57,
+        "dg2_min": 16.3,
+        "da1_max": 27.4,
+        "da2_max": 20,
+        "e_min": 13.72,
+        "k_max": 16,
+        "k_min": 15.73,
+        "g1_max": 3,
+        "g2_max": 6.3,
+        "r1_min": 0.8,
+        "r2_min": 1.38,
+        "s_nom": 12,
+        "s_max": 12.142,
+        "s_min": 12.032,
+        "t_min": 10,
+        "w_min": 3.25
+      },
+      "vorbelegung": {
+        "kD": 36,
+        "kH": 16,
+        "iSW": 12,
+        "iT": 10
+      },
+      "steigungen": [
+        2.5
+      ],
+      "coverage": "documented",
+      "geometryStatus": "partial",
+      "missingGeometryFields": [
+        "shaftLengthDistribution"
+      ],
+      "lengthCoverage": "unresearched",
+      "nachLaenge": {},
+      "laengen": []
+    }
+  },
+  "fields": {
+    "M5": {
+      "d_nom": {
+        "nominal": 5,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso7379_1983",
+          "ganter7379"
+        ],
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "norm-and-manufacturer-compared",
+        "note": "Normwert bestätigt durch Ganter-Tabelle bzw. deren ausdrückliche Angabe der amtlichen ISO-Abmessung."
+      },
+      "ds_nom": {
+        "nominal": 6.5,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso7379_1983",
+          "ganter7379"
+        ],
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "norm-and-manufacturer-compared",
+        "note": "Normwert bestätigt durch Ganter-Tabelle bzw. deren ausdrückliche Angabe der amtlichen ISO-Abmessung."
+      },
+      "P": {
+        "nominal": 0.8,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso7379_1983"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "norm-and-manufacturer-compared",
+        "note": "Originalnorm Abschnitt 3; unabhängiger Zweitbeleg dieses Einzelmaßes noch offen."
+      },
+      "ds_max": {
+        "nominal": 6.487,
+        "min": null,
+        "max": 6.487,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso7379_1983"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "norm-and-manufacturer-compared",
+        "note": "Originalnorm Abschnitt 3; unabhängiger Zweitbeleg dieses Einzelmaßes noch offen."
+      },
+      "ds_min": {
+        "nominal": 6.451,
+        "min": 6.451,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso7379_1983"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "norm-and-manufacturer-compared",
+        "note": "Originalnorm Abschnitt 3; unabhängiger Zweitbeleg dieses Einzelmaßes noch offen."
+      },
+      "b_max": {
+        "nominal": 9.75,
+        "min": null,
+        "max": 9.75,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso7379_1983"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "norm-and-manufacturer-compared",
+        "note": "Originalnorm Abschnitt 3; unabhängiger Zweitbeleg dieses Einzelmaßes noch offen."
+      },
+      "b_min": {
+        "nominal": 9.25,
+        "min": 9.25,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso7379_1983"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "norm-and-manufacturer-compared",
+        "note": "Originalnorm Abschnitt 3; unabhängiger Zweitbeleg dieses Einzelmaßes noch offen."
+      },
+      "dk_max_plain": {
+        "nominal": 10,
+        "min": null,
+        "max": 10,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso7379_1983"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "norm-and-manufacturer-compared",
+        "note": "Originalnorm Abschnitt 3; unabhängiger Zweitbeleg dieses Einzelmaßes noch offen."
+      },
+      "dk_max_knurled": {
+        "nominal": 10.22,
+        "min": null,
+        "max": 10.22,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso7379_1983"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "norm-and-manufacturer-compared",
+        "note": "Originalnorm Abschnitt 3; unabhängiger Zweitbeleg dieses Einzelmaßes noch offen."
+      },
+      "dk_min": {
+        "nominal": 9.78,
+        "min": 9.78,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso7379_1983"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "norm-and-manufacturer-compared",
+        "note": "Originalnorm Abschnitt 3; unabhängiger Zweitbeleg dieses Einzelmaßes noch offen."
+      },
+      "dg1_min": {
+        "nominal": 5.92,
+        "min": 5.92,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso7379_1983"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "norm-and-manufacturer-compared",
+        "note": "Originalnorm Abschnitt 3; unabhängiger Zweitbeleg dieses Einzelmaßes noch offen."
+      },
+      "dg2_max": {
+        "nominal": 3.86,
+        "min": null,
+        "max": 3.86,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso7379_1983"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "norm-and-manufacturer-compared",
+        "note": "Originalnorm Abschnitt 3; unabhängiger Zweitbeleg dieses Einzelmaßes noch offen."
+      },
+      "dg2_min": {
+        "nominal": 3.68,
+        "min": 3.68,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso7379_1983"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "norm-and-manufacturer-compared",
+        "note": "Originalnorm Abschnitt 3; unabhängiger Zweitbeleg dieses Einzelmaßes noch offen."
+      },
+      "da1_max": {
+        "nominal": 7.5,
+        "min": null,
+        "max": 7.5,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso7379_1983"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "norm-and-manufacturer-compared",
+        "note": "Originalnorm Abschnitt 3; unabhängiger Zweitbeleg dieses Einzelmaßes noch offen."
+      },
+      "da2_max": {
+        "nominal": 5,
+        "min": null,
+        "max": 5,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso7379_1983"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "norm-and-manufacturer-compared",
+        "note": "Originalnorm Abschnitt 3; unabhängiger Zweitbeleg dieses Einzelmaßes noch offen."
+      },
+      "e_min": {
+        "nominal": 3.44,
+        "min": 3.44,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso7379_1983"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "norm-and-manufacturer-compared",
+        "note": "Originalnorm Abschnitt 3; unabhängiger Zweitbeleg dieses Einzelmaßes noch offen."
+      },
+      "k_max": {
+        "nominal": 4.5,
+        "min": null,
+        "max": 4.5,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso7379_1983"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "norm-and-manufacturer-compared",
+        "note": "Originalnorm Abschnitt 3; unabhängiger Zweitbeleg dieses Einzelmaßes noch offen."
+      },
+      "k_min": {
+        "nominal": 4.32,
+        "min": 4.32,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso7379_1983"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "norm-and-manufacturer-compared",
+        "note": "Originalnorm Abschnitt 3; unabhängiger Zweitbeleg dieses Einzelmaßes noch offen."
+      },
+      "g1_max": {
+        "nominal": 2.5,
+        "min": null,
+        "max": 2.5,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso7379_1983"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "norm-and-manufacturer-compared",
+        "note": "Originalnorm Abschnitt 3; unabhängiger Zweitbeleg dieses Einzelmaßes noch offen."
+      },
+      "g2_max": {
+        "nominal": 2,
+        "min": null,
+        "max": 2,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso7379_1983"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "norm-and-manufacturer-compared",
+        "note": "Originalnorm Abschnitt 3; unabhängiger Zweitbeleg dieses Einzelmaßes noch offen."
+      },
+      "r1_min": {
+        "nominal": 0.25,
+        "min": 0.25,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso7379_1983"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "norm-and-manufacturer-compared",
+        "note": "Originalnorm Abschnitt 3; unabhängiger Zweitbeleg dieses Einzelmaßes noch offen."
+      },
+      "r2_min": {
+        "nominal": 0.5,
+        "min": 0.5,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso7379_1983"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "norm-and-manufacturer-compared",
+        "note": "Originalnorm Abschnitt 3; unabhängiger Zweitbeleg dieses Einzelmaßes noch offen."
+      },
+      "s_nom": {
+        "nominal": 3,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso7379_1983"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "norm-and-manufacturer-compared",
+        "note": "Originalnorm Abschnitt 3; unabhängiger Zweitbeleg dieses Einzelmaßes noch offen."
+      },
+      "s_max": {
+        "nominal": 3.08,
+        "min": null,
+        "max": 3.08,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso7379_1983"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "norm-and-manufacturer-compared",
+        "note": "Originalnorm Abschnitt 3; unabhängiger Zweitbeleg dieses Einzelmaßes noch offen."
+      },
+      "s_min": {
+        "nominal": 3.02,
+        "min": 3.02,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso7379_1983"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "norm-and-manufacturer-compared",
+        "note": "Originalnorm Abschnitt 3; unabhängiger Zweitbeleg dieses Einzelmaßes noch offen."
+      },
+      "t_min": {
+        "nominal": 2.4,
+        "min": 2.4,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso7379_1983"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "norm-and-manufacturer-compared",
+        "note": "Originalnorm Abschnitt 3; unabhängiger Zweitbeleg dieses Einzelmaßes noch offen."
+      },
+      "w_min": {
+        "nominal": 1,
+        "min": 1,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso7379_1983"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "norm-and-manufacturer-compared",
+        "note": "Originalnorm Abschnitt 3; unabhängiger Zweitbeleg dieses Einzelmaßes noch offen."
+      }
+    },
+    "M6": {
+      "d_nom": {
+        "nominal": 6,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso7379_1983",
+          "ganter7379"
+        ],
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "norm-and-manufacturer-compared",
+        "note": "Normwert bestätigt durch Ganter-Tabelle bzw. deren ausdrückliche Angabe der amtlichen ISO-Abmessung."
+      },
+      "ds_nom": {
+        "nominal": 8,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso7379_1983",
+          "ganter7379"
+        ],
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "norm-and-manufacturer-compared",
+        "note": "Normwert bestätigt durch Ganter-Tabelle bzw. deren ausdrückliche Angabe der amtlichen ISO-Abmessung."
+      },
+      "P": {
+        "nominal": 1,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso7379_1983"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "norm-and-manufacturer-compared",
+        "note": "Originalnorm Abschnitt 3; unabhängiger Zweitbeleg dieses Einzelmaßes noch offen."
+      },
+      "ds_max": {
+        "nominal": 7.987,
+        "min": null,
+        "max": 7.987,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso7379_1983"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "norm-and-manufacturer-compared",
+        "note": "Originalnorm Abschnitt 3; unabhängiger Zweitbeleg dieses Einzelmaßes noch offen."
+      },
+      "ds_min": {
+        "nominal": 7.951,
+        "min": 7.951,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso7379_1983"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "norm-and-manufacturer-compared",
+        "note": "Originalnorm Abschnitt 3; unabhängiger Zweitbeleg dieses Einzelmaßes noch offen."
+      },
+      "b_max": {
+        "nominal": 11.25,
+        "min": null,
+        "max": 11.25,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso7379_1983"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "norm-and-manufacturer-compared",
+        "note": "Originalnorm Abschnitt 3; unabhängiger Zweitbeleg dieses Einzelmaßes noch offen."
+      },
+      "b_min": {
+        "nominal": 10.75,
+        "min": 10.75,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso7379_1983"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "norm-and-manufacturer-compared",
+        "note": "Originalnorm Abschnitt 3; unabhängiger Zweitbeleg dieses Einzelmaßes noch offen."
+      },
+      "dk_max_plain": {
+        "nominal": 13,
+        "min": null,
+        "max": 13,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso7379_1983",
+          "ganter7379"
+        ],
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "norm-and-manufacturer-compared",
+        "note": "Normwert bestätigt durch Ganter-Tabelle bzw. deren ausdrückliche Angabe der amtlichen ISO-Abmessung."
+      },
+      "dk_max_knurled": {
+        "nominal": 13.27,
+        "min": null,
+        "max": 13.27,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso7379_1983"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "norm-and-manufacturer-compared",
+        "note": "Originalnorm Abschnitt 3; unabhängiger Zweitbeleg dieses Einzelmaßes noch offen."
+      },
+      "dk_min": {
+        "nominal": 12.73,
+        "min": 12.73,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso7379_1983"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "norm-and-manufacturer-compared",
+        "note": "Originalnorm Abschnitt 3; unabhängiger Zweitbeleg dieses Einzelmaßes noch offen."
+      },
+      "dg1_min": {
+        "nominal": 7.42,
+        "min": 7.42,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso7379_1983"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "norm-and-manufacturer-compared",
+        "note": "Originalnorm Abschnitt 3; unabhängiger Zweitbeleg dieses Einzelmaßes noch offen."
+      },
+      "dg2_max": {
+        "nominal": 4.58,
+        "min": null,
+        "max": 4.58,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso7379_1983"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "norm-and-manufacturer-compared",
+        "note": "Originalnorm Abschnitt 3; unabhängiger Zweitbeleg dieses Einzelmaßes noch offen."
+      },
+      "dg2_min": {
+        "nominal": 4.4,
+        "min": 4.4,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso7379_1983"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "norm-and-manufacturer-compared",
+        "note": "Originalnorm Abschnitt 3; unabhängiger Zweitbeleg dieses Einzelmaßes noch offen."
+      },
+      "da1_max": {
+        "nominal": 9.2,
+        "min": null,
+        "max": 9.2,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso7379_1983"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "norm-and-manufacturer-compared",
+        "note": "Originalnorm Abschnitt 3; unabhängiger Zweitbeleg dieses Einzelmaßes noch offen."
+      },
+      "da2_max": {
+        "nominal": 6,
+        "min": null,
+        "max": 6,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso7379_1983"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "norm-and-manufacturer-compared",
+        "note": "Originalnorm Abschnitt 3; unabhängiger Zweitbeleg dieses Einzelmaßes noch offen."
+      },
+      "e_min": {
+        "nominal": 4.58,
+        "min": 4.58,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso7379_1983"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "norm-and-manufacturer-compared",
+        "note": "Originalnorm Abschnitt 3; unabhängiger Zweitbeleg dieses Einzelmaßes noch offen."
+      },
+      "k_max": {
+        "nominal": 5.5,
+        "min": null,
+        "max": 5.5,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso7379_1983",
+          "ganter7379"
+        ],
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "norm-and-manufacturer-compared",
+        "note": "Normwert bestätigt durch Ganter-Tabelle bzw. deren ausdrückliche Angabe der amtlichen ISO-Abmessung."
+      },
+      "k_min": {
+        "nominal": 5.32,
+        "min": 5.32,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso7379_1983"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "norm-and-manufacturer-compared",
+        "note": "Originalnorm Abschnitt 3; unabhängiger Zweitbeleg dieses Einzelmaßes noch offen."
+      },
+      "g1_max": {
+        "nominal": 2.5,
+        "min": null,
+        "max": 2.5,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso7379_1983"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "norm-and-manufacturer-compared",
+        "note": "Originalnorm Abschnitt 3; unabhängiger Zweitbeleg dieses Einzelmaßes noch offen."
+      },
+      "g2_max": {
+        "nominal": 2.5,
+        "min": null,
+        "max": 2.5,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso7379_1983"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "norm-and-manufacturer-compared",
+        "note": "Originalnorm Abschnitt 3; unabhängiger Zweitbeleg dieses Einzelmaßes noch offen."
+      },
+      "r1_min": {
+        "nominal": 0.4,
+        "min": 0.4,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso7379_1983"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "norm-and-manufacturer-compared",
+        "note": "Originalnorm Abschnitt 3; unabhängiger Zweitbeleg dieses Einzelmaßes noch offen."
+      },
+      "r2_min": {
+        "nominal": 0.53,
+        "min": 0.53,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso7379_1983"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "norm-and-manufacturer-compared",
+        "note": "Originalnorm Abschnitt 3; unabhängiger Zweitbeleg dieses Einzelmaßes noch offen."
+      },
+      "s_nom": {
+        "nominal": 4,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso7379_1983",
+          "ganter7379"
+        ],
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "norm-and-manufacturer-compared",
+        "note": "Normwert bestätigt durch Ganter-Tabelle bzw. deren ausdrückliche Angabe der amtlichen ISO-Abmessung."
+      },
+      "s_max": {
+        "nominal": 4.095,
+        "min": null,
+        "max": 4.095,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso7379_1983"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "norm-and-manufacturer-compared",
+        "note": "Originalnorm Abschnitt 3; unabhängiger Zweitbeleg dieses Einzelmaßes noch offen."
+      },
+      "s_min": {
+        "nominal": 4.02,
+        "min": 4.02,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso7379_1983"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "norm-and-manufacturer-compared",
+        "note": "Originalnorm Abschnitt 3; unabhängiger Zweitbeleg dieses Einzelmaßes noch offen."
+      },
+      "t_min": {
+        "nominal": 3.3,
+        "min": 3.3,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso7379_1983"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "norm-and-manufacturer-compared",
+        "note": "Originalnorm Abschnitt 3; unabhängiger Zweitbeleg dieses Einzelmaßes noch offen."
+      },
+      "w_min": {
+        "nominal": 1.15,
+        "min": 1.15,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso7379_1983"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "norm-and-manufacturer-compared",
+        "note": "Originalnorm Abschnitt 3; unabhängiger Zweitbeleg dieses Einzelmaßes noch offen."
+      }
+    },
+    "M8": {
+      "d_nom": {
+        "nominal": 8,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso7379_1983",
+          "ganter7379"
+        ],
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "norm-and-manufacturer-compared",
+        "note": "Normwert bestätigt durch Ganter-Tabelle bzw. deren ausdrückliche Angabe der amtlichen ISO-Abmessung."
+      },
+      "ds_nom": {
+        "nominal": 10,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso7379_1983",
+          "ganter7379"
+        ],
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "norm-and-manufacturer-compared",
+        "note": "Normwert bestätigt durch Ganter-Tabelle bzw. deren ausdrückliche Angabe der amtlichen ISO-Abmessung."
+      },
+      "P": {
+        "nominal": 1.25,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso7379_1983"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "norm-and-manufacturer-compared",
+        "note": "Originalnorm Abschnitt 3; unabhängiger Zweitbeleg dieses Einzelmaßes noch offen."
+      },
+      "ds_max": {
+        "nominal": 9.987,
+        "min": null,
+        "max": 9.987,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso7379_1983"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "norm-and-manufacturer-compared",
+        "note": "Originalnorm Abschnitt 3; unabhängiger Zweitbeleg dieses Einzelmaßes noch offen."
+      },
+      "ds_min": {
+        "nominal": 9.951,
+        "min": 9.951,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso7379_1983"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "norm-and-manufacturer-compared",
+        "note": "Originalnorm Abschnitt 3; unabhängiger Zweitbeleg dieses Einzelmaßes noch offen."
+      },
+      "b_max": {
+        "nominal": 13.25,
+        "min": null,
+        "max": 13.25,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso7379_1983"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "norm-and-manufacturer-compared",
+        "note": "Originalnorm Abschnitt 3; unabhängiger Zweitbeleg dieses Einzelmaßes noch offen."
+      },
+      "b_min": {
+        "nominal": 12.75,
+        "min": 12.75,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso7379_1983"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "norm-and-manufacturer-compared",
+        "note": "Originalnorm Abschnitt 3; unabhängiger Zweitbeleg dieses Einzelmaßes noch offen."
+      },
+      "dk_max_plain": {
+        "nominal": 16,
+        "min": null,
+        "max": 16,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso7379_1983",
+          "ganter7379"
+        ],
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "norm-and-manufacturer-compared",
+        "note": "Normwert bestätigt durch Ganter-Tabelle bzw. deren ausdrückliche Angabe der amtlichen ISO-Abmessung."
+      },
+      "dk_max_knurled": {
+        "nominal": 16.27,
+        "min": null,
+        "max": 16.27,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso7379_1983"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "norm-and-manufacturer-compared",
+        "note": "Originalnorm Abschnitt 3; unabhängiger Zweitbeleg dieses Einzelmaßes noch offen."
+      },
+      "dk_min": {
+        "nominal": 15.73,
+        "min": 15.73,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso7379_1983"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "norm-and-manufacturer-compared",
+        "note": "Originalnorm Abschnitt 3; unabhängiger Zweitbeleg dieses Einzelmaßes noch offen."
+      },
+      "dg1_min": {
+        "nominal": 9.42,
+        "min": 9.42,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso7379_1983"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "norm-and-manufacturer-compared",
+        "note": "Originalnorm Abschnitt 3; unabhängiger Zweitbeleg dieses Einzelmaßes noch offen."
+      },
+      "dg2_max": {
+        "nominal": 6.25,
+        "min": null,
+        "max": 6.25,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso7379_1983"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "norm-and-manufacturer-compared",
+        "note": "Originalnorm Abschnitt 3; unabhängiger Zweitbeleg dieses Einzelmaßes noch offen."
+      },
+      "dg2_min": {
+        "nominal": 6.03,
+        "min": 6.03,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso7379_1983"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "norm-and-manufacturer-compared",
+        "note": "Originalnorm Abschnitt 3; unabhängiger Zweitbeleg dieses Einzelmaßes noch offen."
+      },
+      "da1_max": {
+        "nominal": 11.2,
+        "min": null,
+        "max": 11.2,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso7379_1983"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "norm-and-manufacturer-compared",
+        "note": "Originalnorm Abschnitt 3; unabhängiger Zweitbeleg dieses Einzelmaßes noch offen."
+      },
+      "da2_max": {
+        "nominal": 8,
+        "min": null,
+        "max": 8,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso7379_1983"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "norm-and-manufacturer-compared",
+        "note": "Originalnorm Abschnitt 3; unabhängiger Zweitbeleg dieses Einzelmaßes noch offen."
+      },
+      "e_min": {
+        "nominal": 5.72,
+        "min": 5.72,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso7379_1983"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "norm-and-manufacturer-compared",
+        "note": "Originalnorm Abschnitt 3; unabhängiger Zweitbeleg dieses Einzelmaßes noch offen."
+      },
+      "k_max": {
+        "nominal": 7,
+        "min": null,
+        "max": 7,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso7379_1983",
+          "ganter7379"
+        ],
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "norm-and-manufacturer-compared",
+        "note": "Normwert bestätigt durch Ganter-Tabelle bzw. deren ausdrückliche Angabe der amtlichen ISO-Abmessung."
+      },
+      "k_min": {
+        "nominal": 6.78,
+        "min": 6.78,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso7379_1983"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "norm-and-manufacturer-compared",
+        "note": "Originalnorm Abschnitt 3; unabhängiger Zweitbeleg dieses Einzelmaßes noch offen."
+      },
+      "g1_max": {
+        "nominal": 2.5,
+        "min": null,
+        "max": 2.5,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso7379_1983"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "norm-and-manufacturer-compared",
+        "note": "Originalnorm Abschnitt 3; unabhängiger Zweitbeleg dieses Einzelmaßes noch offen."
+      },
+      "g2_max": {
+        "nominal": 3.1,
+        "min": null,
+        "max": 3.1,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso7379_1983"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "norm-and-manufacturer-compared",
+        "note": "Originalnorm Abschnitt 3; unabhängiger Zweitbeleg dieses Einzelmaßes noch offen."
+      },
+      "r1_min": {
+        "nominal": 0.6,
+        "min": 0.6,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso7379_1983"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "norm-and-manufacturer-compared",
+        "note": "Originalnorm Abschnitt 3; unabhängiger Zweitbeleg dieses Einzelmaßes noch offen."
+      },
+      "r2_min": {
+        "nominal": 0.64,
+        "min": 0.64,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso7379_1983"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "norm-and-manufacturer-compared",
+        "note": "Originalnorm Abschnitt 3; unabhängiger Zweitbeleg dieses Einzelmaßes noch offen."
+      },
+      "s_nom": {
+        "nominal": 5,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso7379_1983",
+          "ganter7379"
+        ],
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "norm-and-manufacturer-compared",
+        "note": "Normwert bestätigt durch Ganter-Tabelle bzw. deren ausdrückliche Angabe der amtlichen ISO-Abmessung."
+      },
+      "s_max": {
+        "nominal": 5.095,
+        "min": null,
+        "max": 5.095,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso7379_1983"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "norm-and-manufacturer-compared",
+        "note": "Originalnorm Abschnitt 3; unabhängiger Zweitbeleg dieses Einzelmaßes noch offen."
+      },
+      "s_min": {
+        "nominal": 5.02,
+        "min": 5.02,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso7379_1983"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "norm-and-manufacturer-compared",
+        "note": "Originalnorm Abschnitt 3; unabhängiger Zweitbeleg dieses Einzelmaßes noch offen."
+      },
+      "t_min": {
+        "nominal": 4.2,
+        "min": 4.2,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso7379_1983"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "norm-and-manufacturer-compared",
+        "note": "Originalnorm Abschnitt 3; unabhängiger Zweitbeleg dieses Einzelmaßes noch offen."
+      },
+      "w_min": {
+        "nominal": 1.6,
+        "min": 1.6,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso7379_1983"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "norm-and-manufacturer-compared",
+        "note": "Originalnorm Abschnitt 3; unabhängiger Zweitbeleg dieses Einzelmaßes noch offen."
+      }
+    },
+    "M10": {
+      "d_nom": {
+        "nominal": 10,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso7379_1983",
+          "ganter7379"
+        ],
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "norm-and-manufacturer-compared",
+        "note": "Normwert bestätigt durch Ganter-Tabelle bzw. deren ausdrückliche Angabe der amtlichen ISO-Abmessung."
+      },
+      "ds_nom": {
+        "nominal": 13,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso7379_1983",
+          "ganter7379"
+        ],
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "norm-and-manufacturer-compared",
+        "note": "Normwert bestätigt durch Ganter-Tabelle bzw. deren ausdrückliche Angabe der amtlichen ISO-Abmessung."
+      },
+      "P": {
+        "nominal": 1.5,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso7379_1983"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "norm-and-manufacturer-compared",
+        "note": "Originalnorm Abschnitt 3; unabhängiger Zweitbeleg dieses Einzelmaßes noch offen."
+      },
+      "ds_max": {
+        "nominal": 12.984,
+        "min": null,
+        "max": 12.984,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso7379_1983"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "norm-and-manufacturer-compared",
+        "note": "Originalnorm Abschnitt 3; unabhängiger Zweitbeleg dieses Einzelmaßes noch offen."
+      },
+      "ds_min": {
+        "nominal": 12.941,
+        "min": 12.941,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso7379_1983"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "norm-and-manufacturer-compared",
+        "note": "Originalnorm Abschnitt 3; unabhängiger Zweitbeleg dieses Einzelmaßes noch offen."
+      },
+      "b_max": {
+        "nominal": 16.4,
+        "min": null,
+        "max": 16.4,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso7379_1983"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "norm-and-manufacturer-compared",
+        "note": "Originalnorm Abschnitt 3; unabhängiger Zweitbeleg dieses Einzelmaßes noch offen."
+      },
+      "b_min": {
+        "nominal": 15.6,
+        "min": 15.6,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso7379_1983"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "norm-and-manufacturer-compared",
+        "note": "Originalnorm Abschnitt 3; unabhängiger Zweitbeleg dieses Einzelmaßes noch offen."
+      },
+      "dk_max_plain": {
+        "nominal": 18,
+        "min": null,
+        "max": 18,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso7379_1983"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "norm-and-manufacturer-compared",
+        "note": "Originalnorm Abschnitt 3; unabhängiger Zweitbeleg dieses Einzelmaßes noch offen."
+      },
+      "dk_max_knurled": {
+        "nominal": 18.27,
+        "min": null,
+        "max": 18.27,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso7379_1983"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "norm-and-manufacturer-compared",
+        "note": "Originalnorm Abschnitt 3; unabhängiger Zweitbeleg dieses Einzelmaßes noch offen."
+      },
+      "dk_min": {
+        "nominal": 17.73,
+        "min": 17.73,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso7379_1983"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "norm-and-manufacturer-compared",
+        "note": "Originalnorm Abschnitt 3; unabhängiger Zweitbeleg dieses Einzelmaßes noch offen."
+      },
+      "dg1_min": {
+        "nominal": 12.42,
+        "min": 12.42,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso7379_1983"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "norm-and-manufacturer-compared",
+        "note": "Originalnorm Abschnitt 3; unabhängiger Zweitbeleg dieses Einzelmaßes noch offen."
+      },
+      "dg2_max": {
+        "nominal": 7.91,
+        "min": null,
+        "max": 7.91,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso7379_1983"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "norm-and-manufacturer-compared",
+        "note": "Originalnorm Abschnitt 3; unabhängiger Zweitbeleg dieses Einzelmaßes noch offen."
+      },
+      "dg2_min": {
+        "nominal": 7.69,
+        "min": 7.69,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso7379_1983"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "norm-and-manufacturer-compared",
+        "note": "Originalnorm Abschnitt 3; unabhängiger Zweitbeleg dieses Einzelmaßes noch offen."
+      },
+      "da1_max": {
+        "nominal": 15.2,
+        "min": null,
+        "max": 15.2,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso7379_1983"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "norm-and-manufacturer-compared",
+        "note": "Originalnorm Abschnitt 3; unabhängiger Zweitbeleg dieses Einzelmaßes noch offen."
+      },
+      "da2_max": {
+        "nominal": 10,
+        "min": null,
+        "max": 10,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso7379_1983"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "norm-and-manufacturer-compared",
+        "note": "Originalnorm Abschnitt 3; unabhängiger Zweitbeleg dieses Einzelmaßes noch offen."
+      },
+      "e_min": {
+        "nominal": 6.86,
+        "min": 6.86,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso7379_1983"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "norm-and-manufacturer-compared",
+        "note": "Originalnorm Abschnitt 3; unabhängiger Zweitbeleg dieses Einzelmaßes noch offen."
+      },
+      "k_max": {
+        "nominal": 9,
+        "min": null,
+        "max": 9,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso7379_1983"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "norm-and-manufacturer-compared",
+        "note": "Originalnorm Abschnitt 3; unabhängiger Zweitbeleg dieses Einzelmaßes noch offen."
+      },
+      "k_min": {
+        "nominal": 8.78,
+        "min": 8.78,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso7379_1983"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "norm-and-manufacturer-compared",
+        "note": "Originalnorm Abschnitt 3; unabhängiger Zweitbeleg dieses Einzelmaßes noch offen."
+      },
+      "g1_max": {
+        "nominal": 2.5,
+        "min": null,
+        "max": 2.5,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso7379_1983"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "norm-and-manufacturer-compared",
+        "note": "Originalnorm Abschnitt 3; unabhängiger Zweitbeleg dieses Einzelmaßes noch offen."
+      },
+      "g2_max": {
+        "nominal": 3.7,
+        "min": null,
+        "max": 3.7,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso7379_1983"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "norm-and-manufacturer-compared",
+        "note": "Originalnorm Abschnitt 3; unabhängiger Zweitbeleg dieses Einzelmaßes noch offen."
+      },
+      "r1_min": {
+        "nominal": 0.6,
+        "min": 0.6,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso7379_1983"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "norm-and-manufacturer-compared",
+        "note": "Originalnorm Abschnitt 3; unabhängiger Zweitbeleg dieses Einzelmaßes noch offen."
+      },
+      "r2_min": {
+        "nominal": 0.77,
+        "min": 0.77,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso7379_1983"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "norm-and-manufacturer-compared",
+        "note": "Originalnorm Abschnitt 3; unabhängiger Zweitbeleg dieses Einzelmaßes noch offen."
+      },
+      "s_nom": {
+        "nominal": 6,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso7379_1983"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "norm-and-manufacturer-compared",
+        "note": "Originalnorm Abschnitt 3; unabhängiger Zweitbeleg dieses Einzelmaßes noch offen."
+      },
+      "s_max": {
+        "nominal": 6.095,
+        "min": null,
+        "max": 6.095,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso7379_1983"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "norm-and-manufacturer-compared",
+        "note": "Originalnorm Abschnitt 3; unabhängiger Zweitbeleg dieses Einzelmaßes noch offen."
+      },
+      "s_min": {
+        "nominal": 6.02,
+        "min": 6.02,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso7379_1983"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "norm-and-manufacturer-compared",
+        "note": "Originalnorm Abschnitt 3; unabhängiger Zweitbeleg dieses Einzelmaßes noch offen."
+      },
+      "t_min": {
+        "nominal": 4.9,
+        "min": 4.9,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso7379_1983"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "norm-and-manufacturer-compared",
+        "note": "Originalnorm Abschnitt 3; unabhängiger Zweitbeleg dieses Einzelmaßes noch offen."
+      },
+      "w_min": {
+        "nominal": 1.8,
+        "min": 1.8,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso7379_1983"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "norm-and-manufacturer-compared",
+        "note": "Originalnorm Abschnitt 3; unabhängiger Zweitbeleg dieses Einzelmaßes noch offen."
+      }
+    },
+    "M12": {
+      "d_nom": {
+        "nominal": 12,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso7379_1983",
+          "ganter7379"
+        ],
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "norm-and-manufacturer-compared",
+        "note": "Normwert bestätigt durch Ganter-Tabelle bzw. deren ausdrückliche Angabe der amtlichen ISO-Abmessung."
+      },
+      "ds_nom": {
+        "nominal": 16,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso7379_1983",
+          "ganter7379"
+        ],
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "norm-and-manufacturer-compared",
+        "note": "Normwert bestätigt durch Ganter-Tabelle bzw. deren ausdrückliche Angabe der amtlichen ISO-Abmessung."
+      },
+      "P": {
+        "nominal": 1.75,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso7379_1983"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "norm-and-manufacturer-compared",
+        "note": "Originalnorm Abschnitt 3; unabhängiger Zweitbeleg dieses Einzelmaßes noch offen."
+      },
+      "ds_max": {
+        "nominal": 15.984,
+        "min": null,
+        "max": 15.984,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso7379_1983"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "norm-and-manufacturer-compared",
+        "note": "Originalnorm Abschnitt 3; unabhängiger Zweitbeleg dieses Einzelmaßes noch offen."
+      },
+      "ds_min": {
+        "nominal": 15.941,
+        "min": 15.941,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso7379_1983"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "norm-and-manufacturer-compared",
+        "note": "Originalnorm Abschnitt 3; unabhängiger Zweitbeleg dieses Einzelmaßes noch offen."
+      },
+      "b_max": {
+        "nominal": 18.4,
+        "min": null,
+        "max": 18.4,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso7379_1983"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "norm-and-manufacturer-compared",
+        "note": "Originalnorm Abschnitt 3; unabhängiger Zweitbeleg dieses Einzelmaßes noch offen."
+      },
+      "b_min": {
+        "nominal": 17.6,
+        "min": 17.6,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso7379_1983"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "norm-and-manufacturer-compared",
+        "note": "Originalnorm Abschnitt 3; unabhängiger Zweitbeleg dieses Einzelmaßes noch offen."
+      },
+      "dk_max_plain": {
+        "nominal": 24,
+        "min": null,
+        "max": 24,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso7379_1983",
+          "ganter7379"
+        ],
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "norm-and-manufacturer-compared",
+        "note": "Normwert bestätigt durch Ganter-Tabelle bzw. deren ausdrückliche Angabe der amtlichen ISO-Abmessung."
+      },
+      "dk_max_knurled": {
+        "nominal": 24.33,
+        "min": null,
+        "max": 24.33,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso7379_1983"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "norm-and-manufacturer-compared",
+        "note": "Originalnorm Abschnitt 3; unabhängiger Zweitbeleg dieses Einzelmaßes noch offen."
+      },
+      "dk_min": {
+        "nominal": 23.67,
+        "min": 23.67,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso7379_1983"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "norm-and-manufacturer-compared",
+        "note": "Originalnorm Abschnitt 3; unabhängiger Zweitbeleg dieses Einzelmaßes noch offen."
+      },
+      "dg1_min": {
+        "nominal": 15.42,
+        "min": 15.42,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso7379_1983"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "norm-and-manufacturer-compared",
+        "note": "Originalnorm Abschnitt 3; unabhängiger Zweitbeleg dieses Einzelmaßes noch offen."
+      },
+      "dg2_max": {
+        "nominal": 9.57,
+        "min": null,
+        "max": 9.57,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso7379_1983"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "norm-and-manufacturer-compared",
+        "note": "Originalnorm Abschnitt 3; unabhängiger Zweitbeleg dieses Einzelmaßes noch offen."
+      },
+      "dg2_min": {
+        "nominal": 9.35,
+        "min": 9.35,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso7379_1983"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "norm-and-manufacturer-compared",
+        "note": "Originalnorm Abschnitt 3; unabhängiger Zweitbeleg dieses Einzelmaßes noch offen."
+      },
+      "da1_max": {
+        "nominal": 18.2,
+        "min": null,
+        "max": 18.2,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso7379_1983"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "norm-and-manufacturer-compared",
+        "note": "Originalnorm Abschnitt 3; unabhängiger Zweitbeleg dieses Einzelmaßes noch offen."
+      },
+      "da2_max": {
+        "nominal": 12,
+        "min": null,
+        "max": 12,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso7379_1983"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "norm-and-manufacturer-compared",
+        "note": "Originalnorm Abschnitt 3; unabhängiger Zweitbeleg dieses Einzelmaßes noch offen."
+      },
+      "e_min": {
+        "nominal": 9.15,
+        "min": 9.15,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso7379_1983"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "norm-and-manufacturer-compared",
+        "note": "Originalnorm Abschnitt 3; unabhängiger Zweitbeleg dieses Einzelmaßes noch offen."
+      },
+      "k_max": {
+        "nominal": 11,
+        "min": null,
+        "max": 11,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso7379_1983",
+          "ganter7379"
+        ],
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "norm-and-manufacturer-compared",
+        "note": "Normwert bestätigt durch Ganter-Tabelle bzw. deren ausdrückliche Angabe der amtlichen ISO-Abmessung."
+      },
+      "k_min": {
+        "nominal": 10.73,
+        "min": 10.73,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso7379_1983"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "norm-and-manufacturer-compared",
+        "note": "Originalnorm Abschnitt 3; unabhängiger Zweitbeleg dieses Einzelmaßes noch offen."
+      },
+      "g1_max": {
+        "nominal": 2.5,
+        "min": null,
+        "max": 2.5,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso7379_1983"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "norm-and-manufacturer-compared",
+        "note": "Originalnorm Abschnitt 3; unabhängiger Zweitbeleg dieses Einzelmaßes noch offen."
+      },
+      "g2_max": {
+        "nominal": 4.4,
+        "min": null,
+        "max": 4.4,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso7379_1983"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "norm-and-manufacturer-compared",
+        "note": "Originalnorm Abschnitt 3; unabhängiger Zweitbeleg dieses Einzelmaßes noch offen."
+      },
+      "r1_min": {
+        "nominal": 0.6,
+        "min": 0.6,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso7379_1983"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "norm-and-manufacturer-compared",
+        "note": "Originalnorm Abschnitt 3; unabhängiger Zweitbeleg dieses Einzelmaßes noch offen."
+      },
+      "r2_min": {
+        "nominal": 0.87,
+        "min": 0.87,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso7379_1983"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "norm-and-manufacturer-compared",
+        "note": "Originalnorm Abschnitt 3; unabhängiger Zweitbeleg dieses Einzelmaßes noch offen."
+      },
+      "s_nom": {
+        "nominal": 8,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso7379_1983",
+          "ganter7379"
+        ],
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "norm-and-manufacturer-compared",
+        "note": "Normwert bestätigt durch Ganter-Tabelle bzw. deren ausdrückliche Angabe der amtlichen ISO-Abmessung."
+      },
+      "s_max": {
+        "nominal": 8.115,
+        "min": null,
+        "max": 8.115,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso7379_1983"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "norm-and-manufacturer-compared",
+        "note": "Originalnorm Abschnitt 3; unabhängiger Zweitbeleg dieses Einzelmaßes noch offen."
+      },
+      "s_min": {
+        "nominal": 8.025,
+        "min": 8.025,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso7379_1983"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "norm-and-manufacturer-compared",
+        "note": "Originalnorm Abschnitt 3; unabhängiger Zweitbeleg dieses Einzelmaßes noch offen."
+      },
+      "t_min": {
+        "nominal": 6.6,
+        "min": 6.6,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso7379_1983"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "norm-and-manufacturer-compared",
+        "note": "Originalnorm Abschnitt 3; unabhängiger Zweitbeleg dieses Einzelmaßes noch offen."
+      },
+      "w_min": {
+        "nominal": 2,
+        "min": 2,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso7379_1983"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "norm-and-manufacturer-compared",
+        "note": "Originalnorm Abschnitt 3; unabhängiger Zweitbeleg dieses Einzelmaßes noch offen."
+      }
+    },
+    "M16": {
+      "d_nom": {
+        "nominal": 16,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso7379_1983",
+          "ganter7379"
+        ],
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "norm-and-manufacturer-compared",
+        "note": "Normwert bestätigt durch Ganter-Tabelle bzw. deren ausdrückliche Angabe der amtlichen ISO-Abmessung."
+      },
+      "ds_nom": {
+        "nominal": 20,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso7379_1983",
+          "ganter7379"
+        ],
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "norm-and-manufacturer-compared",
+        "note": "Normwert bestätigt durch Ganter-Tabelle bzw. deren ausdrückliche Angabe der amtlichen ISO-Abmessung."
+      },
+      "P": {
+        "nominal": 2,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso7379_1983"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "norm-and-manufacturer-compared",
+        "note": "Originalnorm Abschnitt 3; unabhängiger Zweitbeleg dieses Einzelmaßes noch offen."
+      },
+      "ds_max": {
+        "nominal": 19.98,
+        "min": null,
+        "max": 19.98,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso7379_1983"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "norm-and-manufacturer-compared",
+        "note": "Originalnorm Abschnitt 3; unabhängiger Zweitbeleg dieses Einzelmaßes noch offen."
+      },
+      "ds_min": {
+        "nominal": 19.928,
+        "min": 19.928,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso7379_1983"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "norm-and-manufacturer-compared",
+        "note": "Originalnorm Abschnitt 3; unabhängiger Zweitbeleg dieses Einzelmaßes noch offen."
+      },
+      "b_max": {
+        "nominal": 22.4,
+        "min": null,
+        "max": 22.4,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso7379_1983"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "norm-and-manufacturer-compared",
+        "note": "Originalnorm Abschnitt 3; unabhängiger Zweitbeleg dieses Einzelmaßes noch offen."
+      },
+      "b_min": {
+        "nominal": 21.6,
+        "min": 21.6,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso7379_1983"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "norm-and-manufacturer-compared",
+        "note": "Originalnorm Abschnitt 3; unabhängiger Zweitbeleg dieses Einzelmaßes noch offen."
+      },
+      "dk_max_plain": {
+        "nominal": 30,
+        "min": null,
+        "max": 30,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso7379_1983",
+          "ganter7379"
+        ],
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "norm-and-manufacturer-compared",
+        "note": "Normwert bestätigt durch Ganter-Tabelle bzw. deren ausdrückliche Angabe der amtlichen ISO-Abmessung."
+      },
+      "dk_max_knurled": {
+        "nominal": 30.33,
+        "min": null,
+        "max": 30.33,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso7379_1983"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "norm-and-manufacturer-compared",
+        "note": "Originalnorm Abschnitt 3; unabhängiger Zweitbeleg dieses Einzelmaßes noch offen."
+      },
+      "dk_min": {
+        "nominal": 29.67,
+        "min": 29.67,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso7379_1983"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "norm-and-manufacturer-compared",
+        "note": "Originalnorm Abschnitt 3; unabhängiger Zweitbeleg dieses Einzelmaßes noch offen."
+      },
+      "dg1_min": {
+        "nominal": 19.42,
+        "min": 19.42,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso7379_1983"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "norm-and-manufacturer-compared",
+        "note": "Originalnorm Abschnitt 3; unabhängiger Zweitbeleg dieses Einzelmaßes noch offen."
+      },
+      "dg2_max": {
+        "nominal": 13.33,
+        "min": null,
+        "max": 13.33,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso7379_1983"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "norm-and-manufacturer-compared",
+        "note": "Originalnorm Abschnitt 3; unabhängiger Zweitbeleg dieses Einzelmaßes noch offen."
+      },
+      "dg2_min": {
+        "nominal": 12.96,
+        "min": 12.96,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso7379_1983"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "norm-and-manufacturer-compared",
+        "note": "Originalnorm Abschnitt 3; unabhängiger Zweitbeleg dieses Einzelmaßes noch offen."
+      },
+      "da1_max": {
+        "nominal": 22.4,
+        "min": null,
+        "max": 22.4,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso7379_1983"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "norm-and-manufacturer-compared",
+        "note": "Originalnorm Abschnitt 3; unabhängiger Zweitbeleg dieses Einzelmaßes noch offen."
+      },
+      "da2_max": {
+        "nominal": 16,
+        "min": null,
+        "max": 16,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso7379_1983"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "norm-and-manufacturer-compared",
+        "note": "Originalnorm Abschnitt 3; unabhängiger Zweitbeleg dieses Einzelmaßes noch offen."
+      },
+      "e_min": {
+        "nominal": 11.43,
+        "min": 11.43,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso7379_1983"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "norm-and-manufacturer-compared",
+        "note": "Originalnorm Abschnitt 3; unabhängiger Zweitbeleg dieses Einzelmaßes noch offen."
+      },
+      "k_max": {
+        "nominal": 14,
+        "min": null,
+        "max": 14,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso7379_1983",
+          "ganter7379"
+        ],
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "norm-and-manufacturer-compared",
+        "note": "Normwert bestätigt durch Ganter-Tabelle bzw. deren ausdrückliche Angabe der amtlichen ISO-Abmessung."
+      },
+      "k_min": {
+        "nominal": 13.73,
+        "min": 13.73,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso7379_1983"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "norm-and-manufacturer-compared",
+        "note": "Originalnorm Abschnitt 3; unabhängiger Zweitbeleg dieses Einzelmaßes noch offen."
+      },
+      "g1_max": {
+        "nominal": 2.5,
+        "min": null,
+        "max": 2.5,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso7379_1983"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "norm-and-manufacturer-compared",
+        "note": "Originalnorm Abschnitt 3; unabhängiger Zweitbeleg dieses Einzelmaßes noch offen."
+      },
+      "g2_max": {
+        "nominal": 5,
+        "min": null,
+        "max": 5,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso7379_1983"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "norm-and-manufacturer-compared",
+        "note": "Originalnorm Abschnitt 3; unabhängiger Zweitbeleg dieses Einzelmaßes noch offen."
+      },
+      "r1_min": {
+        "nominal": 0.8,
+        "min": 0.8,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso7379_1983"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "norm-and-manufacturer-compared",
+        "note": "Originalnorm Abschnitt 3; unabhängiger Zweitbeleg dieses Einzelmaßes noch offen."
+      },
+      "r2_min": {
+        "nominal": 1.14,
+        "min": 1.14,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso7379_1983"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "norm-and-manufacturer-compared",
+        "note": "Originalnorm Abschnitt 3; unabhängiger Zweitbeleg dieses Einzelmaßes noch offen."
+      },
+      "s_nom": {
+        "nominal": 10,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso7379_1983",
+          "ganter7379"
+        ],
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "norm-and-manufacturer-compared",
+        "note": "Normwert bestätigt durch Ganter-Tabelle bzw. deren ausdrückliche Angabe der amtlichen ISO-Abmessung."
+      },
+      "s_max": {
+        "nominal": 10.115,
+        "min": null,
+        "max": 10.115,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso7379_1983"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "norm-and-manufacturer-compared",
+        "note": "Originalnorm Abschnitt 3; unabhängiger Zweitbeleg dieses Einzelmaßes noch offen."
+      },
+      "s_min": {
+        "nominal": 10.025,
+        "min": 10.025,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso7379_1983"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "norm-and-manufacturer-compared",
+        "note": "Originalnorm Abschnitt 3; unabhängiger Zweitbeleg dieses Einzelmaßes noch offen."
+      },
+      "t_min": {
+        "nominal": 8.8,
+        "min": 8.8,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso7379_1983"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "norm-and-manufacturer-compared",
+        "note": "Originalnorm Abschnitt 3; unabhängiger Zweitbeleg dieses Einzelmaßes noch offen."
+      },
+      "w_min": {
+        "nominal": 3.2,
+        "min": 3.2,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso7379_1983"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "norm-and-manufacturer-compared",
+        "note": "Originalnorm Abschnitt 3; unabhängiger Zweitbeleg dieses Einzelmaßes noch offen."
+      }
+    },
+    "M20": {
+      "d_nom": {
+        "nominal": 20,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso7379_1983",
+          "ganter7379"
+        ],
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "norm-and-manufacturer-compared",
+        "note": "Normwert bestätigt durch Ganter-Tabelle bzw. deren ausdrückliche Angabe der amtlichen ISO-Abmessung."
+      },
+      "ds_nom": {
+        "nominal": 25,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso7379_1983",
+          "ganter7379"
+        ],
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "norm-and-manufacturer-compared",
+        "note": "Normwert bestätigt durch Ganter-Tabelle bzw. deren ausdrückliche Angabe der amtlichen ISO-Abmessung."
+      },
+      "P": {
+        "nominal": 2.5,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso7379_1983"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "norm-and-manufacturer-compared",
+        "note": "Originalnorm Abschnitt 3; unabhängiger Zweitbeleg dieses Einzelmaßes noch offen."
+      },
+      "ds_max": {
+        "nominal": 24.98,
+        "min": null,
+        "max": 24.98,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso7379_1983"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "norm-and-manufacturer-compared",
+        "note": "Originalnorm Abschnitt 3; unabhängiger Zweitbeleg dieses Einzelmaßes noch offen."
+      },
+      "ds_min": {
+        "nominal": 24.928,
+        "min": 24.928,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso7379_1983"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "norm-and-manufacturer-compared",
+        "note": "Originalnorm Abschnitt 3; unabhängiger Zweitbeleg dieses Einzelmaßes noch offen."
+      },
+      "b_max": {
+        "nominal": 27.4,
+        "min": null,
+        "max": 27.4,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso7379_1983"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "norm-and-manufacturer-compared",
+        "note": "Originalnorm Abschnitt 3; unabhängiger Zweitbeleg dieses Einzelmaßes noch offen."
+      },
+      "b_min": {
+        "nominal": 26.6,
+        "min": 26.6,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso7379_1983"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "norm-and-manufacturer-compared",
+        "note": "Originalnorm Abschnitt 3; unabhängiger Zweitbeleg dieses Einzelmaßes noch offen."
+      },
+      "dk_max_plain": {
+        "nominal": 36,
+        "min": null,
+        "max": 36,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso7379_1983"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "norm-and-manufacturer-compared",
+        "note": "Originalnorm Abschnitt 3; unabhängiger Zweitbeleg dieses Einzelmaßes noch offen."
+      },
+      "dk_max_knurled": {
+        "nominal": 36.39,
+        "min": null,
+        "max": 36.39,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso7379_1983"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "norm-and-manufacturer-compared",
+        "note": "Originalnorm Abschnitt 3; unabhängiger Zweitbeleg dieses Einzelmaßes noch offen."
+      },
+      "dk_min": {
+        "nominal": 35.61,
+        "min": 35.61,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso7379_1983"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "norm-and-manufacturer-compared",
+        "note": "Originalnorm Abschnitt 3; unabhängiger Zweitbeleg dieses Einzelmaßes noch offen."
+      },
+      "dg1_min": {
+        "nominal": 24.42,
+        "min": 24.42,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso7379_1983"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "norm-and-manufacturer-compared",
+        "note": "Originalnorm Abschnitt 3; unabhängiger Zweitbeleg dieses Einzelmaßes noch offen."
+      },
+      "dg2_max": {
+        "nominal": 16.57,
+        "min": null,
+        "max": 16.57,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso7379_1983"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "norm-and-manufacturer-compared",
+        "note": "Originalnorm Abschnitt 3; unabhängiger Zweitbeleg dieses Einzelmaßes noch offen."
+      },
+      "dg2_min": {
+        "nominal": 16.3,
+        "min": 16.3,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso7379_1983"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "norm-and-manufacturer-compared",
+        "note": "Originalnorm Abschnitt 3; unabhängiger Zweitbeleg dieses Einzelmaßes noch offen."
+      },
+      "da1_max": {
+        "nominal": 27.4,
+        "min": null,
+        "max": 27.4,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso7379_1983"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "norm-and-manufacturer-compared",
+        "note": "Originalnorm Abschnitt 3; unabhängiger Zweitbeleg dieses Einzelmaßes noch offen."
+      },
+      "da2_max": {
+        "nominal": 20,
+        "min": null,
+        "max": 20,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso7379_1983"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "norm-and-manufacturer-compared",
+        "note": "Originalnorm Abschnitt 3; unabhängiger Zweitbeleg dieses Einzelmaßes noch offen."
+      },
+      "e_min": {
+        "nominal": 13.72,
+        "min": 13.72,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso7379_1983"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "norm-and-manufacturer-compared",
+        "note": "Originalnorm Abschnitt 3; unabhängiger Zweitbeleg dieses Einzelmaßes noch offen."
+      },
+      "k_max": {
+        "nominal": 16,
+        "min": null,
+        "max": 16,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso7379_1983"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "norm-and-manufacturer-compared",
+        "note": "Originalnorm Abschnitt 3; unabhängiger Zweitbeleg dieses Einzelmaßes noch offen."
+      },
+      "k_min": {
+        "nominal": 15.73,
+        "min": 15.73,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso7379_1983"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "norm-and-manufacturer-compared",
+        "note": "Originalnorm Abschnitt 3; unabhängiger Zweitbeleg dieses Einzelmaßes noch offen."
+      },
+      "g1_max": {
+        "nominal": 3,
+        "min": null,
+        "max": 3,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso7379_1983"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "norm-and-manufacturer-compared",
+        "note": "Originalnorm Abschnitt 3; unabhängiger Zweitbeleg dieses Einzelmaßes noch offen."
+      },
+      "g2_max": {
+        "nominal": 6.3,
+        "min": null,
+        "max": 6.3,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso7379_1983"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "norm-and-manufacturer-compared",
+        "note": "Originalnorm Abschnitt 3; unabhängiger Zweitbeleg dieses Einzelmaßes noch offen."
+      },
+      "r1_min": {
+        "nominal": 0.8,
+        "min": 0.8,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso7379_1983"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "norm-and-manufacturer-compared",
+        "note": "Originalnorm Abschnitt 3; unabhängiger Zweitbeleg dieses Einzelmaßes noch offen."
+      },
+      "r2_min": {
+        "nominal": 1.38,
+        "min": 1.38,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso7379_1983"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "norm-and-manufacturer-compared",
+        "note": "Originalnorm Abschnitt 3; unabhängiger Zweitbeleg dieses Einzelmaßes noch offen."
+      },
+      "s_nom": {
+        "nominal": 12,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso7379_1983"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "norm-and-manufacturer-compared",
+        "note": "Originalnorm Abschnitt 3; unabhängiger Zweitbeleg dieses Einzelmaßes noch offen."
+      },
+      "s_max": {
+        "nominal": 12.142,
+        "min": null,
+        "max": 12.142,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso7379_1983"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "norm-and-manufacturer-compared",
+        "note": "Originalnorm Abschnitt 3; unabhängiger Zweitbeleg dieses Einzelmaßes noch offen."
+      },
+      "s_min": {
+        "nominal": 12.032,
+        "min": 12.032,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso7379_1983"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "norm-and-manufacturer-compared",
+        "note": "Originalnorm Abschnitt 3; unabhängiger Zweitbeleg dieses Einzelmaßes noch offen."
+      },
+      "t_min": {
+        "nominal": 10,
+        "min": 10,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso7379_1983"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "norm-and-manufacturer-compared",
+        "note": "Originalnorm Abschnitt 3; unabhängiger Zweitbeleg dieses Einzelmaßes noch offen."
+      },
+      "w_min": {
+        "nominal": 3.25,
+        "min": 3.25,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso7379_1983"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "norm-and-manufacturer-compared",
+        "note": "Originalnorm Abschnitt 3; unabhängiger Zweitbeleg dieses Einzelmaßes noch offen."
+      }
+    }
+  },
   "sourceMeta": {
-    "iso7379": {
-      "url": "https://www.iso.org/standard/14078.html",
-      "titel": "ISO 7379:1983, Geltungsbereich",
-      "type": "standards-body",
+    "iso7379_1983": {
+      "url": "https://cdn.standards.iteh.ai/samples/14078/66d6be2c979341abb895fa52330708be/ISO-7379-1983.pdf",
+      "titel": "ISO 7379:1983, Originalnorm, Abschnitt 3 Maßtabelle",
+      "edition": "1983",
+      "type": "standard-preview",
+      "accessed": "2026-11-26"
+    },
+    "ganter7379": {
+      "url": "https://live-katalog.ganternorm.com/pdf/ganter/EN/7379.pdf",
+      "titel": "Otto Ganter: ISO 7379, Herstellermaße und ausdrücklich erklärte Normabweichungen",
+      "edition": null,
+      "type": "manufacturer-table",
       "accessed": "2026-11-26"
     }
   },
   "quellen": [
     {
-      "id": "iso7379",
-      "url": "https://www.iso.org/standard/14078.html",
-      "titel": "ISO 7379:1983, Geltungsbereich",
-      "type": "standards-body",
+      "id": "iso7379_1983",
+      "url": "https://cdn.standards.iteh.ai/samples/14078/66d6be2c979341abb895fa52330708be/ISO-7379-1983.pdf",
+      "titel": "ISO 7379:1983, Originalnorm, Abschnitt 3 Maßtabelle",
+      "edition": "1983",
+      "type": "standard-preview",
+      "accessed": "2026-11-26"
+    },
+    {
+      "id": "ganter7379",
+      "url": "https://live-katalog.ganternorm.com/pdf/ganter/EN/7379.pdf",
+      "titel": "Otto Ganter: ISO 7379, Herstellermaße und ausdrücklich erklärte Normabweichungen",
+      "edition": null,
+      "type": "manufacturer-table",
       "accessed": "2026-11-26"
     }
   ],
-  "abweichungen": [],
+  "abweichungen": [
+    {
+      "groesse": "M5",
+      "field": "ds_nom",
+      "status": "conflict",
+      "normValue": 6.5,
+      "manufacturerValue": 6,
+      "sourceRefs": [
+        "iso7379_1983",
+        "ganter7379"
+      ],
+      "note": "Vom Hersteller ausdrücklich erklärte Normabweichung; Normwert bleibt führend."
+    },
+    {
+      "groesse": "M10",
+      "field": "ds_nom",
+      "status": "conflict",
+      "normValue": 13,
+      "manufacturerValue": 12,
+      "sourceRefs": [
+        "iso7379_1983",
+        "ganter7379"
+      ],
+      "note": "Vom Hersteller ausdrücklich erklärte Normabweichung; Normwert bleibt führend."
+    },
+    {
+      "groesse": "M20",
+      "field": "ds_nom",
+      "status": "conflict",
+      "normValue": 25,
+      "manufacturerValue": 24,
+      "sourceRefs": [
+        "iso7379_1983",
+        "ganter7379"
+      ],
+      "note": "Vom Hersteller ausdrücklich erklärte Normabweichung; Normwert bleibt führend."
+    }
+  ],
   "status": "partial",
-  "coverage": "unresearched",
-  "lengthCoverage": "unresearched",
+  "coverage": "documented",
+  "lengthCoverage": "partial",
   "hinweise": [
-    "Familie erfasst; vollständige Einzelmaß- und Längenrecherche steht noch aus. Keine Ersatzmaße einer ähnlichen Norm verwendet.",
-    "Normative Passdurchmesser 6,5 bis 25 mm; Herstellerabweichungen 6 statt 6,5 oder 12 statt 13 nicht als Normvorlage übernehmen."
+    "Größenkennzeichen M… bezeichnet hier das Gewinde d. Der größere Passdurchmesser ds wird separat erhalten.",
+    "Normativ ds = 6,5 / 8 / 10 / 13 / 16 / 20 / 25 mm. Herstellerwerte 6 / 12 / 24 mm sind erklärte Abweichungen und keine ISO-Nennmaße.",
+    "Die Nennlänge l misst nur die Schulter. Der Gewindefortsatz b kommt hinzu. Keine Umdeutung in eine gewöhnliche Schraubengesamtlänge.",
+    "Vorbelegung des Kopfes: glatte Kopf-Ausführung. Größerer Rändel-Außendurchmesser ist separat dokumentiert.",
+    "Der allgemeine Schraubenadapter bildet die Schulter und die Freistiche noch nicht vollständig ab. shaftLengthDistribution bleibt bis zur passenden Geometrieübernahme offen."
   ],
   "normstatus": {
-    "status": "unresolved",
-    "note": "Ausgabe und Vollständigkeit nicht aus einer ähnlichen Norm ableiten."
+    "status": "documented-edition",
+    "edition": "1983",
+    "note": "Maße aus Originalausgabe, Herstellerabweichungen getrennt."
   },
   "requiredGeometryFields": [
     "kD",
     "kH",
     "iSW",
-    "iT"
+    "iT",
+    "shaftLengthDistribution"
   ],
   "sizeCoverage": {
     "M3": {
-      "status": "unresearched",
-      "note": "Keine Größenzeile vorhanden; daraus folgt kein Normverbot."
+      "status": "not-in-standard",
+      "sourceRefs": [
+        "iso7379_1983",
+        "ganter7379"
+      ],
+      "note": "Original beginnt bei Schulter ds6,5/Gewinde M5; Ganter erklärt 4-M3 und 5-M4 ausdrücklich als nicht im ISO-Normblatt enthalten."
     },
     "M3.5": {
       "status": "unresearched",
       "note": "Keine Größenzeile vorhanden; daraus folgt kein Normverbot."
     },
     "M4": {
-      "status": "unresearched",
-      "note": "Keine Größenzeile vorhanden; daraus folgt kein Normverbot."
+      "status": "not-in-standard",
+      "sourceRefs": [
+        "iso7379_1983",
+        "ganter7379"
+      ],
+      "note": "Original beginnt bei Schulter ds6,5/Gewinde M5; Ganter erklärt 4-M3 und 5-M4 ausdrücklich als nicht im ISO-Normblatt enthalten."
     },
     "M5": {
-      "status": "unresearched",
-      "note": "Keine Größenzeile vorhanden; daraus folgt kein Normverbot."
+      "status": "documented",
+      "sourceRefs": [
+        "iso7379_1983"
+      ],
+      "note": "Gewinde d und zugehörige größere Schulter ds sind getrennt dokumentiert."
     },
     "M6": {
-      "status": "unresearched",
-      "note": "Keine Größenzeile vorhanden; daraus folgt kein Normverbot."
+      "status": "documented",
+      "sourceRefs": [
+        "iso7379_1983"
+      ],
+      "note": "Gewinde d und zugehörige größere Schulter ds sind getrennt dokumentiert."
     },
     "M7": {
       "status": "unresearched",
       "note": "Keine Größenzeile vorhanden; daraus folgt kein Normverbot."
     },
     "M8": {
-      "status": "unresearched",
-      "note": "Keine Größenzeile vorhanden; daraus folgt kein Normverbot."
+      "status": "documented",
+      "sourceRefs": [
+        "iso7379_1983"
+      ],
+      "note": "Gewinde d und zugehörige größere Schulter ds sind getrennt dokumentiert."
     },
     "M10": {
-      "status": "unresearched",
-      "note": "Keine Größenzeile vorhanden; daraus folgt kein Normverbot."
+      "status": "documented",
+      "sourceRefs": [
+        "iso7379_1983"
+      ],
+      "note": "Gewinde d und zugehörige größere Schulter ds sind getrennt dokumentiert."
     },
     "M12": {
-      "status": "unresearched",
-      "note": "Keine Größenzeile vorhanden; daraus folgt kein Normverbot."
+      "status": "documented",
+      "sourceRefs": [
+        "iso7379_1983"
+      ],
+      "note": "Gewinde d und zugehörige größere Schulter ds sind getrennt dokumentiert."
     },
     "M14": {
       "status": "unresearched",
       "note": "Keine Größenzeile vorhanden; daraus folgt kein Normverbot."
     },
     "M16": {
-      "status": "unresearched",
-      "note": "Keine Größenzeile vorhanden; daraus folgt kein Normverbot."
+      "status": "documented",
+      "sourceRefs": [
+        "iso7379_1983"
+      ],
+      "note": "Gewinde d und zugehörige größere Schulter ds sind getrennt dokumentiert."
     },
     "M18": {
       "status": "unresearched",
       "note": "Keine Größenzeile vorhanden; daraus folgt kein Normverbot."
     },
     "M20": {
-      "status": "unresearched",
-      "note": "Keine Größenzeile vorhanden; daraus folgt kein Normverbot."
+      "status": "documented",
+      "sourceRefs": [
+        "iso7379_1983"
+      ],
+      "note": "Gewinde d und zugehörige größere Schulter ds sind getrennt dokumentiert."
     },
     "M22": {
       "status": "unresearched",
@@ -128,5 +5326,31 @@
     "status": "unresearched",
     "values": [],
     "note": "Festigkeits-/Werkstoffklassen noch nicht vollständig aus dieser Norm belegt."
+  },
+  "geometryAdapter": "shoulder-screw-required",
+  "lengthSeries": {
+    "values": [
+      10,
+      12,
+      16,
+      20,
+      25,
+      30,
+      40,
+      50,
+      60,
+      70,
+      80,
+      90,
+      100,
+      120
+    ],
+    "minOffset": 0,
+    "maxOffset": 0.25,
+    "sourceRefs": [
+      "iso7379_1983"
+    ],
+    "status": "single-source",
+    "note": "Normative Schulterlängenreihe; weitere Zwischenlängen nach ISO 888 erlaubt. Nur separat bestätigte Größenkombinationen aktiv. Keine allgemeine Kreuzproduktfreigabe."
   }
 }

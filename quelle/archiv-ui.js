@@ -157,6 +157,7 @@
     $('calculation-method-note').hidden=special;
     const drawing=drawingActive();
     $('standard-part-fields').hidden=special;$('manual-tools').hidden=special;$('parts-tabs').hidden=!special;$('parts-drawing-panel').hidden=!drawing;$('parts-drawing-output').hidden=!drawing;$('material-fields').hidden=drawing;$('geometry-panel').hidden=!special||drawing;$('geometry-view').hidden=!special||drawing;$('regelbox').hidden=special;$('anfrage').hidden=false;
+    if(staged&&!special)$('geometry-view').hidden=false;
     for(const mode of ['drawing','geometry']){const tab=$('parts-'+mode+'-tab');tab.setAttribute('aria-selected',String(partsMode===mode));tab.tabIndex=partsMode===mode?0:-1;}
     f.querySelectorAll('[data-fuer]').forEach(el => { el.hidden = !el.dataset.fuer.split(' ').includes(t); });
     $('bolt-drive-fields').hidden=t!=='bolzen'||gewindelos();
@@ -180,6 +181,7 @@
     if(['kD','kH','kSW','kVol'].includes(name))return bolt&&head!=='none'&&(name!=='kSW'||['sechskant','abgratet','sechskant_bund'].includes(head))&&(name!=='kVol'||head==='krallen');
     if(['kC','capHeight','flangeDiameter','flangeHeight'].includes(name))return bolt&&!!f.elements[name]&&!f.elements[name].closest('[data-kopf]')?.hidden;
     if(['d_b','t_b'].includes(name))return bolt&&f.elements.schaftende?.value&&f.elements.schaftende.value!=='voll'&&(name!=='t_b'||f.elements.schaftende.value==='halbhohl');
+    if(['endLength','endDiameter','tipAngle'].includes(name))return bolt&&['spitze','zapfen','kegelstumpf_flach'].includes(f.elements.schaftende?.value);
     if(['sD','sL'].includes(name))return bolt;
     if(['mM','mSW','mH','mLoch'].includes(name))return typ()==='mutter';
     if(['mFlansch','mFlanschH'].includes(name))return typ()==='mutter'&&f.elements.nutFlange?.checked;
@@ -196,7 +198,7 @@
     const variant=selectedVariant();
     const e = {
       typ: typ(), wst: variant?.index, curveId: variant?.curve.id, materialState:variant?.curve.state, rm: g('rm'), d0: g('d0'),
-      ...(staged?{rmPolicy:E.RM_POLICY_VERSION,inputOrigins:{d0:wireMode==='custom'?{origin:'customer'}:wireOption?{origin:'assumption',provisional:true,reason:defaultText(wireOption)}:null}}:{}),
+      ...(staged?{machinePolicy:'ranking-v1',rmPolicy:E.RM_POLICY_VERSION,inputOrigins:{d0:wireMode==='custom'?{origin:'customer'}:wireOption?{origin:'assumption',provisional:true,reason:defaultText(wireOption)}:null}}:{}),
       standardKind:typ()==='bolzen'?f.elements.standardKind?.value||'screw':undefined,standardReference:typ()==='mutter'?f.elements.nutNorm?.value:f.elements.standardNorm?.value,threadFamily:typ()==='bolzen'?gewindeFamilie():undefined,
       wirePreparation:f.elements.wirePreparation.value||'as-supplied',rodDiameter:f.elements.wirePreparation.value==='inline-drawing'?g('rodDiameter'):undefined,
       kopfForm: f.elements.kopfForm.value, kD: g('kD'), kSW: g('kSW'), kH: g('kH'), kVol:f.elements.kopfForm.value==='krallen'?g('kVol'):undefined,sD: g('sD'), sL: g('sL'),
@@ -210,6 +212,7 @@
       soll: { ausbringung: g('ausbringung') }
     };
     if(e.typ==='bolzen'){
+      for(const key of ['endLength','endDiameter','tipAngle'])if(f.elements[key])e[key]=g(key);
       if(['trilobular','duo-taptite'].includes(e.threadFamily))e.sArea=g('sArea');
       if(['duo-taptite','self-tapping','thermoplastic'].includes(e.threadFamily))e.tipLength=g('tipLength');
       if(e.threadFamily==='duo-taptite')e.tipArea=g('tipArea');
@@ -222,7 +225,7 @@
     if(staged&&normPicker){
       const preset=normPicker.adapted();
       if(preset){
-        for(const key of ['standardReference','standardDocument','threadModel','propertyClass','normGeometryStatus','normMissingFields'])e[key]=preset[key];
+        for(const key of ['standardReference','standardDocument','threadModel','propertyClass','normGeometryStatus','normMissingFields','normRequiresGeometryReview'])e[key]=preset[key];
         if(e.typ==='mutter'&&preset.threadModel)e.threadPitch=preset.threadModel.P;
         for(const key of ['shaftSegments','d_b','t_b','endAngle','endShape','kC','kF','kAlpha','mFlansch','mFlanschH'])if(preset[key]!=null&&!f.elements[key])e[key]=preset[key];
       }
@@ -244,12 +247,12 @@
   }
 
   let letzte = null, angefragtesModell = null,lastType=null,mailBusy=false,mailKey='',mailSignature='',mailReceipt=null,mailTimer=null,mailPolls=0;
-  let geometryWizard=null,geometryPreview=null,geometryCalculation=null,geometryResult=null,geometrySelectedModel=null;
+  let geometryWizard=null,geometryPreview=null,geometryCalculation=null,geometryResult=null,geometrySelectedModel=null,wireStudy=null,kvpUI=null;
   let partsFile=null,partsFileError='',drawingPreview=null,drawingResult=null,drawingSelectedModel=null;
   const drawingNote=()=>$('parts-drawing-note').value.trim();
   const drawingMachines=()=>drawingResult?.proposal?.machines?.filter(machine=>MASCHINEN.some(item=>item.m===machine.model))||[];
   function drawingGallery(){if(formteilmodus())$('empty-visual').hidden=!drawingActive()||['ready','needs_info','failed'].includes(drawingResult?.status);}
-  const geometryNote=()=>[...(geometryWizard?.featureSummary()||[]),$('geometry-note').value.trim()].filter(Boolean).join('\n');
+  const geometryNote=()=>[geometryWizard?.getChain?.().standardReference,...(geometryWizard?.featureSummary()||[]),$('geometry-note').value.trim()].filter(Boolean).join('\n');
   const geometryMachines=()=>geometryResult?.proposal?.machines?.filter(machine=>MASCHINEN.some(item=>item.m===machine.model))||[];
   function geometryInput(){
     if(!formteilmodus()||drawingActive()||!geometryCalculation?.valid||!geometryWizard)return null;
@@ -258,13 +261,14 @@
     const inputOrigins=['assumption','customer'].includes(origin)?{d0:{origin,...(origin==='assumption'?{provisional:true}:{})}}:null;
     return {geometrySpec:geometryWizard.getSpec(),geometryFeatures:geometryWizard.getFeatures(),material:variant?.material.id,materialState:variant?.curve.state,curveId:variant?.curve.id,wirePreparation:e.wirePreparation,rodDiameter:e.rodDiameter,d0:e.d0,rm:e.rm,...(inputOrigins?{inputOrigins}:{})};
   }
-  const maschinenFunde=wahl=>wahl?[...wahl.passend.slice(0,3),...wahl.bedingt.slice(0,wahl.passend.length?2:4),...wahl.fast.slice(0,4)]:[];
+  const maschinenFunde=wahl=>wahl?.ranking?wahl.ranking.candidates:wahl?[...wahl.passend.slice(0,3),...wahl.bedingt.slice(0,wahl.passend.length?2:4),...wahl.fast.slice(0,4)]:[];
   const angefragteMaschine=()=>maschinenFunde(letzte?.wahl).find(result=>result.o.m===angefragtesModell);
   function anfrageAuswahlZeigen() {
     const node=$('selected-machine');
     const model=formteilmodus()?(drawingActive()?drawingSelectedModel:geometrySelectedModel):angefragtesModell;
     node.dataset.originalText='';node.hidden=!model;
     node.textContent=model?msg('Anfrage für {model}',{model}):'';
+    kvpUI?.refresh();
   }
   function anfrageAuswahlLoeschen() { angefragtesModell=null;geometrySelectedModel=null;drawingSelectedModel=null;anfrageAuswahlZeigen(); }
   function drawingFileFeedback(){
@@ -277,7 +281,7 @@
   function setDrawingFile(file){
     partsFileError=!file?'':!file.size?'Die ausgewählte Datei ist leer. Bitte wählen Sie die Zeichnung erneut aus.':file.size>15*1024*1024?'Die Datei ist für die Übertragung zu groß. Bitte verwenden Sie eine Datei bis 15 MB.':!/\.(pdf|png|jpe?g|webp|tiff?|step|stp|dxf|dwg|igs|iges)$/i.test(file.name)?'Dieses Dateiformat wird hier nicht unterstützt. Bitte wählen Sie ein angegebenes Format.':'';
     partsFile=partsFileError?null:file||null;if(!partsFile)$('parts-file').value='';
-    drawingResult=null;drawingSelectedModel=null;anfrageAuswahlZeigen();drawingFileFeedback();drawingPreview?.update();drawingGallery();knoepfe();
+    drawingResult=null;drawingSelectedModel=null;kvpUI?.refresh({reset:true});anfrageAuswahlZeigen();drawingFileFeedback();drawingPreview?.update();drawingGallery();knoepfe();
   }
   function selectPartsMode(mode,focus=false){partsMode=mode==='geometry'?'geometry':'drawing';anfrageAuswahlLoeschen();rechnen();if(focus)$('parts-'+partsMode+'-tab').focus();}
   function rechnen() {
@@ -294,13 +298,26 @@
       geometryPreview?.update();drawingPreview?.update();drawingFileFeedback();knoepfe();L.apply();return;
     }
     geometryPreview?.update();drawingPreview?.update();
-    if (ungueltig()) {letzte=null;anfrageAuswahlLoeschen();$('aus').hidden=true;$('empty-visual').hidden=false;knoepfe();L.apply();return;}
+    if (ungueltig()) {letzte=null;anfrageAuswahlLoeschen();$('aus').hidden=true;$('geometry-view').hidden=true;$('empty-visual').hidden=false;knoepfe();L.apply();return;}
     const e = lesen();
-    if(angefragtesModell&&JSON.stringify(e)!==JSON.stringify(letzte?.e))anfrageAuswahlLoeschen();
     const aus = E.auslegen(e);
+    if(staged&&window.JYStandardPreview){
+      $('geometry-view').hidden=!(e.sD||e.kD||e.mM||e.mSW);
+      rendered($('geometry-view'),window.JYStandardPreview.render({input:e,analysis:e.normRequiresGeometryReview?{...aus,fehlt:['Kontur ergänzen']}:aus,material:selectedVariant()?.material,translate:tr,format:x=>fmt(x,3),engine:E}));
+    }
+    if(e.normRequiresGeometryReview){
+      letzte=null;anfrageAuswahlLoeschen();$('aus').hidden=true;$('leer').hidden=false;$('leer').dataset.originalText='';$('leer').textContent=tr('Die Normvorlage enthält noch keine vollständige Rohteilkontur. Fehlende Geometrie im Baukasten ergänzen.');knoepfe();L.apply();return;
+    }
+    if(angefragtesModell&&JSON.stringify(e)!==JSON.stringify(letzte?.e))anfrageAuswahlLoeschen();
     if (aus.fehlt.length || !aus.stufen.length) { $('leer').hidden = false; $('aus').hidden = true; $('empty-visual').hidden=false; $('leer').dataset.originalText=''; $('leer').textContent = aus.fehlt.length ? tr('Es fehlen noch:') + ' ' + aus.fehlt.map(tr).join(', ') + '.' : tr('Mit Draht-Ø und den Hüllmaßen des Teils erscheinen hier Stadienfolge, Werkzeuggröße und die passenden Modelle.'); letzte = null; anfrageAuswahlLoeschen(); knoepfe(); return; }
     const wahl = E.waehle(MASCHINEN, aus, e, PRAXIS);
     letzte = { e, aus, wahl };
+    if(staged&&wahl.ranking&&window.JYWireOptimization){
+      const candidates=window.JYWireDefaults.candidates(e,null,MASCHINEN);
+      wireStudy=window.JYWireOptimization.evaluateVariants({engine:E,catalogue:MASCHINEN,practice:PRAXIS,input:e,analysis:aus,selection:wahl,candidates,thresholdPercent:window.JYMachineRanking.CONFIG?.economicChangeThresholdPercent});
+      const box=$('wire-variants');box.hidden=!wireStudy.suggestions.length&&!wireStudy.concepts.some(x=>x.needsAnneal);
+      rendered(box,'<h3>'+h('Drahtwege vergleichen')+'</h3>'+wireStudy.suggestions.map(v=>'<div class="wire-variant"><p><strong>'+esc(msg('Draht Ø{diameter} mm: {model}',{diameter:fmt(v.value,2),model:v.row.o.m}))+'</strong> · '+esc(msg('{stages} Stadien, Abschnittlänge {length} mm',{stages:v.aus.werte.stationen,length:fmt(v.aus.werte.L0)}))+'</p><p>'+esc(msg(v.reason,v.reasonParams||{}))+' '+esc(msg('Etwa {percent} % mehr nutzbare Ausbringung pro Investition.',{percent:v.compare.efficiency.percent}))+'</p><p>'+v.technicalChanges.map(x=>esc(typeof x==='string'?tr(x):msg(x.reason||x.code,Object.fromEntries(Object.entries(x.params||{}).map(([key,value])=>[key,typeof value==='number'?fmt(value):tr(value)]))))).join(' · ')+'</p><button type="button" class="knopf zwei" data-apply-wire="'+v.value+'">'+h('Diesen Drahtweg berechnen')+'</button></div>').join('')+(wireStudy.concepts.some(x=>x.needsAnneal)?'<p class="klein">'+h('Dünnere Stauchvarianten benötigen einen passenden geglühten Drahtzustand. Der gewählte Werkstoffzustand wird nicht automatisch geändert.')+'</p>':'')+'<p class="klein">'+esc(msg('Änderungsempfehlung ab {percent} % Vorteil; vorläufige Schwelle. Gleiche Ausbringungsbasis, ohne Werkzeug- und Betriebskosten.',{percent:wireStudy.thresholdPercent}))+'</p>');
+    }
     if(angefragtesModell&&!angefragteMaschine())angefragtesModell=null;
     anfrageAuswahlZeigen();$('empty-visual').hidden=maschinenFunde(wahl).length>0;
     zeigen(e, aus, wahl); L.apply();
@@ -342,6 +359,8 @@
     rendered($('stufen').tBodies[0],aus.stufen.map((s, i) => '<tr><td>' + (i + 1) + '</td><td>' + h(s.v) + '</td><td class="z">' + (s.t==null?h('Kraft noch offen'):fmt(s.t)+' t') + '</td><td class="z">' + (s.p==null?h('nicht belegt'):fmt(s.p,0)) + '</td><td class="z">Ø' + (s.matD==null?h('nicht belegt'):rounded(s.matD)) + (s.arm ? '<br><small>' + h(s.arm) + '</small>' : '') + '</td></tr>').join(''));
     // Karten
     const k = [];
+    const rankingOptions={tr,fmt,eur,showPrices,practice:PRAXIS,requirements:{blankDiameter:w.d0,blankLength:w.L0,stations:w.stationen,partLength:w.Lteil,knockoutLength:w.ko,demandPerMinute:e.soll?.ausbringung}};
+    if(wahl.ranking&&window.JYRankingUI)k.push(window.JYRankingUI.summaryHtml(wahl.ranking,rankingOptions));
     let checkIndex = 0;
     const karte = (r, beste) => {
       const o = r.o, sp = (o.lo && o.hi) ? eur(o.lo) + ' '+tr('bis')+' ' + eur(o.hi) : '';
@@ -355,6 +374,10 @@
       const clarification=openPoints.length?'<div class="machine-open-points"><strong>'+h('Noch zu klären')+'</strong><ul>'+openPoints.map(point=>'<li><strong>'+h(point.owner)+':</strong> '+h(point.detail)+'</li>').join('')+'</ul></div>':'';
       const zeilen = r.k.map(x => '<tr><td>' + h(x.krit) + (x.detail?'<br><small>'+h(x.detail)+'</small>':'')+'</td><td>' + h(x.soll) + '</td><td>' + h(x.ist) + '</td><td><span class="st m-' + x.status + '">' + h({ ok: 'ok', knapp: 'knapp', nein: 'nein', offen: 'offen' }[x.status]) + '</span></td></tr>').join('');
       const kat = o.kat ? '<a href="' + KATURL + o.kat + '.pdf#page=' + (o.s || 1) + '" target="_blank" rel="noopener">'+esc(msg('Katalog {catalogue}, S. {page}',{catalogue:o.kat,page:o.s||1}))+'</a>' : '';
+      if(wahl.ranking&&window.JYRankingUI){
+        const concept=E.maschinenKonzept?window.JYConcept.html(E.maschinenKonzept(aus,e,o,PRAXIS),L.language):'';
+        return '<div class="karte'+(beste?' beste':'')+'"><div class="kopfzeile"><div><span class="modell">'+esc(o.m)+'</span>'+badge+'<button type="button" class="quote-button" data-request-model="'+esc(o.m)+'">'+h('Angebot anfragen')+'</button></div>'+(showPrices?'<div class="preis"><b>'+esc(eur(o.rp))+'</b><small>'+esc(sp)+'</small></div>':'')+'</div>'+window.JYRankingUI.cardHtml(r,wahl.ranking,rankingOptions)+'<details class="machine-check" id="'+checkId+'"><summary>'+h('Stadienkonzept und Prüfung im Einzelnen')+'</summary>'+clarification+concept+'<table class="krit"><thead><tr><th>'+h('Kriterium')+'</th><th>'+h('Bedarf')+'</th><th>'+h('Maschine')+'</th><th></th></tr></thead><tbody>'+zeilen+'</tbody></table><p>'+kat+'</p></details></div>';
+      }
       return '<div class="karte' + (beste ? ' beste' : '') + '"><div class="kopfzeile"><div><span class="modell">' + esc(o.m) + '</span>' + badge + '<button type="button" class="quote-button" data-request-model="'+esc(o.m)+'" aria-label="'+h('Angebot anfragen')+' · '+esc(o.m)+'">'+h('Angebot anfragen')+'</button><div class="fam">' + h(FAMNAME[o.f] || o.f) + ' · ' + o.st + ' '+h('Stationen')+' · ' + fmt(o.pw) + ' t' + (o.sz ? ' · '+esc(msg('bis {v}',{v:o.sz})) : '') + '</div></div>' +
         (showPrices ? '<div class="preis"><b>' + esc(eur(o.rp)) + '</b><small>' + esc(sp) + '</small></div>' : '') + '</div>' +
         clarification +
@@ -362,10 +385,15 @@
         '<div class="kurz"><span>'+(r.ausl==null?h('Kraft noch offen'):h('Auslastung')+' '+rounded(r.ausl*100)+' %')+'</span><span>'+esc(msg('Abschnitt bis Ø{value}',{value:fmt(o.cd)}))+'</span><span>KO ' + (o.ko ? fmt(o.ko) : '·') + (o.kor ? ' (' + esc(o.kor) + ')' : '') + '</span><span>PKO ' + (o.pko ? fmt(o.pko) : '·') + '</span><span>'+esc(msg('Matrize Ø{value}',{value:o.die?fmt(o.die[0])+' × '+fmt(o.die[1]):'·'}))+'</span>' + (o.wt ? '<span>'+esc(msg('rund {weight} t, Motor {power} kW',{weight:fmt(o.wt),power:fmt(o.hp==null?null:o.hp*0.7457,0)}))+'</span>' : '') + (r.plan ? '<span title="'+h('Erfahrungswert aus der Serienfertigung; der Katalog nennt die Höchstdrehzahl')+'">'+esc(msg('Planung ≈ {rate} /min, rund {hourly} Stück/h (Katalog bis {maximum})',{rate:fmt(r.plan.aus),hourly:fmt(r.stundeProStk,0),maximum:fmt(o.out)}))+'</span>' : (o.out ? '<span>'+esc(msg('bis {v}',{v:fmt(o.out)}))+' /min</span>' : '')) + '</div>' +
         (E.maschinenKonzept?window.JYConcept.html(E.maschinenKonzept(aus,e,o,PRAXIS),L.language):'')+'<details class="machine-check" id="'+checkId+'"><summary>'+h('Prüfung im Einzelnen')+'</summary><table class="krit"><thead><tr><th>'+h('Kriterium')+'</th><th>'+h('Bedarf')+'</th><th>'+h('Maschine')+'</th><th></th></tr></thead><tbody>' + zeilen + '</tbody></table><p class="klein">' + kat + '</p></details></div>';
     };
+    if(wahl.ranking){
+      k.push(...[wahl.ranking.recommendation,...wahl.ranking.alternatives].filter(Boolean).map((r,i)=>karte(r,i===0)));
+      k.push('<details class="ranking-all"><summary>'+esc(msg('Alle geprüften Modelle ({count})',{count:wahl.alle.length}))+'</summary><table class="krit"><thead><tr><th>'+h('Maschine')+'</th><th>'+h('Prüfung')+'</th><th>'+h('Richtpreis')+'</th></tr></thead><tbody>'+wahl.alle.map(r=>'<tr><td>'+esc(r.o.m)+'</td><td>'+h({ok:'passt',knapp:'knapp',offen:'Klärung nötig',nein:'passt nicht'}[r.gesamt])+(r.gesamt==='nein'?'<br><small>'+r.k.filter(x=>x.status==='nein').map(x=>h(x.krit)).join(', ')+'</small>':'')+'</td><td>'+(showPrices?esc(eur(r.o.rp)):'')+'</td></tr>').join('')+'</tbody></table></details>');
+    }else{
     if (wahl.passend.length) { k.push(...wahl.passend.slice(0, 3).map((r, i) => karte(r, i === 0))); }
     if (wahl.bedingt.length) { k.push('<h3>'+h('Bedingt geeignet')+'</h3>'); k.push(...wahl.bedingt.slice(0, wahl.passend.length ? 2 : 4).map(r => karte(r, !wahl.passend.length))); }
     if (!wahl.passend.length && !wahl.bedingt.length) k.push('<p>'+h('Kein Katalogmodell erfüllt alle Muss-Kriterien. Die Anfrage lohnt trotzdem: Sonderausführungen und Werkzeugkonzepte klärt Hans Möhling direkt mit Jern Yao.')+'</p>');
     if (wahl.fast.length) { k.push('<details><summary>'+esc(msg('Knapp daneben ({count})',{count:Math.min(wahl.fast.length,4)}))+'</summary>' + wahl.fast.slice(0, 4).map(r => karte(r, false)).join('') + '</details>'); }
+    }
     rendered($('karten'),k.join(''));
     rendered($('regeln'),aus.regelListe.map(id => { const r = E.REGELN[id]; return r ? '<tr><td>' + esc(id) + '</td><td>' + h(r.t) + '<br><span class="klein">' + h(r.art) + '</span></td></tr>' : ''; }).join(''));
   }
@@ -375,10 +403,22 @@
     const ok = content && a.elements.ok.checked && /.+@.+\..+/.test(a.elements.email.value);
     $('senden').disabled = !ok||mailBusy;
     $('drucken').disabled = !content;
+    if(kvpUI){$('kvp-container').hidden=!content;kvpUI.refresh();}
+  }
+
+  function kvpContext(){
+    if(!window.JYKvpContext)return null;
+    if(!formteilmodus())return letzte?window.JYKvpContext.fromCalculation({input:letzte.e,values:letzte.aus.werte,material:selectedVariant()?.material,stages:letzte.aus.werte.stationen,selectedModel:angefragtesModell||letzte.wahl.ranking?.recommendation?.o.m}):null;
+    const proposal=(drawingActive()?drawingResult:geometryResult)?.proposal;
+    const input=drawingActive()?proposal?.calculation?.input||{typ:'formteil',d0:proposal?.wireDiameter?.value}:{...lesen(),typ:'formteil'};
+    const values=proposal?.calculation?.values||(!drawingActive()?{d0:input.d0,L0:geometryCalculation?.blankLengthMm}:{});
+    const material=drawingActive()?E.findMaterial(proposal?.materialContext?.materialId||proposal?.calculation?.materialModel?.id||''):selectedVariant()?.material;
+    return window.JYKvpContext.fromCalculation({source:drawingActive()?'drawing':'structured_geometry',input,values,material,stages:proposal?.stages?.length||undefined,chain:drawingActive()?null:geometryWizard.getChain?.(),selectedModel:drawingActive()?drawingSelectedModel:geometrySelectedModel});
   }
 
   function geometrySummary(){
     const variant=selectedVariant(),e=lesen(),result=geometryCalculation,lines=[tr('Formteile'),...geometryWizard.summary()];
+    if(geometryWizard.getChain?.().standardReference)lines.push(geometryWizard.getChain().standardReference);
     const value=(single,bounds,unit)=>single!=null?fmt(single,3)+' '+unit:Array.isArray(bounds)?fmt(bounds[0],3)+'–'+fmt(bounds[1],3)+' '+unit:tr('nicht belegt');
     if(geometrySelectedModel)lines.unshift(msg('Anfrage für {model}',{model:geometrySelectedModel}),'');
     if(variant)lines.push(tr('Werkstoff')+': '+materialLabel(variant));
@@ -443,9 +483,9 @@
       field('Körperdurchmesser', mm(e.sD)); field('Körperlänge', mm(e.sL));
       if(e.kVol!=null)field('Kopf-Außenkonturvolumen',fmt(e.kVol)+' mm³');
       if(e.sArea!=null)field('Rohling-Querschnittsfläche',fmt(e.sArea)+' mm²');
-      if(e.tipLength!=null)field('Spitzenlänge',mm(e.tipLength));
-      if(e.tipArea!=null)field('Querschnittsfläche des Spitzenabschnitts',fmt(e.tipArea)+' mm²');
-      if(e.tipDiameter!=null)field('End-Ø der konischen Spitze',mm(e.tipDiameter));
+      if(e.tipLength!=null)field('Spitzenlänge am Fertigteil',mm(e.tipLength));
+      if(e.tipArea!=null)field('Spitzenquerschnitt nach Gewindewalzen',fmt(e.tipArea)+' mm²');
+      if(e.tipDiameter!=null)field('End-Ø nach Gewindewalzen',mm(e.tipDiameter));
       if(aus.antrieb){
         field('Innenantrieb',tr(aus.antrieb.label));
         if(e.iSW)field('Innenantrieb-Schlüsselweite',mm(e.iSW));
@@ -466,12 +506,14 @@
     if(aus.qualitative)lines.push(tr('Qualitative Operationsfolge'));
     aus.stufen.forEach((stage,index)=>lines.push('  '+(aus.qualitative?tr('Arbeitsschritt')+' ':'')+(index+1)+'. '+tr(stage.v)+': '+force(stage.t)));
     lines.push('',tr('Vorauswahl:'));
-    const top=selected?[selected]:[...wahl.passend.slice(0,3),...(wahl.passend.length?[]:wahl.bedingt.slice(0,3))];
+    const top=selected?[selected]:wahl.ranking?[wahl.ranking.recommendation,...wahl.ranking.alternatives].filter(Boolean):[...wahl.passend.slice(0,3),...(wahl.passend.length?[]:wahl.bedingt.slice(0,3))];
     const status={ok:'passt',knapp:'knapp',offen:'Klärung nötig',nein:'passt nicht'};
     top.forEach(r=>{
       lines.push('  '+r.o.m+' ('+tr(status[r.gesamt]||r.gesamt)+'), '+(showPrices?tr('Richtpreis')+' 2026 '+(r.o.rp?eur(r.o.rp):tr('auf Anfrage'))+', ':'')+(r.ausl==null?tr('Kraft noch offen'):tr('Auslastung')+' '+fmt(r.ausl*100,0)+' %')+(r.plan?', '+tr('Planung')+' '+fmt(r.plan.aus,0)+' /min':''));
       const openPoints=(r.openPoints||[]).filter(point=>point&&typeof point.detail==='string'&&point.detail.trim());
       if(openPoints.length){lines.push('    '+tr('Noch zu klären')+':');openPoints.forEach(point=>lines.push('    '+tr(point.owner)+': '+tr(point.detail)));}
+      const card=Array.from($('karten').querySelectorAll('[data-ranking-model]')).find(node=>node.dataset.rankingModel===r.o.m);
+      for(const node of card?.querySelectorAll('.ranking-comparison,.ranking-basis,.ranking-request')||[])lines.push('    '+node.textContent);
     });
     return lines.join('\n');
   }
@@ -566,6 +608,7 @@
 
   let t = null;
   if(staged){
+    $('wire-variants')?.addEventListener('click',event=>{const button=event.target.closest('[data-apply-wire]');if(!button)return;const value=Number(button.dataset.applyWire);if(!wireStudy?.suggestions.some(v=>v.value===value))return;wireMode='custom';wireOption=null;f.elements.d0.value=String(value);rechnen();});
     $('wire-candidates').addEventListener('change',()=>{const value=$('wire-candidates').value;wireMode=value==='custom'?'custom':'candidate';wireOption=(window.JYWireDefaults?.candidates(lesen(),formteilmodus()?geometryWizard?.getSpec():null,MASCHINEN)||[]).find(c=>String(c.value)===value)||null;rechnen();});
     f.elements.d0.addEventListener('input',()=>{wireMode='custom';wireOption=null;});
     $('drawing-material').addEventListener('change',()=>{vorbelegen();drawingPreview?.update();knoepfe();});
@@ -610,8 +653,11 @@
         }
         Array.from(f.elements.kopfForm.options).forEach(option=>option.disabled=false);
         f.elements.kopfForm.disabled=false;f.elements.iTyp.disabled=false;
-        if(preset.iTyp==='hex'&&preset.iSW!=null){antriebAuswahl();f.elements.iSize.value=String(preset.iSW);if(!f.elements.iSize.value){f.elements.iSize.value='custom';f.elements.iSW.value=String(preset.iSW);}}
-        if(f.elements.nutFlange)f.elements.nutFlange.checked=!!preset.mFlansch;
+        antriebAuswahl();
+        if(preset.iSize!=null)f.elements.iSize.value=String(preset.iSize);
+        if(preset.iTyp==='hex'&&preset.iSW!=null){f.elements.iSize.value=preset.iSize==='custom'?'custom':String(preset.iSW);if(!f.elements.iSize.value)f.elements.iSize.value='custom';if(f.elements.iSize.value==='custom')f.elements.iSW.value=String(preset.iSW);}
+        antriebAuswahl();if(preset.iVol!=null)f.elements.iVol.value=String(preset.iVol);
+        if(f.elements.nutFlange)f.elements.nutFlange.checked=preset.nutFlange??!!preset.mFlansch;
         const kind=typ()==='mutter'?'nut':preset.standardKind==='headless'?'screw':preset.standardKind;
         const rule=window.JY_NORM_DATA.materials.rules.find(rule=>rule.kind===kind&&rule.classes.includes(preset.propertyClass));
         const materialDefault=rule&&variants.find(v=>v.material.id===rule.materialId&&v.curve.state===rule.state);
@@ -624,7 +670,13 @@
   if(staged&&$('norm-to-chain'))$('norm-to-chain').addEventListener('click',()=>{
     const status=$('norm-chain-status');status.dataset.originalText='';
     try{
-      const e=lesen(),chain=window.JYNormToChain.fromBolt(e,E.boltGeometry(e));
+      const e=lesen();
+      if(e.normRequiresGeometryReview){
+        const missing=(e.normMissingFields||[]).map(key=>window.JYNormLibrary?.missingLabel(key,tr)||key);
+        status.textContent=tr('Vor der Übernahme die offene Rohteilkontur ergänzen. Normvorlage und bisherige Eingaben bleiben erhalten.')+(missing.length?' '+tr('Noch zu ergänzen')+': '+missing.join(', ')+'.':'');
+        return;
+      }
+      const chain=window.JYNormToChain.fromBolt(e,E.boltGeometry(e));
       geometryWizard.setChain(chain);wireMode='custom';wireOption=null;f.elements.d0.value=String(e.d0||'');f.elements.typ.value='formteil';selectPartsMode('geometry');
       status.textContent='';$('geometry-panel').scrollIntoView({block:'start',behavior:'smooth'});
     }catch(error){status.textContent=tr(error.message);}
@@ -638,6 +690,7 @@
   partsDrop.addEventListener('dragleave',event=>{event.preventDefault();if(!partsDrop.contains?.(event.relatedTarget))partsDrop.dataset.dragging='false';});
   partsDrop.addEventListener('drop',event=>{event.preventDefault();partsDrop.dataset.dragging='false';if(!drawingActive())return;const files=event.dataTransfer?.files;if(files?.length!==1){setDrawingFile(null);partsFileError='Bitte wählen Sie genau eine Zeichnung aus.';drawingFileFeedback();return;}setDrawingFile(files[0]);if(partsFile)try{$('parts-file').files=files;}catch(_){/* The selected File remains available even when the browser will not mirror a dropped FileList. */}});
   $('parts-file-remove').addEventListener('click',()=>setDrawingFile(null));
+  if(staged&&window.JYKvpUI&&window.JYDrawingPreview?.apiBase&&$('kvp-panel'))kvpUI=window.JYKvpUI.create({host:$('kvp-panel'),endpoint:window.JYDrawingPreview.apiBase,tr,getContext:kvpContext});
   $('parts-drawing-note').addEventListener('input',()=>{drawingPreview?.update();knoepfe();});
   for(const mode of ['drawing','geometry']){$('parts-'+mode+'-tab').addEventListener('click',()=>selectPartsMode(mode));$('parts-'+mode+'-tab').addEventListener('keydown',event=>{if(['ArrowLeft','ArrowRight','Home','End'].includes(event.key)){event.preventDefault();selectPartsMode(event.key==='Home'?'drawing':event.key==='End'?'geometry':mode==='drawing'?'geometry':'drawing',true);}});}
   window.addEventListener('jy-languagechange',()=>{Array.from(sel.options).forEach(option=>{const variant=variantByValue.get(option.value);if(variant)option.textContent=optionLabel(variant);});if(staged)drawingMaterialOptions();standardKind=null;geometryWizard?.rerender();sichtbar();rechnen();L.apply();});

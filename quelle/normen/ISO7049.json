@@ -3,108 +3,3280 @@
   "version": "2026-11-26",
   "schemaVersion": 1,
   "label": "ISO7049 · Linsenkopf-Blechschraube",
-  "edition": null,
-  "editionStatus": "unresolved",
+  "edition": "2011",
+  "editionStatus": "documented-edition",
   "funktion": "schraube",
   "klasse": "bolzen",
   "kopfTyp": "linse",
   "antrieb": {
-    "art": "ph"
+    "art": "ph",
+    "form": "H",
+    "note": "Ausführung mit Kreuzschlitz H; Z nicht als H-Dimension übernehmen."
   },
-  "feldzuordnung": {},
-  "groessen": {},
-  "fields": {},
-  "sourceMeta": {},
-  "quellen": [],
+  "feldzuordnung": {
+    "kD": "dk_actual_max",
+    "kH": "k_max",
+    "iSize": "recess_no_H",
+    "iT": "t_H_min",
+    "sL": "l_nominal"
+  },
+  "groessen": {
+    "ST2.2": {
+      "roh": {
+        "d_nominal": 2.2,
+        "P": 0.8,
+        "dk_actual_max": 4,
+        "dk_actual_min": 3.7,
+        "k_max": 1.6,
+        "recess_no_H": 0,
+        "t_H_min": 0.85,
+        "y_C_ref": 2
+      },
+      "vorbelegung": {
+        "kD": 4,
+        "kH": 1.6,
+        "iSize": 0,
+        "iT": 0.85
+      },
+      "coverage": "documented",
+      "geometryStatus": "partial",
+      "missingGeometryFields": [
+        "rollingBlankDiameter",
+        "recessVolumeModel"
+      ],
+      "nachLaenge": {
+        "13": {
+          "vorbelegung": {
+            "sL": 13
+          },
+          "roh": {
+            "l_nominal": 13
+          },
+          "fields": {
+            "l_nominal": {
+              "nominal": 13,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso2011"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "single-primary-source",
+              "note": "Belegte Längenzeile; unabhängiger Zweitbeleg offen. Bevorzugte Längen, Form C. Unterkopfbezug."
+            }
+          },
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "rollingBlankDiameter",
+            "recessVolumeModel"
+          ]
+        },
+        "16": {
+          "vorbelegung": {
+            "sL": 16
+          },
+          "roh": {
+            "l_nominal": 16
+          },
+          "fields": {
+            "l_nominal": {
+              "nominal": 16,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso2011"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "single-primary-source",
+              "note": "Belegte Längenzeile; unabhängiger Zweitbeleg offen. Bevorzugte Längen, Form C. Unterkopfbezug."
+            }
+          },
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "rollingBlankDiameter",
+            "recessVolumeModel"
+          ]
+        },
+        "4.5": {
+          "vorbelegung": {
+            "sL": 4.5
+          },
+          "roh": {
+            "l_nominal": 4.5
+          },
+          "fields": {
+            "l_nominal": {
+              "nominal": 4.5,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso2011"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "single-primary-source",
+              "note": "Belegte Längenzeile; unabhängiger Zweitbeleg offen. Bevorzugte Längen, Form C. Unterkopfbezug."
+            }
+          },
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "rollingBlankDiameter",
+            "recessVolumeModel"
+          ]
+        },
+        "6.5": {
+          "vorbelegung": {
+            "sL": 6.5
+          },
+          "roh": {
+            "l_nominal": 6.5
+          },
+          "fields": {
+            "l_nominal": {
+              "nominal": 6.5,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso2011"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "single-primary-source",
+              "note": "Belegte Längenzeile; unabhängiger Zweitbeleg offen. Bevorzugte Längen, Form C. Unterkopfbezug."
+            }
+          },
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "rollingBlankDiameter",
+            "recessVolumeModel"
+          ]
+        },
+        "9.5": {
+          "vorbelegung": {
+            "sL": 9.5
+          },
+          "roh": {
+            "l_nominal": 9.5
+          },
+          "fields": {
+            "l_nominal": {
+              "nominal": 9.5,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso2011"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "single-primary-source",
+              "note": "Belegte Längenzeile; unabhängiger Zweitbeleg offen. Bevorzugte Längen, Form C. Unterkopfbezug."
+            }
+          },
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "rollingBlankDiameter",
+            "recessVolumeModel"
+          ]
+        }
+      },
+      "lengthCoverage": "documented-subset",
+      "thread": {
+        "designation": "ST2.2",
+        "nominalDiameter": 2.2,
+        "pitch": 0.8,
+        "standard": "ISO1478",
+        "origin": "finished-thread"
+      },
+      "finishedEndForm": "C",
+      "laengen": [
+        4.5,
+        6.5,
+        9.5,
+        13,
+        16
+      ]
+    },
+    "ST2.9": {
+      "roh": {
+        "d_nominal": 2.9,
+        "P": 1.1,
+        "dk_actual_max": 5.6,
+        "dk_actual_min": 5.3,
+        "k_max": 2.4,
+        "recess_no_H": 1,
+        "t_H_min": 1.4,
+        "y_C_ref": 2.6
+      },
+      "vorbelegung": {
+        "kD": 5.6,
+        "kH": 2.4,
+        "iSize": 1,
+        "iT": 1.4
+      },
+      "coverage": "documented",
+      "geometryStatus": "partial",
+      "missingGeometryFields": [
+        "rollingBlankDiameter",
+        "recessVolumeModel"
+      ],
+      "nachLaenge": {
+        "13": {
+          "vorbelegung": {
+            "sL": 13
+          },
+          "roh": {
+            "l_nominal": 13
+          },
+          "fields": {
+            "l_nominal": {
+              "nominal": 13,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso2011"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "single-primary-source",
+              "note": "Belegte Längenzeile; unabhängiger Zweitbeleg offen. Bevorzugte Längen, Form C. Unterkopfbezug."
+            }
+          },
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "rollingBlankDiameter",
+            "recessVolumeModel"
+          ]
+        },
+        "16": {
+          "vorbelegung": {
+            "sL": 16
+          },
+          "roh": {
+            "l_nominal": 16
+          },
+          "fields": {
+            "l_nominal": {
+              "nominal": 16,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso2011"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "single-primary-source",
+              "note": "Belegte Längenzeile; unabhängiger Zweitbeleg offen. Bevorzugte Längen, Form C. Unterkopfbezug."
+            }
+          },
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "rollingBlankDiameter",
+            "recessVolumeModel"
+          ]
+        },
+        "19": {
+          "vorbelegung": {
+            "sL": 19
+          },
+          "roh": {
+            "l_nominal": 19
+          },
+          "fields": {
+            "l_nominal": {
+              "nominal": 19,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso2011"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "single-primary-source",
+              "note": "Belegte Längenzeile; unabhängiger Zweitbeleg offen. Bevorzugte Längen, Form C. Unterkopfbezug."
+            }
+          },
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "rollingBlankDiameter",
+            "recessVolumeModel"
+          ]
+        },
+        "6.5": {
+          "vorbelegung": {
+            "sL": 6.5
+          },
+          "roh": {
+            "l_nominal": 6.5
+          },
+          "fields": {
+            "l_nominal": {
+              "nominal": 6.5,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso2011"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "single-primary-source",
+              "note": "Belegte Längenzeile; unabhängiger Zweitbeleg offen. Bevorzugte Längen, Form C. Unterkopfbezug."
+            }
+          },
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "rollingBlankDiameter",
+            "recessVolumeModel"
+          ]
+        },
+        "9.5": {
+          "vorbelegung": {
+            "sL": 9.5
+          },
+          "roh": {
+            "l_nominal": 9.5
+          },
+          "fields": {
+            "l_nominal": {
+              "nominal": 9.5,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso2011"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "single-primary-source",
+              "note": "Belegte Längenzeile; unabhängiger Zweitbeleg offen. Bevorzugte Längen, Form C. Unterkopfbezug."
+            }
+          },
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "rollingBlankDiameter",
+            "recessVolumeModel"
+          ]
+        }
+      },
+      "lengthCoverage": "documented-subset",
+      "thread": {
+        "designation": "ST2.9",
+        "nominalDiameter": 2.9,
+        "pitch": 1.1,
+        "standard": "ISO1478",
+        "origin": "finished-thread"
+      },
+      "finishedEndForm": "C",
+      "laengen": [
+        6.5,
+        9.5,
+        13,
+        16,
+        19
+      ]
+    },
+    "ST3.5": {
+      "roh": {
+        "d_nominal": 3.5,
+        "P": 1.3,
+        "dk_actual_max": 7,
+        "dk_actual_min": 6.64,
+        "k_max": 2.6,
+        "recess_no_H": 2,
+        "t_H_min": 1.4,
+        "y_C_ref": 3.2
+      },
+      "vorbelegung": {
+        "kD": 7,
+        "kH": 2.6,
+        "iSize": 2,
+        "iT": 1.4
+      },
+      "coverage": "documented",
+      "geometryStatus": "partial",
+      "missingGeometryFields": [
+        "rollingBlankDiameter",
+        "recessVolumeModel"
+      ],
+      "nachLaenge": {
+        "13": {
+          "vorbelegung": {
+            "sL": 13
+          },
+          "roh": {
+            "l_nominal": 13
+          },
+          "fields": {
+            "l_nominal": {
+              "nominal": 13,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso2011"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "single-primary-source",
+              "note": "Belegte Längenzeile; unabhängiger Zweitbeleg offen. Bevorzugte Längen, Form C. Unterkopfbezug."
+            }
+          },
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "rollingBlankDiameter",
+            "recessVolumeModel"
+          ]
+        },
+        "16": {
+          "vorbelegung": {
+            "sL": 16
+          },
+          "roh": {
+            "l_nominal": 16
+          },
+          "fields": {
+            "l_nominal": {
+              "nominal": 16,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso2011"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "single-primary-source",
+              "note": "Belegte Längenzeile; unabhängiger Zweitbeleg offen. Bevorzugte Längen, Form C. Unterkopfbezug."
+            }
+          },
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "rollingBlankDiameter",
+            "recessVolumeModel"
+          ]
+        },
+        "19": {
+          "vorbelegung": {
+            "sL": 19
+          },
+          "roh": {
+            "l_nominal": 19
+          },
+          "fields": {
+            "l_nominal": {
+              "nominal": 19,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso2011"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "single-primary-source",
+              "note": "Belegte Längenzeile; unabhängiger Zweitbeleg offen. Bevorzugte Längen, Form C. Unterkopfbezug."
+            }
+          },
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "rollingBlankDiameter",
+            "recessVolumeModel"
+          ]
+        },
+        "22": {
+          "vorbelegung": {
+            "sL": 22
+          },
+          "roh": {
+            "l_nominal": 22
+          },
+          "fields": {
+            "l_nominal": {
+              "nominal": 22,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso2011"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "single-primary-source",
+              "note": "Belegte Längenzeile; unabhängiger Zweitbeleg offen. Bevorzugte Längen, Form C. Unterkopfbezug."
+            }
+          },
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "rollingBlankDiameter",
+            "recessVolumeModel"
+          ]
+        },
+        "25": {
+          "vorbelegung": {
+            "sL": 25
+          },
+          "roh": {
+            "l_nominal": 25
+          },
+          "fields": {
+            "l_nominal": {
+              "nominal": 25,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso2011"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "single-primary-source",
+              "note": "Belegte Längenzeile; unabhängiger Zweitbeleg offen. Bevorzugte Längen, Form C. Unterkopfbezug."
+            }
+          },
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "rollingBlankDiameter",
+            "recessVolumeModel"
+          ]
+        },
+        "9.5": {
+          "vorbelegung": {
+            "sL": 9.5
+          },
+          "roh": {
+            "l_nominal": 9.5
+          },
+          "fields": {
+            "l_nominal": {
+              "nominal": 9.5,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso2011"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "single-primary-source",
+              "note": "Belegte Längenzeile; unabhängiger Zweitbeleg offen. Bevorzugte Längen, Form C. Unterkopfbezug."
+            }
+          },
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "rollingBlankDiameter",
+            "recessVolumeModel"
+          ]
+        }
+      },
+      "lengthCoverage": "documented-subset",
+      "thread": {
+        "designation": "ST3.5",
+        "nominalDiameter": 3.5,
+        "pitch": 1.3,
+        "standard": "ISO1478",
+        "origin": "finished-thread"
+      },
+      "finishedEndForm": "C",
+      "laengen": [
+        9.5,
+        13,
+        16,
+        19,
+        22,
+        25
+      ]
+    },
+    "ST4.2": {
+      "roh": {
+        "d_nominal": 4.2,
+        "P": 1.4,
+        "dk_actual_max": 8,
+        "dk_actual_min": 7.64,
+        "k_max": 3.1,
+        "recess_no_H": 2,
+        "t_H_min": 1.9,
+        "y_C_ref": 3.7
+      },
+      "vorbelegung": {
+        "kD": 8,
+        "kH": 3.1,
+        "iSize": 2,
+        "iT": 1.9
+      },
+      "coverage": "documented",
+      "geometryStatus": "partial",
+      "missingGeometryFields": [
+        "rollingBlankDiameter",
+        "recessVolumeModel"
+      ],
+      "nachLaenge": {
+        "13": {
+          "vorbelegung": {
+            "sL": 13
+          },
+          "roh": {
+            "l_nominal": 13
+          },
+          "fields": {
+            "l_nominal": {
+              "nominal": 13,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso2011"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "single-primary-source",
+              "note": "Belegte Längenzeile; unabhängiger Zweitbeleg offen. Bevorzugte Längen, Form C. Unterkopfbezug."
+            }
+          },
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "rollingBlankDiameter",
+            "recessVolumeModel"
+          ]
+        },
+        "16": {
+          "vorbelegung": {
+            "sL": 16
+          },
+          "roh": {
+            "l_nominal": 16
+          },
+          "fields": {
+            "l_nominal": {
+              "nominal": 16,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso2011"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "single-primary-source",
+              "note": "Belegte Längenzeile; unabhängiger Zweitbeleg offen. Bevorzugte Längen, Form C. Unterkopfbezug."
+            }
+          },
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "rollingBlankDiameter",
+            "recessVolumeModel"
+          ]
+        },
+        "19": {
+          "vorbelegung": {
+            "sL": 19
+          },
+          "roh": {
+            "l_nominal": 19
+          },
+          "fields": {
+            "l_nominal": {
+              "nominal": 19,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso2011"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "single-primary-source",
+              "note": "Belegte Längenzeile; unabhängiger Zweitbeleg offen. Bevorzugte Längen, Form C. Unterkopfbezug."
+            }
+          },
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "rollingBlankDiameter",
+            "recessVolumeModel"
+          ]
+        },
+        "22": {
+          "vorbelegung": {
+            "sL": 22
+          },
+          "roh": {
+            "l_nominal": 22
+          },
+          "fields": {
+            "l_nominal": {
+              "nominal": 22,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso2011"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "single-primary-source",
+              "note": "Belegte Längenzeile; unabhängiger Zweitbeleg offen. Bevorzugte Längen, Form C. Unterkopfbezug."
+            }
+          },
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "rollingBlankDiameter",
+            "recessVolumeModel"
+          ]
+        },
+        "25": {
+          "vorbelegung": {
+            "sL": 25
+          },
+          "roh": {
+            "l_nominal": 25
+          },
+          "fields": {
+            "l_nominal": {
+              "nominal": 25,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso2011"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "single-primary-source",
+              "note": "Belegte Längenzeile; unabhängiger Zweitbeleg offen. Bevorzugte Längen, Form C. Unterkopfbezug."
+            }
+          },
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "rollingBlankDiameter",
+            "recessVolumeModel"
+          ]
+        },
+        "32": {
+          "vorbelegung": {
+            "sL": 32
+          },
+          "roh": {
+            "l_nominal": 32
+          },
+          "fields": {
+            "l_nominal": {
+              "nominal": 32,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso2011"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "single-primary-source",
+              "note": "Belegte Längenzeile; unabhängiger Zweitbeleg offen. Bevorzugte Längen, Form C. Unterkopfbezug."
+            }
+          },
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "rollingBlankDiameter",
+            "recessVolumeModel"
+          ]
+        },
+        "9.5": {
+          "vorbelegung": {
+            "sL": 9.5
+          },
+          "roh": {
+            "l_nominal": 9.5
+          },
+          "fields": {
+            "l_nominal": {
+              "nominal": 9.5,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso2011"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "single-primary-source",
+              "note": "Belegte Längenzeile; unabhängiger Zweitbeleg offen. Bevorzugte Längen, Form C. Unterkopfbezug."
+            }
+          },
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "rollingBlankDiameter",
+            "recessVolumeModel"
+          ]
+        }
+      },
+      "lengthCoverage": "documented-subset",
+      "thread": {
+        "designation": "ST4.2",
+        "nominalDiameter": 4.2,
+        "pitch": 1.4,
+        "standard": "ISO1478",
+        "origin": "finished-thread"
+      },
+      "finishedEndForm": "C",
+      "laengen": [
+        9.5,
+        13,
+        16,
+        19,
+        22,
+        25,
+        32
+      ]
+    },
+    "ST4.8": {
+      "roh": {
+        "d_nominal": 4.8,
+        "P": 1.6,
+        "dk_actual_max": 9.5,
+        "dk_actual_min": 9.14,
+        "k_max": 3.7,
+        "recess_no_H": 2,
+        "t_H_min": 2.4,
+        "y_C_ref": 4.3
+      },
+      "vorbelegung": {
+        "kD": 9.5,
+        "kH": 3.7,
+        "iSize": 2,
+        "iT": 2.4
+      },
+      "coverage": "documented",
+      "geometryStatus": "partial",
+      "missingGeometryFields": [
+        "rollingBlankDiameter",
+        "recessVolumeModel"
+      ],
+      "nachLaenge": {
+        "13": {
+          "vorbelegung": {
+            "sL": 13
+          },
+          "roh": {
+            "l_nominal": 13
+          },
+          "fields": {
+            "l_nominal": {
+              "nominal": 13,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso2011"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "single-primary-source",
+              "note": "Belegte Längenzeile; unabhängiger Zweitbeleg offen. Bevorzugte Längen, Form C. Unterkopfbezug."
+            }
+          },
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "rollingBlankDiameter",
+            "recessVolumeModel"
+          ]
+        },
+        "16": {
+          "vorbelegung": {
+            "sL": 16
+          },
+          "roh": {
+            "l_nominal": 16
+          },
+          "fields": {
+            "l_nominal": {
+              "nominal": 16,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso2011"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "single-primary-source",
+              "note": "Belegte Längenzeile; unabhängiger Zweitbeleg offen. Bevorzugte Längen, Form C. Unterkopfbezug."
+            }
+          },
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "rollingBlankDiameter",
+            "recessVolumeModel"
+          ]
+        },
+        "19": {
+          "vorbelegung": {
+            "sL": 19
+          },
+          "roh": {
+            "l_nominal": 19
+          },
+          "fields": {
+            "l_nominal": {
+              "nominal": 19,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso2011"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "single-primary-source",
+              "note": "Belegte Längenzeile; unabhängiger Zweitbeleg offen. Bevorzugte Längen, Form C. Unterkopfbezug."
+            }
+          },
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "rollingBlankDiameter",
+            "recessVolumeModel"
+          ]
+        },
+        "22": {
+          "vorbelegung": {
+            "sL": 22
+          },
+          "roh": {
+            "l_nominal": 22
+          },
+          "fields": {
+            "l_nominal": {
+              "nominal": 22,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso2011"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "single-primary-source",
+              "note": "Belegte Längenzeile; unabhängiger Zweitbeleg offen. Bevorzugte Längen, Form C. Unterkopfbezug."
+            }
+          },
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "rollingBlankDiameter",
+            "recessVolumeModel"
+          ]
+        },
+        "25": {
+          "vorbelegung": {
+            "sL": 25
+          },
+          "roh": {
+            "l_nominal": 25
+          },
+          "fields": {
+            "l_nominal": {
+              "nominal": 25,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso2011"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "single-primary-source",
+              "note": "Belegte Längenzeile; unabhängiger Zweitbeleg offen. Bevorzugte Längen, Form C. Unterkopfbezug."
+            }
+          },
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "rollingBlankDiameter",
+            "recessVolumeModel"
+          ]
+        },
+        "32": {
+          "vorbelegung": {
+            "sL": 32
+          },
+          "roh": {
+            "l_nominal": 32
+          },
+          "fields": {
+            "l_nominal": {
+              "nominal": 32,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso2011"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "single-primary-source",
+              "note": "Belegte Längenzeile; unabhängiger Zweitbeleg offen. Bevorzugte Längen, Form C. Unterkopfbezug."
+            }
+          },
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "rollingBlankDiameter",
+            "recessVolumeModel"
+          ]
+        },
+        "38": {
+          "vorbelegung": {
+            "sL": 38
+          },
+          "roh": {
+            "l_nominal": 38
+          },
+          "fields": {
+            "l_nominal": {
+              "nominal": 38,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso2011"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "single-primary-source",
+              "note": "Belegte Längenzeile; unabhängiger Zweitbeleg offen. Bevorzugte Längen, Form C. Unterkopfbezug."
+            }
+          },
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "rollingBlankDiameter",
+            "recessVolumeModel"
+          ]
+        },
+        "9.5": {
+          "vorbelegung": {
+            "sL": 9.5
+          },
+          "roh": {
+            "l_nominal": 9.5
+          },
+          "fields": {
+            "l_nominal": {
+              "nominal": 9.5,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso2011"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "single-primary-source",
+              "note": "Belegte Längenzeile; unabhängiger Zweitbeleg offen. Bevorzugte Längen, Form C. Unterkopfbezug."
+            }
+          },
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "rollingBlankDiameter",
+            "recessVolumeModel"
+          ]
+        }
+      },
+      "lengthCoverage": "documented-subset",
+      "thread": {
+        "designation": "ST4.8",
+        "nominalDiameter": 4.8,
+        "pitch": 1.6,
+        "standard": "ISO1478",
+        "origin": "finished-thread"
+      },
+      "finishedEndForm": "C",
+      "laengen": [
+        9.5,
+        13,
+        16,
+        19,
+        22,
+        25,
+        32,
+        38
+      ]
+    },
+    "ST5.5": {
+      "roh": {
+        "d_nominal": 5.5,
+        "P": 1.8,
+        "dk_actual_max": 11,
+        "dk_actual_min": 10.57,
+        "k_max": 4,
+        "recess_no_H": 3,
+        "t_H_min": 2.6,
+        "y_C_ref": 5
+      },
+      "vorbelegung": {
+        "kD": 11,
+        "kH": 4,
+        "iSize": 3,
+        "iT": 2.6
+      },
+      "coverage": "documented",
+      "geometryStatus": "partial",
+      "missingGeometryFields": [
+        "rollingBlankDiameter",
+        "recessVolumeModel"
+      ],
+      "nachLaenge": {
+        "13": {
+          "vorbelegung": {
+            "sL": 13
+          },
+          "roh": {
+            "l_nominal": 13
+          },
+          "fields": {
+            "l_nominal": {
+              "nominal": 13,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso2011"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "single-primary-source",
+              "note": "Belegte Längenzeile; unabhängiger Zweitbeleg offen. Bevorzugte Längen, Form C. Unterkopfbezug."
+            }
+          },
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "rollingBlankDiameter",
+            "recessVolumeModel"
+          ]
+        },
+        "16": {
+          "vorbelegung": {
+            "sL": 16
+          },
+          "roh": {
+            "l_nominal": 16
+          },
+          "fields": {
+            "l_nominal": {
+              "nominal": 16,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso2011"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "single-primary-source",
+              "note": "Belegte Längenzeile; unabhängiger Zweitbeleg offen. Bevorzugte Längen, Form C. Unterkopfbezug."
+            }
+          },
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "rollingBlankDiameter",
+            "recessVolumeModel"
+          ]
+        },
+        "19": {
+          "vorbelegung": {
+            "sL": 19
+          },
+          "roh": {
+            "l_nominal": 19
+          },
+          "fields": {
+            "l_nominal": {
+              "nominal": 19,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso2011"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "single-primary-source",
+              "note": "Belegte Längenzeile; unabhängiger Zweitbeleg offen. Bevorzugte Längen, Form C. Unterkopfbezug."
+            }
+          },
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "rollingBlankDiameter",
+            "recessVolumeModel"
+          ]
+        },
+        "22": {
+          "vorbelegung": {
+            "sL": 22
+          },
+          "roh": {
+            "l_nominal": 22
+          },
+          "fields": {
+            "l_nominal": {
+              "nominal": 22,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso2011"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "single-primary-source",
+              "note": "Belegte Längenzeile; unabhängiger Zweitbeleg offen. Bevorzugte Längen, Form C. Unterkopfbezug."
+            }
+          },
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "rollingBlankDiameter",
+            "recessVolumeModel"
+          ]
+        },
+        "25": {
+          "vorbelegung": {
+            "sL": 25
+          },
+          "roh": {
+            "l_nominal": 25
+          },
+          "fields": {
+            "l_nominal": {
+              "nominal": 25,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso2011"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "single-primary-source",
+              "note": "Belegte Längenzeile; unabhängiger Zweitbeleg offen. Bevorzugte Längen, Form C. Unterkopfbezug."
+            }
+          },
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "rollingBlankDiameter",
+            "recessVolumeModel"
+          ]
+        },
+        "32": {
+          "vorbelegung": {
+            "sL": 32
+          },
+          "roh": {
+            "l_nominal": 32
+          },
+          "fields": {
+            "l_nominal": {
+              "nominal": 32,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso2011"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "single-primary-source",
+              "note": "Belegte Längenzeile; unabhängiger Zweitbeleg offen. Bevorzugte Längen, Form C. Unterkopfbezug."
+            }
+          },
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "rollingBlankDiameter",
+            "recessVolumeModel"
+          ]
+        },
+        "38": {
+          "vorbelegung": {
+            "sL": 38
+          },
+          "roh": {
+            "l_nominal": 38
+          },
+          "fields": {
+            "l_nominal": {
+              "nominal": 38,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso2011"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "single-primary-source",
+              "note": "Belegte Längenzeile; unabhängiger Zweitbeleg offen. Bevorzugte Längen, Form C. Unterkopfbezug."
+            }
+          },
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "rollingBlankDiameter",
+            "recessVolumeModel"
+          ]
+        }
+      },
+      "lengthCoverage": "documented-subset",
+      "thread": {
+        "designation": "ST5.5",
+        "nominalDiameter": 5.5,
+        "pitch": 1.8,
+        "standard": "ISO1478",
+        "origin": "finished-thread"
+      },
+      "finishedEndForm": "C",
+      "laengen": [
+        13,
+        16,
+        19,
+        22,
+        25,
+        32,
+        38
+      ]
+    },
+    "ST6.3": {
+      "roh": {
+        "d_nominal": 6.3,
+        "P": 1.8,
+        "dk_actual_max": 12,
+        "dk_actual_min": 11.57,
+        "k_max": 4.6,
+        "recess_no_H": 3,
+        "t_H_min": 3.1,
+        "y_C_ref": 6
+      },
+      "vorbelegung": {
+        "kD": 12,
+        "kH": 4.6,
+        "iSize": 3,
+        "iT": 3.1
+      },
+      "coverage": "documented",
+      "geometryStatus": "partial",
+      "missingGeometryFields": [
+        "rollingBlankDiameter",
+        "recessVolumeModel"
+      ],
+      "nachLaenge": {
+        "13": {
+          "vorbelegung": {
+            "sL": 13
+          },
+          "roh": {
+            "l_nominal": 13
+          },
+          "fields": {
+            "l_nominal": {
+              "nominal": 13,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso2011"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "single-primary-source",
+              "note": "Belegte Längenzeile; unabhängiger Zweitbeleg offen. Bevorzugte Längen, Form C. Unterkopfbezug."
+            }
+          },
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "rollingBlankDiameter",
+            "recessVolumeModel"
+          ]
+        },
+        "16": {
+          "vorbelegung": {
+            "sL": 16
+          },
+          "roh": {
+            "l_nominal": 16
+          },
+          "fields": {
+            "l_nominal": {
+              "nominal": 16,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso2011"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "single-primary-source",
+              "note": "Belegte Längenzeile; unabhängiger Zweitbeleg offen. Bevorzugte Längen, Form C. Unterkopfbezug."
+            }
+          },
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "rollingBlankDiameter",
+            "recessVolumeModel"
+          ]
+        },
+        "19": {
+          "vorbelegung": {
+            "sL": 19
+          },
+          "roh": {
+            "l_nominal": 19
+          },
+          "fields": {
+            "l_nominal": {
+              "nominal": 19,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso2011"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "single-primary-source",
+              "note": "Belegte Längenzeile; unabhängiger Zweitbeleg offen. Bevorzugte Längen, Form C. Unterkopfbezug."
+            }
+          },
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "rollingBlankDiameter",
+            "recessVolumeModel"
+          ]
+        },
+        "22": {
+          "vorbelegung": {
+            "sL": 22
+          },
+          "roh": {
+            "l_nominal": 22
+          },
+          "fields": {
+            "l_nominal": {
+              "nominal": 22,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso2011"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "single-primary-source",
+              "note": "Belegte Längenzeile; unabhängiger Zweitbeleg offen. Bevorzugte Längen, Form C. Unterkopfbezug."
+            }
+          },
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "rollingBlankDiameter",
+            "recessVolumeModel"
+          ]
+        },
+        "25": {
+          "vorbelegung": {
+            "sL": 25
+          },
+          "roh": {
+            "l_nominal": 25
+          },
+          "fields": {
+            "l_nominal": {
+              "nominal": 25,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso2011"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "single-primary-source",
+              "note": "Belegte Längenzeile; unabhängiger Zweitbeleg offen. Bevorzugte Längen, Form C. Unterkopfbezug."
+            }
+          },
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "rollingBlankDiameter",
+            "recessVolumeModel"
+          ]
+        },
+        "32": {
+          "vorbelegung": {
+            "sL": 32
+          },
+          "roh": {
+            "l_nominal": 32
+          },
+          "fields": {
+            "l_nominal": {
+              "nominal": 32,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso2011"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "single-primary-source",
+              "note": "Belegte Längenzeile; unabhängiger Zweitbeleg offen. Bevorzugte Längen, Form C. Unterkopfbezug."
+            }
+          },
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "rollingBlankDiameter",
+            "recessVolumeModel"
+          ]
+        },
+        "38": {
+          "vorbelegung": {
+            "sL": 38
+          },
+          "roh": {
+            "l_nominal": 38
+          },
+          "fields": {
+            "l_nominal": {
+              "nominal": 38,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso2011"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "single-primary-source",
+              "note": "Belegte Längenzeile; unabhängiger Zweitbeleg offen. Bevorzugte Längen, Form C. Unterkopfbezug."
+            }
+          },
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "rollingBlankDiameter",
+            "recessVolumeModel"
+          ]
+        }
+      },
+      "lengthCoverage": "documented-subset",
+      "thread": {
+        "designation": "ST6.3",
+        "nominalDiameter": 6.3,
+        "pitch": 1.8,
+        "standard": "ISO1478",
+        "origin": "finished-thread"
+      },
+      "finishedEndForm": "C",
+      "laengen": [
+        13,
+        16,
+        19,
+        22,
+        25,
+        32,
+        38
+      ]
+    },
+    "ST8": {
+      "roh": {
+        "d_nominal": 8,
+        "P": 2.1,
+        "dk_actual_max": 16,
+        "dk_actual_min": 15.57,
+        "k_max": 6,
+        "recess_no_H": 4,
+        "t_H_min": 4.15,
+        "y_C_ref": 7.5
+      },
+      "vorbelegung": {
+        "kD": 16,
+        "kH": 6,
+        "iSize": 4,
+        "iT": 4.15
+      },
+      "coverage": "documented",
+      "geometryStatus": "partial",
+      "missingGeometryFields": [
+        "rollingBlankDiameter",
+        "recessVolumeModel"
+      ],
+      "nachLaenge": {
+        "16": {
+          "vorbelegung": {
+            "sL": 16
+          },
+          "roh": {
+            "l_nominal": 16
+          },
+          "fields": {
+            "l_nominal": {
+              "nominal": 16,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso2011"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "single-primary-source",
+              "note": "Belegte Längenzeile; unabhängiger Zweitbeleg offen. Bevorzugte Längen, Form C. Unterkopfbezug."
+            }
+          },
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "rollingBlankDiameter",
+            "recessVolumeModel"
+          ]
+        },
+        "19": {
+          "vorbelegung": {
+            "sL": 19
+          },
+          "roh": {
+            "l_nominal": 19
+          },
+          "fields": {
+            "l_nominal": {
+              "nominal": 19,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso2011"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "single-primary-source",
+              "note": "Belegte Längenzeile; unabhängiger Zweitbeleg offen. Bevorzugte Längen, Form C. Unterkopfbezug."
+            }
+          },
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "rollingBlankDiameter",
+            "recessVolumeModel"
+          ]
+        },
+        "22": {
+          "vorbelegung": {
+            "sL": 22
+          },
+          "roh": {
+            "l_nominal": 22
+          },
+          "fields": {
+            "l_nominal": {
+              "nominal": 22,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso2011"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "single-primary-source",
+              "note": "Belegte Längenzeile; unabhängiger Zweitbeleg offen. Bevorzugte Längen, Form C. Unterkopfbezug."
+            }
+          },
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "rollingBlankDiameter",
+            "recessVolumeModel"
+          ]
+        },
+        "25": {
+          "vorbelegung": {
+            "sL": 25
+          },
+          "roh": {
+            "l_nominal": 25
+          },
+          "fields": {
+            "l_nominal": {
+              "nominal": 25,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso2011"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "single-primary-source",
+              "note": "Belegte Längenzeile; unabhängiger Zweitbeleg offen. Bevorzugte Längen, Form C. Unterkopfbezug."
+            }
+          },
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "rollingBlankDiameter",
+            "recessVolumeModel"
+          ]
+        },
+        "32": {
+          "vorbelegung": {
+            "sL": 32
+          },
+          "roh": {
+            "l_nominal": 32
+          },
+          "fields": {
+            "l_nominal": {
+              "nominal": 32,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso2011"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "single-primary-source",
+              "note": "Belegte Längenzeile; unabhängiger Zweitbeleg offen. Bevorzugte Längen, Form C. Unterkopfbezug."
+            }
+          },
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "rollingBlankDiameter",
+            "recessVolumeModel"
+          ]
+        },
+        "38": {
+          "vorbelegung": {
+            "sL": 38
+          },
+          "roh": {
+            "l_nominal": 38
+          },
+          "fields": {
+            "l_nominal": {
+              "nominal": 38,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso2011"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "single-primary-source",
+              "note": "Belegte Längenzeile; unabhängiger Zweitbeleg offen. Bevorzugte Längen, Form C. Unterkopfbezug."
+            }
+          },
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "rollingBlankDiameter",
+            "recessVolumeModel"
+          ]
+        }
+      },
+      "lengthCoverage": "documented-subset",
+      "thread": {
+        "designation": "ST8",
+        "nominalDiameter": 8,
+        "pitch": 2.1,
+        "standard": "ISO1478",
+        "origin": "finished-thread"
+      },
+      "finishedEndForm": "C",
+      "laengen": [
+        16,
+        19,
+        22,
+        25,
+        32,
+        38
+      ]
+    },
+    "ST9.5": {
+      "roh": {
+        "d_nominal": 9.5,
+        "P": 2.1,
+        "dk_actual_max": 20,
+        "dk_actual_min": 19.48,
+        "k_max": 7.5,
+        "recess_no_H": 4,
+        "t_H_min": 5.2,
+        "y_C_ref": 8
+      },
+      "vorbelegung": {
+        "kD": 20,
+        "kH": 7.5,
+        "iSize": 4,
+        "iT": 5.2
+      },
+      "coverage": "documented",
+      "geometryStatus": "partial",
+      "missingGeometryFields": [
+        "rollingBlankDiameter",
+        "recessVolumeModel"
+      ],
+      "nachLaenge": {
+        "16": {
+          "vorbelegung": {
+            "sL": 16
+          },
+          "roh": {
+            "l_nominal": 16
+          },
+          "fields": {
+            "l_nominal": {
+              "nominal": 16,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso2011"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "single-primary-source",
+              "note": "Belegte Längenzeile; unabhängiger Zweitbeleg offen. Bevorzugte Längen, Form C. Unterkopfbezug."
+            }
+          },
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "rollingBlankDiameter",
+            "recessVolumeModel"
+          ]
+        },
+        "19": {
+          "vorbelegung": {
+            "sL": 19
+          },
+          "roh": {
+            "l_nominal": 19
+          },
+          "fields": {
+            "l_nominal": {
+              "nominal": 19,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso2011"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "single-primary-source",
+              "note": "Belegte Längenzeile; unabhängiger Zweitbeleg offen. Bevorzugte Längen, Form C. Unterkopfbezug."
+            }
+          },
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "rollingBlankDiameter",
+            "recessVolumeModel"
+          ]
+        },
+        "22": {
+          "vorbelegung": {
+            "sL": 22
+          },
+          "roh": {
+            "l_nominal": 22
+          },
+          "fields": {
+            "l_nominal": {
+              "nominal": 22,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso2011"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "single-primary-source",
+              "note": "Belegte Längenzeile; unabhängiger Zweitbeleg offen. Bevorzugte Längen, Form C. Unterkopfbezug."
+            }
+          },
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "rollingBlankDiameter",
+            "recessVolumeModel"
+          ]
+        },
+        "25": {
+          "vorbelegung": {
+            "sL": 25
+          },
+          "roh": {
+            "l_nominal": 25
+          },
+          "fields": {
+            "l_nominal": {
+              "nominal": 25,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso2011"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "single-primary-source",
+              "note": "Belegte Längenzeile; unabhängiger Zweitbeleg offen. Bevorzugte Längen, Form C. Unterkopfbezug."
+            }
+          },
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "rollingBlankDiameter",
+            "recessVolumeModel"
+          ]
+        },
+        "32": {
+          "vorbelegung": {
+            "sL": 32
+          },
+          "roh": {
+            "l_nominal": 32
+          },
+          "fields": {
+            "l_nominal": {
+              "nominal": 32,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso2011"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "single-primary-source",
+              "note": "Belegte Längenzeile; unabhängiger Zweitbeleg offen. Bevorzugte Längen, Form C. Unterkopfbezug."
+            }
+          },
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "rollingBlankDiameter",
+            "recessVolumeModel"
+          ]
+        },
+        "38": {
+          "vorbelegung": {
+            "sL": 38
+          },
+          "roh": {
+            "l_nominal": 38
+          },
+          "fields": {
+            "l_nominal": {
+              "nominal": 38,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso2011"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "single-primary-source",
+              "note": "Belegte Längenzeile; unabhängiger Zweitbeleg offen. Bevorzugte Längen, Form C. Unterkopfbezug."
+            }
+          },
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "rollingBlankDiameter",
+            "recessVolumeModel"
+          ]
+        }
+      },
+      "lengthCoverage": "documented-subset",
+      "thread": {
+        "designation": "ST9.5",
+        "nominalDiameter": 9.5,
+        "pitch": 2.1,
+        "standard": "ISO1478",
+        "origin": "finished-thread"
+      },
+      "finishedEndForm": "C",
+      "laengen": [
+        16,
+        19,
+        22,
+        25,
+        32,
+        38
+      ]
+    }
+  },
+  "fields": {
+    "ST2.2": {
+      "d_nominal": {
+        "nominal": 2.2,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso2011"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "single-primary-source",
+        "note": "Eine Primärquelle; unabhängiger Zweitbeleg dieses Einzelwerts noch offen."
+      },
+      "P": {
+        "nominal": 0.8,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso2011"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "single-primary-source",
+        "note": "Eine Primärquelle; unabhängiger Zweitbeleg dieses Einzelwerts noch offen."
+      },
+      "dk_actual_max": {
+        "nominal": 4,
+        "min": null,
+        "max": 4,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso2011"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "single-primary-source",
+        "note": "Eine Primärquelle; unabhängiger Zweitbeleg dieses Einzelwerts noch offen."
+      },
+      "dk_actual_min": {
+        "nominal": 3.7,
+        "min": 3.7,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso2011"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "single-primary-source",
+        "note": "Eine Primärquelle; unabhängiger Zweitbeleg dieses Einzelwerts noch offen."
+      },
+      "k_max": {
+        "nominal": 1.6,
+        "min": null,
+        "max": 1.6,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso2011"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "single-primary-source",
+        "note": "Eine Primärquelle; unabhängiger Zweitbeleg dieses Einzelwerts noch offen."
+      },
+      "recess_no_H": {
+        "nominal": 0,
+        "min": null,
+        "max": null,
+        "unit": null,
+        "sourceRefs": [
+          "iso2011"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "single-primary-source",
+        "note": "Eine Primärquelle; unabhängiger Zweitbeleg dieses Einzelwerts noch offen."
+      },
+      "t_H_min": {
+        "nominal": 0.85,
+        "min": 0.85,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso2011"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "single-primary-source",
+        "note": "Eine Primärquelle; unabhängiger Zweitbeleg dieses Einzelwerts noch offen."
+      },
+      "y_C_ref": {
+        "nominal": 2,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso2011"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "single-primary-source",
+        "note": "Referenzlänge der Fertigteilspitze Form C. Keine Pressspitze oder Volumenminderung des Walzrohlings daraus ableiten."
+      },
+      "rollingBlankDiameter": {
+        "nominal": null,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "verificationMethod": "not-available",
+        "note": "Einzelwert nicht belegt; keine Ersatzmaße aus einer ähnlichen Norm."
+      },
+      "recessVolumeModel": {
+        "nominal": null,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "verificationMethod": "not-available",
+        "note": "Einzelwert nicht belegt; keine Ersatzmaße aus einer ähnlichen Norm."
+      }
+    },
+    "ST2.9": {
+      "d_nominal": {
+        "nominal": 2.9,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso2011"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "single-primary-source",
+        "note": "Eine Primärquelle; unabhängiger Zweitbeleg dieses Einzelwerts noch offen."
+      },
+      "P": {
+        "nominal": 1.1,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso2011"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "single-primary-source",
+        "note": "Eine Primärquelle; unabhängiger Zweitbeleg dieses Einzelwerts noch offen."
+      },
+      "dk_actual_max": {
+        "nominal": 5.6,
+        "min": null,
+        "max": 5.6,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso2011"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "single-primary-source",
+        "note": "Eine Primärquelle; unabhängiger Zweitbeleg dieses Einzelwerts noch offen."
+      },
+      "dk_actual_min": {
+        "nominal": 5.3,
+        "min": 5.3,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso2011"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "single-primary-source",
+        "note": "Eine Primärquelle; unabhängiger Zweitbeleg dieses Einzelwerts noch offen."
+      },
+      "k_max": {
+        "nominal": 2.4,
+        "min": null,
+        "max": 2.4,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso2011"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "single-primary-source",
+        "note": "Eine Primärquelle; unabhängiger Zweitbeleg dieses Einzelwerts noch offen."
+      },
+      "recess_no_H": {
+        "nominal": 1,
+        "min": null,
+        "max": null,
+        "unit": null,
+        "sourceRefs": [
+          "iso2011"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "single-primary-source",
+        "note": "Eine Primärquelle; unabhängiger Zweitbeleg dieses Einzelwerts noch offen."
+      },
+      "t_H_min": {
+        "nominal": 1.4,
+        "min": 1.4,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso2011"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "single-primary-source",
+        "note": "Eine Primärquelle; unabhängiger Zweitbeleg dieses Einzelwerts noch offen."
+      },
+      "y_C_ref": {
+        "nominal": 2.6,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso2011"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "single-primary-source",
+        "note": "Referenzlänge der Fertigteilspitze Form C. Keine Pressspitze oder Volumenminderung des Walzrohlings daraus ableiten."
+      },
+      "rollingBlankDiameter": {
+        "nominal": null,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "verificationMethod": "not-available",
+        "note": "Einzelwert nicht belegt; keine Ersatzmaße aus einer ähnlichen Norm."
+      },
+      "recessVolumeModel": {
+        "nominal": null,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "verificationMethod": "not-available",
+        "note": "Einzelwert nicht belegt; keine Ersatzmaße aus einer ähnlichen Norm."
+      }
+    },
+    "ST3.5": {
+      "d_nominal": {
+        "nominal": 3.5,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso2011"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "single-primary-source",
+        "note": "Eine Primärquelle; unabhängiger Zweitbeleg dieses Einzelwerts noch offen."
+      },
+      "P": {
+        "nominal": 1.3,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso2011"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "single-primary-source",
+        "note": "Eine Primärquelle; unabhängiger Zweitbeleg dieses Einzelwerts noch offen."
+      },
+      "dk_actual_max": {
+        "nominal": 7,
+        "min": null,
+        "max": 7,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso2011"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "single-primary-source",
+        "note": "Eine Primärquelle; unabhängiger Zweitbeleg dieses Einzelwerts noch offen."
+      },
+      "dk_actual_min": {
+        "nominal": 6.64,
+        "min": 6.64,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso2011"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "single-primary-source",
+        "note": "Eine Primärquelle; unabhängiger Zweitbeleg dieses Einzelwerts noch offen."
+      },
+      "k_max": {
+        "nominal": 2.6,
+        "min": null,
+        "max": 2.6,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso2011"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "single-primary-source",
+        "note": "Eine Primärquelle; unabhängiger Zweitbeleg dieses Einzelwerts noch offen."
+      },
+      "recess_no_H": {
+        "nominal": 2,
+        "min": null,
+        "max": null,
+        "unit": null,
+        "sourceRefs": [
+          "iso2011"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "single-primary-source",
+        "note": "Eine Primärquelle; unabhängiger Zweitbeleg dieses Einzelwerts noch offen."
+      },
+      "t_H_min": {
+        "nominal": 1.4,
+        "min": 1.4,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso2011"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "single-primary-source",
+        "note": "Eine Primärquelle; unabhängiger Zweitbeleg dieses Einzelwerts noch offen."
+      },
+      "y_C_ref": {
+        "nominal": 3.2,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso2011"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "single-primary-source",
+        "note": "Referenzlänge der Fertigteilspitze Form C. Keine Pressspitze oder Volumenminderung des Walzrohlings daraus ableiten."
+      },
+      "rollingBlankDiameter": {
+        "nominal": null,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "verificationMethod": "not-available",
+        "note": "Einzelwert nicht belegt; keine Ersatzmaße aus einer ähnlichen Norm."
+      },
+      "recessVolumeModel": {
+        "nominal": null,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "verificationMethod": "not-available",
+        "note": "Einzelwert nicht belegt; keine Ersatzmaße aus einer ähnlichen Norm."
+      }
+    },
+    "ST4.2": {
+      "d_nominal": {
+        "nominal": 4.2,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso2011"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "single-primary-source",
+        "note": "Eine Primärquelle; unabhängiger Zweitbeleg dieses Einzelwerts noch offen."
+      },
+      "P": {
+        "nominal": 1.4,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso2011"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "single-primary-source",
+        "note": "Eine Primärquelle; unabhängiger Zweitbeleg dieses Einzelwerts noch offen."
+      },
+      "dk_actual_max": {
+        "nominal": 8,
+        "min": null,
+        "max": 8,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso2011"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "single-primary-source",
+        "note": "Eine Primärquelle; unabhängiger Zweitbeleg dieses Einzelwerts noch offen."
+      },
+      "dk_actual_min": {
+        "nominal": 7.64,
+        "min": 7.64,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso2011"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "single-primary-source",
+        "note": "Eine Primärquelle; unabhängiger Zweitbeleg dieses Einzelwerts noch offen."
+      },
+      "k_max": {
+        "nominal": 3.1,
+        "min": null,
+        "max": 3.1,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso2011"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "single-primary-source",
+        "note": "Eine Primärquelle; unabhängiger Zweitbeleg dieses Einzelwerts noch offen."
+      },
+      "recess_no_H": {
+        "nominal": 2,
+        "min": null,
+        "max": null,
+        "unit": null,
+        "sourceRefs": [
+          "iso2011"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "single-primary-source",
+        "note": "Eine Primärquelle; unabhängiger Zweitbeleg dieses Einzelwerts noch offen."
+      },
+      "t_H_min": {
+        "nominal": 1.9,
+        "min": 1.9,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso2011"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "single-primary-source",
+        "note": "Eine Primärquelle; unabhängiger Zweitbeleg dieses Einzelwerts noch offen."
+      },
+      "y_C_ref": {
+        "nominal": 3.7,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso2011"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "single-primary-source",
+        "note": "Referenzlänge der Fertigteilspitze Form C. Keine Pressspitze oder Volumenminderung des Walzrohlings daraus ableiten."
+      },
+      "rollingBlankDiameter": {
+        "nominal": null,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "verificationMethod": "not-available",
+        "note": "Einzelwert nicht belegt; keine Ersatzmaße aus einer ähnlichen Norm."
+      },
+      "recessVolumeModel": {
+        "nominal": null,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "verificationMethod": "not-available",
+        "note": "Einzelwert nicht belegt; keine Ersatzmaße aus einer ähnlichen Norm."
+      }
+    },
+    "ST4.8": {
+      "d_nominal": {
+        "nominal": 4.8,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso2011"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "single-primary-source",
+        "note": "Eine Primärquelle; unabhängiger Zweitbeleg dieses Einzelwerts noch offen."
+      },
+      "P": {
+        "nominal": 1.6,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso2011"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "single-primary-source",
+        "note": "Eine Primärquelle; unabhängiger Zweitbeleg dieses Einzelwerts noch offen."
+      },
+      "dk_actual_max": {
+        "nominal": 9.5,
+        "min": null,
+        "max": 9.5,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso2011"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "single-primary-source",
+        "note": "Eine Primärquelle; unabhängiger Zweitbeleg dieses Einzelwerts noch offen."
+      },
+      "dk_actual_min": {
+        "nominal": 9.14,
+        "min": 9.14,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso2011"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "single-primary-source",
+        "note": "Eine Primärquelle; unabhängiger Zweitbeleg dieses Einzelwerts noch offen."
+      },
+      "k_max": {
+        "nominal": 3.7,
+        "min": null,
+        "max": 3.7,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso2011"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "single-primary-source",
+        "note": "Eine Primärquelle; unabhängiger Zweitbeleg dieses Einzelwerts noch offen."
+      },
+      "recess_no_H": {
+        "nominal": 2,
+        "min": null,
+        "max": null,
+        "unit": null,
+        "sourceRefs": [
+          "iso2011"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "single-primary-source",
+        "note": "Eine Primärquelle; unabhängiger Zweitbeleg dieses Einzelwerts noch offen."
+      },
+      "t_H_min": {
+        "nominal": 2.4,
+        "min": 2.4,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso2011"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "single-primary-source",
+        "note": "Eine Primärquelle; unabhängiger Zweitbeleg dieses Einzelwerts noch offen."
+      },
+      "y_C_ref": {
+        "nominal": 4.3,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso2011"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "single-primary-source",
+        "note": "Referenzlänge der Fertigteilspitze Form C. Keine Pressspitze oder Volumenminderung des Walzrohlings daraus ableiten."
+      },
+      "rollingBlankDiameter": {
+        "nominal": null,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "verificationMethod": "not-available",
+        "note": "Einzelwert nicht belegt; keine Ersatzmaße aus einer ähnlichen Norm."
+      },
+      "recessVolumeModel": {
+        "nominal": null,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "verificationMethod": "not-available",
+        "note": "Einzelwert nicht belegt; keine Ersatzmaße aus einer ähnlichen Norm."
+      }
+    },
+    "ST5.5": {
+      "d_nominal": {
+        "nominal": 5.5,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso2011"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "single-primary-source",
+        "note": "Eine Primärquelle; unabhängiger Zweitbeleg dieses Einzelwerts noch offen."
+      },
+      "P": {
+        "nominal": 1.8,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso2011"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "single-primary-source",
+        "note": "Eine Primärquelle; unabhängiger Zweitbeleg dieses Einzelwerts noch offen."
+      },
+      "dk_actual_max": {
+        "nominal": 11,
+        "min": null,
+        "max": 11,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso2011"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "single-primary-source",
+        "note": "Eine Primärquelle; unabhängiger Zweitbeleg dieses Einzelwerts noch offen."
+      },
+      "dk_actual_min": {
+        "nominal": 10.57,
+        "min": 10.57,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso2011"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "single-primary-source",
+        "note": "Eine Primärquelle; unabhängiger Zweitbeleg dieses Einzelwerts noch offen."
+      },
+      "k_max": {
+        "nominal": 4,
+        "min": null,
+        "max": 4,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso2011"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "single-primary-source",
+        "note": "Eine Primärquelle; unabhängiger Zweitbeleg dieses Einzelwerts noch offen."
+      },
+      "recess_no_H": {
+        "nominal": 3,
+        "min": null,
+        "max": null,
+        "unit": null,
+        "sourceRefs": [
+          "iso2011"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "single-primary-source",
+        "note": "Eine Primärquelle; unabhängiger Zweitbeleg dieses Einzelwerts noch offen."
+      },
+      "t_H_min": {
+        "nominal": 2.6,
+        "min": 2.6,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso2011"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "single-primary-source",
+        "note": "Eine Primärquelle; unabhängiger Zweitbeleg dieses Einzelwerts noch offen."
+      },
+      "y_C_ref": {
+        "nominal": 5,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso2011"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "single-primary-source",
+        "note": "Referenzlänge der Fertigteilspitze Form C. Keine Pressspitze oder Volumenminderung des Walzrohlings daraus ableiten."
+      },
+      "rollingBlankDiameter": {
+        "nominal": null,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "verificationMethod": "not-available",
+        "note": "Einzelwert nicht belegt; keine Ersatzmaße aus einer ähnlichen Norm."
+      },
+      "recessVolumeModel": {
+        "nominal": null,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "verificationMethod": "not-available",
+        "note": "Einzelwert nicht belegt; keine Ersatzmaße aus einer ähnlichen Norm."
+      }
+    },
+    "ST6.3": {
+      "d_nominal": {
+        "nominal": 6.3,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso2011"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "single-primary-source",
+        "note": "Eine Primärquelle; unabhängiger Zweitbeleg dieses Einzelwerts noch offen."
+      },
+      "P": {
+        "nominal": 1.8,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso2011"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "single-primary-source",
+        "note": "Eine Primärquelle; unabhängiger Zweitbeleg dieses Einzelwerts noch offen."
+      },
+      "dk_actual_max": {
+        "nominal": 12,
+        "min": null,
+        "max": 12,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso2011"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "single-primary-source",
+        "note": "Eine Primärquelle; unabhängiger Zweitbeleg dieses Einzelwerts noch offen."
+      },
+      "dk_actual_min": {
+        "nominal": 11.57,
+        "min": 11.57,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso2011"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "single-primary-source",
+        "note": "Eine Primärquelle; unabhängiger Zweitbeleg dieses Einzelwerts noch offen."
+      },
+      "k_max": {
+        "nominal": 4.6,
+        "min": null,
+        "max": 4.6,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso2011"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "single-primary-source",
+        "note": "Eine Primärquelle; unabhängiger Zweitbeleg dieses Einzelwerts noch offen."
+      },
+      "recess_no_H": {
+        "nominal": 3,
+        "min": null,
+        "max": null,
+        "unit": null,
+        "sourceRefs": [
+          "iso2011"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "single-primary-source",
+        "note": "Eine Primärquelle; unabhängiger Zweitbeleg dieses Einzelwerts noch offen."
+      },
+      "t_H_min": {
+        "nominal": 3.1,
+        "min": 3.1,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso2011"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "single-primary-source",
+        "note": "Eine Primärquelle; unabhängiger Zweitbeleg dieses Einzelwerts noch offen."
+      },
+      "y_C_ref": {
+        "nominal": 6,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso2011"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "single-primary-source",
+        "note": "Referenzlänge der Fertigteilspitze Form C. Keine Pressspitze oder Volumenminderung des Walzrohlings daraus ableiten."
+      },
+      "rollingBlankDiameter": {
+        "nominal": null,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "verificationMethod": "not-available",
+        "note": "Einzelwert nicht belegt; keine Ersatzmaße aus einer ähnlichen Norm."
+      },
+      "recessVolumeModel": {
+        "nominal": null,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "verificationMethod": "not-available",
+        "note": "Einzelwert nicht belegt; keine Ersatzmaße aus einer ähnlichen Norm."
+      }
+    },
+    "ST8": {
+      "d_nominal": {
+        "nominal": 8,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso2011"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "single-primary-source",
+        "note": "Eine Primärquelle; unabhängiger Zweitbeleg dieses Einzelwerts noch offen."
+      },
+      "P": {
+        "nominal": 2.1,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso2011"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "single-primary-source",
+        "note": "Eine Primärquelle; unabhängiger Zweitbeleg dieses Einzelwerts noch offen."
+      },
+      "dk_actual_max": {
+        "nominal": 16,
+        "min": null,
+        "max": 16,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso2011"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "single-primary-source",
+        "note": "Eine Primärquelle; unabhängiger Zweitbeleg dieses Einzelwerts noch offen."
+      },
+      "dk_actual_min": {
+        "nominal": 15.57,
+        "min": 15.57,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso2011"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "single-primary-source",
+        "note": "Eine Primärquelle; unabhängiger Zweitbeleg dieses Einzelwerts noch offen."
+      },
+      "k_max": {
+        "nominal": 6,
+        "min": null,
+        "max": 6,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso2011"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "single-primary-source",
+        "note": "Eine Primärquelle; unabhängiger Zweitbeleg dieses Einzelwerts noch offen."
+      },
+      "recess_no_H": {
+        "nominal": 4,
+        "min": null,
+        "max": null,
+        "unit": null,
+        "sourceRefs": [
+          "iso2011"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "single-primary-source",
+        "note": "Eine Primärquelle; unabhängiger Zweitbeleg dieses Einzelwerts noch offen."
+      },
+      "t_H_min": {
+        "nominal": 4.15,
+        "min": 4.15,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso2011"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "single-primary-source",
+        "note": "Eine Primärquelle; unabhängiger Zweitbeleg dieses Einzelwerts noch offen."
+      },
+      "y_C_ref": {
+        "nominal": 7.5,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso2011"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "single-primary-source",
+        "note": "Referenzlänge der Fertigteilspitze Form C. Keine Pressspitze oder Volumenminderung des Walzrohlings daraus ableiten."
+      },
+      "rollingBlankDiameter": {
+        "nominal": null,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "verificationMethod": "not-available",
+        "note": "Einzelwert nicht belegt; keine Ersatzmaße aus einer ähnlichen Norm."
+      },
+      "recessVolumeModel": {
+        "nominal": null,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "verificationMethod": "not-available",
+        "note": "Einzelwert nicht belegt; keine Ersatzmaße aus einer ähnlichen Norm."
+      }
+    },
+    "ST9.5": {
+      "d_nominal": {
+        "nominal": 9.5,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso2011"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "single-primary-source",
+        "note": "Eine Primärquelle; unabhängiger Zweitbeleg dieses Einzelwerts noch offen."
+      },
+      "P": {
+        "nominal": 2.1,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso2011"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "single-primary-source",
+        "note": "Eine Primärquelle; unabhängiger Zweitbeleg dieses Einzelwerts noch offen."
+      },
+      "dk_actual_max": {
+        "nominal": 20,
+        "min": null,
+        "max": 20,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso2011"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "single-primary-source",
+        "note": "Eine Primärquelle; unabhängiger Zweitbeleg dieses Einzelwerts noch offen."
+      },
+      "dk_actual_min": {
+        "nominal": 19.48,
+        "min": 19.48,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso2011"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "single-primary-source",
+        "note": "Eine Primärquelle; unabhängiger Zweitbeleg dieses Einzelwerts noch offen."
+      },
+      "k_max": {
+        "nominal": 7.5,
+        "min": null,
+        "max": 7.5,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso2011"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "single-primary-source",
+        "note": "Eine Primärquelle; unabhängiger Zweitbeleg dieses Einzelwerts noch offen."
+      },
+      "recess_no_H": {
+        "nominal": 4,
+        "min": null,
+        "max": null,
+        "unit": null,
+        "sourceRefs": [
+          "iso2011"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "single-primary-source",
+        "note": "Eine Primärquelle; unabhängiger Zweitbeleg dieses Einzelwerts noch offen."
+      },
+      "t_H_min": {
+        "nominal": 5.2,
+        "min": 5.2,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso2011"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "single-primary-source",
+        "note": "Eine Primärquelle; unabhängiger Zweitbeleg dieses Einzelwerts noch offen."
+      },
+      "y_C_ref": {
+        "nominal": 8,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso2011"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "single-primary-source",
+        "note": "Referenzlänge der Fertigteilspitze Form C. Keine Pressspitze oder Volumenminderung des Walzrohlings daraus ableiten."
+      },
+      "rollingBlankDiameter": {
+        "nominal": null,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "verificationMethod": "not-available",
+        "note": "Einzelwert nicht belegt; keine Ersatzmaße aus einer ähnlichen Norm."
+      },
+      "recessVolumeModel": {
+        "nominal": null,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "verificationMethod": "not-available",
+        "note": "Einzelwert nicht belegt; keine Ersatzmaße aus einer ähnlichen Norm."
+      }
+    }
+  },
+  "sourceMeta": {
+    "iso2011": {
+      "id": "iso2011",
+      "url": "https://cdn.standards.iteh.ai/samples/54046/cdf129d179c645d7b5c43390e21e0811/ISO-7049-2011.pdf",
+      "titel": "ISO7049:2011 Originalvorschau",
+      "type": "standard-excerpt",
+      "locator": "Tabelle 1 Seite 3; Bild 1 Seite 2",
+      "abgerufen": "2026-11-26"
+    },
+    "iso-status": {
+      "id": "iso-status",
+      "url": "https://www.iso.org/standard/54046.html",
+      "titel": "ISO7049:2011 Status",
+      "type": "standards-body",
+      "locator": "Abstract / Edition",
+      "abgerufen": "2026-11-26"
+    }
+  },
+  "quellen": [
+    {
+      "id": "iso2011",
+      "url": "https://cdn.standards.iteh.ai/samples/54046/cdf129d179c645d7b5c43390e21e0811/ISO-7049-2011.pdf",
+      "titel": "ISO7049:2011 Originalvorschau",
+      "type": "standard-excerpt",
+      "locator": "Tabelle 1 Seite 3; Bild 1 Seite 2",
+      "abgerufen": "2026-11-26"
+    },
+    {
+      "id": "iso-status",
+      "url": "https://www.iso.org/standard/54046.html",
+      "titel": "ISO7049:2011 Status",
+      "type": "standards-body",
+      "locator": "Abstract / Edition",
+      "abgerufen": "2026-11-26"
+    }
+  ],
   "abweichungen": [],
   "status": "partial",
-  "coverage": "unresearched",
-  "lengthCoverage": "unresearched",
+  "coverage": "documented",
+  "lengthCoverage": "documented-subset",
   "hinweise": [
-    "Familie erfasst; vollständige Einzelmaß- und Längenrecherche steht noch aus. Keine Ersatzmaße einer ähnlichen Norm verwendet."
+    "ST-Größen nach ISO1478, keine metrischen M-Gewinde und kein metrischer 6g-Rollrohling.",
+    "Ausführung C mit Kreuzschlitz H erfasst. Form F/R und Kreuzschlitz Z sind keine stillen Alternativen.",
+    "Fertigteilspitze y und Pressrohling unterscheiden: eine beim Gewindewalzen gebildete Spitze erzeugt keine eigene Pressstufe.",
+    "Bevorzugte Längen stammen aus der Stufenmatrix der eigenen Norm. Nicht jede Nichtvorzugslänge ist unzulässig."
   ],
   "normstatus": {
-    "status": "unresolved",
-    "note": "Ausgabe und Vollständigkeit nicht aus einer ähnlichen Norm ableiten."
+    "status": "current",
+    "edition": "2011",
+    "sourceRefs": [
+      "iso-status"
+    ]
   },
   "requiredGeometryFields": [
     "kD",
     "kH",
     "iSize",
-    "iT"
+    "iT",
+    "rollingBlankDiameter",
+    "recessVolumeModel"
   ],
   "sizeCoverage": {
-    "M3": {
-      "status": "unresearched",
-      "note": "Keine Größenzeile vorhanden; daraus folgt kein Normverbot."
+    "ST2.2": {
+      "status": "documented",
+      "sourceRefs": [
+        "iso2011"
+      ]
     },
-    "M3.5": {
-      "status": "unresearched",
-      "note": "Keine Größenzeile vorhanden; daraus folgt kein Normverbot."
+    "ST2.9": {
+      "status": "documented",
+      "sourceRefs": [
+        "iso2011"
+      ]
     },
-    "M4": {
-      "status": "unresearched",
-      "note": "Keine Größenzeile vorhanden; daraus folgt kein Normverbot."
+    "ST3.5": {
+      "status": "documented",
+      "sourceRefs": [
+        "iso2011"
+      ]
     },
-    "M5": {
-      "status": "unresearched",
-      "note": "Keine Größenzeile vorhanden; daraus folgt kein Normverbot."
+    "ST4.2": {
+      "status": "documented",
+      "sourceRefs": [
+        "iso2011"
+      ]
     },
-    "M6": {
-      "status": "unresearched",
-      "note": "Keine Größenzeile vorhanden; daraus folgt kein Normverbot."
+    "ST4.8": {
+      "status": "documented",
+      "sourceRefs": [
+        "iso2011"
+      ]
     },
-    "M7": {
-      "status": "unresearched",
-      "note": "Keine Größenzeile vorhanden; daraus folgt kein Normverbot."
+    "ST5.5": {
+      "status": "documented",
+      "sourceRefs": [
+        "iso2011"
+      ]
     },
-    "M8": {
-      "status": "unresearched",
-      "note": "Keine Größenzeile vorhanden; daraus folgt kein Normverbot."
+    "ST6.3": {
+      "status": "documented",
+      "sourceRefs": [
+        "iso2011"
+      ]
     },
-    "M10": {
-      "status": "unresearched",
-      "note": "Keine Größenzeile vorhanden; daraus folgt kein Normverbot."
+    "ST8": {
+      "status": "documented",
+      "sourceRefs": [
+        "iso2011"
+      ]
     },
-    "M12": {
-      "status": "unresearched",
-      "note": "Keine Größenzeile vorhanden; daraus folgt kein Normverbot."
-    },
-    "M14": {
-      "status": "unresearched",
-      "note": "Keine Größenzeile vorhanden; daraus folgt kein Normverbot."
-    },
-    "M16": {
-      "status": "unresearched",
-      "note": "Keine Größenzeile vorhanden; daraus folgt kein Normverbot."
-    },
-    "M18": {
-      "status": "unresearched",
-      "note": "Keine Größenzeile vorhanden; daraus folgt kein Normverbot."
-    },
-    "M20": {
-      "status": "unresearched",
-      "note": "Keine Größenzeile vorhanden; daraus folgt kein Normverbot."
-    },
-    "M22": {
-      "status": "unresearched",
-      "note": "Keine Größenzeile vorhanden; daraus folgt kein Normverbot."
-    },
-    "M24": {
-      "status": "unresearched",
-      "note": "Keine Größenzeile vorhanden; daraus folgt kein Normverbot."
-    },
-    "M27": {
-      "status": "unresearched",
-      "note": "Keine Größenzeile vorhanden; daraus folgt kein Normverbot."
-    },
-    "M30": {
-      "status": "unresearched",
-      "note": "Keine Größenzeile vorhanden; daraus folgt kein Normverbot."
-    },
-    "M33": {
-      "status": "unresearched",
-      "note": "Keine Größenzeile vorhanden; daraus folgt kein Normverbot."
+    "ST9.5": {
+      "status": "documented",
+      "sourceRefs": [
+        "iso2011"
+      ]
     }
   },
   "pruefdatum": "2026-11-26",
@@ -112,5 +3284,18 @@
     "status": "unresearched",
     "values": [],
     "note": "Festigkeits-/Werkstoffklassen noch nicht vollständig aus dieser Norm belegt."
-  }
+  },
+  "datasetKind": "part-standard",
+  "gaps": [
+    "Unabhängige Zweitbelege, realer Walzrohlingdurchmesser und Antriebsvolumen fehlen.",
+    "Weitere End-/Antriebsvarianten noch nicht als auswählbare Datensätze erfasst."
+  ],
+  "geometryStatus": "partial",
+  "threadFamily": "self-tapping",
+  "schaftende": "spitze",
+  "lengthDependentFields": [
+    "sL",
+    "sL",
+    "b"
+  ]
 }

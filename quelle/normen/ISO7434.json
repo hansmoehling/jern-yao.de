@@ -3,7 +3,7 @@
   "version": "2026-11-26",
   "schemaVersion": 1,
   "label": "ISO7434 · Gewindestift mit Schlitz und Spitze",
-  "edition": null,
+  "edition": "catalog-undated",
   "editionStatus": "unresolved",
   "funktion": "gewindestift",
   "klasse": "bolzen",
@@ -11,98 +11,1425 @@
   "antrieb": {
     "art": "slot"
   },
-  "feldzuordnung": {},
-  "groessen": {},
-  "fields": {},
-  "sourceMeta": {},
-  "quellen": [],
-  "abweichungen": [],
+  "feldzuordnung": {
+    "slotWidth": "n_min",
+    "iT": "t_min",
+    "endDiameter": "dt_max"
+  },
+  "groessen": {
+    "M3": {
+      "roh": {
+        "d_nom": 3,
+        "P": 0.5,
+        "n_nom": 0.4,
+        "n_max": 0.6,
+        "n_min": 0.46,
+        "t_max": 1.05,
+        "t_min": 0.8,
+        "df_min": null,
+        "dt_max": 0.3,
+        "tipAngle": null,
+        "endLength": null
+      },
+      "vorbelegung": {
+        "slotWidth": 0.46,
+        "iT": 0.8,
+        "endDiameter": 0.3
+      },
+      "steigungen": [
+        0.5
+      ],
+      "coverage": "documented",
+      "geometryStatus": "partial",
+      "missingGeometryFields": [
+        "endLength"
+      ],
+      "lengthCoverage": "unresearched",
+      "nachLaenge": {}
+    },
+    "M4": {
+      "roh": {
+        "d_nom": 4,
+        "P": 0.7,
+        "n_nom": 0.6,
+        "n_max": 0.8,
+        "n_min": 0.66,
+        "t_max": 1.42,
+        "t_min": 1.12,
+        "df_min": null,
+        "dt_max": 0.4,
+        "tipAngle": null,
+        "endLength": null
+      },
+      "vorbelegung": {
+        "slotWidth": 0.66,
+        "iT": 1.12,
+        "endDiameter": 0.4
+      },
+      "steigungen": [
+        0.7
+      ],
+      "coverage": "documented",
+      "geometryStatus": "partial",
+      "missingGeometryFields": [
+        "endLength"
+      ],
+      "lengthCoverage": "unresearched",
+      "nachLaenge": {}
+    },
+    "M5": {
+      "roh": {
+        "d_nom": 5,
+        "P": 0.8,
+        "n_nom": 0.8,
+        "n_max": 1,
+        "n_min": 0.86,
+        "t_max": 1.63,
+        "t_min": 1.28,
+        "df_min": null,
+        "dt_max": 0.5,
+        "tipAngle": null,
+        "endLength": null
+      },
+      "vorbelegung": {
+        "slotWidth": 0.86,
+        "iT": 1.28,
+        "endDiameter": 0.5
+      },
+      "steigungen": [
+        0.8
+      ],
+      "coverage": "documented",
+      "geometryStatus": "partial",
+      "missingGeometryFields": [
+        "endLength"
+      ],
+      "lengthCoverage": "unresearched",
+      "nachLaenge": {}
+    },
+    "M6": {
+      "roh": {
+        "d_nom": 6,
+        "P": 1,
+        "n_nom": 1,
+        "n_max": 1.2,
+        "n_min": 1.06,
+        "t_max": 2,
+        "t_min": 1.6,
+        "df_min": null,
+        "dt_max": 1.5,
+        "tipAngle": null,
+        "endLength": null
+      },
+      "vorbelegung": {
+        "slotWidth": 1.06,
+        "iT": 1.6,
+        "endDiameter": 1.5
+      },
+      "steigungen": [
+        1
+      ],
+      "coverage": "documented",
+      "geometryStatus": "partial",
+      "missingGeometryFields": [
+        "endLength"
+      ],
+      "lengthCoverage": "unresearched",
+      "nachLaenge": {}
+    },
+    "M8": {
+      "roh": {
+        "d_nom": 8,
+        "P": 1.25,
+        "n_nom": 1.2,
+        "n_max": 1.51,
+        "n_min": 1.26,
+        "t_max": 2.5,
+        "t_min": 2,
+        "df_min": null,
+        "dt_max": 2,
+        "tipAngle": null,
+        "endLength": null
+      },
+      "vorbelegung": {
+        "slotWidth": 1.26,
+        "iT": 2,
+        "endDiameter": 2
+      },
+      "steigungen": [
+        1.25
+      ],
+      "coverage": "documented",
+      "geometryStatus": "partial",
+      "missingGeometryFields": [
+        "endLength"
+      ],
+      "lengthCoverage": "unresearched",
+      "nachLaenge": {}
+    },
+    "M10": {
+      "roh": {
+        "d_nom": 10,
+        "P": 1.5,
+        "n_nom": 1.6,
+        "n_max": 1.91,
+        "n_min": 1.66,
+        "t_max": 3,
+        "t_min": 2.4,
+        "df_min": null,
+        "dt_max": 2.5,
+        "tipAngle": null,
+        "endLength": null
+      },
+      "vorbelegung": {
+        "slotWidth": 1.66,
+        "iT": 2.4,
+        "endDiameter": 2.5
+      },
+      "steigungen": [
+        1.5
+      ],
+      "coverage": "documented",
+      "geometryStatus": "partial",
+      "missingGeometryFields": [
+        "endLength"
+      ],
+      "lengthCoverage": "unresearched",
+      "nachLaenge": {}
+    },
+    "M12": {
+      "roh": {
+        "d_nom": 12,
+        "P": 1.75,
+        "n_nom": 2,
+        "n_max": 2.31,
+        "n_min": 2.06,
+        "t_max": 3.6,
+        "t_min": 2.8,
+        "df_min": null,
+        "dt_max": 3,
+        "tipAngle": null,
+        "endLength": null
+      },
+      "vorbelegung": {
+        "slotWidth": 2.06,
+        "iT": 2.8,
+        "endDiameter": 3
+      },
+      "steigungen": [
+        1.75
+      ],
+      "coverage": "documented",
+      "geometryStatus": "partial",
+      "missingGeometryFields": [
+        "endLength"
+      ],
+      "lengthCoverage": "unresearched",
+      "nachLaenge": {}
+    }
+  },
+  "fields": {
+    "M3": {
+      "d_nom": {
+        "nominal": 3,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "boellhoff7434"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "primary-table",
+        "note": "Undatiertes Böllhoff-Produktblatt; zweiter unabhängiger Herstellerbeleg und Abgleich der endgültigen ISO-7434:2024-Tabelle fehlen."
+      },
+      "P": {
+        "nominal": 0.5,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "boellhoff7434"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "primary-table",
+        "note": "Undatiertes Böllhoff-Produktblatt; zweiter unabhängiger Herstellerbeleg und Abgleich der endgültigen ISO-7434:2024-Tabelle fehlen."
+      },
+      "n_nom": {
+        "nominal": 0.4,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "boellhoff7434"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "primary-table",
+        "note": "Undatiertes Böllhoff-Produktblatt; zweiter unabhängiger Herstellerbeleg und Abgleich der endgültigen ISO-7434:2024-Tabelle fehlen."
+      },
+      "n_max": {
+        "nominal": 0.6,
+        "min": null,
+        "max": 0.6,
+        "unit": "mm",
+        "sourceRefs": [
+          "boellhoff7434"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "primary-table",
+        "note": "Undatiertes Böllhoff-Produktblatt; zweiter unabhängiger Herstellerbeleg und Abgleich der endgültigen ISO-7434:2024-Tabelle fehlen."
+      },
+      "n_min": {
+        "nominal": 0.46,
+        "min": 0.46,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "boellhoff7434"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "primary-table",
+        "note": "Undatiertes Böllhoff-Produktblatt; zweiter unabhängiger Herstellerbeleg und Abgleich der endgültigen ISO-7434:2024-Tabelle fehlen."
+      },
+      "t_max": {
+        "nominal": 1.05,
+        "min": null,
+        "max": 1.05,
+        "unit": "mm",
+        "sourceRefs": [
+          "boellhoff7434"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "primary-table",
+        "note": "Undatiertes Böllhoff-Produktblatt; zweiter unabhängiger Herstellerbeleg und Abgleich der endgültigen ISO-7434:2024-Tabelle fehlen."
+      },
+      "t_min": {
+        "nominal": 0.8,
+        "min": 0.8,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "boellhoff7434"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "primary-table",
+        "note": "Undatiertes Böllhoff-Produktblatt; zweiter unabhängiger Herstellerbeleg und Abgleich der endgültigen ISO-7434:2024-Tabelle fehlen."
+      },
+      "df_min": {
+        "nominal": null,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "boellhoff7434"
+        ],
+        "status": "missing",
+        "verification": false,
+        "verificationMethod": "primary-table",
+        "note": "Norm verweist auf Gewinde-Kerndurchmesser nach ISO 724; hier kein eigener Zahlenwert aus einer anderen Quelle eingesetzt."
+      },
+      "dt_max": {
+        "nominal": 0.3,
+        "min": null,
+        "max": 0.3,
+        "unit": "mm",
+        "sourceRefs": [
+          "boellhoff7434"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "primary-table",
+        "note": "Undatiertes Böllhoff-Produktblatt; zweiter unabhängiger Herstellerbeleg und Abgleich der endgültigen ISO-7434:2024-Tabelle fehlen."
+      },
+      "tipAngle": {
+        "nominal": null,
+        "min": null,
+        "max": null,
+        "unit": "deg",
+        "sourceRefs": [
+          "boellhoff7434"
+        ],
+        "status": "missing",
+        "verification": false,
+        "verificationMethod": "primary-table",
+        "note": "Die endgültige Ausgabe 2024 unterscheidet Referenzwinkel 90°/120°. Herstellerblatt zeigt einen älteren 90°±2°-Stand; kein Winkel stillschweigend vorbelegt."
+      },
+      "endLength": {
+        "nominal": null,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "boellhoff7434"
+        ],
+        "status": "missing",
+        "verification": false,
+        "verificationMethod": "primary-table",
+        "note": "Endlänge nicht unabhängig von Endkontur, Winkel und Gewindeauslauf bestimmt; keine fiktive Konuslänge."
+      }
+    },
+    "M4": {
+      "d_nom": {
+        "nominal": 4,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "boellhoff7434"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "primary-table",
+        "note": "Undatiertes Böllhoff-Produktblatt; zweiter unabhängiger Herstellerbeleg und Abgleich der endgültigen ISO-7434:2024-Tabelle fehlen."
+      },
+      "P": {
+        "nominal": 0.7,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "boellhoff7434"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "primary-table",
+        "note": "Undatiertes Böllhoff-Produktblatt; zweiter unabhängiger Herstellerbeleg und Abgleich der endgültigen ISO-7434:2024-Tabelle fehlen."
+      },
+      "n_nom": {
+        "nominal": 0.6,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "boellhoff7434"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "primary-table",
+        "note": "Undatiertes Böllhoff-Produktblatt; zweiter unabhängiger Herstellerbeleg und Abgleich der endgültigen ISO-7434:2024-Tabelle fehlen."
+      },
+      "n_max": {
+        "nominal": 0.8,
+        "min": null,
+        "max": 0.8,
+        "unit": "mm",
+        "sourceRefs": [
+          "boellhoff7434"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "primary-table",
+        "note": "Undatiertes Böllhoff-Produktblatt; zweiter unabhängiger Herstellerbeleg und Abgleich der endgültigen ISO-7434:2024-Tabelle fehlen."
+      },
+      "n_min": {
+        "nominal": 0.66,
+        "min": 0.66,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "boellhoff7434"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "primary-table",
+        "note": "Undatiertes Böllhoff-Produktblatt; zweiter unabhängiger Herstellerbeleg und Abgleich der endgültigen ISO-7434:2024-Tabelle fehlen."
+      },
+      "t_max": {
+        "nominal": 1.42,
+        "min": null,
+        "max": 1.42,
+        "unit": "mm",
+        "sourceRefs": [
+          "boellhoff7434"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "primary-table",
+        "note": "Undatiertes Böllhoff-Produktblatt; zweiter unabhängiger Herstellerbeleg und Abgleich der endgültigen ISO-7434:2024-Tabelle fehlen."
+      },
+      "t_min": {
+        "nominal": 1.12,
+        "min": 1.12,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "boellhoff7434"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "primary-table",
+        "note": "Undatiertes Böllhoff-Produktblatt; zweiter unabhängiger Herstellerbeleg und Abgleich der endgültigen ISO-7434:2024-Tabelle fehlen."
+      },
+      "df_min": {
+        "nominal": null,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "boellhoff7434"
+        ],
+        "status": "missing",
+        "verification": false,
+        "verificationMethod": "primary-table",
+        "note": "Norm verweist auf Gewinde-Kerndurchmesser nach ISO 724; hier kein eigener Zahlenwert aus einer anderen Quelle eingesetzt."
+      },
+      "dt_max": {
+        "nominal": 0.4,
+        "min": null,
+        "max": 0.4,
+        "unit": "mm",
+        "sourceRefs": [
+          "boellhoff7434"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "primary-table",
+        "note": "Undatiertes Böllhoff-Produktblatt; zweiter unabhängiger Herstellerbeleg und Abgleich der endgültigen ISO-7434:2024-Tabelle fehlen."
+      },
+      "tipAngle": {
+        "nominal": null,
+        "min": null,
+        "max": null,
+        "unit": "deg",
+        "sourceRefs": [
+          "boellhoff7434"
+        ],
+        "status": "missing",
+        "verification": false,
+        "verificationMethod": "primary-table",
+        "note": "Die endgültige Ausgabe 2024 unterscheidet Referenzwinkel 90°/120°. Herstellerblatt zeigt einen älteren 90°±2°-Stand; kein Winkel stillschweigend vorbelegt."
+      },
+      "endLength": {
+        "nominal": null,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "boellhoff7434"
+        ],
+        "status": "missing",
+        "verification": false,
+        "verificationMethod": "primary-table",
+        "note": "Endlänge nicht unabhängig von Endkontur, Winkel und Gewindeauslauf bestimmt; keine fiktive Konuslänge."
+      }
+    },
+    "M5": {
+      "d_nom": {
+        "nominal": 5,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "boellhoff7434"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "primary-table",
+        "note": "Undatiertes Böllhoff-Produktblatt; zweiter unabhängiger Herstellerbeleg und Abgleich der endgültigen ISO-7434:2024-Tabelle fehlen."
+      },
+      "P": {
+        "nominal": 0.8,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "boellhoff7434"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "primary-table",
+        "note": "Undatiertes Böllhoff-Produktblatt; zweiter unabhängiger Herstellerbeleg und Abgleich der endgültigen ISO-7434:2024-Tabelle fehlen."
+      },
+      "n_nom": {
+        "nominal": 0.8,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "boellhoff7434"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "primary-table",
+        "note": "Undatiertes Böllhoff-Produktblatt; zweiter unabhängiger Herstellerbeleg und Abgleich der endgültigen ISO-7434:2024-Tabelle fehlen."
+      },
+      "n_max": {
+        "nominal": 1,
+        "min": null,
+        "max": 1,
+        "unit": "mm",
+        "sourceRefs": [
+          "boellhoff7434"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "primary-table",
+        "note": "Undatiertes Böllhoff-Produktblatt; zweiter unabhängiger Herstellerbeleg und Abgleich der endgültigen ISO-7434:2024-Tabelle fehlen."
+      },
+      "n_min": {
+        "nominal": 0.86,
+        "min": 0.86,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "boellhoff7434"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "primary-table",
+        "note": "Undatiertes Böllhoff-Produktblatt; zweiter unabhängiger Herstellerbeleg und Abgleich der endgültigen ISO-7434:2024-Tabelle fehlen."
+      },
+      "t_max": {
+        "nominal": 1.63,
+        "min": null,
+        "max": 1.63,
+        "unit": "mm",
+        "sourceRefs": [
+          "boellhoff7434"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "primary-table",
+        "note": "Undatiertes Böllhoff-Produktblatt; zweiter unabhängiger Herstellerbeleg und Abgleich der endgültigen ISO-7434:2024-Tabelle fehlen."
+      },
+      "t_min": {
+        "nominal": 1.28,
+        "min": 1.28,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "boellhoff7434"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "primary-table",
+        "note": "Undatiertes Böllhoff-Produktblatt; zweiter unabhängiger Herstellerbeleg und Abgleich der endgültigen ISO-7434:2024-Tabelle fehlen."
+      },
+      "df_min": {
+        "nominal": null,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "boellhoff7434"
+        ],
+        "status": "missing",
+        "verification": false,
+        "verificationMethod": "primary-table",
+        "note": "Norm verweist auf Gewinde-Kerndurchmesser nach ISO 724; hier kein eigener Zahlenwert aus einer anderen Quelle eingesetzt."
+      },
+      "dt_max": {
+        "nominal": 0.5,
+        "min": null,
+        "max": 0.5,
+        "unit": "mm",
+        "sourceRefs": [
+          "boellhoff7434"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "primary-table",
+        "note": "Undatiertes Böllhoff-Produktblatt; zweiter unabhängiger Herstellerbeleg und Abgleich der endgültigen ISO-7434:2024-Tabelle fehlen."
+      },
+      "tipAngle": {
+        "nominal": null,
+        "min": null,
+        "max": null,
+        "unit": "deg",
+        "sourceRefs": [
+          "boellhoff7434"
+        ],
+        "status": "missing",
+        "verification": false,
+        "verificationMethod": "primary-table",
+        "note": "Die endgültige Ausgabe 2024 unterscheidet Referenzwinkel 90°/120°. Herstellerblatt zeigt einen älteren 90°±2°-Stand; kein Winkel stillschweigend vorbelegt."
+      },
+      "endLength": {
+        "nominal": null,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "boellhoff7434"
+        ],
+        "status": "missing",
+        "verification": false,
+        "verificationMethod": "primary-table",
+        "note": "Endlänge nicht unabhängig von Endkontur, Winkel und Gewindeauslauf bestimmt; keine fiktive Konuslänge."
+      }
+    },
+    "M6": {
+      "d_nom": {
+        "nominal": 6,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "boellhoff7434"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "primary-table",
+        "note": "Undatiertes Böllhoff-Produktblatt; zweiter unabhängiger Herstellerbeleg und Abgleich der endgültigen ISO-7434:2024-Tabelle fehlen."
+      },
+      "P": {
+        "nominal": 1,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "boellhoff7434"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "primary-table",
+        "note": "Undatiertes Böllhoff-Produktblatt; zweiter unabhängiger Herstellerbeleg und Abgleich der endgültigen ISO-7434:2024-Tabelle fehlen."
+      },
+      "n_nom": {
+        "nominal": 1,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "boellhoff7434"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "primary-table",
+        "note": "Undatiertes Böllhoff-Produktblatt; zweiter unabhängiger Herstellerbeleg und Abgleich der endgültigen ISO-7434:2024-Tabelle fehlen."
+      },
+      "n_max": {
+        "nominal": 1.2,
+        "min": null,
+        "max": 1.2,
+        "unit": "mm",
+        "sourceRefs": [
+          "boellhoff7434"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "primary-table",
+        "note": "Undatiertes Böllhoff-Produktblatt; zweiter unabhängiger Herstellerbeleg und Abgleich der endgültigen ISO-7434:2024-Tabelle fehlen."
+      },
+      "n_min": {
+        "nominal": 1.06,
+        "min": 1.06,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "boellhoff7434"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "primary-table",
+        "note": "Undatiertes Böllhoff-Produktblatt; zweiter unabhängiger Herstellerbeleg und Abgleich der endgültigen ISO-7434:2024-Tabelle fehlen."
+      },
+      "t_max": {
+        "nominal": 2,
+        "min": null,
+        "max": 2,
+        "unit": "mm",
+        "sourceRefs": [
+          "boellhoff7434"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "primary-table",
+        "note": "Undatiertes Böllhoff-Produktblatt; zweiter unabhängiger Herstellerbeleg und Abgleich der endgültigen ISO-7434:2024-Tabelle fehlen."
+      },
+      "t_min": {
+        "nominal": 1.6,
+        "min": 1.6,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "boellhoff7434"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "primary-table",
+        "note": "Undatiertes Böllhoff-Produktblatt; zweiter unabhängiger Herstellerbeleg und Abgleich der endgültigen ISO-7434:2024-Tabelle fehlen."
+      },
+      "df_min": {
+        "nominal": null,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "boellhoff7434"
+        ],
+        "status": "missing",
+        "verification": false,
+        "verificationMethod": "primary-table",
+        "note": "Norm verweist auf Gewinde-Kerndurchmesser nach ISO 724; hier kein eigener Zahlenwert aus einer anderen Quelle eingesetzt."
+      },
+      "dt_max": {
+        "nominal": 1.5,
+        "min": null,
+        "max": 1.5,
+        "unit": "mm",
+        "sourceRefs": [
+          "boellhoff7434"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "primary-table",
+        "note": "Undatiertes Böllhoff-Produktblatt; zweiter unabhängiger Herstellerbeleg und Abgleich der endgültigen ISO-7434:2024-Tabelle fehlen."
+      },
+      "tipAngle": {
+        "nominal": null,
+        "min": null,
+        "max": null,
+        "unit": "deg",
+        "sourceRefs": [
+          "boellhoff7434"
+        ],
+        "status": "missing",
+        "verification": false,
+        "verificationMethod": "primary-table",
+        "note": "Die endgültige Ausgabe 2024 unterscheidet Referenzwinkel 90°/120°. Herstellerblatt zeigt einen älteren 90°±2°-Stand; kein Winkel stillschweigend vorbelegt."
+      },
+      "endLength": {
+        "nominal": null,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "boellhoff7434"
+        ],
+        "status": "missing",
+        "verification": false,
+        "verificationMethod": "primary-table",
+        "note": "Endlänge nicht unabhängig von Endkontur, Winkel und Gewindeauslauf bestimmt; keine fiktive Konuslänge."
+      }
+    },
+    "M8": {
+      "d_nom": {
+        "nominal": 8,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "boellhoff7434"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "primary-table",
+        "note": "Undatiertes Böllhoff-Produktblatt; zweiter unabhängiger Herstellerbeleg und Abgleich der endgültigen ISO-7434:2024-Tabelle fehlen."
+      },
+      "P": {
+        "nominal": 1.25,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "boellhoff7434"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "primary-table",
+        "note": "Undatiertes Böllhoff-Produktblatt; zweiter unabhängiger Herstellerbeleg und Abgleich der endgültigen ISO-7434:2024-Tabelle fehlen."
+      },
+      "n_nom": {
+        "nominal": 1.2,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "boellhoff7434"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "primary-table",
+        "note": "Undatiertes Böllhoff-Produktblatt; zweiter unabhängiger Herstellerbeleg und Abgleich der endgültigen ISO-7434:2024-Tabelle fehlen."
+      },
+      "n_max": {
+        "nominal": 1.51,
+        "min": null,
+        "max": 1.51,
+        "unit": "mm",
+        "sourceRefs": [
+          "boellhoff7434"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "primary-table",
+        "note": "Undatiertes Böllhoff-Produktblatt; zweiter unabhängiger Herstellerbeleg und Abgleich der endgültigen ISO-7434:2024-Tabelle fehlen."
+      },
+      "n_min": {
+        "nominal": 1.26,
+        "min": 1.26,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "boellhoff7434"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "primary-table",
+        "note": "Undatiertes Böllhoff-Produktblatt; zweiter unabhängiger Herstellerbeleg und Abgleich der endgültigen ISO-7434:2024-Tabelle fehlen."
+      },
+      "t_max": {
+        "nominal": 2.5,
+        "min": null,
+        "max": 2.5,
+        "unit": "mm",
+        "sourceRefs": [
+          "boellhoff7434"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "primary-table",
+        "note": "Undatiertes Böllhoff-Produktblatt; zweiter unabhängiger Herstellerbeleg und Abgleich der endgültigen ISO-7434:2024-Tabelle fehlen."
+      },
+      "t_min": {
+        "nominal": 2,
+        "min": 2,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "boellhoff7434"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "primary-table",
+        "note": "Undatiertes Böllhoff-Produktblatt; zweiter unabhängiger Herstellerbeleg und Abgleich der endgültigen ISO-7434:2024-Tabelle fehlen."
+      },
+      "df_min": {
+        "nominal": null,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "boellhoff7434"
+        ],
+        "status": "missing",
+        "verification": false,
+        "verificationMethod": "primary-table",
+        "note": "Norm verweist auf Gewinde-Kerndurchmesser nach ISO 724; hier kein eigener Zahlenwert aus einer anderen Quelle eingesetzt."
+      },
+      "dt_max": {
+        "nominal": 2,
+        "min": null,
+        "max": 2,
+        "unit": "mm",
+        "sourceRefs": [
+          "boellhoff7434"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "primary-table",
+        "note": "Undatiertes Böllhoff-Produktblatt; zweiter unabhängiger Herstellerbeleg und Abgleich der endgültigen ISO-7434:2024-Tabelle fehlen."
+      },
+      "tipAngle": {
+        "nominal": null,
+        "min": null,
+        "max": null,
+        "unit": "deg",
+        "sourceRefs": [
+          "boellhoff7434"
+        ],
+        "status": "missing",
+        "verification": false,
+        "verificationMethod": "primary-table",
+        "note": "Die endgültige Ausgabe 2024 unterscheidet Referenzwinkel 90°/120°. Herstellerblatt zeigt einen älteren 90°±2°-Stand; kein Winkel stillschweigend vorbelegt."
+      },
+      "endLength": {
+        "nominal": null,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "boellhoff7434"
+        ],
+        "status": "missing",
+        "verification": false,
+        "verificationMethod": "primary-table",
+        "note": "Endlänge nicht unabhängig von Endkontur, Winkel und Gewindeauslauf bestimmt; keine fiktive Konuslänge."
+      }
+    },
+    "M10": {
+      "d_nom": {
+        "nominal": 10,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "boellhoff7434"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "primary-table",
+        "note": "Undatiertes Böllhoff-Produktblatt; zweiter unabhängiger Herstellerbeleg und Abgleich der endgültigen ISO-7434:2024-Tabelle fehlen."
+      },
+      "P": {
+        "nominal": 1.5,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "boellhoff7434"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "primary-table",
+        "note": "Undatiertes Böllhoff-Produktblatt; zweiter unabhängiger Herstellerbeleg und Abgleich der endgültigen ISO-7434:2024-Tabelle fehlen."
+      },
+      "n_nom": {
+        "nominal": 1.6,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "boellhoff7434"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "primary-table",
+        "note": "Undatiertes Böllhoff-Produktblatt; zweiter unabhängiger Herstellerbeleg und Abgleich der endgültigen ISO-7434:2024-Tabelle fehlen."
+      },
+      "n_max": {
+        "nominal": 1.91,
+        "min": null,
+        "max": 1.91,
+        "unit": "mm",
+        "sourceRefs": [
+          "boellhoff7434"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "primary-table",
+        "note": "Undatiertes Böllhoff-Produktblatt; zweiter unabhängiger Herstellerbeleg und Abgleich der endgültigen ISO-7434:2024-Tabelle fehlen."
+      },
+      "n_min": {
+        "nominal": 1.66,
+        "min": 1.66,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "boellhoff7434"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "primary-table",
+        "note": "Undatiertes Böllhoff-Produktblatt; zweiter unabhängiger Herstellerbeleg und Abgleich der endgültigen ISO-7434:2024-Tabelle fehlen."
+      },
+      "t_max": {
+        "nominal": 3,
+        "min": null,
+        "max": 3,
+        "unit": "mm",
+        "sourceRefs": [
+          "boellhoff7434"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "primary-table",
+        "note": "Undatiertes Böllhoff-Produktblatt; zweiter unabhängiger Herstellerbeleg und Abgleich der endgültigen ISO-7434:2024-Tabelle fehlen."
+      },
+      "t_min": {
+        "nominal": 2.4,
+        "min": 2.4,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "boellhoff7434"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "primary-table",
+        "note": "Undatiertes Böllhoff-Produktblatt; zweiter unabhängiger Herstellerbeleg und Abgleich der endgültigen ISO-7434:2024-Tabelle fehlen."
+      },
+      "df_min": {
+        "nominal": null,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "boellhoff7434"
+        ],
+        "status": "missing",
+        "verification": false,
+        "verificationMethod": "primary-table",
+        "note": "Norm verweist auf Gewinde-Kerndurchmesser nach ISO 724; hier kein eigener Zahlenwert aus einer anderen Quelle eingesetzt."
+      },
+      "dt_max": {
+        "nominal": 2.5,
+        "min": null,
+        "max": 2.5,
+        "unit": "mm",
+        "sourceRefs": [
+          "boellhoff7434"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "primary-table",
+        "note": "Undatiertes Böllhoff-Produktblatt; zweiter unabhängiger Herstellerbeleg und Abgleich der endgültigen ISO-7434:2024-Tabelle fehlen."
+      },
+      "tipAngle": {
+        "nominal": null,
+        "min": null,
+        "max": null,
+        "unit": "deg",
+        "sourceRefs": [
+          "boellhoff7434"
+        ],
+        "status": "missing",
+        "verification": false,
+        "verificationMethod": "primary-table",
+        "note": "Die endgültige Ausgabe 2024 unterscheidet Referenzwinkel 90°/120°. Herstellerblatt zeigt einen älteren 90°±2°-Stand; kein Winkel stillschweigend vorbelegt."
+      },
+      "endLength": {
+        "nominal": null,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "boellhoff7434"
+        ],
+        "status": "missing",
+        "verification": false,
+        "verificationMethod": "primary-table",
+        "note": "Endlänge nicht unabhängig von Endkontur, Winkel und Gewindeauslauf bestimmt; keine fiktive Konuslänge."
+      }
+    },
+    "M12": {
+      "d_nom": {
+        "nominal": 12,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "boellhoff7434"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "primary-table",
+        "note": "Undatiertes Böllhoff-Produktblatt; zweiter unabhängiger Herstellerbeleg und Abgleich der endgültigen ISO-7434:2024-Tabelle fehlen."
+      },
+      "P": {
+        "nominal": 1.75,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "boellhoff7434"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "primary-table",
+        "note": "Undatiertes Böllhoff-Produktblatt; zweiter unabhängiger Herstellerbeleg und Abgleich der endgültigen ISO-7434:2024-Tabelle fehlen."
+      },
+      "n_nom": {
+        "nominal": 2,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "boellhoff7434"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "primary-table",
+        "note": "Undatiertes Böllhoff-Produktblatt; zweiter unabhängiger Herstellerbeleg und Abgleich der endgültigen ISO-7434:2024-Tabelle fehlen."
+      },
+      "n_max": {
+        "nominal": 2.31,
+        "min": null,
+        "max": 2.31,
+        "unit": "mm",
+        "sourceRefs": [
+          "boellhoff7434"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "primary-table",
+        "note": "Undatiertes Böllhoff-Produktblatt; zweiter unabhängiger Herstellerbeleg und Abgleich der endgültigen ISO-7434:2024-Tabelle fehlen."
+      },
+      "n_min": {
+        "nominal": 2.06,
+        "min": 2.06,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "boellhoff7434"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "primary-table",
+        "note": "Undatiertes Böllhoff-Produktblatt; zweiter unabhängiger Herstellerbeleg und Abgleich der endgültigen ISO-7434:2024-Tabelle fehlen."
+      },
+      "t_max": {
+        "nominal": 3.6,
+        "min": null,
+        "max": 3.6,
+        "unit": "mm",
+        "sourceRefs": [
+          "boellhoff7434"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "primary-table",
+        "note": "Undatiertes Böllhoff-Produktblatt; zweiter unabhängiger Herstellerbeleg und Abgleich der endgültigen ISO-7434:2024-Tabelle fehlen."
+      },
+      "t_min": {
+        "nominal": 2.8,
+        "min": 2.8,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "boellhoff7434"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "primary-table",
+        "note": "Undatiertes Böllhoff-Produktblatt; zweiter unabhängiger Herstellerbeleg und Abgleich der endgültigen ISO-7434:2024-Tabelle fehlen."
+      },
+      "df_min": {
+        "nominal": null,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "boellhoff7434"
+        ],
+        "status": "missing",
+        "verification": false,
+        "verificationMethod": "primary-table",
+        "note": "Norm verweist auf Gewinde-Kerndurchmesser nach ISO 724; hier kein eigener Zahlenwert aus einer anderen Quelle eingesetzt."
+      },
+      "dt_max": {
+        "nominal": 3,
+        "min": null,
+        "max": 3,
+        "unit": "mm",
+        "sourceRefs": [
+          "boellhoff7434"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "primary-table",
+        "note": "Undatiertes Böllhoff-Produktblatt; zweiter unabhängiger Herstellerbeleg und Abgleich der endgültigen ISO-7434:2024-Tabelle fehlen."
+      },
+      "tipAngle": {
+        "nominal": null,
+        "min": null,
+        "max": null,
+        "unit": "deg",
+        "sourceRefs": [
+          "boellhoff7434"
+        ],
+        "status": "missing",
+        "verification": false,
+        "verificationMethod": "primary-table",
+        "note": "Die endgültige Ausgabe 2024 unterscheidet Referenzwinkel 90°/120°. Herstellerblatt zeigt einen älteren 90°±2°-Stand; kein Winkel stillschweigend vorbelegt."
+      },
+      "endLength": {
+        "nominal": null,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "boellhoff7434"
+        ],
+        "status": "missing",
+        "verification": false,
+        "verificationMethod": "primary-table",
+        "note": "Endlänge nicht unabhängig von Endkontur, Winkel und Gewindeauslauf bestimmt; keine fiktive Konuslänge."
+      }
+    }
+  },
+  "sourceMeta": {
+    "iso7434_2024": {
+      "url": "https://cdn.standards.iteh.ai/samples/80080/9ee11673c1ca4fc2a4fc79bb2327a0b1/ISO-7434-2024.pdf",
+      "titel": "ISO7434:2024, Originalvorschau (Ausgabe, Geltungsbereich und Änderungen; keine Maßtabelle)",
+      "edition": "2024",
+      "type": "standard-preview",
+      "accessed": "2026-11-26"
+    },
+    "boellhoff7434": {
+      "url": "https://eshop.boellhoff.de/out/media/pdf/ISO_7434_Stahl_14H___de.pdf",
+      "titel": "Böllhoff: ISO 7434 ähnlich DIN 553, Produktmaßtabelle",
+      "edition": null,
+      "type": "manufacturer-table",
+      "accessed": "2026-11-26"
+    }
+  },
+  "quellen": [
+    {
+      "id": "iso7434_2024",
+      "url": "https://cdn.standards.iteh.ai/samples/80080/9ee11673c1ca4fc2a4fc79bb2327a0b1/ISO-7434-2024.pdf",
+      "titel": "ISO7434:2024, Originalvorschau (Ausgabe, Geltungsbereich und Änderungen; keine Maßtabelle)",
+      "edition": "2024",
+      "type": "standard-preview",
+      "accessed": "2026-11-26"
+    },
+    {
+      "id": "boellhoff7434",
+      "url": "https://eshop.boellhoff.de/out/media/pdf/ISO_7434_Stahl_14H___de.pdf",
+      "titel": "Böllhoff: ISO 7434 ähnlich DIN 553, Produktmaßtabelle",
+      "edition": null,
+      "type": "manufacturer-table",
+      "accessed": "2026-11-26"
+    }
+  ],
+  "abweichungen": [
+    {
+      "status": "conflict",
+      "field": "tipAngle",
+      "sourceRefs": [
+        "boellhoff7434",
+        "iso7434_2024"
+      ],
+      "note": "Herstellerzeichnung 90°±2° und endgültiger Normänderungsvermerk 2024 mit 90°/120°-Referenzwinkel unterscheiden sich; kein festgelegter Default."
+    }
+  ],
   "status": "partial",
-  "coverage": "unresearched",
+  "coverage": "documented",
   "lengthCoverage": "unresearched",
   "hinweise": [
-    "Familie erfasst; vollständige Einzelmaß- und Längenrecherche steht noch aus. Keine Ersatzmaße einer ähnlichen Norm verwendet."
+    "Schlitzvorbelegung nutzt ausdrücklich die dokumentierte Mindestbreite n_min und Mindesttiefe t_min. n_nom ist getrennt erhalten; es liegt unter der tatsächlichen Mindestbreite.",
+    "Die vollständige Größen-Längen-Matrix ist in den geöffneten Quellen nicht sicher belegt. Keine Längen einer Nachbarnorm übertragen.",
+    "Endkontur und freie Winkel-/Herstellerausführung sind nicht als vollständig bestimmte Volumengeometrie ausgegeben.",
+    "Böllhoff-Zeichnung zeigt noch 90°±2° für die Spitze. Ausgabe 2024 hat Referenzwinkel 90°/120° ohne diese Toleranz. Keine Vermischung zum vermeintlich verifizierten Maßsatz.",
+    "Suchindex und aktuell erzeugtes Böllhoff-Blatt zeigen unterschiedliche Lieferauszüge. Zahlen der Größen M3/M4/M5/M6/M8/M10/M12 sind im indexierten Primärblatt dokumentiert; heutige Lieferbarkeit wird nicht behauptet."
   ],
   "normstatus": {
-    "status": "unresolved",
-    "note": "Ausgabe und Vollständigkeit nicht aus einer ähnlichen Norm ableiten."
+    "status": "edition-unresolved",
+    "edition": null,
+    "note": "Aktive Maße stammen aus undatiertem Herstellerblatt; Abgleich der endgültigen 2024-Maßtabelle bleibt offen."
   },
   "requiredGeometryFields": [
     "slotWidth",
-    "iT"
+    "iT",
+    "endLength"
   ],
   "sizeCoverage": {
     "M3": {
-      "status": "unresearched",
-      "note": "Keine Größenzeile vorhanden; daraus folgt kein Normverbot."
+      "status": "documented",
+      "sourceRefs": [
+        "boellhoff7434"
+      ],
+      "note": "Herstellermaßzeile ohne zugeordnete Normausgabe."
     },
     "M3.5": {
       "status": "unresearched",
       "note": "Keine Größenzeile vorhanden; daraus folgt kein Normverbot."
     },
     "M4": {
-      "status": "unresearched",
-      "note": "Keine Größenzeile vorhanden; daraus folgt kein Normverbot."
+      "status": "documented",
+      "sourceRefs": [
+        "boellhoff7434"
+      ],
+      "note": "Herstellermaßzeile ohne zugeordnete Normausgabe."
     },
     "M5": {
-      "status": "unresearched",
-      "note": "Keine Größenzeile vorhanden; daraus folgt kein Normverbot."
+      "status": "documented",
+      "sourceRefs": [
+        "boellhoff7434"
+      ],
+      "note": "Herstellermaßzeile ohne zugeordnete Normausgabe."
     },
     "M6": {
-      "status": "unresearched",
-      "note": "Keine Größenzeile vorhanden; daraus folgt kein Normverbot."
+      "status": "documented",
+      "sourceRefs": [
+        "boellhoff7434"
+      ],
+      "note": "Herstellermaßzeile ohne zugeordnete Normausgabe."
     },
     "M7": {
       "status": "unresearched",
       "note": "Keine Größenzeile vorhanden; daraus folgt kein Normverbot."
     },
     "M8": {
-      "status": "unresearched",
-      "note": "Keine Größenzeile vorhanden; daraus folgt kein Normverbot."
+      "status": "documented",
+      "sourceRefs": [
+        "boellhoff7434"
+      ],
+      "note": "Herstellermaßzeile ohne zugeordnete Normausgabe."
     },
     "M10": {
-      "status": "unresearched",
-      "note": "Keine Größenzeile vorhanden; daraus folgt kein Normverbot."
+      "status": "documented",
+      "sourceRefs": [
+        "boellhoff7434"
+      ],
+      "note": "Herstellermaßzeile ohne zugeordnete Normausgabe."
     },
     "M12": {
-      "status": "unresearched",
-      "note": "Keine Größenzeile vorhanden; daraus folgt kein Normverbot."
+      "status": "documented",
+      "sourceRefs": [
+        "boellhoff7434"
+      ],
+      "note": "Herstellermaßzeile ohne zugeordnete Normausgabe."
     },
     "M14": {
-      "status": "unresearched",
-      "note": "Keine Größenzeile vorhanden; daraus folgt kein Normverbot."
+      "status": "not-in-standard",
+      "sourceRefs": [
+        "iso7434_2024"
+      ],
+      "note": "Der dokumentierte Normgeltungsbereich endet bei M12; größere Sonderausführungen werden damit nicht ausgeschlossen."
     },
     "M16": {
-      "status": "unresearched",
-      "note": "Keine Größenzeile vorhanden; daraus folgt kein Normverbot."
+      "status": "not-in-standard",
+      "sourceRefs": [
+        "iso7434_2024"
+      ],
+      "note": "Der dokumentierte Normgeltungsbereich endet bei M12; größere Sonderausführungen werden damit nicht ausgeschlossen."
     },
     "M18": {
-      "status": "unresearched",
-      "note": "Keine Größenzeile vorhanden; daraus folgt kein Normverbot."
+      "status": "not-in-standard",
+      "sourceRefs": [
+        "iso7434_2024"
+      ],
+      "note": "Der dokumentierte Normgeltungsbereich endet bei M12; größere Sonderausführungen werden damit nicht ausgeschlossen."
     },
     "M20": {
-      "status": "unresearched",
-      "note": "Keine Größenzeile vorhanden; daraus folgt kein Normverbot."
+      "status": "not-in-standard",
+      "sourceRefs": [
+        "iso7434_2024"
+      ],
+      "note": "Der dokumentierte Normgeltungsbereich endet bei M12; größere Sonderausführungen werden damit nicht ausgeschlossen."
     },
     "M22": {
-      "status": "unresearched",
-      "note": "Keine Größenzeile vorhanden; daraus folgt kein Normverbot."
+      "status": "not-in-standard",
+      "sourceRefs": [
+        "iso7434_2024"
+      ],
+      "note": "Der dokumentierte Normgeltungsbereich endet bei M12; größere Sonderausführungen werden damit nicht ausgeschlossen."
     },
     "M24": {
-      "status": "unresearched",
-      "note": "Keine Größenzeile vorhanden; daraus folgt kein Normverbot."
+      "status": "not-in-standard",
+      "sourceRefs": [
+        "iso7434_2024"
+      ],
+      "note": "Der dokumentierte Normgeltungsbereich endet bei M12; größere Sonderausführungen werden damit nicht ausgeschlossen."
     },
     "M27": {
-      "status": "unresearched",
-      "note": "Keine Größenzeile vorhanden; daraus folgt kein Normverbot."
+      "status": "not-in-standard",
+      "sourceRefs": [
+        "iso7434_2024"
+      ],
+      "note": "Der dokumentierte Normgeltungsbereich endet bei M12; größere Sonderausführungen werden damit nicht ausgeschlossen."
     },
     "M30": {
-      "status": "unresearched",
-      "note": "Keine Größenzeile vorhanden; daraus folgt kein Normverbot."
+      "status": "not-in-standard",
+      "sourceRefs": [
+        "iso7434_2024"
+      ],
+      "note": "Der dokumentierte Normgeltungsbereich endet bei M12; größere Sonderausführungen werden damit nicht ausgeschlossen."
     },
     "M33": {
-      "status": "unresearched",
-      "note": "Keine Größenzeile vorhanden; daraus folgt kein Normverbot."
+      "status": "not-in-standard",
+      "sourceRefs": [
+        "iso7434_2024"
+      ],
+      "note": "Der dokumentierte Normgeltungsbereich endet bei M12; größere Sonderausführungen werden damit nicht ausgeschlossen."
     }
   },
   "pruefdatum": "2026-11-26",
@@ -110,5 +1437,7 @@
     "status": "unresearched",
     "values": [],
     "note": "Festigkeits-/Werkstoffklassen noch nicht vollständig aus dieser Norm belegt."
-  }
+  },
+  "currentEdition": "2024",
+  "schaftende": "spitze"
 }

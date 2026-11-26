@@ -1,0 +1,11 @@
+{
+  "version": "ranking-v1",
+  "status": "provisional",
+  "technicalSuitabilityFirst": true,
+  "lowestPriceWithinTechnicalTier": true,
+  "weights": {"force": 0.3, "stations": 0.2, "size": 0.2, "length": 0.15, "output": 0.15, "solidRivetJBF": 0.01},
+  "display": {"recommendations": 1, "alternatives": 2},
+  "economicChangeThresholdPercent": 10,
+  "economicChangeThresholdStatus": "provisional",
+  "calibration": "Only approved comparisons can propose new weights; activation requires Hans."
+}

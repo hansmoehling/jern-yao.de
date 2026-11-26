@@ -1,0 +1,98 @@
+{
+  "Die Variante hat keine Reservestation.": [
+    "La variante non ha stazioni di riserva.",
+    "Različica nima rezervne postaje.",
+    "The variant has no spare station.",
+    "该方案没有备用工位。"
+  ],
+  "Stationsreserve sinkt von {before} auf {after}.": [
+    "La riserva di stazioni scende da {before} a {after}.",
+    "Rezerva postaj se zmanjša s {before} na {after}.",
+    "Spare stations decrease from {before} to {after}.",
+    "备用工位从 {before} 个减少至 {after} 个。"
+  ],
+  "Die Variante benötigt {after} statt {before} Umformstadien.": [
+    "La variante richiede {after} fasi di formatura invece di {before}.",
+    "Različica potrebuje {after} faz preoblikovanja namesto {before}.",
+    "The variant requires {after} forming stages instead of {before}.",
+    "该方案需要 {after} 道成形工序，原方案为 {before} 道。"
+  ],
+  "{criterion}: Die Variante liegt im Grenzbereich.": [
+    "{criterion}: la variante è vicina al limite.",
+    "{criterion}: različica je blizu meje.",
+    "{criterion}: the variant is near the limit.",
+    "{criterion}：该方案接近极限。"
+  ],
+  "Dieser Drahtdurchmesser ist bereits ausgewählt.": [
+    "Questo diametro del filo è già selezionato.",
+    "Ta premer žice je že izbran.",
+    "This wire diameter is already selected.",
+    "已选用此线材直径。"
+  ],
+  "Die Drahtvariante konnte technisch nicht vollständig berechnet werden.": [
+    "Non è stato possibile completare il calcolo tecnico della variante del filo.",
+    "Tehničnega izračuna različice žice ni bilo mogoče dokončati.",
+    "The technical calculation for this wire variant could not be completed.",
+    "此线材方案的技术计算未能完成。"
+  ],
+  "Für diese Drahtvariante fehlen vollständige Eingaben oder ein gültiges Prozessmodell.": [
+    "Per questa variante del filo mancano dati completi o un modello di processo valido.",
+    "Za to različico žice manjkajo popolni podatki ali veljaven procesni model.",
+    "This wire variant lacks complete inputs or a valid process model.",
+    "此线材方案缺少完整输入或有效工艺模型。"
+  ],
+  "Dünnerer Draht bedeutet mehr Staucharbeit: passenden weichgeglühten Lieferzustand und belegte Fließkurve prüfen.": [
+    "Un filo più sottile richiede più ricalcatura: verificare lo stato di fornitura ricotto dolce e una curva di flusso documentata compatibile.",
+    "Tanjša žica pomeni več nakrčevanja: preverite ustrezno mehko žarjeno dobavno stanje in dokazano krivuljo tečenja.",
+    "Thinner wire requires more upsetting: check a suitable soft-annealed supply condition and a documented matching flow curve.",
+    "较细线材需要更多镦粗：请核查适用的软化退火交货状态及有依据的对应流动应力曲线。"
+  ],
+  "Für diese Drahtvariante wurde keine technisch zulässige Maschine gefunden.": [
+    "Non è stata trovata una macchina tecnicamente ammissibile per questa variante del filo.",
+    "Za to različico žice ni bil najden tehnično ustrezen stroj.",
+    "No technically admissible machine was found for this wire variant.",
+    "未找到适用于此线材方案的机器。"
+  ],
+  "Kraftprüfung offen; die Variante bleibt ein Konzept und wird nicht als Einsparung empfohlen.": [
+    "Verifica della forza ancora aperta; la variante resta un concetto e non viene raccomandata come risparmio.",
+    "Preverjanje sile je odprto; različica ostaja koncept in ni priporočena kot prihranek.",
+    "Force assessment pending; the variant remains a concept and is not recommended as a saving.",
+    "压力评估未完成；该方案仍属概念，不作为节省投资的建议。"
+  ],
+  "Ohne belastbare Ausgangsempfehlung ist kein wirtschaftlicher Variantenvergleich möglich.": [
+    "Senza una raccomandazione iniziale attendibile non è possibile un confronto economico tra varianti.",
+    "Brez zanesljivega izhodiščnega priporočila gospodarska primerjava različic ni mogoča.",
+    "An economic comparison needs a reliable baseline recommendation.",
+    "缺少可靠的基准推荐，无法进行方案经济比较。"
+  ],
+  "Der technische Prüfstatus verschlechtert sich; kein Einsparungsvorschlag.": [
+    "Lo stato della verifica tecnica peggiora; nessuna proposta di risparmio.",
+    "Stanje tehničnega preverjanja se poslabša; brez predloga prihranka.",
+    "Technical assessment status deteriorates; no saving suggested.",
+    "技术检查状态变差；不建议以此节省投资。"
+  ],
+  "Gemeinsame Ausbringungs- oder Preisgrundlage fehlt; keine belegte Einsparung.": [
+    "Manca una base comune di produzione o prezzo; nessun risparmio dimostrato.",
+    "Manjka skupna osnova proizvodnje ali cene; prihranek ni dokazan.",
+    "Shared output or price basis missing; no substantiated saving.",
+    "缺少共同的产出或价格依据；无法证明投资收益改善。"
+  ],
+  "Verbesserung unter der vorläufigen Schwelle von {threshold} %.": [
+    "Miglioramento inferiore alla soglia provvisoria del {threshold} %.",
+    "Izboljšanje je pod začasnim pragom {threshold} %.",
+    "Improvement below the provisional threshold of {threshold} %.",
+    "改善幅度低于暂定阈值 {threshold} %。"
+  ],
+  "Bei vergleichbarem technischem Prüfstatus steigt die nutzbare Ausbringung pro Investition um mindestens {threshold} %.": [
+    "A parità di stato di verifica tecnica, la produzione utile per investimento aumenta di almeno il {threshold} %.",
+    "Ob primerljivem stanju tehničnega preverjanja se uporabna proizvodnja na vložek poveča vsaj za {threshold} %.",
+    "With comparable technical assessment status, usable output per investment increases by at least {threshold} %.",
+    "在技术检查状态可比时，单位投资的可用产出至少提高 {threshold} %。"
+  ],
+  "Die Variante liegt bei einzelnen Prüfungen im Grenzbereich.": [
+    "La variante è vicina al limite in alcune verifiche.",
+    "Različica je pri posameznih preverjanjih blizu meje.",
+    "The variant is near the limit in some checks.",
+    "该方案在部分检查中接近极限。"
+  ]
+}

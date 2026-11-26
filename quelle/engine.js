@@ -11,6 +11,7 @@
   const RM_PRESETS = RM_PRESET_EMBEDDED || (typeof require === 'function' ? require('./vorbelegung/rm.json') : null);
   const RM_POLICY_VERSION = 'rm-v1';
   const NUT_MODEL=typeof require==='function'?require('./nut-model.js'):root.JYNutModel;
+  const RANKING=typeof require==='function'?require('./machine-ranking.js'):root.JYMachineRanking;
 
   // Katalogidentitäten und Herstellerwerte werden von werkstoffe_bauen.py ergänzt.
   // Die 14 bestehenden C/n-Ansätze sind Näherungen, keine neu verifizierten Fließkurven.
@@ -245,19 +246,17 @@
     if ((pos(e.kD) || pos(e.kH) || claw) && !(pos(e.kD) && pos(e.kH))) return fail('Kopf-Hüllmaße vollständig angeben');
     if (pos(e.nD) || pos(e.nT)) return fail('Zusätzlichen Napf im Sonderprofil mit Lage und Überlappung im Baukasten beschreiben');
     const sD=e.sD, sL=e.sL, kD=headless?0:e.kD||0, kH=headless?0:e.kH||0;
-    const tipLength=e.tipLength||0, shaftArea=kreis(sD), missing=[];
+    const rolledThreadTip=['self-tapping','thermoplastic','duo-taptite','trilobular'].includes(family);
+    const tipLength=rolledThreadTip?0:e.tipLength||0, shaftArea=kreis(sD), missing=[];
     if (tipLength>sL) return fail('Spitzenlänge darf die gesamte Schaftlänge nicht übersteigen');
-    if (family==='duo-taptite'&&!pos(tipLength)) return fail('Duo-Taptite benötigt einen eigenen Spitzenbereich mit Länge und Profilfläche');
     if (family==='trilobular'&&tipLength>0) return fail('Spitzenbereich des trilobularen Schafts separat im Baukasten beschreiben');
     const bodyLength=sL-tipLength;
     if (profiled&&pos(e.sArea)&&e.sArea>shaftArea+1e-9) return fail('Profilquerschnitt darf den Schaft-Hüllkreis nicht überschreiten');
-    if (family==='duo-taptite'&&pos(e.tipArea)&&e.tipArea>shaftArea+1e-9) return fail('Spitzenprofilfläche darf den Schaft-Hüllkreis nicht überschreiten');
     const bodyArea=profiled?(pos(e.sArea)?e.sArea:null):shaftArea;
     if (bodyLength>0&&bodyArea===null) missing.push('Realen Profilquerschnitt des Schafts ergänzen');
     let tipVolume=0, tipDiameter=null;
     if (tipLength>0) {
-      if (family==='duo-taptite') { tipVolume=pos(e.tipArea)?e.tipArea*tipLength:null; if(tipVolume===null)missing.push('Realen Profilquerschnitt des Duo-Spitzenbereichs ergänzen'); }
-      else {
+      {
         if (!Number.isFinite(e.tipDiameter)||e.tipDiameter<0||e.tipDiameter>sD) return fail('Enddurchmesser der Konusspitze zwischen null und Schaft-Hülldurchmesser angeben');
         tipDiameter=e.tipDiameter;
         tipVolume=Math.PI*tipLength*(sD*sD+sD*tipDiameter+tipDiameter*tipDiameter)/12;
@@ -314,7 +313,7 @@
     if(kH>0)add(claw?'Krallenkopf als äußeren Mitnahmekopf formen':'Kopf / Bund formen','Kopf / Bund');
     if(e.kopfForm==='abgratet')add('Sechskant abgraten','Kopf / Bund, Außenkontur');
     if(drive)add('Innenantrieb formen: '+drive.label,headless?'Kopflose Stirnseite':drive.depth>kH?'Kopf / Bund und Schaft':'Kopf / Bund');
-    const forceReason='Profil-, Spitzen- oder Antriebskontur und Werkzeugkonzept sind noch nicht als Kraftmodell abgebildet';
+    const forceReason=tipLength>0?'Profil-, Spitzen- oder Antriebskontur und Werkzeugkonzept sind noch nicht als Kraftmodell abgebildet':'Profil- oder Antriebskontur und Werkzeugkonzept sind noch nicht als Kraftmodell abgebildet';
     out.hinweise.push(forceReason);
     out.hinweise.push('Qualitative Operationsfolge; Verteilung auf Maschinenstationen und Zwischenformen noch festlegen');
     out.hinweise.push('Abschnitt aus Nettoteilvolumen; zusätzliche Beschnitt- und Butzenverluste sind noch festzulegen');
@@ -338,20 +337,28 @@
     if(suppliedSegments&&(!Array.isArray(e.shaftSegments)||!e.shaftSegments.length||e.shaftSegments.length>32))return fail('Schaftsegmente als vollständige Folge von Durchmesser und Länge angeben');
     const segments=suppliedSegments?e.shaftSegments.map(s=>({diameter:s?.diameter,length:s?.length})):[{diameter:e.sD,length:e.sL}];
     if(segments.some(s=>!pos(s.diameter)||!pos(s.length)||s.diameter>1e6||s.length>1e6))return fail('Jedes Schaftsegment benötigt positiven Durchmesser und positive Länge');
+    const rolledThreadTip=['self-tapping','thermoplastic','duo-taptite','trilobular'].includes(e.threadFamily);
+    // tipLength/tipDiameter describe the finished, rolled thread tip. Only
+    // explicit endLength/endDiameter describe a pressed tip on these screws.
+    const endLength=e.endLength??(rolledThreadTip?undefined:e.tipLength),endDiameter=e.endDiameter??(rolledThreadTip?undefined:e.tipDiameter);
     const end=e.schaftende||'voll';let tip=null;
+    const headlessEnd=e.standardKind==='headless'||['none','kopflos'].includes(e.kopfTyp||e.kopfForm);
+    const explicitEndContour=pos(endDiameter)&&(pos(endLength)||pos(e.tipAngle)&&e.tipAngle<180);
+    const minorEndEnvelope=end==='kuppe'||end==='kegelstumpf_flach'&&!headlessEnd&&!explicitEndContour;
     if(end==='zapfen'){
-      const last=segments.at(-1),length=e.endLength??e.tipLength,diameter=e.endDiameter??e.tipDiameter;
+      const last=segments.at(-1),length=endLength,diameter=endDiameter;
       if(!pos(length)||length>=last.length||!pos(diameter)||diameter>=last.diameter)return fail('Zapfen benötigt Durchmesser unter Schaft-Ø und Länge innerhalb des letzten Schaftsegments');
       last.length-=length;segments.push({diameter,length});
     }
     const shaftLength=segments.reduce((n,s)=>n+s.length,0);let shaftVolume=segments.reduce((n,s)=>n+kreis(s.diameter)*s.length,0);
-    if(end==='spitze'){
-      const last=segments.at(-1),diameter=e.endDiameter??e.tipDiameter??0,angle=e.tipAngle??90;
-      if(!nonneg(diameter)||diameter>=last.diameter||!pos(angle)||angle>=180)return fail('Spitze benötigt Enddurchmesser unter Schaft-Ø und gültigen Spitzenwinkel');
-      const length=e.endLength??e.tipLength??(last.diameter-diameter)/(2*Math.tan(angle*Math.PI/360));
+    if(['spitze','kegelstumpf_flach'].includes(end)&&!minorEndEnvelope){
+      if(rolledThreadTip&&(!pos(e.endLength)||!nonneg(e.endDiameter)))return fail('Gepresste Vorformspitze benötigt eigene Endlänge und eigenen Enddurchmesser; Gewindespitze entsteht beim Walzen');
+      const last=segments.at(-1),diameter=endDiameter??0,angle=e.tipAngle??90;
+      if(!nonneg(diameter)||diameter>=last.diameter||end==='kegelstumpf_flach'&&!pos(diameter)||!pos(angle)||angle>=180)return fail('Spitze benötigt Enddurchmesser unter Schaft-Ø und gültigen Spitzenwinkel');
+      const length=endLength??(last.diameter-diameter)/(2*Math.tan(angle*Math.PI/360));
       if(!pos(length)||length>last.length)return fail('Spitzenlänge muss innerhalb des letzten Schaftsegments liegen');
       const volume=coneVolume(last.diameter,diameter,length);shaftVolume-=kreis(last.diameter)*length-volume;
-      tip={length,diameter,baseDiameter:last.diameter,volume,angle};
+      tip={length,diameter,baseDiameter:last.diameter,volume,angle:2*Math.atan((last.diameter-diameter)/(2*length))*180/Math.PI};
     }
     if(suppliedSegments&&e.sL!==undefined&&Math.abs(e.sL-shaftLength)>1e-7*Math.max(1,shaftLength))return fail('Summe der Schaftsegmentlängen muss der Schaftlänge entsprechen');
     const type=e.kopfTyp||e.kopfForm||'zylinder',shape=type==='rund'?'zylinder':type==='none'?'kopflos':type;
@@ -390,7 +397,8 @@
     // z is measured from the head bearing plane towards the die-side end.
     function shaftDiameterAt(z){if(tip&&z>shaftLength-tip.length)return tip.baseDiameter+(tip.diameter-tip.baseDiameter)*(z-shaftLength+tip.length)/tip.length;let start=0;for(const s of segments){if(z<=start+s.length+1e-10)return s.diameter;start+=s.length;}return segments.at(-1).diameter;}
     function minShaftDiameter(from,to){let start=0,min=Infinity;for(const s of segments){if(start+s.length>from&&start<to)min=Math.min(min,s.diameter);start+=s.length;}if(tip&&to>shaftLength-tip.length)min=Math.min(min,shaftDiameterAt(Math.min(to,shaftLength)));return min;}
-    let cavity={type:end,volume:0,depth:0,wall:null,bottom:null,through:false,notes:[]};
+    let cavity={type:end,volume:0,depth:0,wall:null,bottom:null,through:false,notes:minorEndEnvelope?['Kleine Endkuppe oder Gewindeanfangsform im Volumen mit voller Schafthülle gerechnet; keine zusätzliche Umformoperation angesetzt.']:[]};
+    if(minorEndEnvelope)cavity.assumption={origin:'assumption',scope:'minor-end-contour',volumeModel:'full-envelope'};
     if(['halbhohl','rohr'].includes(end)){
       const db=e.d_b,tb=end==='rohr'?totalLength:e.t_b;
       if(!pos(db)||!pos(tb)||db>1e6||tb>1e6)return fail('Schaftendbohrung benötigt Durchmesser d_b und Tiefe t_b');
@@ -415,6 +423,7 @@
       if(!e.bottomShape&&!through)cavity.notes.push('Schaftendbohrung mit flachem Grund gerechnet; Grundform als Prozessannahme.');
       if(bottom==='cone')cavity.notes.push('Kegelgrund '+z(angle)+'° als Geometrie-/Prozessannahme, nicht aus der Normgröße abgeleitet.');
     }else if(!['voll','kuppe','kegelstumpf_flach','spitze','zapfen'].includes(end))return fail('Schaftende '+end+' mit eigenem Längen-/Durchmesserprofil im Baukasten beschreiben');
+    if(rolledThreadTip)cavity.notes.push('Gewindespitze entsteht beim Walzen. Ihre Fertigmaße verändern weder das Volumen des Pressrohlings noch die Pressstufen.');
     function driveVolume(drive){
       if(!drive||drive.family!=='hex'||pos(e.iVol))return drive?.volume||0;
       const ap=e.iSW/2,corner=ap/Math.cos(Math.PI/6),hex=sechskant(e.iSW);
@@ -454,12 +463,18 @@
     if(e.typ!=='mutter'&&e.kopfTyp)e={...e,kopfForm:e.kopfTyp==='zylinder'?'rund':e.kopfTyp==='kopflos'?'none':e.kopfTyp};
     // Hidden fields from an explicitly deselected operation are not inputs.
     const inactive = new Set();
+    const rolledThreadTip=e.typ!=='mutter'&&['self-tapping','thermoplastic','duo-taptite','trilobular'].includes(e.threadFamily);
+    if(rolledThreadTip){
+      ['tipLength','tipDiameter','tipArea'].forEach(key=>inactive.add(key));
+      out.hinweise.push('Gewindespitze entsteht beim Walzen. Ihre Fertigmaße verändern weder das Volumen des Pressrohlings noch die Pressstufen.');
+      out.secondaryOperations=[{code:'thread-tip-rolling',label:'Gewindespitze walzen',stage:'after-cold-forming'}];
+    }
     if (e.iTyp === 'none') ['iSW', 'iT', 'iVol'].forEach(key => inactive.add(key));
     else if (e.iTyp && e.iTyp !== 'hex') inactive.add('iSW');
     if (e.wirePreparation !== 'inline-drawing') inactive.add('rodDiameter');
     if (!['sechskant', 'abgratet','sechskant_bund'].includes(e.kopfTyp||e.kopfForm)) inactive.add('kSW');
     if (e.kopfForm === 'none') ['kD', 'kH', 'kVol'].forEach(key => inactive.add(key));
-    if (e.threadFamily === 'none') ['sArea', 'tipArea',...(['spitze','zapfen'].includes(e.schaftende)?[]:['tipLength', 'tipDiameter'])].forEach(key => inactive.add(key));
+    if (e.threadFamily === 'none') ['sArea', 'tipArea',...(['spitze','kegelstumpf_flach','zapfen'].includes(e.schaftende)?[]:['tipLength', 'tipDiameter'])].forEach(key => inactive.add(key));
     const numericKeys = ['d0','rodDiameter','rm','sD','sL','kD','kSW','kH','sArea','tipArea','tipLength','tipDiameter','kVol','iSW','iT','iVol','nD','nT','mM','mSW','mH','mLoch','mFlansch','mFlanschH','masse','lStempel','kC','capHeight','f','flangeDiameter','flangeHeight','dc','c','alpha','headBaseDiameter','d_b','t_b','bottomAngle','endLength','endDiameter','tipAngle'];
     for (const key of numericKeys) if (!inactive.has(key) && e[key] !== undefined && e[key] !== null && typeof e[key] !== 'number') return invalid('Ungültiger Zahlenwert: ' + key);
     for (const [key, value] of Object.entries(e)) {
@@ -612,7 +627,7 @@
       Lstempel = Number.isFinite(e.lStempel) ? e.lStempel : kopfH;
       if(geometry){
         out.geometry={model:'bolt-geometry-v1',headType:geometry.type,headVolumeMm3:geometry.headVolume,headHeightMm:kopfH,shaftVolumeMm3:Vs,shaftSegments:geometry.segments,shaftEnd:{...endCavity},tip:geometry.tip,volumeSource:'analytic-shapes',blankBasis:'net-part-volume-plus-explicit-trimming'};
-        out.hinweise.push(...(endCavity?.notes||[]));
+        out.hinweise.push(...(endCavity?.notes||[]).filter(note=>!out.hinweise.includes(note)));
       }
       R('R-KF');
       // Schaft gegenüber Draht
@@ -1053,6 +1068,12 @@
 
   function waehle(maschinen, a, e, P) {
     if (!a || !e || missingShaft(e) || a.fehlt?.length || !a.werkstoff || !a.stufen?.length || !pos(a.werte?.d0)) return { passend: [], bedingt: [], fast: [], alle: [] };
+    if(e.machinePolicy==='ranking-v1'&&RANKING){
+      const w=a.werte;
+      const ranking=RANKING.rankMachines(maschinen,{checkMachine:o=>pruefe(o,a,e,P),practice:P,
+        requirements:{forceTonnes:w.FN_muss_t,stations:w.stationen,blankDiameter:w.d0,blankLength:w.L0,partSize:e.mM,partLength:w.Lteil,knockoutLength:w.ko,demandPerMinute:e.soll?.ausbringung,solidRivet:e.standardKind==='rivet'&&e.schaftende==='voll'}});
+      return {passend:ranking.candidates.filter(r=>r.gesamt==='ok'),bedingt:ranking.candidates.filter(r=>r.gesamt!=='ok'),fast:ranking.all.filter(r=>r.gesamt==='nein'&&r.k.filter(x=>x.status==='nein').length===1),alle:ranking.all,ranking};
+    }
     const fam = machineFamilies(e);
     const res = maschinen.filter(o => fam.includes(o.f)).map(o => Object.assign({ o }, pruefe(o, a, e, P)));
     const ord = { ok: 0, knapp: 1, offen: 2, nein: 3 };
@@ -1102,7 +1123,7 @@
     const family = machineFamilies(e);
     const checks = pruefe(o, a, e, P);
     const rejected = checks.k.filter(k => k.status === 'nein').map(k => k.krit);
-    if (!family.includes(o.f)) rejected.push('Maschinenfamilie');
+    if (e.machinePolicy!=='ranking-v1'&&!family.includes(o.f)) rejected.push('Maschinenfamilie');
     if (rejected.length) {
       result.status = 'unsuitable';
       result.rationale = 'Kein Stadienkonzept zugeordnet. Nicht erfüllt: ' + rejected.join(', ') + '.';

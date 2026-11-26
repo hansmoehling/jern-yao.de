@@ -3,106 +3,2746 @@
   "version": "2026-11-26",
   "schemaVersion": 1,
   "label": "ISO7435 · Gewindestift mit Schlitz und Zapfen",
-  "edition": null,
-  "editionStatus": "unresolved",
+  "edition": "2024",
+  "editionStatus": "documented",
   "funktion": "gewindestift",
   "klasse": "bolzen",
   "kopfTyp": "kopflos",
   "antrieb": {
     "art": "slot"
   },
-  "feldzuordnung": {},
-  "groessen": {},
-  "fields": {},
-  "sourceMeta": {},
-  "quellen": [],
+  "feldzuordnung": {
+    "slotWidth": "n_min",
+    "iT": "t_min",
+    "endDiameter": "dp_max"
+  },
+  "groessen": {
+    "M1.6": {
+      "roh": {
+        "d_nom": 1.6,
+        "P": 0.35,
+        "n_nom": 0.25,
+        "n_max": 0.45,
+        "n_min": 0.31,
+        "t_max": 0.74,
+        "t_min": 0.56,
+        "df_min": null,
+        "dp_max": 0.8,
+        "dp_min": 0.66,
+        "endLength": null,
+        "z_long_min": null,
+        "z_long_max": null,
+        "z_short_min": null,
+        "z_short_max": null
+      },
+      "vorbelegung": {
+        "slotWidth": 0.31,
+        "iT": 0.56,
+        "endDiameter": 0.8
+      },
+      "steigungen": [
+        0.35
+      ],
+      "coverage": "documented",
+      "geometryStatus": "partial",
+      "missingGeometryFields": [
+        "endLength"
+      ],
+      "lengthCoverage": "unresearched",
+      "nachLaenge": {}
+    },
+    "M2": {
+      "roh": {
+        "d_nom": 2,
+        "P": 0.4,
+        "n_nom": 0.25,
+        "n_max": 0.45,
+        "n_min": 0.31,
+        "t_max": 0.84,
+        "t_min": 0.64,
+        "df_min": null,
+        "dp_max": 1,
+        "dp_min": 0.86,
+        "endLength": null,
+        "z_long_min": null,
+        "z_long_max": null,
+        "z_short_min": null,
+        "z_short_max": null
+      },
+      "vorbelegung": {
+        "slotWidth": 0.31,
+        "iT": 0.64,
+        "endDiameter": 1
+      },
+      "steigungen": [
+        0.4
+      ],
+      "coverage": "documented",
+      "geometryStatus": "partial",
+      "missingGeometryFields": [
+        "endLength"
+      ],
+      "lengthCoverage": "unresearched",
+      "nachLaenge": {}
+    },
+    "M2.5": {
+      "roh": {
+        "d_nom": 2.5,
+        "P": 0.45,
+        "n_nom": 0.4,
+        "n_max": 0.6,
+        "n_min": 0.46,
+        "t_max": 0.95,
+        "t_min": 0.72,
+        "df_min": null,
+        "dp_max": 1.5,
+        "dp_min": 1.25,
+        "endLength": null,
+        "z_long_min": null,
+        "z_long_max": null,
+        "z_short_min": null,
+        "z_short_max": null
+      },
+      "vorbelegung": {
+        "slotWidth": 0.46,
+        "iT": 0.72,
+        "endDiameter": 1.5
+      },
+      "steigungen": [
+        0.45
+      ],
+      "coverage": "documented",
+      "geometryStatus": "partial",
+      "missingGeometryFields": [
+        "endLength"
+      ],
+      "lengthCoverage": "unresearched",
+      "nachLaenge": {}
+    },
+    "M3": {
+      "roh": {
+        "d_nom": 3,
+        "P": 0.5,
+        "n_nom": 0.4,
+        "n_max": 0.6,
+        "n_min": 0.46,
+        "t_max": 1.05,
+        "t_min": 0.8,
+        "df_min": null,
+        "dp_max": 2,
+        "dp_min": 1.75,
+        "endLength": null,
+        "z_long_min": null,
+        "z_long_max": null,
+        "z_short_min": null,
+        "z_short_max": null
+      },
+      "vorbelegung": {
+        "slotWidth": 0.46,
+        "iT": 0.8,
+        "endDiameter": 2
+      },
+      "steigungen": [
+        0.5
+      ],
+      "coverage": "documented",
+      "geometryStatus": "partial",
+      "missingGeometryFields": [
+        "endLength"
+      ],
+      "lengthCoverage": "unresearched",
+      "nachLaenge": {}
+    },
+    "M3.5": {
+      "roh": {
+        "d_nom": 3.5,
+        "P": 0.6,
+        "n_nom": 0.5,
+        "n_max": 0.7,
+        "n_min": 0.56,
+        "t_max": 1.21,
+        "t_min": 0.96,
+        "df_min": null,
+        "dp_max": 2.2,
+        "dp_min": 1.95,
+        "endLength": null,
+        "z_long_min": null,
+        "z_long_max": null,
+        "z_short_min": null,
+        "z_short_max": null
+      },
+      "vorbelegung": {
+        "slotWidth": 0.56,
+        "iT": 0.96,
+        "endDiameter": 2.2
+      },
+      "steigungen": [
+        0.6
+      ],
+      "coverage": "documented",
+      "geometryStatus": "partial",
+      "missingGeometryFields": [
+        "endLength"
+      ],
+      "lengthCoverage": "unresearched",
+      "nachLaenge": {}
+    },
+    "M4": {
+      "roh": {
+        "d_nom": 4,
+        "P": 0.7,
+        "n_nom": 0.6,
+        "n_max": 0.8,
+        "n_min": 0.66,
+        "t_max": 1.42,
+        "t_min": 1.12,
+        "df_min": null,
+        "dp_max": 2.5,
+        "dp_min": 2.25,
+        "endLength": null,
+        "z_long_min": null,
+        "z_long_max": null,
+        "z_short_min": null,
+        "z_short_max": null
+      },
+      "vorbelegung": {
+        "slotWidth": 0.66,
+        "iT": 1.12,
+        "endDiameter": 2.5
+      },
+      "steigungen": [
+        0.7
+      ],
+      "coverage": "documented",
+      "geometryStatus": "partial",
+      "missingGeometryFields": [
+        "endLength"
+      ],
+      "lengthCoverage": "unresearched",
+      "nachLaenge": {}
+    },
+    "M5": {
+      "roh": {
+        "d_nom": 5,
+        "P": 0.8,
+        "n_nom": 0.8,
+        "n_max": 1,
+        "n_min": 0.86,
+        "t_max": 1.63,
+        "t_min": 1.28,
+        "df_min": null,
+        "dp_max": 3.5,
+        "dp_min": 3.2,
+        "endLength": null,
+        "z_long_min": null,
+        "z_long_max": null,
+        "z_short_min": null,
+        "z_short_max": null
+      },
+      "vorbelegung": {
+        "slotWidth": 0.86,
+        "iT": 1.28,
+        "endDiameter": 3.5
+      },
+      "steigungen": [
+        0.8
+      ],
+      "coverage": "documented",
+      "geometryStatus": "partial",
+      "missingGeometryFields": [
+        "endLength"
+      ],
+      "lengthCoverage": "unresearched",
+      "nachLaenge": {}
+    },
+    "M6": {
+      "roh": {
+        "d_nom": 6,
+        "P": 1,
+        "n_nom": 1,
+        "n_max": 1.2,
+        "n_min": 1.06,
+        "t_max": 2,
+        "t_min": 1.6,
+        "df_min": null,
+        "dp_max": 4,
+        "dp_min": 3.7,
+        "endLength": null,
+        "z_long_min": null,
+        "z_long_max": null,
+        "z_short_min": null,
+        "z_short_max": null
+      },
+      "vorbelegung": {
+        "slotWidth": 1.06,
+        "iT": 1.6,
+        "endDiameter": 4
+      },
+      "steigungen": [
+        1
+      ],
+      "coverage": "documented",
+      "geometryStatus": "partial",
+      "missingGeometryFields": [
+        "endLength"
+      ],
+      "lengthCoverage": "unresearched",
+      "nachLaenge": {}
+    },
+    "M8": {
+      "roh": {
+        "d_nom": 8,
+        "P": 1.25,
+        "n_nom": 1.2,
+        "n_max": 1.51,
+        "n_min": 1.26,
+        "t_max": 2.5,
+        "t_min": 2,
+        "df_min": null,
+        "dp_max": 5.5,
+        "dp_min": 5.2,
+        "endLength": null,
+        "z_long_min": null,
+        "z_long_max": null,
+        "z_short_min": null,
+        "z_short_max": null
+      },
+      "vorbelegung": {
+        "slotWidth": 1.26,
+        "iT": 2,
+        "endDiameter": 5.5
+      },
+      "steigungen": [
+        1.25
+      ],
+      "coverage": "documented",
+      "geometryStatus": "partial",
+      "missingGeometryFields": [
+        "endLength"
+      ],
+      "lengthCoverage": "unresearched",
+      "nachLaenge": {}
+    },
+    "M10": {
+      "roh": {
+        "d_nom": 10,
+        "P": 1.5,
+        "n_nom": 1.6,
+        "n_max": 1.91,
+        "n_min": 1.66,
+        "t_max": 3,
+        "t_min": 2.4,
+        "df_min": null,
+        "dp_max": 7,
+        "dp_min": 6.64,
+        "endLength": null,
+        "z_long_min": null,
+        "z_long_max": null,
+        "z_short_min": null,
+        "z_short_max": null
+      },
+      "vorbelegung": {
+        "slotWidth": 1.66,
+        "iT": 2.4,
+        "endDiameter": 7
+      },
+      "steigungen": [
+        1.5
+      ],
+      "coverage": "documented",
+      "geometryStatus": "partial",
+      "missingGeometryFields": [
+        "endLength"
+      ],
+      "lengthCoverage": "unresearched",
+      "nachLaenge": {}
+    },
+    "M12": {
+      "roh": {
+        "d_nom": 12,
+        "P": 1.75,
+        "n_nom": 2,
+        "n_max": 2.31,
+        "n_min": 2.06,
+        "t_max": 3.6,
+        "t_min": 2.8,
+        "df_min": null,
+        "dp_max": 8.5,
+        "dp_min": 8.14,
+        "endLength": null,
+        "z_long_min": null,
+        "z_long_max": null,
+        "z_short_min": null,
+        "z_short_max": null
+      },
+      "vorbelegung": {
+        "slotWidth": 2.06,
+        "iT": 2.8,
+        "endDiameter": 8.5
+      },
+      "steigungen": [
+        1.75
+      ],
+      "coverage": "documented",
+      "geometryStatus": "partial",
+      "missingGeometryFields": [
+        "endLength"
+      ],
+      "lengthCoverage": "unresearched",
+      "nachLaenge": {}
+    }
+  },
+  "fields": {
+    "M1.6": {
+      "d_nom": {
+        "nominal": 1.6,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso7435_2024"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "primary-table",
+        "note": "Einzelwert der angegebenen Tabelle; unabhängiger Zweitbeleg genau dieses Maßes noch offen."
+      },
+      "P": {
+        "nominal": 0.35,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso7435_2024"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "primary-table",
+        "note": "Einzelwert der angegebenen Tabelle; unabhängiger Zweitbeleg genau dieses Maßes noch offen."
+      },
+      "n_nom": {
+        "nominal": 0.25,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso7435_2024"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "primary-table",
+        "note": "Einzelwert der angegebenen Tabelle; unabhängiger Zweitbeleg genau dieses Maßes noch offen."
+      },
+      "n_max": {
+        "nominal": 0.45,
+        "min": null,
+        "max": 0.45,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso7435_2024"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "primary-table",
+        "note": "Einzelwert der angegebenen Tabelle; unabhängiger Zweitbeleg genau dieses Maßes noch offen."
+      },
+      "n_min": {
+        "nominal": 0.31,
+        "min": 0.31,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso7435_2024"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "primary-table",
+        "note": "Einzelwert der angegebenen Tabelle; unabhängiger Zweitbeleg genau dieses Maßes noch offen."
+      },
+      "t_max": {
+        "nominal": 0.74,
+        "min": null,
+        "max": 0.74,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso7435_2024"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "primary-table",
+        "note": "Einzelwert der angegebenen Tabelle; unabhängiger Zweitbeleg genau dieses Maßes noch offen."
+      },
+      "t_min": {
+        "nominal": 0.56,
+        "min": 0.56,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso7435_2024"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "primary-table",
+        "note": "Einzelwert der angegebenen Tabelle; unabhängiger Zweitbeleg genau dieses Maßes noch offen."
+      },
+      "df_min": {
+        "nominal": null,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso7435_2024"
+        ],
+        "status": "missing",
+        "verification": false,
+        "verificationMethod": "primary-table",
+        "note": "Norm verweist auf Gewinde-Kerndurchmesser nach ISO 724; hier kein eigener Zahlenwert aus einer anderen Quelle eingesetzt."
+      },
+      "dp_max": {
+        "nominal": 0.8,
+        "min": null,
+        "max": 0.8,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso7435_2024"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "primary-table",
+        "note": "Einzelwert der angegebenen Tabelle; unabhängiger Zweitbeleg genau dieses Maßes noch offen."
+      },
+      "dp_min": {
+        "nominal": 0.66,
+        "min": 0.66,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso7435_2024"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "primary-table",
+        "note": "Einzelwert der angegebenen Tabelle; unabhängiger Zweitbeleg genau dieses Maßes noch offen."
+      },
+      "endLength": {
+        "nominal": null,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso7435_2024"
+        ],
+        "status": "missing",
+        "verification": false,
+        "verificationMethod": "primary-table",
+        "note": "Endlänge nicht unabhängig von Endkontur, Winkel und Gewindeauslauf bestimmt; keine fiktive Konuslänge."
+      },
+      "z_long_min": {
+        "nominal": null,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso7435_2024"
+        ],
+        "status": "missing",
+        "verification": false,
+        "verificationMethod": "primary-table",
+        "note": "Zapfenlänge hängt in Ausgabe 2024 von kurzer/regulärer Normlänge ab. Zugehörige Werte und Tabelle 2 aus dem geöffneten Auszug nicht sicher auslesbar."
+      },
+      "z_long_max": {
+        "nominal": null,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso7435_2024"
+        ],
+        "status": "missing",
+        "verification": false,
+        "verificationMethod": "primary-table",
+        "note": "Zapfenlänge hängt in Ausgabe 2024 von kurzer/regulärer Normlänge ab. Zugehörige Werte und Tabelle 2 aus dem geöffneten Auszug nicht sicher auslesbar."
+      },
+      "z_short_min": {
+        "nominal": null,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso7435_2024"
+        ],
+        "status": "missing",
+        "verification": false,
+        "verificationMethod": "primary-table",
+        "note": "Zapfenlänge hängt in Ausgabe 2024 von kurzer/regulärer Normlänge ab. Zugehörige Werte und Tabelle 2 aus dem geöffneten Auszug nicht sicher auslesbar."
+      },
+      "z_short_max": {
+        "nominal": null,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso7435_2024"
+        ],
+        "status": "missing",
+        "verification": false,
+        "verificationMethod": "primary-table",
+        "note": "Zapfenlänge hängt in Ausgabe 2024 von kurzer/regulärer Normlänge ab. Zugehörige Werte und Tabelle 2 aus dem geöffneten Auszug nicht sicher auslesbar."
+      }
+    },
+    "M2": {
+      "d_nom": {
+        "nominal": 2,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso7435_2024"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "primary-table",
+        "note": "Einzelwert der angegebenen Tabelle; unabhängiger Zweitbeleg genau dieses Maßes noch offen."
+      },
+      "P": {
+        "nominal": 0.4,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso7435_2024"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "primary-table",
+        "note": "Einzelwert der angegebenen Tabelle; unabhängiger Zweitbeleg genau dieses Maßes noch offen."
+      },
+      "n_nom": {
+        "nominal": 0.25,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso7435_2024"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "primary-table",
+        "note": "Einzelwert der angegebenen Tabelle; unabhängiger Zweitbeleg genau dieses Maßes noch offen."
+      },
+      "n_max": {
+        "nominal": 0.45,
+        "min": null,
+        "max": 0.45,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso7435_2024"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "primary-table",
+        "note": "Einzelwert der angegebenen Tabelle; unabhängiger Zweitbeleg genau dieses Maßes noch offen."
+      },
+      "n_min": {
+        "nominal": 0.31,
+        "min": 0.31,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso7435_2024"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "primary-table",
+        "note": "Einzelwert der angegebenen Tabelle; unabhängiger Zweitbeleg genau dieses Maßes noch offen."
+      },
+      "t_max": {
+        "nominal": 0.84,
+        "min": null,
+        "max": 0.84,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso7435_2024"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "primary-table",
+        "note": "Einzelwert der angegebenen Tabelle; unabhängiger Zweitbeleg genau dieses Maßes noch offen."
+      },
+      "t_min": {
+        "nominal": 0.64,
+        "min": 0.64,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso7435_2024"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "primary-table",
+        "note": "Einzelwert der angegebenen Tabelle; unabhängiger Zweitbeleg genau dieses Maßes noch offen."
+      },
+      "df_min": {
+        "nominal": null,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso7435_2024"
+        ],
+        "status": "missing",
+        "verification": false,
+        "verificationMethod": "primary-table",
+        "note": "Norm verweist auf Gewinde-Kerndurchmesser nach ISO 724; hier kein eigener Zahlenwert aus einer anderen Quelle eingesetzt."
+      },
+      "dp_max": {
+        "nominal": 1,
+        "min": null,
+        "max": 1,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso7435_2024"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "primary-table",
+        "note": "Einzelwert der angegebenen Tabelle; unabhängiger Zweitbeleg genau dieses Maßes noch offen."
+      },
+      "dp_min": {
+        "nominal": 0.86,
+        "min": 0.86,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso7435_2024"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "primary-table",
+        "note": "Einzelwert der angegebenen Tabelle; unabhängiger Zweitbeleg genau dieses Maßes noch offen."
+      },
+      "endLength": {
+        "nominal": null,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso7435_2024"
+        ],
+        "status": "missing",
+        "verification": false,
+        "verificationMethod": "primary-table",
+        "note": "Endlänge nicht unabhängig von Endkontur, Winkel und Gewindeauslauf bestimmt; keine fiktive Konuslänge."
+      },
+      "z_long_min": {
+        "nominal": null,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso7435_2024"
+        ],
+        "status": "missing",
+        "verification": false,
+        "verificationMethod": "primary-table",
+        "note": "Zapfenlänge hängt in Ausgabe 2024 von kurzer/regulärer Normlänge ab. Zugehörige Werte und Tabelle 2 aus dem geöffneten Auszug nicht sicher auslesbar."
+      },
+      "z_long_max": {
+        "nominal": null,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso7435_2024"
+        ],
+        "status": "missing",
+        "verification": false,
+        "verificationMethod": "primary-table",
+        "note": "Zapfenlänge hängt in Ausgabe 2024 von kurzer/regulärer Normlänge ab. Zugehörige Werte und Tabelle 2 aus dem geöffneten Auszug nicht sicher auslesbar."
+      },
+      "z_short_min": {
+        "nominal": null,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso7435_2024"
+        ],
+        "status": "missing",
+        "verification": false,
+        "verificationMethod": "primary-table",
+        "note": "Zapfenlänge hängt in Ausgabe 2024 von kurzer/regulärer Normlänge ab. Zugehörige Werte und Tabelle 2 aus dem geöffneten Auszug nicht sicher auslesbar."
+      },
+      "z_short_max": {
+        "nominal": null,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso7435_2024"
+        ],
+        "status": "missing",
+        "verification": false,
+        "verificationMethod": "primary-table",
+        "note": "Zapfenlänge hängt in Ausgabe 2024 von kurzer/regulärer Normlänge ab. Zugehörige Werte und Tabelle 2 aus dem geöffneten Auszug nicht sicher auslesbar."
+      }
+    },
+    "M2.5": {
+      "d_nom": {
+        "nominal": 2.5,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso7435_2024"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "primary-table",
+        "note": "Einzelwert der angegebenen Tabelle; unabhängiger Zweitbeleg genau dieses Maßes noch offen."
+      },
+      "P": {
+        "nominal": 0.45,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso7435_2024"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "primary-table",
+        "note": "Einzelwert der angegebenen Tabelle; unabhängiger Zweitbeleg genau dieses Maßes noch offen."
+      },
+      "n_nom": {
+        "nominal": 0.4,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso7435_2024"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "primary-table",
+        "note": "Einzelwert der angegebenen Tabelle; unabhängiger Zweitbeleg genau dieses Maßes noch offen."
+      },
+      "n_max": {
+        "nominal": 0.6,
+        "min": null,
+        "max": 0.6,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso7435_2024"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "primary-table",
+        "note": "Einzelwert der angegebenen Tabelle; unabhängiger Zweitbeleg genau dieses Maßes noch offen."
+      },
+      "n_min": {
+        "nominal": 0.46,
+        "min": 0.46,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso7435_2024"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "primary-table",
+        "note": "Einzelwert der angegebenen Tabelle; unabhängiger Zweitbeleg genau dieses Maßes noch offen."
+      },
+      "t_max": {
+        "nominal": 0.95,
+        "min": null,
+        "max": 0.95,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso7435_2024"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "primary-table",
+        "note": "Einzelwert der angegebenen Tabelle; unabhängiger Zweitbeleg genau dieses Maßes noch offen."
+      },
+      "t_min": {
+        "nominal": 0.72,
+        "min": 0.72,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso7435_2024"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "primary-table",
+        "note": "Einzelwert der angegebenen Tabelle; unabhängiger Zweitbeleg genau dieses Maßes noch offen."
+      },
+      "df_min": {
+        "nominal": null,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso7435_2024"
+        ],
+        "status": "missing",
+        "verification": false,
+        "verificationMethod": "primary-table",
+        "note": "Norm verweist auf Gewinde-Kerndurchmesser nach ISO 724; hier kein eigener Zahlenwert aus einer anderen Quelle eingesetzt."
+      },
+      "dp_max": {
+        "nominal": 1.5,
+        "min": null,
+        "max": 1.5,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso7435_2024"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "primary-table",
+        "note": "Einzelwert der angegebenen Tabelle; unabhängiger Zweitbeleg genau dieses Maßes noch offen."
+      },
+      "dp_min": {
+        "nominal": 1.25,
+        "min": 1.25,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso7435_2024"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "primary-table",
+        "note": "Einzelwert der angegebenen Tabelle; unabhängiger Zweitbeleg genau dieses Maßes noch offen."
+      },
+      "endLength": {
+        "nominal": null,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso7435_2024"
+        ],
+        "status": "missing",
+        "verification": false,
+        "verificationMethod": "primary-table",
+        "note": "Endlänge nicht unabhängig von Endkontur, Winkel und Gewindeauslauf bestimmt; keine fiktive Konuslänge."
+      },
+      "z_long_min": {
+        "nominal": null,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso7435_2024"
+        ],
+        "status": "missing",
+        "verification": false,
+        "verificationMethod": "primary-table",
+        "note": "Zapfenlänge hängt in Ausgabe 2024 von kurzer/regulärer Normlänge ab. Zugehörige Werte und Tabelle 2 aus dem geöffneten Auszug nicht sicher auslesbar."
+      },
+      "z_long_max": {
+        "nominal": null,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso7435_2024"
+        ],
+        "status": "missing",
+        "verification": false,
+        "verificationMethod": "primary-table",
+        "note": "Zapfenlänge hängt in Ausgabe 2024 von kurzer/regulärer Normlänge ab. Zugehörige Werte und Tabelle 2 aus dem geöffneten Auszug nicht sicher auslesbar."
+      },
+      "z_short_min": {
+        "nominal": null,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso7435_2024"
+        ],
+        "status": "missing",
+        "verification": false,
+        "verificationMethod": "primary-table",
+        "note": "Zapfenlänge hängt in Ausgabe 2024 von kurzer/regulärer Normlänge ab. Zugehörige Werte und Tabelle 2 aus dem geöffneten Auszug nicht sicher auslesbar."
+      },
+      "z_short_max": {
+        "nominal": null,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso7435_2024"
+        ],
+        "status": "missing",
+        "verification": false,
+        "verificationMethod": "primary-table",
+        "note": "Zapfenlänge hängt in Ausgabe 2024 von kurzer/regulärer Normlänge ab. Zugehörige Werte und Tabelle 2 aus dem geöffneten Auszug nicht sicher auslesbar."
+      }
+    },
+    "M3": {
+      "d_nom": {
+        "nominal": 3,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso7435_2024"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "primary-table",
+        "note": "Einzelwert der angegebenen Tabelle; unabhängiger Zweitbeleg genau dieses Maßes noch offen."
+      },
+      "P": {
+        "nominal": 0.5,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso7435_2024"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "primary-table",
+        "note": "Einzelwert der angegebenen Tabelle; unabhängiger Zweitbeleg genau dieses Maßes noch offen."
+      },
+      "n_nom": {
+        "nominal": 0.4,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso7435_2024"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "primary-table",
+        "note": "Einzelwert der angegebenen Tabelle; unabhängiger Zweitbeleg genau dieses Maßes noch offen."
+      },
+      "n_max": {
+        "nominal": 0.6,
+        "min": null,
+        "max": 0.6,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso7435_2024"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "primary-table",
+        "note": "Einzelwert der angegebenen Tabelle; unabhängiger Zweitbeleg genau dieses Maßes noch offen."
+      },
+      "n_min": {
+        "nominal": 0.46,
+        "min": 0.46,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso7435_2024"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "primary-table",
+        "note": "Einzelwert der angegebenen Tabelle; unabhängiger Zweitbeleg genau dieses Maßes noch offen."
+      },
+      "t_max": {
+        "nominal": 1.05,
+        "min": null,
+        "max": 1.05,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso7435_2024"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "primary-table",
+        "note": "Einzelwert der angegebenen Tabelle; unabhängiger Zweitbeleg genau dieses Maßes noch offen."
+      },
+      "t_min": {
+        "nominal": 0.8,
+        "min": 0.8,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso7435_2024"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "primary-table",
+        "note": "Einzelwert der angegebenen Tabelle; unabhängiger Zweitbeleg genau dieses Maßes noch offen."
+      },
+      "df_min": {
+        "nominal": null,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso7435_2024"
+        ],
+        "status": "missing",
+        "verification": false,
+        "verificationMethod": "primary-table",
+        "note": "Norm verweist auf Gewinde-Kerndurchmesser nach ISO 724; hier kein eigener Zahlenwert aus einer anderen Quelle eingesetzt."
+      },
+      "dp_max": {
+        "nominal": 2,
+        "min": null,
+        "max": 2,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso7435_2024"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "primary-table",
+        "note": "Einzelwert der angegebenen Tabelle; unabhängiger Zweitbeleg genau dieses Maßes noch offen."
+      },
+      "dp_min": {
+        "nominal": 1.75,
+        "min": 1.75,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso7435_2024"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "primary-table",
+        "note": "Einzelwert der angegebenen Tabelle; unabhängiger Zweitbeleg genau dieses Maßes noch offen."
+      },
+      "endLength": {
+        "nominal": null,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso7435_2024"
+        ],
+        "status": "missing",
+        "verification": false,
+        "verificationMethod": "primary-table",
+        "note": "Endlänge nicht unabhängig von Endkontur, Winkel und Gewindeauslauf bestimmt; keine fiktive Konuslänge."
+      },
+      "z_long_min": {
+        "nominal": null,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso7435_2024"
+        ],
+        "status": "missing",
+        "verification": false,
+        "verificationMethod": "primary-table",
+        "note": "Zapfenlänge hängt in Ausgabe 2024 von kurzer/regulärer Normlänge ab. Zugehörige Werte und Tabelle 2 aus dem geöffneten Auszug nicht sicher auslesbar."
+      },
+      "z_long_max": {
+        "nominal": null,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso7435_2024"
+        ],
+        "status": "missing",
+        "verification": false,
+        "verificationMethod": "primary-table",
+        "note": "Zapfenlänge hängt in Ausgabe 2024 von kurzer/regulärer Normlänge ab. Zugehörige Werte und Tabelle 2 aus dem geöffneten Auszug nicht sicher auslesbar."
+      },
+      "z_short_min": {
+        "nominal": null,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso7435_2024"
+        ],
+        "status": "missing",
+        "verification": false,
+        "verificationMethod": "primary-table",
+        "note": "Zapfenlänge hängt in Ausgabe 2024 von kurzer/regulärer Normlänge ab. Zugehörige Werte und Tabelle 2 aus dem geöffneten Auszug nicht sicher auslesbar."
+      },
+      "z_short_max": {
+        "nominal": null,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso7435_2024"
+        ],
+        "status": "missing",
+        "verification": false,
+        "verificationMethod": "primary-table",
+        "note": "Zapfenlänge hängt in Ausgabe 2024 von kurzer/regulärer Normlänge ab. Zugehörige Werte und Tabelle 2 aus dem geöffneten Auszug nicht sicher auslesbar."
+      }
+    },
+    "M3.5": {
+      "d_nom": {
+        "nominal": 3.5,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso7435_2024"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "primary-table",
+        "note": "Einzelwert der angegebenen Tabelle; unabhängiger Zweitbeleg genau dieses Maßes noch offen."
+      },
+      "P": {
+        "nominal": 0.6,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso7435_2024"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "primary-table",
+        "note": "Einzelwert der angegebenen Tabelle; unabhängiger Zweitbeleg genau dieses Maßes noch offen."
+      },
+      "n_nom": {
+        "nominal": 0.5,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso7435_2024"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "primary-table",
+        "note": "Einzelwert der angegebenen Tabelle; unabhängiger Zweitbeleg genau dieses Maßes noch offen."
+      },
+      "n_max": {
+        "nominal": 0.7,
+        "min": null,
+        "max": 0.7,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso7435_2024"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "primary-table",
+        "note": "Einzelwert der angegebenen Tabelle; unabhängiger Zweitbeleg genau dieses Maßes noch offen."
+      },
+      "n_min": {
+        "nominal": 0.56,
+        "min": 0.56,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso7435_2024"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "primary-table",
+        "note": "Einzelwert der angegebenen Tabelle; unabhängiger Zweitbeleg genau dieses Maßes noch offen."
+      },
+      "t_max": {
+        "nominal": 1.21,
+        "min": null,
+        "max": 1.21,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso7435_2024"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "primary-table",
+        "note": "Einzelwert der angegebenen Tabelle; unabhängiger Zweitbeleg genau dieses Maßes noch offen."
+      },
+      "t_min": {
+        "nominal": 0.96,
+        "min": 0.96,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso7435_2024"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "primary-table",
+        "note": "Einzelwert der angegebenen Tabelle; unabhängiger Zweitbeleg genau dieses Maßes noch offen."
+      },
+      "df_min": {
+        "nominal": null,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso7435_2024"
+        ],
+        "status": "missing",
+        "verification": false,
+        "verificationMethod": "primary-table",
+        "note": "Norm verweist auf Gewinde-Kerndurchmesser nach ISO 724; hier kein eigener Zahlenwert aus einer anderen Quelle eingesetzt."
+      },
+      "dp_max": {
+        "nominal": 2.2,
+        "min": null,
+        "max": 2.2,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso7435_2024"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "primary-table",
+        "note": "Einzelwert der angegebenen Tabelle; unabhängiger Zweitbeleg genau dieses Maßes noch offen."
+      },
+      "dp_min": {
+        "nominal": 1.95,
+        "min": 1.95,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso7435_2024"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "primary-table",
+        "note": "Einzelwert der angegebenen Tabelle; unabhängiger Zweitbeleg genau dieses Maßes noch offen."
+      },
+      "endLength": {
+        "nominal": null,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso7435_2024"
+        ],
+        "status": "missing",
+        "verification": false,
+        "verificationMethod": "primary-table",
+        "note": "Endlänge nicht unabhängig von Endkontur, Winkel und Gewindeauslauf bestimmt; keine fiktive Konuslänge."
+      },
+      "z_long_min": {
+        "nominal": null,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso7435_2024"
+        ],
+        "status": "missing",
+        "verification": false,
+        "verificationMethod": "primary-table",
+        "note": "Zapfenlänge hängt in Ausgabe 2024 von kurzer/regulärer Normlänge ab. Zugehörige Werte und Tabelle 2 aus dem geöffneten Auszug nicht sicher auslesbar."
+      },
+      "z_long_max": {
+        "nominal": null,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso7435_2024"
+        ],
+        "status": "missing",
+        "verification": false,
+        "verificationMethod": "primary-table",
+        "note": "Zapfenlänge hängt in Ausgabe 2024 von kurzer/regulärer Normlänge ab. Zugehörige Werte und Tabelle 2 aus dem geöffneten Auszug nicht sicher auslesbar."
+      },
+      "z_short_min": {
+        "nominal": null,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso7435_2024"
+        ],
+        "status": "missing",
+        "verification": false,
+        "verificationMethod": "primary-table",
+        "note": "Zapfenlänge hängt in Ausgabe 2024 von kurzer/regulärer Normlänge ab. Zugehörige Werte und Tabelle 2 aus dem geöffneten Auszug nicht sicher auslesbar."
+      },
+      "z_short_max": {
+        "nominal": null,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso7435_2024"
+        ],
+        "status": "missing",
+        "verification": false,
+        "verificationMethod": "primary-table",
+        "note": "Zapfenlänge hängt in Ausgabe 2024 von kurzer/regulärer Normlänge ab. Zugehörige Werte und Tabelle 2 aus dem geöffneten Auszug nicht sicher auslesbar."
+      }
+    },
+    "M4": {
+      "d_nom": {
+        "nominal": 4,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso7435_2024"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "primary-table",
+        "note": "Einzelwert der angegebenen Tabelle; unabhängiger Zweitbeleg genau dieses Maßes noch offen."
+      },
+      "P": {
+        "nominal": 0.7,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso7435_2024"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "primary-table",
+        "note": "Einzelwert der angegebenen Tabelle; unabhängiger Zweitbeleg genau dieses Maßes noch offen."
+      },
+      "n_nom": {
+        "nominal": 0.6,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso7435_2024"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "primary-table",
+        "note": "Einzelwert der angegebenen Tabelle; unabhängiger Zweitbeleg genau dieses Maßes noch offen."
+      },
+      "n_max": {
+        "nominal": 0.8,
+        "min": null,
+        "max": 0.8,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso7435_2024"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "primary-table",
+        "note": "Einzelwert der angegebenen Tabelle; unabhängiger Zweitbeleg genau dieses Maßes noch offen."
+      },
+      "n_min": {
+        "nominal": 0.66,
+        "min": 0.66,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso7435_2024"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "primary-table",
+        "note": "Einzelwert der angegebenen Tabelle; unabhängiger Zweitbeleg genau dieses Maßes noch offen."
+      },
+      "t_max": {
+        "nominal": 1.42,
+        "min": null,
+        "max": 1.42,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso7435_2024"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "primary-table",
+        "note": "Einzelwert der angegebenen Tabelle; unabhängiger Zweitbeleg genau dieses Maßes noch offen."
+      },
+      "t_min": {
+        "nominal": 1.12,
+        "min": 1.12,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso7435_2024"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "primary-table",
+        "note": "Einzelwert der angegebenen Tabelle; unabhängiger Zweitbeleg genau dieses Maßes noch offen."
+      },
+      "df_min": {
+        "nominal": null,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso7435_2024"
+        ],
+        "status": "missing",
+        "verification": false,
+        "verificationMethod": "primary-table",
+        "note": "Norm verweist auf Gewinde-Kerndurchmesser nach ISO 724; hier kein eigener Zahlenwert aus einer anderen Quelle eingesetzt."
+      },
+      "dp_max": {
+        "nominal": 2.5,
+        "min": null,
+        "max": 2.5,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso7435_2024"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "primary-table",
+        "note": "Einzelwert der angegebenen Tabelle; unabhängiger Zweitbeleg genau dieses Maßes noch offen."
+      },
+      "dp_min": {
+        "nominal": 2.25,
+        "min": 2.25,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso7435_2024"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "primary-table",
+        "note": "Einzelwert der angegebenen Tabelle; unabhängiger Zweitbeleg genau dieses Maßes noch offen."
+      },
+      "endLength": {
+        "nominal": null,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso7435_2024"
+        ],
+        "status": "missing",
+        "verification": false,
+        "verificationMethod": "primary-table",
+        "note": "Endlänge nicht unabhängig von Endkontur, Winkel und Gewindeauslauf bestimmt; keine fiktive Konuslänge."
+      },
+      "z_long_min": {
+        "nominal": null,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso7435_2024"
+        ],
+        "status": "missing",
+        "verification": false,
+        "verificationMethod": "primary-table",
+        "note": "Zapfenlänge hängt in Ausgabe 2024 von kurzer/regulärer Normlänge ab. Zugehörige Werte und Tabelle 2 aus dem geöffneten Auszug nicht sicher auslesbar."
+      },
+      "z_long_max": {
+        "nominal": null,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso7435_2024"
+        ],
+        "status": "missing",
+        "verification": false,
+        "verificationMethod": "primary-table",
+        "note": "Zapfenlänge hängt in Ausgabe 2024 von kurzer/regulärer Normlänge ab. Zugehörige Werte und Tabelle 2 aus dem geöffneten Auszug nicht sicher auslesbar."
+      },
+      "z_short_min": {
+        "nominal": null,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso7435_2024"
+        ],
+        "status": "missing",
+        "verification": false,
+        "verificationMethod": "primary-table",
+        "note": "Zapfenlänge hängt in Ausgabe 2024 von kurzer/regulärer Normlänge ab. Zugehörige Werte und Tabelle 2 aus dem geöffneten Auszug nicht sicher auslesbar."
+      },
+      "z_short_max": {
+        "nominal": null,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso7435_2024"
+        ],
+        "status": "missing",
+        "verification": false,
+        "verificationMethod": "primary-table",
+        "note": "Zapfenlänge hängt in Ausgabe 2024 von kurzer/regulärer Normlänge ab. Zugehörige Werte und Tabelle 2 aus dem geöffneten Auszug nicht sicher auslesbar."
+      }
+    },
+    "M5": {
+      "d_nom": {
+        "nominal": 5,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso7435_2024"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "primary-table",
+        "note": "Einzelwert der angegebenen Tabelle; unabhängiger Zweitbeleg genau dieses Maßes noch offen."
+      },
+      "P": {
+        "nominal": 0.8,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso7435_2024"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "primary-table",
+        "note": "Einzelwert der angegebenen Tabelle; unabhängiger Zweitbeleg genau dieses Maßes noch offen."
+      },
+      "n_nom": {
+        "nominal": 0.8,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso7435_2024"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "primary-table",
+        "note": "Einzelwert der angegebenen Tabelle; unabhängiger Zweitbeleg genau dieses Maßes noch offen."
+      },
+      "n_max": {
+        "nominal": 1,
+        "min": null,
+        "max": 1,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso7435_2024"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "primary-table",
+        "note": "Einzelwert der angegebenen Tabelle; unabhängiger Zweitbeleg genau dieses Maßes noch offen."
+      },
+      "n_min": {
+        "nominal": 0.86,
+        "min": 0.86,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso7435_2024"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "primary-table",
+        "note": "Einzelwert der angegebenen Tabelle; unabhängiger Zweitbeleg genau dieses Maßes noch offen."
+      },
+      "t_max": {
+        "nominal": 1.63,
+        "min": null,
+        "max": 1.63,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso7435_2024"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "primary-table",
+        "note": "Einzelwert der angegebenen Tabelle; unabhängiger Zweitbeleg genau dieses Maßes noch offen."
+      },
+      "t_min": {
+        "nominal": 1.28,
+        "min": 1.28,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso7435_2024"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "primary-table",
+        "note": "Einzelwert der angegebenen Tabelle; unabhängiger Zweitbeleg genau dieses Maßes noch offen."
+      },
+      "df_min": {
+        "nominal": null,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso7435_2024"
+        ],
+        "status": "missing",
+        "verification": false,
+        "verificationMethod": "primary-table",
+        "note": "Norm verweist auf Gewinde-Kerndurchmesser nach ISO 724; hier kein eigener Zahlenwert aus einer anderen Quelle eingesetzt."
+      },
+      "dp_max": {
+        "nominal": 3.5,
+        "min": null,
+        "max": 3.5,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso7435_2024"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "primary-table",
+        "note": "Einzelwert der angegebenen Tabelle; unabhängiger Zweitbeleg genau dieses Maßes noch offen."
+      },
+      "dp_min": {
+        "nominal": 3.2,
+        "min": 3.2,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso7435_2024"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "primary-table",
+        "note": "Einzelwert der angegebenen Tabelle; unabhängiger Zweitbeleg genau dieses Maßes noch offen."
+      },
+      "endLength": {
+        "nominal": null,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso7435_2024"
+        ],
+        "status": "missing",
+        "verification": false,
+        "verificationMethod": "primary-table",
+        "note": "Endlänge nicht unabhängig von Endkontur, Winkel und Gewindeauslauf bestimmt; keine fiktive Konuslänge."
+      },
+      "z_long_min": {
+        "nominal": null,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso7435_2024"
+        ],
+        "status": "missing",
+        "verification": false,
+        "verificationMethod": "primary-table",
+        "note": "Zapfenlänge hängt in Ausgabe 2024 von kurzer/regulärer Normlänge ab. Zugehörige Werte und Tabelle 2 aus dem geöffneten Auszug nicht sicher auslesbar."
+      },
+      "z_long_max": {
+        "nominal": null,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso7435_2024"
+        ],
+        "status": "missing",
+        "verification": false,
+        "verificationMethod": "primary-table",
+        "note": "Zapfenlänge hängt in Ausgabe 2024 von kurzer/regulärer Normlänge ab. Zugehörige Werte und Tabelle 2 aus dem geöffneten Auszug nicht sicher auslesbar."
+      },
+      "z_short_min": {
+        "nominal": null,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso7435_2024"
+        ],
+        "status": "missing",
+        "verification": false,
+        "verificationMethod": "primary-table",
+        "note": "Zapfenlänge hängt in Ausgabe 2024 von kurzer/regulärer Normlänge ab. Zugehörige Werte und Tabelle 2 aus dem geöffneten Auszug nicht sicher auslesbar."
+      },
+      "z_short_max": {
+        "nominal": null,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso7435_2024"
+        ],
+        "status": "missing",
+        "verification": false,
+        "verificationMethod": "primary-table",
+        "note": "Zapfenlänge hängt in Ausgabe 2024 von kurzer/regulärer Normlänge ab. Zugehörige Werte und Tabelle 2 aus dem geöffneten Auszug nicht sicher auslesbar."
+      }
+    },
+    "M6": {
+      "d_nom": {
+        "nominal": 6,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso7435_2024"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "primary-table",
+        "note": "Einzelwert der angegebenen Tabelle; unabhängiger Zweitbeleg genau dieses Maßes noch offen."
+      },
+      "P": {
+        "nominal": 1,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso7435_2024"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "primary-table",
+        "note": "Einzelwert der angegebenen Tabelle; unabhängiger Zweitbeleg genau dieses Maßes noch offen."
+      },
+      "n_nom": {
+        "nominal": 1,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso7435_2024"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "primary-table",
+        "note": "Einzelwert der angegebenen Tabelle; unabhängiger Zweitbeleg genau dieses Maßes noch offen."
+      },
+      "n_max": {
+        "nominal": 1.2,
+        "min": null,
+        "max": 1.2,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso7435_2024"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "primary-table",
+        "note": "Einzelwert der angegebenen Tabelle; unabhängiger Zweitbeleg genau dieses Maßes noch offen."
+      },
+      "n_min": {
+        "nominal": 1.06,
+        "min": 1.06,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso7435_2024"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "primary-table",
+        "note": "Einzelwert der angegebenen Tabelle; unabhängiger Zweitbeleg genau dieses Maßes noch offen."
+      },
+      "t_max": {
+        "nominal": 2,
+        "min": null,
+        "max": 2,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso7435_2024"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "primary-table",
+        "note": "Einzelwert der angegebenen Tabelle; unabhängiger Zweitbeleg genau dieses Maßes noch offen."
+      },
+      "t_min": {
+        "nominal": 1.6,
+        "min": 1.6,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso7435_2024"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "primary-table",
+        "note": "Einzelwert der angegebenen Tabelle; unabhängiger Zweitbeleg genau dieses Maßes noch offen."
+      },
+      "df_min": {
+        "nominal": null,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso7435_2024"
+        ],
+        "status": "missing",
+        "verification": false,
+        "verificationMethod": "primary-table",
+        "note": "Norm verweist auf Gewinde-Kerndurchmesser nach ISO 724; hier kein eigener Zahlenwert aus einer anderen Quelle eingesetzt."
+      },
+      "dp_max": {
+        "nominal": 4,
+        "min": null,
+        "max": 4,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso7435_2024"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "primary-table",
+        "note": "Einzelwert der angegebenen Tabelle; unabhängiger Zweitbeleg genau dieses Maßes noch offen."
+      },
+      "dp_min": {
+        "nominal": 3.7,
+        "min": 3.7,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso7435_2024"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "primary-table",
+        "note": "Einzelwert der angegebenen Tabelle; unabhängiger Zweitbeleg genau dieses Maßes noch offen."
+      },
+      "endLength": {
+        "nominal": null,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso7435_2024"
+        ],
+        "status": "missing",
+        "verification": false,
+        "verificationMethod": "primary-table",
+        "note": "Endlänge nicht unabhängig von Endkontur, Winkel und Gewindeauslauf bestimmt; keine fiktive Konuslänge."
+      },
+      "z_long_min": {
+        "nominal": null,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso7435_2024"
+        ],
+        "status": "missing",
+        "verification": false,
+        "verificationMethod": "primary-table",
+        "note": "Zapfenlänge hängt in Ausgabe 2024 von kurzer/regulärer Normlänge ab. Zugehörige Werte und Tabelle 2 aus dem geöffneten Auszug nicht sicher auslesbar."
+      },
+      "z_long_max": {
+        "nominal": null,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso7435_2024"
+        ],
+        "status": "missing",
+        "verification": false,
+        "verificationMethod": "primary-table",
+        "note": "Zapfenlänge hängt in Ausgabe 2024 von kurzer/regulärer Normlänge ab. Zugehörige Werte und Tabelle 2 aus dem geöffneten Auszug nicht sicher auslesbar."
+      },
+      "z_short_min": {
+        "nominal": null,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso7435_2024"
+        ],
+        "status": "missing",
+        "verification": false,
+        "verificationMethod": "primary-table",
+        "note": "Zapfenlänge hängt in Ausgabe 2024 von kurzer/regulärer Normlänge ab. Zugehörige Werte und Tabelle 2 aus dem geöffneten Auszug nicht sicher auslesbar."
+      },
+      "z_short_max": {
+        "nominal": null,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso7435_2024"
+        ],
+        "status": "missing",
+        "verification": false,
+        "verificationMethod": "primary-table",
+        "note": "Zapfenlänge hängt in Ausgabe 2024 von kurzer/regulärer Normlänge ab. Zugehörige Werte und Tabelle 2 aus dem geöffneten Auszug nicht sicher auslesbar."
+      }
+    },
+    "M8": {
+      "d_nom": {
+        "nominal": 8,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso7435_2024"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "primary-table",
+        "note": "Einzelwert der angegebenen Tabelle; unabhängiger Zweitbeleg genau dieses Maßes noch offen."
+      },
+      "P": {
+        "nominal": 1.25,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso7435_2024"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "primary-table",
+        "note": "Einzelwert der angegebenen Tabelle; unabhängiger Zweitbeleg genau dieses Maßes noch offen."
+      },
+      "n_nom": {
+        "nominal": 1.2,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso7435_2024"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "primary-table",
+        "note": "Einzelwert der angegebenen Tabelle; unabhängiger Zweitbeleg genau dieses Maßes noch offen."
+      },
+      "n_max": {
+        "nominal": 1.51,
+        "min": null,
+        "max": 1.51,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso7435_2024"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "primary-table",
+        "note": "Einzelwert der angegebenen Tabelle; unabhängiger Zweitbeleg genau dieses Maßes noch offen."
+      },
+      "n_min": {
+        "nominal": 1.26,
+        "min": 1.26,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso7435_2024"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "primary-table",
+        "note": "Einzelwert der angegebenen Tabelle; unabhängiger Zweitbeleg genau dieses Maßes noch offen."
+      },
+      "t_max": {
+        "nominal": 2.5,
+        "min": null,
+        "max": 2.5,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso7435_2024"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "primary-table",
+        "note": "Einzelwert der angegebenen Tabelle; unabhängiger Zweitbeleg genau dieses Maßes noch offen."
+      },
+      "t_min": {
+        "nominal": 2,
+        "min": 2,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso7435_2024"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "primary-table",
+        "note": "Einzelwert der angegebenen Tabelle; unabhängiger Zweitbeleg genau dieses Maßes noch offen."
+      },
+      "df_min": {
+        "nominal": null,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso7435_2024"
+        ],
+        "status": "missing",
+        "verification": false,
+        "verificationMethod": "primary-table",
+        "note": "Norm verweist auf Gewinde-Kerndurchmesser nach ISO 724; hier kein eigener Zahlenwert aus einer anderen Quelle eingesetzt."
+      },
+      "dp_max": {
+        "nominal": 5.5,
+        "min": null,
+        "max": 5.5,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso7435_2024"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "primary-table",
+        "note": "Einzelwert der angegebenen Tabelle; unabhängiger Zweitbeleg genau dieses Maßes noch offen."
+      },
+      "dp_min": {
+        "nominal": 5.2,
+        "min": 5.2,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso7435_2024"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "primary-table",
+        "note": "Einzelwert der angegebenen Tabelle; unabhängiger Zweitbeleg genau dieses Maßes noch offen."
+      },
+      "endLength": {
+        "nominal": null,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso7435_2024"
+        ],
+        "status": "missing",
+        "verification": false,
+        "verificationMethod": "primary-table",
+        "note": "Endlänge nicht unabhängig von Endkontur, Winkel und Gewindeauslauf bestimmt; keine fiktive Konuslänge."
+      },
+      "z_long_min": {
+        "nominal": null,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso7435_2024"
+        ],
+        "status": "missing",
+        "verification": false,
+        "verificationMethod": "primary-table",
+        "note": "Zapfenlänge hängt in Ausgabe 2024 von kurzer/regulärer Normlänge ab. Zugehörige Werte und Tabelle 2 aus dem geöffneten Auszug nicht sicher auslesbar."
+      },
+      "z_long_max": {
+        "nominal": null,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso7435_2024"
+        ],
+        "status": "missing",
+        "verification": false,
+        "verificationMethod": "primary-table",
+        "note": "Zapfenlänge hängt in Ausgabe 2024 von kurzer/regulärer Normlänge ab. Zugehörige Werte und Tabelle 2 aus dem geöffneten Auszug nicht sicher auslesbar."
+      },
+      "z_short_min": {
+        "nominal": null,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso7435_2024"
+        ],
+        "status": "missing",
+        "verification": false,
+        "verificationMethod": "primary-table",
+        "note": "Zapfenlänge hängt in Ausgabe 2024 von kurzer/regulärer Normlänge ab. Zugehörige Werte und Tabelle 2 aus dem geöffneten Auszug nicht sicher auslesbar."
+      },
+      "z_short_max": {
+        "nominal": null,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso7435_2024"
+        ],
+        "status": "missing",
+        "verification": false,
+        "verificationMethod": "primary-table",
+        "note": "Zapfenlänge hängt in Ausgabe 2024 von kurzer/regulärer Normlänge ab. Zugehörige Werte und Tabelle 2 aus dem geöffneten Auszug nicht sicher auslesbar."
+      }
+    },
+    "M10": {
+      "d_nom": {
+        "nominal": 10,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso7435_2024"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "primary-table",
+        "note": "Einzelwert der angegebenen Tabelle; unabhängiger Zweitbeleg genau dieses Maßes noch offen."
+      },
+      "P": {
+        "nominal": 1.5,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso7435_2024"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "primary-table",
+        "note": "Einzelwert der angegebenen Tabelle; unabhängiger Zweitbeleg genau dieses Maßes noch offen."
+      },
+      "n_nom": {
+        "nominal": 1.6,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso7435_2024"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "primary-table",
+        "note": "Einzelwert der angegebenen Tabelle; unabhängiger Zweitbeleg genau dieses Maßes noch offen."
+      },
+      "n_max": {
+        "nominal": 1.91,
+        "min": null,
+        "max": 1.91,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso7435_2024"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "primary-table",
+        "note": "Einzelwert der angegebenen Tabelle; unabhängiger Zweitbeleg genau dieses Maßes noch offen."
+      },
+      "n_min": {
+        "nominal": 1.66,
+        "min": 1.66,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso7435_2024"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "primary-table",
+        "note": "Einzelwert der angegebenen Tabelle; unabhängiger Zweitbeleg genau dieses Maßes noch offen."
+      },
+      "t_max": {
+        "nominal": 3,
+        "min": null,
+        "max": 3,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso7435_2024"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "primary-table",
+        "note": "Einzelwert der angegebenen Tabelle; unabhängiger Zweitbeleg genau dieses Maßes noch offen."
+      },
+      "t_min": {
+        "nominal": 2.4,
+        "min": 2.4,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso7435_2024"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "primary-table",
+        "note": "Einzelwert der angegebenen Tabelle; unabhängiger Zweitbeleg genau dieses Maßes noch offen."
+      },
+      "df_min": {
+        "nominal": null,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso7435_2024"
+        ],
+        "status": "missing",
+        "verification": false,
+        "verificationMethod": "primary-table",
+        "note": "Norm verweist auf Gewinde-Kerndurchmesser nach ISO 724; hier kein eigener Zahlenwert aus einer anderen Quelle eingesetzt."
+      },
+      "dp_max": {
+        "nominal": 7,
+        "min": null,
+        "max": 7,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso7435_2024"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "primary-table",
+        "note": "Einzelwert der angegebenen Tabelle; unabhängiger Zweitbeleg genau dieses Maßes noch offen."
+      },
+      "dp_min": {
+        "nominal": 6.64,
+        "min": 6.64,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso7435_2024"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "primary-table",
+        "note": "Einzelwert der angegebenen Tabelle; unabhängiger Zweitbeleg genau dieses Maßes noch offen."
+      },
+      "endLength": {
+        "nominal": null,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso7435_2024"
+        ],
+        "status": "missing",
+        "verification": false,
+        "verificationMethod": "primary-table",
+        "note": "Endlänge nicht unabhängig von Endkontur, Winkel und Gewindeauslauf bestimmt; keine fiktive Konuslänge."
+      },
+      "z_long_min": {
+        "nominal": null,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso7435_2024"
+        ],
+        "status": "missing",
+        "verification": false,
+        "verificationMethod": "primary-table",
+        "note": "Zapfenlänge hängt in Ausgabe 2024 von kurzer/regulärer Normlänge ab. Zugehörige Werte und Tabelle 2 aus dem geöffneten Auszug nicht sicher auslesbar."
+      },
+      "z_long_max": {
+        "nominal": null,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso7435_2024"
+        ],
+        "status": "missing",
+        "verification": false,
+        "verificationMethod": "primary-table",
+        "note": "Zapfenlänge hängt in Ausgabe 2024 von kurzer/regulärer Normlänge ab. Zugehörige Werte und Tabelle 2 aus dem geöffneten Auszug nicht sicher auslesbar."
+      },
+      "z_short_min": {
+        "nominal": null,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso7435_2024"
+        ],
+        "status": "missing",
+        "verification": false,
+        "verificationMethod": "primary-table",
+        "note": "Zapfenlänge hängt in Ausgabe 2024 von kurzer/regulärer Normlänge ab. Zugehörige Werte und Tabelle 2 aus dem geöffneten Auszug nicht sicher auslesbar."
+      },
+      "z_short_max": {
+        "nominal": null,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso7435_2024"
+        ],
+        "status": "missing",
+        "verification": false,
+        "verificationMethod": "primary-table",
+        "note": "Zapfenlänge hängt in Ausgabe 2024 von kurzer/regulärer Normlänge ab. Zugehörige Werte und Tabelle 2 aus dem geöffneten Auszug nicht sicher auslesbar."
+      }
+    },
+    "M12": {
+      "d_nom": {
+        "nominal": 12,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso7435_2024"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "primary-table",
+        "note": "Einzelwert der angegebenen Tabelle; unabhängiger Zweitbeleg genau dieses Maßes noch offen."
+      },
+      "P": {
+        "nominal": 1.75,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso7435_2024"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "primary-table",
+        "note": "Einzelwert der angegebenen Tabelle; unabhängiger Zweitbeleg genau dieses Maßes noch offen."
+      },
+      "n_nom": {
+        "nominal": 2,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso7435_2024"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "primary-table",
+        "note": "Einzelwert der angegebenen Tabelle; unabhängiger Zweitbeleg genau dieses Maßes noch offen."
+      },
+      "n_max": {
+        "nominal": 2.31,
+        "min": null,
+        "max": 2.31,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso7435_2024"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "primary-table",
+        "note": "Einzelwert der angegebenen Tabelle; unabhängiger Zweitbeleg genau dieses Maßes noch offen."
+      },
+      "n_min": {
+        "nominal": 2.06,
+        "min": 2.06,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso7435_2024"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "primary-table",
+        "note": "Einzelwert der angegebenen Tabelle; unabhängiger Zweitbeleg genau dieses Maßes noch offen."
+      },
+      "t_max": {
+        "nominal": 3.6,
+        "min": null,
+        "max": 3.6,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso7435_2024"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "primary-table",
+        "note": "Einzelwert der angegebenen Tabelle; unabhängiger Zweitbeleg genau dieses Maßes noch offen."
+      },
+      "t_min": {
+        "nominal": 2.8,
+        "min": 2.8,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso7435_2024"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "primary-table",
+        "note": "Einzelwert der angegebenen Tabelle; unabhängiger Zweitbeleg genau dieses Maßes noch offen."
+      },
+      "df_min": {
+        "nominal": null,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso7435_2024"
+        ],
+        "status": "missing",
+        "verification": false,
+        "verificationMethod": "primary-table",
+        "note": "Norm verweist auf Gewinde-Kerndurchmesser nach ISO 724; hier kein eigener Zahlenwert aus einer anderen Quelle eingesetzt."
+      },
+      "dp_max": {
+        "nominal": 8.5,
+        "min": null,
+        "max": 8.5,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso7435_2024"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "primary-table",
+        "note": "Einzelwert der angegebenen Tabelle; unabhängiger Zweitbeleg genau dieses Maßes noch offen."
+      },
+      "dp_min": {
+        "nominal": 8.14,
+        "min": 8.14,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso7435_2024"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "primary-table",
+        "note": "Einzelwert der angegebenen Tabelle; unabhängiger Zweitbeleg genau dieses Maßes noch offen."
+      },
+      "endLength": {
+        "nominal": null,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso7435_2024"
+        ],
+        "status": "missing",
+        "verification": false,
+        "verificationMethod": "primary-table",
+        "note": "Endlänge nicht unabhängig von Endkontur, Winkel und Gewindeauslauf bestimmt; keine fiktive Konuslänge."
+      },
+      "z_long_min": {
+        "nominal": null,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso7435_2024"
+        ],
+        "status": "missing",
+        "verification": false,
+        "verificationMethod": "primary-table",
+        "note": "Zapfenlänge hängt in Ausgabe 2024 von kurzer/regulärer Normlänge ab. Zugehörige Werte und Tabelle 2 aus dem geöffneten Auszug nicht sicher auslesbar."
+      },
+      "z_long_max": {
+        "nominal": null,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso7435_2024"
+        ],
+        "status": "missing",
+        "verification": false,
+        "verificationMethod": "primary-table",
+        "note": "Zapfenlänge hängt in Ausgabe 2024 von kurzer/regulärer Normlänge ab. Zugehörige Werte und Tabelle 2 aus dem geöffneten Auszug nicht sicher auslesbar."
+      },
+      "z_short_min": {
+        "nominal": null,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso7435_2024"
+        ],
+        "status": "missing",
+        "verification": false,
+        "verificationMethod": "primary-table",
+        "note": "Zapfenlänge hängt in Ausgabe 2024 von kurzer/regulärer Normlänge ab. Zugehörige Werte und Tabelle 2 aus dem geöffneten Auszug nicht sicher auslesbar."
+      },
+      "z_short_max": {
+        "nominal": null,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso7435_2024"
+        ],
+        "status": "missing",
+        "verification": false,
+        "verificationMethod": "primary-table",
+        "note": "Zapfenlänge hängt in Ausgabe 2024 von kurzer/regulärer Normlänge ab. Zugehörige Werte und Tabelle 2 aus dem geöffneten Auszug nicht sicher auslesbar."
+      }
+    }
+  },
+  "sourceMeta": {
+    "iso7435_2024": {
+      "url": "https://cdn.standards.iteh.ai/samples/80081/6b15209a4c00443ebeadc773db8a412f/ISO-7435-2024.pdf",
+      "titel": "ISO7435:2024, Originalvorschau mit Maßtabelle 1",
+      "edition": "2024",
+      "type": "standard-preview",
+      "accessed": "2026-11-26"
+    }
+  },
+  "quellen": [
+    {
+      "id": "iso7435_2024",
+      "url": "https://cdn.standards.iteh.ai/samples/80081/6b15209a4c00443ebeadc773db8a412f/ISO-7435-2024.pdf",
+      "titel": "ISO7435:2024, Originalvorschau mit Maßtabelle 1",
+      "edition": "2024",
+      "type": "standard-preview",
+      "accessed": "2026-11-26"
+    }
+  ],
   "abweichungen": [],
   "status": "partial",
-  "coverage": "unresearched",
+  "coverage": "documented",
   "lengthCoverage": "unresearched",
   "hinweise": [
-    "Familie erfasst; vollständige Einzelmaß- und Längenrecherche steht noch aus. Keine Ersatzmaße einer ähnlichen Norm verwendet."
+    "Schlitzvorbelegung nutzt ausdrücklich die dokumentierte Mindestbreite n_min und Mindesttiefe t_min. n_nom ist getrennt erhalten; es liegt unter der tatsächlichen Mindestbreite.",
+    "Die vollständige Größen-Längen-Matrix ist in den geöffneten Quellen nicht sicher belegt. Keine Längen einer Nachbarnorm übertragen.",
+    "Endkontur und freie Winkel-/Herstellerausführung sind nicht als vollständig bestimmte Volumengeometrie ausgegeben."
   ],
   "normstatus": {
-    "status": "unresolved",
-    "note": "Ausgabe und Vollständigkeit nicht aus einer ähnlichen Norm ableiten."
+    "status": "documented-edition",
+    "edition": "2024",
+    "note": "Maßstand der geöffneten Ausgabe 2024; vollständige Längentabelle 2 nicht enthalten."
   },
   "requiredGeometryFields": [
     "slotWidth",
-    "iT"
+    "iT",
+    "endLength"
   ],
   "sizeCoverage": {
     "M3": {
-      "status": "unresearched",
-      "note": "Keine Größenzeile vorhanden; daraus folgt kein Normverbot."
+      "status": "documented",
+      "sourceRefs": [
+        "iso7435_2024"
+      ],
+      "note": "Maßtabelle 1 der endgültigen Ausgabe 2024."
     },
     "M3.5": {
-      "status": "unresearched",
-      "note": "Keine Größenzeile vorhanden; daraus folgt kein Normverbot."
+      "status": "documented",
+      "sourceRefs": [
+        "iso7435_2024"
+      ],
+      "note": "Maßtabelle 1 der endgültigen Ausgabe 2024."
     },
     "M4": {
-      "status": "unresearched",
-      "note": "Keine Größenzeile vorhanden; daraus folgt kein Normverbot."
+      "status": "documented",
+      "sourceRefs": [
+        "iso7435_2024"
+      ],
+      "note": "Maßtabelle 1 der endgültigen Ausgabe 2024."
     },
     "M5": {
-      "status": "unresearched",
-      "note": "Keine Größenzeile vorhanden; daraus folgt kein Normverbot."
+      "status": "documented",
+      "sourceRefs": [
+        "iso7435_2024"
+      ],
+      "note": "Maßtabelle 1 der endgültigen Ausgabe 2024."
     },
     "M6": {
-      "status": "unresearched",
-      "note": "Keine Größenzeile vorhanden; daraus folgt kein Normverbot."
+      "status": "documented",
+      "sourceRefs": [
+        "iso7435_2024"
+      ],
+      "note": "Maßtabelle 1 der endgültigen Ausgabe 2024."
     },
     "M7": {
       "status": "unresearched",
       "note": "Keine Größenzeile vorhanden; daraus folgt kein Normverbot."
     },
     "M8": {
-      "status": "unresearched",
-      "note": "Keine Größenzeile vorhanden; daraus folgt kein Normverbot."
+      "status": "documented",
+      "sourceRefs": [
+        "iso7435_2024"
+      ],
+      "note": "Maßtabelle 1 der endgültigen Ausgabe 2024."
     },
     "M10": {
-      "status": "unresearched",
-      "note": "Keine Größenzeile vorhanden; daraus folgt kein Normverbot."
+      "status": "documented",
+      "sourceRefs": [
+        "iso7435_2024"
+      ],
+      "note": "Maßtabelle 1 der endgültigen Ausgabe 2024."
     },
     "M12": {
-      "status": "unresearched",
-      "note": "Keine Größenzeile vorhanden; daraus folgt kein Normverbot."
+      "status": "documented",
+      "sourceRefs": [
+        "iso7435_2024"
+      ],
+      "note": "Maßtabelle 1 der endgültigen Ausgabe 2024."
     },
     "M14": {
-      "status": "unresearched",
-      "note": "Keine Größenzeile vorhanden; daraus folgt kein Normverbot."
+      "status": "not-in-standard",
+      "sourceRefs": [
+        "iso7435_2024"
+      ],
+      "note": "Der dokumentierte Normgeltungsbereich endet bei M12; größere Sonderausführungen werden damit nicht ausgeschlossen."
     },
     "M16": {
-      "status": "unresearched",
-      "note": "Keine Größenzeile vorhanden; daraus folgt kein Normverbot."
+      "status": "not-in-standard",
+      "sourceRefs": [
+        "iso7435_2024"
+      ],
+      "note": "Der dokumentierte Normgeltungsbereich endet bei M12; größere Sonderausführungen werden damit nicht ausgeschlossen."
     },
     "M18": {
-      "status": "unresearched",
-      "note": "Keine Größenzeile vorhanden; daraus folgt kein Normverbot."
+      "status": "not-in-standard",
+      "sourceRefs": [
+        "iso7435_2024"
+      ],
+      "note": "Der dokumentierte Normgeltungsbereich endet bei M12; größere Sonderausführungen werden damit nicht ausgeschlossen."
     },
     "M20": {
-      "status": "unresearched",
-      "note": "Keine Größenzeile vorhanden; daraus folgt kein Normverbot."
+      "status": "not-in-standard",
+      "sourceRefs": [
+        "iso7435_2024"
+      ],
+      "note": "Der dokumentierte Normgeltungsbereich endet bei M12; größere Sonderausführungen werden damit nicht ausgeschlossen."
     },
     "M22": {
-      "status": "unresearched",
-      "note": "Keine Größenzeile vorhanden; daraus folgt kein Normverbot."
+      "status": "not-in-standard",
+      "sourceRefs": [
+        "iso7435_2024"
+      ],
+      "note": "Der dokumentierte Normgeltungsbereich endet bei M12; größere Sonderausführungen werden damit nicht ausgeschlossen."
     },
     "M24": {
-      "status": "unresearched",
-      "note": "Keine Größenzeile vorhanden; daraus folgt kein Normverbot."
+      "status": "not-in-standard",
+      "sourceRefs": [
+        "iso7435_2024"
+      ],
+      "note": "Der dokumentierte Normgeltungsbereich endet bei M12; größere Sonderausführungen werden damit nicht ausgeschlossen."
     },
     "M27": {
-      "status": "unresearched",
-      "note": "Keine Größenzeile vorhanden; daraus folgt kein Normverbot."
+      "status": "not-in-standard",
+      "sourceRefs": [
+        "iso7435_2024"
+      ],
+      "note": "Der dokumentierte Normgeltungsbereich endet bei M12; größere Sonderausführungen werden damit nicht ausgeschlossen."
     },
     "M30": {
-      "status": "unresearched",
-      "note": "Keine Größenzeile vorhanden; daraus folgt kein Normverbot."
+      "status": "not-in-standard",
+      "sourceRefs": [
+        "iso7435_2024"
+      ],
+      "note": "Der dokumentierte Normgeltungsbereich endet bei M12; größere Sonderausführungen werden damit nicht ausgeschlossen."
     },
     "M33": {
-      "status": "unresearched",
-      "note": "Keine Größenzeile vorhanden; daraus folgt kein Normverbot."
+      "status": "not-in-standard",
+      "sourceRefs": [
+        "iso7435_2024"
+      ],
+      "note": "Der dokumentierte Normgeltungsbereich endet bei M12; größere Sonderausführungen werden damit nicht ausgeschlossen."
+    },
+    "M1.6": {
+      "status": "documented",
+      "sourceRefs": [
+        "iso7435_2024"
+      ],
+      "note": "Maßtabelle 1 der endgültigen Ausgabe 2024."
+    },
+    "M2": {
+      "status": "documented",
+      "sourceRefs": [
+        "iso7435_2024"
+      ],
+      "note": "Maßtabelle 1 der endgültigen Ausgabe 2024."
+    },
+    "M2.5": {
+      "status": "documented",
+      "sourceRefs": [
+        "iso7435_2024"
+      ],
+      "note": "Maßtabelle 1 der endgültigen Ausgabe 2024."
     }
   },
   "pruefdatum": "2026-11-26",
@@ -110,5 +2750,7 @@
     "status": "unresearched",
     "values": [],
     "note": "Festigkeits-/Werkstoffklassen noch nicht vollständig aus dieser Norm belegt."
-  }
+  },
+  "currentEdition": "2024",
+  "schaftende": "zapfen"
 }

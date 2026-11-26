@@ -44,14 +44,14 @@ test('a round cavity in a hex head is bounded by its across-flats dimension',()=
   }
 });
 
-test('cone recess volume uses the tapered region and preserves a valid positive rest bottom',()=>{
-  const cone={...base,standardKind:'headless',kD:0,kH:0,threadFamily:'self-tapping',tipLength:20,tipDiameter:0,iTyp:'torx',iSize:'T20',iT:29};
+test('an explicitly pressed cone bounds the recess and preserves a valid positive rest bottom',()=>{
+  const cone={...base,standardKind:'headless',kopfTyp:'kopflos',kD:0,kH:0,threadFamily:'self-tapping',schaftende:'spitze',endLength:20,endDiameter:0,tipLength:3,tipDiameter:0,iTyp:'torx',iSize:'T20',iT:29};
   const available=circle(8)*10+Math.PI*19*(64+8*.4+.4*.4)/12;
   rejected({...cone,iVol:available+1},/Hüllraum/);
   assert.deepEqual(E.auslegen({...cone,iVol:40}).fehlt,[]);
   rejected({...cone,iT:30,iVol:40},/Restboden/);
-  rejected({...cone,tipLength:31,iVol:40},/Spitzenlänge/);
-  rejected({...cone,tipDiameter:9,iVol:40},/Enddurchmesser/);
+  rejected({...cone,endLength:31,iVol:40},/Spitzenlänge/);
+  rejected({...cone,endDiameter:9,iVol:40},/Enddurchmesser/);
 });
 
 test('tool split is bounded by the whole part and an explicit zero stays zero',()=>{

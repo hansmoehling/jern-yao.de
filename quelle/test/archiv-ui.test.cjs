@@ -15,13 +15,38 @@ class El{
  focus(options){this.focusOptions=options;this.focused=true}
  click(){this.clicked=true}
 }
-function setup(language,engine=E,showPrices,apiOptions,staged=false){
- const ids=new Map();const get=id=>{if(!ids.has(id))ids.set(id,new El());return ids.get(id)};
+function setup(language,engine=E,showPrices,apiOptions,staged=false,integrated=false){
+ const ids=new Map(),created=[];let ownerDocument;
+ class DomEl extends El{
+  constructor(tag='div'){super();this.tagName=tag.toUpperCase();this.children=[];this.name='';this.type='';this.ownerDocument=ownerDocument;created.push(this);}
+  get value(){return this._value||''}set value(value){this._value=String(value??'');if(this.tagName==='SELECT'&&!this.options.some(o=>o.value===this._value))this._value='';}
+  append(...nodes){for(const node of nodes){node.parent=this;this.children.push(node);}if(this.tagName==='SELECT')this.options=this.children;}
+  appendChild(node){this.append(node);return node;}
+  replaceChildren(...nodes){this.children=[];this.append(...nodes);if(this.tagName==='SELECT')this.value=this.options[0]?.value||'';}
+  closest(selector){if(selector==='label'&&this.tagName==='LABEL'||selector==='[hidden]'&&this.hidden)return this;return this.parent?.closest(selector)||null;}
+  addEventListener(key,handler){const prior=this.events[key];this.events[key]=prior?(event)=>{prior(event);return handler(event);}:handler;}
+ }
+ const make=tag=>integrated?new DomEl(tag):new El();
+ const get=id=>{const dynamic=created.find(node=>node.id===id);if(dynamic)return dynamic;if(!ids.has(id))ids.set(id,make());return ids.get(id)};
  const f=get('f'),a=get('a');f.elements={};a.elements={};
  for(const key of ['typ','wst','rm','d0','wirePreparation','rodDiameter','standardKind','standardNorm','nutNorm','threadFamily','kopfForm','kD','kSW','kH','kVol','sD','sL','sArea','tipLength','tipDiameter','tipArea','iTyp','iSize','iSW','iT','iVol','mM','mSW','mH','mLoch','mFlansch','mFlanschH','masse','lStempel','wenden','ko','pko','matD','matL','stD','stL','stationen','zusatz','ausbringung'])f.elements[key]=new El();
  for(const key of ['ok','email','name','firma','tel','nachricht'])a.elements[key]=new El();
+ if(integrated){
+  const html=fs.readFileSync(path.join(__dirname,'..','archiv-vorlage.html'),'utf8');
+  for(const match of html.matchAll(/<(input|select)\b([^>]*\bname="([^"]+)"[^>]*)>/g)){
+   const [,tag,attrs,name]=match,tail=tag==='select'?html.slice(match.index+match[0].length).split('</select>')[0]:'';if(['typ','ok','email','name','firma','tel','nachricht'].includes(name))continue;
+   const field=make(tag);field.name=name;field.type=attrs.match(/\btype="([^"]+)"/)?.[1]||'';
+   if(tag==='select')for(const option of tail.matchAll(/<option\b[^>]*value="([^"]*)"[^>]*>([^<]*)/g)){const o=make('option');o.value=option[1];o.textContent=option[2];field.append(o);}
+   field.value=attrs.match(/\bvalue="([^"]*)"/)?.[1]||field.options[0]?.value||'';f.elements[name]=field;
+   const id=attrs.match(/\bid="([^"]+)"/)?.[1];if(id)ids.set(id,field);
+   const label=make('label');label.append(field);
+  }
+  for(const [name,field]of Object.entries(f.elements))field.name=name;
+  Object.defineProperty(f.elements,Symbol.iterator,{value:function*(){yield* Object.values(this);}});
+ }
  f.elements.typ.value='bolzen';f.elements.kopfForm.value='rund';f.elements.iTyp.value='none';f.elements.wirePreparation.value='as-supplied';f.elements.standardKind.value='screw';f.elements.threadFamily.value='metric';
  f.reset=()=>{for(const [key,el]of Object.entries(f.elements)){if(key!=='wst')el.value='';el.checked=false;}f.elements.typ.value='bolzen';f.elements.kopfForm.value='rund';f.elements.iTyp.value='none';f.elements.wirePreparation.value='as-supplied'};
+ if(integrated){const reset=f.reset;f.reset=()=>{reset();for(const node of created)if(node.tagName==='SELECT')node.value=node.options[0]?.value||'';f.elements.typ.value='bolzen';};}
  f.querySelector=selector=>({set checked(value){if(value)f.elements.typ.value=selector.match(/value=([^\]]+)/)[1]}});
  get('daten').textContent=JSON.stringify(machines);get('praxis').textContent=JSON.stringify(praxis);
  const examples=['m8','m6','mu'].map(name=>{const el=new El();el.dataset.bsp=name;return el});
@@ -29,11 +54,19 @@ function setup(language,engine=E,showPrices,apiOptions,staged=false){
  const events={};const window={JYK:engine,JYI18N:I,JYLocale:locale,matchMedia:()=>({matches:false}),addEventListener:(name,fn)=>events[name]=fn,print(){this.printCount=(this.printCount||0)+1}};
  if(showPrices!==undefined)window.JY_SHOW_PRICES=showPrices;
  if(staged){window.JY_CONFIGURATOR_VERSION='kvp-v1';window.JYWireDefaults=require('../vorbelegung/draht.js');}
- const document={getElementById:get,createElement:()=>new El(),querySelectorAll:selector=>selector==='[data-bsp]'?examples:[]};
+ const document={getElementById:get,createElement:tag=>make(tag),querySelectorAll:selector=>selector==='[data-bsp]'?examples:[]};
+ if(integrated){ownerDocument=document;document.defaultView=window;document.documentElement={lang:language};window.document=document;for(const node of created)node.ownerDocument=document;}
  const networkRequests=[],answers=[],timers=new Map();let timerId=0;
  window.location={href:'https://jern-yao.de/manual/konfigurator-v1.html'};window.setTimeout=(fn,ms)=>{timers.set(++timerId,{fn,ms});return timerId};window.clearTimeout=id=>timers.delete(id);
  if(apiOptions)window.JY_API_BASE=apiOptions.base||'https://api.example.test';
  const context={window,document,clearTimeout,setTimeout,location:{href:''},FormData,URL,URLSearchParams,AbortController,crypto,TypeError,fetch:async(url,options)=>{networkRequests.push({url,options});if(!apiOptions)throw Error('Network forbidden in archive tests');let answer=answers.shift();if(typeof answer==='function')answer=await answer();if(answer instanceof Error)throw answer;if(!answer)throw Error('Unmocked request');return {ok:answer.ok!==false,status:answer.status||200,json:async()=>answer.data}}};
+ if(integrated){
+  window.fetch=context.fetch;window.AbortController=AbortController;
+  window.JYNormLibrary=require('../normen/library.js');window.JYStandards=require('../normen/resolver.js');
+  window.JY_NORM_DATA={schemaVersion:1,version:'integration-test',families:['ISO4762','ISO4017','DIN6791','ISO4032'].map(id=>require('../normen/'+id+'.json')),threads:require('../normen/gewinde.json'),materials:require('../vorbelegung/werkstoff.json')};
+  window.JYKvpContext=require('../kvp-context.js');
+  for(const file of ['normen/ui.js','kvp-ui.js'])vm.runInNewContext(fs.readFileSync(path.join(__dirname,'..',file),'utf8'),context);
+ }
  vm.runInNewContext(fs.readFileSync(path.join(__dirname,'..','concept-ui.js'),'utf8'),context);
  window.JYGeometry=require('../geometry-model.js');window.JYStandardFamilies=require('../standard-families.js');
  vm.runInNewContext(fs.readFileSync(path.join(__dirname,'..','geometry-wizard.js'),'utf8'),context);
@@ -43,6 +76,42 @@ function setup(language,engine=E,showPrices,apiOptions,staged=false){
  return {get,f,a,examples,events,context,networkRequests,answers,timers,geometryWizard};
 }
 async function sendMail(p){if(!p.a.elements.email.value)p.a.elements.email.value='customer@example.invalid';p.a.elements.ok.checked=true;await p.get('senden').events.click();}
+test('the first example click with norm picker, previews and KVP starts from a fresh shared UI',()=>{
+ for(const language of I.supported)for(const [example,id,size]of [['m6','ISO4762','M6'],['m8','ISO4017','M8'],['mu','ISO4032','M10']]){
+  let input;const p=setup(language,{...E,auslegen(e){input=e;return E.auslegen(e);}},true,{},true,true);
+  assert.equal(p.get('norm-id').value,'');
+  assert.doesNotThrow(()=>p.examples.find(button=>button.dataset.bsp===example).events.click());
+  assert.equal(p.get('norm-id').value,id);assert.equal(p.get('norm-groesse').value,size);
+  assert.equal(input.standardDocument.standardReference.id,id);
+  assert(Number(p.f.elements[example==='mu'?'mSW':'sD'].value)>0);
+  assert(Number(p.f.elements.d0.value)>0);
+  assert.equal(p.get('kvp-panel').children.length,1,'the real KVP module is mounted in this integration test');
+  if(example==='m6'){assert.equal(p.f.elements.kH.value,'6');assert.equal(p.f.elements.sL.value,'30');assert.equal(p.f.elements.iSize.value,'5');}
+  assert.equal(p.networkRequests.length,0,'example selection must not send KVP or analysis requests');
+ }
+});
+
+test('example reset clears a selected drawing while retaining a usable norm and KVP state',()=>{
+ const p=setup('de',E,true,{},true,true);
+ p.f.elements.typ.value='formteil';p.f.events.change({target:p.f.elements.typ});
+ const file=new Blob(['drawing'],{type:'application/pdf'});Object.defineProperty(file,'name',{value:'customer.pdf'});
+ p.get('parts-file').files=[file];p.get('parts-file').events.change();
+ p.examples.find(button=>button.dataset.bsp==='m6').events.click();
+ assert.equal(p.get('norm-id').value,'ISO4762');assert.equal(p.get('norm-groesse').value,'M6');
+ assert.equal(p.get('parts-file-feedback').hidden,true);assert.equal(p.f.elements.typ.value,'bolzen');
+ assert.equal(p.networkRequests.length,0);
+});
+test('norm-to-builder refuses unresolved shaft distribution and preserves the norm and customer edits',()=>{
+ const p=setup('de',E,true,{},true,true);p.examples.find(button=>button.dataset.bsp==='m6').events.click();
+ p.get('norm-laenge').value='35';p.get('norm-laenge').events.change();
+ p.f.elements.sL.value='41';p.f.events.input({target:p.f.elements.sL});
+ const before=Object.fromEntries(Object.entries(p.f.elements).map(([key,field])=>[key,{value:field.value,checked:field.checked}]));
+ let converted=0;p.context.window.JYNormToChain={fromBolt(){converted++;throw Error('must not convert incomplete contour');}};
+ p.get('norm-to-chain').events.click();
+ assert.equal(converted,0);assert.equal(p.f.elements.typ.value,'bolzen');assert.equal(p.get('norm-id').value,'ISO4762');assert.equal(p.get('norm-laenge').value,'35');assert.equal(p.f.elements.sL.value,'41');assert.match(p.get('norm-chain-status').textContent,/Rohteilkontur/);assert.match(p.get('norm-chain-status').textContent,/Längenaufteilung des Schafts/);
+ assert.deepEqual(Object.fromEntries(Object.entries(p.f.elements).map(([key,field])=>[key,{value:field.value,checked:field.checked}])),before);
+ assert.equal(p.networkRequests.length,0);
+});
 test('only approved wire-condition curves are selectable and all examples explicitly use annealed C4C',()=>{
  for(const language of I.supported){
   const p=setup(language),allowed=E.WERKSTOFFE.flatMap((material,index)=>(material.manualEligible?material.flowCurves||[]:[]).filter(curve=>curve.eligible===true).map(curve=>({index,material,curve})));

@@ -313,10 +313,11 @@
             <label class="feld"><span>Schaft- / Hüll-Ø in mm</span><input type="text" inputmode="decimal" name="sD" required></label>
             <label class="feld"><span>Gesamtschaftlänge in mm</span><input type="text" inputmode="decimal" name="sL" required></label>
             <label class="feld voll" data-thread="trilobular duo-taptite" hidden><span>Rohling-Querschnittsfläche in mm²</span><input type="text" inputmode="decimal" name="sArea"></label>
-            <label class="feld" data-thread="duo-taptite self-tapping thermoplastic" hidden><span>Spitzenlänge in mm (in Gesamtschaftlänge enthalten)</span><input type="text" inputmode="decimal" name="tipLength"></label>
-            <label class="feld" data-thread="self-tapping thermoplastic" hidden><span>End-Ø der konischen Spitze in mm</span><input type="text" inputmode="decimal" name="tipDiameter"></label>
-            <label class="feld" data-thread="duo-taptite" hidden><span>Querschnittsfläche des Spitzenabschnitts in mm²</span><input type="text" inputmode="decimal" name="tipArea"></label>
+            <label class="feld" data-thread="duo-taptite self-tapping thermoplastic" hidden><span>Spitzenlänge am Fertigteil in mm (optional)</span><input type="text" inputmode="decimal" name="tipLength"></label>
+            <label class="feld" data-thread="self-tapping thermoplastic" hidden><span>End-Ø nach Gewindewalzen in mm (optional)</span><input type="text" inputmode="decimal" name="tipDiameter"></label>
+            <label class="feld" data-thread="duo-taptite" hidden><span>Spitzenquerschnitt nach Gewindewalzen in mm² (optional)</span><input type="text" inputmode="decimal" name="tipArea"></label>
           </div>
+          <p class="klein" data-thread="duo-taptite self-tapping thermoplastic" hidden>Gewindewalzen ist ein nachgelagerter Arbeitsgang. Die gewalzte Spitze bleibt für Volumen und Pressstufen im zylindrischen Rohling enthalten.</p>
           <div data-fuer="bolzen" id="bolt-drive-fields">
             <h3>Innenantrieb</h3>
             <div class="felder">
@@ -336,9 +337,12 @@
               <p class="klein">Die Profilgröße bestimmt die Antriebsform. Das verdrängte Volumen kommt aus der Zeichnung oder CAD; bis dahin bleibt die Abschnittlänge offen. Eine angegebene Teilmasse bestimmt die Abschnittlänge ebenfalls.</p>
             </details>
           </div>
-          <h3>Schaftende</h3>
+          <h3>Schaftende des Pressrohlings</h3>
           <div class="felder">
-            <label class="feld voll"><span>Ausführung am freien Schaftende</span><select name="schaftende"><option value="voll">Voll</option><option value="halbhohl">Halbhohl / Sackloch</option><option value="rohr">Durchgangsloch</option></select></label>
+            <label class="feld voll"><span>Ausführung am freien Schaftende</span><select name="schaftende"><option value="voll">Voll</option><option value="halbhohl">Halbhohl / Sackloch</option><option value="rohr">Durchgangsloch</option><option value="spitze">Kegelspitze</option><option value="kegelstumpf_flach">Kegelstumpf, flach</option><option value="zapfen">Zapfen</option><option value="kuppe">Kuppe</option><option value="ringschneide">Ringschneide · Kontur ergänzen</option></select></label>
+            <label class="feld" data-shaft-end="spitze zapfen kegelstumpf_flach"><span>Endlänge in mm</span><input name="endLength" type="text" inputmode="decimal"></label>
+            <label class="feld" data-shaft-end="spitze zapfen kegelstumpf_flach"><span>Enddurchmesser in mm</span><input name="endDiameter" type="text" inputmode="decimal"></label>
+            <label class="feld" data-shaft-end="spitze kegelstumpf_flach"><span>Spitzenwinkel in Grad (optional)</span><input name="tipAngle" type="text" inputmode="decimal"></label>
             <label class="feld" data-shaft-end="halbhohl rohr"><span>Bohrungs-Ø am Schaftende in mm</span><input name="d_b" type="text" inputmode="decimal"></label>
             <label class="feld" data-shaft-end="halbhohl"><span>Gesamttiefe einschließlich Bohrungsgrund in mm</span><input name="t_b" type="text" inputmode="decimal"></label>
             <label class="feld" data-shaft-end="halbhohl"><span>Bohrungsgrund</span><select name="bottomShape"><option value="cone">Kegelgrund</option><option value="flat">Flach</option></select></label>
@@ -412,6 +416,7 @@
         <div class="gruppe">
           <h2>Passende Maschinen</h2>
           <p class="klein" id="preisnote">Richtpreis 2026 in EUR, FOB Kaohsiung, Grundausstattung 2026, unverbindlich. Die Spanne zeigt die Unsicherheit der Ableitung. Die Planungsausbringung ist ein Erfahrungswert aus der Serienfertigung; der Katalog nennt die Höchstdrehzahl der Maschine.</p>
+          <div id="wire-variants" hidden></div>
           <div id="karten"></div>
         </div>
         <details id="regelbox"><summary>Rechenweg und Regeln</summary><table><tbody id="regeln"></tbody></table></details>
@@ -419,6 +424,7 @@
     </div>
   </div>
 
+  <details id="kvp-container" hidden><summary>Erfahrungen und Rückmeldung</summary><div id="kvp-panel"></div></details>
   <section class="anfrage" id="anfrage">
     <p id="selected-machine" class="klein" role="status" aria-live="polite" hidden></p>
     <h2>Angebot anfragen</h2>
@@ -448,7 +454,7 @@
   <div class="wrap">
     <div>Jern Yao Vertretung für den deutschen Sprachraum · Hans Möhling · <a href="mailto:info@jernyao.de">info@jernyao.de</a> · +49 171 10 700 10</div>
     <details><summary>Impressum</summary><p>Hans Möhling · Exklusivvertretung Jern Yao Enterprises Co., Ltd. für Deutschland, Österreich und die Schweiz. E-Mail: jernyao@techno.parts · Telefon: +49 171 10 700 10</p></details>
-    <details><summary>Datenschutz</summary><p>Die Geometrieberechnung läuft im Browser. Erst mit dem jeweiligen KI-Start werden Ihre Zeichnung und Angaben oder Ihre aufgebaute Geometrie zur Analyse übertragen. Die getrennte Anfrage an Hans sendet Ihre Kontaktdaten, Notiz, das vorhandene Ergebnis und eine ausgewählte Originalzeichnung über Resend an Hans Möhling. Nur Ihre Sprachwahl wird lokal gespeichert. Beim Hosting fallen technische Zugriffsprotokolle an.</p></details>
+    <details><summary>Datenschutz</summary><p>Die Geometrieberechnung läuft im Browser. Erst mit dem jeweiligen KI-Start werden Ihre Zeichnung und Angaben oder Ihre aufgebaute Geometrie zur Analyse übertragen. Die getrennte Anfrage an Hans sendet Ihre Kontaktdaten, Notiz, das vorhandene Ergebnis und eine ausgewählte Originalzeichnung über Resend an Hans Möhling. Nur Ihre Sprachwahl wird lokal gespeichert. Beim Hosting fallen technische Zugriffsprotokolle an.</p><p>Erfahrungen werden erst auf Ihren Klick abgefragt. Eine technische Rückmeldung wird nur mit Ihrer gesonderten Zustimmung gespeichert, ohne Zeichnung, Namen oder Kontaktdaten. Sie bleibt ungeprüft, bis Hans sie fachlich freigibt.</p></details>
   </div>
 </footer>
 
@@ -466,6 +472,9 @@
 <script>/*AXIAL_CHAIN*/</script>
 <script>/*STANDARD_FAMILIES*/</script>
 <script>/*NORM_LIBRARY*/</script>
+<script>/*RANKING_UI*/</script>
+<script>/*KVP_UI*/</script>
+<script>/*STANDARD_PREVIEW*/</script>
 <script>/*WIRE_DEFAULTS*/</script>
 <script>/*ARCHIVE_UI*/</script>
 </body>

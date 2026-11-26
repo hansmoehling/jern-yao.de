@@ -1,0 +1,10 @@
+{
+  "Spitzenquerschnitt nach Gewindewalzen in mm² (optional)": ["Sezione della punta dopo la rullatura del filetto in mm² (facoltativa)", "Presek konice po valjanju navoja v mm² (neobvezno)", "Tip cross-section after thread rolling in mm² (optional)", "滚丝后尖端截面积，平方毫米（选填）"],
+  "Spitzenquerschnitt nach Gewindewalzen": ["Sezione della punta dopo la rullatura del filetto", "Presek konice po valjanju navoja", "Tip cross-section after thread rolling", "滚丝后尖端截面积"],
+  "Spitzenlänge am Fertigteil in mm (optional)": ["Lunghezza della punta sul pezzo finito in mm (facoltativa)", "Dolžina konice na končnem izdelku v mm (neobvezno)", "Tip length on the finished part in mm (optional)", "成品尖端长度，毫米（选填）"],
+  "End-Ø nach Gewindewalzen in mm (optional)": ["Ø finale dopo la rullatura del filetto in mm (facoltativo)", "Končni Ø po valjanju navoja v mm (neobvezno)", "End Ø after thread rolling in mm (optional)", "滚丝后端部直径，毫米（选填）"],
+  "Gewindewalzen ist ein nachgelagerter Arbeitsgang. Die gewalzte Spitze bleibt für Volumen und Pressstufen im zylindrischen Rohling enthalten.": ["La rullatura del filetto è un'operazione secondaria. Per il volume e le stazioni di stampaggio, la punta rullata rimane compresa nel grezzo cilindrico.", "Valjanje navoja je naknadna operacija. Pri izračunu prostornine in preoblikovalnih stopenj je valjana konica vključena v valjasti surovec.", "Thread rolling is a secondary operation. For blank volume and forming stages, the rolled tip remains part of the cylindrical blank.", "滚丝属于后续工序。计算坯料体积及冷镦工位时，滚制尖端仍包含在圆柱形坯料内。"],
+  "Schaftende des Pressrohlings": ["Estremità del gambo del grezzo stampato", "Konec stebla preoblikovanega surovca", "Shaft end of the cold-formed blank", "冷镦坯料的杆部末端"],
+  "Spitzenlänge am Fertigteil": ["Lunghezza della punta sul pezzo finito", "Dolžina konice na končnem izdelku", "Tip length on the finished part", "成品尖端长度"],
+  "End-Ø nach Gewindewalzen": ["Ø finale dopo la rullatura del filetto", "Končni Ø po valjanju navoja", "End Ø after thread rolling", "滚丝后端部直径"]
+}

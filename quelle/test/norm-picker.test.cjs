@@ -1,0 +1,36 @@
+const test=require('node:test'),assert=require('node:assert/strict'),fs=require('node:fs'),path=require('node:path'),vm=require('node:vm');
+const N=require('../normen/library.js'),R=require('../normen/resolver.js'),threads=require('../normen/gewinde.json');
+class El{constructor(tag='div'){this.tagName=tag.toUpperCase();this.value='';this.name='';this.type='';this.checked=false;this.children=[];this.events={};this.parent=null;this.hidden=false;}append(...nodes){nodes.forEach(n=>{n.parent=this;this.children.push(n);});}replaceChildren(...nodes){this.children=[];this.append(...nodes);}setAttribute(k,v){this[k]=v;}addEventListener(k,fn){this.events[k]=fn;}closest(tag){return this.tagName.toLowerCase()===tag?this:this.parent?.closest(tag);}get options(){return this.children;}get textContent(){return this._text||this.children.map(x=>x.textContent).join('');}set textContent(x){this._text=x;}}
+function setup(){
+ const host=new El(),form=new El('form'),detail=new El('details'),nodes=[];form.elements={typ:{value:'bolzen'},standardKind:{value:'screw'}};
+ const document={createElement(tag){const e=new El(tag);nodes.push(e);return e;},getElementById(){return detail;}};
+ const data={schemaVersion:1,version:'test',threads,families:['ISO4762','ISO14579','DIN934','DIN7338','ISO13918'].map(id=>require('../normen/'+id+'.json'))};
+ const window={document,JYNormLibrary:N,JYStandards:R};vm.runInNewContext(fs.readFileSync(path.join(__dirname,'../normen/ui.js'),'utf8'),{window});
+ const part={d0:5.6,wst:'existing',nachricht:'unchanged customer text'};
+ let applied;const picker=window.JYNormPicker.create({host,form,data,tr:x=>x,getType:()=>form.elements.typ.value,getPart:()=>({...part}),onApply:x=>{applied=x;},onChange(){}});
+ return {picker,form,host,detail,part,get:id=>nodes.find(n=>n.id===id),get applied(){return applied;}};
+}
+function edit(p,name,value,tagName='SELECT',type='',checked=false){p.form.events.change({target:{name,value,tagName,type,checked}});}
+
+test('norm picker stores drive-size and checkbox overrides and keeps the full customer snapshot',()=>{
+ const p=setup();assert(p.picker.select({id:'ISO4762',groesse:'M6',laenge:30}));edit(p,'iSize','custom');edit(p,'iSW','4,7','INPUT');let a=p.picker.adapted();assert.equal(a.iSize,'custom');assert.equal(a.iSW,4.7);assert.equal(a.standardDocument.partSnapshot.nachricht,'unchanged customer text');
+ assert(p.picker.select({id:'DIN934',groesse:'M8'}));edit(p,'nutShape','square');edit(p,'nutFlange','on','INPUT','checkbox',false);a=p.picker.adapted();assert.equal(a.nutShape,'square');assert.equal(a.nutFlange,false);assert.equal(p.picker.document().overrides.nutFlange.value,false);
+});
+
+test('norm picker exposes documented variant sizes without fabricating welding geometry',()=>{
+ const p=setup();p.picker.select({id:'DIN7338',form:'B',groesse:'3'});assert.equal(p.get('norm-form').value,'B');assert(p.get('norm-form').options.some(x=>x.value==='A'));assert.equal(p.picker.document().standardReference.form,'B');assert.equal(p.applied.d_b,1.7);assert(p.applied.normRequiresGeometryReview);
+ p.picker.select({id:'ISO13918',form:'PT',groesse:'M3',laenge:12});assert.equal(p.get('norm-kind').value,'pin');assert.equal(p.get('norm-form').value,'PT');assert.equal(p.get('norm-form').options.length,14);assert.equal(p.applied.l1,12);assert.equal(p.applied.normRequiresGeometryReview,true);assert.equal(p.picker.document().standardReference.form,'PT');
+ assert(!p.host.textContent.includes('catalog-undated'));assert(!p.host.textContent.includes('catalogue-unassigned'));
+});
+
+test('numeric normative Torx sizes adapt to actual catalogue labels and customer sizes survive',()=>{
+ const p=setup();p.picker.select({id:'ISO14579',groesse:'M6'});assert.equal(p.applied.iSize,'T30');edit(p,'iSize','T25');assert.equal(p.picker.adapted().iSize,'T25');
+});
+
+test('exported template snapshot follows wire and material edits made outside norm fields',()=>{
+ const p=setup();p.picker.select({id:'ISO4762',groesse:'M6',laenge:30});p.part.d0=5.2;p.part.wst='customer-wire';
+ assert.equal(p.picker.document().partSnapshot.d0,5.2);
+ assert.equal(p.picker.adapted().standardDocument.partSnapshot.wst,'customer-wire');
+ assert.equal(p.picker.document().standardReference.id,'ISO4762');
+ assert.deepEqual(Object.keys(p.picker.document().overrides),[]);
+});

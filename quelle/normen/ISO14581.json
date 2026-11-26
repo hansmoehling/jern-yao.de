@@ -3,114 +3,3859 @@
   "version": "2026-11-26",
   "schemaVersion": 1,
   "label": "ISO14581 · Senkkopf mit Innensechsrund",
-  "edition": null,
-  "editionStatus": "unresolved",
+  "edition": "2013",
+  "editionStatus": "documented-edition",
   "funktion": "schraube",
   "klasse": "bolzen",
   "kopfTyp": "kegelstumpf",
   "antrieb": {
     "art": "torx"
   },
-  "feldzuordnung": {},
-  "groessen": {},
-  "fields": {},
-  "sourceMeta": {},
-  "quellen": [],
+  "feldzuordnung": {
+    "kD": "dk_actual_max",
+    "kH": "k_max",
+    "iSize": "socket_no",
+    "iT": "t_min",
+    "totalLength": "l_nominal"
+  },
+  "groessen": {
+    "M3": {
+      "roh": {
+        "P": 0.5,
+        "dk_actual_max": 5.5,
+        "dk_actual_min": 5.2,
+        "k_max": 1.65,
+        "socket_no": 10,
+        "t_min": 0.7,
+        "t_max": 0.83
+      },
+      "vorbelegung": {
+        "kD": 5.5,
+        "kH": 1.65,
+        "iSize": 10,
+        "iT": 0.7
+      },
+      "coverage": "documented",
+      "geometryStatus": "partial",
+      "missingGeometryFields": [
+        "recessVolumeModel",
+        "headToShaftLength"
+      ],
+      "nachLaenge": {
+        "4": {
+          "vorbelegung": {
+            "totalLength": 4
+          },
+          "roh": {
+            "l_nominal": 4
+          },
+          "fields": {
+            "l_nominal": {
+              "nominal": 4,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso2013"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "single-primary-source",
+              "note": "Belegte Längenzeile; unabhängiger Zweitbeleg offen. Bevorzugte Längen der Ausgabe 2013, inklusive Senkkopf. Keine automatische Schaft- oder Gewindelänge."
+            }
+          },
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "recessVolumeModel",
+            "headToShaftLength"
+          ]
+        },
+        "5": {
+          "vorbelegung": {
+            "totalLength": 5
+          },
+          "roh": {
+            "l_nominal": 5
+          },
+          "fields": {
+            "l_nominal": {
+              "nominal": 5,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso2013"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "single-primary-source",
+              "note": "Belegte Längenzeile; unabhängiger Zweitbeleg offen. Bevorzugte Längen der Ausgabe 2013, inklusive Senkkopf. Keine automatische Schaft- oder Gewindelänge."
+            }
+          },
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "recessVolumeModel",
+            "headToShaftLength"
+          ]
+        },
+        "6": {
+          "vorbelegung": {
+            "totalLength": 6
+          },
+          "roh": {
+            "l_nominal": 6
+          },
+          "fields": {
+            "l_nominal": {
+              "nominal": 6,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso2013"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "single-primary-source",
+              "note": "Belegte Längenzeile; unabhängiger Zweitbeleg offen. Bevorzugte Längen der Ausgabe 2013, inklusive Senkkopf. Keine automatische Schaft- oder Gewindelänge."
+            }
+          },
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "recessVolumeModel",
+            "headToShaftLength"
+          ]
+        },
+        "8": {
+          "vorbelegung": {
+            "totalLength": 8
+          },
+          "roh": {
+            "l_nominal": 8
+          },
+          "fields": {
+            "l_nominal": {
+              "nominal": 8,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso2013"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "single-primary-source",
+              "note": "Belegte Längenzeile; unabhängiger Zweitbeleg offen. Bevorzugte Längen der Ausgabe 2013, inklusive Senkkopf. Keine automatische Schaft- oder Gewindelänge."
+            }
+          },
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "recessVolumeModel",
+            "headToShaftLength"
+          ]
+        },
+        "10": {
+          "vorbelegung": {
+            "totalLength": 10
+          },
+          "roh": {
+            "l_nominal": 10
+          },
+          "fields": {
+            "l_nominal": {
+              "nominal": 10,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso2013"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "single-primary-source",
+              "note": "Belegte Längenzeile; unabhängiger Zweitbeleg offen. Bevorzugte Längen der Ausgabe 2013, inklusive Senkkopf. Keine automatische Schaft- oder Gewindelänge."
+            }
+          },
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "recessVolumeModel",
+            "headToShaftLength"
+          ]
+        },
+        "12": {
+          "vorbelegung": {
+            "totalLength": 12
+          },
+          "roh": {
+            "l_nominal": 12
+          },
+          "fields": {
+            "l_nominal": {
+              "nominal": 12,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso2013"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "single-primary-source",
+              "note": "Belegte Längenzeile; unabhängiger Zweitbeleg offen. Bevorzugte Längen der Ausgabe 2013, inklusive Senkkopf. Keine automatische Schaft- oder Gewindelänge."
+            }
+          },
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "recessVolumeModel",
+            "headToShaftLength"
+          ]
+        },
+        "14": {
+          "vorbelegung": {
+            "totalLength": 14
+          },
+          "roh": {
+            "l_nominal": 14
+          },
+          "fields": {
+            "l_nominal": {
+              "nominal": 14,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso2013"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "single-primary-source",
+              "note": "Belegte Längenzeile; unabhängiger Zweitbeleg offen. Bevorzugte Längen der Ausgabe 2013, inklusive Senkkopf. Keine automatische Schaft- oder Gewindelänge."
+            }
+          },
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "recessVolumeModel",
+            "headToShaftLength"
+          ]
+        },
+        "16": {
+          "vorbelegung": {
+            "totalLength": 16
+          },
+          "roh": {
+            "l_nominal": 16
+          },
+          "fields": {
+            "l_nominal": {
+              "nominal": 16,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso2013"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "single-primary-source",
+              "note": "Belegte Längenzeile; unabhängiger Zweitbeleg offen. Bevorzugte Längen der Ausgabe 2013, inklusive Senkkopf. Keine automatische Schaft- oder Gewindelänge."
+            }
+          },
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "recessVolumeModel",
+            "headToShaftLength"
+          ]
+        },
+        "20": {
+          "vorbelegung": {
+            "totalLength": 20
+          },
+          "roh": {
+            "l_nominal": 20
+          },
+          "fields": {
+            "l_nominal": {
+              "nominal": 20,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso2013"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "single-primary-source",
+              "note": "Belegte Längenzeile; unabhängiger Zweitbeleg offen. Bevorzugte Längen der Ausgabe 2013, inklusive Senkkopf. Keine automatische Schaft- oder Gewindelänge."
+            }
+          },
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "recessVolumeModel",
+            "headToShaftLength"
+          ]
+        },
+        "25": {
+          "vorbelegung": {
+            "totalLength": 25
+          },
+          "roh": {
+            "l_nominal": 25
+          },
+          "fields": {
+            "l_nominal": {
+              "nominal": 25,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso2013"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "single-primary-source",
+              "note": "Belegte Längenzeile; unabhängiger Zweitbeleg offen. Bevorzugte Längen der Ausgabe 2013, inklusive Senkkopf. Keine automatische Schaft- oder Gewindelänge."
+            }
+          },
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "recessVolumeModel",
+            "headToShaftLength"
+          ]
+        },
+        "30": {
+          "vorbelegung": {
+            "totalLength": 30
+          },
+          "roh": {
+            "l_nominal": 30
+          },
+          "fields": {
+            "l_nominal": {
+              "nominal": 30,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso2013"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "single-primary-source",
+              "note": "Belegte Längenzeile; unabhängiger Zweitbeleg offen. Bevorzugte Längen der Ausgabe 2013, inklusive Senkkopf. Keine automatische Schaft- oder Gewindelänge."
+            }
+          },
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "recessVolumeModel",
+            "headToShaftLength"
+          ]
+        }
+      },
+      "lengthCoverage": "documented-subset",
+      "laengen": [
+        4,
+        5,
+        6,
+        8,
+        10,
+        12,
+        14,
+        16,
+        20,
+        25,
+        30
+      ]
+    },
+    "M3.5": {
+      "roh": {
+        "P": 0.6,
+        "dk_actual_max": 7.3,
+        "dk_actual_min": 6.94,
+        "k_max": 2.35,
+        "socket_no": 15,
+        "t_min": 1.16,
+        "t_max": 1.32
+      },
+      "vorbelegung": {
+        "kD": 7.3,
+        "kH": 2.35,
+        "iSize": 15,
+        "iT": 1.16
+      },
+      "coverage": "documented",
+      "geometryStatus": "partial",
+      "missingGeometryFields": [
+        "recessVolumeModel",
+        "headToShaftLength"
+      ],
+      "nachLaenge": {
+        "5": {
+          "vorbelegung": {
+            "totalLength": 5
+          },
+          "roh": {
+            "l_nominal": 5
+          },
+          "fields": {
+            "l_nominal": {
+              "nominal": 5,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso2013"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "single-primary-source",
+              "note": "Belegte Längenzeile; unabhängiger Zweitbeleg offen. Bevorzugte Längen der Ausgabe 2013, inklusive Senkkopf. Keine automatische Schaft- oder Gewindelänge."
+            }
+          },
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "recessVolumeModel",
+            "headToShaftLength"
+          ]
+        },
+        "6": {
+          "vorbelegung": {
+            "totalLength": 6
+          },
+          "roh": {
+            "l_nominal": 6
+          },
+          "fields": {
+            "l_nominal": {
+              "nominal": 6,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso2013"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "single-primary-source",
+              "note": "Belegte Längenzeile; unabhängiger Zweitbeleg offen. Bevorzugte Längen der Ausgabe 2013, inklusive Senkkopf. Keine automatische Schaft- oder Gewindelänge."
+            }
+          },
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "recessVolumeModel",
+            "headToShaftLength"
+          ]
+        },
+        "8": {
+          "vorbelegung": {
+            "totalLength": 8
+          },
+          "roh": {
+            "l_nominal": 8
+          },
+          "fields": {
+            "l_nominal": {
+              "nominal": 8,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso2013"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "single-primary-source",
+              "note": "Belegte Längenzeile; unabhängiger Zweitbeleg offen. Bevorzugte Längen der Ausgabe 2013, inklusive Senkkopf. Keine automatische Schaft- oder Gewindelänge."
+            }
+          },
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "recessVolumeModel",
+            "headToShaftLength"
+          ]
+        },
+        "10": {
+          "vorbelegung": {
+            "totalLength": 10
+          },
+          "roh": {
+            "l_nominal": 10
+          },
+          "fields": {
+            "l_nominal": {
+              "nominal": 10,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso2013"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "single-primary-source",
+              "note": "Belegte Längenzeile; unabhängiger Zweitbeleg offen. Bevorzugte Längen der Ausgabe 2013, inklusive Senkkopf. Keine automatische Schaft- oder Gewindelänge."
+            }
+          },
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "recessVolumeModel",
+            "headToShaftLength"
+          ]
+        },
+        "12": {
+          "vorbelegung": {
+            "totalLength": 12
+          },
+          "roh": {
+            "l_nominal": 12
+          },
+          "fields": {
+            "l_nominal": {
+              "nominal": 12,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso2013"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "single-primary-source",
+              "note": "Belegte Längenzeile; unabhängiger Zweitbeleg offen. Bevorzugte Längen der Ausgabe 2013, inklusive Senkkopf. Keine automatische Schaft- oder Gewindelänge."
+            }
+          },
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "recessVolumeModel",
+            "headToShaftLength"
+          ]
+        },
+        "14": {
+          "vorbelegung": {
+            "totalLength": 14
+          },
+          "roh": {
+            "l_nominal": 14
+          },
+          "fields": {
+            "l_nominal": {
+              "nominal": 14,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso2013"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "single-primary-source",
+              "note": "Belegte Längenzeile; unabhängiger Zweitbeleg offen. Bevorzugte Längen der Ausgabe 2013, inklusive Senkkopf. Keine automatische Schaft- oder Gewindelänge."
+            }
+          },
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "recessVolumeModel",
+            "headToShaftLength"
+          ]
+        },
+        "16": {
+          "vorbelegung": {
+            "totalLength": 16
+          },
+          "roh": {
+            "l_nominal": 16
+          },
+          "fields": {
+            "l_nominal": {
+              "nominal": 16,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso2013"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "single-primary-source",
+              "note": "Belegte Längenzeile; unabhängiger Zweitbeleg offen. Bevorzugte Längen der Ausgabe 2013, inklusive Senkkopf. Keine automatische Schaft- oder Gewindelänge."
+            }
+          },
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "recessVolumeModel",
+            "headToShaftLength"
+          ]
+        },
+        "20": {
+          "vorbelegung": {
+            "totalLength": 20
+          },
+          "roh": {
+            "l_nominal": 20
+          },
+          "fields": {
+            "l_nominal": {
+              "nominal": 20,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso2013"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "single-primary-source",
+              "note": "Belegte Längenzeile; unabhängiger Zweitbeleg offen. Bevorzugte Längen der Ausgabe 2013, inklusive Senkkopf. Keine automatische Schaft- oder Gewindelänge."
+            }
+          },
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "recessVolumeModel",
+            "headToShaftLength"
+          ]
+        },
+        "25": {
+          "vorbelegung": {
+            "totalLength": 25
+          },
+          "roh": {
+            "l_nominal": 25
+          },
+          "fields": {
+            "l_nominal": {
+              "nominal": 25,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso2013"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "single-primary-source",
+              "note": "Belegte Längenzeile; unabhängiger Zweitbeleg offen. Bevorzugte Längen der Ausgabe 2013, inklusive Senkkopf. Keine automatische Schaft- oder Gewindelänge."
+            }
+          },
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "recessVolumeModel",
+            "headToShaftLength"
+          ]
+        },
+        "30": {
+          "vorbelegung": {
+            "totalLength": 30
+          },
+          "roh": {
+            "l_nominal": 30
+          },
+          "fields": {
+            "l_nominal": {
+              "nominal": 30,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso2013"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "single-primary-source",
+              "note": "Belegte Längenzeile; unabhängiger Zweitbeleg offen. Bevorzugte Längen der Ausgabe 2013, inklusive Senkkopf. Keine automatische Schaft- oder Gewindelänge."
+            }
+          },
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "recessVolumeModel",
+            "headToShaftLength"
+          ]
+        },
+        "35": {
+          "vorbelegung": {
+            "totalLength": 35
+          },
+          "roh": {
+            "l_nominal": 35
+          },
+          "fields": {
+            "l_nominal": {
+              "nominal": 35,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso2013"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "single-primary-source",
+              "note": "Belegte Längenzeile; unabhängiger Zweitbeleg offen. Bevorzugte Längen der Ausgabe 2013, inklusive Senkkopf. Keine automatische Schaft- oder Gewindelänge."
+            }
+          },
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "recessVolumeModel",
+            "headToShaftLength"
+          ]
+        }
+      },
+      "lengthCoverage": "documented-subset",
+      "laengen": [
+        5,
+        6,
+        8,
+        10,
+        12,
+        14,
+        16,
+        20,
+        25,
+        30,
+        35
+      ]
+    },
+    "M4": {
+      "roh": {
+        "P": 0.7,
+        "dk_actual_max": 8.4,
+        "dk_actual_min": 8.04,
+        "k_max": 2.7,
+        "socket_no": 20,
+        "t_min": 1.14,
+        "t_max": 1.53
+      },
+      "vorbelegung": {
+        "kD": 8.4,
+        "kH": 2.7,
+        "iSize": 20,
+        "iT": 1.14
+      },
+      "coverage": "documented",
+      "geometryStatus": "partial",
+      "missingGeometryFields": [
+        "recessVolumeModel",
+        "headToShaftLength"
+      ],
+      "nachLaenge": {
+        "5": {
+          "vorbelegung": {
+            "totalLength": 5
+          },
+          "roh": {
+            "l_nominal": 5
+          },
+          "fields": {
+            "l_nominal": {
+              "nominal": 5,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso2013"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "single-primary-source",
+              "note": "Belegte Längenzeile; unabhängiger Zweitbeleg offen. Bevorzugte Längen der Ausgabe 2013, inklusive Senkkopf. Keine automatische Schaft- oder Gewindelänge."
+            }
+          },
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "recessVolumeModel",
+            "headToShaftLength"
+          ]
+        },
+        "6": {
+          "vorbelegung": {
+            "totalLength": 6
+          },
+          "roh": {
+            "l_nominal": 6
+          },
+          "fields": {
+            "l_nominal": {
+              "nominal": 6,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso2013"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "single-primary-source",
+              "note": "Belegte Längenzeile; unabhängiger Zweitbeleg offen. Bevorzugte Längen der Ausgabe 2013, inklusive Senkkopf. Keine automatische Schaft- oder Gewindelänge."
+            }
+          },
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "recessVolumeModel",
+            "headToShaftLength"
+          ]
+        },
+        "8": {
+          "vorbelegung": {
+            "totalLength": 8
+          },
+          "roh": {
+            "l_nominal": 8
+          },
+          "fields": {
+            "l_nominal": {
+              "nominal": 8,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso2013"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "single-primary-source",
+              "note": "Belegte Längenzeile; unabhängiger Zweitbeleg offen. Bevorzugte Längen der Ausgabe 2013, inklusive Senkkopf. Keine automatische Schaft- oder Gewindelänge."
+            }
+          },
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "recessVolumeModel",
+            "headToShaftLength"
+          ]
+        },
+        "10": {
+          "vorbelegung": {
+            "totalLength": 10
+          },
+          "roh": {
+            "l_nominal": 10
+          },
+          "fields": {
+            "l_nominal": {
+              "nominal": 10,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso2013"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "single-primary-source",
+              "note": "Belegte Längenzeile; unabhängiger Zweitbeleg offen. Bevorzugte Längen der Ausgabe 2013, inklusive Senkkopf. Keine automatische Schaft- oder Gewindelänge."
+            }
+          },
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "recessVolumeModel",
+            "headToShaftLength"
+          ]
+        },
+        "12": {
+          "vorbelegung": {
+            "totalLength": 12
+          },
+          "roh": {
+            "l_nominal": 12
+          },
+          "fields": {
+            "l_nominal": {
+              "nominal": 12,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso2013"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "single-primary-source",
+              "note": "Belegte Längenzeile; unabhängiger Zweitbeleg offen. Bevorzugte Längen der Ausgabe 2013, inklusive Senkkopf. Keine automatische Schaft- oder Gewindelänge."
+            }
+          },
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "recessVolumeModel",
+            "headToShaftLength"
+          ]
+        },
+        "14": {
+          "vorbelegung": {
+            "totalLength": 14
+          },
+          "roh": {
+            "l_nominal": 14
+          },
+          "fields": {
+            "l_nominal": {
+              "nominal": 14,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso2013"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "single-primary-source",
+              "note": "Belegte Längenzeile; unabhängiger Zweitbeleg offen. Bevorzugte Längen der Ausgabe 2013, inklusive Senkkopf. Keine automatische Schaft- oder Gewindelänge."
+            }
+          },
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "recessVolumeModel",
+            "headToShaftLength"
+          ]
+        },
+        "16": {
+          "vorbelegung": {
+            "totalLength": 16
+          },
+          "roh": {
+            "l_nominal": 16
+          },
+          "fields": {
+            "l_nominal": {
+              "nominal": 16,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso2013"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "single-primary-source",
+              "note": "Belegte Längenzeile; unabhängiger Zweitbeleg offen. Bevorzugte Längen der Ausgabe 2013, inklusive Senkkopf. Keine automatische Schaft- oder Gewindelänge."
+            }
+          },
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "recessVolumeModel",
+            "headToShaftLength"
+          ]
+        },
+        "20": {
+          "vorbelegung": {
+            "totalLength": 20
+          },
+          "roh": {
+            "l_nominal": 20
+          },
+          "fields": {
+            "l_nominal": {
+              "nominal": 20,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso2013"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "single-primary-source",
+              "note": "Belegte Längenzeile; unabhängiger Zweitbeleg offen. Bevorzugte Längen der Ausgabe 2013, inklusive Senkkopf. Keine automatische Schaft- oder Gewindelänge."
+            }
+          },
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "recessVolumeModel",
+            "headToShaftLength"
+          ]
+        },
+        "25": {
+          "vorbelegung": {
+            "totalLength": 25
+          },
+          "roh": {
+            "l_nominal": 25
+          },
+          "fields": {
+            "l_nominal": {
+              "nominal": 25,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso2013"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "single-primary-source",
+              "note": "Belegte Längenzeile; unabhängiger Zweitbeleg offen. Bevorzugte Längen der Ausgabe 2013, inklusive Senkkopf. Keine automatische Schaft- oder Gewindelänge."
+            }
+          },
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "recessVolumeModel",
+            "headToShaftLength"
+          ]
+        },
+        "30": {
+          "vorbelegung": {
+            "totalLength": 30
+          },
+          "roh": {
+            "l_nominal": 30
+          },
+          "fields": {
+            "l_nominal": {
+              "nominal": 30,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso2013"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "single-primary-source",
+              "note": "Belegte Längenzeile; unabhängiger Zweitbeleg offen. Bevorzugte Längen der Ausgabe 2013, inklusive Senkkopf. Keine automatische Schaft- oder Gewindelänge."
+            }
+          },
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "recessVolumeModel",
+            "headToShaftLength"
+          ]
+        },
+        "35": {
+          "vorbelegung": {
+            "totalLength": 35
+          },
+          "roh": {
+            "l_nominal": 35
+          },
+          "fields": {
+            "l_nominal": {
+              "nominal": 35,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso2013"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "single-primary-source",
+              "note": "Belegte Längenzeile; unabhängiger Zweitbeleg offen. Bevorzugte Längen der Ausgabe 2013, inklusive Senkkopf. Keine automatische Schaft- oder Gewindelänge."
+            }
+          },
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "recessVolumeModel",
+            "headToShaftLength"
+          ]
+        },
+        "40": {
+          "vorbelegung": {
+            "totalLength": 40
+          },
+          "roh": {
+            "l_nominal": 40
+          },
+          "fields": {
+            "l_nominal": {
+              "nominal": 40,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso2013"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "single-primary-source",
+              "note": "Belegte Längenzeile; unabhängiger Zweitbeleg offen. Bevorzugte Längen der Ausgabe 2013, inklusive Senkkopf. Keine automatische Schaft- oder Gewindelänge."
+            }
+          },
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "recessVolumeModel",
+            "headToShaftLength"
+          ]
+        }
+      },
+      "lengthCoverage": "documented-subset",
+      "laengen": [
+        5,
+        6,
+        8,
+        10,
+        12,
+        14,
+        16,
+        20,
+        25,
+        30,
+        35,
+        40
+      ]
+    },
+    "M5": {
+      "roh": {
+        "P": 0.8,
+        "dk_actual_max": 9.3,
+        "dk_actual_min": 8.94,
+        "k_max": 2.7,
+        "socket_no": 25,
+        "t_min": 1.12,
+        "t_max": 1.51
+      },
+      "vorbelegung": {
+        "kD": 9.3,
+        "kH": 2.7,
+        "iSize": 25,
+        "iT": 1.12
+      },
+      "coverage": "documented",
+      "geometryStatus": "partial",
+      "missingGeometryFields": [
+        "recessVolumeModel",
+        "headToShaftLength",
+        "underheadReinforcement"
+      ],
+      "nachLaenge": {
+        "6": {
+          "vorbelegung": {
+            "totalLength": 6
+          },
+          "roh": {
+            "l_nominal": 6
+          },
+          "fields": {
+            "l_nominal": {
+              "nominal": 6,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso2013"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "single-primary-source",
+              "note": "Belegte Längenzeile; unabhängiger Zweitbeleg offen. Bevorzugte Längen der Ausgabe 2013, inklusive Senkkopf. Keine automatische Schaft- oder Gewindelänge."
+            }
+          },
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "recessVolumeModel",
+            "headToShaftLength",
+            "underheadReinforcement"
+          ]
+        },
+        "8": {
+          "vorbelegung": {
+            "totalLength": 8
+          },
+          "roh": {
+            "l_nominal": 8
+          },
+          "fields": {
+            "l_nominal": {
+              "nominal": 8,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso2013"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "single-primary-source",
+              "note": "Belegte Längenzeile; unabhängiger Zweitbeleg offen. Bevorzugte Längen der Ausgabe 2013, inklusive Senkkopf. Keine automatische Schaft- oder Gewindelänge."
+            }
+          },
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "recessVolumeModel",
+            "headToShaftLength",
+            "underheadReinforcement"
+          ]
+        },
+        "10": {
+          "vorbelegung": {
+            "totalLength": 10
+          },
+          "roh": {
+            "l_nominal": 10
+          },
+          "fields": {
+            "l_nominal": {
+              "nominal": 10,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso2013"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "single-primary-source",
+              "note": "Belegte Längenzeile; unabhängiger Zweitbeleg offen. Bevorzugte Längen der Ausgabe 2013, inklusive Senkkopf. Keine automatische Schaft- oder Gewindelänge."
+            }
+          },
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "recessVolumeModel",
+            "headToShaftLength",
+            "underheadReinforcement"
+          ]
+        },
+        "12": {
+          "vorbelegung": {
+            "totalLength": 12
+          },
+          "roh": {
+            "l_nominal": 12
+          },
+          "fields": {
+            "l_nominal": {
+              "nominal": 12,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso2013"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "single-primary-source",
+              "note": "Belegte Längenzeile; unabhängiger Zweitbeleg offen. Bevorzugte Längen der Ausgabe 2013, inklusive Senkkopf. Keine automatische Schaft- oder Gewindelänge."
+            }
+          },
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "recessVolumeModel",
+            "headToShaftLength",
+            "underheadReinforcement"
+          ]
+        },
+        "14": {
+          "vorbelegung": {
+            "totalLength": 14
+          },
+          "roh": {
+            "l_nominal": 14
+          },
+          "fields": {
+            "l_nominal": {
+              "nominal": 14,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso2013"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "single-primary-source",
+              "note": "Belegte Längenzeile; unabhängiger Zweitbeleg offen. Bevorzugte Längen der Ausgabe 2013, inklusive Senkkopf. Keine automatische Schaft- oder Gewindelänge."
+            }
+          },
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "recessVolumeModel",
+            "headToShaftLength",
+            "underheadReinforcement"
+          ]
+        },
+        "16": {
+          "vorbelegung": {
+            "totalLength": 16
+          },
+          "roh": {
+            "l_nominal": 16
+          },
+          "fields": {
+            "l_nominal": {
+              "nominal": 16,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso2013"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "single-primary-source",
+              "note": "Belegte Längenzeile; unabhängiger Zweitbeleg offen. Bevorzugte Längen der Ausgabe 2013, inklusive Senkkopf. Keine automatische Schaft- oder Gewindelänge."
+            }
+          },
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "recessVolumeModel",
+            "headToShaftLength",
+            "underheadReinforcement"
+          ]
+        },
+        "20": {
+          "vorbelegung": {
+            "totalLength": 20
+          },
+          "roh": {
+            "l_nominal": 20
+          },
+          "fields": {
+            "l_nominal": {
+              "nominal": 20,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso2013"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "single-primary-source",
+              "note": "Belegte Längenzeile; unabhängiger Zweitbeleg offen. Bevorzugte Längen der Ausgabe 2013, inklusive Senkkopf. Keine automatische Schaft- oder Gewindelänge."
+            }
+          },
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "recessVolumeModel",
+            "headToShaftLength",
+            "underheadReinforcement"
+          ]
+        },
+        "25": {
+          "vorbelegung": {
+            "totalLength": 25
+          },
+          "roh": {
+            "l_nominal": 25
+          },
+          "fields": {
+            "l_nominal": {
+              "nominal": 25,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso2013"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "single-primary-source",
+              "note": "Belegte Längenzeile; unabhängiger Zweitbeleg offen. Bevorzugte Längen der Ausgabe 2013, inklusive Senkkopf. Keine automatische Schaft- oder Gewindelänge."
+            }
+          },
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "recessVolumeModel",
+            "headToShaftLength",
+            "underheadReinforcement"
+          ]
+        },
+        "30": {
+          "vorbelegung": {
+            "totalLength": 30
+          },
+          "roh": {
+            "l_nominal": 30
+          },
+          "fields": {
+            "l_nominal": {
+              "nominal": 30,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso2013"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "single-primary-source",
+              "note": "Belegte Längenzeile; unabhängiger Zweitbeleg offen. Bevorzugte Längen der Ausgabe 2013, inklusive Senkkopf. Keine automatische Schaft- oder Gewindelänge."
+            }
+          },
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "recessVolumeModel",
+            "headToShaftLength",
+            "underheadReinforcement"
+          ]
+        },
+        "35": {
+          "vorbelegung": {
+            "totalLength": 35
+          },
+          "roh": {
+            "l_nominal": 35
+          },
+          "fields": {
+            "l_nominal": {
+              "nominal": 35,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso2013"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "single-primary-source",
+              "note": "Belegte Längenzeile; unabhängiger Zweitbeleg offen. Bevorzugte Längen der Ausgabe 2013, inklusive Senkkopf. Keine automatische Schaft- oder Gewindelänge."
+            }
+          },
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "recessVolumeModel",
+            "headToShaftLength",
+            "underheadReinforcement"
+          ]
+        },
+        "40": {
+          "vorbelegung": {
+            "totalLength": 40
+          },
+          "roh": {
+            "l_nominal": 40
+          },
+          "fields": {
+            "l_nominal": {
+              "nominal": 40,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso2013"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "single-primary-source",
+              "note": "Belegte Längenzeile; unabhängiger Zweitbeleg offen. Bevorzugte Längen der Ausgabe 2013, inklusive Senkkopf. Keine automatische Schaft- oder Gewindelänge."
+            }
+          },
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "recessVolumeModel",
+            "headToShaftLength",
+            "underheadReinforcement"
+          ]
+        },
+        "45": {
+          "vorbelegung": {
+            "totalLength": 45
+          },
+          "roh": {
+            "l_nominal": 45
+          },
+          "fields": {
+            "l_nominal": {
+              "nominal": 45,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso2013"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "single-primary-source",
+              "note": "Belegte Längenzeile; unabhängiger Zweitbeleg offen. Bevorzugte Längen der Ausgabe 2013, inklusive Senkkopf. Keine automatische Schaft- oder Gewindelänge."
+            }
+          },
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "recessVolumeModel",
+            "headToShaftLength",
+            "underheadReinforcement"
+          ]
+        },
+        "50": {
+          "vorbelegung": {
+            "totalLength": 50
+          },
+          "roh": {
+            "l_nominal": 50
+          },
+          "fields": {
+            "l_nominal": {
+              "nominal": 50,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso2013"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "single-primary-source",
+              "note": "Belegte Längenzeile; unabhängiger Zweitbeleg offen. Bevorzugte Längen der Ausgabe 2013, inklusive Senkkopf. Keine automatische Schaft- oder Gewindelänge."
+            }
+          },
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "recessVolumeModel",
+            "headToShaftLength",
+            "underheadReinforcement"
+          ]
+        }
+      },
+      "lengthCoverage": "documented-subset",
+      "laengen": [
+        6,
+        8,
+        10,
+        12,
+        14,
+        16,
+        20,
+        25,
+        30,
+        35,
+        40,
+        45,
+        50
+      ]
+    },
+    "M6": {
+      "roh": {
+        "P": 1,
+        "dk_actual_max": 11.3,
+        "dk_actual_min": 10.87,
+        "k_max": 3.3,
+        "socket_no": 30,
+        "t_min": 1.39,
+        "t_max": 1.78
+      },
+      "vorbelegung": {
+        "kD": 11.3,
+        "kH": 3.3,
+        "iSize": 30,
+        "iT": 1.39
+      },
+      "coverage": "documented",
+      "geometryStatus": "partial",
+      "missingGeometryFields": [
+        "recessVolumeModel",
+        "headToShaftLength",
+        "underheadReinforcement"
+      ],
+      "nachLaenge": {
+        "8": {
+          "vorbelegung": {
+            "totalLength": 8
+          },
+          "roh": {
+            "l_nominal": 8
+          },
+          "fields": {
+            "l_nominal": {
+              "nominal": 8,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso2013"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "single-primary-source",
+              "note": "Belegte Längenzeile; unabhängiger Zweitbeleg offen. Bevorzugte Längen der Ausgabe 2013, inklusive Senkkopf. Keine automatische Schaft- oder Gewindelänge."
+            }
+          },
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "recessVolumeModel",
+            "headToShaftLength",
+            "underheadReinforcement"
+          ]
+        },
+        "10": {
+          "vorbelegung": {
+            "totalLength": 10
+          },
+          "roh": {
+            "l_nominal": 10
+          },
+          "fields": {
+            "l_nominal": {
+              "nominal": 10,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso2013"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "single-primary-source",
+              "note": "Belegte Längenzeile; unabhängiger Zweitbeleg offen. Bevorzugte Längen der Ausgabe 2013, inklusive Senkkopf. Keine automatische Schaft- oder Gewindelänge."
+            }
+          },
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "recessVolumeModel",
+            "headToShaftLength",
+            "underheadReinforcement"
+          ]
+        },
+        "12": {
+          "vorbelegung": {
+            "totalLength": 12
+          },
+          "roh": {
+            "l_nominal": 12
+          },
+          "fields": {
+            "l_nominal": {
+              "nominal": 12,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso2013"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "single-primary-source",
+              "note": "Belegte Längenzeile; unabhängiger Zweitbeleg offen. Bevorzugte Längen der Ausgabe 2013, inklusive Senkkopf. Keine automatische Schaft- oder Gewindelänge."
+            }
+          },
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "recessVolumeModel",
+            "headToShaftLength",
+            "underheadReinforcement"
+          ]
+        },
+        "14": {
+          "vorbelegung": {
+            "totalLength": 14
+          },
+          "roh": {
+            "l_nominal": 14
+          },
+          "fields": {
+            "l_nominal": {
+              "nominal": 14,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso2013"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "single-primary-source",
+              "note": "Belegte Längenzeile; unabhängiger Zweitbeleg offen. Bevorzugte Längen der Ausgabe 2013, inklusive Senkkopf. Keine automatische Schaft- oder Gewindelänge."
+            }
+          },
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "recessVolumeModel",
+            "headToShaftLength",
+            "underheadReinforcement"
+          ]
+        },
+        "16": {
+          "vorbelegung": {
+            "totalLength": 16
+          },
+          "roh": {
+            "l_nominal": 16
+          },
+          "fields": {
+            "l_nominal": {
+              "nominal": 16,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso2013"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "single-primary-source",
+              "note": "Belegte Längenzeile; unabhängiger Zweitbeleg offen. Bevorzugte Längen der Ausgabe 2013, inklusive Senkkopf. Keine automatische Schaft- oder Gewindelänge."
+            }
+          },
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "recessVolumeModel",
+            "headToShaftLength",
+            "underheadReinforcement"
+          ]
+        },
+        "20": {
+          "vorbelegung": {
+            "totalLength": 20
+          },
+          "roh": {
+            "l_nominal": 20
+          },
+          "fields": {
+            "l_nominal": {
+              "nominal": 20,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso2013"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "single-primary-source",
+              "note": "Belegte Längenzeile; unabhängiger Zweitbeleg offen. Bevorzugte Längen der Ausgabe 2013, inklusive Senkkopf. Keine automatische Schaft- oder Gewindelänge."
+            }
+          },
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "recessVolumeModel",
+            "headToShaftLength",
+            "underheadReinforcement"
+          ]
+        },
+        "25": {
+          "vorbelegung": {
+            "totalLength": 25
+          },
+          "roh": {
+            "l_nominal": 25
+          },
+          "fields": {
+            "l_nominal": {
+              "nominal": 25,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso2013"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "single-primary-source",
+              "note": "Belegte Längenzeile; unabhängiger Zweitbeleg offen. Bevorzugte Längen der Ausgabe 2013, inklusive Senkkopf. Keine automatische Schaft- oder Gewindelänge."
+            }
+          },
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "recessVolumeModel",
+            "headToShaftLength",
+            "underheadReinforcement"
+          ]
+        },
+        "30": {
+          "vorbelegung": {
+            "totalLength": 30
+          },
+          "roh": {
+            "l_nominal": 30
+          },
+          "fields": {
+            "l_nominal": {
+              "nominal": 30,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso2013"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "single-primary-source",
+              "note": "Belegte Längenzeile; unabhängiger Zweitbeleg offen. Bevorzugte Längen der Ausgabe 2013, inklusive Senkkopf. Keine automatische Schaft- oder Gewindelänge."
+            }
+          },
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "recessVolumeModel",
+            "headToShaftLength",
+            "underheadReinforcement"
+          ]
+        },
+        "35": {
+          "vorbelegung": {
+            "totalLength": 35
+          },
+          "roh": {
+            "l_nominal": 35
+          },
+          "fields": {
+            "l_nominal": {
+              "nominal": 35,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso2013"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "single-primary-source",
+              "note": "Belegte Längenzeile; unabhängiger Zweitbeleg offen. Bevorzugte Längen der Ausgabe 2013, inklusive Senkkopf. Keine automatische Schaft- oder Gewindelänge."
+            }
+          },
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "recessVolumeModel",
+            "headToShaftLength",
+            "underheadReinforcement"
+          ]
+        },
+        "40": {
+          "vorbelegung": {
+            "totalLength": 40
+          },
+          "roh": {
+            "l_nominal": 40
+          },
+          "fields": {
+            "l_nominal": {
+              "nominal": 40,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso2013"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "single-primary-source",
+              "note": "Belegte Längenzeile; unabhängiger Zweitbeleg offen. Bevorzugte Längen der Ausgabe 2013, inklusive Senkkopf. Keine automatische Schaft- oder Gewindelänge."
+            }
+          },
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "recessVolumeModel",
+            "headToShaftLength",
+            "underheadReinforcement"
+          ]
+        },
+        "45": {
+          "vorbelegung": {
+            "totalLength": 45
+          },
+          "roh": {
+            "l_nominal": 45
+          },
+          "fields": {
+            "l_nominal": {
+              "nominal": 45,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso2013"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "single-primary-source",
+              "note": "Belegte Längenzeile; unabhängiger Zweitbeleg offen. Bevorzugte Längen der Ausgabe 2013, inklusive Senkkopf. Keine automatische Schaft- oder Gewindelänge."
+            }
+          },
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "recessVolumeModel",
+            "headToShaftLength",
+            "underheadReinforcement"
+          ]
+        },
+        "50": {
+          "vorbelegung": {
+            "totalLength": 50
+          },
+          "roh": {
+            "l_nominal": 50
+          },
+          "fields": {
+            "l_nominal": {
+              "nominal": 50,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso2013"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "single-primary-source",
+              "note": "Belegte Längenzeile; unabhängiger Zweitbeleg offen. Bevorzugte Längen der Ausgabe 2013, inklusive Senkkopf. Keine automatische Schaft- oder Gewindelänge."
+            }
+          },
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "recessVolumeModel",
+            "headToShaftLength",
+            "underheadReinforcement"
+          ]
+        },
+        "55": {
+          "vorbelegung": {
+            "totalLength": 55
+          },
+          "roh": {
+            "l_nominal": 55
+          },
+          "fields": {
+            "l_nominal": {
+              "nominal": 55,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso2013"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "single-primary-source",
+              "note": "Belegte Längenzeile; unabhängiger Zweitbeleg offen. Bevorzugte Längen der Ausgabe 2013, inklusive Senkkopf. Keine automatische Schaft- oder Gewindelänge."
+            }
+          },
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "recessVolumeModel",
+            "headToShaftLength",
+            "underheadReinforcement"
+          ]
+        },
+        "60": {
+          "vorbelegung": {
+            "totalLength": 60
+          },
+          "roh": {
+            "l_nominal": 60
+          },
+          "fields": {
+            "l_nominal": {
+              "nominal": 60,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso2013"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "single-primary-source",
+              "note": "Belegte Längenzeile; unabhängiger Zweitbeleg offen. Bevorzugte Längen der Ausgabe 2013, inklusive Senkkopf. Keine automatische Schaft- oder Gewindelänge."
+            }
+          },
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "recessVolumeModel",
+            "headToShaftLength",
+            "underheadReinforcement"
+          ]
+        }
+      },
+      "lengthCoverage": "documented-subset",
+      "laengen": [
+        8,
+        10,
+        12,
+        14,
+        16,
+        20,
+        25,
+        30,
+        35,
+        40,
+        45,
+        50,
+        55,
+        60
+      ]
+    },
+    "M8": {
+      "roh": {
+        "P": 1.25,
+        "dk_actual_max": 15.8,
+        "dk_actual_min": 15.37,
+        "k_max": 4.65,
+        "socket_no": 45,
+        "t_min": 2.15,
+        "t_max": 2.54
+      },
+      "vorbelegung": {
+        "kD": 15.8,
+        "kH": 4.65,
+        "iSize": 45,
+        "iT": 2.15
+      },
+      "coverage": "documented",
+      "geometryStatus": "partial",
+      "missingGeometryFields": [
+        "recessVolumeModel",
+        "headToShaftLength",
+        "underheadReinforcement"
+      ],
+      "nachLaenge": {
+        "10": {
+          "vorbelegung": {
+            "totalLength": 10
+          },
+          "roh": {
+            "l_nominal": 10
+          },
+          "fields": {
+            "l_nominal": {
+              "nominal": 10,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso2013"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "single-primary-source",
+              "note": "Belegte Längenzeile; unabhängiger Zweitbeleg offen. Bevorzugte Längen der Ausgabe 2013, inklusive Senkkopf. Keine automatische Schaft- oder Gewindelänge."
+            }
+          },
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "recessVolumeModel",
+            "headToShaftLength",
+            "underheadReinforcement"
+          ]
+        },
+        "12": {
+          "vorbelegung": {
+            "totalLength": 12
+          },
+          "roh": {
+            "l_nominal": 12
+          },
+          "fields": {
+            "l_nominal": {
+              "nominal": 12,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso2013"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "single-primary-source",
+              "note": "Belegte Längenzeile; unabhängiger Zweitbeleg offen. Bevorzugte Längen der Ausgabe 2013, inklusive Senkkopf. Keine automatische Schaft- oder Gewindelänge."
+            }
+          },
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "recessVolumeModel",
+            "headToShaftLength",
+            "underheadReinforcement"
+          ]
+        },
+        "14": {
+          "vorbelegung": {
+            "totalLength": 14
+          },
+          "roh": {
+            "l_nominal": 14
+          },
+          "fields": {
+            "l_nominal": {
+              "nominal": 14,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso2013"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "single-primary-source",
+              "note": "Belegte Längenzeile; unabhängiger Zweitbeleg offen. Bevorzugte Längen der Ausgabe 2013, inklusive Senkkopf. Keine automatische Schaft- oder Gewindelänge."
+            }
+          },
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "recessVolumeModel",
+            "headToShaftLength",
+            "underheadReinforcement"
+          ]
+        },
+        "16": {
+          "vorbelegung": {
+            "totalLength": 16
+          },
+          "roh": {
+            "l_nominal": 16
+          },
+          "fields": {
+            "l_nominal": {
+              "nominal": 16,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso2013"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "single-primary-source",
+              "note": "Belegte Längenzeile; unabhängiger Zweitbeleg offen. Bevorzugte Längen der Ausgabe 2013, inklusive Senkkopf. Keine automatische Schaft- oder Gewindelänge."
+            }
+          },
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "recessVolumeModel",
+            "headToShaftLength",
+            "underheadReinforcement"
+          ]
+        },
+        "20": {
+          "vorbelegung": {
+            "totalLength": 20
+          },
+          "roh": {
+            "l_nominal": 20
+          },
+          "fields": {
+            "l_nominal": {
+              "nominal": 20,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso2013"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "single-primary-source",
+              "note": "Belegte Längenzeile; unabhängiger Zweitbeleg offen. Bevorzugte Längen der Ausgabe 2013, inklusive Senkkopf. Keine automatische Schaft- oder Gewindelänge."
+            }
+          },
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "recessVolumeModel",
+            "headToShaftLength",
+            "underheadReinforcement"
+          ]
+        },
+        "25": {
+          "vorbelegung": {
+            "totalLength": 25
+          },
+          "roh": {
+            "l_nominal": 25
+          },
+          "fields": {
+            "l_nominal": {
+              "nominal": 25,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso2013"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "single-primary-source",
+              "note": "Belegte Längenzeile; unabhängiger Zweitbeleg offen. Bevorzugte Längen der Ausgabe 2013, inklusive Senkkopf. Keine automatische Schaft- oder Gewindelänge."
+            }
+          },
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "recessVolumeModel",
+            "headToShaftLength",
+            "underheadReinforcement"
+          ]
+        },
+        "30": {
+          "vorbelegung": {
+            "totalLength": 30
+          },
+          "roh": {
+            "l_nominal": 30
+          },
+          "fields": {
+            "l_nominal": {
+              "nominal": 30,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso2013"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "single-primary-source",
+              "note": "Belegte Längenzeile; unabhängiger Zweitbeleg offen. Bevorzugte Längen der Ausgabe 2013, inklusive Senkkopf. Keine automatische Schaft- oder Gewindelänge."
+            }
+          },
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "recessVolumeModel",
+            "headToShaftLength",
+            "underheadReinforcement"
+          ]
+        },
+        "35": {
+          "vorbelegung": {
+            "totalLength": 35
+          },
+          "roh": {
+            "l_nominal": 35
+          },
+          "fields": {
+            "l_nominal": {
+              "nominal": 35,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso2013"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "single-primary-source",
+              "note": "Belegte Längenzeile; unabhängiger Zweitbeleg offen. Bevorzugte Längen der Ausgabe 2013, inklusive Senkkopf. Keine automatische Schaft- oder Gewindelänge."
+            }
+          },
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "recessVolumeModel",
+            "headToShaftLength",
+            "underheadReinforcement"
+          ]
+        },
+        "40": {
+          "vorbelegung": {
+            "totalLength": 40
+          },
+          "roh": {
+            "l_nominal": 40
+          },
+          "fields": {
+            "l_nominal": {
+              "nominal": 40,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso2013"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "single-primary-source",
+              "note": "Belegte Längenzeile; unabhängiger Zweitbeleg offen. Bevorzugte Längen der Ausgabe 2013, inklusive Senkkopf. Keine automatische Schaft- oder Gewindelänge."
+            }
+          },
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "recessVolumeModel",
+            "headToShaftLength",
+            "underheadReinforcement"
+          ]
+        },
+        "45": {
+          "vorbelegung": {
+            "totalLength": 45
+          },
+          "roh": {
+            "l_nominal": 45
+          },
+          "fields": {
+            "l_nominal": {
+              "nominal": 45,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso2013"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "single-primary-source",
+              "note": "Belegte Längenzeile; unabhängiger Zweitbeleg offen. Bevorzugte Längen der Ausgabe 2013, inklusive Senkkopf. Keine automatische Schaft- oder Gewindelänge."
+            }
+          },
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "recessVolumeModel",
+            "headToShaftLength",
+            "underheadReinforcement"
+          ]
+        },
+        "50": {
+          "vorbelegung": {
+            "totalLength": 50
+          },
+          "roh": {
+            "l_nominal": 50
+          },
+          "fields": {
+            "l_nominal": {
+              "nominal": 50,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso2013"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "single-primary-source",
+              "note": "Belegte Längenzeile; unabhängiger Zweitbeleg offen. Bevorzugte Längen der Ausgabe 2013, inklusive Senkkopf. Keine automatische Schaft- oder Gewindelänge."
+            }
+          },
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "recessVolumeModel",
+            "headToShaftLength",
+            "underheadReinforcement"
+          ]
+        },
+        "55": {
+          "vorbelegung": {
+            "totalLength": 55
+          },
+          "roh": {
+            "l_nominal": 55
+          },
+          "fields": {
+            "l_nominal": {
+              "nominal": 55,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso2013"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "single-primary-source",
+              "note": "Belegte Längenzeile; unabhängiger Zweitbeleg offen. Bevorzugte Längen der Ausgabe 2013, inklusive Senkkopf. Keine automatische Schaft- oder Gewindelänge."
+            }
+          },
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "recessVolumeModel",
+            "headToShaftLength",
+            "underheadReinforcement"
+          ]
+        },
+        "60": {
+          "vorbelegung": {
+            "totalLength": 60
+          },
+          "roh": {
+            "l_nominal": 60
+          },
+          "fields": {
+            "l_nominal": {
+              "nominal": 60,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso2013"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "single-primary-source",
+              "note": "Belegte Längenzeile; unabhängiger Zweitbeleg offen. Bevorzugte Längen der Ausgabe 2013, inklusive Senkkopf. Keine automatische Schaft- oder Gewindelänge."
+            }
+          },
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "recessVolumeModel",
+            "headToShaftLength",
+            "underheadReinforcement"
+          ]
+        }
+      },
+      "lengthCoverage": "documented-subset",
+      "laengen": [
+        10,
+        12,
+        14,
+        16,
+        20,
+        25,
+        30,
+        35,
+        40,
+        45,
+        50,
+        55,
+        60
+      ]
+    },
+    "M10": {
+      "roh": {
+        "P": 1.5,
+        "dk_actual_max": 18.3,
+        "dk_actual_min": 17.78,
+        "k_max": 5,
+        "socket_no": 50,
+        "t_min": 2.41,
+        "t_max": 2.8
+      },
+      "vorbelegung": {
+        "kD": 18.3,
+        "kH": 5,
+        "iSize": 50,
+        "iT": 2.41
+      },
+      "coverage": "documented",
+      "geometryStatus": "partial",
+      "missingGeometryFields": [
+        "recessVolumeModel",
+        "headToShaftLength",
+        "underheadReinforcement"
+      ],
+      "nachLaenge": {
+        "12": {
+          "vorbelegung": {
+            "totalLength": 12
+          },
+          "roh": {
+            "l_nominal": 12
+          },
+          "fields": {
+            "l_nominal": {
+              "nominal": 12,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso2013"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "single-primary-source",
+              "note": "Belegte Längenzeile; unabhängiger Zweitbeleg offen. Bevorzugte Längen der Ausgabe 2013, inklusive Senkkopf. Keine automatische Schaft- oder Gewindelänge."
+            }
+          },
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "recessVolumeModel",
+            "headToShaftLength",
+            "underheadReinforcement"
+          ]
+        },
+        "14": {
+          "vorbelegung": {
+            "totalLength": 14
+          },
+          "roh": {
+            "l_nominal": 14
+          },
+          "fields": {
+            "l_nominal": {
+              "nominal": 14,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso2013"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "single-primary-source",
+              "note": "Belegte Längenzeile; unabhängiger Zweitbeleg offen. Bevorzugte Längen der Ausgabe 2013, inklusive Senkkopf. Keine automatische Schaft- oder Gewindelänge."
+            }
+          },
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "recessVolumeModel",
+            "headToShaftLength",
+            "underheadReinforcement"
+          ]
+        },
+        "16": {
+          "vorbelegung": {
+            "totalLength": 16
+          },
+          "roh": {
+            "l_nominal": 16
+          },
+          "fields": {
+            "l_nominal": {
+              "nominal": 16,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso2013"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "single-primary-source",
+              "note": "Belegte Längenzeile; unabhängiger Zweitbeleg offen. Bevorzugte Längen der Ausgabe 2013, inklusive Senkkopf. Keine automatische Schaft- oder Gewindelänge."
+            }
+          },
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "recessVolumeModel",
+            "headToShaftLength",
+            "underheadReinforcement"
+          ]
+        },
+        "20": {
+          "vorbelegung": {
+            "totalLength": 20
+          },
+          "roh": {
+            "l_nominal": 20
+          },
+          "fields": {
+            "l_nominal": {
+              "nominal": 20,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso2013"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "single-primary-source",
+              "note": "Belegte Längenzeile; unabhängiger Zweitbeleg offen. Bevorzugte Längen der Ausgabe 2013, inklusive Senkkopf. Keine automatische Schaft- oder Gewindelänge."
+            }
+          },
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "recessVolumeModel",
+            "headToShaftLength",
+            "underheadReinforcement"
+          ]
+        },
+        "25": {
+          "vorbelegung": {
+            "totalLength": 25
+          },
+          "roh": {
+            "l_nominal": 25
+          },
+          "fields": {
+            "l_nominal": {
+              "nominal": 25,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso2013"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "single-primary-source",
+              "note": "Belegte Längenzeile; unabhängiger Zweitbeleg offen. Bevorzugte Längen der Ausgabe 2013, inklusive Senkkopf. Keine automatische Schaft- oder Gewindelänge."
+            }
+          },
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "recessVolumeModel",
+            "headToShaftLength",
+            "underheadReinforcement"
+          ]
+        },
+        "30": {
+          "vorbelegung": {
+            "totalLength": 30
+          },
+          "roh": {
+            "l_nominal": 30
+          },
+          "fields": {
+            "l_nominal": {
+              "nominal": 30,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso2013"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "single-primary-source",
+              "note": "Belegte Längenzeile; unabhängiger Zweitbeleg offen. Bevorzugte Längen der Ausgabe 2013, inklusive Senkkopf. Keine automatische Schaft- oder Gewindelänge."
+            }
+          },
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "recessVolumeModel",
+            "headToShaftLength",
+            "underheadReinforcement"
+          ]
+        },
+        "35": {
+          "vorbelegung": {
+            "totalLength": 35
+          },
+          "roh": {
+            "l_nominal": 35
+          },
+          "fields": {
+            "l_nominal": {
+              "nominal": 35,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso2013"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "single-primary-source",
+              "note": "Belegte Längenzeile; unabhängiger Zweitbeleg offen. Bevorzugte Längen der Ausgabe 2013, inklusive Senkkopf. Keine automatische Schaft- oder Gewindelänge."
+            }
+          },
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "recessVolumeModel",
+            "headToShaftLength",
+            "underheadReinforcement"
+          ]
+        },
+        "40": {
+          "vorbelegung": {
+            "totalLength": 40
+          },
+          "roh": {
+            "l_nominal": 40
+          },
+          "fields": {
+            "l_nominal": {
+              "nominal": 40,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso2013"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "single-primary-source",
+              "note": "Belegte Längenzeile; unabhängiger Zweitbeleg offen. Bevorzugte Längen der Ausgabe 2013, inklusive Senkkopf. Keine automatische Schaft- oder Gewindelänge."
+            }
+          },
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "recessVolumeModel",
+            "headToShaftLength",
+            "underheadReinforcement"
+          ]
+        },
+        "45": {
+          "vorbelegung": {
+            "totalLength": 45
+          },
+          "roh": {
+            "l_nominal": 45
+          },
+          "fields": {
+            "l_nominal": {
+              "nominal": 45,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso2013"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "single-primary-source",
+              "note": "Belegte Längenzeile; unabhängiger Zweitbeleg offen. Bevorzugte Längen der Ausgabe 2013, inklusive Senkkopf. Keine automatische Schaft- oder Gewindelänge."
+            }
+          },
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "recessVolumeModel",
+            "headToShaftLength",
+            "underheadReinforcement"
+          ]
+        },
+        "50": {
+          "vorbelegung": {
+            "totalLength": 50
+          },
+          "roh": {
+            "l_nominal": 50
+          },
+          "fields": {
+            "l_nominal": {
+              "nominal": 50,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso2013"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "single-primary-source",
+              "note": "Belegte Längenzeile; unabhängiger Zweitbeleg offen. Bevorzugte Längen der Ausgabe 2013, inklusive Senkkopf. Keine automatische Schaft- oder Gewindelänge."
+            }
+          },
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "recessVolumeModel",
+            "headToShaftLength",
+            "underheadReinforcement"
+          ]
+        },
+        "55": {
+          "vorbelegung": {
+            "totalLength": 55
+          },
+          "roh": {
+            "l_nominal": 55
+          },
+          "fields": {
+            "l_nominal": {
+              "nominal": 55,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso2013"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "single-primary-source",
+              "note": "Belegte Längenzeile; unabhängiger Zweitbeleg offen. Bevorzugte Längen der Ausgabe 2013, inklusive Senkkopf. Keine automatische Schaft- oder Gewindelänge."
+            }
+          },
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "recessVolumeModel",
+            "headToShaftLength",
+            "underheadReinforcement"
+          ]
+        },
+        "60": {
+          "vorbelegung": {
+            "totalLength": 60
+          },
+          "roh": {
+            "l_nominal": 60
+          },
+          "fields": {
+            "l_nominal": {
+              "nominal": 60,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso2013"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "single-primary-source",
+              "note": "Belegte Längenzeile; unabhängiger Zweitbeleg offen. Bevorzugte Längen der Ausgabe 2013, inklusive Senkkopf. Keine automatische Schaft- oder Gewindelänge."
+            }
+          },
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "recessVolumeModel",
+            "headToShaftLength",
+            "underheadReinforcement"
+          ]
+        }
+      },
+      "lengthCoverage": "documented-subset",
+      "laengen": [
+        12,
+        14,
+        16,
+        20,
+        25,
+        30,
+        35,
+        40,
+        45,
+        50,
+        55,
+        60
+      ]
+    }
+  },
+  "fields": {
+    "M3": {
+      "P": {
+        "nominal": 0.5,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso2013"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "single-primary-source",
+        "note": "Eine Primärquelle; unabhängiger Zweitbeleg dieses Einzelwerts noch offen."
+      },
+      "dk_actual_max": {
+        "nominal": 5.5,
+        "min": null,
+        "max": 5.5,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso2013",
+          "wuerth"
+        ],
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "independent-primary-sources",
+        "note": "In zwei unabhängig veröffentlichten Primärquellen abgeglichen."
+      },
+      "dk_actual_min": {
+        "nominal": 5.2,
+        "min": 5.2,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso2013"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "single-primary-source",
+        "note": "Eine Primärquelle; unabhängiger Zweitbeleg dieses Einzelwerts noch offen."
+      },
+      "k_max": {
+        "nominal": 1.65,
+        "min": null,
+        "max": 1.65,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso2013",
+          "wuerth"
+        ],
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "independent-primary-sources",
+        "note": "In zwei unabhängig veröffentlichten Primärquellen abgeglichen."
+      },
+      "socket_no": {
+        "nominal": 10,
+        "min": null,
+        "max": null,
+        "unit": null,
+        "sourceRefs": [
+          "iso2013",
+          "wuerth"
+        ],
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "independent-primary-sources",
+        "note": "In zwei unabhängig veröffentlichten Primärquellen abgeglichen."
+      },
+      "t_min": {
+        "nominal": 0.7,
+        "min": 0.7,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso2013"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "single-primary-source",
+        "note": "Eine Primärquelle; unabhängiger Zweitbeleg dieses Einzelwerts noch offen."
+      },
+      "t_max": {
+        "nominal": 0.83,
+        "min": null,
+        "max": 0.83,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso2013"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "single-primary-source",
+        "note": "Eine Primärquelle; unabhängiger Zweitbeleg dieses Einzelwerts noch offen."
+      },
+      "recessVolumeModel": {
+        "nominal": null,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "verificationMethod": "not-available",
+        "note": "Einzelwert nicht belegt; keine Ersatzmaße aus einer ähnlichen Norm."
+      },
+      "headToShaftLength": {
+        "nominal": null,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "verificationMethod": "not-available",
+        "note": "Einzelwert nicht belegt; keine Ersatzmaße aus einer ähnlichen Norm."
+      }
+    },
+    "M3.5": {
+      "P": {
+        "nominal": 0.6,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso2013"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "single-primary-source",
+        "note": "Eine Primärquelle; unabhängiger Zweitbeleg dieses Einzelwerts noch offen."
+      },
+      "dk_actual_max": {
+        "nominal": 7.3,
+        "min": null,
+        "max": 7.3,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso2013"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "single-primary-source",
+        "note": "Eine Primärquelle; unabhängiger Zweitbeleg dieses Einzelwerts noch offen."
+      },
+      "dk_actual_min": {
+        "nominal": 6.94,
+        "min": 6.94,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso2013"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "single-primary-source",
+        "note": "Eine Primärquelle; unabhängiger Zweitbeleg dieses Einzelwerts noch offen."
+      },
+      "k_max": {
+        "nominal": 2.35,
+        "min": null,
+        "max": 2.35,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso2013"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "single-primary-source",
+        "note": "Eine Primärquelle; unabhängiger Zweitbeleg dieses Einzelwerts noch offen."
+      },
+      "socket_no": {
+        "nominal": 15,
+        "min": null,
+        "max": null,
+        "unit": null,
+        "sourceRefs": [
+          "iso2013"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "single-primary-source",
+        "note": "Eine Primärquelle; unabhängiger Zweitbeleg dieses Einzelwerts noch offen."
+      },
+      "t_min": {
+        "nominal": 1.16,
+        "min": 1.16,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso2013"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "single-primary-source",
+        "note": "Eine Primärquelle; unabhängiger Zweitbeleg dieses Einzelwerts noch offen."
+      },
+      "t_max": {
+        "nominal": 1.32,
+        "min": null,
+        "max": 1.32,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso2013"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "single-primary-source",
+        "note": "Eine Primärquelle; unabhängiger Zweitbeleg dieses Einzelwerts noch offen."
+      },
+      "recessVolumeModel": {
+        "nominal": null,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "verificationMethod": "not-available",
+        "note": "Einzelwert nicht belegt; keine Ersatzmaße aus einer ähnlichen Norm."
+      },
+      "headToShaftLength": {
+        "nominal": null,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "verificationMethod": "not-available",
+        "note": "Einzelwert nicht belegt; keine Ersatzmaße aus einer ähnlichen Norm."
+      }
+    },
+    "M4": {
+      "P": {
+        "nominal": 0.7,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso2013"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "single-primary-source",
+        "note": "Eine Primärquelle; unabhängiger Zweitbeleg dieses Einzelwerts noch offen."
+      },
+      "dk_actual_max": {
+        "nominal": 8.4,
+        "min": null,
+        "max": 8.4,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso2013"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "single-primary-source",
+        "note": "Eine Primärquelle; unabhängiger Zweitbeleg dieses Einzelwerts noch offen."
+      },
+      "dk_actual_min": {
+        "nominal": 8.04,
+        "min": 8.04,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso2013"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "single-primary-source",
+        "note": "Eine Primärquelle; unabhängiger Zweitbeleg dieses Einzelwerts noch offen."
+      },
+      "k_max": {
+        "nominal": 2.7,
+        "min": null,
+        "max": 2.7,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso2013"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "single-primary-source",
+        "note": "Eine Primärquelle; unabhängiger Zweitbeleg dieses Einzelwerts noch offen."
+      },
+      "socket_no": {
+        "nominal": 20,
+        "min": null,
+        "max": null,
+        "unit": null,
+        "sourceRefs": [
+          "iso2013"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "single-primary-source",
+        "note": "Eine Primärquelle; unabhängiger Zweitbeleg dieses Einzelwerts noch offen."
+      },
+      "t_min": {
+        "nominal": 1.14,
+        "min": 1.14,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso2013"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "single-primary-source",
+        "note": "Eine Primärquelle; unabhängiger Zweitbeleg dieses Einzelwerts noch offen."
+      },
+      "t_max": {
+        "nominal": 1.53,
+        "min": null,
+        "max": 1.53,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso2013"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "single-primary-source",
+        "note": "Eine Primärquelle; unabhängiger Zweitbeleg dieses Einzelwerts noch offen."
+      },
+      "recessVolumeModel": {
+        "nominal": null,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "verificationMethod": "not-available",
+        "note": "Einzelwert nicht belegt; keine Ersatzmaße aus einer ähnlichen Norm."
+      },
+      "headToShaftLength": {
+        "nominal": null,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "verificationMethod": "not-available",
+        "note": "Einzelwert nicht belegt; keine Ersatzmaße aus einer ähnlichen Norm."
+      }
+    },
+    "M5": {
+      "P": {
+        "nominal": 0.8,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso2013"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "single-primary-source",
+        "note": "Eine Primärquelle; unabhängiger Zweitbeleg dieses Einzelwerts noch offen."
+      },
+      "dk_actual_max": {
+        "nominal": 9.3,
+        "min": null,
+        "max": 9.3,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso2013",
+          "wuerth"
+        ],
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "independent-primary-sources",
+        "note": "In zwei unabhängig veröffentlichten Primärquellen abgeglichen."
+      },
+      "dk_actual_min": {
+        "nominal": 8.94,
+        "min": 8.94,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso2013"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "single-primary-source",
+        "note": "Eine Primärquelle; unabhängiger Zweitbeleg dieses Einzelwerts noch offen."
+      },
+      "k_max": {
+        "nominal": 2.7,
+        "min": null,
+        "max": 2.7,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso2013",
+          "wuerth"
+        ],
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "independent-primary-sources",
+        "note": "In zwei unabhängig veröffentlichten Primärquellen abgeglichen."
+      },
+      "socket_no": {
+        "nominal": 25,
+        "min": null,
+        "max": null,
+        "unit": null,
+        "sourceRefs": [
+          "iso2013",
+          "wuerth"
+        ],
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "independent-primary-sources",
+        "note": "In zwei unabhängig veröffentlichten Primärquellen abgeglichen."
+      },
+      "t_min": {
+        "nominal": 1.12,
+        "min": 1.12,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso2013"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "single-primary-source",
+        "note": "Eine Primärquelle; unabhängiger Zweitbeleg dieses Einzelwerts noch offen."
+      },
+      "t_max": {
+        "nominal": 1.51,
+        "min": null,
+        "max": 1.51,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso2013"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "single-primary-source",
+        "note": "Eine Primärquelle; unabhängiger Zweitbeleg dieses Einzelwerts noch offen."
+      },
+      "recessVolumeModel": {
+        "nominal": null,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "verificationMethod": "not-available",
+        "note": "Einzelwert nicht belegt; keine Ersatzmaße aus einer ähnlichen Norm."
+      },
+      "headToShaftLength": {
+        "nominal": null,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "verificationMethod": "not-available",
+        "note": "Einzelwert nicht belegt; keine Ersatzmaße aus einer ähnlichen Norm."
+      },
+      "underheadReinforcement": {
+        "nominal": null,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "verificationMethod": "not-available",
+        "note": "Einzelwert nicht belegt; keine Ersatzmaße aus einer ähnlichen Norm."
+      }
+    },
+    "M6": {
+      "P": {
+        "nominal": 1,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso2013"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "single-primary-source",
+        "note": "Eine Primärquelle; unabhängiger Zweitbeleg dieses Einzelwerts noch offen."
+      },
+      "dk_actual_max": {
+        "nominal": 11.3,
+        "min": null,
+        "max": 11.3,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso2013",
+          "wuerth"
+        ],
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "independent-primary-sources",
+        "note": "In zwei unabhängig veröffentlichten Primärquellen abgeglichen."
+      },
+      "dk_actual_min": {
+        "nominal": 10.87,
+        "min": 10.87,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso2013"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "single-primary-source",
+        "note": "Eine Primärquelle; unabhängiger Zweitbeleg dieses Einzelwerts noch offen."
+      },
+      "k_max": {
+        "nominal": 3.3,
+        "min": null,
+        "max": 3.3,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso2013",
+          "wuerth"
+        ],
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "independent-primary-sources",
+        "note": "In zwei unabhängig veröffentlichten Primärquellen abgeglichen."
+      },
+      "socket_no": {
+        "nominal": 30,
+        "min": null,
+        "max": null,
+        "unit": null,
+        "sourceRefs": [
+          "iso2013",
+          "wuerth"
+        ],
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "independent-primary-sources",
+        "note": "In zwei unabhängig veröffentlichten Primärquellen abgeglichen."
+      },
+      "t_min": {
+        "nominal": 1.39,
+        "min": 1.39,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso2013"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "single-primary-source",
+        "note": "Eine Primärquelle; unabhängiger Zweitbeleg dieses Einzelwerts noch offen."
+      },
+      "t_max": {
+        "nominal": 1.78,
+        "min": null,
+        "max": 1.78,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso2013"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "single-primary-source",
+        "note": "Eine Primärquelle; unabhängiger Zweitbeleg dieses Einzelwerts noch offen."
+      },
+      "recessVolumeModel": {
+        "nominal": null,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "verificationMethod": "not-available",
+        "note": "Einzelwert nicht belegt; keine Ersatzmaße aus einer ähnlichen Norm."
+      },
+      "headToShaftLength": {
+        "nominal": null,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "verificationMethod": "not-available",
+        "note": "Einzelwert nicht belegt; keine Ersatzmaße aus einer ähnlichen Norm."
+      },
+      "underheadReinforcement": {
+        "nominal": null,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "verificationMethod": "not-available",
+        "note": "Einzelwert nicht belegt; keine Ersatzmaße aus einer ähnlichen Norm."
+      }
+    },
+    "M8": {
+      "P": {
+        "nominal": 1.25,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso2013"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "single-primary-source",
+        "note": "Eine Primärquelle; unabhängiger Zweitbeleg dieses Einzelwerts noch offen."
+      },
+      "dk_actual_max": {
+        "nominal": 15.8,
+        "min": null,
+        "max": 15.8,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso2013"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "single-primary-source",
+        "note": "Eine Primärquelle; unabhängiger Zweitbeleg dieses Einzelwerts noch offen."
+      },
+      "dk_actual_min": {
+        "nominal": 15.37,
+        "min": 15.37,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso2013"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "single-primary-source",
+        "note": "Eine Primärquelle; unabhängiger Zweitbeleg dieses Einzelwerts noch offen."
+      },
+      "k_max": {
+        "nominal": 4.65,
+        "min": null,
+        "max": 4.65,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso2013"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "single-primary-source",
+        "note": "Eine Primärquelle; unabhängiger Zweitbeleg dieses Einzelwerts noch offen."
+      },
+      "socket_no": {
+        "nominal": 45,
+        "min": null,
+        "max": null,
+        "unit": null,
+        "sourceRefs": [
+          "iso2013"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "single-primary-source",
+        "note": "Eine Primärquelle; unabhängiger Zweitbeleg dieses Einzelwerts noch offen."
+      },
+      "t_min": {
+        "nominal": 2.15,
+        "min": 2.15,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso2013"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "single-primary-source",
+        "note": "Eine Primärquelle; unabhängiger Zweitbeleg dieses Einzelwerts noch offen."
+      },
+      "t_max": {
+        "nominal": 2.54,
+        "min": null,
+        "max": 2.54,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso2013"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "single-primary-source",
+        "note": "Eine Primärquelle; unabhängiger Zweitbeleg dieses Einzelwerts noch offen."
+      },
+      "recessVolumeModel": {
+        "nominal": null,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "verificationMethod": "not-available",
+        "note": "Einzelwert nicht belegt; keine Ersatzmaße aus einer ähnlichen Norm."
+      },
+      "headToShaftLength": {
+        "nominal": null,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "verificationMethod": "not-available",
+        "note": "Einzelwert nicht belegt; keine Ersatzmaße aus einer ähnlichen Norm."
+      },
+      "underheadReinforcement": {
+        "nominal": null,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "verificationMethod": "not-available",
+        "note": "Einzelwert nicht belegt; keine Ersatzmaße aus einer ähnlichen Norm."
+      }
+    },
+    "M10": {
+      "P": {
+        "nominal": 1.5,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso2013"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "single-primary-source",
+        "note": "Eine Primärquelle; unabhängiger Zweitbeleg dieses Einzelwerts noch offen."
+      },
+      "dk_actual_max": {
+        "nominal": 18.3,
+        "min": null,
+        "max": 18.3,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso2013"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "single-primary-source",
+        "note": "Eine Primärquelle; unabhängiger Zweitbeleg dieses Einzelwerts noch offen."
+      },
+      "dk_actual_min": {
+        "nominal": 17.78,
+        "min": 17.78,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso2013"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "single-primary-source",
+        "note": "Eine Primärquelle; unabhängiger Zweitbeleg dieses Einzelwerts noch offen."
+      },
+      "k_max": {
+        "nominal": 5,
+        "min": null,
+        "max": 5,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso2013"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "single-primary-source",
+        "note": "Eine Primärquelle; unabhängiger Zweitbeleg dieses Einzelwerts noch offen."
+      },
+      "socket_no": {
+        "nominal": 50,
+        "min": null,
+        "max": null,
+        "unit": null,
+        "sourceRefs": [
+          "iso2013"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "single-primary-source",
+        "note": "Eine Primärquelle; unabhängiger Zweitbeleg dieses Einzelwerts noch offen."
+      },
+      "t_min": {
+        "nominal": 2.41,
+        "min": 2.41,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso2013"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "single-primary-source",
+        "note": "Eine Primärquelle; unabhängiger Zweitbeleg dieses Einzelwerts noch offen."
+      },
+      "t_max": {
+        "nominal": 2.8,
+        "min": null,
+        "max": 2.8,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso2013"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "single-primary-source",
+        "note": "Eine Primärquelle; unabhängiger Zweitbeleg dieses Einzelwerts noch offen."
+      },
+      "recessVolumeModel": {
+        "nominal": null,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "verificationMethod": "not-available",
+        "note": "Einzelwert nicht belegt; keine Ersatzmaße aus einer ähnlichen Norm."
+      },
+      "headToShaftLength": {
+        "nominal": null,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "verificationMethod": "not-available",
+        "note": "Einzelwert nicht belegt; keine Ersatzmaße aus einer ähnlichen Norm."
+      },
+      "underheadReinforcement": {
+        "nominal": null,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "verificationMethod": "not-available",
+        "note": "Einzelwert nicht belegt; keine Ersatzmaße aus einer ähnlichen Norm."
+      }
+    }
+  },
+  "sourceMeta": {
+    "iso2013": {
+      "id": "iso2013",
+      "url": "https://cdn.standards.iteh.ai/samples/56219/1ae60f07e2a24bb691e8e71ff0a064f4/ISO-14581-2013.pdf",
+      "titel": "ISO 14581:2013 Originalvorschau",
+      "type": "standard-excerpt",
+      "locator": "Tabelle 1 Seite 4; Bild 1 Seiten 2–3",
+      "abgerufen": "2026-11-26"
+    },
+    "wuerth": {
+      "id": "wuerth",
+      "url": "https://marketplacemedia.witglobal.net/source/marketplace/stmedia/wuerth/documents/documents/std.lang.all/29210509.pdf",
+      "titel": "Würth ISO 14581, C01_351121415, Stand 10.10.2026",
+      "type": "manufacturer",
+      "locator": "Artikelmaße M3, M5, M6",
+      "abgerufen": "2026-11-26"
+    },
+    "iso-status": {
+      "id": "iso-status",
+      "url": "https://www.iso.org/standard/78695.html",
+      "titel": "ISO 14581:2022 aktuelle Ausgabe",
+      "type": "standards-body",
+      "locator": "Abstract / Edition",
+      "abgerufen": "2026-11-26"
+    }
+  },
+  "quellen": [
+    {
+      "id": "iso2013",
+      "url": "https://cdn.standards.iteh.ai/samples/56219/1ae60f07e2a24bb691e8e71ff0a064f4/ISO-14581-2013.pdf",
+      "titel": "ISO 14581:2013 Originalvorschau",
+      "type": "standard-excerpt",
+      "locator": "Tabelle 1 Seite 4; Bild 1 Seiten 2–3",
+      "abgerufen": "2026-11-26"
+    },
+    {
+      "id": "wuerth",
+      "url": "https://marketplacemedia.witglobal.net/source/marketplace/stmedia/wuerth/documents/documents/std.lang.all/29210509.pdf",
+      "titel": "Würth ISO 14581, C01_351121415, Stand 10.10.2026",
+      "type": "manufacturer",
+      "locator": "Artikelmaße M3, M5, M6",
+      "abgerufen": "2026-11-26"
+    },
+    {
+      "id": "iso-status",
+      "url": "https://www.iso.org/standard/78695.html",
+      "titel": "ISO 14581:2022 aktuelle Ausgabe",
+      "type": "standards-body",
+      "locator": "Abstract / Edition",
+      "abgerufen": "2026-11-26"
+    }
+  ],
   "abweichungen": [],
   "status": "partial",
-  "coverage": "unresearched",
-  "lengthCoverage": "unresearched",
+  "coverage": "documented",
+  "lengthCoverage": "documented-subset",
   "hinweise": [
-    "Familie erfasst; vollständige Einzelmaß- und Längenrecherche steht noch aus. Keine Ersatzmaße einer ähnlichen Norm verwendet."
+    "Maßtabelle bewusst Ausgabe 2013; Änderungen der Ausgabe 2022 (u. a. Mindestlängen und Unterkopfverstärkung) sind nicht still eingemischt.",
+    "Tatsächlicher Kopfdurchmesser und theoretischer Senkkegel sind unterschiedliche Maße. Vorbelegt wird dk actual, nicht der größere theoretische Durchmesser.",
+    "l ist inklusive Senkkopf. Ab M5 gehört die Unterkopfverstärkung zur Detailkontur.",
+    "Reduzierte Tragfähigkeit; Festigkeitskennzeichnung mit führender Null."
   ],
   "normstatus": {
-    "status": "unresolved",
-    "note": "Ausgabe und Vollständigkeit nicht aus einer ähnlichen Norm ableiten."
+    "status": "superseded",
+    "edition": "2013",
+    "replacedBy": "ISO14581:2022",
+    "sourceRefs": [
+      "iso-status"
+    ]
   },
   "requiredGeometryFields": [
     "kD",
     "kH",
     "iSize",
-    "iT"
+    "iT",
+    "recessVolumeModel",
+    "headToShaftLength"
   ],
   "sizeCoverage": {
     "M3": {
-      "status": "unresearched",
-      "note": "Keine Größenzeile vorhanden; daraus folgt kein Normverbot."
+      "status": "documented",
+      "sourceRefs": [
+        "iso2013"
+      ]
     },
     "M3.5": {
-      "status": "unresearched",
-      "note": "Keine Größenzeile vorhanden; daraus folgt kein Normverbot."
+      "status": "documented",
+      "sourceRefs": [
+        "iso2013"
+      ]
     },
     "M4": {
-      "status": "unresearched",
-      "note": "Keine Größenzeile vorhanden; daraus folgt kein Normverbot."
+      "status": "documented",
+      "sourceRefs": [
+        "iso2013"
+      ]
     },
     "M5": {
-      "status": "unresearched",
-      "note": "Keine Größenzeile vorhanden; daraus folgt kein Normverbot."
+      "status": "documented",
+      "sourceRefs": [
+        "iso2013"
+      ]
     },
     "M6": {
-      "status": "unresearched",
-      "note": "Keine Größenzeile vorhanden; daraus folgt kein Normverbot."
+      "status": "documented",
+      "sourceRefs": [
+        "iso2013"
+      ]
     },
     "M7": {
       "status": "unresearched",
       "note": "Keine Größenzeile vorhanden; daraus folgt kein Normverbot."
     },
     "M8": {
-      "status": "unresearched",
-      "note": "Keine Größenzeile vorhanden; daraus folgt kein Normverbot."
+      "status": "documented",
+      "sourceRefs": [
+        "iso2013"
+      ]
     },
     "M10": {
-      "status": "unresearched",
-      "note": "Keine Größenzeile vorhanden; daraus folgt kein Normverbot."
+      "status": "documented",
+      "sourceRefs": [
+        "iso2013"
+      ]
     },
     "M12": {
-      "status": "unresearched",
-      "note": "Keine Größenzeile vorhanden; daraus folgt kein Normverbot."
+      "status": "not-in-standard",
+      "sourceRefs": [
+        "iso-status"
+      ],
+      "note": "Außerhalb des belegten Größenbereichs dieser Normausgabe."
     },
     "M14": {
-      "status": "unresearched",
-      "note": "Keine Größenzeile vorhanden; daraus folgt kein Normverbot."
+      "status": "not-in-standard",
+      "sourceRefs": [
+        "iso-status"
+      ],
+      "note": "Außerhalb des belegten Größenbereichs dieser Normausgabe."
     },
     "M16": {
-      "status": "unresearched",
-      "note": "Keine Größenzeile vorhanden; daraus folgt kein Normverbot."
+      "status": "not-in-standard",
+      "sourceRefs": [
+        "iso-status"
+      ],
+      "note": "Außerhalb des belegten Größenbereichs dieser Normausgabe."
     },
     "M18": {
-      "status": "unresearched",
-      "note": "Keine Größenzeile vorhanden; daraus folgt kein Normverbot."
+      "status": "not-in-standard",
+      "sourceRefs": [
+        "iso-status"
+      ],
+      "note": "Außerhalb des belegten Größenbereichs dieser Normausgabe."
     },
     "M20": {
-      "status": "unresearched",
-      "note": "Keine Größenzeile vorhanden; daraus folgt kein Normverbot."
+      "status": "not-in-standard",
+      "sourceRefs": [
+        "iso-status"
+      ],
+      "note": "Außerhalb des belegten Größenbereichs dieser Normausgabe."
     },
     "M22": {
-      "status": "unresearched",
-      "note": "Keine Größenzeile vorhanden; daraus folgt kein Normverbot."
+      "status": "not-in-standard",
+      "sourceRefs": [
+        "iso-status"
+      ],
+      "note": "Außerhalb des belegten Größenbereichs dieser Normausgabe."
     },
     "M24": {
-      "status": "unresearched",
-      "note": "Keine Größenzeile vorhanden; daraus folgt kein Normverbot."
+      "status": "not-in-standard",
+      "sourceRefs": [
+        "iso-status"
+      ],
+      "note": "Außerhalb des belegten Größenbereichs dieser Normausgabe."
     },
     "M27": {
-      "status": "unresearched",
-      "note": "Keine Größenzeile vorhanden; daraus folgt kein Normverbot."
+      "status": "not-in-standard",
+      "sourceRefs": [
+        "iso-status"
+      ],
+      "note": "Außerhalb des belegten Größenbereichs dieser Normausgabe."
     },
     "M30": {
-      "status": "unresearched",
-      "note": "Keine Größenzeile vorhanden; daraus folgt kein Normverbot."
+      "status": "not-in-standard",
+      "sourceRefs": [
+        "iso-status"
+      ],
+      "note": "Außerhalb des belegten Größenbereichs dieser Normausgabe."
     },
     "M33": {
-      "status": "unresearched",
-      "note": "Keine Größenzeile vorhanden; daraus folgt kein Normverbot."
+      "status": "not-in-standard",
+      "sourceRefs": [
+        "iso-status"
+      ],
+      "note": "Außerhalb des belegten Größenbereichs dieser Normausgabe."
     }
   },
   "pruefdatum": "2026-11-26",
   "klassen": {
-    "status": "unresearched",
-    "values": [],
-    "note": "Festigkeits-/Werkstoffklassen noch nicht vollständig aus dieser Norm belegt."
+    "status": "documented-subset",
+    "values": [
+      "4.8",
+      "8.8",
+      "A2-50",
+      "A4-50",
+      "A2-70",
+      "A4-70"
+    ],
+    "sourceRefs": [
+      "iso2013"
+    ],
+    "note": "Ausgabe 2013, reduzierte Tragfähigkeit; keine normale Volltragfähigkeitsfreigabe."
+  },
+  "datasetKind": "part-standard",
+  "gaps": [
+    "Antriebsvolumen, Unterkopfdetail und Umsetzung Gesamtlänge zu Pressrohling bleiben offen.",
+    "Vollständiger Einzelmaßabgleich mit 2022 und Zweitbelege außerhalb M3/M5/M6 fehlen."
+  ],
+  "geometryStatus": "partial",
+  "currentEdition": "2022",
+  "threadFamily": "metric",
+  "schaftende": "voll",
+  "lengthDependentFields": [
+    "totalLength",
+    "sL",
+    "b"
+  ],
+  "currentEditionEvidence": {
+    "sourceRefs": [
+      "iso-status"
+    ],
+    "dimensionCoverage": "unresearched"
   }
 }

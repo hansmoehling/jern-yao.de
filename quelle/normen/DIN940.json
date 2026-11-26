@@ -3,109 +3,2567 @@
   "version": "2026-11-26",
   "schemaVersion": 1,
   "label": "DIN940 · Stiftschraube, Einschraubende etwa 2,5d",
-  "edition": null,
-  "editionStatus": "unresolved",
+  "edition": "2010-07",
+  "editionStatus": "documented-edition",
   "funktion": "stehbolzen",
   "klasse": "bolzen",
   "kopfTyp": "kopflos",
   "antrieb": {
     "art": "none"
   },
-  "feldzuordnung": {},
-  "groessen": {},
-  "fields": {},
-  "sourceMeta": {},
-  "quellen": [],
-  "abweichungen": [],
-  "status": "partial",
-  "coverage": "unresearched",
-  "lengthCoverage": "unresearched",
-  "hinweise": [
-    "Familie erfasst; vollständige Einzelmaß- und Längenrecherche steht noch aus. Keine Ersatzmaße einer ähnlichen Norm verwendet."
-  ],
-  "normstatus": {
-    "status": "unresolved",
-    "note": "Ausgabe und Vollständigkeit nicht aus einer ähnlichen Norm ableiten."
+  "feldzuordnung": {
+    "d": "d_nominal",
+    "metalEndLength": "bm"
   },
-  "requiredGeometryFields": [],
-  "sizeCoverage": {
-    "M3": {
-      "status": "unresearched",
-      "note": "Keine Größenzeile vorhanden; daraus folgt kein Normverbot."
-    },
-    "M3.5": {
-      "status": "unresearched",
-      "note": "Keine Größenzeile vorhanden; daraus folgt kein Normverbot."
-    },
+  "groessen": {
     "M4": {
-      "status": "unresearched",
-      "note": "Keine Größenzeile vorhanden; daraus folgt kein Normverbot."
+      "roh": {
+        "d_nominal": 4,
+        "bm": 10,
+        "ds_min": 3.82,
+        "ds_max": 4,
+        "x": 1.75,
+        "b_le125": 14,
+        "b_le200": 20,
+        "b_gt200": null
+      },
+      "vorbelegung": {
+        "d": 4,
+        "metalEndLength": 10
+      },
+      "coverage": "documented",
+      "geometryStatus": "partial",
+      "missingGeometryFields": [
+        "nominalLength",
+        "shortStudException",
+        "endGeometry"
+      ],
+      "nachLaenge": {},
+      "lengthCoverage": "unresearched"
     },
     "M5": {
-      "status": "unresearched",
-      "note": "Keine Größenzeile vorhanden; daraus folgt kein Normverbot."
+      "roh": {
+        "d_nominal": 5,
+        "bm": 13,
+        "ds_min": 4.82,
+        "ds_max": 5,
+        "x": 2,
+        "b_le125": 16,
+        "b_le200": 22,
+        "b_gt200": null
+      },
+      "vorbelegung": {
+        "d": 5,
+        "metalEndLength": 13
+      },
+      "coverage": "documented",
+      "geometryStatus": "partial",
+      "missingGeometryFields": [
+        "nominalLength",
+        "shortStudException",
+        "endGeometry"
+      ],
+      "nachLaenge": {},
+      "lengthCoverage": "unresearched"
     },
     "M6": {
-      "status": "unresearched",
-      "note": "Keine Größenzeile vorhanden; daraus folgt kein Normverbot."
+      "roh": {
+        "d_nominal": 6,
+        "bm": 15,
+        "ds_min": 5.82,
+        "ds_max": 6,
+        "x": 2.5,
+        "b_le125": 18,
+        "b_le200": 24,
+        "b_gt200": null
+      },
+      "vorbelegung": {
+        "d": 6,
+        "metalEndLength": 15
+      },
+      "coverage": "documented",
+      "geometryStatus": "partial",
+      "missingGeometryFields": [
+        "nominalLength",
+        "shortStudException",
+        "endGeometry"
+      ],
+      "nachLaenge": {},
+      "lengthCoverage": "unresearched"
     },
     "M7": {
-      "status": "unresearched",
-      "note": "Keine Größenzeile vorhanden; daraus folgt kein Normverbot."
+      "roh": {
+        "d_nominal": 7,
+        "bm": 18,
+        "ds_min": 6.78,
+        "ds_max": 7,
+        "x": 2.5,
+        "b_le125": 20,
+        "b_le200": 26,
+        "b_gt200": null
+      },
+      "vorbelegung": {
+        "d": 7,
+        "metalEndLength": 18
+      },
+      "coverage": "documented",
+      "geometryStatus": "partial",
+      "missingGeometryFields": [
+        "nominalLength",
+        "shortStudException",
+        "endGeometry"
+      ],
+      "nachLaenge": {},
+      "lengthCoverage": "unresearched"
     },
     "M8": {
-      "status": "unresearched",
-      "note": "Keine Größenzeile vorhanden; daraus folgt kein Normverbot."
+      "roh": {
+        "d_nominal": 8,
+        "bm": 20,
+        "ds_min": 7.78,
+        "ds_max": 8,
+        "x": 3.2,
+        "b_le125": 22,
+        "b_le200": 28,
+        "b_gt200": null
+      },
+      "vorbelegung": {
+        "d": 8,
+        "metalEndLength": 20
+      },
+      "coverage": "documented",
+      "geometryStatus": "partial",
+      "missingGeometryFields": [
+        "nominalLength",
+        "shortStudException",
+        "endGeometry"
+      ],
+      "nachLaenge": {},
+      "lengthCoverage": "unresearched"
     },
     "M10": {
-      "status": "unresearched",
-      "note": "Keine Größenzeile vorhanden; daraus folgt kein Normverbot."
+      "roh": {
+        "d_nominal": 10,
+        "bm": 25,
+        "ds_min": 9.78,
+        "ds_max": 10,
+        "x": 3.8,
+        "b_le125": 26,
+        "b_le200": 32,
+        "b_gt200": 45
+      },
+      "vorbelegung": {
+        "d": 10,
+        "metalEndLength": 25
+      },
+      "coverage": "documented",
+      "geometryStatus": "partial",
+      "missingGeometryFields": [
+        "nominalLength",
+        "shortStudException",
+        "endGeometry"
+      ],
+      "nachLaenge": {},
+      "lengthCoverage": "unresearched"
     },
     "M12": {
-      "status": "unresearched",
-      "note": "Keine Größenzeile vorhanden; daraus folgt kein Normverbot."
+      "roh": {
+        "d_nominal": 12,
+        "bm": 30,
+        "ds_min": 11.73,
+        "ds_max": 12,
+        "x": 4.3,
+        "b_le125": 30,
+        "b_le200": 36,
+        "b_gt200": 49
+      },
+      "vorbelegung": {
+        "d": 12,
+        "metalEndLength": 30
+      },
+      "coverage": "documented",
+      "geometryStatus": "partial",
+      "missingGeometryFields": [
+        "nominalLength",
+        "shortStudException",
+        "endGeometry"
+      ],
+      "nachLaenge": {},
+      "lengthCoverage": "unresearched"
     },
     "M14": {
-      "status": "unresearched",
-      "note": "Keine Größenzeile vorhanden; daraus folgt kein Normverbot."
+      "roh": {
+        "d_nominal": 14,
+        "bm": 35,
+        "ds_min": 13.73,
+        "ds_max": 14,
+        "x": 5,
+        "b_le125": 34,
+        "b_le200": 40,
+        "b_gt200": 53
+      },
+      "vorbelegung": {
+        "d": 14,
+        "metalEndLength": 35
+      },
+      "coverage": "documented",
+      "geometryStatus": "partial",
+      "missingGeometryFields": [
+        "nominalLength",
+        "shortStudException",
+        "endGeometry"
+      ],
+      "nachLaenge": {},
+      "lengthCoverage": "unresearched"
     },
     "M16": {
-      "status": "unresearched",
-      "note": "Keine Größenzeile vorhanden; daraus folgt kein Normverbot."
+      "roh": {
+        "d_nominal": 16,
+        "bm": 40,
+        "ds_min": 15.73,
+        "ds_max": 16,
+        "x": 5,
+        "b_le125": 38,
+        "b_le200": 44,
+        "b_gt200": 57
+      },
+      "vorbelegung": {
+        "d": 16,
+        "metalEndLength": 40
+      },
+      "coverage": "documented",
+      "geometryStatus": "partial",
+      "missingGeometryFields": [
+        "nominalLength",
+        "shortStudException",
+        "endGeometry"
+      ],
+      "nachLaenge": {},
+      "lengthCoverage": "unresearched"
     },
     "M18": {
-      "status": "unresearched",
-      "note": "Keine Größenzeile vorhanden; daraus folgt kein Normverbot."
+      "roh": {
+        "d_nominal": 18,
+        "bm": 45,
+        "ds_min": 17.73,
+        "ds_max": 18,
+        "x": 6.3,
+        "b_le125": 42,
+        "b_le200": 48,
+        "b_gt200": 61
+      },
+      "vorbelegung": {
+        "d": 18,
+        "metalEndLength": 45
+      },
+      "coverage": "documented",
+      "geometryStatus": "partial",
+      "missingGeometryFields": [
+        "nominalLength",
+        "shortStudException",
+        "endGeometry"
+      ],
+      "nachLaenge": {},
+      "lengthCoverage": "unresearched"
     },
     "M20": {
-      "status": "unresearched",
-      "note": "Keine Größenzeile vorhanden; daraus folgt kein Normverbot."
+      "roh": {
+        "d_nominal": 20,
+        "bm": 50,
+        "ds_min": 19.67,
+        "ds_max": 20,
+        "x": 6.3,
+        "b_le125": 46,
+        "b_le200": 52,
+        "b_gt200": 65
+      },
+      "vorbelegung": {
+        "d": 20,
+        "metalEndLength": 50
+      },
+      "coverage": "documented",
+      "geometryStatus": "partial",
+      "missingGeometryFields": [
+        "nominalLength",
+        "shortStudException",
+        "endGeometry"
+      ],
+      "nachLaenge": {},
+      "lengthCoverage": "unresearched"
     },
     "M22": {
-      "status": "unresearched",
-      "note": "Keine Größenzeile vorhanden; daraus folgt kein Normverbot."
+      "roh": {
+        "d_nominal": 22,
+        "bm": 55,
+        "ds_min": 21.67,
+        "ds_max": 22,
+        "x": 6.3,
+        "b_le125": 50,
+        "b_le200": 56,
+        "b_gt200": 69
+      },
+      "vorbelegung": {
+        "d": 22,
+        "metalEndLength": 55
+      },
+      "coverage": "documented",
+      "geometryStatus": "partial",
+      "missingGeometryFields": [
+        "nominalLength",
+        "shortStudException",
+        "endGeometry"
+      ],
+      "nachLaenge": {},
+      "lengthCoverage": "unresearched"
     },
     "M24": {
-      "status": "unresearched",
-      "note": "Keine Größenzeile vorhanden; daraus folgt kein Normverbot."
+      "roh": {
+        "d_nominal": 24,
+        "bm": 60,
+        "ds_min": 23.67,
+        "ds_max": 24,
+        "x": 7.5,
+        "b_le125": 54,
+        "b_le200": 60,
+        "b_gt200": 73
+      },
+      "vorbelegung": {
+        "d": 24,
+        "metalEndLength": 60
+      },
+      "coverage": "documented",
+      "geometryStatus": "partial",
+      "missingGeometryFields": [
+        "nominalLength",
+        "shortStudException",
+        "endGeometry"
+      ],
+      "nachLaenge": {},
+      "lengthCoverage": "unresearched"
+    }
+  },
+  "fields": {
+    "M4": {
+      "d_nominal": {
+        "nominal": 4,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "din2010",
+          "eternal"
+        ],
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "independent-primary-sources",
+        "note": "In zwei unabhängig veröffentlichten Primärquellen abgeglichen."
+      },
+      "bm": {
+        "nominal": 10,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "din2010",
+          "eternal"
+        ],
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "independent-primary-sources",
+        "note": "In zwei unabhängig veröffentlichten Primärquellen abgeglichen."
+      },
+      "ds_min": {
+        "nominal": 3.82,
+        "min": 3.82,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "din2010"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "single-primary-source",
+        "note": "Eine Primärquelle; unabhängiger Zweitbeleg dieses Einzelwerts noch offen."
+      },
+      "ds_max": {
+        "nominal": 4,
+        "min": null,
+        "max": 4,
+        "unit": "mm",
+        "sourceRefs": [
+          "din2010",
+          "eternal"
+        ],
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "independent-primary-sources",
+        "note": "In zwei unabhängig veröffentlichten Primärquellen abgeglichen."
+      },
+      "x": {
+        "nominal": 1.75,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "din2010"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "single-primary-source",
+        "note": "Eine Primärquelle; unabhängiger Zweitbeleg dieses Einzelwerts noch offen."
+      },
+      "b_le125": {
+        "nominal": 14,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "din2010"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "single-primary-source",
+        "note": "Referenzwert der Längenklasse; Kurzbolzenregel aus Tabelle 1 beachten. Kein automatisch wirksames b ohne Längenzeile. Zweitbeleg offen.",
+        "dependsOn": [
+          "nominalLength",
+          "shortStudException"
+        ]
+      },
+      "b_le200": {
+        "nominal": 20,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "din2010"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "single-primary-source",
+        "note": "Referenzwert der Längenklasse; Kurzbolzenregel aus Tabelle 1 beachten. Kein automatisch wirksames b ohne Längenzeile. Zweitbeleg offen.",
+        "dependsOn": [
+          "nominalLength",
+          "shortStudException"
+        ]
+      },
+      "b_gt200": {
+        "nominal": null,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "din2010"
+        ],
+        "status": "missing",
+        "verification": false,
+        "verificationMethod": "not-available",
+        "note": "Referenzwert der Längenklasse; Kurzbolzenregel aus Tabelle 1 beachten. Kein automatisch wirksames b ohne Längenzeile. Zweitbeleg offen.",
+        "dependsOn": [
+          "nominalLength",
+          "shortStudException"
+        ]
+      },
+      "nominalLength": {
+        "nominal": null,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "verificationMethod": "not-available",
+        "note": "Einzelwert nicht belegt; keine Ersatzmaße aus einer ähnlichen Norm."
+      },
+      "shortStudException": {
+        "nominal": null,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "verificationMethod": "not-available",
+        "note": "Einzelwert nicht belegt; keine Ersatzmaße aus einer ähnlichen Norm."
+      },
+      "endGeometry": {
+        "nominal": null,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "verificationMethod": "not-available",
+        "note": "Einzelwert nicht belegt; keine Ersatzmaße aus einer ähnlichen Norm."
+      }
+    },
+    "M5": {
+      "d_nominal": {
+        "nominal": 5,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "din2010",
+          "eternal"
+        ],
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "independent-primary-sources",
+        "note": "In zwei unabhängig veröffentlichten Primärquellen abgeglichen."
+      },
+      "bm": {
+        "nominal": 13,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "din2010",
+          "eternal"
+        ],
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "independent-primary-sources",
+        "note": "In zwei unabhängig veröffentlichten Primärquellen abgeglichen."
+      },
+      "ds_min": {
+        "nominal": 4.82,
+        "min": 4.82,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "din2010"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "single-primary-source",
+        "note": "Eine Primärquelle; unabhängiger Zweitbeleg dieses Einzelwerts noch offen."
+      },
+      "ds_max": {
+        "nominal": 5,
+        "min": null,
+        "max": 5,
+        "unit": "mm",
+        "sourceRefs": [
+          "din2010",
+          "eternal"
+        ],
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "independent-primary-sources",
+        "note": "In zwei unabhängig veröffentlichten Primärquellen abgeglichen."
+      },
+      "x": {
+        "nominal": 2,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "din2010"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "single-primary-source",
+        "note": "Eine Primärquelle; unabhängiger Zweitbeleg dieses Einzelwerts noch offen."
+      },
+      "b_le125": {
+        "nominal": 16,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "din2010"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "single-primary-source",
+        "note": "Referenzwert der Längenklasse; Kurzbolzenregel aus Tabelle 1 beachten. Kein automatisch wirksames b ohne Längenzeile. Zweitbeleg offen.",
+        "dependsOn": [
+          "nominalLength",
+          "shortStudException"
+        ]
+      },
+      "b_le200": {
+        "nominal": 22,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "din2010"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "single-primary-source",
+        "note": "Referenzwert der Längenklasse; Kurzbolzenregel aus Tabelle 1 beachten. Kein automatisch wirksames b ohne Längenzeile. Zweitbeleg offen.",
+        "dependsOn": [
+          "nominalLength",
+          "shortStudException"
+        ]
+      },
+      "b_gt200": {
+        "nominal": null,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "din2010"
+        ],
+        "status": "missing",
+        "verification": false,
+        "verificationMethod": "not-available",
+        "note": "Referenzwert der Längenklasse; Kurzbolzenregel aus Tabelle 1 beachten. Kein automatisch wirksames b ohne Längenzeile. Zweitbeleg offen.",
+        "dependsOn": [
+          "nominalLength",
+          "shortStudException"
+        ]
+      },
+      "nominalLength": {
+        "nominal": null,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "verificationMethod": "not-available",
+        "note": "Einzelwert nicht belegt; keine Ersatzmaße aus einer ähnlichen Norm."
+      },
+      "shortStudException": {
+        "nominal": null,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "verificationMethod": "not-available",
+        "note": "Einzelwert nicht belegt; keine Ersatzmaße aus einer ähnlichen Norm."
+      },
+      "endGeometry": {
+        "nominal": null,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "verificationMethod": "not-available",
+        "note": "Einzelwert nicht belegt; keine Ersatzmaße aus einer ähnlichen Norm."
+      }
+    },
+    "M6": {
+      "d_nominal": {
+        "nominal": 6,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "din2010",
+          "eternal"
+        ],
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "independent-primary-sources",
+        "note": "In zwei unabhängig veröffentlichten Primärquellen abgeglichen."
+      },
+      "bm": {
+        "nominal": 15,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "din2010",
+          "eternal"
+        ],
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "independent-primary-sources",
+        "note": "In zwei unabhängig veröffentlichten Primärquellen abgeglichen."
+      },
+      "ds_min": {
+        "nominal": 5.82,
+        "min": 5.82,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "din2010"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "single-primary-source",
+        "note": "Eine Primärquelle; unabhängiger Zweitbeleg dieses Einzelwerts noch offen."
+      },
+      "ds_max": {
+        "nominal": 6,
+        "min": null,
+        "max": 6,
+        "unit": "mm",
+        "sourceRefs": [
+          "din2010",
+          "eternal"
+        ],
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "independent-primary-sources",
+        "note": "In zwei unabhängig veröffentlichten Primärquellen abgeglichen."
+      },
+      "x": {
+        "nominal": 2.5,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "din2010"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "single-primary-source",
+        "note": "Eine Primärquelle; unabhängiger Zweitbeleg dieses Einzelwerts noch offen."
+      },
+      "b_le125": {
+        "nominal": 18,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "din2010"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "single-primary-source",
+        "note": "Referenzwert der Längenklasse; Kurzbolzenregel aus Tabelle 1 beachten. Kein automatisch wirksames b ohne Längenzeile. Zweitbeleg offen.",
+        "dependsOn": [
+          "nominalLength",
+          "shortStudException"
+        ]
+      },
+      "b_le200": {
+        "nominal": 24,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "din2010"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "single-primary-source",
+        "note": "Referenzwert der Längenklasse; Kurzbolzenregel aus Tabelle 1 beachten. Kein automatisch wirksames b ohne Längenzeile. Zweitbeleg offen.",
+        "dependsOn": [
+          "nominalLength",
+          "shortStudException"
+        ]
+      },
+      "b_gt200": {
+        "nominal": null,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "din2010"
+        ],
+        "status": "missing",
+        "verification": false,
+        "verificationMethod": "not-available",
+        "note": "Referenzwert der Längenklasse; Kurzbolzenregel aus Tabelle 1 beachten. Kein automatisch wirksames b ohne Längenzeile. Zweitbeleg offen.",
+        "dependsOn": [
+          "nominalLength",
+          "shortStudException"
+        ]
+      },
+      "nominalLength": {
+        "nominal": null,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "verificationMethod": "not-available",
+        "note": "Einzelwert nicht belegt; keine Ersatzmaße aus einer ähnlichen Norm."
+      },
+      "shortStudException": {
+        "nominal": null,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "verificationMethod": "not-available",
+        "note": "Einzelwert nicht belegt; keine Ersatzmaße aus einer ähnlichen Norm."
+      },
+      "endGeometry": {
+        "nominal": null,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "verificationMethod": "not-available",
+        "note": "Einzelwert nicht belegt; keine Ersatzmaße aus einer ähnlichen Norm."
+      }
+    },
+    "M7": {
+      "d_nominal": {
+        "nominal": 7,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "din2010",
+          "eternal"
+        ],
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "independent-primary-sources",
+        "note": "In zwei unabhängig veröffentlichten Primärquellen abgeglichen."
+      },
+      "bm": {
+        "nominal": 18,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "din2010",
+          "eternal"
+        ],
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "independent-primary-sources",
+        "note": "In zwei unabhängig veröffentlichten Primärquellen abgeglichen."
+      },
+      "ds_min": {
+        "nominal": 6.78,
+        "min": 6.78,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "din2010"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "single-primary-source",
+        "note": "Eine Primärquelle; unabhängiger Zweitbeleg dieses Einzelwerts noch offen."
+      },
+      "ds_max": {
+        "nominal": 7,
+        "min": null,
+        "max": 7,
+        "unit": "mm",
+        "sourceRefs": [
+          "din2010",
+          "eternal"
+        ],
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "independent-primary-sources",
+        "note": "In zwei unabhängig veröffentlichten Primärquellen abgeglichen."
+      },
+      "x": {
+        "nominal": 2.5,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "din2010"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "single-primary-source",
+        "note": "Eine Primärquelle; unabhängiger Zweitbeleg dieses Einzelwerts noch offen."
+      },
+      "b_le125": {
+        "nominal": 20,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "din2010"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "single-primary-source",
+        "note": "Referenzwert der Längenklasse; Kurzbolzenregel aus Tabelle 1 beachten. Kein automatisch wirksames b ohne Längenzeile. Zweitbeleg offen.",
+        "dependsOn": [
+          "nominalLength",
+          "shortStudException"
+        ]
+      },
+      "b_le200": {
+        "nominal": 26,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "din2010"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "single-primary-source",
+        "note": "Referenzwert der Längenklasse; Kurzbolzenregel aus Tabelle 1 beachten. Kein automatisch wirksames b ohne Längenzeile. Zweitbeleg offen.",
+        "dependsOn": [
+          "nominalLength",
+          "shortStudException"
+        ]
+      },
+      "b_gt200": {
+        "nominal": null,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "din2010"
+        ],
+        "status": "missing",
+        "verification": false,
+        "verificationMethod": "not-available",
+        "note": "Referenzwert der Längenklasse; Kurzbolzenregel aus Tabelle 1 beachten. Kein automatisch wirksames b ohne Längenzeile. Zweitbeleg offen.",
+        "dependsOn": [
+          "nominalLength",
+          "shortStudException"
+        ]
+      },
+      "nominalLength": {
+        "nominal": null,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "verificationMethod": "not-available",
+        "note": "Einzelwert nicht belegt; keine Ersatzmaße aus einer ähnlichen Norm."
+      },
+      "shortStudException": {
+        "nominal": null,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "verificationMethod": "not-available",
+        "note": "Einzelwert nicht belegt; keine Ersatzmaße aus einer ähnlichen Norm."
+      },
+      "endGeometry": {
+        "nominal": null,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "verificationMethod": "not-available",
+        "note": "Einzelwert nicht belegt; keine Ersatzmaße aus einer ähnlichen Norm."
+      }
+    },
+    "M8": {
+      "d_nominal": {
+        "nominal": 8,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "din2010",
+          "eternal"
+        ],
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "independent-primary-sources",
+        "note": "In zwei unabhängig veröffentlichten Primärquellen abgeglichen."
+      },
+      "bm": {
+        "nominal": 20,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "din2010",
+          "eternal"
+        ],
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "independent-primary-sources",
+        "note": "In zwei unabhängig veröffentlichten Primärquellen abgeglichen."
+      },
+      "ds_min": {
+        "nominal": 7.78,
+        "min": 7.78,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "din2010"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "single-primary-source",
+        "note": "Eine Primärquelle; unabhängiger Zweitbeleg dieses Einzelwerts noch offen."
+      },
+      "ds_max": {
+        "nominal": 8,
+        "min": null,
+        "max": 8,
+        "unit": "mm",
+        "sourceRefs": [
+          "din2010",
+          "eternal"
+        ],
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "independent-primary-sources",
+        "note": "In zwei unabhängig veröffentlichten Primärquellen abgeglichen."
+      },
+      "x": {
+        "nominal": 3.2,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "din2010"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "single-primary-source",
+        "note": "Eine Primärquelle; unabhängiger Zweitbeleg dieses Einzelwerts noch offen."
+      },
+      "b_le125": {
+        "nominal": 22,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "din2010"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "single-primary-source",
+        "note": "Referenzwert der Längenklasse; Kurzbolzenregel aus Tabelle 1 beachten. Kein automatisch wirksames b ohne Längenzeile. Zweitbeleg offen.",
+        "dependsOn": [
+          "nominalLength",
+          "shortStudException"
+        ]
+      },
+      "b_le200": {
+        "nominal": 28,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "din2010"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "single-primary-source",
+        "note": "Referenzwert der Längenklasse; Kurzbolzenregel aus Tabelle 1 beachten. Kein automatisch wirksames b ohne Längenzeile. Zweitbeleg offen.",
+        "dependsOn": [
+          "nominalLength",
+          "shortStudException"
+        ]
+      },
+      "b_gt200": {
+        "nominal": null,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "din2010"
+        ],
+        "status": "missing",
+        "verification": false,
+        "verificationMethod": "not-available",
+        "note": "Referenzwert der Längenklasse; Kurzbolzenregel aus Tabelle 1 beachten. Kein automatisch wirksames b ohne Längenzeile. Zweitbeleg offen.",
+        "dependsOn": [
+          "nominalLength",
+          "shortStudException"
+        ]
+      },
+      "nominalLength": {
+        "nominal": null,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "verificationMethod": "not-available",
+        "note": "Einzelwert nicht belegt; keine Ersatzmaße aus einer ähnlichen Norm."
+      },
+      "shortStudException": {
+        "nominal": null,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "verificationMethod": "not-available",
+        "note": "Einzelwert nicht belegt; keine Ersatzmaße aus einer ähnlichen Norm."
+      },
+      "endGeometry": {
+        "nominal": null,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "verificationMethod": "not-available",
+        "note": "Einzelwert nicht belegt; keine Ersatzmaße aus einer ähnlichen Norm."
+      }
+    },
+    "M10": {
+      "d_nominal": {
+        "nominal": 10,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "din2010",
+          "eternal"
+        ],
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "independent-primary-sources",
+        "note": "In zwei unabhängig veröffentlichten Primärquellen abgeglichen."
+      },
+      "bm": {
+        "nominal": 25,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "din2010",
+          "eternal"
+        ],
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "independent-primary-sources",
+        "note": "In zwei unabhängig veröffentlichten Primärquellen abgeglichen."
+      },
+      "ds_min": {
+        "nominal": 9.78,
+        "min": 9.78,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "din2010"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "single-primary-source",
+        "note": "Eine Primärquelle; unabhängiger Zweitbeleg dieses Einzelwerts noch offen."
+      },
+      "ds_max": {
+        "nominal": 10,
+        "min": null,
+        "max": 10,
+        "unit": "mm",
+        "sourceRefs": [
+          "din2010",
+          "eternal"
+        ],
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "independent-primary-sources",
+        "note": "In zwei unabhängig veröffentlichten Primärquellen abgeglichen."
+      },
+      "x": {
+        "nominal": 3.8,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "din2010"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "single-primary-source",
+        "note": "Eine Primärquelle; unabhängiger Zweitbeleg dieses Einzelwerts noch offen."
+      },
+      "b_le125": {
+        "nominal": 26,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "din2010"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "single-primary-source",
+        "note": "Referenzwert der Längenklasse; Kurzbolzenregel aus Tabelle 1 beachten. Kein automatisch wirksames b ohne Längenzeile. Zweitbeleg offen.",
+        "dependsOn": [
+          "nominalLength",
+          "shortStudException"
+        ]
+      },
+      "b_le200": {
+        "nominal": 32,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "din2010"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "single-primary-source",
+        "note": "Referenzwert der Längenklasse; Kurzbolzenregel aus Tabelle 1 beachten. Kein automatisch wirksames b ohne Längenzeile. Zweitbeleg offen.",
+        "dependsOn": [
+          "nominalLength",
+          "shortStudException"
+        ]
+      },
+      "b_gt200": {
+        "nominal": 45,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "din2010"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "single-primary-source",
+        "note": "Referenzwert der Längenklasse; Kurzbolzenregel aus Tabelle 1 beachten. Kein automatisch wirksames b ohne Längenzeile. Zweitbeleg offen.",
+        "dependsOn": [
+          "nominalLength",
+          "shortStudException"
+        ]
+      },
+      "nominalLength": {
+        "nominal": null,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "verificationMethod": "not-available",
+        "note": "Einzelwert nicht belegt; keine Ersatzmaße aus einer ähnlichen Norm."
+      },
+      "shortStudException": {
+        "nominal": null,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "verificationMethod": "not-available",
+        "note": "Einzelwert nicht belegt; keine Ersatzmaße aus einer ähnlichen Norm."
+      },
+      "endGeometry": {
+        "nominal": null,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "verificationMethod": "not-available",
+        "note": "Einzelwert nicht belegt; keine Ersatzmaße aus einer ähnlichen Norm."
+      }
+    },
+    "M12": {
+      "d_nominal": {
+        "nominal": 12,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "din2010",
+          "eternal"
+        ],
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "independent-primary-sources",
+        "note": "In zwei unabhängig veröffentlichten Primärquellen abgeglichen."
+      },
+      "bm": {
+        "nominal": 30,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "din2010",
+          "eternal"
+        ],
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "independent-primary-sources",
+        "note": "In zwei unabhängig veröffentlichten Primärquellen abgeglichen."
+      },
+      "ds_min": {
+        "nominal": 11.73,
+        "min": 11.73,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "din2010"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "single-primary-source",
+        "note": "Eine Primärquelle; unabhängiger Zweitbeleg dieses Einzelwerts noch offen."
+      },
+      "ds_max": {
+        "nominal": 12,
+        "min": null,
+        "max": 12,
+        "unit": "mm",
+        "sourceRefs": [
+          "din2010",
+          "eternal"
+        ],
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "independent-primary-sources",
+        "note": "In zwei unabhängig veröffentlichten Primärquellen abgeglichen."
+      },
+      "x": {
+        "nominal": 4.3,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "din2010"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "single-primary-source",
+        "note": "Eine Primärquelle; unabhängiger Zweitbeleg dieses Einzelwerts noch offen."
+      },
+      "b_le125": {
+        "nominal": 30,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "din2010"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "single-primary-source",
+        "note": "Referenzwert der Längenklasse; Kurzbolzenregel aus Tabelle 1 beachten. Kein automatisch wirksames b ohne Längenzeile. Zweitbeleg offen.",
+        "dependsOn": [
+          "nominalLength",
+          "shortStudException"
+        ]
+      },
+      "b_le200": {
+        "nominal": 36,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "din2010"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "single-primary-source",
+        "note": "Referenzwert der Längenklasse; Kurzbolzenregel aus Tabelle 1 beachten. Kein automatisch wirksames b ohne Längenzeile. Zweitbeleg offen.",
+        "dependsOn": [
+          "nominalLength",
+          "shortStudException"
+        ]
+      },
+      "b_gt200": {
+        "nominal": 49,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "din2010"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "single-primary-source",
+        "note": "Referenzwert der Längenklasse; Kurzbolzenregel aus Tabelle 1 beachten. Kein automatisch wirksames b ohne Längenzeile. Zweitbeleg offen.",
+        "dependsOn": [
+          "nominalLength",
+          "shortStudException"
+        ]
+      },
+      "nominalLength": {
+        "nominal": null,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "verificationMethod": "not-available",
+        "note": "Einzelwert nicht belegt; keine Ersatzmaße aus einer ähnlichen Norm."
+      },
+      "shortStudException": {
+        "nominal": null,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "verificationMethod": "not-available",
+        "note": "Einzelwert nicht belegt; keine Ersatzmaße aus einer ähnlichen Norm."
+      },
+      "endGeometry": {
+        "nominal": null,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "verificationMethod": "not-available",
+        "note": "Einzelwert nicht belegt; keine Ersatzmaße aus einer ähnlichen Norm."
+      }
+    },
+    "M14": {
+      "d_nominal": {
+        "nominal": 14,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "din2010",
+          "eternal"
+        ],
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "independent-primary-sources",
+        "note": "In zwei unabhängig veröffentlichten Primärquellen abgeglichen."
+      },
+      "bm": {
+        "nominal": 35,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "din2010",
+          "eternal"
+        ],
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "independent-primary-sources",
+        "note": "In zwei unabhängig veröffentlichten Primärquellen abgeglichen."
+      },
+      "ds_min": {
+        "nominal": 13.73,
+        "min": 13.73,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "din2010"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "single-primary-source",
+        "note": "Eine Primärquelle; unabhängiger Zweitbeleg dieses Einzelwerts noch offen."
+      },
+      "ds_max": {
+        "nominal": 14,
+        "min": null,
+        "max": 14,
+        "unit": "mm",
+        "sourceRefs": [
+          "din2010",
+          "eternal"
+        ],
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "independent-primary-sources",
+        "note": "In zwei unabhängig veröffentlichten Primärquellen abgeglichen."
+      },
+      "x": {
+        "nominal": 5,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "din2010"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "single-primary-source",
+        "note": "Eine Primärquelle; unabhängiger Zweitbeleg dieses Einzelwerts noch offen."
+      },
+      "b_le125": {
+        "nominal": 34,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "din2010"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "single-primary-source",
+        "note": "Referenzwert der Längenklasse; Kurzbolzenregel aus Tabelle 1 beachten. Kein automatisch wirksames b ohne Längenzeile. Zweitbeleg offen.",
+        "dependsOn": [
+          "nominalLength",
+          "shortStudException"
+        ]
+      },
+      "b_le200": {
+        "nominal": 40,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "din2010"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "single-primary-source",
+        "note": "Referenzwert der Längenklasse; Kurzbolzenregel aus Tabelle 1 beachten. Kein automatisch wirksames b ohne Längenzeile. Zweitbeleg offen.",
+        "dependsOn": [
+          "nominalLength",
+          "shortStudException"
+        ]
+      },
+      "b_gt200": {
+        "nominal": 53,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "din2010"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "single-primary-source",
+        "note": "Referenzwert der Längenklasse; Kurzbolzenregel aus Tabelle 1 beachten. Kein automatisch wirksames b ohne Längenzeile. Zweitbeleg offen.",
+        "dependsOn": [
+          "nominalLength",
+          "shortStudException"
+        ]
+      },
+      "nominalLength": {
+        "nominal": null,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "verificationMethod": "not-available",
+        "note": "Einzelwert nicht belegt; keine Ersatzmaße aus einer ähnlichen Norm."
+      },
+      "shortStudException": {
+        "nominal": null,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "verificationMethod": "not-available",
+        "note": "Einzelwert nicht belegt; keine Ersatzmaße aus einer ähnlichen Norm."
+      },
+      "endGeometry": {
+        "nominal": null,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "verificationMethod": "not-available",
+        "note": "Einzelwert nicht belegt; keine Ersatzmaße aus einer ähnlichen Norm."
+      }
+    },
+    "M16": {
+      "d_nominal": {
+        "nominal": 16,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "din2010",
+          "eternal"
+        ],
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "independent-primary-sources",
+        "note": "In zwei unabhängig veröffentlichten Primärquellen abgeglichen."
+      },
+      "bm": {
+        "nominal": 40,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "din2010",
+          "eternal"
+        ],
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "independent-primary-sources",
+        "note": "In zwei unabhängig veröffentlichten Primärquellen abgeglichen."
+      },
+      "ds_min": {
+        "nominal": 15.73,
+        "min": 15.73,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "din2010"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "single-primary-source",
+        "note": "Eine Primärquelle; unabhängiger Zweitbeleg dieses Einzelwerts noch offen."
+      },
+      "ds_max": {
+        "nominal": 16,
+        "min": null,
+        "max": 16,
+        "unit": "mm",
+        "sourceRefs": [
+          "din2010",
+          "eternal"
+        ],
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "independent-primary-sources",
+        "note": "In zwei unabhängig veröffentlichten Primärquellen abgeglichen."
+      },
+      "x": {
+        "nominal": 5,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "din2010"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "single-primary-source",
+        "note": "Eine Primärquelle; unabhängiger Zweitbeleg dieses Einzelwerts noch offen."
+      },
+      "b_le125": {
+        "nominal": 38,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "din2010"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "single-primary-source",
+        "note": "Referenzwert der Längenklasse; Kurzbolzenregel aus Tabelle 1 beachten. Kein automatisch wirksames b ohne Längenzeile. Zweitbeleg offen.",
+        "dependsOn": [
+          "nominalLength",
+          "shortStudException"
+        ]
+      },
+      "b_le200": {
+        "nominal": 44,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "din2010"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "single-primary-source",
+        "note": "Referenzwert der Längenklasse; Kurzbolzenregel aus Tabelle 1 beachten. Kein automatisch wirksames b ohne Längenzeile. Zweitbeleg offen.",
+        "dependsOn": [
+          "nominalLength",
+          "shortStudException"
+        ]
+      },
+      "b_gt200": {
+        "nominal": 57,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "din2010"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "single-primary-source",
+        "note": "Referenzwert der Längenklasse; Kurzbolzenregel aus Tabelle 1 beachten. Kein automatisch wirksames b ohne Längenzeile. Zweitbeleg offen.",
+        "dependsOn": [
+          "nominalLength",
+          "shortStudException"
+        ]
+      },
+      "nominalLength": {
+        "nominal": null,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "verificationMethod": "not-available",
+        "note": "Einzelwert nicht belegt; keine Ersatzmaße aus einer ähnlichen Norm."
+      },
+      "shortStudException": {
+        "nominal": null,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "verificationMethod": "not-available",
+        "note": "Einzelwert nicht belegt; keine Ersatzmaße aus einer ähnlichen Norm."
+      },
+      "endGeometry": {
+        "nominal": null,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "verificationMethod": "not-available",
+        "note": "Einzelwert nicht belegt; keine Ersatzmaße aus einer ähnlichen Norm."
+      }
+    },
+    "M18": {
+      "d_nominal": {
+        "nominal": 18,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "din2010",
+          "eternal"
+        ],
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "independent-primary-sources",
+        "note": "In zwei unabhängig veröffentlichten Primärquellen abgeglichen."
+      },
+      "bm": {
+        "nominal": 45,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "din2010",
+          "eternal"
+        ],
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "independent-primary-sources",
+        "note": "In zwei unabhängig veröffentlichten Primärquellen abgeglichen."
+      },
+      "ds_min": {
+        "nominal": 17.73,
+        "min": 17.73,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "din2010"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "single-primary-source",
+        "note": "Eine Primärquelle; unabhängiger Zweitbeleg dieses Einzelwerts noch offen."
+      },
+      "ds_max": {
+        "nominal": 18,
+        "min": null,
+        "max": 18,
+        "unit": "mm",
+        "sourceRefs": [
+          "din2010",
+          "eternal"
+        ],
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "independent-primary-sources",
+        "note": "In zwei unabhängig veröffentlichten Primärquellen abgeglichen."
+      },
+      "x": {
+        "nominal": 6.3,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "din2010"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "single-primary-source",
+        "note": "Eine Primärquelle; unabhängiger Zweitbeleg dieses Einzelwerts noch offen."
+      },
+      "b_le125": {
+        "nominal": 42,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "din2010"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "single-primary-source",
+        "note": "Referenzwert der Längenklasse; Kurzbolzenregel aus Tabelle 1 beachten. Kein automatisch wirksames b ohne Längenzeile. Zweitbeleg offen.",
+        "dependsOn": [
+          "nominalLength",
+          "shortStudException"
+        ]
+      },
+      "b_le200": {
+        "nominal": 48,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "din2010"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "single-primary-source",
+        "note": "Referenzwert der Längenklasse; Kurzbolzenregel aus Tabelle 1 beachten. Kein automatisch wirksames b ohne Längenzeile. Zweitbeleg offen.",
+        "dependsOn": [
+          "nominalLength",
+          "shortStudException"
+        ]
+      },
+      "b_gt200": {
+        "nominal": 61,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "din2010"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "single-primary-source",
+        "note": "Referenzwert der Längenklasse; Kurzbolzenregel aus Tabelle 1 beachten. Kein automatisch wirksames b ohne Längenzeile. Zweitbeleg offen.",
+        "dependsOn": [
+          "nominalLength",
+          "shortStudException"
+        ]
+      },
+      "nominalLength": {
+        "nominal": null,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "verificationMethod": "not-available",
+        "note": "Einzelwert nicht belegt; keine Ersatzmaße aus einer ähnlichen Norm."
+      },
+      "shortStudException": {
+        "nominal": null,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "verificationMethod": "not-available",
+        "note": "Einzelwert nicht belegt; keine Ersatzmaße aus einer ähnlichen Norm."
+      },
+      "endGeometry": {
+        "nominal": null,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "verificationMethod": "not-available",
+        "note": "Einzelwert nicht belegt; keine Ersatzmaße aus einer ähnlichen Norm."
+      }
+    },
+    "M20": {
+      "d_nominal": {
+        "nominal": 20,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "din2010",
+          "eternal"
+        ],
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "independent-primary-sources",
+        "note": "In zwei unabhängig veröffentlichten Primärquellen abgeglichen."
+      },
+      "bm": {
+        "nominal": 50,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "din2010",
+          "eternal"
+        ],
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "independent-primary-sources",
+        "note": "In zwei unabhängig veröffentlichten Primärquellen abgeglichen."
+      },
+      "ds_min": {
+        "nominal": 19.67,
+        "min": 19.67,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "din2010"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "single-primary-source",
+        "note": "Eine Primärquelle; unabhängiger Zweitbeleg dieses Einzelwerts noch offen."
+      },
+      "ds_max": {
+        "nominal": 20,
+        "min": null,
+        "max": 20,
+        "unit": "mm",
+        "sourceRefs": [
+          "din2010",
+          "eternal"
+        ],
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "independent-primary-sources",
+        "note": "In zwei unabhängig veröffentlichten Primärquellen abgeglichen."
+      },
+      "x": {
+        "nominal": 6.3,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "din2010"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "single-primary-source",
+        "note": "Eine Primärquelle; unabhängiger Zweitbeleg dieses Einzelwerts noch offen."
+      },
+      "b_le125": {
+        "nominal": 46,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "din2010"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "single-primary-source",
+        "note": "Referenzwert der Längenklasse; Kurzbolzenregel aus Tabelle 1 beachten. Kein automatisch wirksames b ohne Längenzeile. Zweitbeleg offen.",
+        "dependsOn": [
+          "nominalLength",
+          "shortStudException"
+        ]
+      },
+      "b_le200": {
+        "nominal": 52,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "din2010"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "single-primary-source",
+        "note": "Referenzwert der Längenklasse; Kurzbolzenregel aus Tabelle 1 beachten. Kein automatisch wirksames b ohne Längenzeile. Zweitbeleg offen.",
+        "dependsOn": [
+          "nominalLength",
+          "shortStudException"
+        ]
+      },
+      "b_gt200": {
+        "nominal": 65,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "din2010"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "single-primary-source",
+        "note": "Referenzwert der Längenklasse; Kurzbolzenregel aus Tabelle 1 beachten. Kein automatisch wirksames b ohne Längenzeile. Zweitbeleg offen.",
+        "dependsOn": [
+          "nominalLength",
+          "shortStudException"
+        ]
+      },
+      "nominalLength": {
+        "nominal": null,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "verificationMethod": "not-available",
+        "note": "Einzelwert nicht belegt; keine Ersatzmaße aus einer ähnlichen Norm."
+      },
+      "shortStudException": {
+        "nominal": null,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "verificationMethod": "not-available",
+        "note": "Einzelwert nicht belegt; keine Ersatzmaße aus einer ähnlichen Norm."
+      },
+      "endGeometry": {
+        "nominal": null,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "verificationMethod": "not-available",
+        "note": "Einzelwert nicht belegt; keine Ersatzmaße aus einer ähnlichen Norm."
+      }
+    },
+    "M22": {
+      "d_nominal": {
+        "nominal": 22,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "din2010",
+          "eternal"
+        ],
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "independent-primary-sources",
+        "note": "In zwei unabhängig veröffentlichten Primärquellen abgeglichen."
+      },
+      "bm": {
+        "nominal": 55,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "din2010",
+          "eternal"
+        ],
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "independent-primary-sources",
+        "note": "In zwei unabhängig veröffentlichten Primärquellen abgeglichen."
+      },
+      "ds_min": {
+        "nominal": 21.67,
+        "min": 21.67,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "din2010"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "single-primary-source",
+        "note": "Eine Primärquelle; unabhängiger Zweitbeleg dieses Einzelwerts noch offen."
+      },
+      "ds_max": {
+        "nominal": 22,
+        "min": null,
+        "max": 22,
+        "unit": "mm",
+        "sourceRefs": [
+          "din2010",
+          "eternal"
+        ],
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "independent-primary-sources",
+        "note": "In zwei unabhängig veröffentlichten Primärquellen abgeglichen."
+      },
+      "x": {
+        "nominal": 6.3,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "din2010"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "single-primary-source",
+        "note": "Eine Primärquelle; unabhängiger Zweitbeleg dieses Einzelwerts noch offen."
+      },
+      "b_le125": {
+        "nominal": 50,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "din2010"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "single-primary-source",
+        "note": "Referenzwert der Längenklasse; Kurzbolzenregel aus Tabelle 1 beachten. Kein automatisch wirksames b ohne Längenzeile. Zweitbeleg offen.",
+        "dependsOn": [
+          "nominalLength",
+          "shortStudException"
+        ]
+      },
+      "b_le200": {
+        "nominal": 56,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "din2010"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "single-primary-source",
+        "note": "Referenzwert der Längenklasse; Kurzbolzenregel aus Tabelle 1 beachten. Kein automatisch wirksames b ohne Längenzeile. Zweitbeleg offen.",
+        "dependsOn": [
+          "nominalLength",
+          "shortStudException"
+        ]
+      },
+      "b_gt200": {
+        "nominal": 69,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "din2010"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "single-primary-source",
+        "note": "Referenzwert der Längenklasse; Kurzbolzenregel aus Tabelle 1 beachten. Kein automatisch wirksames b ohne Längenzeile. Zweitbeleg offen.",
+        "dependsOn": [
+          "nominalLength",
+          "shortStudException"
+        ]
+      },
+      "nominalLength": {
+        "nominal": null,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "verificationMethod": "not-available",
+        "note": "Einzelwert nicht belegt; keine Ersatzmaße aus einer ähnlichen Norm."
+      },
+      "shortStudException": {
+        "nominal": null,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "verificationMethod": "not-available",
+        "note": "Einzelwert nicht belegt; keine Ersatzmaße aus einer ähnlichen Norm."
+      },
+      "endGeometry": {
+        "nominal": null,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "verificationMethod": "not-available",
+        "note": "Einzelwert nicht belegt; keine Ersatzmaße aus einer ähnlichen Norm."
+      }
+    },
+    "M24": {
+      "d_nominal": {
+        "nominal": 24,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "din2010",
+          "eternal"
+        ],
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "independent-primary-sources",
+        "note": "In zwei unabhängig veröffentlichten Primärquellen abgeglichen."
+      },
+      "bm": {
+        "nominal": 60,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "din2010",
+          "eternal"
+        ],
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "independent-primary-sources",
+        "note": "In zwei unabhängig veröffentlichten Primärquellen abgeglichen."
+      },
+      "ds_min": {
+        "nominal": 23.67,
+        "min": 23.67,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "din2010"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "single-primary-source",
+        "note": "Eine Primärquelle; unabhängiger Zweitbeleg dieses Einzelwerts noch offen."
+      },
+      "ds_max": {
+        "nominal": 24,
+        "min": null,
+        "max": 24,
+        "unit": "mm",
+        "sourceRefs": [
+          "din2010",
+          "eternal"
+        ],
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "independent-primary-sources",
+        "note": "In zwei unabhängig veröffentlichten Primärquellen abgeglichen."
+      },
+      "x": {
+        "nominal": 7.5,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "din2010"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "single-primary-source",
+        "note": "Eine Primärquelle; unabhängiger Zweitbeleg dieses Einzelwerts noch offen."
+      },
+      "b_le125": {
+        "nominal": 54,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "din2010"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "single-primary-source",
+        "note": "Referenzwert der Längenklasse; Kurzbolzenregel aus Tabelle 1 beachten. Kein automatisch wirksames b ohne Längenzeile. Zweitbeleg offen.",
+        "dependsOn": [
+          "nominalLength",
+          "shortStudException"
+        ]
+      },
+      "b_le200": {
+        "nominal": 60,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "din2010"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "single-primary-source",
+        "note": "Referenzwert der Längenklasse; Kurzbolzenregel aus Tabelle 1 beachten. Kein automatisch wirksames b ohne Längenzeile. Zweitbeleg offen.",
+        "dependsOn": [
+          "nominalLength",
+          "shortStudException"
+        ]
+      },
+      "b_gt200": {
+        "nominal": 73,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "din2010"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "single-primary-source",
+        "note": "Referenzwert der Längenklasse; Kurzbolzenregel aus Tabelle 1 beachten. Kein automatisch wirksames b ohne Längenzeile. Zweitbeleg offen.",
+        "dependsOn": [
+          "nominalLength",
+          "shortStudException"
+        ]
+      },
+      "nominalLength": {
+        "nominal": null,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "verificationMethod": "not-available",
+        "note": "Einzelwert nicht belegt; keine Ersatzmaße aus einer ähnlichen Norm."
+      },
+      "shortStudException": {
+        "nominal": null,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "verificationMethod": "not-available",
+        "note": "Einzelwert nicht belegt; keine Ersatzmaße aus einer ähnlichen Norm."
+      },
+      "endGeometry": {
+        "nominal": null,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "verificationMethod": "not-available",
+        "note": "Einzelwert nicht belegt; keine Ersatzmaße aus einer ähnlichen Norm."
+      }
+    }
+  },
+  "sourceMeta": {
+    "din2010": {
+      "id": "din2010",
+      "url": "https://bugel.kz/static/uploads/uploaded_files/standarts/DIN%20940.pdf",
+      "titel": "DIN 940:2010-07 Originalnorm, bereitgestellt von BUGEL",
+      "type": "standard-excerpt",
+      "locator": "Tabelle 1, Seiten 6–7; Bild 1 Seite 5",
+      "abgerufen": "2026-11-26"
+    },
+    "eternal": {
+      "id": "eternal",
+      "url": "https://www.fasteneref.com/custom/double-end-studs/din-940",
+      "titel": "Eternal Fastener: DIN 940 Maßtabelle",
+      "type": "manufacturer",
+      "locator": "Dimensions & size table",
+      "abgerufen": "2026-11-26"
+    },
+    "din-status": {
+      "id": "din-status",
+      "url": "https://www.dinmedia.de/en/standard/din-940/392484462",
+      "titel": "DIN 940:2025-08 Status und Bereich",
+      "type": "standards-body",
+      "locator": "Overview",
+      "abgerufen": "2026-11-26"
+    }
+  },
+  "quellen": [
+    {
+      "id": "din2010",
+      "url": "https://bugel.kz/static/uploads/uploaded_files/standarts/DIN%20940.pdf",
+      "titel": "DIN 940:2010-07 Originalnorm, bereitgestellt von BUGEL",
+      "type": "standard-excerpt",
+      "locator": "Tabelle 1, Seiten 6–7; Bild 1 Seite 5",
+      "abgerufen": "2026-11-26"
+    },
+    {
+      "id": "eternal",
+      "url": "https://www.fasteneref.com/custom/double-end-studs/din-940",
+      "titel": "Eternal Fastener: DIN 940 Maßtabelle",
+      "type": "manufacturer",
+      "locator": "Dimensions & size table",
+      "abgerufen": "2026-11-26"
+    },
+    {
+      "id": "din-status",
+      "url": "https://www.dinmedia.de/en/standard/din-940/392484462",
+      "titel": "DIN 940:2025-08 Status und Bereich",
+      "type": "standards-body",
+      "locator": "Overview",
+      "abgerufen": "2026-11-26"
+    }
+  ],
+  "abweichungen": [],
+  "status": "partial",
+  "coverage": "documented",
+  "lengthCoverage": "unresearched",
+  "hinweise": [
+    "Nennlänge l enthält das Einschraubende bm nicht; Gesamtlänge l + bm.",
+    "M5 hat bm = 13 mm, nicht 12,5 mm. Tabellenwerte werden nicht durch die Näherung 2,5d ersetzt.",
+    "Bei kurzen Stiftschrauben gilt eine besondere Gewindelänge und gegebenenfalls eine Kennzeichnung der Mutterseite. Daher keine ungeprüfte Längenübernahme."
+  ],
+  "normstatus": {
+    "status": "superseded",
+    "edition": "2010-07",
+    "replacedBy": "DIN940:2025-08",
+    "sourceRefs": [
+      "din-status"
+    ]
+  },
+  "requiredGeometryFields": [
+    "nominalLength",
+    "shortStudException",
+    "endGeometry"
+  ],
+  "sizeCoverage": {
+    "M3": {
+      "status": "not-in-standard",
+      "sourceRefs": [
+        "din-status"
+      ],
+      "note": "Außerhalb des belegten Größenbereichs dieser Normausgabe."
+    },
+    "M3.5": {
+      "status": "not-in-standard",
+      "sourceRefs": [
+        "din-status"
+      ],
+      "note": "Außerhalb des belegten Größenbereichs dieser Normausgabe."
+    },
+    "M4": {
+      "status": "documented",
+      "sourceRefs": [
+        "din2010"
+      ]
+    },
+    "M5": {
+      "status": "documented",
+      "sourceRefs": [
+        "din2010"
+      ]
+    },
+    "M6": {
+      "status": "documented",
+      "sourceRefs": [
+        "din2010"
+      ]
+    },
+    "M7": {
+      "status": "documented",
+      "sourceRefs": [
+        "din2010"
+      ]
+    },
+    "M8": {
+      "status": "documented",
+      "sourceRefs": [
+        "din2010"
+      ]
+    },
+    "M10": {
+      "status": "documented",
+      "sourceRefs": [
+        "din2010"
+      ]
+    },
+    "M12": {
+      "status": "documented",
+      "sourceRefs": [
+        "din2010"
+      ]
+    },
+    "M14": {
+      "status": "documented",
+      "sourceRefs": [
+        "din2010"
+      ]
+    },
+    "M16": {
+      "status": "documented",
+      "sourceRefs": [
+        "din2010"
+      ]
+    },
+    "M18": {
+      "status": "documented",
+      "sourceRefs": [
+        "din2010"
+      ]
+    },
+    "M20": {
+      "status": "documented",
+      "sourceRefs": [
+        "din2010"
+      ]
+    },
+    "M22": {
+      "status": "documented",
+      "sourceRefs": [
+        "din2010"
+      ]
+    },
+    "M24": {
+      "status": "documented",
+      "sourceRefs": [
+        "din2010"
+      ]
     },
     "M27": {
-      "status": "unresearched",
-      "note": "Keine Größenzeile vorhanden; daraus folgt kein Normverbot."
+      "status": "not-in-standard",
+      "sourceRefs": [
+        "din-status"
+      ],
+      "note": "Außerhalb des belegten Größenbereichs dieser Normausgabe."
     },
     "M30": {
-      "status": "unresearched",
-      "note": "Keine Größenzeile vorhanden; daraus folgt kein Normverbot."
+      "status": "not-in-standard",
+      "sourceRefs": [
+        "din-status"
+      ],
+      "note": "Außerhalb des belegten Größenbereichs dieser Normausgabe."
     },
     "M33": {
-      "status": "unresearched",
-      "note": "Keine Größenzeile vorhanden; daraus folgt kein Normverbot."
+      "status": "not-in-standard",
+      "sourceRefs": [
+        "din-status"
+      ],
+      "note": "Außerhalb des belegten Größenbereichs dieser Normausgabe."
     }
   },
   "pruefdatum": "2026-11-26",
   "klassen": {
-    "status": "unresearched",
-    "values": [],
-    "note": "Festigkeits-/Werkstoffklassen noch nicht vollständig aus dieser Norm belegt."
+    "status": "documented-subset",
+    "values": [
+      "5.6",
+      "8.8"
+    ],
+    "sourceRefs": [
+      "din2010"
+    ],
+    "note": "Ausgabe 2010; weitere Klassen/Werkstoffe nach Vereinbarung. Kein Abgleich mit 2025."
+  },
+  "datasetKind": "part-standard",
+  "gaps": [
+    "Längenabhängige Kurzbolzen- und Endformzuordnung noch offen.",
+    "Maßabgleich mit Ausgabe 2025-08 fehlt."
+  ],
+  "geometryStatus": "partial",
+  "currentEdition": "2025-08",
+  "threadFamily": "metric",
+  "lengthDependentFields": [
+    "sL",
+    "b",
+    "nominalLength"
+  ],
+  "currentEditionEvidence": {
+    "sourceRefs": [
+      "din-status"
+    ],
+    "dimensionCoverage": "unresearched"
   }
 }
