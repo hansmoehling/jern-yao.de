@@ -16,17 +16,18 @@ class Element {
   constructor() { this.hidden = false; this.disabled = false; this.dataset = {}; this.textContent = ''; this.innerHTML = ''; this.events = {}; }
   addEventListener(name, fn) { this.events[name] = fn; }
 }
-function harness(mode='geometry',{language='de',showPrices=false}={}) {
-  const nodes = Object.fromEntries(['button', 'progress', 'status', 'result', 'refresh'].map(key => [key, new Element()]));
+function harness(mode='geometry',{language='de',showPrices=false,withRefresh=false}={}) {
+  const nodes = Object.fromEntries(['button', 'progress', 'status', 'result', ...(withRefresh?['refresh']:[])].map(key => [key, new Element()]));
   const requests = [], answers = [], received = [], chosen = [], timers = new Map(),events={}; let nextTimer = 0, invalidations = 0,clock=0;
   let geometry = { geometrySpec: { version: 1, coordinateSystem: 'tool-parting-plane', elements: [{ id: 'body', operation: 'add', shape: 'cylinder', side: 'die', start: 0, length: 12, diameter: 8 }], trimming: [] }, material: 'C10C', d0: 8 };
   let note = 'Original note',file=null;
   const locale = { language, t: value => I18N.t(value,locale.language) };
-  const window = { JYAnswerFormat: require('../answer-format.js'), JYLocale: locale, JYI18N: I18N, JY_API_BASE: 'https://api.example.test', JY_SHOW_PRICES: showPrices, location: { href: 'https://jernyao.de/konfigurator/' },addEventListener(name,fn){events[name]=fn;}, setTimeout(fn, delay) { timers.set(++nextTimer, { fn, delay }); return nextTimer; }, clearTimeout(id) { timers.delete(id); } };
+  const document={hidden:false,addEventListener(name,fn){events[name]=fn;}};
+  const window = { document, JYAnswerFormat: require('../answer-format.js'), JYLocale: locale, JYI18N: I18N, JY_API_BASE: 'https://api.example.test', JY_SHOW_PRICES: showPrices, location: { href: 'https://jernyao.de/konfigurator/' },addEventListener(name,fn){events[name]=fn;}, setTimeout(fn, delay) { timers.set(++nextTimer, { fn, delay }); return nextTimer; }, clearTimeout(id) { timers.delete(id); } };
   const context = { window,Date:{now:()=>clock}, URL, URLSearchParams, FormData, AbortController, crypto, Uint8Array, TypeError, fetch: async (url, options) => { requests.push({ url, options }); const answer = await answers.shift(); if (answer instanceof Error) throw answer; assert(answer, 'unexpected API request'); return { ok: answer.ok !== false, status: answer.status || 200, json: async () => answer.data }; } };
   vm.runInNewContext(source, context);
   const controller = window.JYDrawingPreview.create({ ...nodes, ...(mode==='drawing'?{getFile:()=>file,showWhenEmpty:true}:{getGeometry:()=>geometry}), getNote: () => note, canChooseMachine:model=>models.includes(model), onChooseMachine:model=>chosen.push(model), onInvalidate: () => invalidations++, onResult: data => received.push(data) });
-  return { ...nodes, controller, locale, requests, answers, received, chosen, timers,events,advance(ms){clock+=ms;}, get invalidations() { return invalidations; }, get geometry() { return geometry; }, set geometry(value) { geometry = value; }, set note(value) { note = value; },set file(value){file=value;}, async poll() { const entry = [...timers].find(([, item]) => item.delay === 4000); assert(entry, 'expected status poll'); timers.delete(entry[0]);clock+=4000; await entry[1].fn(); } };
+  return { ...nodes, controller, locale, document, requests, answers, received, chosen, timers,events,advance(ms){clock+=ms;}, get invalidations() { return invalidations; }, get geometry() { return geometry; }, set geometry(value) { geometry = value; }, set note(value) { note = value; },set file(value){file=value;}, async poll() { const entry = [...timers].find(([, item]) => item.delay === 4000); assert(entry, 'expected status poll'); timers.delete(entry[0]);clock+=4000; await entry[1].fn(); } };
 }
 const receipt = (id, status = 'queued') => ({ data: { id, token: 'private-' + id, kind: 'preview', status, notificationStatus: 'not_requested' } });
 
@@ -114,10 +115,10 @@ test('polling covers three worker attempts and keeps a readable job ID after its
  assert.equal(p.progress.hidden,false);assert.ok([...p.timers.values()].some(t=>t.delay===4000));
  assert.match(p.status.textContent,/Anfrage: LONG/);assert(!p.status.textContent.includes('private-LONG'));
  p.advance(6*60000);p.answers.push(receipt('LONG','processing'));await p.poll();
- assert.equal(p.progress.hidden,true);assert.equal(p.refresh.hidden,false);
- assert.match(p.status.textContent,/erneut abrufen/);assert.match(p.status.textContent,/LONG/);
+ assert.equal(p.progress.hidden,true);assert.equal(p.refresh,undefined);
+ assert.match(p.status.textContent,/Status automatisch geprüft/);assert.match(p.status.textContent,/LONG/);
  assert.equal([...p.timers.values()].some(t=>t.delay===4000),false);
- p.answers.push({...receipt('LONG','ready'),data:{...receipt('LONG','ready').data,answer:'Late result'}});await p.refresh.events.click();
+ p.answers.push({...receipt('LONG','ready'),data:{...receipt('LONG','ready').data,answer:'Late result'}});await p.events.focus();
  assert.equal(p.result.hidden,false);assert.match(p.result.innerHTML,/Late result/);
  assert.equal(p.requests.filter(r=>r.options.method==='POST').length,1);
 });
@@ -129,6 +130,23 @@ test('returning focus resumes an accepted job without submitting another analysi
  assert.equal(p.progress.hidden,false);assert.ok([...p.timers.values()].some(t=>t.delay===4000));
  assert.equal(p.requests.filter(r=>r.options.method==='POST').length,1);
  assert.match(p.requests.at(-1).url,/\/status\?/);
+});
+
+test('button-free status recovery is translated and resumes on returning to a visible page',async()=>{
+ const timeout='Die Auswertung dauert länger als erwartet. Ihre Anfrage bleibt gespeichert. Beim Zurückkehren zu dieser Seite wird der Status automatisch geprüft.';
+ for(const mode of ['geometry','drawing'])for(const language of I18N.supported){
+  const p=harness(mode,{language});if(mode==='drawing')p.file=new File(['drawing'],'part.png',{type:'image/png'});
+  p.answers.push(receipt('VISIBLE'));await p.controller.start();p.advance(21*60000);p.answers.push(receipt('VISIBLE','processing'));await p.poll();
+  assert(p.status.textContent.includes(I18N.t(timeout,language)));if(language!=='de')assert.notEqual(I18N.t(timeout,language),timeout);
+  const count=p.requests.length;p.document.hidden=true;await p.events.visibilitychange();assert.equal(p.requests.length,count);
+  p.document.hidden=false;p.answers.push({...receipt('VISIBLE','ready'),data:{...receipt('VISIBLE','ready').data,answer:'Recovered result'}});await p.events.visibilitychange();
+  assert.equal(p.result.hidden,false);assert.match(p.result.innerHTML,/Recovered result/);assert.equal(p.requests.filter(r=>r.options.method==='POST').length,1);
+ }
+});
+
+test('shared controller still supports an optional refresh control',async()=>{
+ const p=harness('geometry',{withRefresh:true});assert.equal(p.refresh.hidden,true);p.answers.push(receipt('OPTIONAL'));await p.controller.start();assert.equal(p.refresh.hidden,false);
+ p.answers.push(receipt('OPTIONAL','ready'));await p.refresh.events.click();assert.equal(p.result.hidden,false);assert.equal(p.requests.filter(r=>r.options.method==='POST').length,1);
 });
 
 test('inactive geometry and drawing tabs retain a job but never expose late output until the same input returns',async()=>{
@@ -151,7 +169,7 @@ test('inactive geometry and drawing tabs retain a job but never expose late outp
 test('changed geometry after an inactive interval invalidates the retained job',async()=>{
  const p=harness(),geometry=p.geometry;p.answers.push(receipt('STALE','ready'));await p.controller.start();
  p.geometry=null;p.controller.update();geometry.geometrySpec.elements[0].length=24;p.geometry=geometry;p.controller.update();
- assert.equal(p.result.hidden,true);assert.equal(p.refresh.hidden,true);assert.equal(p.status.textContent,'');
+ assert.equal(p.result.hidden,true);assert.equal(p.status.textContent,'');
  p.answers.push(receipt('FRESH'));await p.controller.start();
  assert.notEqual(JSON.parse(p.requests[0].options.body).idempotency_key,JSON.parse(p.requests[1].options.body).idempotency_key);
 });

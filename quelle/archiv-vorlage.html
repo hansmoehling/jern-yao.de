@@ -251,7 +251,7 @@
           <label id="drawing-material-field" class="feld" hidden><span>Werkstoff für den Zeichnungsscan</span><select id="drawing-material"><option value="">Aus der Zeichnung lesen</option></select></label>
           <p id="drawing-material-origin" class="klein" hidden></p>
           <p id="parts-file-help" class="klein">Beim Zeichnungsscan liest die KI die Zeichnung und erläutert das Stadienkonzept. Der Scan kann einige Minuten dauern und versendet keine E-Mail.</p>
-          <div class="knoepfe"><button type="button" id="parts-drawing-analyse" class="knopf" disabled>Zeichnung scannen</button><button type="button" id="parts-drawing-refresh" class="knopf zwei" hidden>Stand aktualisieren</button></div>
+          <div class="knoepfe"><button type="button" id="parts-drawing-analyse" class="knopf" disabled>Zeichnung scannen</button></div>
           <div id="parts-drawing-progress" class="geometry-progress" role="status" aria-live="polite" hidden><div class="geometry-dots" aria-hidden="true"><i style="--i:0"></i><i style="--i:1"></i><i style="--i:2"></i><i style="--i:3"></i><i style="--i:4"></i><i style="--i:5"></i><i style="--i:6"></i><i style="--i:7"></i></div><p>Die Zeichnungsanalyse benötigt etwas Zeit. Wir prüfen Maße, Umformschritte und passende Maschinen.</p></div>
           <p id="parts-drawing-status" class="klein" role="status" aria-live="polite" hidden></p>
         </div>
@@ -274,7 +274,7 @@
         <div id="geometry-panel" role="tabpanel" aria-labelledby="parts-geometry-tab" hidden>
           <div id="geometry-wizard" class="geometry-shell"></div>
           <label class="feld"><span>Ergänzungen zum Stadienkonzept</span><textarea id="geometry-note" rows="3"></textarea></label>
-          <div class="knoepfe"><button type="button" class="knopf" id="geometry-analyse" disabled>Stadienkonzept mit KI ausarbeiten</button><button type="button" class="knopf zwei" id="geometry-refresh" hidden>Stand aktualisieren</button></div>
+          <div class="knoepfe"><button type="button" class="knopf" id="geometry-analyse" disabled>Stadienkonzept mit KI ausarbeiten</button></div>
           <div id="geometry-progress" class="geometry-progress" hidden><div class="geometry-dots" aria-hidden="true"><i style="--i:0"></i><i style="--i:1"></i><i style="--i:2"></i><i style="--i:3"></i><i style="--i:4"></i><i style="--i:5"></i><i style="--i:6"></i><i style="--i:7"></i></div><p>Das Stadienkonzept wird ausgearbeitet. Wir prüfen Geometrie, Umformschritte und passende Maschinen.</p></div>
           <p id="geometry-status" role="status" aria-live="polite" hidden></p>
           <div id="geometry-result" class="geometry-result" hidden></div>
@@ -408,11 +408,15 @@
       <div class="leer" id="leer">Mit Draht-Ø und den Hüllmaßen des Teils erscheinen hier Stadienfolge, Werkzeuggröße und die passenden Modelle. Ein Beispiel oben zeigt den Ablauf.</div>
       <div id="empty-visual" class="empty-visual" hidden>
         <h2>Vom Fertigteil zum Umformkonzept.</h2>
+        <figure id="empty-screws" hidden><img src="/assets/konfigurator/schrauben-symbol.svg" alt="Symbolische Schraube mit technischer Ansicht" width="900" height="470"><figcaption>Schrauben</figcaption></figure>
+        <figure id="empty-nuts" hidden><img src="/assets/konfigurator/muttern-symbol.svg" alt="Symbolische Sechskantmutter mit technischer Ansicht" width="900" height="470"><figcaption>Muttern</figcaption></figure>
+        <div id="empty-parts" hidden>
         <div class="part-studies">
           <figure class="finished-part"><img src="/assets/konfigurator/endteil_chrom.png" alt="Fertigteil mit Bund und Innenprofil" width="1800" height="1200"><figcaption>Fertigteil</figcaption></figure>
           <figure class="technical-drawing"><img src="/assets/konfigurator/zeichnung.png" alt="Technische Zeichnung des Bauteils" width="1049" height="1339"><figcaption>Zeichnung</figcaption></figure>
         </div>
         <figure class="forming-sequence"><img src="/assets/konfigurator/Stadie.jpg" alt="Zwischenformen einer Stadienfolge" width="1600" height="671"><figcaption>Stadienfolge</figcaption></figure>
+        </div>
       </div>
       <div id="aus" hidden>
         <h2>Grobauslegung</h2><p class="klein" id="material-basis"></p>
@@ -448,7 +452,6 @@
       </div>
       <div class="knoepfe">
         <button type="button" class="knopf" id="senden" disabled>Anfrage an Hans senden</button>
-        <button type="button" class="knopf zwei" id="archive-mail-refresh" hidden>Stand aktualisieren</button>
         <button type="button" class="knopf zwei" id="drucken" disabled>Anforderungsblatt drucken</button>
       </div>
       <p class="klein" id="sendehinweis" role="status" aria-live="polite">Die Anfrage wird erst nach Ihrem Klick versandt.</p>

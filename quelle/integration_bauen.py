@@ -34,7 +34,7 @@ def technical_catalog(text):
 
 def build(destination):
     destination = Path(destination).resolve()
-    for name in ('endteil_chrom.png', 'Stadie.jpg', 'zeichnung.png'):
+    for name in ('endteil_chrom.png', 'Stadie.jpg', 'zeichnung.png', 'schrauben-symbol.svg', 'muttern-symbol.svg'):
         source_asset = Q.parent / 'assets' / 'konfigurator' / name
         target_asset = destination / 'assets' / 'konfigurator' / name
         target_asset.parent.mkdir(parents=True, exist_ok=True)

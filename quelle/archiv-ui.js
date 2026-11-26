@@ -287,6 +287,9 @@
   function rechnen() {
     rankingService?.reset();
     sichtbar();
+    $('empty-screws').hidden=typ()!=='bolzen';
+    $('empty-nuts').hidden=typ()!=='mutter';
+    $('empty-parts').hidden=typ()!=='formteil';
     vorbelegen();
     if(staged&&$('norm-chain-actions'))$('norm-chain-actions').hidden=typ()!=='bolzen';
     if(lastType!==typ()){lastType=typ();anfrageAuswahlLoeschen();}
@@ -529,13 +532,11 @@
   function versandStatus(data){
     const texts={sent:'Hans Möhling wurde per E-Mail über Ihre Anfrage informiert.',pending:'Anfrage eingegangen. Die E-Mail an Hans Möhling wird versandt.',failed:'Ihre Anfrage ist gespeichert. Die E-Mail an Hans Möhling konnte noch nicht zugestellt werden.'};
     const node=$('sendehinweis');node.dataset.originalText='';node.textContent=tr(texts[data.notificationStatus]||'Ihre Anfrage ist angekommen.');
-    $('archive-mail-refresh').hidden=false;
   }
   async function versandAktualisieren(){
-    if(!mailReceipt)return;const identity=mailReceipt,api=window.JYDrawingPreview;$('archive-mail-refresh').disabled=true;
+    if(!mailReceipt)return;const identity=mailReceipt,api=window.JYDrawingPreview;
     try{const data=await api.request('/status?'+new URLSearchParams(identity));if(identity!==mailReceipt)return;versandStatus(data);mailPolls++;if(data.notificationStatus==='pending'&&mailPolls<30)mailTimer=window.setTimeout(versandAktualisieren,4000);}
     catch(error){if(identity===mailReceipt){$('sendehinweis').dataset.originalText='';$('sendehinweis').textContent=tr(error.message);}}
-    finally{$('archive-mail-refresh').disabled=false;}
   }
   async function senden() {
     if(mailBusy)return;
@@ -648,7 +649,6 @@
   });
   a.addEventListener('input',knoepfe); a.addEventListener('change',knoepfe);
   $('senden').addEventListener('click', senden);
-  $('archive-mail-refresh').addEventListener('click',()=>{mailPolls=0;window.clearTimeout(mailTimer);return versandAktualisieren();});
   $('drucken').addEventListener('click', drucken);
   if(staged&&window.JYNormPicker){
     normPicker=window.JYNormPicker.create({host:$('norm-picker'),form:f,data:window.JY_NORM_DATA,tr,getType:typ,
@@ -689,8 +689,8 @@
       status.textContent='';$('geometry-panel').scrollIntoView({block:'start',behavior:'smooth'});
     }catch(error){status.textContent=tr(error.message);}
   });
-  if(window.JYDrawingPreview)drawingPreview=window.JYDrawingPreview.create({button:$('parts-drawing-analyse'),progress:$('parts-drawing-progress'),status:$('parts-drawing-status'),result:$('parts-drawing-result'),refresh:$('parts-drawing-refresh'),showWhenEmpty:true,getFile:()=>drawingActive()?partsFile:null,getNote:drawingNote,getMaterialChoice:drawingMaterialChoice,canChooseMachine:model=>MASCHINEN.some(machine=>machine.m===model),onInvalidate(){drawingResult=null;drawingSelectedModel=null;anfrageAuswahlZeigen();drawingGallery();},onResult(data){drawingResult=data;drawingGallery();knoepfe();},onChooseMachine(model){if(!drawingMachines().some(machine=>machine.model===model))return;drawingSelectedModel=model;anfrageAuswahlZeigen();a.elements.email.focus({preventScroll:true});$('anfrage').scrollIntoView({behavior:window.matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth',block:'start'});}});
-  if(window.JYDrawingPreview?.apiBase&&geometryWizard)geometryPreview=window.JYDrawingPreview.create({button:$('geometry-analyse'),progress:$('geometry-progress'),status:$('geometry-status'),result:$('geometry-result'),refresh:$('geometry-refresh'),getGeometry:geometryInput,getNote:geometryNote,canChooseMachine:model=>MASCHINEN.some(machine=>machine.m===model),onInvalidate(){geometryResult=null;geometrySelectedModel=null;anfrageAuswahlZeigen();},onResult(data){geometryResult=data;knoepfe();},onChooseMachine(model){if(!geometryMachines().some(machine=>machine.model===model))return;geometrySelectedModel=model;anfrageAuswahlZeigen();a.elements.email.focus({preventScroll:true});$('anfrage').scrollIntoView({behavior:window.matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth',block:'start'});}});
+  if(window.JYDrawingPreview)drawingPreview=window.JYDrawingPreview.create({button:$('parts-drawing-analyse'),progress:$('parts-drawing-progress'),status:$('parts-drawing-status'),result:$('parts-drawing-result'),showWhenEmpty:true,getFile:()=>drawingActive()?partsFile:null,getNote:drawingNote,getMaterialChoice:drawingMaterialChoice,canChooseMachine:model=>MASCHINEN.some(machine=>machine.m===model),onInvalidate(){drawingResult=null;drawingSelectedModel=null;anfrageAuswahlZeigen();drawingGallery();},onResult(data){drawingResult=data;drawingGallery();knoepfe();},onChooseMachine(model){if(!drawingMachines().some(machine=>machine.model===model))return;drawingSelectedModel=model;anfrageAuswahlZeigen();a.elements.email.focus({preventScroll:true});$('anfrage').scrollIntoView({behavior:window.matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth',block:'start'});}});
+  if(window.JYDrawingPreview?.apiBase&&geometryWizard)geometryPreview=window.JYDrawingPreview.create({button:$('geometry-analyse'),progress:$('geometry-progress'),status:$('geometry-status'),result:$('geometry-result'),getGeometry:geometryInput,getNote:geometryNote,canChooseMachine:model=>MASCHINEN.some(machine=>machine.m===model),onInvalidate(){geometryResult=null;geometrySelectedModel=null;anfrageAuswahlZeigen();},onResult(data){geometryResult=data;knoepfe();},onChooseMachine(model){if(!geometryMachines().some(machine=>machine.model===model))return;geometrySelectedModel=model;anfrageAuswahlZeigen();a.elements.email.focus({preventScroll:true});$('anfrage').scrollIntoView({behavior:window.matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth',block:'start'});}});
   $('geometry-note').addEventListener('input',()=>{geometryPreview?.update();knoepfe();});
   $('parts-file').addEventListener('change',()=>setDrawingFile($('parts-file').files?.[0]||null));
   const partsDrop=$('parts-drop-zone');

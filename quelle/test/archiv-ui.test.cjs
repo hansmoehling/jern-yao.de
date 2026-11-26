@@ -27,7 +27,7 @@ function setup(language,engine=E,showPrices,apiOptions,staged=false,integrated=f
   addEventListener(key,handler){const prior=this.events[key];this.events[key]=prior?(event)=>{prior(event);return handler(event);}:handler;}
  }
  const make=tag=>integrated?new DomEl(tag):new El();
- const get=id=>{const dynamic=created.find(node=>node.id===id);if(dynamic)return dynamic;if(!ids.has(id))ids.set(id,make());return ids.get(id)};
+ const get=id=>{assert(!['parts-drawing-refresh','geometry-refresh','archive-mail-refresh'].includes(id),'removed refresh control must not be requested');const dynamic=created.find(node=>node.id===id);if(dynamic)return dynamic;if(!ids.has(id))ids.set(id,make());return ids.get(id)};
  const f=get('f'),a=get('a');f.elements={};a.elements={};
  for(const key of ['typ','wst','rm','d0','wirePreparation','rodDiameter','standardKind','standardNorm','nutNorm','threadFamily','kopfForm','kD','kSW','kH','kVol','sD','sL','sArea','tipLength','tipDiameter','tipArea','iTyp','iSize','iSW','iT','iVol','mM','mSW','mH','mLoch','mFlansch','mFlanschH','masse','lStempel','wenden','ko','pko','matD','matL','stD','stL','stationen','zusatz','ausbringung'])f.elements[key]=new El();
  for(const key of ['ok','email','name','firma','tel','nachricht'])a.elements[key]=new El();
@@ -84,6 +84,11 @@ function setup(language,engine=E,showPrices,apiOptions,staged=false,integrated=f
  return {get,f,a,examples,events,context,networkRequests,answers,timers,geometryWizard,disabledDuringInit:[...disabledDuringInit]};
 }
 async function sendMail(p){if(!p.a.elements.email.value)p.a.elements.email.value='customer@example.invalid';p.a.elements.ok.checked=true;await p.get('senden').events.click();}
+async function pollStatus(p){const timer=[...p.timers].find(([,item])=>item.ms===4000);assert(timer,'expected automatic status poll');p.timers.delete(timer[0]);await timer[1].fn();}
+test('expert template contains no manual status refresh buttons',()=>{
+ const html=fs.readFileSync(path.join(__dirname,'..','archiv-vorlage.html'),'utf8');
+ assert.doesNotMatch(html,/parts-drawing-refresh|geometry-refresh|archive-mail-refresh|Stand aktualisieren/);
+});
 test('price-free preset connects its bounded economic shortlist and displays the returned models without prices',async()=>{
  const p=setup('de',E,false,{ranking:true},true,true);p.examples.find(button=>button.dataset.bsp==='m6').events.click();
  const original=p.get('karten').innerHTML.match(/class="modell">([^<]+)/)[1];let expected;
@@ -365,7 +370,7 @@ test('parts drawing selection, explicit KI analysis, progress and explicit mail 
   p.get('parts-drawing-note').value='Only the explicit drawing note';p.get('parts-drawing-note').events.input();
   p.answers.push({data:{id:'D1',token:'private-drawing-token',kind:'preview',status:'queued',notificationStatus:'not_requested'}});await p.get('parts-drawing-analyse').events.click();
   const analysis=p.networkRequests[0];assert.equal(new URL(analysis.url).pathname,'/preview');assert.equal(analysis.options.body.get('datei').name,'part.pdf');assert.equal(analysis.options.body.get('notiz'),'Only the explicit drawing note');assert.equal(analysis.options.body.get('language'),language);assert.equal(analysis.options.body.get('pricePolicy'),'technical-only');assert(!analysis.options.body.has('email'));assert(!analysis.options.body.has('material'));assert(!analysis.options.body.has('d0'));assert(!p.get('parts-drawing-progress').hidden);assert(p.get('parts-drawing-analyse').disabled);
-  const model=machines.find(machine=>machine.f==='JNP').m;p.answers.push({data:{id:'D1',kind:'preview',status:'needs_info',answer:'Drawing concept',questions:['Please specify the material.'],proposal:{machines:[{model,status:'offen',priceEUR:999}]}}});await p.get('parts-drawing-refresh').events.click();
+  const model=machines.find(machine=>machine.f==='JNP').m;p.answers.push({data:{id:'D1',kind:'preview',status:'needs_info',answer:'Drawing concept',questions:['Please specify the material.'],proposal:{machines:[{model,status:'offen',priceEUR:999}]}}});await pollStatus(p);
   assert(p.get('parts-drawing-progress').hidden);assert(!p.get('parts-drawing-result').hidden);assert(p.get('parts-drawing-result').innerHTML.includes('Please specify the material.'));assert(p.get('empty-visual').hidden);assert.equal(p.networkRequests.length,2);
   p.get('parts-drawing-result').events.click({target:{closest:()=>({dataset:{previewModel:model}})}});assert(!p.get('selected-machine').hidden);assert.equal(p.networkRequests.length,2);
   p.a.elements.email.value='customer@example.invalid';p.a.elements.nachricht.value='Personal enquiry';p.a.elements.ok.checked=true;
@@ -467,7 +472,7 @@ test('standard enquiry sends the chosen machine and calculation without a drawin
   p.answers.push({data:{id:'STANDARD',token:'private-mail-token',kind:'enquiry',status:'received',analysisStatus:'not_requested',notificationStatus:'pending'}});await p.get('senden').events.click();
   const request=p.networkRequests[0],body=request.options.body;assert.equal(new URL(request.url).pathname,'/anfrage');assert.equal(body.get('consent'),'true');assert.equal(body.get('language'),language);assert.equal(body.get('pricePolicy'),prices?null:'technical-only');assert(!body.has('datei'));assert(!body.has('zeichnung'));
   assert(body.get('notiz').includes(model));assert(body.get('notiz').includes('Originalnotiz  unverändert'));assert(body.get('notiz').includes(I.t('Höchste Stationskraft',language)));assert.equal(body.get('notiz').includes('€'),prices);assert.equal(body.get('betreff'),I.t(prices?'Richtpreisanfrage':'Maschinenanfrage',language)+' '+model);
-  p.answers.push({data:{kind:'enquiry',status:'received',analysisStatus:'not_requested',notificationStatus:'sent'}});await p.get('archive-mail-refresh').events.click();assert.equal(p.get('sendehinweis').textContent,I.t('Hans Möhling wurde per E-Mail über Ihre Anfrage informiert.',language));assert(p.networkRequests.every(request=>!request.url.includes('/preview')));assert.equal(p.context.location.href,'');
+  p.answers.push({data:{kind:'enquiry',status:'received',analysisStatus:'not_requested',notificationStatus:'sent'}});await pollStatus(p);assert.equal(p.get('sendehinweis').textContent,I.t('Hans Möhling wurde per E-Mail über Ihre Anfrage informiert.',language));assert(p.networkRequests.every(request=>!request.url.includes('/preview')));assert.equal(p.context.location.href,'');
  }
 });
 
@@ -574,6 +579,18 @@ test('quote selections are cleared when calculation inputs or available models c
  const engine={...E,waehle(...args){const result=E.waehle(...args);return available?result:{...result,passend:[],bedingt:[],fast:[]};}};
  const q=setup('de',engine);assert.equal(q.get('empty-visual').hidden,false);q.examples[0].events.click();assert.equal(q.get('empty-visual').hidden,true);
  requestModel(q,quoteModels(q)[0][1]);available=false;q.f.events.change();assert(q.get('selected-machine').hidden,'model must still be in the current results');assert.equal(q.get('empty-visual').hidden,false,'no machine matches keeps the empty visual');
+});
+
+test('empty illustrations follow the selected family and disappear for machine results',()=>{
+ for(const prices of [true,false]){
+  const p=setup('de',E,prices);
+  for(const [type,visible]of [['bolzen','empty-screws'],['mutter','empty-nuts'],['formteil','empty-parts'],['bolzen','empty-screws']]){
+   p.f.elements.typ.value=type;p.f.events.change();
+   assert.equal(p.get('empty-visual').hidden,false);
+   for(const id of ['empty-screws','empty-nuts','empty-parts'])assert.equal(p.get(id).hidden,id!==visible,type+' illustration: '+id);
+  }
+  p.examples[0].events.click();assert.equal(p.get('empty-visual').hidden,true);
+ }
 });
 
 test('normalized-rolled dropdown labels are simplified while the selected result retains the technical state',()=>{

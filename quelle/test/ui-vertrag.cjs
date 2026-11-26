@@ -107,7 +107,7 @@ const quoteButtons = node => descendants(node).filter(item=>item.tagName==='butt
   assert.equal((template.match(/type="file"/g)||[]).length,1,'one central file input');
   assert.equal((template.match(/type="file"/g)||[]).length,1);
   assert(!template.includes('tab-description'));
-  assert.match(template,/<a class="expert-configurator-button" data-language-link href="\/manual\/konfigurator-v1\.html">Expertenkonfigurator: Schrauben, Formteile, Muttern<\/a>/);
+  assert.match(template,/<a class="expert-configurator-button" data-language-link href="\/manual\/konfigurator-v1\.html"><span>Zum Expertenkonfigurator<\/span>/);
   assert.match(template,/<details id="contact-details" class="contact-details">/);
   assert.match(template,/<details class="approach" id="ansatz"><summary>Wie die Auslegung arbeitet<\/summary>/);
   assert.match(template,/<button type="button" class="primary" id="open-contact">Anfrage an Hans senden<\/button>/);

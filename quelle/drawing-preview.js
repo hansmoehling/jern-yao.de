@@ -72,7 +72,7 @@
     const active=()=>busy||receipt&&!terminal(latest)&&!paused;
     function fileError(){const file=getFile();if(!file)return '';if(!/\.(pdf|png|jpe?g|webp)$/i.test(file.name))return 'Für die KI-Auswertung wählen Sie bitte eine PDF-, PNG-, JPG- oder WebP-Datei.';if(!file.size)return 'Die ausgewählte Datei ist leer. Bitte wählen Sie die Zeichnung erneut aus.';if(file.size>15*1024*1024)return 'Die Datei ist für die Übertragung zu groß. Bitte verwenden Sie eine Datei bis 15 MB.';return '';}
     function render(){
-      const file=getFile(),input=geometryMode?getGeometry():file,pending=!!active();button.hidden=geometryMode||showWhenEmpty?false:!file;button.disabled=!input||!apiBase||!!fileError()||pending;progress.hidden=suspended||!pending;refresh.hidden=suspended||!receipt;refresh.disabled=busy;
+      const file=getFile(),input=geometryMode?getGeometry():file,pending=!!active();button.hidden=geometryMode||showWhenEmpty?false:!file;button.disabled=!input||!apiBase||!!fileError()||pending;progress.hidden=suspended||!pending;if(refresh){refresh.hidden=suspended||!receipt;refresh.disabled=busy;}
       const labels=geometryMode?{queued:'Geometrie zur Ausarbeitung angenommen.',processing:'Das Stadienkonzept wird ausgearbeitet. Das benötigt etwas Zeit.',ready:'Stadienkonzept ausgearbeitet.',needs_info:'Das Stadienkonzept braucht noch Angaben.',failed:'Das Stadienkonzept konnte nicht abgeschlossen werden. Bitte versuchen Sie es erneut.'}:{queued:'Zeichnung zur Analyse angenommen.',processing:'Die Zeichnungsanalyse benötigt etwas Zeit. Wir prüfen Maße, Umformschritte und passende Maschinen.',ready:'Zeichnungsanalyse abgeschlossen.',needs_info:'Die Zeichnungsanalyse braucht noch Angaben.',failed:'Die Zeichnungsanalyse konnte nicht abgeschlossen werden. Bitte versuchen Sie es erneut.'};
       status.textContent=[tr(error||fileError()||(input&&!apiBase?'Die Zeichnungsanalyse ist gerade nicht verfügbar.':'')||(busy&&!receipt?(geometryMode?'Geometrie wird übertragen …':'Zeichnung wird übertragen …'):labels[latest?.status]||'')),processingMessage(latest),receipt?tr('Anfrage')+': '+receipt.id:''].filter(Boolean).join(' · ');status.dataset.originalText='';status.hidden=suspended||!status.textContent;status.dataset.state=error||fileError()||latest?.status==='failed'?'error':'ready';
       result.hidden=suspended||!latest||!terminal(latest);result.dataset.originalText='';result.innerHTML=result.hidden?'':resultHTML(latest,canChooseMachine);
@@ -94,7 +94,7 @@
       if(!receipt||busy)return;const run=version,identity=receipt;busy=true;render();
       try{const data=await request('/status?'+new URLSearchParams({id:identity.id,token:identity.token}));if(run!==version)return;if(data.kind&&data.kind!=='preview')throw new Error('Die Antwort konnte nicht gelesen werden. Bitte versuchen Sie es erneut.');latest=data;if(!suspended)onResult?.(data);error='';}
       catch(problem){if(run!==version)return;error=problem.message;if([401,403,404].includes(problem.status))blocked=true;}
-      finally{if(run===version){busy=false;paused=(blocked||Date.now()>=pollDeadline)&&!terminal(latest);if(paused&&!error)error='Die Auswertung läuft noch. Sie können den Stand erneut abrufen.';render();schedule();}}
+      finally{if(run===version){busy=false;paused=(blocked||Date.now()>=pollDeadline)&&!terminal(latest);if(paused&&!error)error=refresh?'Die Auswertung läuft noch. Sie können den Stand erneut abrufen.':'Die Auswertung dauert länger als erwartet. Ihre Anfrage bleibt gespeichert. Beim Zurückkehren zu dieser Seite wird der Status automatisch geprüft.';render();schedule();}}
     }
     async function start(){
       update();const geometry=geometryMode?getGeometry():null;if(active()||!apiBase||fileError()||!(geometryMode?geometry:getFile()))return;
@@ -114,7 +114,7 @@
     }
     function resume(){update();if(suspended||busy||!receipt||terminal(latest)||blocked)return;paused=false;pollDeadline=Date.now()+POLL_BUDGET_MS;return poll();}
     result.addEventListener('click',event=>{if(suspended)return;const action=event.target.closest('button[data-preview-model]'),model=action?.dataset.previewModel;if(model&&canChooseMachine?.(model)&&latest?.proposal?.machines?.some(machine=>machine.model===model))onChooseMachine?.(model);});
-    button.addEventListener('click',start);refresh.addEventListener('click',()=>{if(suspended)return;paused=false;blocked=false;pollDeadline=Date.now()+POLL_BUDGET_MS;return poll();});
+    button.addEventListener('click',start);refresh?.addEventListener('click',()=>{if(suspended)return;paused=false;blocked=false;pollDeadline=Date.now()+POLL_BUDGET_MS;return poll();});
     window.addEventListener?.('focus',resume);window.document?.addEventListener?.('visibilitychange',()=>{if(!window.document.hidden)return resume();});update();
     return {update,start};
   }
