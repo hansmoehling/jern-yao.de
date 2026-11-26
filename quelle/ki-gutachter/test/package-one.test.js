@@ -200,17 +200,17 @@ test('preview stores the material selection and feature gate; changes require a 
  assert.equal((await post(environment(),{materialChoice:{...choice(),curveId:'fake'}})).httpStatus,400);
  for(const origin of ['https://jernyao.de','https://www.jernyao.de']){
   const legacy=environment(),r=await post(legacy,{origin,materialChoice:choice(),featureVersion:DRAWING_DEFAULTS_VERSION});
-  assert.equal(r.httpStatus,202);const record=stored(legacy,'anfrage:'+r.id);assert.equal(record.featureVersion,undefined);assert.equal(record.materialChoice,undefined);
+  assert.equal(r.httpStatus,202);const record=stored(legacy,'anfrage:'+r.id);assert.equal(record.featureVersion,DRAWING_DEFAULTS_VERSION);assert.deepEqual(record.materialChoice,choice());assert.equal(record.pricePolicy,'technical-only');
  }
 });
 
-test('queue and linked chat preserve selected material, while main-site previews retain legacy behaviour',async t=>{
+test('queue and linked chat preserve selected material and released main-site previews mark assumptions',async t=>{
  let calls=0;mock(t,async(url,request)=>{const body=JSON.parse(request.body);if(calls++%2===0)return reply(tool('projektwissen'));return reply(final());});
  const env=environment(),r=await post(env,{materialChoice:choice()});await worker.queue({messages:[queueMessage(r.id)]},env);
  const result=stored(env,'analyse:'+r.id).result;assert.equal(result.materialContext.materialId,'C10C');assert.equal(result.materialContext.origin,'user_selection');
  const response=await worker.fetch(new Request('https://worker.test/chat',{method:'POST',headers:{Origin:'https://jernyao.de'},body:JSON.stringify({requestId:r.id,token:r.token,message:'Bitte weiter prüfen.'})}),env);
  assert.equal(response.status,200);assert.equal((await response.json()).materialContext.materialId,'C10C');
- const old=environment(),legacy=await post(old,{origin:'https://jernyao.de'});await worker.queue({messages:[queueMessage(legacy.id)]},old);assert.equal(stored(old,'analyse:'+legacy.id).result.materialContext,undefined);
+ const old=environment(),legacy=await post(old,{origin:'https://jernyao.de'});await worker.queue({messages:[queueMessage(legacy.id)]},old);const mainResult=stored(old,'analyse:'+legacy.id).result;assert.equal(mainResult.materialContext.origin,'assumption');assert.equal(mainResult.pricePolicy,'technical-only');assert.ok(mainResult.proposal.machines.every(m=>m.priceEUR===undefined&&m.priceRangeEUR===undefined));
 });
 
 function decisionBody(){
@@ -235,12 +235,13 @@ test('drawings, invalid models, invalid numerical inputs and non-manual concepts
  for(const changed of [{...body,kind:'drawing'},{...body,selectedModel:'JBF-999B9S'},{...body,candidates:[{model:'JBF-999B9S',rank:1}]},{...body,input:{...body.input,sD:'8'}},{...body,input:{...body.input,curveId:'fake'}},{...body,input:{...body.input,typ:'formteil'}},{...body,input:{...body.input,vorgaben:{zusatz:100000}}}])assert.equal(prepareDecision(JSON.stringify(changed)),null);
 });
 
-test('only a new manual hyphen-site enquiry records a decision; replay, main origin and attachments do not',async()=>{
+test('released sites record a new manual decision once; replay and attachments do not add cases',async()=>{
  const body=decisionBody(),env=environment(),fields={path:'/anfrage',file:false,email:'buyer@example.test',notiz:'Manual enquiry',consent:'true',decisionContext:body};
  const result=await post(env,fields);assert.equal(result.httpStatus,202);assert.equal([...env.SPEICHER.map.keys()].filter(key=>key.startsWith('entscheidung:')).length,1);
  assert.equal((await post(env,fields)).id,result.id);assert.equal([...env.SPEICHER.map.keys()].filter(key=>key.startsWith('entscheidung:')).length,1);
  assert.equal(stored(env,'anfrage:'+result.id).decisionContext,undefined);assert.ok(!JSON.stringify(result).includes('entscheidung'));
- for(const extra of [{origin:'https://jernyao.de'},{file:true}]){const other=environment();assert.equal((await post(other,{...fields,...extra})).httpStatus,202);assert.equal([...other.SPEICHER.map.keys()].filter(key=>key.startsWith('entscheidung:')).length,0);}
+ for(const origin of ['https://jernyao.de','https://www.jernyao.de']){const other=environment();const receipt=await post(other,{...fields,origin});assert.equal(receipt.httpStatus,202);assert.equal([...other.SPEICHER.map.keys()].filter(key=>key.startsWith('entscheidung:')).length,1);assert.equal((await post(other,{...fields,origin})).id,receipt.id);assert.equal([...other.SPEICHER.map.keys()].filter(key=>key.startsWith('entscheidung:')).length,1);}
+ const attached=environment();assert.equal((await post(attached,{...fields,file:true})).httpStatus,202);assert.equal([...attached.SPEICHER.map.keys()].filter(key=>key.startsWith('entscheidung:')).length,0);
 });
 
 test('all new visible material messages have the four required translations',()=>{
@@ -290,7 +291,7 @@ test('a technical interruption of gated drawing analysis gives a retry message i
  }
 });
 
-test('main-site previews retain their original budget while saved testfield previews receive the completion fix',async t=>{
+test('all released sites receive the completion budget, including saved previews without drawing defaults',async t=>{
  let budgets=[];
  mock(t,async(url,request)=>{budgets.push(JSON.parse(request.body).max_tokens);return Response.json({stop_reason:'max_tokens',content:[final()]});});
  for(const origin of ['https://jernyao.de','https://www.jernyao.de','https://jern-yao.de']){
@@ -298,9 +299,9 @@ test('main-site previews retain their original budget while saved testfield prev
   const env=environment(),receipt=await post(env,{origin,featureVersion:DRAWING_DEFAULTS_VERSION});
   if(origin==='https://jern-yao.de'){const record=stored(env,'anfrage:'+receipt.id);delete record.featureVersion;await env.SPEICHER.put('anfrage:'+receipt.id,JSON.stringify(record));}
   await worker.queue({messages:[{...queueMessage(receipt.id),attempts:2}]},env);
-  assert.deepEqual(budgets,[origin==='https://jern-yao.de'?16000:6000]);
+  assert.deepEqual(budgets,[16000]);
   assert.equal(stored(env,'diagnose:last:queue').code,'model_output_limit');
-  assert.match(stored(env,'analyse:'+receipt.id).result.answer,/lesbare PDF-/);
+  assert.match(stored(env,'analyse:'+receipt.id).result.answer,origin==='https://jern-yao.de'?/lesbare PDF-/:/technisch unterbrochen/);
  }
 });
 

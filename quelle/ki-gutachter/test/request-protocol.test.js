@@ -36,8 +36,11 @@ test('successful retry retains its private failure history and publishes complet
  const body=await(await status(e)).json();assert.equal(body.processingInfo.attempt,2);assert.equal(body.processingInfo.retrying,false);assert.ok(!('diagnostics' in body));
 });
 
-test('saved main-site requests retain legacy status shape',async t=>{
- const e=environment('https://jernyao.de');mock(t,async()=>{throw new TypeError('PRIVATE_NETWORK');});
- await worker.queue({messages:[job(2)]},e);
- assert.equal(saved(e).diagnostics,undefined);assert.equal((await(await status(e)).json()).processingInfo,undefined);
+test('released main-site requests expose safe retry status while unknown saved origins remain unchanged',async t=>{
+ mock(t,async()=>{throw new TypeError('PRIVATE_NETWORK');});
+ for(const origin of ['https://jernyao.de','https://www.jernyao.de',null]){
+  const e=environment(origin);await worker.queue({messages:[job(2)]},e);const body=await(await status(e)).json();
+  if(origin){assert.equal(saved(e).diagnostics.length,1);assert.equal(body.processingInfo.attempt,2);assert.equal(body.processingInfo.failureCode,'model_transport');assert.ok(!JSON.stringify(body).includes('PRIVATE_NETWORK'));}
+  else{assert.equal(saved(e).diagnostics,undefined);assert.equal(body.processingInfo,undefined);}
+ }
 });

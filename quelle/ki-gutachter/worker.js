@@ -15,9 +15,10 @@ const MAX_FILE = 15 * 1024 * 1024;
 const ORIGINS = ['https://jern-yao.de', 'https://jernyao.de', 'https://www.jernyao.de'];
 const TECHNICAL_ONLY='technical-only',WITH_PRICES='with-prices';
 const pricedOrigin=origin=>['https://jern-yao.de','https://www.jern-yao.de'].includes(origin);
-// Publication gate: main-site requests and old saved requests keep their
-// existing behaviour, regardless of a client-supplied version or Origin later.
-const packageOneOrigin=origin=>origin==='https://jern-yao.de';
+// The released configurator packages are available on both approved sites.
+// Additional CORS origins and client-supplied flags cannot enable them.
+// Price publication remains controlled independently by pricedOrigin above.
+const packageOneOrigin=origin=>ORIGINS.includes(origin);
 const storedFeatures=record=>packageOneOrigin(record?.siteOrigin)&&record?.featureVersion===DRAWING_DEFAULTS_VERSION?{featureVersion:DRAWING_DEFAULTS_VERSION,materialChoice:record.materialChoice||null}:{};
 const originPricePolicy=req=>pricedOrigin(req.headers.get('Origin'))?WITH_PRICES:TECHNICAL_ONLY;
 const storedPricePolicy=record=>record?.pricePolicy===WITH_PRICES&&pricedOrigin(record.siteOrigin)?WITH_PRICES:TECHNICAL_ONLY;
@@ -304,7 +305,7 @@ async function queued(message, env) {
 }
 const p7Text=(key,language)=>P7_TRANSLATIONS[key]?.[['it','sl','en','zh'].indexOf(language)]||key;
 async function rankingRequest(req,env,cors,locale){
-  if(req.headers.get('Origin')!=='https://jern-yao.de')throw new HttpError(404,'Nicht gefunden.');
+  if(!packageOneOrigin(req.headers.get('Origin')))throw new HttpError(404,'Nicht gefunden.');
   if(!env.SPEICHER?.get||!env.SPEICHER?.put)throw new HttpError(503,'Der Fachchat wird noch eingerichtet.');
   const invalid=()=>{throw new HttpError(400,'Die Nachricht konnte nicht gelesen werden.');};
   const only=(obj,keys)=>obj&&typeof obj==='object'&&!Array.isArray(obj)&&Object.keys(obj).every(k=>keys.includes(k));
@@ -342,7 +343,7 @@ async function rankingRequest(req,env,cors,locale){
 }
 async function kvpRequest(req,env,cors,locale,kind){
   // Exact deployment boundary: ALLOWED_ORIGINS cannot enable this on another site.
-  if(req.headers.get('Origin')!=='https://jern-yao.de')throw new HttpError(404,'Nicht gefunden.');
+  if(!packageOneOrigin(req.headers.get('Origin')))throw new HttpError(404,'Nicht gefunden.');
   if(!env.SPEICHER?.get||!env.SPEICHER?.put)throw new HttpError(503,p7Text('Die Erfahrungsdaten werden noch eingerichtet.',locale.value));
   const bytes=await readBounded(req,8192);let body;
   try{body=JSON.parse(new TextDecoder().decode(bytes));}catch{throw new HttpError(400,p7Text('Technische Rückmeldung oder Merkmale sind ungültig.',locale.value));}

@@ -74,17 +74,17 @@ test('price-free and priced analysis preserve the same package-six candidate ord
  for(const c of publicResult(priced,{pricePolicy:'technical-only'}).proposal.machines){assert.equal(c.priceEUR,undefined);assert.equal(c.priceRangeEUR,undefined);}
 });
 
-test('only the exact hyphen chat origin enables package six, regardless of forged body flags',async t=>{
+test('only released exact chat origins enable package six, without exposing main-site prices',async t=>{
  mock(t);
- for(const [origin,n]of [[HY,3],[MAIN,5],['https://www.jernyao.de',5],[null,5]]){
+ for(const [origin,n]of [[HY,3],[MAIN,3],['https://www.jernyao.de',3],[null,5]]){
   const response=await worker.fetch(request(origin,{packageSix:true,siteOrigin:HY,featureVersion:'kvp-v1'}),environment());assert.equal(response.status,200);
-  const body=await response.json();assert.equal(body.proposal.machines.length,n);assert.deepEqual(body.proposal.machines.map(c=>c.model),n===3?cheapest:models.slice(0,5));
+  const body=await response.json();assert.equal(body.proposal.machines.length,n);assert.deepEqual(body.proposal.machines.map(c=>c.model),n===3?cheapest:models.slice(0,5));if(origin!==HY){assert.equal(body.pricePolicy,'technical-only');assert.ok(body.proposal.machines.every(m=>m.priceEUR===undefined&&m.priceRangeEUR===undefined));}
  }
 });
 
-test('linked main-domain requests keep legacy selection even when opened on hyphen',async t=>{
+test('linked requests from either released site share current selection, without upgrading their price policy',async t=>{
  mock(t);
- for(const [savedOrigin,currentOrigin,n]of [[MAIN,HY,5],[HY,MAIN,5],[HY,HY,3]]){
+ for(const [savedOrigin,currentOrigin,n]of [[MAIN,HY,3],[HY,MAIN,3],[HY,HY,3],[null,HY,5]]){
   const env=environment(),id='12345678-1234-1234-1234-123456789abc';await env.SPEICHER.put('anfrage:'+id,JSON.stringify({id,kind:'preview',siteOrigin:savedOrigin,createdAt:new Date().toISOString(),note:'Bitte Anfragekandidaten nennen.',language:'de'}));
   const response=await worker.fetch(request(currentOrigin,{requestId:id,token:await tokenFor(env,id),packageSix:true}),env);assert.equal(response.status,200);assert.equal((await response.json()).proposal.machines.length,n);
  }
@@ -92,7 +92,7 @@ test('linked main-domain requests keep legacy selection even when opened on hyph
 
 test('queue uses stored origin for both drawing and structured geometry and ignores forged queue flags',async t=>{
  mock(t);
- for(const shape of ['drawing','structured'])for(const [siteOrigin,n]of [[HY,3],[MAIN,5]]){
+ for(const shape of ['drawing','structured'])for(const [siteOrigin,n]of [[HY,3],[MAIN,3],['https://www.jernyao.de',3],[null,5]]){
   const env=environment(),id='12345678-1234-1234-1234-123456789abc',record={id,kind:'preview',siteOrigin,createdAt:new Date().toISOString(),note:'Qualitatives Stadienkonzept; Anfragekandidaten nennen.',language:'de'};
   if(shape==='drawing')record.file={key:'fixture',type:'application/pdf',name:'fixture.pdf',readable:true};
   else{record.geometrySpec={version:1,coordinateSystem:'tool-parting-plane',elements:[{id:'body',operation:'add',shape:'cylinder',side:'die',start:0,length:12,diameter:8,offsetX:0,offsetY:0}],trimming:[]};record.geometryProcess={material:'C10C',d0:4};}

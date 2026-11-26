@@ -41,8 +41,16 @@ test('candidate count and body bounds are enforced before evaluation',async()=>{
  assert.equal((await post(' '.repeat(8193))).response.status,413);
 });
 
-test('main domains and nonexact origins cannot enable the price comparison route',async()=>{
- for(const origin of ['https://jernyao.de','https://www.jernyao.de','https://www.jern-yao.de',null]){
+test('released price-free sites share the server recommendation without receiving absolute prices',async()=>{
+ const expected=(await post(input())).body;
+ for(const origin of ['https://jernyao.de','https://www.jernyao.de']){
+  const {response,body}=await post(input(),env(),origin);assert.equal(response.status,200);assert.deepEqual(body,expected);assert.equal(response.headers.get('Access-Control-Allow-Origin'),origin);
+  assert.ok(!/"(?:rp|lo|hi|priceEUR|priceRangeEUR)"/.test(JSON.stringify(body)));
+ }
+});
+
+test('additional CORS origins and missing origins cannot enable the comparison route',async()=>{
+ for(const origin of ['https://www.jern-yao.de',null]){
   const environment=env();environment.ALLOWED_ORIGINS='https://www.jern-yao.de';
   const {response}=await post(input(),environment,origin);assert.equal(response.status,404);assert.equal(environment.SPEICHER.map.size,0);
  }

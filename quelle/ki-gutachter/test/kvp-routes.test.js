@@ -18,8 +18,16 @@ test('feedback route uses existing storage without AI or email credentials',asyn
   assert.ok(!JSON.stringify(stored).includes('192.0.2.60'));assert.equal(stored.featureVersion,undefined);
 });
 
-test('both KVP routes remain unavailable on the main domain and without exact origin',async()=>{
-  for(const origin of ['https://jernyao.de','https://www.jernyao.de',null,'https://www.jern-yao.de'])for(const path of ['/rueckmeldung','/erfahrung']){
+test('both KVP routes accept released main domains and preserve consent and pending approval',async()=>{
+  for(const origin of ['https://jernyao.de','https://www.jernyao.de']){
+    const env=environment();let response=await worker.fetch(request('/rueckmeldung',{...feedback(),optIn:false},origin),env);assert.equal(response.status,400);assert.equal(saved(env).length,0);
+    response=await worker.fetch(request('/rueckmeldung',feedback(),origin),env);assert.equal(response.status,202);assert.equal(response.headers.get('Access-Control-Allow-Origin'),origin);assert.equal((await response.json()).knowledgeEligible,false);assert.equal(saved(env).length,1);
+    response=await worker.fetch(request('/erfahrung',{features},origin),env);assert.equal(response.status,200);const body=await response.json();assert.equal(body.status,'missing');assert.deepEqual(body.cases,[]);
+  }
+});
+
+test('both KVP routes remain unavailable to missing or extra CORS origins',async()=>{
+  for(const origin of [null,'https://www.jern-yao.de'])for(const path of ['/rueckmeldung','/erfahrung']){
     const env=environment();env.ALLOWED_ORIGINS='https://www.jern-yao.de';
     const response=await worker.fetch(request(path,path==='/rueckmeldung'?feedback():{features},origin),env);
     assert.equal(response.status,404,`${path} ${origin}`);assert.equal(env.SPEICHER.writes.length,0);

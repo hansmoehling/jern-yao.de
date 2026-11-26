@@ -113,7 +113,7 @@ test('preview failures stop after two deliveries and replay never restarts a fai
  const e=environment(),r=await post(e);let calls=0;fetchMock(t,async()=>{calls++;throw Error('Provider unavailable');});
  const first=job('preview_analysis',r.id);await worker.queue({messages:[first]},e);assert.equal(first.retries,1);assert.equal((await(await state(e,r)).json()).status,'queued');
  const last=job('preview_analysis',r.id,2);await worker.queue({messages:[last]},e);assert.equal(last.acks,1);assert.equal(last.retries,0);
- const failed=await(await state(e,r)).json();assert.equal(failed.status,'failed');assert.equal(failed.notificationStatus,'not_requested');assert.match(failed.answer,/Zeichnung/);
+ const failed=await(await state(e,r)).json();assert.equal(failed.status,'failed');assert.equal(failed.notificationStatus,'not_requested');assert.equal(failed.answer,'Die KI-Auswertung wurde technisch unterbrochen. Ihre Eingaben bleiben gespeichert. Bitte starten Sie die Auswertung erneut.');assert.equal(failed.proposal,null);assert.deepEqual(failed.questions,[]);
  await worker.queue({messages:[job('preview_analysis',r.id,3)]},e);assert.equal(calls,2);assert.equal((await post(e)).status,'failed');assert.equal(e._jobs.length,1);
 });
 

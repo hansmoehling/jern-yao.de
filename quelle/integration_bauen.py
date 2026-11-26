@@ -44,7 +44,8 @@ def build(destination):
     for source, folder in [('index.html', 'auslegung'), ('manual/konfigurator-v1.html', 'konfigurator')]:
         text = technical_catalog((Q.parent / source).read_text(encoding='utf-8'))
         text = replace_once(text, '<head>', '<head>\n<script>window.JY_SHOW_PRICES = false;</script>')
-        text = replace_once(text, '<script src="/site-config.js"></script>', '<script>' + config + '</script>')
+        text, config_count = re.subn(r'<script src="/site-config\.js(?:\?[^"<>]*)?"></script>', lambda _: '<script>' + config + '</script>', text)
+        assert config_count == 1, 'Expected exactly one public site configuration script'
         if folder == 'auslegung':
             text = text.replace('href="/manual/konfigurator-v1.html"', 'href="/konfigurator/"')
             text = text.replace('>Manual · Manuelle Auslegung</a>', '>Konfigurator für Experten</a>')
