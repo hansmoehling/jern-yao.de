@@ -27,8 +27,21 @@ test('recommendation is one sentence while full dimensions and class priority be
   assert.match(details,/Niedrigster Richtpreis der verglichenen Kandidaten aus Eignungsklasse A/);
   assert.match(lead,/5 Katalogmodelle technisch geprüft/);
   const card=U.cardHtml(ranking.recommendation,ranking,options);
-  assert.match(card,/Technische Prüfung: Prüfungen erfüllt/);
+  assert.doesNotMatch(card,/<ul|Technische Prüfung: Prüfungen erfüllt/);
   assert.doesNotMatch(card,/Auslastung|Reservestation|Draht-Ø|Maschinenbereich|Teillänge|Richtpreis|ranking-request/);
+});
+
+test('all-ok recommendation cards stay compact while only open or tight checks are visible',()=>{
+  const ranking=fixture(),row=ranking.recommendation;
+  row.k=Array.from({length:14},(_,i)=>({krit:'Prüfung '+i,status:'ok',soll:'10',ist:'12'}));
+  const allOk=U.cardHtml(row,ranking,options);
+  assert.doesNotMatch(allOk,/<ul|<li>|Prüfung \d/);
+  row.k.push({krit:'Presskraft',status:'knapp'},{krit:'Auswerferweg',status:'offen'});
+  const needsChecks=U.cardHtml(row,ranking,options);
+  assert.equal((needsChecks.match(/<li>/g)||[]).length,2);
+  assert.match(needsChecks,/Presskraft: Grenzbereich/);
+  assert.match(needsChecks,/Auswerferweg: Technische Prüfung offen/);
+  assert.doesNotMatch(needsChecks,/Prüfung \d/);
 });
 
 test('open suitability and incomplete price order remain explicit',()=>{

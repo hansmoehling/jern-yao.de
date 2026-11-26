@@ -148,7 +148,7 @@
     const index=shown.findIndex(r=>r.o.m===row.o.m),role=index===0?'Empfehlung':'Alternative {number}';
     let html='<section class="ranking-card" data-ranking-model="'+escape(row.o.m)+'"><p><strong>'+c.t(role,{number:c.n(index)})+'</strong> — '+status(row,c)+'</p>';
     if(index>0)html+=comparisonHtml(row,reference,ranking,c,true);
-    const checks=(Array.isArray(row.k)?row.k:[]).filter(k=>index===0||k.status!=='ok');
+    const checks=(Array.isArray(row.k)?row.k:[]).filter(k=>['offen','knapp'].includes(k.status));
     if(checks.length)html+='<ul class="ranking-checks">'+checks.map(k=>'<li>'+c.t(k.krit||'Technische Prüfung')+': '+c.t(statuses[k.status]||statuses.offen)+'</li>').join('')+'</ul>';
     return html+'</section>';
   }
