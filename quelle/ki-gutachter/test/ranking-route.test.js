@@ -4,6 +4,13 @@ import worker from '../worker.js';
 import catalog from '../../maschinen.json' with {type:'json'};
 import practice from '../../praxis.json' with {type:'json'};
 import R from '../../machine-ranking.js';
+import Service from '../../ranking-service.js';
+import Engine from '../../engine.js';
+import Library from '../../normen/library.js';
+import Standards from '../../normen/resolver.js';
+import Wire from '../../vorbelegung/draht.js';
+import {createRequire} from 'node:module';
+const require=createRequire(import.meta.url);
 
 const names=['JBF-10B2S','JBF-10B2SL','JBF-10B2SXL','JBF-10B3S','JBF-13B2S'];
 const candidate=model=>({model,status:'ok',suitability:{force:0.8,stations:1,size:0.9,length:0.8,output:1}});
@@ -71,4 +78,58 @@ test('ranking requests use the bounded existing storage throttle',async()=>{
  const environment=env();for(let i=0;i<60;i++)assert.equal((await post(input(),environment)).response.status,200);
  assert.equal((await post(input(),environment)).response.status,429);
  assert.ok([...environment.SPEICHER.map.keys()].every(k=>k.startsWith('rate:ranking-v1:')));
+});
+
+const v2Candidate=(model,role='primary',score=.9)=>({model,status:'ok',classification:role==='primary'?'A':'B',score,role,stationReserve:role==='primary'?1:0});
+const v2Input=()=>({featureVersion:'kvp-v1',rankingVersion:'ranking-v2',candidates:[v2Candidate('JBF-13B3S'),v2Candidate('JBF-10B3S'),v2Candidate('JBF-10B2S','reserve')]});
+
+test('v2 recommends the best class and places the cheaper no-reserve B first among alternatives',async()=>{
+ const {response,body}=await post(v2Input());assert.equal(response.status,200);assert.equal(body.version,'ranking-v2');
+ assert.deepEqual(body.models.map(row=>row.model),['JBF-10B3S','JBF-10B2S','JBF-13B3S']);assert.equal(body.models[1].comparison.price.direction,'cheaper');
+ assert.equal(body.priceRankingComplete,true);assert(!/"(?:rp|lo|hi|priceEUR|classification|score|role|stationReserve)"/.test(JSON.stringify(body)));
+ // The shared deployment retains the released client behaviour without v2.
+ const old={featureVersion:'kvp-v1',candidates:v2Input().candidates.map(row=>candidate(row.model))};
+ const legacy=await post(old);assert.equal(legacy.body.version,'ranking-v1');assert.equal(legacy.body.models[0].model,'JBF-10B2S');
+});
+
+test('v2 pools reject mixed classes, invalid reserve candidates and unbounded metadata',async()=>{
+ const wrong=[{...v2Input(),rankingVersion:'ranking-v3'}, {...v2Input(),private:'SECRET'}];
+ for(const change of [{classification:'C'},{stationReserve:1},{role:'primary'},{score:1.02},{score:null},{reason:'SECRET'}]){
+  const body=v2Input();body.candidates[2]={...body.candidates[2],...change};wrong.push(body);
+ }
+ const duplicate=v2Input();duplicate.candidates.push(duplicate.candidates[0]);wrong.push(duplicate);
+ const noPrimary=v2Input();noPrimary.candidates=noPrimary.candidates.filter(row=>row.role==='reserve');wrong.push(noPrimary);
+ const tierMismatch=v2Input();tierMismatch.candidates[0].status='offen';wrong.push(tierMismatch);
+ const tooManyPrimary=v2Input();tooManyPrimary.candidates=catalog.slice(0,13).map(row=>v2Candidate(row.m));wrong.push(tooManyPrimary);
+ const tooManyTotal=v2Input();tooManyTotal.candidates=catalog.slice(0,25).map((row,i)=>v2Candidate(row.m,i<12?'primary':'reserve'));wrong.push(tooManyTotal);
+ for(const body of wrong){const result=await post(body);assert.equal(result.response.status,400,JSON.stringify(body));assert(!JSON.stringify(result.body).includes('SECRET'));}
+ const bounded=v2Input();bounded.candidates=catalog.slice(0,24).map((row,i)=>v2Candidate(row.m,i<12?'primary':'reserve'));
+ assert.equal((await post(bounded)).response.status,200);
+});
+
+test('v2 retains catalogue hard exclusions and never promotes a reserve when primary is rejected',async t=>{
+ const model=catalog.find(row=>row.m==='JBF-10B3S'),before=model.ausfuehrung;model.ausfuehrung={transfer:{value:'rotativ',status:'verified'}};
+ t.after(()=>{if(before===undefined)delete model.ausfuehrung;else model.ausfuehrung=before;});
+ const result=await post(v2Input());assert.equal(result.response.status,200);assert.equal(result.body.models[0].model,'JBF-13B3S');assert(!result.body.models.some(row=>row.model===model.m));
+ const body=v2Input();body.candidates=body.candidates.filter(row=>row.model!=='JBF-13B3S');assert.deepEqual((await post(body)).body.models,[]);
+});
+
+test('four standard examples send identical v2 pools and display the same three models locally and on both origins',async()=>{
+ const data={schemaVersion:1,version:'ranking-parity-test',families:['ISO4762','ISO4017','DIN6791','ISO4032'].map(id=>require('../../normen/'+id+'.json')),threads:require('../../normen/gewinde.json'),materials:require('../../vorbelegung/werkstoff.json')};
+ const selections=[{id:'ISO4762',groesse:'M6',laenge:30,festigkeitsklasse:'8.8'},{id:'ISO4017',groesse:'M8',laenge:40,festigkeitsklasse:'8.8'},{id:'DIN6791',groesse:'4',laenge:12,festigkeitsklasse:'Stahl'},{id:'ISO4032',groesse:'M10',festigkeitsklasse:'8'}];
+ for(const selected of selections){
+  const family=data.families.find(row=>row.id===selected.id),kind=Library.familyKind(family),document=Standards.resolveStandard(data,selected),preset=Library.adapt(data,document),materialRule=data.materials.rules.find(row=>row.kind===kind&&row.classes.includes(selected.festigkeitsklasse));
+  const wst=Engine.WERKSTOFFE.findIndex(row=>row.id===materialRule.materialId),curve=Engine.WERKSTOFFE[wst].flowCurves.find(row=>row.state===materialRule.state)||Engine.WERKSTOFFE[wst].flowCurves[0];
+  const input={...preset,typ:kind==='nut'?'mutter':'bolzen',wst,curveId:curve.id,materialState:materialRule.state,rmPolicy:'rm-v1',machinePolicy:'ranking-v2',kopfTyp:preset.kopfForm==='rund'?'zylinder':preset.kopfForm};
+  input.d0=Wire.candidates(input,null,catalog)[0].value;
+  const analysis=Engine.auslegen(input);assert.equal(analysis.fehlt.length,0,selected.id);
+  const priced=Engine.waehle(catalog,analysis,input,practice),unpriced=Engine.waehle(catalog.map(({rp,lo,hi,...row})=>row),analysis,input,practice);
+  const payload=Service.payloadFor(priced),withoutPrices=Service.payloadFor(unpriced);assert.deepEqual(payload,withoutPrices,selected.id);assert.equal(payload.rankingVersion,'ranking-v2');
+  const expected=[priced.ranking.recommendation,...priced.ranking.alternatives].map(row=>row.o.m);assert.equal(expected.length,3,selected.id);
+  for(const origin of ['https://jern-yao.de','https://jernyao.de']){
+   const {response,body}=await post(payload,env(),origin);assert.equal(response.status,200,selected.id);assert.deepEqual(body.models.map(row=>row.model),expected,selected.id+' '+origin);
+   const applied=Service.applyResponse(unpriced,withoutPrices,body);assert.deepEqual([applied.ranking.recommendation,...applied.ranking.alternatives].map(row=>row.o.m),expected);
+   assert(!/"(?:rp|lo|hi|priceEUR|priceRangeEUR)"/.test(JSON.stringify(body)));
+  }
+ }
 });

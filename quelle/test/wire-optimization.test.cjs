@@ -38,6 +38,16 @@ test('each unique positive candidate is recomputed with ranking policy; original
   assert.ok(result.suggestions.length<=2);
 });
 
+test('wire comparisons retain the versioned ranking policy for baseline and every alternative',()=>{
+  const env=setup();env.input.machinePolicy='ranking-v2';
+  const original=structuredClone(env.input);
+  const result=W.evaluateVariants({...env,candidates:[{value:5},{value:7}]});
+  assert.deepEqual(env.input,original);
+  assert.equal(result.baseline.e.machinePolicy,'ranking-v2');
+  for(const input of [...env.calls.auslegen,...env.calls.waehle])assert.equal(input.machinePolicy,'ranking-v2');
+  for(const variant of result.evaluated)assert.equal(variant.e.machinePolicy,'ranking-v2');
+});
+
 test('two best significant improvements use unrounded gain for ranking but only rounded public comparisons',()=>{
   const {result}=run();
   assert.deepEqual(result.suggestions.map(v=>v.value),[8,4]);

@@ -43,7 +43,8 @@
   function evaluateVariants({engine,catalogue,practice={},input,analysis,selection,candidates=[],thresholdPercent=DEFAULT_THRESHOLD_PERCENT}={}){
     if(!engine||typeof engine.auslegen!=='function'||typeof engine.waehle!=='function'||!R||!Array.isArray(catalogue)||!input||typeof input!=='object')throw new TypeError('Engine, catalogue and input are required.');
     const threshold=pos(thresholdPercent)?thresholdPercent:DEFAULT_THRESHOLD_PERCENT;
-    const baselineInput=clone(input);baselineInput.machinePolicy='ranking-v1';
+    const policy=input.machinePolicy==='ranking-v2'?'ranking-v2':'ranking-v1';
+    const baselineInput=clone(input);baselineInput.machinePolicy=policy;
     const baseAnalysis=analysis&&analysis.werte?.d0===input.d0?clone(analysis):engine.auslegen(clone(baselineInput));
     const baseSelection=selection?.ranking&&analysis&&analysis.werte?.d0===input.d0?clone(selection):engine.waehle(catalogue,baseAnalysis,baselineInput,practice);
     const baseline={value:input.d0,e:baselineInput,aus:baseAnalysis,selection:baseSelection,row:baseSelection.ranking?.recommendation||null,rows:baseSelection.alle||[]};
@@ -52,7 +53,7 @@
     const reason=(record,status,code,text)=>{record.status=status;record.reasonCode=code;record.reason=text;return record;};
     for(const candidate of candidates){
       const value=candidate?.value;if(!pos(value)||seen.has(value))continue;seen.add(value);
-      const e=clone(input);e.d0=value;e.machinePolicy='ranking-v1';
+      const e=clone(input);e.d0=value;e.machinePolicy=policy;
       const record={value,candidate:clone(candidate),e,aus:null,selection:null,row:null,rows:[],compare:null,needsAnneal:false,technicalChanges:[],reasonParams:{threshold}};
       evaluated.push(record);
       if(value===currentDiameter){Object.assign(record,{aus:baseAnalysis,selection:baseSelection,row:baseline.row,rows:baseline.rows});reason(record,'unchanged','same-wire','Dieser Drahtdurchmesser ist bereits ausgewählt.');continue;}

@@ -9,6 +9,7 @@ import P7_TRANSLATIONS from '../i18n-p7.json' with {type:'json'};
 import MachineRanking from '../machine-ranking.js';
 import machineCatalog from '../maschinen.json' with {type:'json'};
 import machinePractice from '../praxis.json' with {type:'json'};
+import {rankV2} from './ranking-v2.js';
 const {t,normalizeLanguage}=I18N;
 
 const TTL = 30 * 86400;
@@ -316,6 +317,11 @@ async function rankingRequest(req,env,cors,locale){
   const invalid=()=>{throw new HttpError(400,'Die Nachricht konnte nicht gelesen werden.');};
   const only=(obj,keys)=>obj&&typeof obj==='object'&&!Array.isArray(obj)&&Object.keys(obj).every(k=>keys.includes(k));
   let body;try{body=JSON.parse(new TextDecoder().decode(await readBounded(req,8192)));}catch(error){if(error instanceof HttpError)throw error;invalid();}
+  if(body?.rankingVersion==='ranking-v2'){
+    let result;try{result=rankV2(body);}catch(error){if(error.message==='invalid_ranking_request')invalid();throw error;}
+    await throttle(req,env,'ranking-v1',60);
+    return json(result,200,cors);
+  }
   if(!only(body,['featureVersion','candidates','demandPerMinute'])||body.featureVersion!=='kvp-v1'||!Array.isArray(body.candidates)||body.candidates.length<1||body.candidates.length>12)invalid();
   if(body.demandPerMinute!==undefined&&(typeof body.demandPerMinute!=='number'||!Number.isFinite(body.demandPerMinute)||body.demandPerMinute<=0||body.demandPerMinute>10000))invalid();
   const scores=['force','stations','size','length','output'],seen=new Set(),rows=[];

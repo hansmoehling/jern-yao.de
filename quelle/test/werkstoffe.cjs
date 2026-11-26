@@ -53,7 +53,9 @@ for (const m of E.WERKSTOFFE) {
   if (m.densityStatus === 'sourced') assert.ok(m.densitySource.sourceUrl);
 }
 const aisi=E.findMaterial('AISI 1010');
-assert(aisi.manualEligible);assert.equal(aisi.number,null);assert.equal(aisi.rho,null);assert.equal(aisi.densityStatus,'missing');
+assert(aisi.manualEligible);assert.equal(aisi.number,null);assert.equal(aisi.rho,7.85);assert.equal(aisi.densityStatus,'reference-steel-density');
+assert.equal(aisi.densitySource.valueType,'reference-calculation-density');
+assert.equal(aisi.densitySource.eligibleForFlowCurve,false);assert.equal(aisi.densitySource.eligibleForForceCalculation,false);
 assert.equal(aisi.flowCurves.length,1);assert.equal(aisi.flowCurves[0].state,'cold-drawn');
 assert.equal(E.findMaterial('C10C').flowCurves.some(curve=>curve.materialIds?.includes('AISI 1010')),false);
 console.log('PASS: 58 source identities, exact grade/curve lookup, approved Manual conditions, nullable forces, Rm isolation, geometric candidates and density restrictions');

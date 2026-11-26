@@ -1,0 +1,18 @@
+{
+  "Größenklasse": ["Classe dimensionale", "Velikostni razred", "Size class", "尺寸等级"],
+  "unter der Größenklasse des Rasters": ["al di sotto della classe dimensionale della griglia", "pod velikostnim razredom v pregledu strojev", "below the size class in the machine grid", "低于机型矩阵中的尺寸等级"],
+  "5 (Regelbelegung ohne Reserve)": ["5 (sequenza standard senza riserva)", "5 (standardna zasedba brez rezerve)", "5 (standard sequence without reserve)", "5（标准工序配置，无备用工位）"],
+  "ohne Reservestation": ["senza stazione di riserva", "brez rezervne postaje", "no spare station", "无备用工位"],
+  "eine Reservestation": ["una stazione di riserva", "ena rezervna postaja", "one spare station", "一个备用工位"],
+  "{count} Reservestationen": ["{count} stazioni di riserva", "rezervne postaje: {count}", "{count} spare stations", "{count} 个备用工位"],
+  "Stationsreserve noch offen": ["riserva di stazioni da verificare", "rezerva postaj še ni določena", "station reserve still open", "备用工位数量尚待确认"],
+  "Auslastung {percent} %": ["utilizzo della forza {percent} %", "izkoriščenost sile {percent} %", "force utilisation {percent} %", "压力利用率 {percent} %"],
+  "Kraft noch offen": ["Forza ancora da definire", "Sila še ni določena", "Force still open", "成形力待确定"],
+  "Vorauswahl": ["Preselezione", "Predizbor", "Preselection", "初步选型"],
+  "Vergleichsbasis": ["Base del confronto", "Osnova primerjave", "Comparison basis", "比较依据"],
+  "Technische Eignung noch offen; siehe Prüfung im Einzelnen.": ["Idoneità tecnica ancora da verificare; vedere la verifica dettagliata.", "Tehnična ustreznost je še odprta; glejte podroben pregled.", "Technical suitability remains open; see the detailed checks.", "技术适用性尚待确认；请查看详细核查。"],
+  "Niedrigster Richtpreis der verglichenen Kandidaten aus Eignungsklasse {classification}.": ["Prezzo indicativo più basso tra i candidati confrontati della classe di idoneità {classification}.", "Najnižja okvirna cena med primerjanimi kandidati iz razreda ustreznosti {classification}.", "Lowest guide price among the compared candidates in suitability class {classification}.", "在已比较的适用等级 {classification} 候选机型中，参考价格最低。"],
+  "etwa gleich amortisationseffizient": ["con efficienza di ammortamento circa uguale", "približno enako amortizacijsko učinkovit", "about equally capital-efficient", "投资摊销效率大致相同"],
+  "etwa {percent} % mehr amortisationseffizient": ["circa il {percent} % più efficiente in termini di ammortamento", "približno {percent} % bolj amortizacijsko učinkovit", "about {percent} % more capital-efficient", "投资摊销效率高约 {percent} %"],
+  "etwa {percent} % weniger amortisationseffizient": ["circa il {percent} % meno efficiente in termini di ammortamento", "približno {percent} % manj amortizacijsko učinkovit", "about {percent} % less capital-efficient", "投资摊销效率低约 {percent} %"]
+}

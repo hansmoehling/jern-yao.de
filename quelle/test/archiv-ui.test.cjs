@@ -89,12 +89,16 @@ test('expert template contains no manual status refresh buttons',()=>{
  const html=fs.readFileSync(path.join(__dirname,'..','archiv-vorlage.html'),'utf8');
  assert.doesNotMatch(html,/parts-drawing-refresh|geometry-refresh|archive-mail-refresh|Stand aktualisieren/);
 });
-test('price-free preset connects its bounded economic shortlist and displays the returned models without prices',async()=>{
+test('price-free preset sends a v2 class-aware shortlist and displays the returned primary model without prices',async()=>{
  const p=setup('de',E,false,{ranking:true},true,true);p.examples.find(button=>button.dataset.bsp==='m6').events.click();
- const original=p.get('karten').innerHTML.match(/class="modell">([^<]+)/)[1];let expected;
- p.answers.push(()=>{const body=JSON.parse(p.networkRequests.at(-1).options.body);assert.equal(body.candidates.length,12);assert(!JSON.stringify(body).includes('rp'));assert(body.candidates.some(row=>row.model==='JBF-10B2S'));expected=body.candidates.find(row=>row.model!==original).model;return {data:{version:'ranking-v1',basis:'submitted-technical-status',priceRankingComplete:true,models:[{model:expected,comparison:null}]}};});
+ const original=p.get('karten').innerHTML.match(/class="modell">([^<]+)/)[1];let expected,compared;
+ p.answers.push(()=>{const body=JSON.parse(p.networkRequests.at(-1).options.body),primary=body.candidates.filter(row=>row.role==='primary'),reserve=body.candidates.filter(row=>row.role==='reserve');assert.equal(body.rankingVersion,'ranking-v2');assert(primary.length>0&&primary.length<=12);assert(reserve.length<=12);assert.equal(new Set(primary.map(row=>row.classification)).size,1);assert(!JSON.stringify(body).includes('rp'));assert(reserve.some(row=>row.model==='JBF-10B2S'));expected=primary.find(row=>row.model!==original).model;compared=body.candidates.length;return {data:{version:'ranking-v2',basis:'submitted-technical-status',priceRankingComplete:true,models:[{model:expected,comparison:null}]}};});
  const timer=[...p.timers].find(([,item])=>item.ms===450);assert(timer);p.timers.delete(timer[0]);await timer[1].fn();
- assert.equal(new URL(p.networkRequests[0].url).pathname,'/rangfolge');assert.equal(p.get('karten').innerHTML.match(/class="modell">([^<]+)/)[1],expected);assert(p.get('karten').innerHTML.includes('12 von '));assert(!p.get('karten').innerHTML.includes('€'));assert(!p.get('karten').innerHTML.includes('<th>Richtpreis</th>'));
+ assert.equal(new URL(p.networkRequests[0].url).pathname,'/rangfolge');assert.equal(p.get('karten').innerHTML.match(/class="modell">([^<]+)/)[1],expected);assert(p.get('karten').innerHTML.includes(compared+' von '));assert(!p.get('karten').innerHTML.includes('€'));assert(!p.get('karten').innerHTML.includes('<th>Richtpreis</th>'));
+ assert.equal((p.get('karten').innerHTML.match(/class="ranking-request"/g)||[]).length,1,'configuration questions occur once below the cards');
+ const card=p.get('karten').innerHTML.match(/<section class="ranking-card"[\s\S]*?<\/section>/)[0];
+ assert(!card.includes('Maschinenbereich'));assert(!card.includes('Draht-Ø'));assert(!card.includes('ranking-request'));
+ assert.match(p.get('karten').innerHTML,/<details class="machine-check"[^>]*><summary>Stadienkonzept und Prüfung im Einzelnen<\/summary><p class="ranking-reason">/);
  p.events['jy-languagechange']();assert.equal(p.networkRequests.length,1,'same candidate request is cached across a locale rerender');
 });
 test('example buttons stay disabled until final UI initialization has completed',()=>{

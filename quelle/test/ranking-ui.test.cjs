@@ -6,7 +6,7 @@ const vm=require('node:vm');
 const path=require('node:path');
 const R=require('../machine-ranking.js');
 const U=require('../ranking-ui.js');
-const translations={...require('../i18n-p6.json'),...require('../i18n-report-release.json')};
+const translations={...require('../i18n-p6.json'),...require('../i18n-report-release.json'),...require('../i18n-p1-ranking.json')};
 const requirements={blankDiameter:5.6,blankLength:36,partLength:30,stations:2,forceTonnes:24,demandPerMinute:30};
 const practice={quote:0.35,modelle:{'JBF-10B3S':90}};
 const machine=(m,rp,extra={})=>({m,f:'JBF',st:3,cd:8,cl:[10,70],ml:50,ko:60,sz:'M6',pw:40,out:300,rp,...extra});
@@ -16,26 +16,29 @@ function fixture(){
 }
 const options={requirements,practice,showPrices:true,fmt:x=>Number(x.toFixed(2)).toString(),eur:x=>'EUR '+x};
 
-test('summary explains wire, stages, lengths and real price priority without promoting reserve scores',()=>{
-  const ranking=fixture(),html=U.summaryHtml(ranking,options);
-  assert.match(html,/Empfehlung: JBF-10B3S/);
-  assert.match(html,/Draht-Ø 5.6 mm bei Abschnitt-Ø bis 8 mm/);
-  assert.match(html,/2 Stadien bei 3 Stationen/);
-  assert.match(html,/Abschnittlänge 36 mm; Maschinenbereich 10 bis 70 mm/);
-  assert.match(html,/Richtpreis EUR 100/);
-  assert.match(html,/Niedrigster Richtpreis unter den Kandidaten mit vergleichbarem technischem Prüfstatus/);
-  assert.match(html,/5 Katalogmodelle technisch geprüft/);
-  assert.doesNotMatch(html,/Klasse A|Klasse B|Klasse C|Hans|gepflegt_von/);
+test('recommendation is one sentence while full dimensions and class priority belong to the details',()=>{
+  const ranking=fixture(),html=U.summaryHtml(ranking,options),lead=html.split('<details class="ranking-grid">')[0];
+  assert.match(lead,/<h3>Empfehlung<\/h3>/);
+  assert.match(lead,/<p class="ranking-recommendation"><strong>JBF-10B3S:<\/strong> Auslastung 60 %, eine Reservestation, Draht-Ø 5.6 mm bei Abschnitt-Ø bis 8 mm\.<\/p>/);
+  assert.doesNotMatch(lead,/Maschinenbereich|Teillänge|Richtpreis|ranking-checks|ranking-request/);
+  const details=U.detailsHtml(ranking.recommendation,ranking,options);
+  assert.match(details,/2 Stadien bei 3 Stationen/);
+  assert.match(details,/Abschnittlänge 36 mm; Maschinenbereich 10 bis 70 mm/);
+  assert.match(details,/Niedrigster Richtpreis der verglichenen Kandidaten aus Eignungsklasse A/);
+  assert.match(lead,/5 Katalogmodelle technisch geprüft/);
+  const card=U.cardHtml(ranking.recommendation,ranking,options);
+  assert.match(card,/Technische Prüfung: Prüfungen erfüllt/);
+  assert.doesNotMatch(card,/Auslastung|Reservestation|Draht-Ø|Maschinenbereich|Teillänge|Richtpreis|ranking-request/);
 });
 
 test('open suitability and incomplete price order remain explicit',()=>{
   const ranking=fixture(),row=ranking.recommendation;
   row.gesamt='offen';row.k=[{krit:'Technische Prüfung',status:'offen',soll:'Kraft',ist:'offen'}];
   const open=U.summaryHtml(ranking,options);
-  assert.match(open,/Vorauswahl: JBF-10B3S; technische Eignung noch offen/);
-  assert.match(open,/Niedrigster Richtpreis innerhalb der noch offenen Vorauswahl/);
+  assert.match(open,/<h3>Vorauswahl<\/h3>/);
+  assert.match(open,/Technische Eignung noch offen; siehe Prüfung im Einzelnen/);
   ranking.priceRankingComplete=false;
-  const fallback=U.summaryHtml(ranking,{...options,showPrices:false});
+  const fallback=U.detailsHtml(row,ranking,{...options,showPrices:false});
   assert.match(fallback,/Preisrang nicht vollständig verfügbar/);
   assert.doesNotMatch(fallback,/Niedrigster Richtpreis|Richtpreis EUR/);
   assert.match(U.summaryHtml(null,options),/Keine Empfehlung/);
@@ -45,13 +48,23 @@ test('alternative comparison is rounded, demand capped and states the common out
   const ranking=fixture(),row=ranking.alternatives[0],html=U.cardHtml(row,ranking,options);
   assert.match(html,/Alternative 1/);
   assert.match(html,/ca. 25 % teurer als JBF-10B3S/);
-  assert.match(html,/etwa 20 % weniger nutzbare Ausbringung pro Investition/);
+  assert.match(html,/und etwa 20 % weniger amortisationseffizient; 2 Reservestationen/);
+  assert.doesNotMatch(html,/Maschinenbereich|Teillänge/);
+  assert.match(html,/<details class="ranking-basis"><summary>Vergleichsbasis<\/summary>/);
   assert.match(html,/Kataloghubzahl beider Modelle × 35 %/);
   assert.match(html,/Bedarf von 30 Stück\/min/);
   assert.match(html,/keine berechnete Amortisationszeit/);
   assert.doesNotMatch(html,/amortisiert sich|Monate|Jahre/);
   const bothPractice={modelle:{'JBF-10B3S':100,'JBF-10B4S':110}};
   assert.match(U.cardHtml(row,ranking,{...options,practice:bothPractice}),/Praxiswerte für beide Modelle/);
+});
+
+test('a cheaper alternative without reserve has a compact price and amortisation comparison',()=>{
+  const ranking=fixture(),row={...ranking.recommendation,o:machine('JBF-10B2S',80,{st:2}),ranking:{...ranking.recommendation.ranking,classification:'B'}};
+  ranking.alternatives=[row,...ranking.alternatives].slice(0,2);
+  const html=U.cardHtml(row,ranking,options);
+  assert.match(html,/ca. 20 % preiswerter als JBF-10B3S und etwa 25 % mehr amortisationseffizient; ohne Reservestation\./);
+  assert.doesNotMatch(html,/Maschinenbereich|Teillänge|Draht-Ø/);
 });
 
 test('price-free rendering never derives a relative table or absolute values from supplied prices',()=>{
@@ -66,7 +79,7 @@ test('price-free comparison accepts only rounded explicit service results for th
   const ranking=fixture(),row=ranking.alternatives[0],o={...options,showPrices:false};
   row.comparison=R.compareVariants(ranking.recommendation.o,row.o,{practice,demandPerMinute:30});
   const html=U.cardHtml(row,ranking,o);
-  assert.match(html,/ca. 25 % teurer/);assert.match(html,/etwa 20 % weniger nutzbare Ausbringung/);
+  assert.match(html,/ca. 25 % teurer/);assert.match(html,/etwa 20 % weniger amortisationseffizient/);
   assert.doesNotMatch(html,/Richtpreis EUR/);
   row.comparison.reference='JBF-7B3S';
   assert.doesNotMatch(U.cardHtml(row,ranking,o),/ca. 25 % teurer/);
@@ -82,7 +95,7 @@ test('missing common output basis shows price only and never invents an efficien
   const html=U.cardHtml(row,ranking,{...options,practice:{}});
   assert.match(html,/ca. 25 % teurer/);
   assert.match(html,/fehlt eine gemeinsame belastbare Grundlage/);
-  assert.doesNotMatch(html,/% (mehr|weniger) nutzbare/);
+  assert.doesNotMatch(html,/% (mehr|weniger) amortisationseffizient/);
 });
 
 test('real neighbour grid has existing models, their checks and no fabricated family facts',()=>{
@@ -95,10 +108,20 @@ test('real neighbour grid has existing models, their checks and no fabricated fa
   assert.match(html,/Eine Stationsstufe mehr: JBF-10B4S/);
   assert.match(html,/Kein Katalogmodell/);
   assert.doesNotMatch(html,/JBF-10B4SL|onclick=|; Universaltransfer\.|; Quertransfer\./);
-  assert.match(html,/Universal- oder Quertransfer bestätigen lassen/);
+  assert.doesNotMatch(html,/Universal- oder Quertransfer bestätigen lassen/);
   const excluded=html.split('Größe kleiner: JBF-7B3S')[1].split('Größe größer:')[0];
   assert.match(excluded,/Kein Ausbringungsvergleich: Modell technisch ausgeschlossen/);
-  assert.doesNotMatch(excluded,/% (mehr|weniger) nutzbare/);
+  assert.doesNotMatch(excluded,/% (mehr|weniger) amortisationseffizient/);
+});
+
+test('knife and transfer requests are consolidated once after the selected cards',()=>{
+  const ranking=fixture(),summary=U.summaryHtml(ranking,options),cards=[ranking.recommendation,...ranking.alternatives].map(r=>U.cardHtml(r,ranking,options)).join('');
+  assert.doesNotMatch(summary+cards,/ranking-request|Geschlossenes Abschermesser bestätigen|Universal- oder Quertransfer bestätigen/);
+  const requests=U.requestHtml(ranking,options);
+  assert.equal((requests.match(/Geschlossenes Abschermesser bestätigen lassen\./g)||[]).length,1);
+  assert.equal((requests.match(/Universal- oder Quertransfer bestätigen lassen\./g)||[]).length,1);
+  assert.equal(U.requestHtml(null,options),'');
+  ranking.recommendation.requestPoints=[];ranking.alternatives=[];assert.equal(U.requestHtml(ranking,options),'');
 });
 
 test('only recommendation and at most two valid alternatives produce card fragments',()=>{
@@ -111,7 +134,7 @@ test('only recommendation and at most two valid alternatives produce card fragme
 test('every external string, formatter result and translation is escaped',()=>{
   const ranking=fixture(),row=ranking.recommendation;
   row.o.m='bad"><img src=x onerror=alert(1)>';row.k=[{krit:'<script>alert(1)</script>',status:'offen',soll:'" onfocus="x',ist:'<b>value</b>'}];
-  const html=U.cardHtml(row,ranking,{...options,fmt:()=>'<svg/onload=x>',eur:()=>'<script>price</script>'});
+  const html=U.cardHtml(row,ranking,options)+U.detailsHtml(row,ranking,{...options,fmt:()=>'<svg/onload=x>'});
   assert.doesNotMatch(html,/<img|<script|<svg|<b>|onfocus="/);
   assert.match(html,/&lt;img/);assert.match(html,/&lt;script/);assert.match(html,/&lt;svg/);
   const translated=U.cardHtml(row,ranking,{...options,tr:s=>'<img src=x>'+s});
@@ -131,8 +154,25 @@ test('all four translations preserve placeholders and render all five languages'
     const tr=key=>index<0?key:translations[key]?.[index]||key;
     const html=U.summaryHtml(ranking,{...options,tr})+U.cardHtml(ranking.alternatives[0],ranking,{...options,tr});
     assert.match(html,/JBF-10B3S/);assert.doesNotMatch(html,/\{\w+\}/);
-    if(index>=0){assert.ok(html.includes(translations['Empfehlung: {model}.'][index].replace('{model}','JBF-10B3S')));assert.ok(html.includes(translations['Ohne Werkzeug- und Betriebskosten; keine berechnete Amortisationszeit.'][index]));}
+    if(index>=0){assert.ok(html.includes(translations['Empfehlung'][index]));assert.ok(html.includes(translations['Ohne Werkzeug- und Betriebskosten; keine berechnete Amortisationszeit.'][index]));assert.ok(html.includes(translations['etwa {percent} % weniger amortisationseffizient'][index].replace('{percent}','20')));}
   }
+});
+
+test('size-grid checks are localized and ranking reason codes never become interface text',()=>{
+  const ranking=fixture(),reason={krit:'Größenklasse',status:'nein',grund:'unter der Größenklasse des Rasters',code:'below-size-grid'};
+  for(const model of ['JBF-7B3S','JBF-10B4S'])ranking.all.find(r=>r.o.m===model).k.push(reason);
+  ranking.recommendation.ranking.reasons.push({code:'thread-size-grid'},{code:'standard-five-stage-nut-occupancy'});
+  for(const index of [-1,0,1,2,3]){
+    const tr=key=>index<0?key:translations[key]?.[index]||key;
+    const html=U.summaryHtml(ranking,{...options,tr})+U.detailsHtml(ranking.recommendation,ranking,{...options,tr});
+    assert(html.includes(tr('Größenklasse')));
+    const gridDetails=html.split('<div class="ranking-table-scroll">')[1],neighbours=html.split('<div class="ranking-table-scroll">')[0];
+    for(const section of [neighbours,gridDetails])assert(section.includes(tr('unter der Größenklasse des Rasters')),'reason appears in neighbours and model details');
+    assert.doesNotMatch(html,/thread-size-grid|standard-five-stage-nut-occupancy|below-size-grid/);
+    if(index>=0){assert(!html.includes('Größenklasse'));assert(!html.includes('unter der Größenklasse des Rasters'));}
+  }
+  reason.grund='<img src=x onerror=alert(1)>';
+  const malicious=U.summaryHtml(ranking,options);assert(!malicious.includes('<img'));assert(malicious.includes('&lt;img'));
 });
 
 test('browser exports match CommonJS without document or event-handler dependencies',()=>{

@@ -16,6 +16,22 @@
     return {o,n,text,t:(key,values)=>escape(text(key,values)),req:o.requirements||{}};
   }
   function status(row,c){return c.t(statuses[row?.gesamt]||statuses.offen);}
+  function reserveText(row,c){
+    const count=pos(c.req.stations)&&pos(row.o?.st)?row.o.st-c.req.stations:null;
+    if(count===0)return c.t('ohne Reservestation');
+    if(count===1)return c.t('eine Reservestation');
+    if(count>1)return c.t('{count} Reservestationen',{count:c.n(count)});
+    return c.t('Stationsreserve noch offen');
+  }
+  function shortFacts(row,c){
+    const utilization=row.ranking?.components?.force?.value,parts=[];
+    parts.push(finite(utilization)?c.t('Auslastung {percent} %',{percent:c.n(Math.round(100*utilization))}):c.t('Kraft noch offen'));
+    parts.push(reserveText(row,c));
+    if(pos(c.req.blankDiameter)&&pos(row.o?.cd))parts.push(c.t('Draht-Ø {wire} mm bei Abschnitt-Ø bis {capacity} mm',{wire:c.n(c.req.blankDiameter),capacity:c.n(row.o.cd)}));
+    else if(pos(row.o?.cd))parts.push(c.t('Draht-Ø noch offen; Abschnitt-Ø bis {capacity} mm',{capacity:c.n(row.o.cd)}));
+    else parts.push(c.t('Abschnitt-Ø muss noch geprüft werden'));
+    return parts.join(', ')+'.';
+  }
   function facts(row,c){
     const o=row.o||{},q=c.req,parts=[];
     if(pos(q.blankDiameter)&&pos(o.cd))parts.push(c.t('Draht-Ø {wire} mm bei Abschnitt-Ø bis {capacity} mm',{wire:c.n(q.blankDiameter),capacity:c.n(o.cd)}));
@@ -35,11 +51,6 @@
     if(row.execution?.transfer==='quer')parts.push(c.t('Quertransfer'));
     return parts.join('; ')+'.';
   }
-  function absolutePrice(row,c){
-    if(c.o.showPrices!==true||!pos(row.o?.rp))return '';
-    const value=typeof c.o.eur==='function'?c.o.eur(row.o.rp):c.n(row.o.rp)+' EUR';
-    return c.t('Richtpreis {price}',{price:value});
-  }
   function validChange(v,directions){return v&&directions.includes(v.direction)&&finite(v.percent)&&v.percent>=0&&v.percent<=10000&&v.percent%5===0&&(v.direction!=='same'||v.percent===0);}
   function comparison(row,reference,ranking,c){
     if(!R||!reference||row.o?.m===reference.o?.m)return null;
@@ -54,21 +65,22 @@
     const excluded=row.gesamt==='nein'||row.technicalEligible===false;
     return {...value,excluded,efficiency:!excluded&&validBasis&&validChange(value.efficiency,['same','higher','lower'])?value.efficiency:null,basis:validBasis?basis:null};
   }
-  function comparisonHtml(row,reference,ranking,c){
+  function comparisonHtml(row,reference,ranking,c,withReserve=false){
     const v=comparison(row,reference,ranking,c);if(!v)return '<p class="ranking-comparison">'+c.t('Kein belastbarer Preisvergleich verfügbar.')+'</p>';
     const priceKeys={same:'etwa gleich teuer wie {model}',cheaper:'ca. {percent} % preiswerter als {model}',dearer:'ca. {percent} % teurer als {model}'};
     let sentence=c.t(priceKeys[v.price.direction],{percent:c.n(v.price.percent),model:v.reference});
     if(v.efficiency){
-      const efficiencyKeys={same:'etwa gleiche nutzbare Ausbringung pro Investition',higher:'etwa {percent} % mehr nutzbare Ausbringung pro Investition',lower:'etwa {percent} % weniger nutzbare Ausbringung pro Investition'};
-      sentence+=' '+c.t(v.connector==='but'?'aber':'und')+' '+c.t(efficiencyKeys[v.efficiency.direction],{percent:c.n(v.efficiency.percent)});
+      const efficiencyKeys={same:'etwa gleich amortisationseffizient',higher:'etwa {percent} % mehr amortisationseffizient',lower:'etwa {percent} % weniger amortisationseffizient'};
+      sentence+=' '+c.t('und')+' '+c.t(efficiencyKeys[v.efficiency.direction],{percent:c.n(v.efficiency.percent)});
     }
+    if(withReserve)sentence+='; '+reserveText(row,c);
     let basis='';
     if(v.efficiency){
       basis=v.basis.source==='practice-pair'?c.t('Vergleichsbasis: Praxiswerte für beide Modelle.'):c.t('Vergleichsbasis: Kataloghubzahl beider Modelle × {factor} %.',{factor:c.n(v.basis.factor*100)});
       if(pos(v.basis.demandCap))basis+=' '+c.t('Nutzbare Ausbringung auf den Bedarf von {demand} Stück/min begrenzt.',{demand:c.n(v.basis.demandCap)});
       basis+=' '+c.t('Ohne Werkzeug- und Betriebskosten; keine berechnete Amortisationszeit.');
     }else basis=c.t(v.excluded?'Kein Ausbringungsvergleich: Modell technisch ausgeschlossen.':'Für den Ausbringungsvergleich fehlt eine gemeinsame belastbare Grundlage.');
-    return '<p class="ranking-comparison">'+sentence+'.</p><p class="ranking-basis"><small>'+basis+'</small></p>';
+    return '<p class="ranking-comparison">'+sentence+'.</p><details class="ranking-basis"><summary>'+c.t('Vergleichsbasis')+'</summary><p><small>'+basis+'</small></p></details>';
   }
   function checksHtml(checks,c,all=false){
     const selected=(Array.isArray(checks)?checks:[]).filter(k=>all||k.status!=='ok');
@@ -79,11 +91,13 @@
       if(k.soll!==undefined)s+='; '+c.t('Bedarf: {value}',{value:c.text(String(k.soll))});
       if(k.ist!==undefined)s+='; '+c.t('Maschine: {value}',{value:c.text(String(k.ist))});
       if(k.detail)s+='; '+c.t(String(k.detail));
+      if(k.grund)s+='; '+c.t(String(k.grund));
       return '<li>'+s+'</li>';
     }).join('')+'</ul>';
   }
-  function requestHtml(row,c){
-    const keys=[...new Set((row.requestPoints||[]).map(p=>requests[p.code]).filter(Boolean))];
+  function requestHtml(ranking,options={}){
+    const c=context(options),shown=[ranking?.recommendation,...(ranking?.alternatives||[]).slice(0,2)].filter(Boolean);
+    const keys=[...new Set(shown.flatMap(row=>(row.requestPoints||[]).map(p=>requests[p.code])).filter(Boolean))];
     return keys.length?'<p class="ranking-request">'+keys.map(k=>c.t(k)).join(' ')+'</p>':'';
   }
   function gridHtml(ranking,selected,c){
@@ -113,26 +127,30 @@
   function summaryHtml(ranking,options={}){
     const c=context(options),row=ranking?.recommendation;
     if(!row||row.gesamt==='nein'||row.technicalEligible===false)return '<p class="ranking-summary">'+c.t('Keine Empfehlung aus den geprüften Modellen.')+'</p>';
-    const prefix=row.gesamt==='offen'?'Vorauswahl: {model}; technische Eignung noch offen.':'Empfehlung: {model}.';
-    let html='<section class="ranking-summary"><p><strong>'+c.t(prefix,{model:row.o.m})+'</strong> '+facts(row,c)+'</p>';
-    const price=absolutePrice(row,c);if(price)html+='<p>'+price+'.</p>';
-    if(ranking.comparisonCoverage?.priceComplete===true&&ranking.comparisonCoverage.compared<ranking.comparisonCoverage.eligible)html+='<p>'+c.t('{compared} von {eligible} technisch möglichen Modellen wirtschaftlich verglichen. Die Empfehlung gilt für diese Vorauswahl.',{compared:c.n(ranking.comparisonCoverage.compared),eligible:c.n(ranking.comparisonCoverage.eligible)})+'</p>';
-    else if(ranking.priceRankingComplete===true)html+='<p>'+c.t(row.gesamt==='offen'?'Niedrigster Richtpreis innerhalb der noch offenen Vorauswahl.':'Niedrigster Richtpreis unter den Kandidaten mit vergleichbarem technischem Prüfstatus.')+'</p>';
-    else html+='<p>'+c.t('Preisrang nicht vollständig verfügbar; Reihenfolge nach technischer Bewertung.')+'</p>';
-    if(row.gesamt==='knapp')html+='<p>'+c.t('Einzelne Prüfungen liegen im Grenzbereich.')+'</p>';
-    html+=checksHtml(row.k,c)+requestHtml(row,c);
+    let html='<section class="ranking-summary"><h3>'+c.t(row.gesamt==='offen'?'Vorauswahl':'Empfehlung')+'</h3><p class="ranking-recommendation"><strong>'+escape(row.o.m)+':</strong> '+shortFacts(row,c)+'</p>';
+    if(row.gesamt==='offen')html+='<p class="klein">'+c.t('Technische Eignung noch offen; siehe Prüfung im Einzelnen.')+'</p>';
     if(Number.isInteger(ranking.checkedCount)&&ranking.checkedCount>=0)html+='<p><small>'+c.t('{count} Katalogmodelle technisch geprüft.',{count:c.n(ranking.checkedCount)})+'</small></p>';
     return html+gridHtml(ranking,row,c)+'</section>';
+  }
+  function detailsHtml(row,ranking,options={}){
+    const c=context(options);if(!row?.o)return '';
+    let html='<p class="ranking-reason">'+facts(row,c)+'</p>';
+    if(row.o.m!==ranking?.recommendation?.o?.m)return html;
+    if(ranking.comparisonCoverage?.priceComplete===true&&ranking.comparisonCoverage.compared<ranking.comparisonCoverage.eligible)html+='<p>'+c.t('{compared} von {eligible} technisch möglichen Modellen wirtschaftlich verglichen. Die Empfehlung gilt für diese Vorauswahl.',{compared:c.n(ranking.comparisonCoverage.compared),eligible:c.n(ranking.comparisonCoverage.eligible)})+'</p>';
+    if(ranking.priceRankingComplete===true)html+='<p>'+c.t('Niedrigster Richtpreis der verglichenen Kandidaten aus Eignungsklasse {classification}.',{classification:row.ranking?.classification||'—'})+'</p>';
+    else html+='<p>'+c.t('Preisrang nicht vollständig verfügbar; Reihenfolge nach technischer Bewertung.')+'</p>';
+    return html;
   }
   function cardHtml(row,ranking,options={}){
     const c=context(options),reference=ranking?.recommendation;
     const shown=[reference,...(ranking?.alternatives||[]).slice(0,2)].filter(Boolean);
     if(!row?.o||row.gesamt==='nein'||row.technicalEligible===false||!shown.some(r=>r.o.m===row.o.m))return '';
     const index=shown.findIndex(r=>r.o.m===row.o.m),role=index===0?'Empfehlung':'Alternative {number}';
-    let html='<section class="ranking-card" data-ranking-model="'+escape(row.o.m)+'"><p><strong>'+c.t(role,{number:c.n(index)})+'</strong> — '+status(row,c)+'</p><p>'+facts(row,c)+'</p>';
-    const price=absolutePrice(row,c);if(price)html+='<p>'+price+'.</p>';
-    if(index>0)html+=comparisonHtml(row,reference,ranking,c);
-    return html+checksHtml(row.k,c)+requestHtml(row,c)+'</section>';
+    let html='<section class="ranking-card" data-ranking-model="'+escape(row.o.m)+'"><p><strong>'+c.t(role,{number:c.n(index)})+'</strong> — '+status(row,c)+'</p>';
+    if(index>0)html+=comparisonHtml(row,reference,ranking,c,true);
+    const checks=(Array.isArray(row.k)?row.k:[]).filter(k=>index===0||k.status!=='ok');
+    if(checks.length)html+='<ul class="ranking-checks">'+checks.map(k=>'<li>'+c.t(k.krit||'Technische Prüfung')+': '+c.t(statuses[k.status]||statuses.offen)+'</li>').join('')+'</ul>';
+    return html+'</section>';
   }
-  return {summaryHtml,cardHtml};
+  return {summaryHtml,cardHtml,detailsHtml,requestHtml};
 });

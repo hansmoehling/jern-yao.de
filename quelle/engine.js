@@ -961,7 +961,8 @@
     const zk = x => String(x).replace('.', ','); // Katalogzahl mit Dezimalkomma
     const Rm = a.werkstoff.Rm;
     // Stationen
-    add('Stationen', a.qualitative||!pos(o.st) ? 'offen' : o.st >= w.stationenReserve ? 'ok' : o.st >= w.stationen ? 'knapp' : 'nein', a.qualitative?'Operationsfolge noch auf Stationen verteilen':w.stationen + ' (+1 Reserve)', o.st ?? 'nicht im Katalog', 'R-STN');
+    const nutRegularFive=e.machinePolicy==='ranking-v2'&&e.typ==='mutter'&&w.stationen===5&&o.st===5&&['JNF','JNL','JNFP','JNFR'].includes(o.f);
+    add('Stationen', a.qualitative||!pos(o.st) ? 'offen' : nutRegularFive||o.st >= w.stationenReserve ? 'ok' : o.st >= w.stationen ? 'knapp' : 'nein', a.qualitative?'Operationsfolge noch auf Stationen verteilen':nutRegularFive?'5 (Regelbelegung ohne Reserve)':w.stationen + ' (+1 Reserve)', o.st ?? 'nicht im Katalog', 'R-STN');
     // Abschnitt-Ø
     // Katalogwert ist die Maschinengrenze; die Abminderung nach Festigkeit ist Richtwert und nur Hinweis (R-GR)
     const dMax = pos(Rm) ? o.cd * Math.sqrt(400 / Math.max(Rm, 400)) : null;
@@ -1068,10 +1069,12 @@
 
   function waehle(maschinen, a, e, P) {
     if (!a || !e || missingShaft(e) || a.fehlt?.length || !a.werkstoff || !a.stufen?.length || !pos(a.werte?.d0)) return { passend: [], bedingt: [], fast: [], alle: [] };
-    if(e.machinePolicy==='ranking-v1'&&RANKING){
+    if(['ranking-v1','ranking-v2'].includes(e.machinePolicy)&&RANKING){
       const w=a.werte;
-      const ranking=RANKING.rankMachines(maschinen,{checkMachine:o=>pruefe(o,a,e,P),practice:P,
-        requirements:{forceTonnes:w.FN_muss_t,stations:w.stationen,blankDiameter:w.d0,blankLength:w.L0,partSize:e.mM,partLength:w.Lteil,knockoutLength:w.ko,demandPerMinute:e.soll?.ausbringung,solidRivet:e.standardKind==='rivet'&&e.schaftende==='voll'}});
+      const threaded=e.typ==='bolzen'&&!['rivet','pin'].includes(e.standardKind)&&e.threadFamily!=='none';
+      const threadNominalDiameter=threaded?(pos(e.threadModel?.d)?e.threadModel.d:Number(String(e.standardReference||'').match(/\bM\s*(\d+(?:[.,]\d+)?)/i)?.[1]?.replace(',','.'))||null):null;
+      const ranking=RANKING.rankMachines(maschinen,{version:e.machinePolicy,checkMachine:o=>pruefe(o,a,e,P),practice:P,
+        requirements:{partType:e.typ,isThreadedBolt:threaded,threadNominalDiameter,forceTonnes:w.FN_muss_t,stations:w.stationen,blankDiameter:w.d0,blankLength:w.L0,partSize:e.mM,partLength:w.Lteil,knockoutLength:w.ko,demandPerMinute:e.soll?.ausbringung,solidRivet:e.standardKind==='rivet'&&e.schaftende==='voll'}});
       return {passend:ranking.candidates.filter(r=>r.gesamt==='ok'),bedingt:ranking.candidates.filter(r=>r.gesamt!=='ok'),fast:ranking.all.filter(r=>r.gesamt==='nein'&&r.k.filter(x=>x.status==='nein').length===1),alle:ranking.all,ranking};
     }
     const fam = machineFamilies(e);
@@ -1123,7 +1126,7 @@
     const family = machineFamilies(e);
     const checks = pruefe(o, a, e, P);
     const rejected = checks.k.filter(k => k.status === 'nein').map(k => k.krit);
-    if (e.machinePolicy!=='ranking-v1'&&!family.includes(o.f)) rejected.push('Maschinenfamilie');
+    if (!['ranking-v1','ranking-v2'].includes(e.machinePolicy)&&!family.includes(o.f)) rejected.push('Maschinenfamilie');
     if (rejected.length) {
       result.status = 'unsuitable';
       result.failedCriteria = rejected;

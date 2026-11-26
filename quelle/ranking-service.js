@@ -1,16 +1,24 @@
-(function(root,factory){const api=factory();if(typeof module==='object'&&module.exports)module.exports=api;else root.JYRankingService=api;})(typeof globalThis==='object'?globalThis:this,function(){
+(function(root,factory){const api=factory(typeof module==='object'&&module.exports?require('./machine-ranking.js'):root.JYMachineRanking);if(typeof module==='object'&&module.exports)module.exports=api;else root.JYRankingService=api;})(typeof globalThis==='object'?globalThis:this,function(Ranking){
 'use strict';
 const finite=value=>typeof value==='number'&&Number.isFinite(value);
 function payloadFor(selection,demand){
+ if(selection?.ranking?.version==='ranking-v2'){
+  const pools=Ranking.candidatePools(selection.ranking,12),entry=(row,role)=>({model:row.o.m,status:row.gesamt,classification:row.ranking.classification,score:row.ranking.score,role,stationReserve:row.ranking.components?.stations?.value??null});
+  const candidates=[...pools.primary.map(row=>entry(row,'primary')),...pools.reserveAlternatives.map(row=>entry(row,'reserve'))];
+  if(!candidates.length||candidates.some(row=>!finite(row.score)||!['A','B','C'].includes(row.classification)))return null;
+  return {featureVersion:'kvp-v1',rankingVersion:'ranking-v2',candidates,...(finite(demand)&&demand>0?{demandPerMinute:demand}:{})};
+ }
  const candidates=(selection?.ranking?.candidates||[]).filter(row=>row.technicalEligible!==false&&row.gesamt!=='nein'&&!row.k?.some(check=>check.status==='nein')).slice(0,12).map(row=>({model:row.o.m,status:row.gesamt,suitability:Object.fromEntries(Object.entries(row.ranking?.components||{}).filter(([key,value])=>['force','stations','size','length','output'].includes(key)&&finite(value.score)&&value.score>=0&&value.score<=1).map(([key,value])=>[key,value.score]))}));
  if(!candidates.length||candidates.some(row=>!Object.keys(row.suitability).length))return null;
  return {featureVersion:'kvp-v1',candidates,...(finite(demand)&&demand>0?{demandPerMinute:demand}:{})};
 }
 function applyResponse(selection,payload,data){
- if(data?.version!=='ranking-v1'||data.basis!=='submitted-technical-status'||typeof data.priceRankingComplete!=='boolean'||!Array.isArray(data.models)||!data.models.length||data.models.length>3)throw Error('invalid_ranking_response');
+ const version=payload.rankingVersion||'ranking-v1';
+ if(data?.version!==version||data.basis!=='submitted-technical-status'||typeof data.priceRankingComplete!=='boolean'||!Array.isArray(data.models)||!data.models.length||data.models.length>3)throw Error('invalid_ranking_response');
  const ranking=selection.ranking,allowed=new Set(payload.candidates.map(row=>row.model)),lookup=new Map(ranking.candidates.map(row=>[row.o.m,row])),seen=new Set(),reference=data.models[0].model;
- const displayed=data.models.map(item=>{
+ const displayed=data.models.map((item,index)=>{
   if(!allowed.has(item.model)||seen.has(item.model)||!lookup.has(item.model))throw Error('invalid_ranking_model');seen.add(item.model);
+  if(version==='ranking-v2'&&payload.candidates.find(row=>row.model===item.model).role==='reserve'&&(index!==1||!['cheaper','same'].includes(item.comparison?.price?.direction)))throw Error('invalid_ranking_pool');
   const row=lookup.get(item.model),source=item.comparison;
   const pair=source?{reference,alternative:item.model,price:source.price,efficiency:source.efficiency,connector:source.connector,basis:source.basis?{source:source.basis.source,factor:source.basis.factor,demandCap:source.basis.demandCap,toolCostsIncluded:false}:null,uncertainties:[]}:null;
   const requestPoints=[],execution=row.execution||{};
@@ -19,7 +27,7 @@ function applyResponse(selection,payload,data){
   return {...row,comparison:pair,requestPoints};
  });
  const additional=ranking.candidates.filter(row=>!seen.has(row.o.m)),compared=payload.candidates.length,eligible=ranking.candidates.length;
- return {...selection,ranking:{...ranking,recommendation:displayed[0],alternatives:displayed.slice(1),candidates:[...displayed,...additional],additional,priceRankingComplete:data.priceRankingComplete&&compared===eligible,rankingBasis:'server-shortlist',comparisonCoverage:{compared,eligible,priceComplete:data.priceRankingComplete}}};
+ return {...selection,ranking:{...ranking,recommendation:displayed[0],alternatives:displayed.slice(1),candidates:[...displayed,...additional],additional,priceRankingComplete:data.priceRankingComplete&&(version==='ranking-v2'||compared===eligible),rankingBasis:'server-shortlist',comparisonCoverage:{compared,eligible,priceComplete:data.priceRankingComplete}}};
 }
 function create({request,schedule=setTimeout,cancel=clearTimeout}){
  let generation=0,timer=null;const cache=new Map(),pending=new Map();
