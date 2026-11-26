@@ -1,4 +1,5 @@
 {
+  "{compared} von {eligible} technisch möglichen Modellen wirtschaftlich verglichen. Die Empfehlung gilt für diese Vorauswahl.": ["Confronto economico di {compared} su {eligible} modelli tecnicamente possibili. La raccomandazione riguarda questa preselezione.", "Ekonomsko primerjanih {compared} od {eligible} tehnično možnih modelov. Priporočilo velja za ta ožji izbor.", "Economic comparison of {compared} out of {eligible} technically possible models. The recommendation applies to this shortlist.", "已对 {eligible} 个技术上可行的机型中的 {compared} 个进行经济性比较。推荐仅适用于本次初选范围。"],
   "Reduzieren {a} → {b} ({r} %)": ["Ridurre {a} → {b} ({r} %)", "Reducirati {a} → {b} ({r} %)", "Reduce {a} → {b} ({r} %)", "缩径 {a} → {b}（{r} %）"],
   "Kreuzschlitz Phillips {size}": ["Croce Phillips {size}", "Križna zareza Phillips {size}", "Phillips cross recess {size}", "Phillips 十字槽 {size}"],
   "Kreuzschlitz Pozidriv {size}": ["Croce Pozidriv {size}", "Križna zareza Pozidriv {size}", "Pozidriv cross recess {size}", "Pozidriv 米字槽 {size}"],

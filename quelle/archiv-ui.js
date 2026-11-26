@@ -248,7 +248,7 @@
 
   let letzte = null, angefragtesModell = null,lastType=null,mailBusy=false,mailKey='',mailSignature='',mailReceipt=null,mailTimer=null,mailPolls=0;
   let geometryWizard=null,geometryPreview=null,geometryCalculation=null,geometryResult=null,geometrySelectedModel=null,wireStudy=null,kvpUI=null;
-  let partsFile=null,partsFileError='',drawingPreview=null,drawingResult=null,drawingSelectedModel=null;
+  let partsFile=null,partsFileError='',drawingPreview=null,drawingResult=null,drawingSelectedModel=null,rankingService=null;
   const drawingNote=()=>$('parts-drawing-note').value.trim();
   const drawingMachines=()=>drawingResult?.proposal?.machines?.filter(machine=>MASCHINEN.some(item=>item.m===machine.model))||[];
   function drawingGallery(){if(formteilmodus())$('empty-visual').hidden=!drawingActive()||['ready','needs_info','failed'].includes(drawingResult?.status);}
@@ -285,6 +285,7 @@
   }
   function selectPartsMode(mode,focus=false){partsMode=mode==='geometry'?'geometry':'drawing';anfrageAuswahlLoeschen();rechnen();if(focus)$('parts-'+partsMode+'-tab').focus();}
   function rechnen() {
+    rankingService?.reset();
     sichtbar();
     vorbelegen();
     if(staged&&$('norm-chain-actions'))$('norm-chain-actions').hidden=typ()!=='bolzen';
@@ -322,6 +323,13 @@
     anfrageAuswahlZeigen();$('empty-visual').hidden=maschinenFunde(wahl).length>0;
     zeigen(e, aus, wahl); L.apply();
     knoepfe();
+    if(rankingService&&wahl.ranking){
+      const snapshot=letzte;
+      rankingService.update(wahl,{demandPerMinute:e.soll?.ausbringung,onResult(next){
+        if(letzte!==snapshot)return;
+        snapshot.wahl=next;zeigen(e,aus,next);anfrageAuswahlZeigen();knoepfe();L.apply();
+      }});
+    }
   }
 
   function zeigen(e, aus, wahl) {
@@ -387,7 +395,7 @@
     };
     if(wahl.ranking){
       k.push(...[wahl.ranking.recommendation,...wahl.ranking.alternatives].filter(Boolean).map((r,i)=>karte(r,i===0)));
-      k.push('<details class="ranking-all"><summary>'+esc(msg('Alle geprüften Modelle ({count})',{count:wahl.alle.length}))+'</summary><table class="krit"><thead><tr><th>'+h('Maschine')+'</th><th>'+h('Prüfung')+'</th><th>'+h('Richtpreis')+'</th></tr></thead><tbody>'+wahl.alle.map(r=>'<tr><td>'+esc(r.o.m)+'</td><td>'+h({ok:'passt',knapp:'knapp',offen:'Klärung nötig',nein:'passt nicht'}[r.gesamt])+(r.gesamt==='nein'?'<br><small>'+r.k.filter(x=>x.status==='nein').map(x=>h(x.krit)).join(', ')+'</small>':'')+'</td><td>'+(showPrices?esc(eur(r.o.rp)):'')+'</td></tr>').join('')+'</tbody></table></details>');
+      k.push('<details class="ranking-all"><summary>'+esc(msg('Alle geprüften Modelle ({count})',{count:wahl.alle.length}))+'</summary><table class="krit"><thead><tr><th>'+h('Maschine')+'</th><th>'+h('Prüfung')+'</th>'+(showPrices?'<th>'+h('Richtpreis')+'</th>':'')+'</tr></thead><tbody>'+wahl.alle.map(r=>'<tr><td>'+esc(r.o.m)+'</td><td>'+h({ok:'passt',knapp:'knapp',offen:'Klärung nötig',nein:'passt nicht'}[r.gesamt])+(r.gesamt==='nein'?'<br><small>'+r.k.filter(x=>x.status==='nein').map(x=>h(x.krit)).join(', ')+'</small>':'')+'</td>'+(showPrices?'<td>'+esc(eur(r.o.rp))+'</td>':'')+'</tr>').join('')+'</tbody></table></details>');
     }else{
     if (wahl.passend.length) { k.push(...wahl.passend.slice(0, 3).map((r, i) => karte(r, i === 0))); }
     if (wahl.bedingt.length) { k.push('<h3>'+h('Bedingt geeignet')+'</h3>'); k.push(...wahl.bedingt.slice(0, wahl.passend.length ? 2 : 4).map(r => karte(r, !wahl.passend.length))); }
@@ -694,6 +702,7 @@
   $('parts-drawing-note').addEventListener('input',()=>{drawingPreview?.update();knoepfe();});
   for(const mode of ['drawing','geometry']){$('parts-'+mode+'-tab').addEventListener('click',()=>selectPartsMode(mode));$('parts-'+mode+'-tab').addEventListener('keydown',event=>{if(['ArrowLeft','ArrowRight','Home','End'].includes(event.key)){event.preventDefault();selectPartsMode(event.key==='Home'?'drawing':event.key==='End'?'geometry':mode==='drawing'?'geometry':'drawing',true);}});}
   window.addEventListener('jy-languagechange',()=>{Array.from(sel.options).forEach(option=>{const variant=variantByValue.get(option.value);if(variant)option.textContent=optionLabel(variant);});if(staged)drawingMaterialOptions();standardKind=null;geometryWizard?.rerender();sichtbar();rechnen();L.apply();});
+  if(!showPrices&&staged&&window.JYRankingService&&window.JYDrawingPreview?.apiBase)rankingService=window.JYRankingService.create({request:body=>window.JYDrawingPreview.request('/rangfolge',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(body)}),schedule:(fn,ms)=>window.setTimeout(fn,ms),cancel:id=>window.clearTimeout(id)});
   sichtbar(); rechnen(); L.apply();
   document.querySelectorAll('[data-bsp]').forEach(button=>{button.disabled=false;});
 })();

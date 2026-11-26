@@ -79,7 +79,7 @@ def build():
             values['/*GEOMETRY_MODEL*/']=(Q/'geometry-model.js').read_text(encoding='utf-8-sig')
             values['/*GEOMETRY_WIZARD*/']=(Q/'geometry-wizard.js').read_text(encoding='utf-8-sig')
             values['/*AXIAL_CHAIN*/']='\n'.join((Q/file).read_text(encoding='utf-8') for file in ['axial-chain.js','axial-chain-ui.js','normen/to-chain.js'])+'\nwindow.JY_CHAIN_TEMPLATES='+json.dumps([json.loads(p.read_text(encoding='utf-8')) for p in sorted((Q/'vorlagen').glob('*.json'))],ensure_ascii=False,separators=(',',':')).replace('</','<\\/')+';'
-            values['/*RANKING_UI*/']='\n'.join((Q/file).read_text(encoding='utf-8') for file in ['ranking-ui.js','wire-optimization.js'])
+            values['/*RANKING_UI*/']='\n'.join((Q/file).read_text(encoding='utf-8') for file in ['ranking-ui.js','ranking-service.js','wire-optimization.js'])
             values['/*KVP_UI*/']='\n'.join((Q/file).read_text(encoding='utf-8') for file in ['kvp-context.js','kvp-ui.js'])
             values['/*STANDARD_PREVIEW*/']=(Q/'standard-preview.js').read_text(encoding='utf-8')
             values['/*STANDARD_FAMILIES*/']=(Q/'standard-families.js').read_text(encoding='utf-8-sig')

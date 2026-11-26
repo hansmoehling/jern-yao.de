@@ -337,9 +337,9 @@ async function rankingRequest(req,env,cors,locale){
   const models=selected.map((row,index)=>{
     if(!index)return {model:row.model.m,comparison:null};
     const c=MachineRanking.compareVariants(selected[0].model,row.model,{practice:machinePractice,...(body.demandPerMinute?{demandPerMinute:body.demandPerMinute}:{})});
-    return {model:row.model.m,comparison:{price:c.price,efficiency:c.efficiency,connector:c.connector,basis:c.basis?{source:c.basis.source,toolCostsIncluded:false}:null,uncertainties:c.uncertainties.map(item=>({code:item.code}))}};
+    return {model:row.model.m,comparison:{price:c.price,efficiency:c.efficiency,connector:c.connector,basis:c.basis?{source:c.basis.source,factor:c.basis.factor,demandCap:c.basis.demandCap,toolCostsIncluded:false}:null,uncertainties:c.uncertainties.map(item=>({code:item.code}))}};
   });
-  return json({version:'ranking-v1',basis:'submitted-technical-status',models},200,cors);
+  return json({version:'ranking-v1',basis:'submitted-technical-status',priceRankingComplete:!!eligible.length&&priced.get(tier(eligible[0]))===true,models},200,cors);
 }
 async function kvpRequest(req,env,cors,locale,kind){
   // Exact deployment boundary: ALLOWED_ORIGINS cannot enable this on another site.

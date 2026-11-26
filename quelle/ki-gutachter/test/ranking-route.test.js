@@ -20,7 +20,7 @@ test('ranking endpoint uses server prices and returns the same recommendation an
 });
 
 test('response contains only the displayed model names and rounded relative comparisons',async()=>{
- const {body}=await post({...input(),demandPerMinute:30});assert.deepEqual(Object.keys(body).sort(),['basis','models','version']);
+ const {body}=await post({...input(),demandPerMinute:30});assert.deepEqual(Object.keys(body).sort(),['basis','models','priceRankingComplete','version']);assert.equal(body.priceRankingComplete,true);
  const prohibited=new Set(['rp','lo','hi','priceEUR','priceRangeEUR','candidates','ranking','score','suitability','catalog','all','referenceOutput','alternativeOutput']);
  function visit(v){if(!v||typeof v!=='object')return;for(const [k,value]of Object.entries(v)){assert.ok(!prohibited.has(k),k);visit(value);}}
  visit(body);

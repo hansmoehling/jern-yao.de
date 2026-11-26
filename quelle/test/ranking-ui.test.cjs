@@ -6,7 +6,7 @@ const vm=require('node:vm');
 const path=require('node:path');
 const R=require('../machine-ranking.js');
 const U=require('../ranking-ui.js');
-const translations=require('../i18n-p6.json');
+const translations={...require('../i18n-p6.json'),...require('../i18n-report-release.json')};
 const requirements={blankDiameter:5.6,blankLength:36,partLength:30,stations:2,forceTonnes:24,demandPerMinute:30};
 const practice={quote:0.35,modelle:{'JBF-10B3S':90}};
 const machine=(m,rp,extra={})=>({m,f:'JBF',st:3,cd:8,cl:[10,70],ml:50,ko:60,sz:'M6',pw:40,out:300,rp,...extra});

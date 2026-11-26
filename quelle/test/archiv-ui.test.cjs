@@ -73,10 +73,25 @@ function setup(language,engine=E,showPrices,apiOptions,staged=false,integrated=f
  vm.runInNewContext(fs.readFileSync(path.join(__dirname,'..','geometry-wizard.js'),'utf8'),context);
  let geometryWizard;const createWizard=window.JYGeometryWizard.create;window.JYGeometryWizard.create=options=>(geometryWizard=createWizard(options));
  if(apiOptions)vm.runInNewContext(fs.readFileSync(path.join(__dirname,'..','drawing-preview.js'),'utf8'),context);
+ if(apiOptions?.ranking){
+  get('daten').textContent=JSON.stringify(machines.map(({rp,lo,hi,...machine})=>machine));
+  window.JYMachineRanking=require('../machine-ranking.js');
+  context.JYMachineRanking=window.JYMachineRanking;
+  for(const file of ['ranking-ui.js','ranking-service.js'])vm.runInNewContext(fs.readFileSync(path.join(__dirname,'..',file),'utf8'),context);
+  window.JYRankingUI=context.JYRankingUI;window.JYRankingService=context.JYRankingService;
+ }
  vm.runInNewContext(source,context);
  return {get,f,a,examples,events,context,networkRequests,answers,timers,geometryWizard,disabledDuringInit:[...disabledDuringInit]};
 }
 async function sendMail(p){if(!p.a.elements.email.value)p.a.elements.email.value='customer@example.invalid';p.a.elements.ok.checked=true;await p.get('senden').events.click();}
+test('price-free preset connects its bounded economic shortlist and displays the returned models without prices',async()=>{
+ const p=setup('de',E,false,{ranking:true},true,true);p.examples.find(button=>button.dataset.bsp==='m6').events.click();
+ const original=p.get('karten').innerHTML.match(/class="modell">([^<]+)/)[1];let expected;
+ p.answers.push(()=>{const body=JSON.parse(p.networkRequests.at(-1).options.body);assert.equal(body.candidates.length,12);assert(!JSON.stringify(body).includes('rp'));assert(body.candidates.some(row=>row.model==='JBF-10B2S'));expected=body.candidates.find(row=>row.model!==original).model;return {data:{version:'ranking-v1',basis:'submitted-technical-status',priceRankingComplete:true,models:[{model:expected,comparison:null}]}};});
+ const timer=[...p.timers].find(([,item])=>item.ms===450);assert(timer);p.timers.delete(timer[0]);await timer[1].fn();
+ assert.equal(new URL(p.networkRequests[0].url).pathname,'/rangfolge');assert.equal(p.get('karten').innerHTML.match(/class="modell">([^<]+)/)[1],expected);assert(p.get('karten').innerHTML.includes('12 von '));assert(!p.get('karten').innerHTML.includes('€'));assert(!p.get('karten').innerHTML.includes('<th>Richtpreis</th>'));
+ p.events['jy-languagechange']();assert.equal(p.networkRequests.length,1,'same candidate request is cached across a locale rerender');
+});
 test('example buttons stay disabled until final UI initialization has completed',()=>{
  const html=fs.readFileSync(path.join(__dirname,'..','archiv-vorlage.html'),'utf8');
  const buttons=[...html.matchAll(/<button\b[^>]*\bdata-bsp="[^"]+"[^>]*>/g)];

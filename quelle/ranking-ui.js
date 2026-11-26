@@ -116,7 +116,8 @@
     const prefix=row.gesamt==='offen'?'Vorauswahl: {model}; technische Eignung noch offen.':'Empfehlung: {model}.';
     let html='<section class="ranking-summary"><p><strong>'+c.t(prefix,{model:row.o.m})+'</strong> '+facts(row,c)+'</p>';
     const price=absolutePrice(row,c);if(price)html+='<p>'+price+'.</p>';
-    if(ranking.priceRankingComplete===true)html+='<p>'+c.t(row.gesamt==='offen'?'Niedrigster Richtpreis innerhalb der noch offenen Vorauswahl.':'Niedrigster Richtpreis unter den Kandidaten mit vergleichbarem technischem Prüfstatus.')+'</p>';
+    if(ranking.comparisonCoverage?.priceComplete===true&&ranking.comparisonCoverage.compared<ranking.comparisonCoverage.eligible)html+='<p>'+c.t('{compared} von {eligible} technisch möglichen Modellen wirtschaftlich verglichen. Die Empfehlung gilt für diese Vorauswahl.',{compared:c.n(ranking.comparisonCoverage.compared),eligible:c.n(ranking.comparisonCoverage.eligible)})+'</p>';
+    else if(ranking.priceRankingComplete===true)html+='<p>'+c.t(row.gesamt==='offen'?'Niedrigster Richtpreis innerhalb der noch offenen Vorauswahl.':'Niedrigster Richtpreis unter den Kandidaten mit vergleichbarem technischem Prüfstatus.')+'</p>';
     else html+='<p>'+c.t('Preisrang nicht vollständig verfügbar; Reihenfolge nach technischer Bewertung.')+'</p>';
     if(row.gesamt==='knapp')html+='<p>'+c.t('Einzelne Prüfungen liegen im Grenzbereich.')+'</p>';
     html+=checksHtml(row.k,c)+requestHtml(row,c);
