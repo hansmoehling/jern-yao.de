@@ -4,16 +4,32 @@ import praxis from '../praxis.json' with {type:'json'};
 
 const NUMBERS=['d0','rodDiameter','rm','sD','sL','kD','kSW','kH','sArea','tipArea','tipLength','tipDiameter','kVol','iSW','iT','iVol','nD','nT','mM','mSW','mH','mLoch','mFlansch','mFlanschH','masse','lStempel'];
 const ENUMS={typ:['bolzen','mutter'],standardKind:['screw','rivet','pin','headless'],threadFamily:['none','metric','trilobular','duo-taptite','self-tapping','thermoplastic'],kopfForm:['none','rund','sechskant','abgratet','krallen'],materialState:['soft-annealed','cold-drawn','normalized-rolled','unknown'],wirePreparation:['as-supplied','inline-drawing'],iTyp:['none','hex','torx','ph','pz']};
+const POLICIES_V2={machinePolicy:'ranking-v2',forcePolicy:'force-v2',rmPolicy:'rm-v2',shaftPolicy:'shaft-v2'};
+const GEOMETRY_NUMBERS=['d_b','t_b','bottomAngle','headBaseDiameter','alpha','capHeight','kC','flangeDiameter','flangeHeight','endLength','endDiameter','tipAngle','ds','b','threadPitch'];
+const GEOMETRY_ENUMS={...ENUMS,kopfForm:[...ENUMS.kopfForm,'zylinder','kugelabschnitt','linse','kegelstumpf','linsensenk','flachrund','sechskant_bund','kugelabschnitt_bund','kopflos'],schaftende:['voll','halbhohl','rohr','spitze','kegelstumpf_flach','zapfen','kuppe','ringschneide'],bottomShape:['flat','cone','round','through'],boreDepthMode:['total','cylindrical'],nutShape:['hex','square','cap'],shaftType:['partial','full']};
+GEOMETRY_ENUMS.kopfTyp=GEOMETRY_ENUMS.kopfForm;
+GEOMETRY_ENUMS.rmDeliveryCondition=['+AC','+AC+PE','+U+C+AC','+AC+C+AC'];
+GEOMETRY_ENUMS.nutModelVersion=['nut-model-v1'];
 const model=name=>machines.find(item=>item.m===name);
 const numeric=(object,keys,max=100000)=>{
  const result={};
  for(const key of keys)if(object?.[key]!==undefined&&object[key]!==null){const value=object[key];if(typeof value!=='number'||!Number.isFinite(value)||value<0||value>max)throw new Error('invalid_decision_input');result[key]=value;}
  return result;
 };
-function technicalInput(raw){
+function technicalInput(raw,version){
  if(!raw||typeof raw!=='object'||Array.isArray(raw))return null;
- const input={...numeric(raw,NUMBERS),rmPolicy:'rm-v1'};
- for(const[key,values]of Object.entries(ENUMS))if(raw[key]!==undefined){if(!values.includes(raw[key]))return null;input[key]=raw[key];}
+ const revised=version==='manual-v2';
+ if(revised&&raw.normRequiresGeometryReview===true)return null;
+ const input={...numeric(raw,revised?[...NUMBERS,...GEOMETRY_NUMBERS]:NUMBERS),...(revised?POLICIES_V2:{rmPolicy:'rm-v1'})};
+ for(const[key,values]of Object.entries(revised?GEOMETRY_ENUMS:ENUMS))if(raw[key]!==undefined){if(!values.includes(raw[key]))return null;input[key]=raw[key];}
+ if(revised&&raw.shaftSegments!==undefined){
+  if(!Array.isArray(raw.shaftSegments)||!raw.shaftSegments.length||raw.shaftSegments.length>32)return null;
+  input.shaftSegments=raw.shaftSegments.map(segment=>numeric(segment,['diameter','length'],2000));
+  if(input.shaftSegments.some(segment=>!(segment.diameter>0&&segment.length>0)))return null;
+ }
+ // The nominal thread diameter affects the size class; no norm title,
+ // customer text or claimed source is copied into the anonymous record.
+ if(revised&&raw.threadModel?.d!==undefined){const thread=numeric(raw.threadModel,['d'],100);if(!(thread.d>0))return null;input.threadModel=thread;}
  if(!ENUMS.typ.includes(input.typ)||!Number.isInteger(raw.wst))return null;
  const material=Engine.WERKSTOFFE[raw.wst],curve=material?.flowCurves?.find(item=>item.id===raw.curveId&&item.state===input.materialState&&item.eligible===true);
  if(!material?.manualEligible||!curve)return null;
@@ -29,12 +45,12 @@ function technicalInput(raw){
 
 // Intake metadata is never evidence for a material or a confirmed production
 // case. Only manual, file-free requests are eligible at this initial stage.
-export function prepareDecision(raw,{hasFile=false}={}){
+export function prepareDecision(raw,{hasFile=false,version}={}){
  if(hasFile||typeof raw!=='string'||raw.length>16000)return null;
  try{
   const body=JSON.parse(raw);
   if(body?.kind!=='manual'||!Array.isArray(body.candidates)||body.candidates.length>12)return null;
-  const input=technicalInput(body.input);if(!input)return null;
+  const input=technicalInput(body.input,version);if(!input)return null;
   const calculation=Engine.auslegen(input);
   if(calculation.fehlt?.length||!calculation.stufen?.length)return null;
   const found=Engine.waehle(machines,calculation,input,praxis),ranked=[...found.passend,...found.bedingt,...found.fast];
@@ -48,15 +64,16 @@ export function prepareDecision(raw,{hasFile=false}={}){
   const selected=body.selectedModel??null;
   if(selected!==null&&!reported.some(row=>row.model===selected))return null;
   const material=Engine.WERKSTOFFE[input.wst];
-  const values=Object.fromEntries(['d0','L0','stationen','Fmax','Fsum'].filter(key=>Number.isFinite(calculation.werte[key])).map(key=>[key,calculation.werte[key]]));
+  const valueKeys=version==='manual-v2'?['d0','L0','V','stationen','Fmax_t','Fsum_t']:['d0','L0','stationen','Fmax','Fsum'];
+  const values=Object.fromEntries(valueKeys.filter(key=>Number.isFinite(calculation.werte[key])).map(key=>[key,calculation.werte[key]]));
   // No free text, original evidence, contact, file, request ID or IP survives.
   delete input.wst;
-  return {schemaVersion:1,recordType:'manual-customer-decision',status:'ungeprueft',knowledgeEligible:false,source:{kind:'manual-customer-enquiry'},input,material:{id:material.id,state:input.materialState,curveId:input.curveId,origin:'user_selection'},calculation:{values,stages:calculation.stufen.length,rmPolicy:'rm-v1'},candidates:reported,customerSelectedModel:selected,offeredByHans:null,reasonCodes:[],outcome:{status:'nur_konzept'},approval:null};
+  return {schemaVersion:1,recordType:'manual-customer-decision',status:'ungeprueft',knowledgeEligible:false,source:{kind:'manual-customer-enquiry'},input,material:{id:material.id,state:input.materialState,curveId:input.curveId,origin:'user_selection'},calculation:{values,stages:calculation.stufen.length,...(version==='manual-v2'?{version:'manual-v2',...POLICIES_V2}:{rmPolicy:'rm-v1'})},candidates:reported,customerSelectedModel:selected,offeredByHans:null,reasonCodes:[],outcome:{status:'nur_konzept'},approval:null};
  }catch{return null;}
 }
 export async function recordDecision(env,decision){
  if(!decision)return;
  const bytes=await crypto.subtle.digest('SHA-256',new TextEncoder().encode(JSON.stringify(machines)));
  const catalogSha256=Array.from(new Uint8Array(bytes),value=>value.toString(16).padStart(2,'0')).join('');
- await env.SPEICHER.put('entscheidung:'+crypto.randomUUID(),JSON.stringify({...decision,recordedOn:new Date().toISOString().slice(0,10),dataVersion:{catalogSha256,rmPolicy:'rm-v1',schema:1}}));
+ await env.SPEICHER.put('entscheidung:'+crypto.randomUUID(),JSON.stringify({...decision,recordedOn:new Date().toISOString().slice(0,10),dataVersion:{catalogSha256,...(decision.calculation?.version==='manual-v2'?{version:'manual-v2',...POLICIES_V2}:{rmPolicy:'rm-v1'}),schema:1}}));
 }

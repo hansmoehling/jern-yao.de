@@ -241,7 +241,7 @@
     if(staged&&normPicker){
       const preset=normPicker.adapted();
       if(preset){
-        for(const key of ['standardReference','standardDocument','threadModel','propertyClass','normGeometryStatus','normMissingFields','normRequiresGeometryReview'])e[key]=preset[key];
+        for(const key of ['standardReference','standardDocument','threadModel','propertyClass','normGeometryStatus','normMissingFields','normRequiresGeometryReview','shaftPolicy','shaftType','shaftSegments','shaftModelStatus','shaftModelAssumption','ds','b','flangeDiameter','flangeHeight','flangeModelAssumption'])e[key]=preset[key];
         if(e.typ==='mutter'&&preset.threadModel)e.threadPitch=preset.threadModel.P;
         for(const key of ['shaftSegments','d_b','t_b','endAngle','endShape','kC','kF','kAlpha','mFlansch','mFlanschH'])if(preset[key]!=null&&!f.elements[key])e[key]=preset[key];
       }
@@ -300,6 +300,13 @@
     drawingResult=null;drawingSelectedModel=null;kvpUI?.refresh({reset:true});anfrageAuswahlZeigen();drawingFileFeedback();drawingPreview?.update();drawingGallery();knoepfe();
   }
   function selectPartsMode(mode,focus=false){partsMode=mode==='geometry'?'geometry':'drawing';anfrageAuswahlLoeschen();rechnen();if(focus)$('parts-'+partsMode+'-tab').focus();}
+  function geometryModelNotes(input={}){
+    const shaft=input.shaftModelAssumption||input.modelAssumptions?.shaft,flange=input.flangeModelAssumption||input.modelAssumptions?.flange,notes=[];
+    if(shaft?.model==='nominal-blank-segmentation')notes.push(tr('Rohlingmodell: Glatter Schaft l − b, Gewinderohling über b; der Gewindeauslauf ist vereinfacht.'));
+    if(flange?.heightBasis==='published-minimum-c')notes.push(msg('Kopfmodell: Sechskant und zylindrischer Flansch; Flanschhöhe {height} mm aus dem veröffentlichten Mindestmaß c angenähert.',{height:fmt(flange.height,2)}));
+    return notes;
+  }
+  function geometryModelNotesHtml(input){return geometryModelNotes(input).map(text=>'<p class="klein geometry-model-note">'+esc(text)+'</p>').join('');}
   function rechnen() {
     rankingService?.reset();
     sichtbar();
@@ -314,7 +321,10 @@
       for(const id of ['kenn','karten','regeln','blatt'])rendered($(id),'');
       rendered($('stufen').tBodies[0],'');$('material-basis').textContent='';$('inline-drawing-summary').textContent='';$('inline-drawing-summary').hidden=true;
       const variant=selectedVariant();
-      if(!drawingActive())geometryCalculation=geometryWizard?.refresh({wireDiameterMm:num(f.elements.d0.value),densityGcm3:variant?.material.rho,densityStatus:variant?.material.densityStatus})||null;
+      if(!drawingActive()){
+        geometryCalculation=geometryWizard?.refresh({wireDiameterMm:num(f.elements.d0.value),densityGcm3:variant?.material.rho,densityStatus:variant?.material.densityStatus})||null;
+        const modelNotes=geometryModelNotesHtml(geometryWizard?.getChain?.()||{});if(modelNotes)$('geometry-view').innerHTML+=modelNotes;
+      }
       geometryPreview?.update();drawingPreview?.update();drawingFileFeedback();knoepfe();L.apply();return;
     }
     geometryPreview?.update();drawingPreview?.update();
@@ -323,7 +333,7 @@
     const aus = E.auslegen(e);
     if(staged&&window.JYStandardPreview){
       $('geometry-view').hidden=!(e.sD||e.kD||e.mM||e.mSW);
-      rendered($('geometry-view'),window.JYStandardPreview.render({input:e,analysis:e.normRequiresGeometryReview?{...aus,fehlt:['Kontur ergänzen']}:aus,material:selectedVariant()?.material,translate:tr,format:x=>fmt(x,3),engine:E}));
+      rendered($('geometry-view'),window.JYStandardPreview.render({input:e,analysis:e.normRequiresGeometryReview?{...aus,fehlt:['Kontur ergänzen']}:aus,material:selectedVariant()?.material,translate:tr,format:x=>fmt(x,3),engine:E})+geometryModelNotesHtml(e));
     }
     if(e.normRequiresGeometryReview){
       letzte=null;anfrageAuswahlLoeschen();$('aus').hidden=true;$('leer').hidden=false;$('leer').dataset.originalText='';$('leer').textContent=tr('Die Normvorlage enthält noch keine vollständige Rohteilkontur. Fehlende Geometrie im Baukasten ergänzen.');knoepfe();L.apply();return;
@@ -455,6 +465,7 @@
   function geometrySummary(){
     const variant=selectedVariant(),e=lesen(),result=geometryCalculation,lines=[tr('Formteile'),...geometryWizard.summary()];
     if(geometryWizard.getChain?.().standardReference)lines.push(geometryWizard.getChain().standardReference);
+    lines.push(...geometryModelNotes(geometryWizard.getChain?.()||{}));
     const value=(single,bounds,unit)=>single!=null?fmt(single,3)+' '+unit:Array.isArray(bounds)?fmt(bounds[0],3)+'–'+fmt(bounds[1],3)+' '+unit:tr('nicht belegt');
     if(geometrySelectedModel)lines.unshift(msg('Anfrage für {model}',{model:geometrySelectedModel}),'');
     if(variant)lines.push(tr('Werkstoff')+': '+materialLabel(variant));
@@ -493,6 +504,7 @@
     if(selected)lines.push(msg('Anfrage für {model}',{model:selected.o.m}),'');
     field('Teileart', tr(e.typ==='bolzen'?({screw:'Schraube',rivet:'Niet',pin:'Bolzen',headless:'Kopfloses Teil'}[e.standardKind]||'Schraube/Bolzen'):{formteil:'Formteil/Hülse',mutter:'Mutter'}[e.typ]));
     if(e.standardReference)field('Normfamilie',normPicker?.summary()||e.standardReference);
+    lines.push(...geometryModelNotes(e));
     if(e.typ==='bolzen'&&e.threadFamily!=='none')field('Gewindefamilie',tr(THREAD_LABELS[e.threadFamily]||e.threadFamily));
     field('Werkstoff', (m.sourceName || m.id) + (m.number ? ' · ' + m.number : ''));
     field('Vormaterial / Vorzug',preparationLabel(e.wirePreparation));
@@ -682,9 +694,10 @@
   $('senden').addEventListener('click', senden);
   $('drucken').addEventListener('click', drucken);
   if(staged&&window.JYNormPicker){
-    normPicker=window.JYNormPicker.create({host:$('norm-picker'),form:f,data:window.JY_NORM_DATA,tr,getType:typ,
+    normPicker=window.JYNormPicker.create({host:$('norm-picker'),form:f,data:window.JY_NORM_DATA,tr,getType:typ,shaftPolicy:'shaft-v2',catalogue:MASCHINEN,formatNumber:value=>fmt(value,2),
       getPart:()=>Object.fromEntries(Array.from(f.elements).filter(field=>field.name&&field.type!=='file'&&(field.type!=='radio'||field.checked)).map(field=>[field.name,field.type==='checkbox'?field.checked:field.value])),
       onApply(preset){
+        for(const key of preset.clearFields||[])if(f.elements[key])f.elements[key].value='';
         for(const [key,value]of Object.entries(preset)){
           const field=f.elements[key];if(!field||value==null||typeof value==='object')continue;
           if(field.tagName==='SELECT'&&!Array.from(field.options).some(o=>o.value===String(value)))continue;

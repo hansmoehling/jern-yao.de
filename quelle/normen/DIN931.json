@@ -34,7 +34,64 @@
       "nachLaenge": {},
       "lengthCoverage": "unresearched",
       "missingGeometryFields": [],
-      "geometryStatus": "documented"
+      "geometryStatus": "documented",
+      "shaftModelV2": {
+        "version": "shaft-v2",
+        "kind": "partial-thread-reference",
+        "lengthCoverage": "reference-rule-not-approved-length-series",
+        "ds": {
+          "value": 4,
+          "unit": "mm",
+          "sourceRefs": [
+            "boell931",
+            "fontana-catalogue"
+          ],
+          "verification": true,
+          "status": "verified",
+          "verificationMethod": "independent-publishers-agree"
+        },
+        "threadLengths": [
+          {
+            "minExclusive": 0,
+            "maxInclusive": 125,
+            "value": 14,
+            "unit": "mm",
+            "sourceRefs": [
+              "boell931",
+              "fontana-catalogue"
+            ],
+            "verification": true,
+            "status": "verified",
+            "verificationMethod": "independent-publishers-agree"
+          },
+          {
+            "minExclusive": 125,
+            "maxInclusive": 200,
+            "value": 20,
+            "unit": "mm",
+            "sourceRefs": [
+              "boell931",
+              "fontana-catalogue"
+            ],
+            "verification": true,
+            "status": "verified",
+            "verificationMethod": "independent-publishers-agree"
+          },
+          {
+            "minExclusive": 200,
+            "maxInclusive": null,
+            "value": 33,
+            "unit": "mm",
+            "sourceRefs": [
+              "boell931",
+              "fontana-catalogue"
+            ],
+            "verification": true,
+            "status": "verified",
+            "verificationMethod": "independent-publishers-agree"
+          }
+        ]
+      }
     },
     "M5": {
       "roh": {
@@ -53,7 +110,64 @@
       "nachLaenge": {},
       "lengthCoverage": "unresearched",
       "missingGeometryFields": [],
-      "geometryStatus": "documented"
+      "geometryStatus": "documented",
+      "shaftModelV2": {
+        "version": "shaft-v2",
+        "kind": "partial-thread-reference",
+        "lengthCoverage": "reference-rule-not-approved-length-series",
+        "ds": {
+          "value": 5,
+          "unit": "mm",
+          "sourceRefs": [
+            "boell931",
+            "fontana-catalogue"
+          ],
+          "verification": true,
+          "status": "verified",
+          "verificationMethod": "independent-publishers-agree"
+        },
+        "threadLengths": [
+          {
+            "minExclusive": 0,
+            "maxInclusive": 125,
+            "value": 16,
+            "unit": "mm",
+            "sourceRefs": [
+              "boell931",
+              "fontana-catalogue"
+            ],
+            "verification": true,
+            "status": "verified",
+            "verificationMethod": "independent-publishers-agree"
+          },
+          {
+            "minExclusive": 125,
+            "maxInclusive": 200,
+            "value": 22,
+            "unit": "mm",
+            "sourceRefs": [
+              "boell931",
+              "fontana-catalogue"
+            ],
+            "verification": true,
+            "status": "verified",
+            "verificationMethod": "independent-publishers-agree"
+          },
+          {
+            "minExclusive": 200,
+            "maxInclusive": null,
+            "value": 35,
+            "unit": "mm",
+            "sourceRefs": [
+              "boell931",
+              "fontana-catalogue"
+            ],
+            "verification": true,
+            "status": "verified",
+            "verificationMethod": "independent-publishers-agree"
+          }
+        ]
+      }
     },
     "M6": {
       "roh": {
@@ -72,7 +186,64 @@
       "nachLaenge": {},
       "lengthCoverage": "unresearched",
       "missingGeometryFields": [],
-      "geometryStatus": "documented"
+      "geometryStatus": "documented",
+      "shaftModelV2": {
+        "version": "shaft-v2",
+        "kind": "partial-thread-reference",
+        "lengthCoverage": "reference-rule-not-approved-length-series",
+        "ds": {
+          "value": 6,
+          "unit": "mm",
+          "sourceRefs": [
+            "boell931",
+            "fontana-catalogue"
+          ],
+          "verification": true,
+          "status": "verified",
+          "verificationMethod": "independent-publishers-agree"
+        },
+        "threadLengths": [
+          {
+            "minExclusive": 0,
+            "maxInclusive": 125,
+            "value": 18,
+            "unit": "mm",
+            "sourceRefs": [
+              "boell931",
+              "fontana-catalogue"
+            ],
+            "verification": true,
+            "status": "verified",
+            "verificationMethod": "independent-publishers-agree"
+          },
+          {
+            "minExclusive": 125,
+            "maxInclusive": 200,
+            "value": 24,
+            "unit": "mm",
+            "sourceRefs": [
+              "boell931",
+              "fontana-catalogue"
+            ],
+            "verification": true,
+            "status": "verified",
+            "verificationMethod": "independent-publishers-agree"
+          },
+          {
+            "minExclusive": 200,
+            "maxInclusive": null,
+            "value": 37,
+            "unit": "mm",
+            "sourceRefs": [
+              "boell931",
+              "fontana-catalogue"
+            ],
+            "verification": true,
+            "status": "verified",
+            "verificationMethod": "independent-publishers-agree"
+          }
+        ]
+      }
     },
     "M8": {
       "roh": {
@@ -91,7 +262,64 @@
       "nachLaenge": {},
       "lengthCoverage": "unresearched",
       "missingGeometryFields": [],
-      "geometryStatus": "documented"
+      "geometryStatus": "documented",
+      "shaftModelV2": {
+        "version": "shaft-v2",
+        "kind": "partial-thread-reference",
+        "lengthCoverage": "reference-rule-not-approved-length-series",
+        "ds": {
+          "value": 8,
+          "unit": "mm",
+          "sourceRefs": [
+            "boell931",
+            "fontana-catalogue"
+          ],
+          "verification": true,
+          "status": "verified",
+          "verificationMethod": "independent-publishers-agree"
+        },
+        "threadLengths": [
+          {
+            "minExclusive": 0,
+            "maxInclusive": 125,
+            "value": 22,
+            "unit": "mm",
+            "sourceRefs": [
+              "boell931",
+              "fontana-catalogue"
+            ],
+            "verification": true,
+            "status": "verified",
+            "verificationMethod": "independent-publishers-agree"
+          },
+          {
+            "minExclusive": 125,
+            "maxInclusive": 200,
+            "value": 28,
+            "unit": "mm",
+            "sourceRefs": [
+              "boell931",
+              "fontana-catalogue"
+            ],
+            "verification": true,
+            "status": "verified",
+            "verificationMethod": "independent-publishers-agree"
+          },
+          {
+            "minExclusive": 200,
+            "maxInclusive": null,
+            "value": 41,
+            "unit": "mm",
+            "sourceRefs": [
+              "boell931",
+              "fontana-catalogue"
+            ],
+            "verification": true,
+            "status": "verified",
+            "verificationMethod": "independent-publishers-agree"
+          }
+        ]
+      }
     },
     "M10": {
       "roh": {
@@ -110,7 +338,64 @@
       "nachLaenge": {},
       "lengthCoverage": "unresearched",
       "missingGeometryFields": [],
-      "geometryStatus": "documented"
+      "geometryStatus": "documented",
+      "shaftModelV2": {
+        "version": "shaft-v2",
+        "kind": "partial-thread-reference",
+        "lengthCoverage": "reference-rule-not-approved-length-series",
+        "ds": {
+          "value": 10,
+          "unit": "mm",
+          "sourceRefs": [
+            "boell931",
+            "fontana-catalogue"
+          ],
+          "verification": true,
+          "status": "verified",
+          "verificationMethod": "independent-publishers-agree"
+        },
+        "threadLengths": [
+          {
+            "minExclusive": 0,
+            "maxInclusive": 125,
+            "value": 26,
+            "unit": "mm",
+            "sourceRefs": [
+              "boell931",
+              "fontana-catalogue"
+            ],
+            "verification": true,
+            "status": "verified",
+            "verificationMethod": "independent-publishers-agree"
+          },
+          {
+            "minExclusive": 125,
+            "maxInclusive": 200,
+            "value": 32,
+            "unit": "mm",
+            "sourceRefs": [
+              "boell931",
+              "fontana-catalogue"
+            ],
+            "verification": true,
+            "status": "verified",
+            "verificationMethod": "independent-publishers-agree"
+          },
+          {
+            "minExclusive": 200,
+            "maxInclusive": null,
+            "value": 45,
+            "unit": "mm",
+            "sourceRefs": [
+              "boell931",
+              "fontana-catalogue"
+            ],
+            "verification": true,
+            "status": "verified",
+            "verificationMethod": "independent-publishers-agree"
+          }
+        ]
+      }
     },
     "M12": {
       "roh": {
@@ -129,7 +414,64 @@
       "nachLaenge": {},
       "lengthCoverage": "unresearched",
       "missingGeometryFields": [],
-      "geometryStatus": "documented"
+      "geometryStatus": "documented",
+      "shaftModelV2": {
+        "version": "shaft-v2",
+        "kind": "partial-thread-reference",
+        "lengthCoverage": "reference-rule-not-approved-length-series",
+        "ds": {
+          "value": 12,
+          "unit": "mm",
+          "sourceRefs": [
+            "boell931",
+            "fontana-catalogue"
+          ],
+          "verification": true,
+          "status": "verified",
+          "verificationMethod": "independent-publishers-agree"
+        },
+        "threadLengths": [
+          {
+            "minExclusive": 0,
+            "maxInclusive": 125,
+            "value": 30,
+            "unit": "mm",
+            "sourceRefs": [
+              "boell931",
+              "fontana-catalogue"
+            ],
+            "verification": true,
+            "status": "verified",
+            "verificationMethod": "independent-publishers-agree"
+          },
+          {
+            "minExclusive": 125,
+            "maxInclusive": 200,
+            "value": 36,
+            "unit": "mm",
+            "sourceRefs": [
+              "boell931",
+              "fontana-catalogue"
+            ],
+            "verification": true,
+            "status": "verified",
+            "verificationMethod": "independent-publishers-agree"
+          },
+          {
+            "minExclusive": 200,
+            "maxInclusive": null,
+            "value": 49,
+            "unit": "mm",
+            "sourceRefs": [
+              "boell931",
+              "fontana-catalogue"
+            ],
+            "verification": true,
+            "status": "verified",
+            "verificationMethod": "independent-publishers-agree"
+          }
+        ]
+      }
     },
     "M14": {
       "roh": {
@@ -148,7 +490,64 @@
       "nachLaenge": {},
       "lengthCoverage": "unresearched",
       "missingGeometryFields": [],
-      "geometryStatus": "documented"
+      "geometryStatus": "documented",
+      "shaftModelV2": {
+        "version": "shaft-v2",
+        "kind": "partial-thread-reference",
+        "lengthCoverage": "reference-rule-not-approved-length-series",
+        "ds": {
+          "value": 14,
+          "unit": "mm",
+          "sourceRefs": [
+            "boell931",
+            "fontana-catalogue"
+          ],
+          "verification": true,
+          "status": "verified",
+          "verificationMethod": "independent-publishers-agree"
+        },
+        "threadLengths": [
+          {
+            "minExclusive": 0,
+            "maxInclusive": 125,
+            "value": 34,
+            "unit": "mm",
+            "sourceRefs": [
+              "boell931",
+              "fontana-catalogue"
+            ],
+            "verification": true,
+            "status": "verified",
+            "verificationMethod": "independent-publishers-agree"
+          },
+          {
+            "minExclusive": 125,
+            "maxInclusive": 200,
+            "value": 40,
+            "unit": "mm",
+            "sourceRefs": [
+              "boell931",
+              "fontana-catalogue"
+            ],
+            "verification": true,
+            "status": "verified",
+            "verificationMethod": "independent-publishers-agree"
+          },
+          {
+            "minExclusive": 200,
+            "maxInclusive": null,
+            "value": 53,
+            "unit": "mm",
+            "sourceRefs": [
+              "boell931",
+              "fontana-catalogue"
+            ],
+            "verification": true,
+            "status": "verified",
+            "verificationMethod": "independent-publishers-agree"
+          }
+        ]
+      }
     },
     "M16": {
       "roh": {
@@ -167,7 +566,64 @@
       "nachLaenge": {},
       "lengthCoverage": "unresearched",
       "missingGeometryFields": [],
-      "geometryStatus": "documented"
+      "geometryStatus": "documented",
+      "shaftModelV2": {
+        "version": "shaft-v2",
+        "kind": "partial-thread-reference",
+        "lengthCoverage": "reference-rule-not-approved-length-series",
+        "ds": {
+          "value": 16,
+          "unit": "mm",
+          "sourceRefs": [
+            "boell931",
+            "fontana-catalogue"
+          ],
+          "verification": true,
+          "status": "verified",
+          "verificationMethod": "independent-publishers-agree"
+        },
+        "threadLengths": [
+          {
+            "minExclusive": 0,
+            "maxInclusive": 125,
+            "value": 38,
+            "unit": "mm",
+            "sourceRefs": [
+              "boell931",
+              "fontana-catalogue"
+            ],
+            "verification": true,
+            "status": "verified",
+            "verificationMethod": "independent-publishers-agree"
+          },
+          {
+            "minExclusive": 125,
+            "maxInclusive": 200,
+            "value": 44,
+            "unit": "mm",
+            "sourceRefs": [
+              "boell931",
+              "fontana-catalogue"
+            ],
+            "verification": true,
+            "status": "verified",
+            "verificationMethod": "independent-publishers-agree"
+          },
+          {
+            "minExclusive": 200,
+            "maxInclusive": null,
+            "value": 57,
+            "unit": "mm",
+            "sourceRefs": [
+              "boell931",
+              "fontana-catalogue"
+            ],
+            "verification": true,
+            "status": "verified",
+            "verificationMethod": "independent-publishers-agree"
+          }
+        ]
+      }
     },
     "M18": {
       "roh": {
@@ -186,7 +642,64 @@
       "nachLaenge": {},
       "lengthCoverage": "unresearched",
       "missingGeometryFields": [],
-      "geometryStatus": "documented"
+      "geometryStatus": "documented",
+      "shaftModelV2": {
+        "version": "shaft-v2",
+        "kind": "partial-thread-reference",
+        "lengthCoverage": "reference-rule-not-approved-length-series",
+        "ds": {
+          "value": 18,
+          "unit": "mm",
+          "sourceRefs": [
+            "boell931",
+            "fontana-catalogue"
+          ],
+          "verification": true,
+          "status": "verified",
+          "verificationMethod": "independent-publishers-agree"
+        },
+        "threadLengths": [
+          {
+            "minExclusive": 0,
+            "maxInclusive": 125,
+            "value": 42,
+            "unit": "mm",
+            "sourceRefs": [
+              "boell931",
+              "fontana-catalogue"
+            ],
+            "verification": true,
+            "status": "verified",
+            "verificationMethod": "independent-publishers-agree"
+          },
+          {
+            "minExclusive": 125,
+            "maxInclusive": 200,
+            "value": 48,
+            "unit": "mm",
+            "sourceRefs": [
+              "boell931",
+              "fontana-catalogue"
+            ],
+            "verification": true,
+            "status": "verified",
+            "verificationMethod": "independent-publishers-agree"
+          },
+          {
+            "minExclusive": 200,
+            "maxInclusive": null,
+            "value": 61,
+            "unit": "mm",
+            "sourceRefs": [
+              "boell931",
+              "fontana-catalogue"
+            ],
+            "verification": true,
+            "status": "verified",
+            "verificationMethod": "independent-publishers-agree"
+          }
+        ]
+      }
     },
     "M20": {
       "roh": {
@@ -205,7 +718,64 @@
       "nachLaenge": {},
       "lengthCoverage": "unresearched",
       "missingGeometryFields": [],
-      "geometryStatus": "documented"
+      "geometryStatus": "documented",
+      "shaftModelV2": {
+        "version": "shaft-v2",
+        "kind": "partial-thread-reference",
+        "lengthCoverage": "reference-rule-not-approved-length-series",
+        "ds": {
+          "value": 20,
+          "unit": "mm",
+          "sourceRefs": [
+            "boell931",
+            "fontana-catalogue"
+          ],
+          "verification": true,
+          "status": "verified",
+          "verificationMethod": "independent-publishers-agree"
+        },
+        "threadLengths": [
+          {
+            "minExclusive": 0,
+            "maxInclusive": 125,
+            "value": 46,
+            "unit": "mm",
+            "sourceRefs": [
+              "boell931",
+              "fontana-catalogue"
+            ],
+            "verification": true,
+            "status": "verified",
+            "verificationMethod": "independent-publishers-agree"
+          },
+          {
+            "minExclusive": 125,
+            "maxInclusive": 200,
+            "value": 52,
+            "unit": "mm",
+            "sourceRefs": [
+              "boell931",
+              "fontana-catalogue"
+            ],
+            "verification": true,
+            "status": "verified",
+            "verificationMethod": "independent-publishers-agree"
+          },
+          {
+            "minExclusive": 200,
+            "maxInclusive": null,
+            "value": 65,
+            "unit": "mm",
+            "sourceRefs": [
+              "boell931",
+              "fontana-catalogue"
+            ],
+            "verification": true,
+            "status": "verified",
+            "verificationMethod": "independent-publishers-agree"
+          }
+        ]
+      }
     },
     "M24": {
       "roh": {
@@ -224,7 +794,64 @@
       "nachLaenge": {},
       "lengthCoverage": "unresearched",
       "missingGeometryFields": [],
-      "geometryStatus": "documented"
+      "geometryStatus": "documented",
+      "shaftModelV2": {
+        "version": "shaft-v2",
+        "kind": "partial-thread-reference",
+        "lengthCoverage": "reference-rule-not-approved-length-series",
+        "ds": {
+          "value": 24,
+          "unit": "mm",
+          "sourceRefs": [
+            "boell931",
+            "fontana-catalogue"
+          ],
+          "verification": true,
+          "status": "verified",
+          "verificationMethod": "independent-publishers-agree"
+        },
+        "threadLengths": [
+          {
+            "minExclusive": 0,
+            "maxInclusive": 125,
+            "value": 54,
+            "unit": "mm",
+            "sourceRefs": [
+              "boell931",
+              "fontana-catalogue"
+            ],
+            "verification": true,
+            "status": "verified",
+            "verificationMethod": "independent-publishers-agree"
+          },
+          {
+            "minExclusive": 125,
+            "maxInclusive": 200,
+            "value": 60,
+            "unit": "mm",
+            "sourceRefs": [
+              "boell931",
+              "fontana-catalogue"
+            ],
+            "verification": true,
+            "status": "verified",
+            "verificationMethod": "independent-publishers-agree"
+          },
+          {
+            "minExclusive": 200,
+            "maxInclusive": null,
+            "value": 73,
+            "unit": "mm",
+            "sourceRefs": [
+              "boell931",
+              "fontana-catalogue"
+            ],
+            "verification": true,
+            "status": "verified",
+            "verificationMethod": "independent-publishers-agree"
+          }
+        ]
+      }
     },
     "M27": {
       "roh": {
@@ -243,7 +870,64 @@
       "nachLaenge": {},
       "lengthCoverage": "unresearched",
       "missingGeometryFields": [],
-      "geometryStatus": "documented"
+      "geometryStatus": "documented",
+      "shaftModelV2": {
+        "version": "shaft-v2",
+        "kind": "partial-thread-reference",
+        "lengthCoverage": "reference-rule-not-approved-length-series",
+        "ds": {
+          "value": 27,
+          "unit": "mm",
+          "sourceRefs": [
+            "boell931",
+            "fontana-catalogue"
+          ],
+          "verification": true,
+          "status": "verified",
+          "verificationMethod": "independent-publishers-agree"
+        },
+        "threadLengths": [
+          {
+            "minExclusive": 0,
+            "maxInclusive": 125,
+            "value": 60,
+            "unit": "mm",
+            "sourceRefs": [
+              "boell931",
+              "fontana-catalogue"
+            ],
+            "verification": true,
+            "status": "verified",
+            "verificationMethod": "independent-publishers-agree"
+          },
+          {
+            "minExclusive": 125,
+            "maxInclusive": 200,
+            "value": 66,
+            "unit": "mm",
+            "sourceRefs": [
+              "boell931",
+              "fontana-catalogue"
+            ],
+            "verification": true,
+            "status": "verified",
+            "verificationMethod": "independent-publishers-agree"
+          },
+          {
+            "minExclusive": 200,
+            "maxInclusive": null,
+            "value": 79,
+            "unit": "mm",
+            "sourceRefs": [
+              "boell931",
+              "fontana-catalogue"
+            ],
+            "verification": true,
+            "status": "verified",
+            "verificationMethod": "independent-publishers-agree"
+          }
+        ]
+      }
     },
     "M30": {
       "roh": {
@@ -262,7 +946,64 @@
       "nachLaenge": {},
       "lengthCoverage": "unresearched",
       "missingGeometryFields": [],
-      "geometryStatus": "documented"
+      "geometryStatus": "documented",
+      "shaftModelV2": {
+        "version": "shaft-v2",
+        "kind": "partial-thread-reference",
+        "lengthCoverage": "reference-rule-not-approved-length-series",
+        "ds": {
+          "value": 30,
+          "unit": "mm",
+          "sourceRefs": [
+            "boell931",
+            "fontana-catalogue"
+          ],
+          "verification": true,
+          "status": "verified",
+          "verificationMethod": "independent-publishers-agree"
+        },
+        "threadLengths": [
+          {
+            "minExclusive": 0,
+            "maxInclusive": 125,
+            "value": 66,
+            "unit": "mm",
+            "sourceRefs": [
+              "boell931",
+              "fontana-catalogue"
+            ],
+            "verification": true,
+            "status": "verified",
+            "verificationMethod": "independent-publishers-agree"
+          },
+          {
+            "minExclusive": 125,
+            "maxInclusive": 200,
+            "value": 72,
+            "unit": "mm",
+            "sourceRefs": [
+              "boell931",
+              "fontana-catalogue"
+            ],
+            "verification": true,
+            "status": "verified",
+            "verificationMethod": "independent-publishers-agree"
+          },
+          {
+            "minExclusive": 200,
+            "maxInclusive": null,
+            "value": 85,
+            "unit": "mm",
+            "sourceRefs": [
+              "boell931",
+              "fontana-catalogue"
+            ],
+            "verification": true,
+            "status": "verified",
+            "verificationMethod": "independent-publishers-agree"
+          }
+        ]
+      }
     },
     "M33": {
       "roh": {
@@ -281,7 +1022,64 @@
       "nachLaenge": {},
       "lengthCoverage": "unresearched",
       "missingGeometryFields": [],
-      "geometryStatus": "documented"
+      "geometryStatus": "documented",
+      "shaftModelV2": {
+        "version": "shaft-v2",
+        "kind": "partial-thread-reference",
+        "lengthCoverage": "reference-rule-not-approved-length-series",
+        "ds": {
+          "value": 33,
+          "unit": "mm",
+          "sourceRefs": [
+            "boell931",
+            "cofan931-shaft"
+          ],
+          "verification": true,
+          "status": "verified",
+          "verificationMethod": "independent-publishers-agree"
+        },
+        "threadLengths": [
+          {
+            "minExclusive": 0,
+            "maxInclusive": 125,
+            "value": 72,
+            "unit": "mm",
+            "sourceRefs": [
+              "boell931",
+              "aspen931"
+            ],
+            "verification": true,
+            "status": "verified",
+            "verificationMethod": "independent-publishers-agree"
+          },
+          {
+            "minExclusive": 125,
+            "maxInclusive": 200,
+            "value": 78,
+            "unit": "mm",
+            "sourceRefs": [
+              "boell931",
+              "aspen931"
+            ],
+            "verification": true,
+            "status": "verified",
+            "verificationMethod": "independent-publishers-agree"
+          },
+          {
+            "minExclusive": 200,
+            "maxInclusive": null,
+            "value": 91,
+            "unit": "mm",
+            "sourceRefs": [
+              "boell931",
+              "aspen931"
+            ],
+            "verification": true,
+            "status": "verified",
+            "verificationMethod": "independent-publishers-agree"
+          }
+        ]
+      }
     }
   },
   "fields": {
@@ -1169,6 +1967,30 @@
       "titel": "Böllhoff DIN931 Produktdatenblatt",
       "type": "manufacturer",
       "accessed": "2026-11-26"
+    },
+    {
+      "id": "fontana-catalogue",
+      "url": "https://www.bulloneriamorelli.it/files/00009/vol1_parte1.pdf",
+      "titel": "Fontana technical catalogue, hosted by Bulloneria Morelli",
+      "locator": "Printed pp. 8-11: ISO4014/ISO8765 and explicit DIN differences",
+      "type": "manufacturer-table",
+      "accessed": "2026-11-27"
+    },
+    {
+      "id": "aspen931",
+      "url": "https://www.aspenfasteners.com/content/pdf/Metric_DIN_931_spec.pdf",
+      "titel": "Aspen Fasteners DIN931 specification",
+      "locator": "PDF page1, B length groups",
+      "type": "manufacturer-table",
+      "accessed": "2026-11-27"
+    },
+    {
+      "id": "cofan931-shaft",
+      "url": "https://www.cofan.es/images/content/FichasTecnicas/ftpFichaTecnica10004.pdf",
+      "titel": "Cofan DIN931 technical sheet",
+      "locator": "One-page technical sheet, visually checked row M33, ds max.=33 mm. Used only for shaft diameter.",
+      "type": "manufacturer-table",
+      "accessed": "2026-11-27"
     }
   ],
   "abweichungen": [],
@@ -1255,5 +2077,6 @@
     "status": "unresearched",
     "values": [],
     "note": "Festigkeits-/Werkstoffklassen noch nicht vollständig aus dieser Norm belegt."
-  }
+  },
+  "shaftPolicy": "shaft-v2"
 }

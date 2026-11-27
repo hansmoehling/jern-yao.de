@@ -70,11 +70,12 @@
    * from a few norm dimensions. The UI/geometry adapter consumes effective and
    * updates its geometry explicitly. No machine family is selected or excluded.
    */
-  function resolveStandard(library,selection,previous={}){
+  function resolveStandard(library,selection,previous={},options={}){
     if(!record(library)||!present(library.version)||library.schemaVersion!==undefined&&library.schemaVersion!==SCHEMA_VERSION)throw new TypeError('Unsupported standards library.');
     const families=library.families||library.familien;
     if(!Array.isArray(families)||!record(selection)||typeof selection.id!=='string'||!present(selection.groesse))throw new TypeError('A standard and size are required.');
     const prior=previous.schemaVersion===SCHEMA_VERSION?validDocument(previous):copy(previous);
+    const shaftPolicy=options.shaftPolicy==='shaft-v2'||prior.shaftPolicy==='shaft-v2'?'shaft-v2':null;
     const overrides=copy(prior.overrides||{});validateOverrides(overrides);
     const matches=families.filter(f=>f.id===selection.id&&(selection.edition===undefined||String(f.edition)===String(selection.edition)));
     const family=matches.length===1?matches[0]:null;
@@ -114,6 +115,7 @@
     const retainedValues={};
     const previousBaseline={...valuesFrom(prior.retainedValues),...valuesFrom(prior.normBaseline?.values)};
     for(const [field,value]of Object.entries(previousBaseline))if((!own(values,field)||applicability[field]==='unresolved')&&present(value)){
+      if(shaftPolicy&&['sL','b','lg','ls','shaftSegments','shaftModelAssumption'].includes(field))continue;
       retainedValues[field]=copy(value);
       issues.push({code:'value-retained-without-standard',path:field,from:copy(prior.standardReference||null)});
     }
@@ -121,6 +123,7 @@
     const next={schemaVersion:SCHEMA_VERSION,revision:(prior.revision||0)+1,standardReference:reference,
       normBaseline:{id:JSON.stringify(reference),values,raw,definition,provenance,sourceStatus,applicability},
       overrides,retainedValues,partSnapshot:copy(prior.partSnapshot||{}),effective:{},issues};
+    if(shaftPolicy){next.shaftPolicy=shaftPolicy;next.lengthSelection={origin:options.lengthOrigin||prior.lengthSelection?.origin||'standard',value:present(selection.laenge)?copy(selection.laenge):null};}
     return materialize(next);
   }
   function setOverride(document,path,value){

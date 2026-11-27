@@ -3,6 +3,40 @@
   const clone=x=>JSON.parse(JSON.stringify(x));
   const number=x=>Number(String(x).replace(',','.'));
   const round=(x,p=3)=>Math.round(x*10**p)/10**p;
+  const SHAFT_POLICY_VERSION='shaft-v2';
+  const positive=x=>Number.isFinite(x)&&x>0;
+  function partialThreadBlank(out,document,row,lengthRow){
+    const model=row?.shaftModelV2;if(!model)return false;
+    // New observations never change legacy snapshots. Only a verified value
+    // in the selected length interval may define the new reference blank.
+    const override=document.overrides,group=model.threadLengths?.find(g=>out.sL>g.minExclusive&&(g.maxInclusive==null||out.sL<=g.maxInclusive));
+    delete out.b;delete out.ds;delete out.shaftType;
+    const ds=override.ds?.value??(model.ds?.verification===true?model.ds.value:null);
+    const referenceB=override.b?.value??(group?.verification===true?group.value:null);
+    if(positive(ds))out.ds=ds;
+    if(positive(referenceB))out.b=referenceB;
+    const flange=model.flange;
+    if(flange){
+      if(!override.flangeDiameter&&flange.diameter?.verification===true)out.flangeDiameter=flange.diameter.value;
+      if(!override.flangeHeight&&flange.height?.verification===true){
+        out.flangeHeight=flange.height.value;
+        out.flangeModelAssumption={origin:'assumption',provisional:true,rule:'R-FLANGE-ENVELOPE-01',model:'hex-prism-and-flange-cylinder',heightBasis:'published-minimum-c',height:flange.height.value,sourceRefs:clone(flange.height.sourceRefs)};
+      }
+      if(positive(out.flangeDiameter)&&positive(out.flangeHeight))out.normMissingFields=out.normMissingFields.filter(k=>k!=='flangeHeight');
+    }
+    if(!positive(out.sL)||!positive(ds)||!positive(referenceB)||!positive(out.sD)||referenceB>out.sL&&override.b){
+      out.normMissingFields.push(positive(out.sL)?'shaftLengthDistribution':'length');
+      out.shaftModelStatus=positive(out.sL)?'thread-length-unresolved':'length-missing';return true;
+    }
+    const threadedLength=Math.min(referenceB,out.sL),plainLength=out.sL-threadedLength;
+    out.b=threadedLength;out.shaftType=plainLength>0?'partial':'full';
+    if(plainLength>0)out.shaftSegments=[{diameter:ds,length:plainLength},{diameter:out.sD,length:threadedLength}];
+    out.shaftModelStatus='ready';
+    out.shaftModelAssumption={origin:'assumption',provisional:true,rule:'R-SHAFT-PARTIAL-01',model:'nominal-blank-segmentation',plainLength,threadedLength,referenceThreadLength:referenceB,shortLengthApproximation:referenceB>=out.sL,threadRunoutModel:'omitted',sourceRefs:clone(group?.sourceRefs||[]),diameterSourceRefs:clone(model.ds?.sourceRefs||[]),threadLengthOrigin:override.b?'customer':'standard-reference',diameterOrigin:override.ds?'customer':'standard-reference'};
+    if(lengthRow?.roh?.ls_min!=null)out.shaftModelAssumption.lsMin=lengthRow.roh.ls_min;
+    if(lengthRow?.roh?.lg_max!=null)out.shaftModelAssumption.lgMax=lengthRow.roh.lg_max;
+    out.normMissingFields=out.normMissingFields.filter(k=>!['shaftLengthDistribution','length'].includes(k));return true;
+  }
   function familyKind(f){
     if(f.id==='ISO13918')return 'pin';
     if(f.klasse==='mutter'||f.funktion==='mutter')return 'nut';
@@ -43,6 +77,8 @@
     const kind=familyKind(f||{}),t=['rivet','pin'].includes(kind)?null:thread(data,r.groesse,r.steigung??row?.roh?.P??row?.vorbelegung?.P);
     const head=HEADS[definition.kopfTyp]||definition.kopfTyp;
     const out={...v,standardKind:kind==='nut'?undefined:kind,standardReference:reference(document),standardDocument:clone(document),threadModel:t,propertyClass:r.festigkeitsklasse};
+    const shaftV2=document.shaftPolicy===SHAFT_POLICY_VERSION;
+    if(shaftV2)out.shaftPolicy=SHAFT_POLICY_VERSION;
     out.normGeometryStatus=lengthRow?.geometryStatus||row?.geometryStatus||f?.geometryStatus||'partial';
     out.normMissingFields=clone(lengthRow?.missingGeometryFields||row?.missingGeometryFields||f?.missingGeometryFields||[]);
     if(f?.variantId){
@@ -52,6 +88,7 @@
       out.normRequiresGeometryReview=out.normMissingFields.some(key=>['weldingTipProfile','lengthBeforeWelding','headProfileDefinition','tubeProfile','boreDepth'].includes(key));
     }
     delete out.shaftSegments;delete out.shaftModelAssumption;
+    if(shaftV2)delete out.flangeModelAssumption;
     if(kind==='nut'){
       out.mM??=number(r.groesse.replace(/^M/,'').split('x')[0]);
       out.nutShape=document.overrides.nutShape?.value??(/vierkant|square/.test(f?.kopfTyp||f?.form||'')?'square':f?.id==='DIN1587'?'cap':'hex');
@@ -76,10 +113,14 @@
       const shoulder=f?.geometryAdapter==='shoulder-screw-required'||f?.id==='ISO7379',stud=!!f?.feldzuordnung?.metalEndLength;
       const lengthField=f?.feldzuordnung?.totalLength?'totalLength':f?.feldzuordnung?.countersunkLength?'countersunkLength':null;
       if(lengthField||shoulder||stud){
-        if(!document.overrides.sL)delete out.sL;
+        if(!document.overrides.sL){if(shaftV2){out.sL=null;out.clearFields=['sL'];}else delete out.sL;}
         if(lengthField&&r.laenge!=null)out[lengthField]??=number(r.laenge);
         if(lengthField&&!document.overrides.sL)out.normMissingFields.push('headToShaftLength');
         if(shoulder||stud)out.normMissingFields.push('shaftLengthDistribution');
+      }else if(shaftV2&&f?.id!=='ISO13918'){
+        const length=document.overrides.sL?.value??(r.laenge!=null?number(r.laenge):null);
+        out.sL=positive(length)?length:null;
+        if(out.sL===null){out.clearFields=['sL'];out.normMissingFields.push('length');}
       }else if(r.laenge!=null&&f?.id!=='ISO13918')out.sL??=number(r.laenge);
       if(kind==='rivet'||kind==='pin')out.threadFamily='none';
       else out.threadFamily=document.overrides.threadFamily?.value??f?.threadFamily??'metric';
@@ -90,13 +131,14 @@
         if(!document.overrides.sD)out.sD=t.rollBlank;
         // A reference b alone does not establish a plain shaft. The length row
         // must explicitly identify the threaded and unthreaded portions.
-        let plain=lengthRow?.plainLength??lengthRow?.roh?.ls_nom;
-        if(plain==null&&lengthRow?.roh?.ls_min!=null&&lengthRow?.roh?.lg_max!=null&&lengthRow.roh.lg_max>=lengthRow.roh.ls_min){
+        const partialHandled=shaftV2&&partialThreadBlank(out,document,row,lengthRow);
+        let plain=partialHandled?null:lengthRow?.plainLength??lengthRow?.roh?.ls_nom;
+        if(!partialHandled&&plain==null&&lengthRow?.roh?.ls_min!=null&&lengthRow?.roh?.lg_max!=null&&lengthRow.roh.lg_max>=lengthRow.roh.ls_min){
           plain=(lengthRow.roh.ls_min+lengthRow.roh.lg_max)/2;
           out.shaftModelAssumption={origin:'assumption',provisional:true,plainLength:plain,min:lengthRow.roh.ls_min,max:lengthRow.roh.lg_max};
         }
         if(plain>0&&out.sL>plain)out.shaftSegments=[{diameter:t.d,length:plain},{diameter:out.sD,length:out.sL-plain}];
-        if(document.overrides.sL&&!lengthRow&&Object.values(row?.nachLaenge||{}).some(x=>x.plainLength>0||x.roh?.ls_nom>0||x.roh?.ls_min>0)){
+        if(!partialHandled&&document.overrides.sL&&!lengthRow&&Object.values(row?.nachLaenge||{}).some(x=>x.plainLength>0||x.roh?.ls_nom>0||x.roh?.ls_min>0)){
           out.normMissingFields.push('shaftLengthDistribution');out.normRequiresGeometryReview=true;
         }
       }
@@ -123,13 +165,13 @@
     }
     if(document.overrides.shaftSegments){
       const parts=document.overrides.shaftSegments.value;
-      if(Array.isArray(parts)&&parts.length&&parts.every(s=>Number.isFinite(s.diameter)&&s.diameter>0&&Number.isFinite(s.length)&&s.length>0)&&Math.abs(parts.reduce((n,s)=>n+s.length,0)-out.sL)<1e-7){out.shaftSegments=clone(parts);out.normMissingFields=out.normMissingFields.filter(key=>key!=='shaftLengthDistribution');}
+      if(Array.isArray(parts)&&parts.length&&parts.every(s=>Number.isFinite(s.diameter)&&s.diameter>0&&Number.isFinite(s.length)&&s.length>0)&&Math.abs(parts.reduce((n,s)=>n+s.length,0)-out.sL)<1e-7){out.shaftSegments=clone(parts);out.normMissingFields=out.normMissingFields.filter(key=>key!=='shaftLengthDistribution');if(shaftV2){out.shaftModelStatus='customer';out.shaftModelAssumption={origin:'customer',model:'explicit-shaft-segments'};delete out.shaftType;delete out.b;delete out.ds;}}
       else{delete out.shaftSegments;out.normMissingFields.push('shaftLengthDistribution');out.normRequiresGeometryReview=true;}
     }
     for(const [field,missing]of [['sD','rollingBlankDiameter'],['sL','headToShaftLength'],['sArea','sArea']])if(document.overrides[field]?.value>0)out.normMissingFields=out.normMissingFields.filter(key=>key!==missing);
     out.normMissingFields=[...new Set(out.normMissingFields)];
-    out.normRequiresGeometryReview=out.normMissingFields.some(key=>['weldingTipProfile','lengthBeforeWelding','headProfileDefinition','tubeProfile','boreDepth','shaftLengthDistribution','endDiameter','endLength','shaftEndProfile','unsupportedDriveContour','rollingBlankDiameter','headToShaftLength','sArea'].includes(key));
+    out.normRequiresGeometryReview=out.normMissingFields.some(key=>['weldingTipProfile','lengthBeforeWelding','headProfileDefinition','tubeProfile','boreDepth','shaftLengthDistribution','endDiameter','endLength','shaftEndProfile','unsupportedDriveContour','rollingBlankDiameter','headToShaftLength','sArea',...(shaftV2?['length']:[])].includes(key));
     return out;
   }
-  return Object.freeze({familyKind,families,variants,variantFamily,selectionLibrary,editionLabel,familyLabel,missingLabel,sizes,lengths,thread,pitches,reference,adapt});
+  return Object.freeze({SHAFT_POLICY_VERSION,familyKind,families,variants,variantFamily,selectionLibrary,editionLabel,familyLabel,missingLabel,sizes,lengths,thread,pitches,reference,adapt});
 });

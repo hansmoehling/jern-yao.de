@@ -35,7 +35,92 @@
       "missingGeometryFields": [
         "flangeHeight"
       ],
-      "geometryStatus": "partial"
+      "geometryStatus": "partial",
+      "shaftModelV2": {
+        "version": "shaft-v2",
+        "kind": "partial-thread-reference",
+        "lengthCoverage": "reference-rule-not-approved-length-series",
+        "ds": {
+          "value": 5,
+          "unit": "mm",
+          "sourceRefs": [
+            "en1665-original",
+            "dega1665-shaft"
+          ],
+          "verification": true,
+          "status": "verified",
+          "verificationMethod": "independent-publishers-agree"
+        },
+        "threadLengths": [
+          {
+            "minExclusive": 0,
+            "maxInclusive": 125,
+            "value": 16,
+            "unit": "mm",
+            "sourceRefs": [
+              "en1665-original",
+              "vipa1665"
+            ],
+            "verification": true,
+            "status": "verified",
+            "verificationMethod": "independent-publishers-agree"
+          },
+          {
+            "minExclusive": 125,
+            "maxInclusive": 200,
+            "value": null,
+            "unit": "mm",
+            "sourceRefs": [
+              "en1665-original",
+              "vipa1665"
+            ],
+            "verification": false,
+            "status": "missing",
+            "verificationMethod": "independent-publishers-agree"
+          },
+          {
+            "minExclusive": 200,
+            "maxInclusive": null,
+            "value": null,
+            "unit": "mm",
+            "sourceRefs": [
+              "en1665-original",
+              "vipa1665"
+            ],
+            "verification": false,
+            "status": "missing",
+            "verificationMethod": "independent-publishers-agree"
+          }
+        ],
+        "flange": {
+          "height": {
+            "value": 1,
+            "unit": "mm",
+            "sourceRefs": [
+              "en1665-original",
+              "earnest-flange"
+            ],
+            "verification": true,
+            "status": "verified",
+            "verificationMethod": "independent-publishers-agree",
+            "bound": "minimum",
+            "nominal": null,
+            "modelUse": "minimum-c-as-cylinder-height; flange slope and edge rounding omitted"
+          },
+          "diameter": {
+            "value": 11.8,
+            "unit": "mm",
+            "sourceRefs": [
+              "en1665-original",
+              "earnest-flange"
+            ],
+            "verification": true,
+            "status": "verified",
+            "verificationMethod": "independent-publishers-agree",
+            "bound": "maximum"
+          }
+        }
+      }
     },
     "M6": {
       "roh": {
@@ -55,7 +140,92 @@
       "missingGeometryFields": [
         "flangeHeight"
       ],
-      "geometryStatus": "partial"
+      "geometryStatus": "partial",
+      "shaftModelV2": {
+        "version": "shaft-v2",
+        "kind": "partial-thread-reference",
+        "lengthCoverage": "reference-rule-not-approved-length-series",
+        "ds": {
+          "value": 6,
+          "unit": "mm",
+          "sourceRefs": [
+            "en1665-original",
+            "dega1665-shaft"
+          ],
+          "verification": true,
+          "status": "verified",
+          "verificationMethod": "independent-publishers-agree"
+        },
+        "threadLengths": [
+          {
+            "minExclusive": 0,
+            "maxInclusive": 125,
+            "value": 18,
+            "unit": "mm",
+            "sourceRefs": [
+              "en1665-original",
+              "vipa1665"
+            ],
+            "verification": true,
+            "status": "verified",
+            "verificationMethod": "independent-publishers-agree"
+          },
+          {
+            "minExclusive": 125,
+            "maxInclusive": 200,
+            "value": null,
+            "unit": "mm",
+            "sourceRefs": [
+              "en1665-original",
+              "vipa1665"
+            ],
+            "verification": false,
+            "status": "missing",
+            "verificationMethod": "independent-publishers-agree"
+          },
+          {
+            "minExclusive": 200,
+            "maxInclusive": null,
+            "value": null,
+            "unit": "mm",
+            "sourceRefs": [
+              "en1665-original",
+              "vipa1665"
+            ],
+            "verification": false,
+            "status": "missing",
+            "verificationMethod": "independent-publishers-agree"
+          }
+        ],
+        "flange": {
+          "height": {
+            "value": 1.1,
+            "unit": "mm",
+            "sourceRefs": [
+              "en1665-original",
+              "earnest-flange"
+            ],
+            "verification": true,
+            "status": "verified",
+            "verificationMethod": "independent-publishers-agree",
+            "bound": "minimum",
+            "nominal": null,
+            "modelUse": "minimum-c-as-cylinder-height; flange slope and edge rounding omitted"
+          },
+          "diameter": {
+            "value": 14.2,
+            "unit": "mm",
+            "sourceRefs": [
+              "en1665-original",
+              "earnest-flange"
+            ],
+            "verification": true,
+            "status": "verified",
+            "verificationMethod": "independent-publishers-agree",
+            "bound": "maximum"
+          }
+        }
+      }
     },
     "M8": {
       "roh": {
@@ -75,7 +245,92 @@
       "missingGeometryFields": [
         "flangeHeight"
       ],
-      "geometryStatus": "partial"
+      "geometryStatus": "partial",
+      "shaftModelV2": {
+        "version": "shaft-v2",
+        "kind": "partial-thread-reference",
+        "lengthCoverage": "reference-rule-not-approved-length-series",
+        "ds": {
+          "value": 8,
+          "unit": "mm",
+          "sourceRefs": [
+            "en1665-original",
+            "dega1665-shaft"
+          ],
+          "verification": true,
+          "status": "verified",
+          "verificationMethod": "independent-publishers-agree"
+        },
+        "threadLengths": [
+          {
+            "minExclusive": 0,
+            "maxInclusive": 125,
+            "value": 22,
+            "unit": "mm",
+            "sourceRefs": [
+              "en1665-original",
+              "vipa1665"
+            ],
+            "verification": true,
+            "status": "verified",
+            "verificationMethod": "independent-publishers-agree"
+          },
+          {
+            "minExclusive": 125,
+            "maxInclusive": 200,
+            "value": 28,
+            "unit": "mm",
+            "sourceRefs": [
+              "en1665-original",
+              "vipa1665"
+            ],
+            "verification": true,
+            "status": "verified",
+            "verificationMethod": "independent-publishers-agree"
+          },
+          {
+            "minExclusive": 200,
+            "maxInclusive": null,
+            "value": null,
+            "unit": "mm",
+            "sourceRefs": [
+              "en1665-original",
+              "vipa1665"
+            ],
+            "verification": false,
+            "status": "missing",
+            "verificationMethod": "independent-publishers-agree"
+          }
+        ],
+        "flange": {
+          "height": {
+            "value": 1.2,
+            "unit": "mm",
+            "sourceRefs": [
+              "en1665-original",
+              "earnest-flange"
+            ],
+            "verification": true,
+            "status": "verified",
+            "verificationMethod": "independent-publishers-agree",
+            "bound": "minimum",
+            "nominal": null,
+            "modelUse": "minimum-c-as-cylinder-height; flange slope and edge rounding omitted"
+          },
+          "diameter": {
+            "value": 18,
+            "unit": "mm",
+            "sourceRefs": [
+              "en1665-original",
+              "earnest-flange"
+            ],
+            "verification": true,
+            "status": "verified",
+            "verificationMethod": "independent-publishers-agree",
+            "bound": "maximum"
+          }
+        }
+      }
     },
     "M10": {
       "roh": {
@@ -95,7 +350,92 @@
       "missingGeometryFields": [
         "flangeHeight"
       ],
-      "geometryStatus": "partial"
+      "geometryStatus": "partial",
+      "shaftModelV2": {
+        "version": "shaft-v2",
+        "kind": "partial-thread-reference",
+        "lengthCoverage": "reference-rule-not-approved-length-series",
+        "ds": {
+          "value": 10,
+          "unit": "mm",
+          "sourceRefs": [
+            "en1665-original",
+            "dega1665-shaft"
+          ],
+          "verification": true,
+          "status": "verified",
+          "verificationMethod": "independent-publishers-agree"
+        },
+        "threadLengths": [
+          {
+            "minExclusive": 0,
+            "maxInclusive": 125,
+            "value": 26,
+            "unit": "mm",
+            "sourceRefs": [
+              "en1665-original",
+              "vipa1665"
+            ],
+            "verification": true,
+            "status": "verified",
+            "verificationMethod": "independent-publishers-agree"
+          },
+          {
+            "minExclusive": 125,
+            "maxInclusive": 200,
+            "value": 32,
+            "unit": "mm",
+            "sourceRefs": [
+              "en1665-original",
+              "vipa1665"
+            ],
+            "verification": true,
+            "status": "verified",
+            "verificationMethod": "independent-publishers-agree"
+          },
+          {
+            "minExclusive": 200,
+            "maxInclusive": null,
+            "value": null,
+            "unit": "mm",
+            "sourceRefs": [
+              "en1665-original",
+              "vipa1665"
+            ],
+            "verification": false,
+            "status": "missing",
+            "verificationMethod": "independent-publishers-agree"
+          }
+        ],
+        "flange": {
+          "height": {
+            "value": 1.5,
+            "unit": "mm",
+            "sourceRefs": [
+              "en1665-original",
+              "earnest-flange"
+            ],
+            "verification": true,
+            "status": "verified",
+            "verificationMethod": "independent-publishers-agree",
+            "bound": "minimum",
+            "nominal": null,
+            "modelUse": "minimum-c-as-cylinder-height; flange slope and edge rounding omitted"
+          },
+          "diameter": {
+            "value": 22.3,
+            "unit": "mm",
+            "sourceRefs": [
+              "en1665-original",
+              "earnest-flange"
+            ],
+            "verification": true,
+            "status": "verified",
+            "verificationMethod": "independent-publishers-agree",
+            "bound": "maximum"
+          }
+        }
+      }
     },
     "M12": {
       "roh": {
@@ -115,7 +455,92 @@
       "missingGeometryFields": [
         "flangeHeight"
       ],
-      "geometryStatus": "partial"
+      "geometryStatus": "partial",
+      "shaftModelV2": {
+        "version": "shaft-v2",
+        "kind": "partial-thread-reference",
+        "lengthCoverage": "reference-rule-not-approved-length-series",
+        "ds": {
+          "value": 12,
+          "unit": "mm",
+          "sourceRefs": [
+            "en1665-original",
+            "dega1665-shaft"
+          ],
+          "verification": true,
+          "status": "verified",
+          "verificationMethod": "independent-publishers-agree"
+        },
+        "threadLengths": [
+          {
+            "minExclusive": 0,
+            "maxInclusive": 125,
+            "value": 30,
+            "unit": "mm",
+            "sourceRefs": [
+              "en1665-original",
+              "vipa1665"
+            ],
+            "verification": true,
+            "status": "verified",
+            "verificationMethod": "independent-publishers-agree"
+          },
+          {
+            "minExclusive": 125,
+            "maxInclusive": 200,
+            "value": 36,
+            "unit": "mm",
+            "sourceRefs": [
+              "en1665-original",
+              "vipa1665"
+            ],
+            "verification": true,
+            "status": "verified",
+            "verificationMethod": "independent-publishers-agree"
+          },
+          {
+            "minExclusive": 200,
+            "maxInclusive": null,
+            "value": null,
+            "unit": "mm",
+            "sourceRefs": [
+              "en1665-original",
+              "vipa1665"
+            ],
+            "verification": false,
+            "status": "missing",
+            "verificationMethod": "independent-publishers-agree"
+          }
+        ],
+        "flange": {
+          "height": {
+            "value": 1.8,
+            "unit": "mm",
+            "sourceRefs": [
+              "en1665-original",
+              "earnest-flange"
+            ],
+            "verification": true,
+            "status": "verified",
+            "verificationMethod": "independent-publishers-agree",
+            "bound": "minimum",
+            "nominal": null,
+            "modelUse": "minimum-c-as-cylinder-height; flange slope and edge rounding omitted"
+          },
+          "diameter": {
+            "value": 26.6,
+            "unit": "mm",
+            "sourceRefs": [
+              "en1665-original",
+              "earnest-flange"
+            ],
+            "verification": true,
+            "status": "verified",
+            "verificationMethod": "independent-publishers-agree",
+            "bound": "maximum"
+          }
+        }
+      }
     },
     "M14": {
       "roh": {
@@ -135,7 +560,92 @@
       "missingGeometryFields": [
         "flangeHeight"
       ],
-      "geometryStatus": "partial"
+      "geometryStatus": "partial",
+      "shaftModelV2": {
+        "version": "shaft-v2",
+        "kind": "partial-thread-reference",
+        "lengthCoverage": "reference-rule-not-approved-length-series",
+        "ds": {
+          "value": 14,
+          "unit": "mm",
+          "sourceRefs": [
+            "en1665-original",
+            "dega1665-shaft"
+          ],
+          "verification": true,
+          "status": "verified",
+          "verificationMethod": "independent-publishers-agree"
+        },
+        "threadLengths": [
+          {
+            "minExclusive": 0,
+            "maxInclusive": 125,
+            "value": 34,
+            "unit": "mm",
+            "sourceRefs": [
+              "en1665-original",
+              "vipa1665"
+            ],
+            "verification": true,
+            "status": "verified",
+            "verificationMethod": "independent-publishers-agree"
+          },
+          {
+            "minExclusive": 125,
+            "maxInclusive": 200,
+            "value": 40,
+            "unit": "mm",
+            "sourceRefs": [
+              "en1665-original",
+              "vipa1665"
+            ],
+            "verification": true,
+            "status": "verified",
+            "verificationMethod": "independent-publishers-agree"
+          },
+          {
+            "minExclusive": 200,
+            "maxInclusive": null,
+            "value": null,
+            "unit": "mm",
+            "sourceRefs": [
+              "en1665-original",
+              "vipa1665"
+            ],
+            "verification": false,
+            "status": "missing",
+            "verificationMethod": "independent-publishers-agree"
+          }
+        ],
+        "flange": {
+          "height": {
+            "value": 2.1,
+            "unit": "mm",
+            "sourceRefs": [
+              "en1665-original",
+              "earnest-flange"
+            ],
+            "verification": true,
+            "status": "verified",
+            "verificationMethod": "independent-publishers-agree",
+            "bound": "minimum",
+            "nominal": null,
+            "modelUse": "minimum-c-as-cylinder-height; flange slope and edge rounding omitted"
+          },
+          "diameter": {
+            "value": 30.5,
+            "unit": "mm",
+            "sourceRefs": [
+              "en1665-original",
+              "earnest-flange"
+            ],
+            "verification": true,
+            "status": "verified",
+            "verificationMethod": "independent-publishers-agree",
+            "bound": "maximum"
+          }
+        }
+      }
     },
     "M16": {
       "roh": {
@@ -155,7 +665,92 @@
       "missingGeometryFields": [
         "flangeHeight"
       ],
-      "geometryStatus": "partial"
+      "geometryStatus": "partial",
+      "shaftModelV2": {
+        "version": "shaft-v2",
+        "kind": "partial-thread-reference",
+        "lengthCoverage": "reference-rule-not-approved-length-series",
+        "ds": {
+          "value": 16,
+          "unit": "mm",
+          "sourceRefs": [
+            "en1665-original",
+            "dega1665-shaft"
+          ],
+          "verification": true,
+          "status": "verified",
+          "verificationMethod": "independent-publishers-agree"
+        },
+        "threadLengths": [
+          {
+            "minExclusive": 0,
+            "maxInclusive": 125,
+            "value": 38,
+            "unit": "mm",
+            "sourceRefs": [
+              "en1665-original",
+              "vipa1665"
+            ],
+            "verification": true,
+            "status": "verified",
+            "verificationMethod": "independent-publishers-agree"
+          },
+          {
+            "minExclusive": 125,
+            "maxInclusive": 200,
+            "value": 44,
+            "unit": "mm",
+            "sourceRefs": [
+              "en1665-original",
+              "vipa1665"
+            ],
+            "verification": true,
+            "status": "verified",
+            "verificationMethod": "independent-publishers-agree"
+          },
+          {
+            "minExclusive": 200,
+            "maxInclusive": null,
+            "value": 57,
+            "unit": "mm",
+            "sourceRefs": [
+              "en1665-original",
+              "vipa1665"
+            ],
+            "verification": true,
+            "status": "verified",
+            "verificationMethod": "independent-publishers-agree"
+          }
+        ],
+        "flange": {
+          "height": {
+            "value": 2.4,
+            "unit": "mm",
+            "sourceRefs": [
+              "en1665-original",
+              "earnest-flange"
+            ],
+            "verification": true,
+            "status": "verified",
+            "verificationMethod": "independent-publishers-agree",
+            "bound": "minimum",
+            "nominal": null,
+            "modelUse": "minimum-c-as-cylinder-height; flange slope and edge rounding omitted"
+          },
+          "diameter": {
+            "value": 35,
+            "unit": "mm",
+            "sourceRefs": [
+              "en1665-original",
+              "earnest-flange"
+            ],
+            "verification": true,
+            "status": "verified",
+            "verificationMethod": "independent-publishers-agree",
+            "bound": "maximum"
+          }
+        }
+      }
     },
     "M20": {
       "roh": {
@@ -175,7 +770,99 @@
       "missingGeometryFields": [
         "flangeHeight"
       ],
-      "geometryStatus": "partial"
+      "geometryStatus": "partial",
+      "shaftModelV2": {
+        "version": "shaft-v2",
+        "kind": "partial-thread-reference",
+        "lengthCoverage": "reference-rule-not-approved-length-series",
+        "ds": {
+          "value": 20,
+          "unit": "mm",
+          "sourceRefs": [
+            "en1665-original",
+            "dega1665-shaft"
+          ],
+          "verification": true,
+          "status": "verified",
+          "verificationMethod": "independent-publishers-agree"
+        },
+        "threadLengths": [
+          {
+            "minExclusive": 0,
+            "maxInclusive": 125,
+            "value": 46,
+            "unit": "mm",
+            "sourceRefs": [
+              "en1665-original",
+              "vipa1665"
+            ],
+            "verification": true,
+            "status": "verified",
+            "verificationMethod": "independent-publishers-agree"
+          },
+          {
+            "minExclusive": 125,
+            "maxInclusive": 200,
+            "value": 52,
+            "unit": "mm",
+            "sourceRefs": [
+              "en1665-original",
+              "vipa1665"
+            ],
+            "verification": true,
+            "status": "verified",
+            "verificationMethod": "independent-publishers-agree",
+            "conflictingEvidence": [
+              {
+                "sourceRef": "fastenit1665",
+                "value": 62
+              }
+            ],
+            "resolution": "Original EN1665 table and VIPA agree on52; secondary62 excluded."
+          },
+          {
+            "minExclusive": 200,
+            "maxInclusive": null,
+            "value": 65,
+            "unit": "mm",
+            "sourceRefs": [
+              "en1665-original",
+              "vipa1665"
+            ],
+            "verification": true,
+            "status": "verified",
+            "verificationMethod": "independent-publishers-agree"
+          }
+        ],
+        "flange": {
+          "height": {
+            "value": 3,
+            "unit": "mm",
+            "sourceRefs": [
+              "en1665-original",
+              "earnest-flange"
+            ],
+            "verification": true,
+            "status": "verified",
+            "verificationMethod": "independent-publishers-agree",
+            "bound": "minimum",
+            "nominal": null,
+            "modelUse": "minimum-c-as-cylinder-height; flange slope and edge rounding omitted"
+          },
+          "diameter": {
+            "value": 43,
+            "unit": "mm",
+            "sourceRefs": [
+              "en1665-original",
+              "earnest-flange"
+            ],
+            "verification": true,
+            "status": "verified",
+            "verificationMethod": "independent-publishers-agree",
+            "bound": "maximum"
+          }
+        }
+      }
     }
   },
   "fields": {
@@ -674,6 +1361,38 @@
       "url": "https://fasten.it/en/norms/norm/din_en_1665",
       "titel": "fasten.it - DIN EN 1665 hexagon flange bolts heavy series (nur über WebFetch-Zusammenfassung gelesen)",
       "abgerufen": "2026-11-25"
+    },
+    {
+      "id": "en1665-original",
+      "url": "https://cdn.standards.iteh.ai/samples/8361/992dcc8e9405473ea235a995c24c61ef/SIST-EN-1665-2001.pdf",
+      "titel": "EN1665:1997, SIST EN1665:2001 original preview",
+      "locator": "Table1 printed p6, PDF page8; Figure3 c measured at dw min; visually checked",
+      "type": "standard-preview",
+      "accessed": "2026-11-27"
+    },
+    {
+      "id": "vipa1665",
+      "url": "https://www.vipafasteners.com/files/0/356-HEXAGON_FLANGE_SCREWS_WITH_OR_WITHOUT_SERRATION_ISO_1665_DIN_6921.pdf",
+      "titel": "VIPA EN1665 / DIN6921 catalogue",
+      "locator": "PDF page1, b rows only; head dimensions differ by norm and are not used",
+      "type": "manufacturer-table",
+      "accessed": "2026-11-27"
+    },
+    {
+      "id": "earnest-flange",
+      "url": "https://cdn-prod.earnestmachine.com/media/zcmiurny/technical-bulletin-the-difference-between-din-iso-and-jis.pdf",
+      "titel": "Earnest Machine dimensional comparison",
+      "locator": "PDF page3: ISO4162 / EN1665 rows, flange diameter and minimum thickness",
+      "type": "manufacturer-table",
+      "accessed": "2026-11-27"
+    },
+    {
+      "id": "dega1665-shaft",
+      "url": "https://degademir.com/en/urun/din-6921-hexagon-head-flange-bolt",
+      "titel": "Dega Demir EN1665 product table",
+      "locator": "Primary standard DIN EN1665; table row Schaft Diameter ds max., M5-M20. Used only for shaft diameter; mixed DIN/EN head dimensions excluded.",
+      "type": "manufacturer-table",
+      "accessed": "2026-11-27"
     }
   ],
   "abweichungen": [],
@@ -762,5 +1481,6 @@
     "status": "unresearched",
     "values": [],
     "note": "Festigkeits-/Werkstoffklassen noch nicht vollständig aus dieser Norm belegt."
-  }
+  },
+  "shaftPolicy": "shaft-v2"
 }

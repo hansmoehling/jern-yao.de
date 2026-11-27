@@ -1,14 +1,15 @@
 (function(){
   'use strict';
   window.JYNormPicker={create};
-  function create({host,form,data,tr,getType,onApply,getPart,onChange}){
+  function create({host,form,data,tr,getType,onApply,getPart,onChange,shaftPolicy,catalogue=[],formatNumber=value=>String(Math.round(value*100)/100)}){
     const N=window.JYNormLibrary,R=window.JYStandards;
-    let document=null,lastKind='',applying=false,lastBoltKind='screw';
-    const saved=new Map();
+    let document=null,lastKind='',applying=false,lastBoltKind='screw',lengthOrigin='standard';
+    const enhancedLengths=shaftPolicy==='shaft-v2';
+    const saved=new Map(),sizeReasons=new Map();
     const el=(tag,text,attrs={})=>{const n=window.document.createElement(tag);if(text)n.textContent=tr(text);Object.assign(n,attrs);return n;};
     const title=el('h3','Norm wählen, Maße übernehmen');host.append(title);
     const grid=el('div',null,{className:'felder'});host.append(grid);
-    const controls={},wraps={},labels=[['kind','Teilefamilie'],['id','Normvorlage'],['form','Ausführung'],['groesse','Größe'],['laenge','Länge in mm'],['steigung','Steigung in mm'],['festigkeitsklasse','Festigkeitsklasse']];let lengthToggle,lengthValue,lengthOpen=false;
+    const controls={},wraps={},labels=[['kind','Teilefamilie'],['id','Normvorlage'],['form','Ausführung'],['groesse','Größe'],['laenge','Länge in mm'],['steigung','Steigung in mm'],['festigkeitsklasse','Festigkeitsklasse']];let lengthToggle,lengthValue,lengthOpen=false,lengthInput,lengthRange;
     for(const [key,label]of labels){
       const wrap=el(key==='laenge'?'div':'label',null,{className:'feld'+(key==='id'?' voll':'')});wrap.append(el('span',label));wraps[key]=wrap;
       const select=el('select',null,{id:'norm-'+key});select.setAttribute('aria-label',tr(label));wrap.append(select);grid.append(wrap);controls[key]=select;
@@ -17,10 +18,17 @@
         lengthValue=el('span');const arrow=el('span','▾');arrow.setAttribute('aria-hidden','true');lengthToggle.append(lengthValue,arrow);
         lengthToggle.setAttribute('aria-controls',select.id);lengthToggle.setAttribute('aria-expanded','false');lengthToggle.setAttribute('aria-haspopup','listbox');
         wrap.replaceChildren(wrap.children[0],lengthToggle,select);select.hidden=true;
+        if(enhancedLengths){
+          lengthInput=el('input',null,{id:'norm-laenge-custom',type:'number',min:'0.01',step:'any',inputMode:'decimal',hidden:true,value:''});
+          lengthInput.setAttribute('aria-label',tr('Individuelle Länge in mm'));wrap.append(lengthInput);
+          lengthRange=el('p',null,{id:'norm-length-range',className:'klein',hidden:true});wrap.append(lengthRange);
+          lengthInput.addEventListener('input',()=>choose('customLength'));lengthInput.addEventListener('change',()=>choose('customLength'));
+        }
         lengthToggle.addEventListener('click',()=>setLengthOpen(!lengthOpen,true));
         lengthToggle.addEventListener('keydown',event=>{if(['ArrowDown','ArrowUp'].includes(event.key)){event.preventDefault();setLengthOpen(true,true);}});
-        select.addEventListener('click',()=>setLengthOpen(false,true));
-        select.addEventListener('keydown',event=>{if(event.key==='Escape'){event.preventDefault();setLengthOpen(false,true);}else if(['Enter',' '].includes(event.key)){event.preventDefault();choose('laenge');setLengthOpen(false,true);}});
+        const closeLength=()=>{setLengthOpen(false,!(enhancedLengths&&select.value==='custom'));if(enhancedLengths&&select.value==='custom')lengthInput.focus();};
+        select.addEventListener('click',closeLength);
+        select.addEventListener('keydown',event=>{if(event.key==='Escape'){event.preventDefault();setLengthOpen(false,true);}else if(['Enter',' '].includes(event.key)){event.preventDefault();choose('laenge');closeLength();}});
       }
       select.addEventListener('change',()=>choose(key));
     }
@@ -29,12 +37,30 @@
       if(focus)(lengthOpen?controls.laenge:lengthToggle).focus();
     }
     function refreshLength(){
-      const field=controls.laenge,value=field.value?field.value+' mm':'—';lengthValue.textContent=value;
+      const field=controls.laenge,value=field.value==='custom'?tr('Andere Länge …'):field.value?field.value+' mm':'—';lengthValue.textContent=value;
       lengthToggle.disabled=field.disabled;lengthToggle.setAttribute('aria-label',tr(family()?.id==='ISO13918'?'Länge vor dem Schweißen in mm':'Länge in mm')+': '+value);
       // size >= 2 guarantees an in-document list rather than an OS popup,
       // including a family for which only one length is documented.
       field.size=Math.max(2,Math.min(6,field.options.length));if(field.disabled)setLengthOpen(false);
+      if(enhancedLengths){
+        const custom=field.value==='custom';lengthToggle.hidden=!N.lengths(family(),controls.groesse.value).length;
+        lengthInput.hidden=!custom||!family();lengthInput.disabled=!family();lengthInput.setAttribute('aria-label',tr(family()?.id==='ISO13918'?'Länge vor dem Schweißen in mm':'Individuelle Länge in mm'));
+        lengthRange.hidden=!custom||!family();lengthRange.textContent=lengthRange.hidden?'':lengthRangeText();
+      }
     }
+    function availabilityPart(size=controls.groesse.value){
+      if(!baseFamily()||!size)return null;
+      try{return N.adapt(data,R.resolveStandard(N.selectionLibrary(data,{id:controls.id.value,form:controls.form.value}),{id:controls.id.value,groesse:size,...(controls.form.value?{form:controls.form.value}:{})},{},{shaftPolicy}));}catch{return null;}
+    }
+    function lengthRangeText(){
+      const range=window.JYNormAvailability?.lengthAvailability({part:availabilityPart()||{},catalogue}),product=range?.productLength?.max,cutoff=range?.cutoffLength;
+      const text=(key,values)=>tr(key).replace(/\{(\w+)\}/g,(all,key)=>typeof values[key]==='number'?formatNumber(values[key]):values[key]??all);
+      const parts=[];
+      if(product>0)parts.push(text('Dokumentierte Produktlängen im Maschinenkatalog: bis {value} mm.',{value:product}));
+      if(cutoff?.min>0&&cutoff?.max>0)parts.push(text('Dokumentierte Abschnittlängen {min}–{max} mm; der Abschnitt wird aus dem Volumen berechnet.',{min:cutoff.min,max:cutoff.max}));
+      return parts.join(' ')||tr('Individuelle Länge eingeben; die Maschinenprüfung folgt aus der vollständigen Geometrie.');
+    }
+    function sizeLabels(){for(const option of controls.groesse.options){const result=sizeReasons.get(option.value);if(!result)continue;const reason=tr(result.reason).replace(/\{(\w+)\}/g,(all,key)=>typeof result.params?.[key]==='number'?formatNumber(result.params[key]):result.params?.[key]??all);option.title=reason;option.textContent=option.value+' · '+reason;}}
     window.document.addEventListener?.('click',event=>{if(lengthOpen&&!wraps.laenge.contains(event.target))setLengthOpen(false);});
     host.addEventListener('focusout',event=>{if(lengthOpen&&event.relatedTarget&&!wraps.laenge.contains(event.relatedTarget))setLengthOpen(false);});
     const note=el('p','Die Norm ist Ihre Vorlage. Ändern Sie nur, was bei Ihrem Teil abweicht.',{className:'norm-intro'});host.append(note);
@@ -45,11 +71,19 @@
     function kind(){return getType()==='mutter'?'nut':controls.kind.value||'screw';}
     function baseFamily(){return data.families.find(f=>f.id===controls.id.value);}
     function family(){return N.variantFamily(baseFamily(),controls.form.value);}
-    function fill(){
+    function fill(resetLength=false){
       const vs=N.variants(baseFamily());options(controls.form,vs.map(v=>[v.id,v.id+' · '+tr(v.label)]),controls.form.value);controls.form.closest('label').hidden=!vs.length;
       const f=family(),s=controls.groesse;
       options(s,N.sizes(f).map(x=>[x,x]),s.value);
-      const ls=N.lengths(f,s.value);options(controls.laenge,ls.map(x=>[x,x]),controls.laenge.value||'30');
+      sizeReasons.clear();
+      if(enhancedLengths&&window.JYNormAvailability)for(const option of s.options){
+        const result=window.JYNormAvailability.sizeAvailability({part:availabilityPart(option.value)||{},catalogue});option.disabled=result?.disabled===true;
+        if(option.disabled)sizeReasons.set(option.value,result);
+      }
+      sizeLabels();
+      const ls=N.lengths(f,s.value),oldLength=resetLength&&lengthOrigin!=='customer'?'':controls.laenge.value;
+      const lengthChoices=ls.map(x=>[x,x]);if(enhancedLengths&&f)lengthChoices.push(['custom','Andere Länge …']);
+      options(controls.laenge,lengthChoices,enhancedLengths&&(lengthOrigin==='customer'||!ls.length)?'custom':oldLength||(!enhancedLengths?'30':''));
       const lengthLabel=f?.id==='ISO13918'?'Länge vor dem Schweißen in mm':'Länge in mm';wraps.laenge.children[0].textContent=tr(lengthLabel);controls.laenge.setAttribute('aria-label',tr(lengthLabel));
       wraps.laenge.hidden=kind()==='nut';controls.laenge.disabled=!ls.length;setLengthOpen(false);refreshLength();
       const row=f?.groessen?.[s.value],allPitches=N.pitches(data,s.value),allowed=row?.steigungen;
@@ -71,6 +105,7 @@
         const id=controls.id.value;
         options(controls.id,[['','Ohne Normvorgabe'],...N.families(data,kind()).filter(f=>N.sizes(f).length||N.variants(f).length).map(f=>[f.id,N.familyLabel(f,tr)])],document?.standardReference.id||id);
         lastKind=kind();fill();
+        if(enhancedLengths){lengthOrigin=document?.lengthSelection?.origin||'standard';lengthInput.value=lengthOrigin==='customer'&&document?.lengthSelection?.value!=null?String(document.lengthSelection.value):'';}
         if(document){if(document.standardReference.form!=null){controls.form.value=document.standardReference.form;fill();}for(const key of ['groesse','laenge','steigung','festigkeitsklasse'])if(document.standardReference[key]!=null)controls[key].value=String(document.standardReference[key]);fill();onApply(N.adapt(data,document));}
       }
       render();
@@ -81,14 +116,21 @@
         form.elements.typ.value=controls.kind.value==='nut'?'mutter':'bolzen';
         controls.id.value='';refreshType(true);onChange();return;
       }
-      if(key==='id'||key==='form'||key==='groesse')fill();
+      if(key==='id'||key==='form'||key==='groesse')fill(enhancedLengths);
+      if(enhancedLengths&&key==='laenge'){
+        lengthOrigin=controls.laenge.value==='custom'?'customer':'standard';
+        if(lengthOrigin==='customer'&&!lengthInput.value&&document?.standardReference.laenge!=null)lengthInput.value=String(document.standardReference.laenge);
+        if(lengthOrigin==='standard')lengthInput.value='';refreshLength();if(lengthOrigin==='customer')lengthInput.focus();
+      }
+      if(key==='customLength')lengthOrigin='customer';
       if(!family()){document=null;render();detail.open=true;onChange();return;}
       const selection={id:controls.id.value,groesse:controls.groesse.value,festigkeitsklasse:controls.festigkeitsklasse.value};
       if(controls.form.value)selection.form=controls.form.value;
-      if(controls.laenge.value&&kind()!=='nut')selection.laenge=Number(controls.laenge.value);
+      const length=enhancedLengths&&controls.laenge.value==='custom'?Number(String(lengthInput.value).replace(',','.')):Number(controls.laenge.value);
+      if(Number.isFinite(length)&&length>0&&kind()!=='nut')selection.laenge=length;
       if(controls.steigung.value)selection.steigung=Number(controls.steigung.value);
       const previous=document?R.snapshot(document):{};previous.partSnapshot=getPart();
-      document=R.resolveStandard(N.selectionLibrary(data,selection),selection,previous);
+      document=R.resolveStandard(N.selectionLibrary(data,selection),selection,previous,enhancedLengths?{shaftPolicy,lengthOrigin}:{});
       apply();
     }
     function apply(){applying=true;onApply(N.adapt(data,document));applying=false;render();if(!Object.keys(document.overrides).length&&!N.adapt(data,document).normMissingFields.length&&(kind()==='nut'||controls.laenge.value))detail.open=false;onChange();}
@@ -102,6 +144,7 @@
       options(controls.id,[['','Ohne Normvorgabe'],...N.families(data,kind()).filter(f=>N.sizes(f).length||N.variants(f).length).map(f=>[f.id,N.familyLabel(f,tr)])],controls.id.value);
       options(controls.form,N.variants(baseFamily()).map(v=>[v.id,v.id+' · '+tr(v.label)]),controls.form.value);
       for(const option of controls.festigkeitsklasse.options)option.textContent=tr(option.value);
+      if(enhancedLengths){for(const option of controls.laenge.options)if(option.value==='custom')option.textContent=tr('Andere Länge …');sizeLabels();}
       refreshLength();
       title.textContent=tr('Norm wählen, Maße übernehmen');note.textContent=tr('Die Norm ist Ihre Vorlage. Ändern Sie nur, was bei Ihrem Teil abweicht.');
       status.textContent=document?N.reference(document,tr):tr('Freies Teil: Maße unten eingeben.');
@@ -110,7 +153,7 @@
       const entries=Object.entries(document.overrides);
       for(const [name,override]of entries){const item=el('div',null,{className:'norm-override'});item.append(el('span',tr('Kundenabweichung')+': '+name+' = '+override.value));if(Object.hasOwn(document.normBaseline.values,name)||Object.hasOwn(document.retainedValues,name)){const reset=el('button','Normmaß wiederherstellen',{type:'button',className:'knopf zwei'});reset.addEventListener('click',()=>{document=R.resetOverride(document,name);apply();});item.append(reset);}changes.append(item);}
       const missing=N.adapt(data,document).normMissingFields.map(key=>N.missingLabel(key,tr));
-      if(kind()!=='nut'&&!controls.laenge.value)missing.push(tr('Länge individuell eingeben; Normlängenreihe noch nicht vollständig belegt.'));
+      if(kind()!=='nut'&&!(enhancedLengths?document.standardReference.laenge:controls.laenge.value)&&!document.overrides.sL)missing.push(tr('Länge individuell eingeben; Normlängenreihe noch nicht vollständig belegt.'));
       if(missing.length)changes.append(el('p',tr('Noch zu ergänzen')+': '+missing.join(', '),{className:'norm-missing'}));
       const adapted=N.adapt(data,document);
       if(adapted.normRequiresGeometryReview)changes.append(el('p','Für diese Ausführung die fehlende Kontur im Baukasten ergänzen. Die belegten Normmaße bleiben erhalten.',{className:'norm-missing'}));
@@ -128,8 +171,8 @@
     refreshType();
     function current(){if(document)document.partSnapshot=getPart();return document;}
     return {refreshType,document:()=>current()?R.snapshot(document):null,adapted:()=>current()?N.adapt(data,document):null,
-      reset(){document=null;saved.clear();controls.id.value='';render();},
-      select(selection){const f=data.families.find(x=>x.id===selection.id);if(!f)return false;form.elements.typ.value=N.familyKind(f)==='nut'?'mutter':'bolzen';controls.kind.value=N.familyKind(f);lastKind='';refreshType(true);controls.id.value=f.id;fill();if(selection.form!=null){controls.form.value=selection.form;fill();}controls.groesse.value=selection.groesse;fill();for(const key of ['laenge','steigung','festigkeitsklasse'])if(selection[key]!=null)controls[key].value=String(selection[key]);choose('selection');return true;},
+      reset(){document=null;saved.clear();controls.id.value='';if(enhancedLengths){lengthOrigin='standard';lengthInput.value='';}render();},
+      select(selection){const f=data.families.find(x=>x.id===selection.id);if(!f)return false;form.elements.typ.value=N.familyKind(f)==='nut'?'mutter':'bolzen';controls.kind.value=N.familyKind(f);lastKind='';refreshType(true);controls.id.value=f.id;fill();if(selection.form!=null){controls.form.value=selection.form;fill();}controls.groesse.value=selection.groesse;fill();for(const key of ['laenge','steigung','festigkeitsklasse'])if(selection[key]!=null)controls[key].value=String(selection[key]);if(enhancedLengths&&selection.laenge!=null){lengthOrigin=N.lengths(family(),selection.groesse).includes(String(selection.laenge))?'standard':'customer';lengthInput.value=lengthOrigin==='customer'?String(selection.laenge):'';if(lengthOrigin==='customer')controls.laenge.value='custom';}choose('selection');return true;},
       summary(){return document?[N.reference(document,tr),...Object.entries(document.overrides).map(([key,x])=>tr('Kundenabweichung')+': '+key+' = '+x.value)].join('\n'):'';}
     };
   }

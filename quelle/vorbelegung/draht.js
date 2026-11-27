@@ -48,13 +48,18 @@
       params = { diameter: base };
     } else if (e.typ === 'bolzen') {
       if (!positive(e.sD)) return [];
-      minimum = e.sD;
+      const shaftV2=e.shaftPolicy==='shaft-v2';
+      const segments=shaftV2&&Array.isArray(e.shaftSegments)&&e.shaftSegments.length&&e.shaftSegments.every(segment=>positive(segment?.diameter)&&positive(segment?.length))?e.shaftSegments:null;
+      const segmented=segments&&positive(e.sL)&&Math.abs(segments.reduce((length,segment)=>length+segment.length,0)-e.sL)<=1e-7;
       const plain = ['rivet', 'pin'].includes(e.standardKind) || e.threadFamily === 'none';
-      const partial = e.shaftType === 'partial' || e.standardReference === 'ISO4014' || positive(e.b) && positive(e.sL) && e.sL > e.b && positive(e.ds);
-      if (plain || partial) {
-        base = e.sD;
-        reason = plain ? 'Niet oder Stift: Draht-Ø entspricht dem Schaft-Ø {shaft} mm.' : 'Teilgewinde: Draht-Ø entspricht dem Schaft-Ø {shaft} mm.';
-        params = { shaft: e.sD };
+      const partial = shaftV2?e.shaftType==='partial':e.shaftType === 'partial' || e.standardReference === 'ISO4014' || positive(e.b) && positive(e.sL) && e.sL > e.b && positive(e.ds);
+      if(shaftV2&&(e.shaftSegments!==undefined&&!segmented||partial&&!segmented&&!positive(e.ds)))return [];
+      const shaftDiameter=segmented?Math.max(...segments.map(segment=>segment.diameter)):shaftV2&&partial&&positive(e.ds)?Math.max(e.ds,e.sD):e.sD;
+      minimum = shaftDiameter;
+      if (plain || partial || segmented) {
+        base = shaftDiameter;
+        reason = segmented?'Abgesetzter Schaft: Draht-Ø entspricht dem größten Schaftsegment Ø {shaft} mm.':plain ? 'Niet oder Stift: Draht-Ø entspricht dem Schaft-Ø {shaft} mm.' : 'Teilgewinde: Draht-Ø entspricht dem Schaft-Ø {shaft} mm.';
+        params = { shaft: shaftDiameter };
       } else {
         base = grid(e.sD / Math.sqrt(1 - data.fullThreadAreaReduction), step, 1);
         lowerFallback = grid(e.sD, step, 1);

@@ -114,9 +114,9 @@
   .leer{ border:1px dashed var(--hair); border-radius:8px; padding:22px; color:var(--mid); font-size:14.5px; }
   .kenn{ display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); border-top:1px solid var(--hair); border-left:1px solid var(--hair); margin:14px 0 0; }
   @media (max-width:560px){ .kenn{ grid-template-columns:repeat(2,minmax(0,1fr)); } }
-  .kenn div{ background:var(--paper); padding:10px 12px; border-right:1px solid var(--hair); border-bottom:1px solid var(--hair); }
-  .kenn dt{ font-size:11.5px; color:var(--mid); letter-spacing:.04em; }
-  .kenn dd{ margin:2px 0 0; font-size:16px; font-variant-numeric:tabular-nums; }
+  .kenn div{ min-width:0; background:var(--paper); padding:10px 12px; border-right:1px solid var(--hair); border-bottom:1px solid var(--hair); }
+  .kenn dt{ font-size:11.5px; color:var(--mid); letter-spacing:.04em; overflow-wrap:anywhere; }
+  .kenn dd{ margin:2px 0 0; font-size:16px; font-variant-numeric:tabular-nums; overflow-wrap:anywhere; }
   .kenn dd small{ font-size:12px; color:var(--mid); }
   table{ border-collapse:collapse; width:100%; font-size:13.5px; font-variant-numeric:tabular-nums; }
   th{ text-align:left; font-weight:500; color:var(--mid); font-size:12px; border-bottom:1px solid var(--hair); padding:6px 8px; }

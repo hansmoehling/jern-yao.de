@@ -83,7 +83,7 @@ def build():
             values['/*KVP_UI*/']='\n'.join((Q/file).read_text(encoding='utf-8') for file in ['kvp-context.js','kvp-ui.js'])
             values['/*STANDARD_PREVIEW*/']=(Q/'standard-preview.js').read_text(encoding='utf-8')
             values['/*STANDARD_FAMILIES*/']=(Q/'standard-families.js').read_text(encoding='utf-8-sig')
-            values['/*NORM_LIBRARY*/']='window.JY_NORM_DATA='+json.dumps(norm_library,ensure_ascii=False,separators=(',',':')).replace('</','<\\/')+';\n'+'\n'.join((Q/'normen'/file).read_text(encoding='utf-8') for file in ['resolver.js','library.js','ui.js'])
+            values['/*NORM_LIBRARY*/']='window.JY_NORM_DATA='+json.dumps(norm_library,ensure_ascii=False,separators=(',',':')).replace('</','<\\/')+';\n'+'\n'.join((Q/'normen'/file).read_text(encoding='utf-8') for file in ['resolver.js','library.js','availability.js','ui.js'])
             values['/*WIRE_DEFAULTS*/']=embed_defaults((Q/'vorbelegung/draht.js').read_text(encoding='utf-8-sig'),'WIRE_PRESETS','vorbelegung/draht.json')
         for key,value in values.items():
             assert key in text,(source,key)

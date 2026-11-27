@@ -2,6 +2,8 @@
 
 `src/kvp.js` contains public code, no production cases. It never publishes knowledge, modifies an active manifest, or schedules a report. All learned bands, calibration factors and weights remain proposals requiring Hans's review.
 
+Manual enquiries from the exact testfield Origin `https://jern-yao.de` are replayed as `manual-v2` before an anonymous decision record is stored. This version keeps the actual stepped shaft, head and shaft-end geometry, nut model and explicit delivery condition, and uses `ranking-v2`, `force-v2`, `rm-v2` and `shaft-v2`. Recorded volume and forces use the engine's `V`, `Fmax_t` and `Fsum_t` fields. Only validated numerical dimensions and fixed enums survive; norm documents, source text and customer contact data are excluded. An unresolved contour is not logged as a calculated case. The server selects this version from the Origin, never from client claims. Other origins retain the previous replay until their package is released. This is still unreviewed intake, not approved KVP evidence.
+
 The two JSON POST routes are enabled only for the exact Origin `https://jern-yao.de`. An optional `featureVersion` must be `kvp-v1`; an optional `language` selects the response language. Other origins cannot enable the routes through `ALLOWED_ORIGINS`. Both routes use the existing `SPEICHER` binding, an 8 KiB body limit and the existing approximate daily KV throttle (30 feedback / 60 experience requests per IP hash). They need no new credential. Deployment/WAF limits remain separate from this application throttle.
 
 ## Feedback

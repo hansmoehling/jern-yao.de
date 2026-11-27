@@ -15,11 +15,12 @@ class El{
  addEventListener(k,fn){this.events[k]=fn}
  setAttribute(key,value){(this.attributes||={})[key]=value}
  querySelectorAll(){return []}
+ querySelector(){return null}
  scrollIntoView(options){this.scrollOptions=options}
  focus(options){this.focusOptions=options;this.focused=true}
  click(){this.clicked=true}
 }
-function setup(language,engine=E,showPrices,apiOptions,staged=false,integrated=false){
+function setup(language,engine=E,showPrices,apiOptions,staged=false,integrated=false,chainMode=false){
  const ids=new Map(),created=[];let ownerDocument;
  class DomEl extends El{
   constructor(tag='div'){super();this.tagName=tag.toUpperCase();this.children=[];this.name='';this.type='';this.ownerDocument=ownerDocument;created.push(this);}
@@ -67,8 +68,8 @@ function setup(language,engine=E,showPrices,apiOptions,staged=false,integrated=f
  const context={window,document,clearTimeout,setTimeout,location:{href:''},FormData,URL,URLSearchParams,AbortController,crypto,TypeError,fetch:async(url,options)=>{networkRequests.push({url,options});if(!apiOptions)throw Error('Network forbidden in archive tests');let answer=answers.shift();if(typeof answer==='function')answer=await answer();if(answer instanceof Error)throw answer;if(!answer)throw Error('Unmocked request');return {ok:answer.ok!==false,status:answer.status||200,json:async()=>answer.data}}};
  if(integrated){
   window.fetch=context.fetch;window.AbortController=AbortController;
-  window.JYNormLibrary=require('../normen/library.js');window.JYStandards=require('../normen/resolver.js');
-  window.JY_NORM_DATA={schemaVersion:1,version:'integration-test',families:['ISO4762','ISO4017','DIN660','DIN6791','ISO4032'].map(id=>require('../normen/'+id+'.json')),threads:require('../normen/gewinde.json'),materials:require('../vorbelegung/werkstoff.json')};
+  window.JYNormLibrary=require('../normen/library.js');window.JYStandards=require('../normen/resolver.js');window.JYNormAvailability=require('../normen/availability.js');
+  window.JY_NORM_DATA={schemaVersion:1,version:'integration-test',families:['ISO4762','ISO4014','ISO4017','ISO4162','DIN660','DIN6791','ISO4032'].map(id=>require('../normen/'+id+'.json')),threads:require('../normen/gewinde.json'),materials:require('../vorbelegung/werkstoff.json')};
   window.JYKvpContext=require('../kvp-context.js');
   for(const file of ['normen/ui.js','kvp-ui.js'])vm.runInNewContext(fs.readFileSync(path.join(__dirname,'..',file),'utf8'),context);
  }
@@ -76,6 +77,11 @@ function setup(language,engine=E,showPrices,apiOptions,staged=false,integrated=f
  window.JYGeometry=require('../geometry-model.js');window.JYStandardFamilies=require('../standard-families.js');
  vm.runInNewContext(fs.readFileSync(path.join(__dirname,'..','geometry-wizard.js'),'utf8'),context);
  let geometryWizard;const createWizard=window.JYGeometryWizard.create;window.JYGeometryWizard.create=options=>(geometryWizard=createWizard(options));
+ if(chainMode){
+  window.JYAxialChain=require('../axial-chain.js');window.JYNormToChain=require('../normen/to-chain.js');
+  vm.runInNewContext(fs.readFileSync(path.join(__dirname,'..','axial-chain-ui.js'),'utf8'),context);
+  const createChain=window.JYAxialChainUI.create;window.JYAxialChainUI.create=options=>(geometryWizard=createChain(options));
+ }
  if(apiOptions)vm.runInNewContext(fs.readFileSync(path.join(__dirname,'..','drawing-preview.js'),'utf8'),context);
  if(apiOptions?.ranking){
   get('daten').textContent=JSON.stringify(machines.map(({rp,lo,hi,...machine})=>machine));
@@ -229,6 +235,44 @@ test('example reset clears a selected drawing while retaining a usable norm and 
  assert.equal(p.get('norm-id').value,'ISO4762');assert.equal(p.get('norm-groesse').value,'M6');
  assert.equal(p.get('parts-file-feedback').hidden,true);assert.equal(p.f.elements.typ.value,'bolzen');
  assert.equal(p.networkRequests.length,0);
+});
+test('P4 actual partial-thread norm click path clears the old length and keeps its two shank diameters through preview, mail, print and formed-part editing',async()=>{
+ for(const language of I.supported){
+  let input,analysis;const p=setup(language,{...E,auslegen(e){input=e;analysis=E.auslegen(e);return analysis;}},true,undefined,true,true,true);
+  p.context.window.JYStandardPreview=require('../standard-preview.js');
+  p.examples.find(button=>button.dataset.bsp==='m6').events.click();assert.equal(input.sL,30);
+  const choose=(key,value)=>{p.get('norm-'+key).value=value;p.get('norm-'+key).events.change();};
+  choose('id','ISO4014');choose('groesse','M12');
+  assert.equal(p.f.elements.sL.value,'');assert.equal(input.sL,undefined);assert.equal(input.standardDocument.standardReference.laenge,undefined);assert.equal(p.get('aus').hidden,true,'a missing current length cannot retain prior machine results');
+  const length=p.get('norm-laenge-custom');assert.equal(length.hidden,false);assert.equal(length.value,'');assert.equal(length.max,undefined);
+  length.value='80';length.events.input();
+  assert.equal(input.shaftPolicy,'shaft-v2');assert.equal(input.sL,80);assert.equal(input.ds,12);assert.equal(input.b,30);assert.equal(input.d0,12);
+  assert.deepEqual(JSON.parse(JSON.stringify(input.shaftSegments)),[{diameter:12,length:50},{diameter:10.75,length:30}]);
+  assert.deepEqual(analysis.fehlt,[]);assert.equal(p.get('aus').hidden,false);assert.equal(input.standardDocument.lengthSelection.origin,'customer');
+  const modelNote=I.t('Rohlingmodell: Glatter Schaft l − b, Gewinderohling über b; der Gewindeauslauf ist vereinfacht.',language);
+  assert(p.get('geometry-view').innerHTML.includes(modelNote));assert(p.get('geometry-view').innerHTML.includes('<svg'));assert.doesNotMatch(p.get('geometry-view').innerHTML,/nominal-blank-segmentation|R-SHAFT-PARTIAL/);
+  p.get('drucken').events.click();assert(p.get('blatt').innerHTML.includes(modelNote));
+  await sendMail(p);assert(new URL(p.context.location.href).searchParams.get('body').includes(modelNote));
+  const volume=analysis.werte.V;p.get('norm-to-chain').events.click();
+  assert.equal(p.get('norm-chain-status').textContent,'');assert.equal(p.f.elements.typ.value,'formteil');
+  const chain=p.geometryWizard.getChain();assert.equal(chain.standardDocument.standardReference.id,'ISO4014');
+  assert.deepEqual(JSON.parse(JSON.stringify(chain.segments.slice(-2).map(({diameter,length})=>({diameter,length})))),[{diameter:12,length:50},{diameter:10.75,length:30}]);
+  assert.equal(p.geometryWizard.isComplete(),true);assert(Math.abs(p.geometryWizard.refresh().volumeMm3-volume)<1e-6);
+  p.f.events.change({target:p.f.elements.rm});assert(p.get('geometry-view').innerHTML.includes(modelNote));
+  p.get('drucken').events.click();assert(p.get('blatt').innerHTML.includes(modelNote));await sendMail(p);assert(new URL(p.context.location.href).searchParams.get('body').includes(modelNote));
+ }
+});
+test('P4 flange model passes its documented approximation to preview, print and mail in five languages',async()=>{
+ for(const language of I.supported){
+  let input;const p=setup(language,{...E,auslegen(e){input=e;return E.auslegen(e);}},true,undefined,true,true);
+  p.context.window.JYStandardPreview=require('../standard-preview.js');p.examples.find(button=>button.dataset.bsp==='m6').events.click();
+  for(const[key,value]of [['id','ISO4162'],['groesse','M12']]){p.get('norm-'+key).value=value;p.get('norm-'+key).events.change();}
+  const length=p.get('norm-laenge-custom');length.value='80';length.events.input();
+  assert(input.flangeDiameter>0);assert(input.flangeHeight>0);assert.equal(input.flangeModelAssumption.heightBasis,'published-minimum-c');assert.equal(p.get('aus').hidden,false);
+  const modelNote=I.t('Kopfmodell: Sechskant und zylindrischer Flansch; Flanschhöhe {height} mm aus dem veröffentlichten Mindestmaß c angenähert.',language).replace('{height}',input.flangeHeight.toLocaleString(I.numberLocale(language),{maximumFractionDigits:2}));
+  assert(p.get('geometry-view').innerHTML.includes(modelNote));assert.doesNotMatch(p.get('geometry-view').innerHTML,/published-minimum-c|hex-prism-and-flange-cylinder/);
+  p.get('drucken').events.click();assert(p.get('blatt').innerHTML.includes(modelNote));await sendMail(p);assert(new URL(p.context.location.href).searchParams.get('body').includes(modelNote));
+ }
 });
 test('norm-to-builder refuses unresolved shaft distribution and preserves the norm and customer edits',()=>{
  const p=setup('de',E,true,{},true,true);p.examples.find(button=>button.dataset.bsp==='m6').events.click();

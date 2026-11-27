@@ -47,6 +47,17 @@ test('resolves draft names and attaches source provenance to each mapped value',
   assert.deepEqual(R.resolveStandard(alias,selection,{partSnapshot}),doc);
 });
 
+test('shaft-v2 clears unresolved automatic length while explicit customer length and snapshots survive',()=>{
+ const initial=R.resolveStandard(library,selection,{partSnapshot},{shaftPolicy:'shaft-v2',lengthOrigin:'standard'});
+ const changed=R.resolveStandard(library,{...selection,laenge:undefined},initial);
+ assert.equal(changed.shaftPolicy,'shaft-v2');assert.equal(changed.effective.sL,undefined);assert.equal(changed.retainedValues.sL,undefined);assert.equal(changed.lengthSelection.value,null);
+ const customer=R.setOverride(initial,'sL',37.5),preserved=R.resolveStandard(library,{...selection,laenge:undefined},customer);
+ assert.equal(preserved.effective.sL,37.5);assert.equal(preserved.overrides.sL.origin,'customer');assert.deepEqual(preserved.partSnapshot,partSnapshot);
+ const custom=R.resolveStandard(library,{...selection,laenge:42},initial,{shaftPolicy:'shaft-v2',lengthOrigin:'customer'});
+ assert.deepEqual(custom.lengthSelection,{origin:'customer',value:42});assert.deepEqual(R.restore(JSON.stringify(custom)),custom);
+ const legacy=seed(),legacyChanged=R.resolveStandard(library,{...selection,laenge:undefined},legacy);assert.equal(legacyChanged.shaftPolicy,undefined);assert.equal(legacyChanged.effective.sL,30);assert.equal(R.restore(JSON.stringify(legacy)).shaftPolicy,undefined);
+});
+
 test('single-field edits and resets preserve the baseline, other edits and the full part',()=>{
   const original=seed(),edited=R.setOverride(R.setOverride(original,'kH',7),'iT',2.5);
   assert.equal(original.effective.kH,6);

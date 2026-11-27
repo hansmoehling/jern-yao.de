@@ -215,7 +215,7 @@ async function intake(req, env, cors, locale) {
   if (!note && !file) throw new HttpError(400, 'Bitte laden Sie eine Zeichnung hoch oder beschreiben Sie Ihr Teil.');
   const idem = txt(form.get('idempotency_key'), 160);
   if (idem && !/^[\w-]{8,160}$/.test(idem)) throw new HttpError(400, 'Die Anfragekennung ist ungültig.');
-  const decision=packageOneOrigin(siteOrigin)?prepareDecision(form.get('decisionContext'),{hasFile:!!file}):null;
+  const decision=packageOneOrigin(siteOrigin)?prepareDecision(form.get('decisionContext'),{hasFile:!!file,...(forceOrigin(siteOrigin)?{version:'manual-v2'}:{})}):null;
   const fingerprint = await digest(JSON.stringify({ email, note, name, company, file, language,siteOrigin,pricePolicy,...(subject?{subject}:{}),...(decision?{decision}:{}) }));
   const idemKey = idem ? 'idempotenz:' + await digest(email.toLowerCase() + ':' + siteOrigin + ':' + idem) : null;
   if (idemKey) {

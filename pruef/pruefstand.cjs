@@ -1,7 +1,7 @@
 // Prüfstand für den Konfigurator ohne Browser.
 // Aufruf: node pruefstand.cjs <Pfad zum jern-yao.de-Checkout>
 // Baut je Fall dieselbe Eingabe, die archiv-ui.js nach Normwahl erzeugt
-// (kvp-v1, ranking-v2, force-v2, rm-v2), rechnet E.auslegen und E.waehle
+// (kvp-v1, ranking-v2, force-v2, rm-v2, shaft-v2), rechnet E.auslegen und E.waehle
 // und druckt Empfehlung, Alternativen, Klassen und offene Prüfungen.
 'use strict';
 const fs = require('fs'), path = require('path');
@@ -25,7 +25,10 @@ const variants = E.WERKSTOFFE.flatMap((material, index) => (material.manualEligi
 
 function build(selection, opts = {}) {
   const fam = data.families.find(f => f.id === selection.id);
-  const doc = R.resolveStandard(N.selectionLibrary(data, selection), selection, {});
+  const lengthOrigin = N.lengths(N.variantFamily(fam, selection.form), selection.groesse).includes(String(selection.laenge)) ? 'standard' : 'customer';
+  let doc = R.resolveStandard(N.selectionLibrary(data, selection), selection, {}, { shaftPolicy: 'shaft-v2', lengthOrigin });
+  if (opts.sL != null) doc = R.setOverride(doc, 'sL', opts.sL);
+  if (opts.shaftSegments != null) doc = R.setOverride(doc, 'shaftSegments', opts.shaftSegments);
   const p = N.adapt(data, doc);
   const kind = N.familyKind(fam) === 'nut' ? 'nut' : p.standardKind;
   const rule = data.materials.rules.find(r => r.kind === kind && r.classes.includes(p.propertyClass));
@@ -33,13 +36,14 @@ function build(selection, opts = {}) {
     || variants.find(v => v.material.id === 'C4C' && v.curve.state === 'soft-annealed');
   const isNut = kind === 'nut';
   const e = { typ: isNut ? 'mutter' : 'bolzen', wst: v.index, curveId: v.curve.id, materialState: v.curve.state, rm: opts.rm,
-    machinePolicy: 'ranking-v2', forcePolicy: 'force-v2', rmPolicy: E.RM_POLICY_VERSION_V2, inputOrigins: { d0: { origin: 'assumption', provisional: true } },
+    machinePolicy: 'ranking-v2', forcePolicy: 'force-v2', rmPolicy: E.RM_POLICY_VERSION_V2, shaftPolicy: p.shaftPolicy, inputOrigins: { d0: opts.d0 == null ? { origin: 'assumption', provisional: true } : { origin: 'customer' } },
     standardKind: isNut ? undefined : p.standardKind || 'screw',
     threadFamily: isNut ? undefined : (['rivet', 'pin'].includes(p.standardKind) ? 'none' : 'metric'),
     wirePreparation: 'as-supplied',
     kopfForm: p.kopfForm, kopfTyp: p.kopfTyp || (p.kopfForm === 'rund' ? 'zylinder' : p.kopfForm),
     kD: p.kD, kSW: p.kSW, kH: p.kH, kC: p.kC, capHeight: p.capHeight, flangeDiameter: p.flangeDiameter, flangeHeight: p.flangeHeight,
-    sD: p.sD, sL: opts.sL ?? p.sL, schaftende: p.schaftende || 'voll', d_b: p.d_b, t_b: p.t_b, bottomShape: 'cone', bottomAngle: 120, boreDepthMode: 'total',
+    sD: p.sD, sL: p.sL, ds: p.ds, b: p.b, shaftType: p.shaftType, shaftSegments: p.shaftSegments, shaftModelAssumption: p.shaftModelAssumption,
+    schaftende: p.schaftende || 'voll', d_b: p.d_b, t_b: p.t_b, bottomShape: 'cone', bottomAngle: 120, boreDepthMode: 'total',
     iTyp: p.iTyp || 'none', iSize: p.iSize, iSW: p.iSW, iT: p.iT, iVol: p.iVol,
     mM: p.mM, mSW: p.mSW, mH: p.mH, mLoch: p.mLoch, nutModelVersion: 'nut-model-v1', nutShape: p.nutShape || 'hex', mFlansch: p.mFlansch, mFlanschH: p.mFlanschH,
     masse: undefined, wenden: false, vorgaben: {}, soll: { ausbringung: opts.ausbringung },
@@ -56,11 +60,15 @@ function build(selection, opts = {}) {
 
 function run(label, selection, opts = {}) {
   const { e, p, cands, material, rule } = build(selection, opts);
-  const aus = E.auslegen(e);
   console.log('\n######## ' + label);
   console.log('Vorbelegung:', Object.keys(p).filter(k => p[k] != null && typeof p[k] !== 'object').map(k => k + '=' + p[k]).join(' '));
   console.log('offene Normfelder:', p.normMissingFields, '| Werkstoff:', material.material.id, material.curve.state, '| Regel:', rule && rule.materialId,
     '| Drahtkandidaten:', cands.map(c => c.value).join(', '));
+  if (e.normRequiresGeometryReview) {
+    console.log('Kontur offen:', e.normMissingFields.join(', '), '| keine Maschinenwahl, wie im Normpicker.');
+    return { e, aus: null, wahl: null, status: 'contour-open' };
+  }
+  const aus = E.auslegen(e);
   console.log('fehlt:', aus.fehlt, '| Stufen:', aus.stufen.length, '| d0:', e.d0, '| L0:', aus.werte.L0 && aus.werte.L0.toFixed(2),
     '| Fmax_t:', aus.werte.Fmax_t && aus.werte.Fmax_t.toFixed(1), '| Rm:', aus.werkstoff?.Rm, '| Rm-Vorbelegung:', aus.werkstoff?.rmVorbelegung?.status,
     '| materialStatus:', JSON.stringify(aus.materialStatus));

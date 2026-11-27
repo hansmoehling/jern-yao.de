@@ -1,13 +1,16 @@
 const test=require('node:test'),assert=require('node:assert/strict'),fs=require('node:fs'),path=require('node:path'),vm=require('node:vm');
-const N=require('../normen/library.js'),R=require('../normen/resolver.js'),threads=require('../normen/gewinde.json'),I=require('../i18n.js');
+const N=require('../normen/library.js'),R=require('../normen/resolver.js'),threads=require('../normen/gewinde.json'),baseI=require('../i18n.js'),p4=require('../i18n-p4.json');
+const I={...baseI,t:(key,language)=>language!=='de'&&p4[key]?p4[key][baseI.supported.indexOf(language)-1]:baseI.t(key,language)};
 class El{constructor(tag='div'){this.tagName=tag.toUpperCase();this.value='';this.name='';this.type='';this.checked=false;this.children=[];this.events={};this.parent=null;this.hidden=false;}append(...nodes){nodes.forEach(n=>{n.parent=this;this.children.push(n);});}replaceChildren(...nodes){this.children=[];this.append(...nodes);}setAttribute(k,v){this[k]=v;}addEventListener(k,fn){this.events[k]=fn;}focus(){this.focused=true;}contains(node){return node===this||this.children.some(child=>child.contains(node));}closest(tag){return this.tagName.toLowerCase()===tag?this:this.parent?.closest(tag);}get options(){return this.children;}get textContent(){return this._text||this.children.map(x=>x.textContent).join('');}set textContent(x){this._text=x;}}
-function setup(language='de'){
+function setup(language='de',enhanced=false,catalogue=[{die:[50,100],pun:[25,100],ml:120,cl:[10,200]}]){
  const host=new El(),form=new El('form'),detail=new El('details'),nodes=[];form.elements={typ:{value:'bolzen'},standardKind:{value:'screw'}};
  const events={},document={createElement(tag){const e=new El(tag);nodes.push(e);return e;},getElementById(){return detail;},addEventListener(name,fn){events[name]=fn;}};
  const data={schemaVersion:1,version:'test',threads,materials:require('../vorbelegung/werkstoff.json'),families:['ISO4762','ISO14579','DIN934','DIN660','DIN6791','DIN7338','ISO13918'].map(id=>require('../normen/'+id+'.json'))};
- const window={document,JYNormLibrary:N,JYStandards:R};vm.runInNewContext(fs.readFileSync(path.join(__dirname,'../normen/ui.js'),'utf8'),{window});
+ // Synthetic coverage gap isolates missing length rows from later catalogue additions.
+ data.families.push({id:'TEST-NO-LENGTH',funktion:'schraube',klasse:'bolzen',kopfTyp:'zylinder',antrieb:{art:'hex'},groessen:{M6:{vorbelegung:{sD:6,kD:10,kH:6,iSW:5,iT:3}},M8:{vorbelegung:{sD:8,kD:13,kH:8,iSW:6,iT:4}}}});
+ const window={document,JYNormLibrary:N,JYStandards:R,JYNormAvailability:require('../normen/availability.js')};vm.runInNewContext(fs.readFileSync(path.join(__dirname,'../normen/ui.js'),'utf8'),{window});
  const part={d0:5.6,wst:'existing',nachricht:'unchanged customer text'};
- let applied;const picker=window.JYNormPicker.create({host,form,data,tr:x=>I.t(x,language),getType:()=>form.elements.typ.value,getPart:()=>({...part}),onApply:x=>{applied=x;},onChange(){}});
+ let applied;const picker=window.JYNormPicker.create({host,form,data,tr:x=>I.t(x,language),getType:()=>form.elements.typ.value,getPart:()=>({...part}),onApply:x=>{applied=x;},onChange(){},...(enhanced?{shaftPolicy:'shaft-v2',catalogue}: {})});
  return {picker,form,host,detail,part,events,setLanguage(value){language=value;picker.refreshType();},get:id=>nodes.find(n=>n.id===id),get applied(){return applied;}};
 }
 function edit(p,name,value,tagName='SELECT',type='',checked=false){p.form.events.change({target:{name,value,tagName,type,checked}});}
@@ -91,4 +94,42 @@ test('length disclosure renders documented choices in the page and restores focu
  button.events.click();list.events.keydown({key:'Escape',preventDefault(){}});assert.equal(list.hidden,true);assert.equal(p.picker.document().standardReference.laenge,40);
  button.events.click();p.events.click({target:button});assert.equal(list.hidden,false);
  p.events.click({target:new El()});assert.equal(list.hidden,true);
+});
+
+test('P4 offers custom lengths, clears old automatic lengths across norms, and preserves deliberate lengths and overrides',()=>{
+ for(const language of I.supported){
+  const p=setup(language,true),choose=(key,value)=>{p.get('norm-'+key).value=value;p.get('norm-'+key).events.change();};
+  p.picker.select({id:'ISO4762',groesse:'M6',laenge:30});assert.equal(p.picker.document().shaftPolicy,'shaft-v2');
+  assert.equal(p.get('norm-laenge').options.at(-1).value,'custom');assert.equal(p.get('norm-laenge').options.at(-1).textContent,I.t('Andere Länge …',language));
+  choose('id','TEST-NO-LENGTH');
+  const input=p.get('norm-laenge-custom');assert.equal(input.hidden,false);assert.equal(input.disabled,false);assert.equal(input.value,'');assert.equal(p.get('norm-laenge-toggle').hidden,true);
+  assert.equal(p.picker.document().standardReference.laenge,undefined);assert.equal(p.applied.sL,null);assert(p.applied.clearFields.includes('sL'));
+  assert(p.get('norm-length-range').textContent.includes('120'));assert(p.get('norm-length-range').textContent.includes('10–200'));assert.equal(input.max,undefined);assert.equal(input.min,'0.01');
+  input.value='37.5';input.events.input();assert.equal(p.applied.sL,37.5);assert.equal(p.picker.document().lengthSelection.origin,'customer');
+  edit(p,'kD','11.2','INPUT');choose('groesse','M8');assert.equal(input.value,'37.5');assert.equal(p.applied.sL,37.5);assert.equal(p.applied.kD,11.2);
+  choose('id','ISO4762');assert.equal(p.applied.sL,37.5);assert.equal(p.get('norm-laenge').value,'custom');assert.equal(p.picker.document().overrides.kD.value,11.2);
+  input.value='';input.events.input();assert.equal(p.applied.sL,null);assert.equal(p.picker.document().standardReference.laenge,undefined);
+  input.value='250';input.events.input();assert.equal(p.applied.sL,250,'catalogue cutoff limits must never be HTML product-length limits');
+  edit(p,'sL','41','INPUT');choose('id','TEST-NO-LENGTH');assert.equal(p.applied.sL,41);assert.equal(p.picker.document().overrides.sL.origin,'customer');
+ }
+});
+
+test('P4 series selection resets only automatic length on size changes and keeps custom input keyboard focus',()=>{
+ const p=setup('de',true);p.picker.select({id:'ISO4762',groesse:'M6',laenge:30});
+ const size=p.get('norm-groesse');size.value='M8';size.events.change();
+ assert.notEqual(p.applied.sL,30);assert.equal(p.picker.document().lengthSelection.origin,'standard');
+ const list=p.get('norm-laenge'),input=p.get('norm-laenge-custom');list.value='custom';list.events.change();list.events.click();
+ assert.equal(input.hidden,false);assert.equal(input.focused,true);assert.equal(list.hidden,true);
+ input.value='31.2';input.events.input();p.setLanguage('sl');assert.equal(input.value,'31.2');assert.equal(input['aria-label'],I.t('Individuelle Länge in mm','sl'));assert.equal(p.applied.sL,31.2);assert.equal(list.options.at(-1).textContent,I.t('Andere Länge …','sl'));
+});
+
+test('P4 disables only documented impossible contours and explains them in every language',()=>{
+ for(const language of I.supported){
+  const p=setup(language,true,[{die:[7,100],pun:[6.5,100],ml:120,cl:[10,200]}]);p.picker.select({id:'TEST-NO-LENGTH',groesse:'M6'});
+  const small=p.get('norm-groesse').options.find(o=>o.value==='M6'),large=p.get('norm-groesse').options.find(o=>o.value==='M8');assert.equal(small.disabled,false);assert.equal(large.disabled,true);
+  const reason=I.t('Schaftkontur Ø {diameter} mm liegt außerhalb der dokumentierten Werkzeugaufnahmen im Maschinenkatalog (bis Ø {maximum} mm).',language).replace('{diameter}','7.1').replace('{maximum}','7');assert.equal(large.title,reason);assert(large.textContent.includes(reason));
+  p.setLanguage('en');assert.equal(large.title,I.t('Schaftkontur Ø {diameter} mm liegt außerhalb der dokumentierten Werkzeugaufnahmen im Maschinenkatalog (bis Ø {maximum} mm).','en').replace('{diameter}','7.1').replace('{maximum}','7'));
+ }
+ const unknown=setup('de',true,[{die:[11,100]}]);unknown.picker.select({id:'TEST-NO-LENGTH',groesse:'M6'});assert(unknown.get('norm-groesse').options.every(o=>!o.disabled));
+ const openHead=setup('de',true,[{die:[11,100],pun:[10,100]}]);openHead.picker.select({id:'TEST-NO-LENGTH',groesse:'M8'});assert(openHead.get('norm-groesse').options.every(o=>!o.disabled),'a larger openly upset head does not exclude an otherwise fitting shank');
 });

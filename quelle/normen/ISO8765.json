@@ -847,7 +847,67 @@
         65,
         70,
         80
-      ]
+      ],
+      "shaftModelV2": {
+        "version": "shaft-v2",
+        "kind": "partial-thread-reference",
+        "lengthCoverage": "reference-rule-not-approved-length-series",
+        "ds": {
+          "value": 8,
+          "unit": "mm",
+          "sourceRefs": [
+            "iso8765_2022",
+            "fuller8765"
+          ],
+          "verification": true,
+          "status": "verified",
+          "verificationMethod": "independent-publishers-agree"
+        },
+        "threadLengths": [
+          {
+            "minExclusive": 0,
+            "maxInclusive": 125,
+            "value": 22,
+            "unit": "mm",
+            "sourceRefs": [
+              "fuller8765",
+              "fontana-catalogue"
+            ],
+            "verification": true,
+            "status": "verified",
+            "verificationMethod": "independent-publishers-agree",
+            "scope": "published-reference-value; not confirmation of the selected length in ISO8765:2022"
+          },
+          {
+            "minExclusive": 125,
+            "maxInclusive": 200,
+            "value": 28,
+            "unit": "mm",
+            "sourceRefs": [
+              "fuller8765",
+              "fontana-catalogue"
+            ],
+            "verification": true,
+            "status": "verified",
+            "verificationMethod": "independent-publishers-agree",
+            "scope": "published-reference-value; not confirmation of the selected length in ISO8765:2022"
+          },
+          {
+            "minExclusive": 200,
+            "maxInclusive": null,
+            "value": 41,
+            "unit": "mm",
+            "sourceRefs": [
+              "fuller8765",
+              "fontana-catalogue"
+            ],
+            "verification": true,
+            "status": "verified",
+            "verificationMethod": "independent-publishers-agree",
+            "scope": "published-reference-value; not confirmation of the selected length in ISO8765:2022"
+          }
+        ]
+      }
     },
     "M10": {
       "roh": {
@@ -1779,7 +1839,67 @@
         80,
         90,
         100
-      ]
+      ],
+      "shaftModelV2": {
+        "version": "shaft-v2",
+        "kind": "partial-thread-reference",
+        "lengthCoverage": "reference-rule-not-approved-length-series",
+        "ds": {
+          "value": 10,
+          "unit": "mm",
+          "sourceRefs": [
+            "iso8765_2022",
+            "fuller8765"
+          ],
+          "verification": true,
+          "status": "verified",
+          "verificationMethod": "independent-publishers-agree"
+        },
+        "threadLengths": [
+          {
+            "minExclusive": 0,
+            "maxInclusive": 125,
+            "value": 26,
+            "unit": "mm",
+            "sourceRefs": [
+              "fuller8765",
+              "fontana-catalogue"
+            ],
+            "verification": true,
+            "status": "verified",
+            "verificationMethod": "independent-publishers-agree",
+            "scope": "published-reference-value; not confirmation of the selected length in ISO8765:2022"
+          },
+          {
+            "minExclusive": 125,
+            "maxInclusive": 200,
+            "value": 32,
+            "unit": "mm",
+            "sourceRefs": [
+              "fuller8765",
+              "fontana-catalogue"
+            ],
+            "verification": true,
+            "status": "verified",
+            "verificationMethod": "independent-publishers-agree",
+            "scope": "published-reference-value; not confirmation of the selected length in ISO8765:2022"
+          },
+          {
+            "minExclusive": 200,
+            "maxInclusive": null,
+            "value": 45,
+            "unit": "mm",
+            "sourceRefs": [
+              "fuller8765",
+              "fontana-catalogue"
+            ],
+            "verification": true,
+            "status": "verified",
+            "verificationMethod": "independent-publishers-agree",
+            "scope": "published-reference-value; not confirmation of the selected length in ISO8765:2022"
+          }
+        ]
+      }
     },
     "M12": {
       "roh": {
@@ -2810,7 +2930,67 @@
         100,
         110,
         120
-      ]
+      ],
+      "shaftModelV2": {
+        "version": "shaft-v2",
+        "kind": "partial-thread-reference",
+        "lengthCoverage": "reference-rule-not-approved-length-series",
+        "ds": {
+          "value": 12,
+          "unit": "mm",
+          "sourceRefs": [
+            "iso8765_2022",
+            "fuller8765"
+          ],
+          "verification": true,
+          "status": "verified",
+          "verificationMethod": "independent-publishers-agree"
+        },
+        "threadLengths": [
+          {
+            "minExclusive": 0,
+            "maxInclusive": 125,
+            "value": 30,
+            "unit": "mm",
+            "sourceRefs": [
+              "fuller8765",
+              "fontana-catalogue"
+            ],
+            "verification": true,
+            "status": "verified",
+            "verificationMethod": "independent-publishers-agree",
+            "scope": "published-reference-value; not confirmation of the selected length in ISO8765:2022"
+          },
+          {
+            "minExclusive": 125,
+            "maxInclusive": 200,
+            "value": 36,
+            "unit": "mm",
+            "sourceRefs": [
+              "fuller8765",
+              "fontana-catalogue"
+            ],
+            "verification": true,
+            "status": "verified",
+            "verificationMethod": "independent-publishers-agree",
+            "scope": "published-reference-value; not confirmation of the selected length in ISO8765:2022"
+          },
+          {
+            "minExclusive": 200,
+            "maxInclusive": null,
+            "value": 49,
+            "unit": "mm",
+            "sourceRefs": [
+              "fuller8765",
+              "fontana-catalogue"
+            ],
+            "verification": true,
+            "status": "verified",
+            "verificationMethod": "independent-publishers-agree",
+            "scope": "published-reference-value; not confirmation of the selected length in ISO8765:2022"
+          }
+        ]
+      }
     },
     "M14": {
       "roh": {
@@ -3939,7 +4119,68 @@
         120,
         130,
         140
-      ]
+      ],
+      "shaftModelV2": {
+        "version": "shaft-v2",
+        "kind": "partial-thread-reference",
+        "lengthCoverage": "reference-rule-not-approved-length-series",
+        "ds": {
+          "value": 14,
+          "unit": "mm",
+          "sourceRefs": [
+            "iso8765_2022",
+            "fuller8765"
+          ],
+          "verification": true,
+          "status": "verified",
+          "verificationMethod": "independent-publishers-agree"
+        },
+        "threadLengths": [
+          {
+            "minExclusive": 0,
+            "maxInclusive": 125,
+            "value": 34,
+            "unit": "mm",
+            "sourceRefs": [
+              "fuller8765",
+              "fontana-catalogue"
+            ],
+            "verification": true,
+            "status": "verified",
+            "verificationMethod": "independent-publishers-agree",
+            "scope": "published-reference-value; not confirmation of the selected length in ISO8765:2022"
+          },
+          {
+            "minExclusive": 125,
+            "maxInclusive": 200,
+            "value": 40,
+            "unit": "mm",
+            "sourceRefs": [
+              "fuller8765",
+              "fontana-catalogue"
+            ],
+            "verification": true,
+            "status": "verified",
+            "verificationMethod": "independent-publishers-agree",
+            "scope": "published-reference-value; not confirmation of the selected length in ISO8765:2022"
+          },
+          {
+            "minExclusive": 200,
+            "maxInclusive": null,
+            "value": null,
+            "unit": "mm",
+            "sourceRefs": [
+              "fuller8765",
+              "fontana-catalogue"
+            ],
+            "verification": false,
+            "status": "conflict",
+            "verificationMethod": "independent-publishers-agree",
+            "scope": "published-reference-value; not confirmation of the selected length in ISO8765:2022",
+            "note": "Fuller main row and Fontana give57; Fuller b3 summary gives53. No default until exact edition is resolved."
+          }
+        ]
+      }
     },
     "M16": {
       "roh": {
@@ -4969,7 +5210,67 @@
         130,
         140,
         150
-      ]
+      ],
+      "shaftModelV2": {
+        "version": "shaft-v2",
+        "kind": "partial-thread-reference",
+        "lengthCoverage": "reference-rule-not-approved-length-series",
+        "ds": {
+          "value": 16,
+          "unit": "mm",
+          "sourceRefs": [
+            "iso8765_2022",
+            "fuller8765"
+          ],
+          "verification": true,
+          "status": "verified",
+          "verificationMethod": "independent-publishers-agree"
+        },
+        "threadLengths": [
+          {
+            "minExclusive": 0,
+            "maxInclusive": 125,
+            "value": 38,
+            "unit": "mm",
+            "sourceRefs": [
+              "fuller8765",
+              "fontana-catalogue"
+            ],
+            "verification": true,
+            "status": "verified",
+            "verificationMethod": "independent-publishers-agree",
+            "scope": "published-reference-value; not confirmation of the selected length in ISO8765:2022"
+          },
+          {
+            "minExclusive": 125,
+            "maxInclusive": 200,
+            "value": 44,
+            "unit": "mm",
+            "sourceRefs": [
+              "fuller8765",
+              "fontana-catalogue"
+            ],
+            "verification": true,
+            "status": "verified",
+            "verificationMethod": "independent-publishers-agree",
+            "scope": "published-reference-value; not confirmation of the selected length in ISO8765:2022"
+          },
+          {
+            "minExclusive": 200,
+            "maxInclusive": null,
+            "value": 57,
+            "unit": "mm",
+            "sourceRefs": [
+              "fuller8765",
+              "fontana-catalogue"
+            ],
+            "verification": true,
+            "status": "verified",
+            "verificationMethod": "independent-publishers-agree",
+            "scope": "published-reference-value; not confirmation of the selected length in ISO8765:2022"
+          }
+        ]
+      }
     },
     "M18": {
       "roh": {
@@ -5901,7 +6202,67 @@
         130,
         140,
         150
-      ]
+      ],
+      "shaftModelV2": {
+        "version": "shaft-v2",
+        "kind": "partial-thread-reference",
+        "lengthCoverage": "reference-rule-not-approved-length-series",
+        "ds": {
+          "value": 18,
+          "unit": "mm",
+          "sourceRefs": [
+            "iso8765_2022",
+            "fuller8765"
+          ],
+          "verification": true,
+          "status": "verified",
+          "verificationMethod": "independent-publishers-agree"
+        },
+        "threadLengths": [
+          {
+            "minExclusive": 0,
+            "maxInclusive": 125,
+            "value": 42,
+            "unit": "mm",
+            "sourceRefs": [
+              "fuller8765",
+              "fontana-catalogue"
+            ],
+            "verification": true,
+            "status": "verified",
+            "verificationMethod": "independent-publishers-agree",
+            "scope": "published-reference-value; not confirmation of the selected length in ISO8765:2022"
+          },
+          {
+            "minExclusive": 125,
+            "maxInclusive": 200,
+            "value": 48,
+            "unit": "mm",
+            "sourceRefs": [
+              "fuller8765",
+              "fontana-catalogue"
+            ],
+            "verification": true,
+            "status": "verified",
+            "verificationMethod": "independent-publishers-agree",
+            "scope": "published-reference-value; not confirmation of the selected length in ISO8765:2022"
+          },
+          {
+            "minExclusive": 200,
+            "maxInclusive": null,
+            "value": 61,
+            "unit": "mm",
+            "sourceRefs": [
+              "fuller8765",
+              "fontana-catalogue"
+            ],
+            "verification": true,
+            "status": "verified",
+            "verificationMethod": "independent-publishers-agree",
+            "scope": "published-reference-value; not confirmation of the selected length in ISO8765:2022"
+          }
+        ]
+      }
     },
     "M20": {
       "roh": {
@@ -6734,7 +7095,67 @@
         130,
         140,
         150
-      ]
+      ],
+      "shaftModelV2": {
+        "version": "shaft-v2",
+        "kind": "partial-thread-reference",
+        "lengthCoverage": "reference-rule-not-approved-length-series",
+        "ds": {
+          "value": 20,
+          "unit": "mm",
+          "sourceRefs": [
+            "iso8765_2022",
+            "fuller8765"
+          ],
+          "verification": true,
+          "status": "verified",
+          "verificationMethod": "independent-publishers-agree"
+        },
+        "threadLengths": [
+          {
+            "minExclusive": 0,
+            "maxInclusive": 125,
+            "value": 46,
+            "unit": "mm",
+            "sourceRefs": [
+              "fuller8765",
+              "fontana-catalogue"
+            ],
+            "verification": true,
+            "status": "verified",
+            "verificationMethod": "independent-publishers-agree",
+            "scope": "published-reference-value; not confirmation of the selected length in ISO8765:2022"
+          },
+          {
+            "minExclusive": 125,
+            "maxInclusive": 200,
+            "value": 52,
+            "unit": "mm",
+            "sourceRefs": [
+              "fuller8765",
+              "fontana-catalogue"
+            ],
+            "verification": true,
+            "status": "verified",
+            "verificationMethod": "independent-publishers-agree",
+            "scope": "published-reference-value; not confirmation of the selected length in ISO8765:2022"
+          },
+          {
+            "minExclusive": 200,
+            "maxInclusive": null,
+            "value": 65,
+            "unit": "mm",
+            "sourceRefs": [
+              "fuller8765",
+              "fontana-catalogue"
+            ],
+            "verification": true,
+            "status": "verified",
+            "verificationMethod": "independent-publishers-agree",
+            "scope": "published-reference-value; not confirmation of the selected length in ISO8765:2022"
+          }
+        ]
+      }
     },
     "M22": {
       "roh": {
@@ -7468,7 +7889,67 @@
         130,
         140,
         150
-      ]
+      ],
+      "shaftModelV2": {
+        "version": "shaft-v2",
+        "kind": "partial-thread-reference",
+        "lengthCoverage": "reference-rule-not-approved-length-series",
+        "ds": {
+          "value": 22,
+          "unit": "mm",
+          "sourceRefs": [
+            "iso8765_2022",
+            "fuller8765"
+          ],
+          "verification": true,
+          "status": "verified",
+          "verificationMethod": "independent-publishers-agree"
+        },
+        "threadLengths": [
+          {
+            "minExclusive": 0,
+            "maxInclusive": 125,
+            "value": 50,
+            "unit": "mm",
+            "sourceRefs": [
+              "fuller8765",
+              "fontana-catalogue"
+            ],
+            "verification": true,
+            "status": "verified",
+            "verificationMethod": "independent-publishers-agree",
+            "scope": "published-reference-value; not confirmation of the selected length in ISO8765:2022"
+          },
+          {
+            "minExclusive": 125,
+            "maxInclusive": 200,
+            "value": 56,
+            "unit": "mm",
+            "sourceRefs": [
+              "fuller8765",
+              "fontana-catalogue"
+            ],
+            "verification": true,
+            "status": "verified",
+            "verificationMethod": "independent-publishers-agree",
+            "scope": "published-reference-value; not confirmation of the selected length in ISO8765:2022"
+          },
+          {
+            "minExclusive": 200,
+            "maxInclusive": null,
+            "value": 69,
+            "unit": "mm",
+            "sourceRefs": [
+              "fuller8765",
+              "fontana-catalogue"
+            ],
+            "verification": true,
+            "status": "verified",
+            "verificationMethod": "independent-publishers-agree",
+            "scope": "published-reference-value; not confirmation of the selected length in ISO8765:2022"
+          }
+        ]
+      }
     },
     "M24": {
       "roh": {
@@ -8201,7 +8682,67 @@
         130,
         140,
         150
-      ]
+      ],
+      "shaftModelV2": {
+        "version": "shaft-v2",
+        "kind": "partial-thread-reference",
+        "lengthCoverage": "reference-rule-not-approved-length-series",
+        "ds": {
+          "value": 24,
+          "unit": "mm",
+          "sourceRefs": [
+            "iso8765_2022",
+            "fuller8765"
+          ],
+          "verification": true,
+          "status": "verified",
+          "verificationMethod": "independent-publishers-agree"
+        },
+        "threadLengths": [
+          {
+            "minExclusive": 0,
+            "maxInclusive": 125,
+            "value": 54,
+            "unit": "mm",
+            "sourceRefs": [
+              "fuller8765",
+              "fontana-catalogue"
+            ],
+            "verification": true,
+            "status": "verified",
+            "verificationMethod": "independent-publishers-agree",
+            "scope": "published-reference-value; not confirmation of the selected length in ISO8765:2022"
+          },
+          {
+            "minExclusive": 125,
+            "maxInclusive": 200,
+            "value": 60,
+            "unit": "mm",
+            "sourceRefs": [
+              "fuller8765",
+              "fontana-catalogue"
+            ],
+            "verification": true,
+            "status": "verified",
+            "verificationMethod": "independent-publishers-agree",
+            "scope": "published-reference-value; not confirmation of the selected length in ISO8765:2022"
+          },
+          {
+            "minExclusive": 200,
+            "maxInclusive": null,
+            "value": 73,
+            "unit": "mm",
+            "sourceRefs": [
+              "fuller8765",
+              "fontana-catalogue"
+            ],
+            "verification": true,
+            "status": "verified",
+            "verificationMethod": "independent-publishers-agree",
+            "scope": "published-reference-value; not confirmation of the selected length in ISO8765:2022"
+          }
+        ]
+      }
     }
   },
   "fields": {
@@ -10512,6 +11053,22 @@
       "edition": null,
       "type": "manufacturer-table",
       "accessed": "2026-11-26"
+    },
+    {
+      "id": "fuller8765",
+      "url": "https://fullerfasteners.com/tech/iso-8765-specifications-hex-head-bolts-with-fine-pitch-thread/",
+      "titel": "Fuller Fasteners ISO8765 table",
+      "locator": "Size columns, Length of Thread b summary rows and ds nominal",
+      "type": "manufacturer-table",
+      "accessed": "2026-11-27"
+    },
+    {
+      "id": "fontana-catalogue",
+      "url": "https://www.bulloneriamorelli.it/files/00009/vol1_parte1.pdf",
+      "titel": "Fontana technical catalogue, hosted by Bulloneria Morelli",
+      "locator": "Printed pp. 8-11: ISO4014/ISO8765 and explicit DIN differences",
+      "type": "manufacturer-table",
+      "accessed": "2026-11-27"
     }
   ],
   "abweichungen": [],
@@ -10686,5 +11243,6 @@
         "b_ref_l_gt_200": 91
       }
     }
-  }
+  },
+  "shaftPolicy": "shaft-v2"
 }
