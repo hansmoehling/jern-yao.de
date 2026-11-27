@@ -26,7 +26,7 @@
     const aligned = grid(value, step, direction);
     return Math.abs(aligned - value) <= tolerance(value) ? clean(aligned + direction * step) : aligned;
   }
-  function candidates(e, geometrySpec, machines = []) {
+  function candidates(e, geometrySpec, machines = [], options = {}) {
     if (!valid || !e || typeof e !== 'object') return [];
     let base, minimum = 0, maximum = Infinity, lowerFallback, reason, params = {}, step = data.wireStepMm;
     if (e.typ === 'mutter') {
@@ -85,6 +85,24 @@
     const thinner = limits[0];
     push(thinner ? thinner.value : lowerFallback ?? neighbour(base, step, -1), 'Dünnerer Draht: mehr Staucharbeit prüfen', thinner ? { catalogueCutoff: thinner.limit } : {}, 'increased');
     push(neighbour(base, step, 1), 'Dickerer Draht: Materialverteilung und Umformweg prüfen', {}, 'reduced');
+    // A thicker starting wire can reduce heading strain while adding a real
+    // shaft-reduction operation. Preserve the original routes for comparison.
+    // This bounded search changes no component dimension or material state.
+    if(e.rmPolicy==='rm-v2'&&e.forcePolicy==='force-v2'&&e.typ==='bolzen'&&typeof options.evaluate==='function'){
+      const baseline=options.evaluate({...e,d0:base});
+      if(!baseline.fehlt?.length&&!baseline.qualitative&&baseline.stufen?.length&&baseline.materialStatus?.flow==='strain-outside-range'){
+        const headDiameter=positive(e.kD)?e.kD:positive(e.kSW)?2*e.kSW/Math.sqrt(3):null;
+        const catalogueLimit=Math.max(0,...(Array.isArray(machines)?machines:[]).map(machine=>machine?.cd).filter(positive));
+        const upper=Math.min(maximum,headDiameter||base,catalogueLimit||Infinity);
+        for(let i=1;i<=100;i++){
+          const diameter=clean(base+i*step);if(diameter>upper+tolerance(upper))break;
+          const calculation=options.evaluate({...e,d0:diameter});
+          if(calculation.fehlt?.length||calculation.qualitative||calculation.materialStatus?.flow!=='ready'||!calculation.stufen?.length||!calculation.stufen.every(stage=>positive(stage.F)))continue;
+          const route={value:diameter,reason:'Prozessalternative: Draht Ø {diameter} mm reduziert den Stauchanteil; {stations} Stadien mit vollständigem Kraftansatz.',params:{diameter,stations:calculation.stufen.length},origin:'assumption',provisional:true,route:{upsetting:'reduced',wireConditionAdvice:advice.reduced},forceRoute:{policy:'rm-v2',baselineDiameter:base,stations:calculation.stufen.length,reason:'strain-range',extrapolated:calculation.stufen.some(stage=>stage.forceStatus==='extrapoliert')}};
+          result.unshift(route);return result.filter((item,index)=>result.findIndex(other=>Math.abs(other.value-item.value)<=tolerance(item.value))===index);
+        }
+      }
+    }
     return result;
   }
   return Object.freeze({ candidates });

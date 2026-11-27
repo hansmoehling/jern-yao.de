@@ -10,6 +10,8 @@
   const RM_PRESET_EMBEDDED = /*RM_PRESETS_BEGIN*/null/*RM_PRESETS_END*/;
   const RM_PRESETS = RM_PRESET_EMBEDDED || (typeof require === 'function' ? require('./vorbelegung/rm.json') : null);
   const RM_POLICY_VERSION = 'rm-v1';
+  const RM_POLICY_VERSION_V2 = 'rm-v2';
+  const hasRmPolicy = e => e.rmPolicy === RM_POLICY_VERSION || e.rmPolicy === RM_POLICY_VERSION_V2;
   const NUT_MODEL=typeof require==='function'?require('./nut-model.js'):root.JYNutModel;
   const RANKING=typeof require==='function'?require('./machine-ranking.js'):root.JYMachineRanking;
 
@@ -214,6 +216,7 @@
   const needsShaft = e => e && e.typ === 'bolzen';
   const missingShaft = e => needsShaft(e) && (!pos(e.sD) || !pos(e.sL));
   function rmVorbelegung(e = {}) {
+    if (e.rmPolicy === RM_POLICY_VERSION_V2) return rmNormVorbelegung(e);
     const material = Number.isInteger(e.wst) ? WERKSTOFFE[e.wst] : findMaterial(e.material);
     const state = e.materialState || 'unknown';
     const result = { version: RM_POLICY_VERSION, policyEnabled: e.rmPolicy === RM_POLICY_VERSION,
@@ -234,6 +237,47 @@
       band: entry.band ? { ...entry.band } : null, status: entry.band ? 'band' : 'guideline', origin: entry.origin,
       source: { ...entry.source, policyReference: RM_PRESETS.source.id, label: entry.band ? 'Vorläufiges Rm-Band aus Projektvorgabe' : 'Legacy-Richtwert aus Bestandsdaten' },
       conditionBasis: entry.conditionBasis, ...(entry.note ? { note: entry.note } : {}) };
+  }
+  function rmNormVorbelegung(e) {
+    // The flow-curve state is deliberately not changed by an Rm assumption.
+    // Norm bounds apply only to the exact diameter and delivery sequence.
+    const legacy = rmVorbelegung({ ...e, rmPolicy: RM_POLICY_VERSION });
+    const policy = RM_PRESETS?.policies?.[RM_POLICY_VERSION_V2];
+    const result = { ...legacy, version: RM_POLICY_VERSION_V2, policyEnabled: true,
+      value: null, band: null, status: 'missing', origin: 'unknown', source: null,
+      conditionBasis: null, appliesTo: ['cutoff-diameter', 'piercing-shear-force'],
+      eligibleForForceCalculation: false, eligibleForShearCalculation: true };
+    if (legacy.origin === 'customer') return { ...legacy, ...result, value: legacy.value,
+      status: legacy.status, origin: legacy.origin, source: legacy.source, conditionBasis: legacy.conditionBasis };
+    if (e.wirePreparation === 'inline-drawing') return { ...result, status: 'post-drawing-missing' };
+    if (!policy || policy.policyVersion !== RM_POLICY_VERSION_V2) return result;
+    const requested = e.rmDeliveryCondition;
+    if (requested !== undefined && !policy.allowedDeliveryConditions.includes(requested))
+      return { ...result, status: 'delivery-condition-mismatch' };
+    // Retain only the specifically listed, labelled practice guidelines.
+    // In particular, +AC data must never relabel normalized-rolled 20MnB4.
+    if (requested === undefined && policy.legacyGuidelineFallbacks.includes(legacy.materialId) && legacy.status === 'guideline')
+      return { ...legacy, version: RM_POLICY_VERSION_V2, policyEnabled: true,
+        appliesTo: result.appliesTo, eligibleForShearCalculation: true };
+    const entries = policy.bands.filter(entry => entry.materialId === legacy.materialId);
+    if (!entries.length) return result;
+    if (legacy.state === 'unknown') return { ...result, status: 'state-missing' };
+    const stateEntries = entries.filter(entry => entry.states.includes(legacy.state));
+    if (!stateEntries.length) return { ...result, status: 'state-mismatch' };
+    if (!pos(e.d0)) return { ...result, status: 'diameter-missing' };
+    const matching = stateEntries.filter(entry => requested === undefined ? entry.defaultForState : entry.deliveryConditions.includes(requested));
+    if (!matching.length) return { ...result, status: 'delivery-condition-mismatch' };
+    const entry = matching.find(item => e.d0 > item.diameterRange.minExclusive && e.d0 <= item.diameterRange.maxInclusive);
+    if (!entry) return { ...result, status: 'diameter-outside-range' };
+    const deliveryCondition = requested || entry.deliveryConditions[0];
+    const sourceRefs = entry.sourceRefs.map(id => ({ id, ...policy.sources[id] }));
+    return { ...result, band: { ...entry.band }, status: 'band', origin: 'standard',
+      deliveryCondition, diameterRange: { ...entry.diameterRange }, diameter: e.d0,
+      conditionBasis: requested === undefined ? entry.conditionBasis : 'selected-delivery-condition',
+      sourceRefs, source: { kind: 'normative-band', reference: entry.id, locator: entry.locator,
+        policyReference: RM_POLICY_VERSION_V2, verification: entry.verification,
+        standard: entry.standard, label: entry.standard + ' · ' + deliveryCondition },
+      note: requested === undefined ? 'Normbasiertes Rm-Band; genauer Lieferzustand als Annahme.' : 'Normbasiertes Rm-Band für den gewählten Lieferzustand.' };
   }
   // R-AB1 is constant below 400. A missing lower material bound therefore
   // needs no invented point value: evaluate that constant region at 400.
@@ -569,7 +613,7 @@
       if (!volumeKnown) out.hinweise.push(drive.label + (pos(e.masse) ? ': Vertiefungsvolumen bleibt offen; Abschnitt wird aus der Teilemasse bestimmt.' : ': Vertiefungsvolumen aus Zeichnung oder CAD ergänzen; Teilvolumen und Abschnittlänge bleiben offen.'));
       if (drive.forceStatus === 'missing') out.hinweise.push(drive.label + ': Profilkontur, Restwand und Umformkraft anhand der Zeichnung und des Stempelkonzepts bestimmen.');
     }
-    const rmPreset = e.rmPolicy === RM_POLICY_VERSION ? rmVorbelegung(e) : null;
+    const rmPreset = hasRmPolicy(e) ? rmVorbelegung(e) : null;
     const Rm = rmPreset ? rmPreset.value : pos(e.rm) ? e.rm : m.Rm;
     if(m.forcePolicy===FORCE_POLICY_VERSION)m.shearRm={value:pos(Rm)?Rm:pos(rmPreset?.band?.max)?rmPreset.band.max:null,origin:pos(e.rm)?'customer':rmPreset?.origin||'legacy-guideline',status:pos(Rm)?rmPreset?.status||'guideline':pos(rmPreset?.band?.max)?'band-upper-bound':'missing',...(rmPreset?.band?{band:{...rmPreset.band}}:{}),source:rmPreset?.source||null};
     const gr = GRENZEN[m.grp] || GRENZEN.unbekannt;
@@ -1045,7 +1089,7 @@
     // Abschnitt-Ø
     // Katalogwert ist die Maschinengrenze; die Abminderung nach Festigkeit ist Richtwert und nur Hinweis (R-GR)
     const dMax = pos(Rm) ? o.cd * Math.sqrt(400 / Math.max(Rm, 400)) : null;
-    const rmPreset = e.rmPolicy === RM_POLICY_VERSION ? a.werkstoff.rmVorbelegung : null;
+    const rmPreset = hasRmPolicy(e) ? a.werkstoff.rmVorbelegung : null;
     const rmSensitivity = rmPreset && !pos(Rm) ? rmSensitivitaet(w.d0, o.cd, rmPreset.band) : null;
     const cutoffStatus = !pos(o.cd) ? 'offen' : w.d0 > o.cd ? 'nein' : pos(Rm) ? w.d0 <= 0.95 * dMax ? 'ok' : 'knapp' : rmSensitivity?.status || 'offen';
     add('Abschnitt-Ø', cutoffStatus, z(w.d0) + ' mm', !pos(o.cd) ? 'nicht im Katalog' : 'Katalog ' + zk(o.cd) + ' mm' + (dMax !== null && dMax < o.cd - 0.05 ? ', Richtwert bei ' + Rm + ' N/mm² ' + z(dMax) + ' mm' : !pos(Rm) && (!rmPreset || cutoffStatus === 'offen') ? '; Einfluss der Drahtzugfestigkeit offen' : ''), 'R-AB1');
@@ -1056,8 +1100,9 @@
       check.rmUncertaintyRelevant = !pos(Rm) && (!rmPreset.band || rmSensitivity?.sensitive === true);
       if (pos(Rm)) check.detail = rmPreset.origin === 'customer' ? 'Rm = ' + zk(Rm) + ' N/mm²: Kundenangabe für den Abschnittdraht.' : 'Rm-Richtwert ' + zk(Rm) + ' N/mm² aus Bestandsdaten; vorläufig für den gewählten Lieferzustand.';
       else if (rmPreset.band) {
-        const band = rmPreset.band, label = band.min == null ? 'Vorläufiges Rm-Band bis ' + zk(band.max) : 'Rm-Band ' + zk(band.min) + ' bis ' + zk(band.max);
+        const band = rmPreset.band, label = band.min == null ? (rmPreset.origin === 'standard' ? 'Normbasiertes Rm-Band bis ' : 'Vorläufiges Rm-Band bis ') + zk(band.max) : 'Rm-Band ' + zk(band.min) + ' bis ' + zk(band.max);
         check.detail = label + ' N/mm²: ' + (!pos(o.cd) ? 'Der Katalogdurchmesser fehlt.' : w.d0 > o.cd ? 'Der feste Katalogdurchmesser wird überschritten.' : rmSensitivity.sensitive === false ? 'Der Abschnitt-Ø hat an beiden Bandgrenzen denselben Prüfstatus.' : 'Der genaue Wert kann den Prüfstatus des Abschnitt-Ø ändern.');
+        if (rmPreset.origin === 'standard') check.detail += ' ' + rmPreset.source.label + '; ' + (rmPreset.conditionBasis === 'provisional-spheroidized-delivery-assumption' ? 'Lieferzustand angenommen' : 'Lieferzustand ausgewählt') + ', ' + zk(rmPreset.diameterRange.minExclusive) + ' < d ≤ ' + zk(rmPreset.diameterRange.maxInclusive) + ' mm.';
       } else check.detail = rmPreset.status === 'post-drawing-missing' ? 'Rm nach dem Inline-Vorzug ist noch offen; der Ausgangszustand genügt für die Abschnittprüfung nicht.' : 'Für den gewählten Lieferzustand fehlt ein anwendbarer Rm-Wert oder ein plausibles Band.';
     }
     // Abschnittlänge
@@ -1244,6 +1289,6 @@
     return result;
   }
 
-  const API = { WERKSTOFFE, GRENZEN, REGELN, FAMILIEN, PRAXIS_STANDARD, RM_POLICY_VERSION, FORCE_POLICY_VERSION, rmVorbelegung, rmSensitivitaet, forceSensitivitaet, flowExtrapolationFit, auslegen, boltGeometry, pruefe, waehle, maschinenKonzept, planung, kf, kfm, selectFlow, G, findMaterial };
+  const API = { WERKSTOFFE, GRENZEN, REGELN, FAMILIEN, PRAXIS_STANDARD, RM_POLICY_VERSION, RM_POLICY_VERSION_V2, FORCE_POLICY_VERSION, rmVorbelegung, rmSensitivitaet, forceSensitivitaet, flowExtrapolationFit, auslegen, boltGeometry, pruefe, waehle, maschinenKonzept, planung, kf, kfm, selectFlow, G, findMaterial };
   if (typeof module !== 'undefined' && module.exports) module.exports = API; else root.JYK = API;
 })(typeof globalThis !== 'undefined' ? globalThis : this);

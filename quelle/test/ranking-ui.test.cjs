@@ -48,11 +48,11 @@ test('the machine grid scrolls inside its bounded result column',()=>{
   const html=U.summaryHtml(fixture(),options);
   assert.match(html,/<div class="ranking-table-scroll"><table>/);
   const source=fs.readFileSync(path.join(__dirname,'../archiv-vorlage.html'),'utf8');
-  const rule=source.match(/\.ranking-table-scroll\s*\{([^}]+)\}/);
+  const rule=[...source.matchAll(/([^{}]+)\{([^}]+)\}/g)].find(match=>match[1].split(',').some(selector=>selector.trim()==='.ranking-table-scroll'));
   assert.ok(rule,'The grid needs its own scroll container in the shared expert template');
-  assert.match(rule[1],/overflow-x\s*:\s*auto\s*;/);
-  assert.match(rule[1],/max-width\s*:\s*100%\s*;/);
-  assert.match(rule[1],/min-width\s*:\s*0\s*;/);
+  assert.match(rule[2],/overflow-x\s*:\s*auto\s*;/);
+  assert.match(rule[2],/max-width\s*:\s*100%\s*;/);
+  assert.match(rule[2],/min-width\s*:\s*0\s*;/);
 });
 
 test('open suitability and incomplete price order remain explicit',()=>{

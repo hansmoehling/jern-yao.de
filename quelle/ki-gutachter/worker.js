@@ -22,11 +22,14 @@ const pricedOrigin=origin=>['https://jern-yao.de','https://www.jern-yao.de'].inc
 // Price publication remains controlled independently by pricedOrigin above.
 const packageOneOrigin=origin=>ORIGINS.includes(origin);
 const FORCE_POLICY_VERSION='force-v2';
+const RM_POLICY_VERSION='rm-v2';
 const forceOrigin=origin=>origin==='https://jern-yao.de';
-const originForceFeatures=origin=>forceOrigin(origin)?{forcePolicy:FORCE_POLICY_VERSION}:{};
-const storedForceFeatures=record=>forceOrigin(record?.siteOrigin)&&record?.forcePolicy===FORCE_POLICY_VERSION?{forcePolicy:FORCE_POLICY_VERSION}:{};
-const requestForceFeatures=(req,record)=>forceOrigin(req.headers.get('Origin'))&&(!record||storedForceFeatures(record).forcePolicy===FORCE_POLICY_VERSION)?{forcePolicy:FORCE_POLICY_VERSION}:{};
-const sameForcePolicy=(a,b)=>(a?.forcePolicy===FORCE_POLICY_VERSION)===(b?.forcePolicy===FORCE_POLICY_VERSION);
+const CALCULATION_POLICIES={forcePolicy:FORCE_POLICY_VERSION,rmPolicy:RM_POLICY_VERSION};
+const originCalculationFeatures=origin=>forceOrigin(origin)?{...CALCULATION_POLICIES}:{};
+const storedCalculationFeatures=record=>forceOrigin(record?.siteOrigin)&&record?.forcePolicy===FORCE_POLICY_VERSION?{forcePolicy:FORCE_POLICY_VERSION,...(record.rmPolicy===RM_POLICY_VERSION?{rmPolicy:RM_POLICY_VERSION}:{})}:{};
+const requestCalculationFeatures=(req,record)=>forceOrigin(req.headers.get('Origin'))?(record?storedCalculationFeatures(record):originCalculationFeatures(req.headers.get('Origin'))):{};
+const sameCalculationPolicy=(a,b)=>Object.entries(CALCULATION_POLICIES).every(([key,version])=>(a?.[key]===version)===(b?.[key]===version));
+const calculationKeyPrefix=features=>Object.keys(CALCULATION_POLICIES).filter(key=>features[key]).map(key=>features[key]+':').join('');
 const storedFeatures=record=>packageOneOrigin(record?.siteOrigin)&&record?.featureVersion===DRAWING_DEFAULTS_VERSION?{featureVersion:DRAWING_DEFAULTS_VERSION,materialChoice:record.materialChoice||null}:{};
 const originPricePolicy=req=>pricedOrigin(req.headers.get('Origin'))?WITH_PRICES:TECHNICAL_ONLY;
 const storedPricePolicy=record=>record?.pricePolicy===WITH_PRICES&&pricedOrigin(record.siteOrigin)?WITH_PRICES:TECHNICAL_ONLY;
@@ -85,10 +88,10 @@ function processingInfo(a){
   const last=a?.diagnostics?.at(-1),code=last?.classification||last?.code;
   return {attempt:a?.attempt||0,startedAt:a?.startedAt||null,updatedAt:a?.updatedAt||null,failureCode:last?(PUBLIC_FAILURE_CODES.has(code)?code:'service_failure'):null,retrying:!!last&&['queued','processing'].includes(a?.status)};
 }
-async function snapshot(env, id, pricePolicy,kind,testfield=false,forceFeatures={}) {
+async function snapshot(env, id, pricePolicy,kind,testfield=false,calculationFeatures={}) {
   const [a, n] = await Promise.all([get(env, 'analyse:' + id), get(env, 'nachricht:' + id)]);
   if(kind==='enquiry')return {status:'received',kind,analysisStatus:'not_requested',...publicResult(null,{pricePolicy}),notificationStatus:n?.status||'pending'};
-  if(a?.result&&(a.result.knowledgePublicationVersion!==PUBLIC_KNOWLEDGE_VERSION||!sameForcePolicy(a.result,forceFeatures))){
+  if(a?.result&&(a.result.knowledgePublicationVersion!==PUBLIC_KNOWLEDGE_VERSION||!sameCalculationPolicy(a.result,calculationFeatures))){
     const language=normalizeLanguage(a.result.language);
     return {status:'failed',...publicResult({answer:t('Diese frühere Auswertung ist nicht mehr zur Anzeige freigegeben. Bitte starten Sie eine neue Auswertung.',language),language,knowledgePublicationVersion:PUBLIC_KNOWLEDGE_VERSION},{pricePolicy}),notificationStatus:n?.status||'pending',resultSuperseded:true};
   }
@@ -129,18 +132,18 @@ async function preview(req,env,cors,locale) {
   const siteOrigin=req.headers.get('Origin')||null,pricePolicy=requestPricePolicy(req,form.get('pricePolicy'));
   let materialChoice=null;
   if(packageOneOrigin(siteOrigin)){try{materialChoice=validateMaterialChoice(form.get('materialChoice'));}catch{throw new HttpError(400,materialText(CHOICE_ERROR,language));}}
-  const forceFeatures=originForceFeatures(siteOrigin),features={...(packageOneOrigin(siteOrigin)?{featureVersion:DRAWING_DEFAULTS_VERSION,...(materialChoice?{materialChoice}:{})}:{}),...forceFeatures};
+  const calculationFeatures=originCalculationFeatures(siteOrigin),features={...(packageOneOrigin(siteOrigin)?{featureVersion:DRAWING_DEFAULTS_VERSION,...(materialChoice?{materialChoice}:{})}:{}),...calculationFeatures};
   const note=txt(form.get('notiz')||form.get('text'),20000),file={name:filename,type:EXT[ext],size:fileBytes.length,hash:await digest(fileBytes),readable:true};
-  const fingerprint=await digest(JSON.stringify({note,file,language,siteOrigin,pricePolicy,...(materialChoice?{materialChoice}:{}),...forceFeatures}));
+  const fingerprint=await digest(JSON.stringify({note,file,language,siteOrigin,pricePolicy,...(materialChoice?{materialChoice}:{}),...calculationFeatures}));
   // The opaque client key belongs only to this preview. Contact submissions use
   // their existing, separate namespace and are never triggered by this route.
-  const idemKey='vorschau-idempotenz:'+await digest(siteOrigin+':'+(forceFeatures.forcePolicy?forceFeatures.forcePolicy+':':'')+idem),old=await get(env,idemKey);
+  const idemKey='vorschau-idempotenz:'+await digest(siteOrigin+':'+calculationKeyPrefix(calculationFeatures)+idem),old=await get(env,idemKey);
   if(old){
     if(old.fingerprint!==fingerprint)throw new HttpError(409,'Diese Anfragekennung gehört bereits zu anderen Angaben. Bitte senden Sie eine neue Anfrage.');
     const saved=await get(env,'anfrage:'+old.id);
     if(saved?.kind!=='preview')throw new HttpError(503,'Die Vorschau konnte gerade nicht geladen werden. Bitte versuchen Sie es erneut.');
     if(!await get(env,'vorschauauftrag:'+old.id))await enqueuePreview(env,old.id);
-    const state=await snapshot(env,old.id,requestPricePolicy(req,pricePolicy,saved),saved.kind,packageOneOrigin(saved.siteOrigin),requestForceFeatures(req,saved));
+    const state=await snapshot(env,old.id,requestPricePolicy(req,pricePolicy,saved),saved.kind,packageOneOrigin(saved.siteOrigin),requestCalculationFeatures(req,saved));
     if(!state.answer)state.language=language;
     return json({id:old.id,token:await tokenFor(env,old.id),...state,kind:'preview',notificationStatus:'not_requested'},200,cors);
   }
@@ -165,22 +168,22 @@ async function geometryPreview(req,env,cors,locale) {
   const idem=txt(body.idempotency_key,160);
   if(!/^[\w-]{16,160}$/.test(idem))throw new HttpError(400,'Die Anfragekennung ist ungültig.');
   const siteOrigin=req.headers.get('Origin')||null,pricePolicy=requestPricePolicy(req,body.pricePolicy),note=txt(body.note,20000);
-  const geometrySpec=geometry.spec,geometryProcess=geometry.process,forceFeatures=originForceFeatures(siteOrigin);
-  const fingerprint=await digest(JSON.stringify({geometrySpec,geometryProcess,note,language,siteOrigin,pricePolicy,...forceFeatures}));
-  const idemKey='geometrie-idempotenz:'+await digest(siteOrigin+':'+(forceFeatures.forcePolicy?forceFeatures.forcePolicy+':':'')+idem),old=await get(env,idemKey);
+  const geometrySpec=geometry.spec,geometryProcess=geometry.process,calculationFeatures=originCalculationFeatures(siteOrigin);
+  const fingerprint=await digest(JSON.stringify({geometrySpec,geometryProcess,note,language,siteOrigin,pricePolicy,...calculationFeatures}));
+  const idemKey='geometrie-idempotenz:'+await digest(siteOrigin+':'+calculationKeyPrefix(calculationFeatures)+idem),old=await get(env,idemKey);
   if(old){
     if(old.fingerprint!==fingerprint)throw new HttpError(409,'Diese Anfragekennung gehört bereits zu anderen Angaben. Bitte senden Sie eine neue Anfrage.');
     const saved=await get(env,'anfrage:'+old.id);
     if(saved?.kind!=='preview'||saved.previewSource!=='structured_geometry')throw new HttpError(503,'Die Vorschau konnte gerade nicht geladen werden. Bitte versuchen Sie es erneut.');
     if(!await get(env,'vorschauauftrag:'+old.id))await enqueuePreview(env,old.id);
-    const state=await snapshot(env,old.id,requestPricePolicy(req,pricePolicy,saved),saved.kind,packageOneOrigin(saved.siteOrigin),requestForceFeatures(req,saved));if(!state.answer)state.language=language;
+    const state=await snapshot(env,old.id,requestPricePolicy(req,pricePolicy,saved),saved.kind,packageOneOrigin(saved.siteOrigin),requestCalculationFeatures(req,saved));if(!state.answer)state.language=language;
     return json({id:old.id,token:await tokenFor(env,old.id),...state,kind:'preview',previewSource:'structured_geometry',notificationStatus:'not_requested'},200,cors);
   }
   // Geometry and file previews share the same cost budget. A second route must
   // not double the number of newly accepted analysis jobs.
   await throttle(req,env,'preview',10);
   const id=crypto.randomUUID(),createdAt=new Date().toISOString();
-  await put(env,'anfrage:'+id,{id,kind:'preview',previewSource:'structured_geometry',createdAt,note,geometrySpec,geometryProcess,language,siteOrigin,pricePolicy,...forceFeatures});
+  await put(env,'anfrage:'+id,{id,kind:'preview',previewSource:'structured_geometry',createdAt,note,geometrySpec,geometryProcess,language,siteOrigin,pricePolicy,...calculationFeatures});
   await put(env,'analyse:'+id,{status:'queued',updatedAt:createdAt});
   await put(env,'nachricht:'+id,{status:'not_requested',updatedAt:createdAt});
   await put(env,idemKey,{id,fingerprint});
@@ -229,7 +232,7 @@ async function intake(req, env, cors, locale) {
   await throttle(req, env, 'intake', 10);
   const id = crypto.randomUUID(), createdAt = new Date().toISOString();
   if (file) { file.key = 'anfragen/' + id + '/original'; await env.DATEIEN.put(file.key, fileBytes, { httpMetadata: { contentType: file.type }, customMetadata: { expiresAt: String(Date.now() + TTL * 1000) } }); }
-  await put(env, 'anfrage:' + id, { id, kind:'enquiry',createdAt, email, name, company, note, file, language,siteOrigin,pricePolicy,...originForceFeatures(siteOrigin),...(subject?{subject}:{}),consent:form.get('consent')==='true',consentSource:form.has('consent')?'submitted':'legacy-ui' });
+  await put(env, 'anfrage:' + id, { id, kind:'enquiry',createdAt, email, name, company, note, file, language,siteOrigin,pricePolicy,...originCalculationFeatures(siteOrigin),...(subject?{subject}:{}),consent:form.get('consent')==='true',consentSource:form.has('consent')?'submitted':'legacy-ui' });
   await put(env, 'nachricht:' + id, { status: 'pending', updatedAt: createdAt });
   if (idemKey) await put(env, idemKey, { id, fingerprint });
   // Optional learning intake cannot prevent the explicitly requested email.
@@ -249,15 +252,15 @@ async function chat(req, env, cors, locale) {
   if (body.requestId || body.token) { request = await authorised(env, body.requestId, body.token); history = await get(env, 'chat:' + request.id) || []; if (typeof body.language !== 'string' && !locale.explicit) locale.value = normalizeLanguage(request.language); }
   else if (Array.isArray(body.history)) history = body.history.slice(-12).filter(x => x && ['user', 'assistant'].includes(x.role)).map(x => ({ role: x.role, content: txt(x.content || x.message, 4000),...(x.knowledgePublicationVersion===PUBLIC_KNOWLEDGE_VERSION?{knowledgePublicationVersion:PUBLIC_KNOWLEDGE_VERSION}:{}) }));
   history=history.filter(item=>item.role==='user'||item.role==='assistant'&&item.knowledgePublicationVersion===PUBLIC_KNOWLEDGE_VERSION);
-  const pricePolicy=requestPricePolicy(req,body.pricePolicy,request),forceFeatures=requestForceFeatures(req,request);
+  const pricePolicy=requestPricePolicy(req,body.pricePolicy,request),calculationFeatures=requestCalculationFeatures(req,request);
   await throttle(req, env, 'chat', 40);
   const file = request?.file?.readable ? await readFile(env, request.file) : null;
   let result;
-  try { result = await analyse({ note: request?.note || '', message, history, file, filename: request?.file?.name, unreadableFile: !!request?.file && !request.file.readable, geometrySpec:request?.geometrySpec,geometryProcess:request?.geometryProcess, language: locale.value,pricePolicy,...storedFeatures(request),...forceFeatures,...(packageOneOrigin(req.headers.get('Origin'))&&(!request||packageOneOrigin(request.siteOrigin))?{packageSix:true}:{}) }, env, { timeoutMs: 120000, maxRounds: 5 }); }
+  try { result = await analyse({ note: request?.note || '', message, history, file, filename: request?.file?.name, unreadableFile: !!request?.file && !request.file.readable, geometrySpec:request?.geometrySpec,geometryProcess:request?.geometryProcess, language: locale.value,pricePolicy,...storedFeatures(request),...calculationFeatures,...(packageOneOrigin(req.headers.get('Origin'))&&(!request||packageOneOrigin(request.siteOrigin))?{packageSix:true}:{}) }, env, { timeoutMs: 120000, maxRounds: 5 }); }
   catch (error) { await recordServiceDiagnostic(env, error, 'chat'); throw new HttpError(503, 'Die Antwort konnte gerade nicht fertiggestellt werden. Ihre bisherige Anfrage bleibt erhalten. Bitte versuchen Sie es erneut.'); }
   if (request) {
     await put(env, 'chat:' + request.id, [...history, { role: 'user', content: message }, { role: 'assistant', content: result.answer,knowledgePublicationVersion:result.knowledgePublicationVersion }].slice(-20));
-    if(sameForcePolicy(forceFeatures,storedForceFeatures(request)))await put(env, 'analyse:' + request.id, { status: result.questions.length ? 'needs_info' : 'ready', result, updatedAt: new Date().toISOString() });
+    if(sameCalculationPolicy(calculationFeatures,storedCalculationFeatures(request)))await put(env, 'analyse:' + request.id, { status: result.questions.length ? 'needs_info' : 'ready', result, updatedAt: new Date().toISOString() });
   }
   return json({ ...publicResult(result,{pricePolicy}), status: result.questions.length ? 'needs_info' : 'ready' }, 200, cors);
 }
@@ -293,14 +296,14 @@ async function queued(message, env) {
     if (kind === 'intake_mail') await notifyHans(env, record);
     else {
       const old = await get(env, key);
-      const forceFeatures=storedForceFeatures(record);
-      if ((['ready', 'needs_info'].includes(old?.status)||isPreview&&old?.status==='failed')&&sameForcePolicy(old?.result,forceFeatures)) { message.ack(); return; }
+      const calculationFeatures=storedCalculationFeatures(record);
+      if ((['ready', 'needs_info'].includes(old?.status)||isPreview&&old?.status==='failed')&&sameCalculationPolicy(old?.result,calculationFeatures)) { message.ack(); return; }
       const startedAt=new Date().toISOString(),protocol=packageOneOrigin(record.siteOrigin)?{attempt:message.attempts||1,startedAt,diagnostics:old?.diagnostics||[]}:{};
       await put(env, key, { status: 'processing', updatedAt: startedAt,...protocol });
       const file = record.file?.readable ? await readFile(env, record.file) : null;
-      const result = await analyse({ note: record.note, file, filename: record.file?.name, unreadableFile: !!record.file && !record.file.readable, geometrySpec:record.geometrySpec,geometryProcess:record.geometryProcess, language: normalizeLanguage(record.language),pricePolicy:storedPricePolicy(record),...storedFeatures(record),...forceFeatures,...(packageOneOrigin(record.siteOrigin)?{packageSix:true}:{}) }, env, { timeoutMs: 240000, maxRounds: 7 });
+      const result = await analyse({ note: record.note, file, filename: record.file?.name, unreadableFile: !!record.file && !record.file.readable, geometrySpec:record.geometrySpec,geometryProcess:record.geometryProcess, language: normalizeLanguage(record.language),pricePolicy:storedPricePolicy(record),...storedFeatures(record),...calculationFeatures,...(packageOneOrigin(record.siteOrigin)?{packageSix:true}:{}) }, env, { timeoutMs: 240000, maxRounds: 7 });
       const latest = await get(env, key);
-      if (!['ready', 'needs_info'].includes(latest?.status)||!sameForcePolicy(latest?.result,forceFeatures)) await put(env, key, { status: result.questions.length ? 'needs_info' : 'ready', result, updatedAt: new Date().toISOString(),...protocol });
+      if (!['ready', 'needs_info'].includes(latest?.status)||!sameCalculationPolicy(latest?.result,calculationFeatures)) await put(env, key, { status: result.questions.length ? 'needs_info' : 'ready', result, updatedAt: new Date().toISOString(),...protocol });
     }
     message.ack();
   } catch (error) {
@@ -312,7 +315,7 @@ async function queued(message, env) {
     const technicalDrawingFailure=isPreview&&storedFeatures(record).featureVersion===DRAWING_DEFAULTS_VERSION&&error?.diagnostic?.classification!=='document_invalid';
     const failureAnswer=technicalDrawingFailure?materialText('Die KI-Auswertung wurde technisch unterbrochen. Ihre Eingaben bleiben gespeichert. Bitte starten Sie die Auswertung erneut.',language):t(record?.previewSource==='structured_geometry'?'Die strukturierte Geometrie konnte nicht vollständig ausgearbeitet werden. Ihre Eingaben bleiben gespeichert.':isPreview?'Die Zeichnung konnte nicht vollständig ausgewertet werden. Bitte prüfen Sie die Datei oder ergänzen Sie eine lesbare PDF-/Bildansicht.':'Die automatische Ausarbeitung konnte nicht abgeschlossen werden. Ihre Anfrage ist gespeichert.',language);
     const protocol=isAnalysis&&packageOneOrigin(record?.siteOrigin)?{attempt:message.attempts||1,startedAt:latest?.startedAt||null,diagnostics:[...(latest?.diagnostics||[]),...(diagnostic?[{...diagnostic,attempt:message.attempts||1}]:[])].slice(-4)}:{};
-    await put(env, key, { status: final ? 'failed' : isAnalysis ? 'queued' : 'pending', updatedAt: new Date().toISOString(),...protocol, ...(isAnalysis && final ? { result: { answer: failureAnswer, questions: [], proposal: null, sources: [], language,knowledgePublicationVersion:PUBLIC_KNOWLEDGE_VERSION,...storedForceFeatures(record) } } : {}) });
+    await put(env, key, { status: final ? 'failed' : isAnalysis ? 'queued' : 'pending', updatedAt: new Date().toISOString(),...protocol, ...(isAnalysis && final ? { result: { answer: failureAnswer, questions: [], proposal: null, sources: [], language,knowledgePublicationVersion:PUBLIC_KNOWLEDGE_VERSION,...storedCalculationFeatures(record) } } : {}) });
     if(isPreview&&final){message.ack();return;}
     message.retry({ delaySeconds: 60 }); // Exhausted jobs reach the configured dead-letter queue.
   }
@@ -393,7 +396,7 @@ export default {
       if (url.pathname === '/rueckmeldung' && req.method === 'POST') return await kvpRequest(req,env,cors,locale,'feedback');
       if (url.pathname === '/erfahrung' && req.method === 'POST') return await kvpRequest(req,env,cors,locale,'experience');
       if (url.pathname === '/rangfolge' && req.method === 'POST') return await rankingRequest(req,env,cors,locale);
-      if (url.pathname === '/status' && req.method === 'GET') { const a = await authorised(env, url.searchParams.get('id'), url.searchParams.get('token')); const state = await snapshot(env, a.id,requestPricePolicy(req,url.searchParams.get('pricePolicy'),a),a.kind,packageOneOrigin(a.siteOrigin),requestForceFeatures(req,a)); if (!state.answer) state.language = normalizeLanguage(a.language); return json({...state,...(a.kind==='preview'?{kind:'preview',notificationStatus:'not_requested',...(a.previewSource==='structured_geometry'?{previewSource:a.previewSource}:{})}:{})}, 200, cors); }
+      if (url.pathname === '/status' && req.method === 'GET') { const a = await authorised(env, url.searchParams.get('id'), url.searchParams.get('token')); const state = await snapshot(env, a.id,requestPricePolicy(req,url.searchParams.get('pricePolicy'),a),a.kind,packageOneOrigin(a.siteOrigin),requestCalculationFeatures(req,a)); if (!state.answer) state.language = normalizeLanguage(a.language); return json({...state,...(a.kind==='preview'?{kind:'preview',notificationStatus:'not_requested',...(a.previewSource==='structured_geometry'?{previewSource:a.previewSource}:{})}:{})}, 200, cors); }
       return json({ error: t('Nicht gefunden.', locale.value), language: locale.value }, 404, cors);
     } catch (e) { if (!(e instanceof HttpError)) await recordServiceDiagnostic(env, e, url.pathname === '/chat' ? 'chat' : 'request'); return json({ error: t(e instanceof HttpError ? e.message : 'Der Dienst konnte die Anfrage gerade nicht abschließen.', locale.value), language: locale.value }, e.status || 503, cors); }
   },

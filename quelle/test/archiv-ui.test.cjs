@@ -68,7 +68,7 @@ function setup(language,engine=E,showPrices,apiOptions,staged=false,integrated=f
  if(integrated){
   window.fetch=context.fetch;window.AbortController=AbortController;
   window.JYNormLibrary=require('../normen/library.js');window.JYStandards=require('../normen/resolver.js');
-  window.JY_NORM_DATA={schemaVersion:1,version:'integration-test',families:['ISO4762','ISO4017','DIN6791','ISO4032'].map(id=>require('../normen/'+id+'.json')),threads:require('../normen/gewinde.json'),materials:require('../vorbelegung/werkstoff.json')};
+  window.JY_NORM_DATA={schemaVersion:1,version:'integration-test',families:['ISO4762','ISO4017','DIN660','DIN6791','ISO4032'].map(id=>require('../normen/'+id+'.json')),threads:require('../normen/gewinde.json'),materials:require('../vorbelegung/werkstoff.json')};
   window.JYKvpContext=require('../kvp-context.js');
   for(const file of ['normen/ui.js','kvp-ui.js'])vm.runInNewContext(fs.readFileSync(path.join(__dirname,'..',file),'utf8'),context);
  }
@@ -726,6 +726,33 @@ test('rivets and pins ignore inherited screw profiles and drives in both sites a
  }
 });
 
+test('rivet material-class changes never ask for a drive, retain norm edits, and Cu clears prior Al forces in five languages',async()=>{
+ for(const language of I.supported)for(const showPrices of [true,false])for(const id of ['DIN660','DIN6791']){
+  let input,analysis;const p=setup(language,{...E,auslegen(e){input=e;return analysis=E.auslegen(e);}},showPrices,undefined,true,true);
+  const choose=(key,value)=>{const field=p.get('norm-'+key);field.value=value;field.events.change();};
+  assert(!p.f.elements.wst.options.some(option=>option.value.includes('missing-flow-curve')),'copper is not globally enabled');
+  choose('kind','rivet');choose('id',id);choose('groesse','4');
+  p.f.elements.kD.value='8.2';p.f.events.change({target:p.f.elements.kD});
+  const geometry={sD:input.sD,sL:input.sL,kD:input.kD,kH:input.kH,d_b:input.d_b,t_b:input.t_b};
+  for(const [materialClass,expected]of [['Al','AlMgSi1'],['Cu','Cu-ETP'],['CuZn','CuZn37'],['Cu','Cu-ETP'],['Stahl','C4C']]){
+   choose('festigkeitsklasse',materialClass);
+   assert.equal(E.WERKSTOFFE[input.wst].id,expected);assert.equal(analysis.werkstoff.id,expected);assert.equal(input.standardDocument.standardReference.id,id);assert.equal(input.standardDocument.standardReference.groesse,'4');assert.equal(input.propertyClass,materialClass);
+   assert.deepEqual({sD:input.sD,sL:input.sL,kD:input.kD,kH:input.kH,d_b:input.d_b,t_b:input.t_b},geometry);assert.equal(input.standardDocument.overrides.kD.value,8.2);
+   assert.equal(input.iTyp,'none');assert.equal(input.threadFamily,'none');assert(p.get('bolt-drive-fields').hidden);assert(p.f.elements.iTyp.disabled);assert(analysis.werte.V>0&&analysis.werte.masse>0);assert.equal(p.get('aus').hidden,false);
+   assert.equal(p.f.elements.wst.options.some(option=>option.value.includes('missing-flow-curve')),materialClass==='Cu');
+   if(materialClass==='Cu'){
+    assert.equal(input.curveId,null);assert.equal(input.materialState,'unknown');assert.equal(analysis.werte.Fmax_t,null);assert(analysis.stufen.every(stage=>stage.F===null));
+    assert(p.get('stufen').tBodies[0].innerHTML.includes(I.t('Kraft noch offen',language)));
+    assert(p.get('material-basis').textContent.includes(I.t('Cu-ETP: Fließkurve für den Lieferzustand fehlt. Geometrie und Gewicht sind berechnet; Kräfte bleiben offen.',language)));
+    assert(!p.get('material-basis').textContent.includes('φ'));
+    p.get('drucken').events.click();await sendMail(p);
+    for(const text of [p.get('blatt').innerHTML,new URL(p.context.location.href).searchParams.get('body')]){assert(text.includes('Cu-ETP'));assert(text.includes(I.t('Fließkurve des Lieferzustands fehlt',language)));assert(!text.includes(I.t('Literaturansatz',language)));assert(!text.includes('AlMgSi'));assert(!text.includes(I.t('Innenantrieb',language)));}
+   }else assert(analysis.werte.Fmax_t>0,'approved material restores its own force calculation');
+  }
+  assert.equal(E.findMaterial('Cu-ETP').manualEligible,false,'no global curve approval is changed');
+ }
+});
+
 test('missing or cleared shaft dimensions block cards, print and requests for rivets',()=>{
  for(const language of I.supported)for(const showPrices of [true,false]){
   const p=setup(language,E,showPrices);p.examples[0].events.click();p.f.elements.standardKind.value='rivet';p.f.elements.standardKind.events.change();
@@ -759,7 +786,7 @@ test('staged defaults preserve customer wire values and expose the thinner annea
  for(const language of I.supported){
   let received;const p=setup(language,{...E,auslegen(e){received=e;return E.auslegen(e);}},true,undefined,true);
   for(const [key,value]of Object.entries({sD:'5.27',sL:'30',kD:'10',kH:'6'}))p.f.elements[key].value=value;
-  p.f.events.change();assert.equal(received.d0,5.6);assert.equal(received.rmPolicy,E.RM_POLICY_VERSION);assert.equal(received.rm,undefined);
+  p.f.events.change();assert.equal(received.d0,5.6);assert.equal(received.rmPolicy,'rm-v2');assert.equal(received.rm,undefined);
   assert.equal(received.inputOrigins.d0.origin,'assumption');assert(!p.get('wire-candidates-field').hidden);assert(p.get('wire-custom-field').hidden);
   assert(p.get('wire-process-note').textContent.includes(I.t('Stauchdraht will geglüht sein, Reduzierdraht braucht das weniger',language)));
   const thinner=p.get('wire-candidates').options.find(o=>Number(o.value)>0&&Number(o.value)<5.6);assert(thinner);
@@ -798,16 +825,38 @@ test('staged geometry preserves wire provenance in requests, print and enquiry i
 test('staged Rm defaults stay identifiable in display and exports and never become invented certificate inputs',()=>{
  for(const language of I.supported){
   let received;const p=setup(language,{...E,auslegen(e){received=e;return E.auslegen(e);}},true,undefined,true);
-  p.examples[1].events.click();assert.equal(received.rm,undefined);assert(p.get('rm-origin').textContent.includes('400'));
+  const normHint=max=>I.t('Rm bis {max} N/mm² · Normobergrenze für {condition}; Lieferzustand als Rechenannahme.',language).replace('{max}',String(max)).replace('{condition}','+AC');
+  p.examples[1].events.click();assert.equal(received.rm,undefined);assert.equal(received.rmPolicy,'rm-v2');assert.equal(p.get('rm-origin').textContent,normHint(330));
+  const initial=E.rmVorbelegung(received);assert.equal(initial.materialId,'C4C');assert.equal(initial.value,null);assert.equal(initial.band.max,330);assert.equal(initial.origin,'standard');assert.equal(p.f.elements.rm.value,'');
   const a=E.auslegen(received),chosen=E.waehle(machines,a,received,praxis);assert(chosen.passend.length>0);
   assert(!chosen.passend[0].openPoints.some(x=>x.id==='wire-tensile-strength'));
   const variant=p.f.elements.wst.options.find(o=>o.textContent.startsWith('C10C'));p.f.elements.wst.value=variant.value;p.f.events.change();
-  assert.equal(received.rm,undefined);assert(p.f.elements.rm.placeholder.includes('350'));assert(p.get('rm-origin').textContent.includes(I.t('Richtwert · vorläufig',language)));
-  p.get('drucken').events.click();assert(p.get('blatt').innerHTML.includes(I.t('Herkunft Rm',language)));assert(p.get('blatt').innerHTML.includes(I.t('Richtwert · vorläufig',language)));
+  assert.equal(received.rm,undefined);assert.equal(p.f.elements.rm.placeholder,I.t('aus Drahtzeugnis, falls bekannt',language));assert.equal(p.get('rm-origin').textContent,normHint(380));
+  assert.equal(E.rmVorbelegung(received).value,null);assert.equal(E.rmVorbelegung(received).band.max,380);
+  p.get('drucken').events.click();assert(p.get('blatt').innerHTML.includes(I.t('Herkunft Rm',language)));assert(p.get('blatt').innerHTML.includes(I.t('Normobergrenze',language)));assert(!p.get('blatt').innerHTML.includes(I.t('Richtwert · vorläufig',language)));
   p.f.elements.rm.value='450';p.f.events.change();assert.equal(received.rm,450);assert(p.get('rm-origin').textContent.includes(I.t('Kundenangabe',language)));
   p.f.elements.rm.value='';p.f.elements.wirePreparation.value='inline-drawing';p.f.elements.rodDiameter.value='6';p.f.events.change();
   assert.equal(E.rmVorbelegung(received).value,null);assert(p.get('rm-origin').hidden,'pre-drawing reference must not be reused after inline drawing');
-  p.get('drucken').events.click();assert(!p.get('blatt').innerHTML.includes(I.t('Vorläufiges Praxisband',language)),'an unknown Rm must not be described as a known band');
+  p.get('drucken').events.click();assert(!p.get('blatt').innerHTML.includes(I.t('Vorläufiges Praxisband',language))&&!p.get('blatt').innerHTML.includes(I.t('Normobergrenze',language)),'an unknown post-drawing Rm must not reuse the prior band');
+ }
+});
+
+test('the Rm norm-band hint follows the new wire diameter across 5 mm without overwriting customer values',()=>{
+ for(const language of I.supported){
+  let received;const p=setup(language,{...E,auslegen(e){received=e;return E.auslegen(e);}},true,undefined,true);
+  for(const [key,value]of Object.entries({sD:'4.8',sL:'25',kD:'8',kH:'4'}))p.f.elements[key].value=value;
+  p.f.events.change();assert.equal(received.d0,5.1);
+  const chooseWire=value=>{const field=p.get('wire-candidates');assert(field.options.some(option=>option.value===String(value)));field.value=String(value);field.events.change();};
+  for(const [diameter,max,condition,rangeMin,rangeMax]of [[5,320,'+U+C+AC',2,5],[5.1,330,'+AC',5,100],[5,320,'+U+C+AC',2,5]]){
+   chooseWire(diameter);const rm=E.rmVorbelegung(received);
+   assert.equal(received.d0,diameter);assert.equal(received.rm,undefined);assert.equal(p.f.elements.rm.value,'');assert.equal(rm.band.max,max);assert.equal(rm.deliveryCondition,condition);assert.equal(rm.diameterRange.minExclusive,rangeMin);assert.equal(rm.diameterRange.maxInclusive,rangeMax);
+   const expected=I.t('Rm bis {max} N/mm² · Normobergrenze für {condition}; Lieferzustand als Rechenannahme.',language).replace('{max}',String(max)).replace('{condition}',condition);
+   assert.equal(p.get('rm-origin').textContent,expected,'hint must use the just-selected diameter, not the previous input snapshot');
+  }
+  p.f.elements.rm.value='417';p.f.events.change();chooseWire(5.1);assert.equal(received.rm,417);assert.equal(p.f.elements.rm.value,'417');assert(p.get('rm-origin').textContent.includes(I.t('Kundenangabe',language)));assert(!p.get('rm-origin').textContent.includes(I.t('Normobergrenze',language)));
+  chooseWire('custom');p.f.elements.d0.value='5.03';p.f.elements.d0.events.input();p.f.events.change();p.f.elements.sL.value='28';p.f.events.change();
+  assert.equal(received.d0,5.03);assert.equal(received.inputOrigins.d0.origin,'customer');assert.equal(received.rm,417);assert.equal(p.f.elements.rm.value,'417');
+  p.f.elements.rm.value='';p.f.events.change();assert.equal(received.d0,5.03);assert.equal(received.rm,undefined);assert.equal(E.rmVorbelegung(received).band.max,330);assert(p.get('rm-origin').textContent.includes('+AC'));
  }
 });
 

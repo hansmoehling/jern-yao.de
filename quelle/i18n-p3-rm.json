@@ -1,0 +1,49 @@
+{
+  "Rm bis {max} N/mm² · Normobergrenze für {condition}; Lieferzustand als Rechenannahme.": [
+    "Rm fino a {max} N/mm² · limite superiore normativo per {condition}; stato di fornitura assunto per il calcolo.",
+    "Rm do {max} N/mm² · zgornja meja po standardu za {condition}; dobavno stanje je računska predpostavka.",
+    "Rm up to {max} N/mm² · standard upper limit for {condition}; delivery condition assumed for this calculation.",
+    "Rm最高{max} N/mm² · {condition}状态的标准上限；该交货状态为计算假设。"
+  ],
+  "Rm bis {max} N/mm² · Normobergrenze für {condition}.": [
+    "Rm fino a {max} N/mm² · limite superiore normativo per {condition}.",
+    "Rm do {max} N/mm² · zgornja meja po standardu za {condition}.",
+    "Rm up to {max} N/mm² · standard upper limit for {condition}.",
+    "Rm最高{max} N/mm² · {condition}状态的标准上限。"
+  ],
+  "Normobergrenze": ["Limite superiore normativo", "Zgornja meja po standardu", "Standard upper limit", "标准上限"],
+  "Normbasiertes Rm-Band; genauer Lieferzustand als Annahme.": ["Intervallo Rm secondo norma; stato di fornitura specifico assunto.", "Območje Rm po standardu; točno dobavno stanje je predpostavljeno.", "Standard-based Rm band; exact delivery condition assumed.", "依据标准的Rm范围；具体交货状态为假设。"],
+  "Normbasiertes Rm-Band für den gewählten Lieferzustand.": ["Intervallo Rm secondo norma per lo stato di fornitura selezionato.", "Območje Rm po standardu za izbrano dobavno stanje.", "Standard-based Rm band for the selected delivery condition.", "所选交货状态对应的标准Rm范围。"],
+  "Lieferzustand angenommen": ["stato di fornitura assunto", "dobavno stanje predpostavljeno", "delivery condition assumed", "交货状态为假设"],
+  "Lieferzustand ausgewählt": ["stato di fornitura selezionato", "dobavno stanje izbrano", "delivery condition selected", "交货状态已选择"],
+  "Normbasiertes Rm-Band bis {max} N/mm²: Der Katalogdurchmesser fehlt. {standard} · {condition}; {operation}, {min} < d ≤ {diameter} mm.": [
+    "Intervallo Rm secondo norma fino a {max} N/mm²: manca il diametro di catalogo. {standard} · {condition}; {operation}, {min} < d ≤ {diameter} mm.",
+    "Območje Rm po standardu do {max} N/mm²: kataloški premer manjka. {standard} · {condition}; {operation}, {min} < d ≤ {diameter} mm.",
+    "Standard-based Rm band up to {max} N/mm²: the catalogue diameter is missing. {standard} · {condition}; {operation}, {min} < d ≤ {diameter} mm.",
+    "标准Rm范围上限为{max} N/mm²：缺少目录直径。{standard} · {condition}；{operation}，{min} < d ≤ {diameter} mm。"
+  ],
+  "Normbasiertes Rm-Band bis {max} N/mm²: Der feste Katalogdurchmesser wird überschritten. {standard} · {condition}; {operation}, {min} < d ≤ {diameter} mm.": [
+    "Intervallo Rm secondo norma fino a {max} N/mm²: il diametro limite di catalogo è superato. {standard} · {condition}; {operation}, {min} < d ≤ {diameter} mm.",
+    "Območje Rm po standardu do {max} N/mm²: fiksni kataloški premer je presežen. {standard} · {condition}; {operation}, {min} < d ≤ {diameter} mm.",
+    "Standard-based Rm band up to {max} N/mm²: the fixed catalogue diameter is exceeded. {standard} · {condition}; {operation}, {min} < d ≤ {diameter} mm.",
+    "标准Rm范围上限为{max} N/mm²：超过目录直径上限。{standard} · {condition}；{operation}，{min} < d ≤ {diameter} mm。"
+  ],
+  "Normbasiertes Rm-Band bis {max} N/mm²: Der Abschnitt-Ø hat an beiden Bandgrenzen denselben Prüfstatus. {standard} · {condition}; {operation}, {min} < d ≤ {diameter} mm.": [
+    "Intervallo Rm secondo norma fino a {max} N/mm²: il diametro di taglio ha lo stesso esito di verifica a entrambi gli estremi. {standard} · {condition}; {operation}, {min} < d ≤ {diameter} mm.",
+    "Območje Rm po standardu do {max} N/mm²: preverjanje premera odreza ima na obeh mejah območja enak rezultat. {standard} · {condition}; {operation}, {min} < d ≤ {diameter} mm.",
+    "Standard-based Rm band up to {max} N/mm²: the cutoff diameter has the same check status at both band limits. {standard} · {condition}; {operation}, {min} < d ≤ {diameter} mm.",
+    "标准Rm范围上限为{max} N/mm²：切断直径在范围两端的校核状态相同。{standard} · {condition}；{operation}，{min} < d ≤ {diameter} mm。"
+  ],
+  "Normbasiertes Rm-Band bis {max} N/mm²: Der genaue Wert kann den Prüfstatus des Abschnitt-Ø ändern. {standard} · {condition}; {operation}, {min} < d ≤ {diameter} mm.": [
+    "Intervallo Rm secondo norma fino a {max} N/mm²: il valore esatto può cambiare l’esito della verifica del diametro di taglio. {standard} · {condition}; {operation}, {min} < d ≤ {diameter} mm.",
+    "Območje Rm po standardu do {max} N/mm²: natančna vrednost lahko spremeni rezultat preverjanja premera odreza. {standard} · {condition}; {operation}, {min} < d ≤ {diameter} mm.",
+    "Standard-based Rm band up to {max} N/mm²: the exact value can change the cutoff-diameter check status. {standard} · {condition}; {operation}, {min} < d ≤ {diameter} mm.",
+    "标准Rm范围上限为{max} N/mm²：具体数值可能改变切断直径的校核状态。{standard} · {condition}；{operation}，{min} < d ≤ {diameter} mm。"
+  ],
+  "Prozessalternative: Draht Ø {diameter} mm reduziert den Stauchanteil; {stations} Stadien mit vollständigem Kraftansatz.": [
+    "Alternativa di processo: filo Ø {diameter} mm per ridurre la ricalcatura; {stations} stazioni con calcolo completo delle forze.",
+    "Alternativni postopek: žica Ø {diameter} mm zmanjša delež nakrčevanja; {stations} stopenj s popolnim izračunom sil.",
+    "Alternative process: Ø {diameter} mm wire reduces upsetting; {stations} stages with a complete force calculation.",
+    "备选工艺：Ø {diameter} mm线材减少镦粗量；{stations}个工位均有完整力计算。"
+  ]
+}

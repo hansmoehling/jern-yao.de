@@ -14,42 +14,72 @@
   "presets": [
     {
       "materialId": "C10C",
-      "states": ["soft-annealed"],
+      "states": [
+        "soft-annealed"
+      ],
       "value": 350,
       "origin": "practice",
-      "source": {"kind": "legacyParameters", "reference": "C10C.legacyParameters.Rm", "verification": "unverified-guideline"},
+      "source": {
+        "kind": "legacyParameters",
+        "reference": "C10C.legacyParameters.Rm",
+        "verification": "unverified-guideline"
+      },
       "conditionBasis": "provisional-process-assumption"
     },
     {
       "materialId": "C15C",
-      "states": ["soft-annealed"],
+      "states": [
+        "soft-annealed"
+      ],
       "value": 390,
       "origin": "practice",
-      "source": {"kind": "legacyParameters", "reference": "C15C.legacyParameters.Rm", "verification": "unverified-guideline"},
+      "source": {
+        "kind": "legacyParameters",
+        "reference": "C15C.legacyParameters.Rm",
+        "verification": "unverified-guideline"
+      },
       "conditionBasis": "provisional-process-assumption"
     },
     {
       "materialId": "20MnB4",
-      "states": ["normalized-rolled"],
+      "states": [
+        "normalized-rolled"
+      ],
       "value": 430,
       "origin": "practice",
-      "source": {"kind": "legacyParameters", "reference": "20MnB4.legacyParameters.Rm", "verification": "unverified-guideline"},
+      "source": {
+        "kind": "legacyParameters",
+        "reference": "20MnB4.legacyParameters.Rm",
+        "verification": "unverified-guideline"
+      },
       "conditionBasis": "provisional-process-assumption"
     },
     {
       "materialId": "CuZn37",
-      "states": ["soft-annealed"],
+      "states": [
+        "soft-annealed"
+      ],
       "value": 320,
       "origin": "practice",
-      "source": {"kind": "legacyParameters", "reference": "CuZn37.legacyParameters.Rm", "verification": "unverified-guideline"},
+      "source": {
+        "kind": "legacyParameters",
+        "reference": "CuZn37.legacyParameters.Rm",
+        "verification": "unverified-guideline"
+      },
       "conditionBasis": "provisional-process-assumption"
     },
     {
       "materialId": "AlMgSi1",
-      "states": ["soft-annealed"],
+      "states": [
+        "soft-annealed"
+      ],
       "value": 300,
       "origin": "practice",
-      "source": {"kind": "legacyParameters", "reference": "AlMgSi1.legacyParameters.Rm", "verification": "unverified-guideline"},
+      "source": {
+        "kind": "legacyParameters",
+        "reference": "AlMgSi1.legacyParameters.Rm",
+        "verification": "unverified-guideline"
+      },
       "conditionBasis": "provisional-process-assumption",
       "note": "Vorläufiger Legacy-Richtwert; kein Herstellerwert für den weichgeglühten Zustand."
     }
@@ -57,12 +87,832 @@
   "bands": [
     {
       "materialId": "C4C",
-      "states": ["soft-annealed"],
+      "states": [
+        "soft-annealed"
+      ],
       "materialGroup": "unalloyed-steel",
-      "band": {"min": null, "max": 400},
+      "band": {
+        "min": null,
+        "max": 400
+      },
       "origin": "assumption",
-      "source": {"kind": "project-instruction", "reference": "kvp-2026-11-25-rm:1.5,7.2", "verification": "provisional-bound"},
+      "source": {
+        "kind": "project-instruction",
+        "reference": "kvp-2026-11-25-rm:1.5,7.2",
+        "verification": "provisional-bound"
+      },
       "conditionBasis": "selected-soft-annealed-state"
     }
-  ]
+  ],
+  "policies": {
+    "rm-v2": {
+      "schemaVersion": 2,
+      "policyVersion": "rm-v2",
+      "defaultEnabled": false,
+      "unit": "N/mm²",
+      "appliesTo": [
+        "cutoff-diameter",
+        "piercing-shear-force"
+      ],
+      "eligibleForForceCalculation": false,
+      "eligibleForShearCalculation": true,
+      "allowedDeliveryConditions": [
+        "+AC",
+        "+AC+PE",
+        "+U+C+AC",
+        "+AC+C+AC"
+      ],
+      "sources": {
+        "en10263-4-2017": {
+          "title": "DS/EN 10263-4:2017",
+          "url": "https://webstore.ansi.org/preview-pages/DS/preview_M284447CURES.pdf",
+          "kind": "normative-document",
+          "publisher": "Dansk Standard / CEN",
+          "locator": "Tabellen 6, 7 und 8, gedruckte Seiten 10, 11 und 13",
+          "retrievedAt": "2026-11-27"
+        },
+        "saar-c4c": {
+          "title": "Saarstahl C4C / 1.0303",
+          "url": "https://www.saarstahl.com/app/uploads/2024/03/20171123111046-0303_C4C-deutsch.pdf",
+          "kind": "manufacturer",
+          "publisher": "Saarstahl",
+          "locator": "S. 1 +AC; S. 2 +U+C+AC, jeweilige Durchmesserzeile",
+          "retrievedAt": "2026-11-27"
+        },
+        "saar-c10c": {
+          "title": "Saarstahl C10C / 1.0214",
+          "url": "https://www.saarstahl.com/app/uploads/2024/03/20171123111244-C10C.pdf",
+          "kind": "manufacturer",
+          "publisher": "Saarstahl",
+          "locator": "S. 1 +AC; S. 2 +U+C+AC, jeweilige Durchmesserzeile",
+          "retrievedAt": "2026-11-27"
+        },
+        "saar-c35ec": {
+          "title": "Saarstahl C35EC / 1.1172",
+          "url": "https://www.saarstahl.com/app/uploads/2024/03/20160226042243-1172_C35EC.pdf",
+          "kind": "manufacturer",
+          "publisher": "Saarstahl",
+          "locator": "S. 1 mechanische Eigenschaften, +AC und +U+C+AC",
+          "retrievedAt": "2026-11-27"
+        },
+        "bonaiti-c4c": {
+          "title": "Bonaiti C4C / 1.0303, EN 10263-2:2017",
+          "url": "https://giuseppebonaiti.it/wp-content/uploads/2023/12/1.0303-EN-C4C.pdf",
+          "kind": "manufacturer",
+          "publisher": "Giuseppe & F.lli Bonaiti",
+          "locator": "S. 1 Mechanical properties, +AC und +U+C+AC",
+          "retrievedAt": "2026-11-27"
+        },
+        "bonaiti-c10c": {
+          "title": "Bonaiti C10C / 1.0214, EN 10263-2:2017",
+          "url": "https://giuseppebonaiti.it/wp-content/uploads/2023/11/1.0214-IT-C10C.pdf",
+          "kind": "manufacturer",
+          "publisher": "Giuseppe & F.lli Bonaiti",
+          "locator": "S. 1 Caratteristiche meccaniche e finiture, +AC und +U+C+AC",
+          "retrievedAt": "2026-11-27"
+        },
+        "bonaiti-c15c": {
+          "title": "Bonaiti C15C / 1.0234, EN 10263-2:2017",
+          "url": "https://giuseppebonaiti.it/wp-content/uploads/2023/11/1.0234-IT-C15C.pdf",
+          "kind": "manufacturer",
+          "publisher": "Giuseppe & F.lli Bonaiti",
+          "locator": "S. 1 nur Spalte +AC, 5<d<=100; gezogene Zustandsketten nicht als Beleg verwendet",
+          "retrievedAt": "2026-11-27"
+        },
+        "bsi-en10263-2-2017-mirror": {
+          "title": "BS EN 10263-2:2017, Originaldokument auf Drittanbieter-Host",
+          "url": "https://www.normsplash.com/FreeDownload/155625224/BS-EN-10263-2-2017-en.pdf",
+          "kind": "normative-document-mirror",
+          "publisher": "BSI / CEN",
+          "locator": "Tabelle 4, gedruckte S. 9 / PDF S. 11, C15C und +U+C+AC",
+          "accessNote": "Original-Normdokument; Host ist kein Normherausgeber.",
+          "retrievedAt": "2026-11-27"
+        },
+        "creation-c15c-iso": {
+          "title": "Creation Group C15C, ISO 4954:2018",
+          "url": "https://chqwire.net/en/products/c15c-chq-wire/",
+          "kind": "manufacturer",
+          "publisher": "Shanghai Creation / Ruixiong Group",
+          "locator": "Mechanical properties, Table A.3, C15C-Zeilen; ISO 4954:2018 S. 19-20",
+          "corroboration": "ISO 4954 statt EN 10263; +AR+C+AC entspricht hier dem dargestellten Ziehen mit anschließendem Kugelglühen.",
+          "retrievedAt": "2026-11-27"
+        },
+        "bonaiti-20mnb4": {
+          "title": "Bonaiti 20MnB4 / 1.5525, EN 10263-4:2017",
+          "url": "https://giuseppebonaiti.it/wp-content/uploads/2023/11/1.5525-IT-20MnB4.pdf",
+          "kind": "manufacturer",
+          "publisher": "Giuseppe & F.lli Bonaiti",
+          "locator": "S. 1 +AC und +U+C+AC, Durchmesserzeilen 2-5,5-10,10-25",
+          "retrievedAt": "2026-11-27"
+        },
+        "bonaiti-34crmo4": {
+          "title": "Bonaiti 34CrMo4 / 1.7220, EN 10263-4:2017",
+          "url": "https://giuseppebonaiti.it/wp-content/uploads/2023/12/1.7220-EN-34CrMo4.pdf",
+          "kind": "manufacturer",
+          "publisher": "Giuseppe & F.lli Bonaiti",
+          "locator": "S. 1 nur +AC, 5<d<=40; abweichend bezeichnete Zieh-/Glühspalten nicht verwendet",
+          "retrievedAt": "2026-11-27"
+        },
+        "bonaiti-42crmo4": {
+          "title": "Bonaiti 42CrMo4 / 1.7225, EN 10263-4:2017",
+          "url": "https://giuseppebonaiti.it/wp-content/uploads/2023/11/1.7225-IT-42CrMo4.pdf",
+          "kind": "manufacturer",
+          "publisher": "Giuseppe & F.lli Bonaiti",
+          "locator": "S. 1 nur +AC, 5<d<=40; abweichend bezeichnete Zieh-/Glühspalten nicht verwendet",
+          "retrievedAt": "2026-11-27"
+        },
+        "creation-en10263-4-table7": {
+          "title": "Creation Group, EN 10263-4, mechanische Eigenschaften",
+          "url": "https://jp.chqwire.net/41CrS4-Cold-Steel-Wire.html",
+          "kind": "manufacturer",
+          "publisher": "Shanghai Creation / Ruixiong Group",
+          "locator": "Abschnitt 3 Tabelle 7, vollständige Sortentabelle:34CrMo4/1.7220 und 42CrMo4/1.7225; Spalte +AC+C+AC",
+          "note": "Seitenprodukt ist 41CrS4; Beleg sind ausschließlich die ausdrücklich bezeichneten CrMo-Zeilen der Gesamttabelle.",
+          "retrievedAt": "2026-11-27",
+          "accessNote": "Volltext am 27.11.2026 gelesen; Sprach-URLs können zeitweise auf nicht erreichbare Nachfolger umleiten."
+        }
+      },
+      "bands": [
+        {
+          "id": "c4c-ac-5-100",
+          "materialId": "C4C",
+          "materialNumber": "1.0303",
+          "states": [
+            "soft-annealed"
+          ],
+          "deliveryConditions": [
+            "+AC",
+            "+AC+PE"
+          ],
+          "diameterRange": {
+            "minExclusive": 5,
+            "maxInclusive": 100,
+            "unit": "mm"
+          },
+          "band": {
+            "min": null,
+            "max": 330
+          },
+          "origin": "standard",
+          "defaultForState": true,
+          "standard": "EN 10263-2:2017",
+          "sourceRefs": [
+            "saar-c4c",
+            "bonaiti-c4c"
+          ],
+          "verification": "crosschecked",
+          "conditionBasis": "provisional-spheroidized-delivery-assumption",
+          "locator": "EN 10263-2:2017, Tabelle4, C4C / 1.0303, +AC oder +AC+PE, 5 < d <= 100 mm"
+        },
+        {
+          "id": "c4c-ucac-2-5",
+          "materialId": "C4C",
+          "materialNumber": "1.0303",
+          "states": [
+            "soft-annealed"
+          ],
+          "deliveryConditions": [
+            "+U+C+AC"
+          ],
+          "diameterRange": {
+            "minExclusive": 2,
+            "maxInclusive": 5,
+            "unit": "mm"
+          },
+          "band": {
+            "min": null,
+            "max": 320
+          },
+          "origin": "standard",
+          "defaultForState": true,
+          "standard": "EN 10263-2:2017",
+          "sourceRefs": [
+            "saar-c4c",
+            "bonaiti-c4c"
+          ],
+          "verification": "crosschecked",
+          "conditionBasis": "provisional-spheroidized-delivery-assumption",
+          "locator": "EN 10263-2:2017, Tabelle4, C4C / 1.0303, +U+C+AC, 2 < d <= 5 mm"
+        },
+        {
+          "id": "c4c-ucac-5-10",
+          "materialId": "C4C",
+          "materialNumber": "1.0303",
+          "states": [
+            "soft-annealed"
+          ],
+          "deliveryConditions": [
+            "+U+C+AC"
+          ],
+          "diameterRange": {
+            "minExclusive": 5,
+            "maxInclusive": 10,
+            "unit": "mm"
+          },
+          "band": {
+            "min": null,
+            "max": 310
+          },
+          "origin": "standard",
+          "defaultForState": false,
+          "standard": "EN 10263-2:2017",
+          "sourceRefs": [
+            "saar-c4c",
+            "bonaiti-c4c"
+          ],
+          "verification": "crosschecked",
+          "conditionBasis": "provisional-spheroidized-delivery-assumption",
+          "locator": "EN 10263-2:2017, Tabelle4, C4C / 1.0303, +U+C+AC, 5 < d <= 10 mm"
+        },
+        {
+          "id": "c4c-ucac-10-40",
+          "materialId": "C4C",
+          "materialNumber": "1.0303",
+          "states": [
+            "soft-annealed"
+          ],
+          "deliveryConditions": [
+            "+U+C+AC"
+          ],
+          "diameterRange": {
+            "minExclusive": 10,
+            "maxInclusive": 40,
+            "unit": "mm"
+          },
+          "band": {
+            "min": null,
+            "max": 300
+          },
+          "origin": "standard",
+          "defaultForState": false,
+          "standard": "EN 10263-2:2017",
+          "sourceRefs": [
+            "saar-c4c",
+            "bonaiti-c4c"
+          ],
+          "verification": "crosschecked",
+          "conditionBasis": "provisional-spheroidized-delivery-assumption",
+          "locator": "EN 10263-2:2017, Tabelle4, C4C / 1.0303, +U+C+AC, 10 < d <= 40 mm"
+        },
+        {
+          "id": "c10c-ac-5-100",
+          "materialId": "C10C",
+          "materialNumber": "1.0214",
+          "states": [
+            "soft-annealed"
+          ],
+          "deliveryConditions": [
+            "+AC",
+            "+AC+PE"
+          ],
+          "diameterRange": {
+            "minExclusive": 5,
+            "maxInclusive": 100,
+            "unit": "mm"
+          },
+          "band": {
+            "min": null,
+            "max": 380
+          },
+          "origin": "standard",
+          "defaultForState": true,
+          "standard": "EN 10263-2:2017",
+          "sourceRefs": [
+            "saar-c10c",
+            "bonaiti-c10c"
+          ],
+          "verification": "crosschecked",
+          "conditionBasis": "provisional-spheroidized-delivery-assumption",
+          "locator": "EN 10263-2:2017, Tabelle4, C10C / 1.0214, +AC oder +AC+PE, 5 < d <= 100 mm"
+        },
+        {
+          "id": "c10c-ucac-2-5",
+          "materialId": "C10C",
+          "materialNumber": "1.0214",
+          "states": [
+            "soft-annealed"
+          ],
+          "deliveryConditions": [
+            "+U+C+AC"
+          ],
+          "diameterRange": {
+            "minExclusive": 2,
+            "maxInclusive": 5,
+            "unit": "mm"
+          },
+          "band": {
+            "min": null,
+            "max": 370
+          },
+          "origin": "standard",
+          "defaultForState": true,
+          "standard": "EN 10263-2:2017",
+          "sourceRefs": [
+            "saar-c10c",
+            "bonaiti-c10c"
+          ],
+          "verification": "crosschecked",
+          "conditionBasis": "provisional-spheroidized-delivery-assumption",
+          "locator": "EN 10263-2:2017, Tabelle4, C10C / 1.0214, +U+C+AC, 2 < d <= 5 mm"
+        },
+        {
+          "id": "c10c-ucac-5-40",
+          "materialId": "C10C",
+          "materialNumber": "1.0214",
+          "states": [
+            "soft-annealed"
+          ],
+          "deliveryConditions": [
+            "+U+C+AC"
+          ],
+          "diameterRange": {
+            "minExclusive": 5,
+            "maxInclusive": 40,
+            "unit": "mm"
+          },
+          "band": {
+            "min": null,
+            "max": 360
+          },
+          "origin": "standard",
+          "defaultForState": false,
+          "standard": "EN 10263-2:2017",
+          "sourceRefs": [
+            "saar-c10c",
+            "bonaiti-c10c"
+          ],
+          "verification": "crosschecked",
+          "conditionBasis": "provisional-spheroidized-delivery-assumption",
+          "locator": "EN 10263-2:2017, Tabelle4, C10C / 1.0214, +U+C+AC, 5 < d <= 40 mm"
+        },
+        {
+          "id": "c15c-ac-5-100",
+          "materialId": "C15C",
+          "materialNumber": "1.0234",
+          "states": [
+            "soft-annealed"
+          ],
+          "deliveryConditions": [
+            "+AC",
+            "+AC+PE"
+          ],
+          "diameterRange": {
+            "minExclusive": 5,
+            "maxInclusive": 100,
+            "unit": "mm"
+          },
+          "band": {
+            "min": null,
+            "max": 400
+          },
+          "origin": "standard",
+          "defaultForState": true,
+          "standard": "EN 10263-2:2017",
+          "sourceRefs": [
+            "bonaiti-c15c",
+            "creation-c15c-iso"
+          ],
+          "verification": "norm-with-iso-corroboration",
+          "conditionBasis": "provisional-spheroidized-delivery-assumption",
+          "locator": "EN 10263-2:2017, Tabelle4, C15C / 1.0234, +AC oder +AC+PE, 5 < d <= 100 mm"
+        },
+        {
+          "id": "c15c-ucac-2-5",
+          "materialId": "C15C",
+          "materialNumber": "1.0234",
+          "states": [
+            "soft-annealed"
+          ],
+          "deliveryConditions": [
+            "+U+C+AC"
+          ],
+          "diameterRange": {
+            "minExclusive": 2,
+            "maxInclusive": 5,
+            "unit": "mm"
+          },
+          "band": {
+            "min": null,
+            "max": 390
+          },
+          "origin": "standard",
+          "defaultForState": true,
+          "standard": "EN 10263-2:2017",
+          "sourceRefs": [
+            "bsi-en10263-2-2017-mirror",
+            "creation-c15c-iso"
+          ],
+          "verification": "norm-mirror-with-iso-corroboration",
+          "conditionBasis": "provisional-spheroidized-delivery-assumption",
+          "locator": "EN 10263-2:2017, Tabelle4, C15C / 1.0234, +U+C+AC, 2 < d <= 5 mm"
+        },
+        {
+          "id": "c15c-ucac-5-40",
+          "materialId": "C15C",
+          "materialNumber": "1.0234",
+          "states": [
+            "soft-annealed"
+          ],
+          "deliveryConditions": [
+            "+U+C+AC"
+          ],
+          "diameterRange": {
+            "minExclusive": 5,
+            "maxInclusive": 40,
+            "unit": "mm"
+          },
+          "band": {
+            "min": null,
+            "max": 380
+          },
+          "origin": "standard",
+          "defaultForState": false,
+          "standard": "EN 10263-2:2017",
+          "sourceRefs": [
+            "bsi-en10263-2-2017-mirror",
+            "creation-c15c-iso"
+          ],
+          "verification": "norm-mirror-with-iso-corroboration",
+          "conditionBasis": "provisional-spheroidized-delivery-assumption",
+          "locator": "EN 10263-2:2017, Tabelle4, C15C / 1.0234, +U+C+AC, 5 < d <= 40 mm"
+        },
+        {
+          "id": "20mnb4-ac-5-25",
+          "materialId": "20MnB4",
+          "materialNumber": "1.5525",
+          "states": [
+            "soft-annealed"
+          ],
+          "deliveryConditions": [
+            "+AC",
+            "+AC+PE"
+          ],
+          "diameterRange": {
+            "minExclusive": 5,
+            "maxInclusive": 25,
+            "unit": "mm"
+          },
+          "band": {
+            "min": null,
+            "max": 500
+          },
+          "origin": "standard",
+          "defaultForState": false,
+          "standard": "EN 10263-4:2017",
+          "sourceRefs": [
+            "en10263-4-2017",
+            "bonaiti-20mnb4"
+          ],
+          "verification": "crosschecked",
+          "conditionBasis": "provisional-spheroidized-delivery-assumption",
+          "locator": "EN 10263-4:2017, Tabelle8, 20MnB4 / 1.5525, +AC oder +AC+PE, 5 < d <= 25 mm"
+        },
+        {
+          "id": "20mnb4-ucac-2-5",
+          "materialId": "20MnB4",
+          "materialNumber": "1.5525",
+          "states": [
+            "soft-annealed"
+          ],
+          "deliveryConditions": [
+            "+U+C+AC"
+          ],
+          "diameterRange": {
+            "minExclusive": 2,
+            "maxInclusive": 5,
+            "unit": "mm"
+          },
+          "band": {
+            "min": null,
+            "max": 490
+          },
+          "origin": "standard",
+          "defaultForState": false,
+          "standard": "EN 10263-4:2017",
+          "sourceRefs": [
+            "en10263-4-2017",
+            "bonaiti-20mnb4"
+          ],
+          "verification": "crosschecked",
+          "conditionBasis": "provisional-spheroidized-delivery-assumption",
+          "locator": "EN 10263-4:2017, Tabelle8, 20MnB4 / 1.5525, +U+C+AC, 2 < d <= 5 mm"
+        },
+        {
+          "id": "20mnb4-ucac-5-25",
+          "materialId": "20MnB4",
+          "materialNumber": "1.5525",
+          "states": [
+            "soft-annealed"
+          ],
+          "deliveryConditions": [
+            "+U+C+AC"
+          ],
+          "diameterRange": {
+            "minExclusive": 5,
+            "maxInclusive": 25,
+            "unit": "mm"
+          },
+          "band": {
+            "min": null,
+            "max": 480
+          },
+          "origin": "standard",
+          "defaultForState": false,
+          "standard": "EN 10263-4:2017",
+          "sourceRefs": [
+            "en10263-4-2017",
+            "bonaiti-20mnb4"
+          ],
+          "verification": "crosschecked",
+          "conditionBasis": "provisional-spheroidized-delivery-assumption",
+          "locator": "EN 10263-4:2017, Tabelle8, 20MnB4 / 1.5525, +U+C+AC, 5 < d <= 25 mm"
+        },
+        {
+          "id": "34crmo4-ac-5-40",
+          "materialId": "34CrMo4",
+          "materialNumber": "1.7220",
+          "states": [
+            "soft-annealed"
+          ],
+          "deliveryConditions": [
+            "+AC",
+            "+AC+PE"
+          ],
+          "diameterRange": {
+            "minExclusive": 5,
+            "maxInclusive": 40,
+            "unit": "mm"
+          },
+          "band": {
+            "min": null,
+            "max": 600
+          },
+          "origin": "standard",
+          "defaultForState": true,
+          "standard": "EN 10263-4:2017",
+          "sourceRefs": [
+            "en10263-4-2017",
+            "bonaiti-34crmo4"
+          ],
+          "verification": "crosschecked",
+          "conditionBasis": "provisional-spheroidized-delivery-assumption",
+          "locator": "EN 10263-4:2017, Tabelle7, 34CrMo4 / 1.7220, +AC oder +AC+PE, 5 < d <= 40 mm"
+        },
+        {
+          "id": "34crmo4-accac-2-5",
+          "materialId": "34CrMo4",
+          "materialNumber": "1.7220",
+          "states": [
+            "soft-annealed"
+          ],
+          "deliveryConditions": [
+            "+AC+C+AC"
+          ],
+          "diameterRange": {
+            "minExclusive": 2,
+            "maxInclusive": 5,
+            "unit": "mm"
+          },
+          "band": {
+            "min": null,
+            "max": 590
+          },
+          "origin": "standard",
+          "defaultForState": true,
+          "standard": "EN 10263-4:2017",
+          "sourceRefs": [
+            "en10263-4-2017",
+            "creation-en10263-4-table7"
+          ],
+          "verification": "crosschecked",
+          "conditionBasis": "provisional-spheroidized-delivery-assumption",
+          "locator": "EN 10263-4:2017, Tabelle7, 34CrMo4 / 1.7220, +AC+C+AC, 2 < d <= 5 mm"
+        },
+        {
+          "id": "34crmo4-accac-5-40",
+          "materialId": "34CrMo4",
+          "materialNumber": "1.7220",
+          "states": [
+            "soft-annealed"
+          ],
+          "deliveryConditions": [
+            "+AC+C+AC"
+          ],
+          "diameterRange": {
+            "minExclusive": 5,
+            "maxInclusive": 40,
+            "unit": "mm"
+          },
+          "band": {
+            "min": null,
+            "max": 580
+          },
+          "origin": "standard",
+          "defaultForState": false,
+          "standard": "EN 10263-4:2017",
+          "sourceRefs": [
+            "en10263-4-2017",
+            "creation-en10263-4-table7"
+          ],
+          "verification": "crosschecked",
+          "conditionBasis": "provisional-spheroidized-delivery-assumption",
+          "locator": "EN 10263-4:2017, Tabelle7, 34CrMo4 / 1.7220, +AC+C+AC, 5 < d <= 40 mm"
+        },
+        {
+          "id": "42crmo4-ac-5-40",
+          "materialId": "42CrMo4",
+          "materialNumber": "1.7225",
+          "states": [
+            "soft-annealed"
+          ],
+          "deliveryConditions": [
+            "+AC",
+            "+AC+PE"
+          ],
+          "diameterRange": {
+            "minExclusive": 5,
+            "maxInclusive": 40,
+            "unit": "mm"
+          },
+          "band": {
+            "min": null,
+            "max": 630
+          },
+          "origin": "standard",
+          "defaultForState": true,
+          "standard": "EN 10263-4:2017",
+          "sourceRefs": [
+            "en10263-4-2017",
+            "bonaiti-42crmo4"
+          ],
+          "verification": "crosschecked",
+          "conditionBasis": "provisional-spheroidized-delivery-assumption",
+          "locator": "EN 10263-4:2017, Tabelle7, 42CrMo4 / 1.7225, +AC oder +AC+PE, 5 < d <= 40 mm"
+        },
+        {
+          "id": "42crmo4-accac-2-5",
+          "materialId": "42CrMo4",
+          "materialNumber": "1.7225",
+          "states": [
+            "soft-annealed"
+          ],
+          "deliveryConditions": [
+            "+AC+C+AC"
+          ],
+          "diameterRange": {
+            "minExclusive": 2,
+            "maxInclusive": 5,
+            "unit": "mm"
+          },
+          "band": {
+            "min": null,
+            "max": 620
+          },
+          "origin": "standard",
+          "defaultForState": true,
+          "standard": "EN 10263-4:2017",
+          "sourceRefs": [
+            "en10263-4-2017",
+            "creation-en10263-4-table7"
+          ],
+          "verification": "crosschecked",
+          "conditionBasis": "provisional-spheroidized-delivery-assumption",
+          "locator": "EN 10263-4:2017, Tabelle7, 42CrMo4 / 1.7225, +AC+C+AC, 2 < d <= 5 mm"
+        },
+        {
+          "id": "42crmo4-accac-5-40",
+          "materialId": "42CrMo4",
+          "materialNumber": "1.7225",
+          "states": [
+            "soft-annealed"
+          ],
+          "deliveryConditions": [
+            "+AC+C+AC"
+          ],
+          "diameterRange": {
+            "minExclusive": 5,
+            "maxInclusive": 40,
+            "unit": "mm"
+          },
+          "band": {
+            "min": null,
+            "max": 610
+          },
+          "origin": "standard",
+          "defaultForState": false,
+          "standard": "EN 10263-4:2017",
+          "sourceRefs": [
+            "en10263-4-2017",
+            "creation-en10263-4-table7"
+          ],
+          "verification": "crosschecked",
+          "conditionBasis": "provisional-spheroidized-delivery-assumption",
+          "locator": "EN 10263-4:2017, Tabelle7, 42CrMo4 / 1.7225, +AC+C+AC, 5 < d <= 40 mm"
+        },
+        {
+          "id": "c35ec-ac-5-40",
+          "materialId": "C35EC",
+          "materialNumber": "1.1172",
+          "states": [
+            "soft-annealed"
+          ],
+          "deliveryConditions": [
+            "+AC",
+            "+AC+PE"
+          ],
+          "diameterRange": {
+            "minExclusive": 5,
+            "maxInclusive": 40,
+            "unit": "mm"
+          },
+          "band": {
+            "min": null,
+            "max": 560
+          },
+          "origin": "standard",
+          "defaultForState": true,
+          "standard": "EN 10263-4:2017",
+          "sourceRefs": [
+            "en10263-4-2017",
+            "saar-c35ec"
+          ],
+          "verification": "crosschecked",
+          "conditionBasis": "provisional-spheroidized-delivery-assumption",
+          "locator": "EN 10263-4:2017, Tabelle6, C35EC / 1.1172, +AC oder +AC+PE, 5 < d <= 40 mm"
+        },
+        {
+          "id": "c35ec-ucac-2-5",
+          "materialId": "C35EC",
+          "materialNumber": "1.1172",
+          "states": [
+            "soft-annealed"
+          ],
+          "deliveryConditions": [
+            "+U+C+AC"
+          ],
+          "diameterRange": {
+            "minExclusive": 2,
+            "maxInclusive": 5,
+            "unit": "mm"
+          },
+          "band": {
+            "min": null,
+            "max": 550
+          },
+          "origin": "standard",
+          "defaultForState": true,
+          "standard": "EN 10263-4:2017",
+          "sourceRefs": [
+            "en10263-4-2017",
+            "saar-c35ec"
+          ],
+          "verification": "crosschecked",
+          "conditionBasis": "provisional-spheroidized-delivery-assumption",
+          "locator": "EN 10263-4:2017, Tabelle6, C35EC / 1.1172, +U+C+AC, 2 < d <= 5 mm"
+        },
+        {
+          "id": "c35ec-ucac-5-40",
+          "materialId": "C35EC",
+          "materialNumber": "1.1172",
+          "states": [
+            "soft-annealed"
+          ],
+          "deliveryConditions": [
+            "+U+C+AC"
+          ],
+          "diameterRange": {
+            "minExclusive": 5,
+            "maxInclusive": 40,
+            "unit": "mm"
+          },
+          "band": {
+            "min": null,
+            "max": 540
+          },
+          "origin": "standard",
+          "defaultForState": false,
+          "standard": "EN 10263-4:2017",
+          "sourceRefs": [
+            "en10263-4-2017",
+            "saar-c35ec"
+          ],
+          "verification": "crosschecked",
+          "conditionBasis": "provisional-spheroidized-delivery-assumption",
+          "locator": "EN 10263-4:2017, Tabelle6, C35EC / 1.1172, +U+C+AC, 5 < d <= 40 mm"
+        }
+      ],
+      "legacyGuidelineFallbacks": [
+        "20MnB4",
+        "CuZn37",
+        "AlMgSi1"
+      ],
+      "notes": [
+        "Rm-Obergrenzen sind keine Fließkurven und keine gemessenen Chargenwerte. Eine Mindestzugfestigkeit ist nicht belegt.",
+        "soft-annealed allein belegt keine genaue Zustandskette; ein Normband wird als gekennzeichnete Lieferzustandsannahme verwendet.",
+        "Normalisierend gewalztes20MnB4 behält den gesonderten vorläufigen Legacy-Richtwert430; kein +AC-Band wird darauf übertragen.",
+        "Für20MnB4 sind +AC-Bänder nur bei ausdrücklich gewählter passender Zustandskette und soft-annealed anwendbar.",
+        "Keine Übertragung von34CrMo4 auf34CrMoS4 oder von42CrMo4 auf abweichende EC-Sorten."
+      ]
+    }
+  }
 }

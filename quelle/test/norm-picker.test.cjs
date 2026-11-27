@@ -4,7 +4,7 @@ class El{constructor(tag='div'){this.tagName=tag.toUpperCase();this.value='';thi
 function setup(language='de'){
  const host=new El(),form=new El('form'),detail=new El('details'),nodes=[];form.elements={typ:{value:'bolzen'},standardKind:{value:'screw'}};
  const events={},document={createElement(tag){const e=new El(tag);nodes.push(e);return e;},getElementById(){return detail;},addEventListener(name,fn){events[name]=fn;}};
- const data={schemaVersion:1,version:'test',threads,families:['ISO4762','ISO14579','DIN934','DIN7338','ISO13918'].map(id=>require('../normen/'+id+'.json'))};
+ const data={schemaVersion:1,version:'test',threads,materials:require('../vorbelegung/werkstoff.json'),families:['ISO4762','ISO14579','DIN934','DIN660','DIN6791','DIN7338','ISO13918'].map(id=>require('../normen/'+id+'.json'))};
  const window={document,JYNormLibrary:N,JYStandards:R};vm.runInNewContext(fs.readFileSync(path.join(__dirname,'../normen/ui.js'),'utf8'),{window});
  const part={d0:5.6,wst:'existing',nachricht:'unchanged customer text'};
  let applied;const picker=window.JYNormPicker.create({host,form,data,tr:x=>I.t(x,language),getType:()=>form.elements.typ.value,getPart:()=>({...part}),onApply:x=>{applied=x;},onChange(){}});
@@ -21,6 +21,31 @@ test('norm picker exposes documented variant sizes without fabricating welding g
  const p=setup();p.picker.select({id:'DIN7338',form:'B',groesse:'3'});assert.equal(p.get('norm-form').value,'B');assert(p.get('norm-form').options.some(x=>x.value==='A'));assert.equal(p.picker.document().standardReference.form,'B');assert.equal(p.applied.d_b,1.7);assert(p.applied.normRequiresGeometryReview);
  p.picker.select({id:'ISO13918',form:'PT',groesse:'M3',laenge:12});assert.equal(p.get('norm-kind').value,'pin');assert.equal(p.get('norm-form').value,'PT');assert.equal(p.get('norm-form').options.length,14);assert.equal(p.applied.l1,12);assert.equal(p.applied.normRequiresGeometryReview,true);assert.equal(p.picker.document().standardReference.form,'PT');
  assert(!p.host.textContent.includes('catalog-undated'));assert(!p.host.textContent.includes('catalogue-unassigned'));
+});
+
+test('rivet material classes preserve the norm template and geometry edits for solid and semi-tubular rivets',()=>{
+ for(const language of I.supported)for(const id of ['DIN660','DIN6791']){
+  const p=setup(language);p.picker.select({id,groesse:'4',laenge:id==='DIN660'?10:12,festigkeitsklasse:'Stahl'});edit(p,'kD','8.2','INPUT');
+  const field=p.get('norm-festigkeitsklasse');assert.deepEqual(field.options.map(option=>option.value),['Stahl','Cu','CuZn','Al']);
+  const geometryBaseline=document=>JSON.stringify(Object.fromEntries(Object.entries(document.normBaseline).filter(([key])=>key!=='id'))),baseline=geometryBaseline(p.picker.document()),length=p.applied.sL;
+  for(const materialClass of ['Al','Cu','CuZn','Stahl']){
+   field.value=materialClass;field.events.change();const adapted=p.picker.adapted(),doc=p.picker.document();
+   assert.equal(doc.standardReference.id,id);assert.equal(doc.standardReference.groesse,'4');assert.equal(doc.standardReference.festigkeitsklasse,materialClass);assert.equal(adapted.propertyClass,materialClass);
+   assert.equal(geometryBaseline(doc),baseline);assert.equal(adapted.sL,length);assert.equal(adapted.kD,8.2);assert.equal(doc.overrides.kD.value,8.2);
+   assert.equal(adapted.threadFamily,'none');assert.equal(adapted.iTyp,'none');
+   if(id==='DIN6791'){assert.equal(adapted.schaftende,'halbhohl');assert.equal(adapted.d_b,2.7);assert.equal(adapted.t_b,4);}
+  }
+ }
+});
+
+test('rivet mappings use approved exact materials and keep copper explicitly without a flow curve',()=>{
+ const rules=require('../vorbelegung/werkstoff.json').rules.filter(rule=>rule.kind==='rivet'),E=require('../engine.js');
+ assert.deepEqual(rules.flatMap(rule=>rule.classes),['Stahl','Cu','CuZn','Al']);
+ for(const [materialClass,id]of [['Stahl','C4C'],['Cu','Cu-ETP'],['CuZn','CuZn37'],['Al','AlMgSi1']]){
+  const rule=rules.find(rule=>rule.classes.includes(materialClass)),material=E.findMaterial(rule.materialId);assert.equal(rule.materialId,id);assert(material);
+  if(materialClass==='Cu'){assert.equal(rule.availability,'missing-flow-curve');assert.equal(rule.state,'unknown');assert.equal(material.manualEligible,false);assert.equal(material.flowCurves.length,0);}
+  else assert(material.manualEligible&&material.flowCurves.some(curve=>curve.state===rule.state&&curve.eligible&&['literature','proxy'].includes(curve.approval)));
+ }
 });
 
 test('numeric normative Torx sizes adapt to actual catalogue labels and customer sizes survive',()=>{

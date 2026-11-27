@@ -57,7 +57,7 @@
       const ps=Array.isArray(allowed)?allPitches.filter(p=>allowed.includes(p)):fixedPitch?[fixedPitch]:allPitches;
       options(controls.steigung,ps.map(x=>[x,String(x)]),row?.roh?.P??row?.vorbelegung?.P??controls.steigung.value);
       controls.steigung.closest('label').hidden=ps.length<=1;
-      const classes=kind()==='nut'?['8','10','12','5','6']:['rivet','pin'].includes(kind())?['Stahl']:['8.8','10.9','12.9','4.6','4.8','5.6','5.8'];
+      const classes=kind()==='nut'?['8','10','12','5','6']:kind()==='rivet'?['Stahl','Cu','CuZn','Al']:kind()==='pin'?['Stahl']:['8.8','10.9','12.9','4.6','4.8','5.6','5.8'];
       options(controls.festigkeitsklasse,classes.map(x=>[x,x]),controls.festigkeitsklasse.value);
       for(const key of ['groesse','festigkeitsklasse'])controls[key].disabled=!f;
     }

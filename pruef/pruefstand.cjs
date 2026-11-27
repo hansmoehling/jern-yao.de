@@ -1,7 +1,7 @@
 // Prüfstand für den Konfigurator ohne Browser.
 // Aufruf: node pruefstand.cjs <Pfad zum jern-yao.de-Checkout>
 // Baut je Fall dieselbe Eingabe, die archiv-ui.js nach Normwahl erzeugt
-// (kvp-v1, ranking-v2, force-v2, rm-v1), rechnet E.auslegen und E.waehle
+// (kvp-v1, ranking-v2, force-v2, rm-v2), rechnet E.auslegen und E.waehle
 // und druckt Empfehlung, Alternativen, Klassen und offene Prüfungen.
 'use strict';
 const fs = require('fs'), path = require('path');
@@ -33,7 +33,7 @@ function build(selection, opts = {}) {
     || variants.find(v => v.material.id === 'C4C' && v.curve.state === 'soft-annealed');
   const isNut = kind === 'nut';
   const e = { typ: isNut ? 'mutter' : 'bolzen', wst: v.index, curveId: v.curve.id, materialState: v.curve.state, rm: opts.rm,
-    machinePolicy: 'ranking-v2', forcePolicy: 'force-v2', rmPolicy: E.RM_POLICY_VERSION, inputOrigins: { d0: { origin: 'assumption', provisional: true } },
+    machinePolicy: 'ranking-v2', forcePolicy: 'force-v2', rmPolicy: E.RM_POLICY_VERSION_V2, inputOrigins: { d0: { origin: 'assumption', provisional: true } },
     standardKind: isNut ? undefined : p.standardKind || 'screw',
     threadFamily: isNut ? undefined : (['rivet', 'pin'].includes(p.standardKind) ? 'none' : 'metric'),
     wirePreparation: 'as-supplied',
@@ -49,7 +49,7 @@ function build(selection, opts = {}) {
   if (e.iTyp === 'hex' || e.iTyp === 'none') e.iVol = undefined;
   if (e.iTyp === 'hex') e.iSize = undefined;
   if (e.typ !== 'bolzen' || e.iTyp === 'none') { e.iTyp = 'none'; e.iSize = e.iSW = e.iT = e.iVol = undefined; }
-  const cands = W.candidates(e, null, MASCHINEN) || [];
+  const cands = W.candidates(e, null, MASCHINEN, { evaluate: E.auslegen }) || [];
   e.d0 = opts.d0 ?? cands[0]?.value;
   return { e, p, cands, material: v, rule };
 }

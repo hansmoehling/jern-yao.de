@@ -10,6 +10,9 @@ import {PUBLIC_KNOWLEDGE_VERSION,projectPublicKnowledge} from './knowledge-publi
 const {t,normalizeLanguage}=I18N;
 const FORCE_POLICY_VERSION='force-v2';
 const usesForceV2=context=>context?.forcePolicy===FORCE_POLICY_VERSION;
+const RM_POLICY_VERSION='rm-v2';
+const usesRmV2=context=>context?.rmPolicy===RM_POLICY_VERSION;
+const calculationPolicies=context=>({...(usesForceV2(context)?{forcePolicy:FORCE_POLICY_VERSION}:{}),...(usesRmV2(context)?{rmPolicy:RM_POLICY_VERSION}:{})});
 function analysisCatalog(context){
  return usesForceV2(context)?machines:machines.map(machine=>{
   if(machine.szMeta?.origin!=='abgeleitet aus Abschnitt-Ø')return machine;
@@ -18,6 +21,7 @@ function analysisCatalog(context){
 }
 const stageForceMetadata=stage=>Object.fromEntries(['forceStatus','forceBand','forceExtrapolation','forceBasis','pStempel','pStempelBand','pBand'].filter(key=>stage[key]!==undefined).map(key=>[key,stage[key]]));
 const criterionForceMetadata=criterion=>Object.fromEntries(['forceSensitivity','detail','sourceOwner','confirmationRequired','sourceStatus'].filter(key=>criterion[key]!==undefined).map(key=>[key,criterion[key]]));
+const criterionRmMetadata=criterion=>Object.fromEntries(['rmVorbelegung','rmSensitivity','rmUncertaintyRelevant'].filter(key=>criterion[key]!==undefined).map(key=>[key,criterion[key]]));
 const RESPONSE_LANGUAGE={de:'Antworte in Deutsch.',it:'Rispondi in italiano.',sl:'Odgovarjaj v slovenščini.',en:'Respond in English.',zh:'请使用简体中文回答。'};
 const INCOMPLETE_DRAWING={
  de:['Die automatische Maßzuordnung ist noch nicht abgeschlossen. Eine Maschinenwahl ist daraus noch nicht berechnet.','Welche Werkstoffbezeichnung gilt für dieses Teil? Bitte nennen oder markieren Sie außerdem die Ansicht, die ich zuerst auslegen soll.'],
@@ -186,6 +190,21 @@ export async function loadKnowledge(env,{stageManifest}={}){
  return {version:'legacy-unversioned',publicationVersion:PUBLIC_KNOWLEDGE_VERSION,status:rules&&cards?'legacy':'missing',rules:safeKnowledge(rules),cards:safeKnowledge(cards),createdAt:null};
 }
 function originalText(c){return [c.note,c.message,...(c.history||[]).filter(h=>h.role==='user').map(h=>h.content)].filter(Boolean).join('\n');}
+function sourcedDeliveryCondition(evidence,context,validSource){
+ if(!usesRmV2(context)||!validSource)return null;
+ // Match the complete sequence, so +AC+C+AC can never collapse to +AC.
+ const tokens=source=>[...source.matchAll(/(?<![\p{L}\p{N}+])\+[A-Z][A-Z0-9]*(?:\+[A-Z][A-Z0-9]*)*(?![\p{L}\p{N}+])/giu)];
+ const quote=str(evidence?.quote,500),codes=[...new Set(tokens(quote).map(match=>match[0].toUpperCase()))];
+ if(!codes.length)return null;
+ if(codes.length!==1)return {code:'unresolved',annealed:false};
+ const code=codes[0],source=evidence.origin==='user_text'?originalText(context):quote;
+ const negated=tokens(source).filter(match=>match[0].toUpperCase()===code).some(match=>{
+  const before=source.slice(0,match.index).split(/[.;,\n]/).at(-1).slice(-80),after=source.slice(match.index+match[0].length).split(/[.;,\n]/)[0].slice(0,80);
+  return /\b(?:nicht|kein(?:e[nmrs]?)?|ohne|not|no|without|non|senza|ni|brez)\b|未|不|非|无/iu.test(before+' '+after);
+ });
+ if(negated)return {code:'unresolved',annealed:false};
+ return {code,annealed:['+AC','+AC+PE','+U+C+AC','+AC+C+AC'].includes(code)};
+}
 function withoutExplicitAnnealNegation(text){
  // Only remove an explicit statement that annealing was NOT applied. Keep
  // separate affirmative treatments and the original evidence untouched.
@@ -275,7 +294,8 @@ function screenCore(input,context,knowledgeVersion='unknown'){
  if(index<0)questions.push(material&&originalText(context).includes(material)?'Für '+material+' liegt noch keine passende Fließkurve im Rechenmodell vor. Welche Werkstoff-/Lieferzustandsdaten oder Fließkurve sind verfügbar?':'Welcher Werkstoff ist vorgesehen? Eine Bezeichnung auf der Zeichnung genügt.');
  else if(!(drawingDefaultsEnabled(context)&&((me?.origin==='assumption'&&str(me.reason)&&resolved.id==='C4C')||(me?.origin==='user_selection'&&context.materialChoice?.materialId===resolved.id)))&&(!me||!['user_text','drawing'].includes(me.origin)||!str(me.quote)||!String(me.quote).toLowerCase().includes(material.toLowerCase())||me.origin==='user_text'&&!originalText(context).includes(me.quote)||me.origin==='drawing'&&(!context.file||!Number.isInteger(me.page)||me.page<1)))questions.push('Die Werkstoffangabe braucht eine zuordenbare Textstelle oder Zeichnungsseite.');
  else e.wst=index;
- if(drawingDefaultsEnabled(context))e.rmPolicy='rm-v1';
+ if(usesRmV2(context))e.rmPolicy=RM_POLICY_VERSION;
+ else if(drawingDefaultsEnabled(context))e.rmPolicy='rm-v1';
  const preparation=input?.wirePreparation||'as-supplied',pe=input?.wirePreparationEvidence,pq=str(pe?.quote,500);
  if(!['as-supplied','inline-drawing'].includes(preparation))questions.push('Vormaterial und Vorzug eindeutig auswählen');
  else if(preparation==='inline-drawing'){
@@ -288,12 +308,18 @@ function screenCore(input,context,knowledgeVersion='unknown'){
  const stateEvidence=input?.materialStateEvidence,stateQuote=str(stateEvidence?.quote,500);
  const selectionState=drawingDefaultsEnabled(context)&&stateEvidence?.origin==='user_selection'&&context.materialChoice?.materialId===resolved?.id&&context.materialChoice?.materialState===input.materialState;
  const stateSourceValid=selectionState||stateEvidence&&['user_text','drawing'].includes(stateEvidence.origin)&&stateQuote&&(stateEvidence.origin==='user_text'?originalText(context).includes(stateQuote):context.file&&Number.isInteger(stateEvidence.page)&&stateEvidence.page>0);
+ const deliveryCondition=sourcedDeliveryCondition(stateEvidence,context,stateSourceValid);
+ if(deliveryCondition)e.rmDeliveryCondition=deliveryCondition.code;
+ const stateText=originalText(context)+'\n'+stateQuote;
+ // A verified sequence ending in annealing is not a subsequent cold draw.
+ // Remove only that complete sequence from the pre-existing conflict check.
+ const annealedStateText=deliveryCondition?.annealed?stateText.replace(/(?<![\p{L}\p{N}+])\+[A-Z][A-Z0-9]*(?:\+[A-Z][A-Z0-9]*)*(?![\p{L}\p{N}+])/giu,code=>code.toUpperCase()===deliveryCondition.code?' ':code):stateText;
  // State claims must be sourced, affirmative and specific. A tensile-strength
  // value, a fabricated quote or a prior anneal followed by drawing is not enough.
- const annealed=/weichgeglüht|soft[ -]?annealed|fully[ -]?annealed|ricotto|ricotta|mehko žarjen|mehko zarjen|软化退火|完全退火/i.test(stateQuote);
+ const annealed=deliveryCondition?.annealed||/weichgeglüht|soft[ -]?annealed|fully[ -]?annealed|ricotto|ricotta|mehko žarjen|mehko zarjen|软化退火|完全退火/i.test(stateQuote);
  const conflicting=/\bnicht\b|\bnot\b|\bnon\b|\bni\b|nachgezogen|kaltgezogen|cold[ -]?drawn|work[ -]?hardened|\+LC\b|\bT[45678]\b|vergütet|quenched|tempered|nicht geglüht|未退火/i.test(stateQuote);
  const rodStateScope=e.wirePreparation==='inline-drawing'&&/Walzdraht|wire rod|vergella|valjan[aeo]?\s+[žz]ic|线材|盘条|盤條/i.test(stateQuote);
- const userStateConflict=/nachgezogen|kaltgezogen|vorverfestigt|gezogen|cold[ -]?drawn|work[ -]?hardened|\+(?:LC|QT|AC\+C|C)\b|\bT[456789]\d?\b|\bH[1234]\d?\b|vergütet|quenched|tempered|trafilat[oa]|bonificat[oa]|vlečen|vlecen|hladno utrjen|冷拉|冷拔|时效|nicht\s+(?:weich)?geglüht|not\s+(?:soft[ -]?)?annealed|\bunannealed\b|non\s+ricott[oa]|ni\s+(?:mehko\s+)?[žz]arjen[ao]?|未(?:经|經)?(?:软化|軟化)?退火/i.test(rodStateScope?stateQuote:originalText(context)+'\n'+stateQuote);
+ const userStateConflict=/nachgezogen|kaltgezogen|vorverfestigt|gezogen|cold[ -]?drawn|work[ -]?hardened|\+(?:LC|QT|AC\+C|C)\b|\bT[456789]\d?\b|\bH[1234]\d?\b|vergütet|quenched|tempered|trafilat[oa]|bonificat[oa]|vlečen|vlecen|hladno utrjen|冷拉|冷拔|时效|nicht\s+(?:weich)?geglüht|not\s+(?:soft[ -]?)?annealed|\bunannealed\b|non\s+ricott[oa]|ni\s+(?:mehko\s+)?[žz]arjen[ao]?|未(?:经|經)?(?:软化|軟化)?退火/i.test(rodStateScope?stateQuote:annealedStateText);
  const stateAssumption=stateEvidence?.origin==='assumption'&&annealed&&!conflicting&&!userStateConflict;
  const drawn=/gezogen|\bdrawn\b|trafilat[oa]|vle[čc]en|冷拉|冷拔/i.test(stateQuote);
  // Any later or ambiguous heat treatment invalidates the drawn source state.
@@ -354,9 +380,10 @@ function screenCore(input,context,knowledgeVersion='unknown'){
  if(questions.length)return {ok:false,questions:[...new Set(questions)],proposal:null,limitations:LIMITS};
  if(e.wirePreparation==='inline-drawing'&&!(e.rodDiameter>e.d0))return {ok:false,questions:[t('Walzdraht-Ø vor dem Vorzug muss größer als der Draht-Ø an der Presse sein',normalizeLanguage(context.language))],proposal:null,limitations:LIMITS};
  if(!e.lStempel)assumptions.push('Länge im Stempel: vorläufig Kopfhöhe, bei Muttern 0 mm; Werkzeugaufteilung noch offen.');
- const rmPreset=drawingDefaultsEnabled(context)?E.rmVorbelegung(e):null;
+ const rmPreset=usesRmV2(context)||drawingDefaultsEnabled(context)?E.rmVorbelegung(e):null;
  if(!e.rm){
   if(rmPreset?.status==='guideline')assumptions.push(materialText('Rm-Richtwert {rm} N/mm² aus Bestandsdaten; vorläufig für den gewählten Lieferzustand.',context.language).replace('{rm}',String(rmPreset.value)));
+  else if(rmPreset?.status==='band'&&usesRmV2(context)&&rmPreset.origin==='standard')assumptions.push(t(rmPreset.conditionBasis?.startsWith('provisional')?'Rm bis {max} N/mm² · Normobergrenze für {condition}; Lieferzustand als Rechenannahme.':'Rm bis {max} N/mm² · Normobergrenze für {condition}.',context.language).replace('{max}',String(rmPreset.band.max)).replace('{condition}',rmPreset.deliveryCondition));
   else if(rmPreset?.status==='band')assumptions.push(materialText('Für die Abschnittprüfung gilt vorläufig Rm bis {max} N/mm². Das Band ist eine Annahme, kein Zeugniswert und keine Fließkurve.',context.language).replace('{max}',String(rmPreset.band.max)));
   else assumptions.push(Number.isFinite(E.WERKSTOFFE[e.wst].Rm)&&E.WERKSTOFFE[e.wst].Rm>0?'Drahtzugfestigkeit '+E.WERKSTOFFE[e.wst].Rm+' N/mm² ist ein ungeprüfter Näherungswert des Bestandsmodells; der Zeugniswert für den tatsächlichen Lieferzustand fehlt.':'Die Drahtzugfestigkeit im Lieferzustand ist noch offen.');
  }
@@ -387,9 +414,10 @@ function screenCore(input,context,knowledgeVersion='unknown'){
  else if(resolved.flowCurves?.some(curve=>curve.state==='cold-drawn'))questions.push('Liegt AISI 1010 als gezogenes Ausgangsmaterial vor? Für diese Kurve benötigen wir den Lieferzustand und den Abgleich der Ziehhistorie mit dem Literaturzustand.');
  else if(resolved.flowCurves?.length)questions.push('Ist der eingesetzte Draht weichgeglüht oder nach dem Glühen nochmals kaltverformt? Für die Kraftrechnung benötigen wir den tatsächlichen Lieferzustand.');
  const found=E.waehle(analysisCatalog(context),a,e,praxis),chosen=ranked?[found.ranking?.recommendation,...(found.ranking?.alternatives||[])].filter(Boolean).slice(0,3):[...found.passend,...found.bedingt].slice(0,5),rows=ranked?chosen:chosen.length?chosen:found.fast.slice(0,3);
- const mapped=rows.map(row=>({model:row.o.m,status:row.gesamt,openPoints:row.openPoints,priceEUR:row.o.rp||null,priceRangeEUR:row.o.lo&&row.o.hi?[row.o.lo,row.o.hi]:null,utilization:round(row.ausl),catalog:{id:row.o.kat,page:row.o.s},planningOutput:row.plan?.aus||null,criteria:row.k.map(k=>({criterion:k.krit,status:k.status,required:k.soll,available:k.ist,rule:k.r||null,...(forceV2?criterionForceMetadata(k):{})})),concept:E.maschinenKonzept(a,e,row.o,praxis)}));
+ const mapped=rows.map(row=>({model:row.o.m,status:row.gesamt,openPoints:row.openPoints,priceEUR:row.o.rp||null,priceRangeEUR:row.o.lo&&row.o.hi?[row.o.lo,row.o.hi]:null,utilization:round(row.ausl),catalog:{id:row.o.kat,page:row.o.s},planningOutput:row.plan?.aus||null,criteria:row.k.map(k=>({criterion:k.krit,status:k.status,required:k.soll,available:k.ist,rule:k.r||null,...(forceV2?criterionForceMetadata(k):{}),...(usesRmV2(context)?criterionRmMetadata(k):{})})),concept:E.maschinenKonzept(a,e,row.o,praxis)}));
  const proposal={input:[{field:'material',value:E.WERKSTOFFE[e.wst].id,unit:'',origin:me.origin,reference:me.origin==='drawing'?'Zeichnung Seite '+me.page+', Werkstoff':'Nutzerangabe Werkstoff',...(me.page?{page:me.page}:{})},...inputs],wireDiameter:inputs.find(x=>x.field==='d0'),stages:a.stufen.map((s,i)=>({number:i+1,operation:s.v,...(s.operationParts?{operationParts:s.operationParts}:{}),force_t:round(s.t),rule:s.r,pressure_N_mm2:s.p?round(s.p):null})),machines:mapped,assumptions,calculationBasis:[...LIMITS],limits:[...a.hinweise,...(!chosen.length?['Kein Modell erfüllt alle ausgewerteten Katalogkriterien. Gezeigte nahe Kandidaten haben konkrete Ausschlusskriterien.']:[])],rules:(a.regelListe||[...a.regeln]).map(id=>({id,text:E.REGELN[id]?.t||id,type:E.REGELN[id]?.art||'Regel'})),knowledgeVersion,calculation:{engine:'V1.1',input:e,values:a.werte,materialModel:a.werkstoff,materialStatus:a.materialStatus},classification:'concept',drawingInterpretation:inputs.some(x=>x.origin==='drawing')||me.origin==='drawing'};
  if(forceV2){proposal.stages.forEach((stage,index)=>Object.assign(stage,stageForceMetadata(a.stufen[index])));proposal.calculation.forcePolicy=FORCE_POLICY_VERSION;proposal.calculationBasis[0]='Belegte Fließkurve im Quellenbereich; darüber ausgewiesene Extrapolation bis φ = 1,6 mit Kraftband. Lochen aus 0,8 × Rm. Keine Änderung des Werkstoffs oder Lieferzustands.';}
+ if(usesRmV2(context))proposal.calculation.rmPolicy=RM_POLICY_VERSION;
  return {ok:true,questions,proposal,limitations:[...proposal.calculationBasis,...proposal.limits],...(ranked?{excludedModels:(found.ranking?.all||[]).filter(r=>r.gesamt==='nein'||r.k?.some(k=>k.status==='nein')).map(r=>r.o.m)}:{})};
 }
 export function screen(input,context,knowledgeVersion='unknown'){
@@ -409,7 +437,7 @@ export function screen(input,context,knowledgeVersion='unknown'){
    if(material.materialContext.conflict)result.questions.push(material.materialContext.conflict);
   }
  }
- return resultForPolicy({...result,...(usesForceV2(context)?{forcePolicy:FORCE_POLICY_VERSION}:{}),questions:result.questions.map(question=>t(question,normalizeLanguage(context.language)))},context.pricePolicy);
+ return resultForPolicy({...result,...calculationPolicies(context),questions:result.questions.map(question=>t(question,normalizeLanguage(context.language)))},context.pricePolicy);
 }
 async function research(input,env,signal,state){
  if(!TOPICS.includes(input?.topic))return {available:false,gap:'Fachthema nicht zugeordnet.'};
@@ -441,7 +469,7 @@ function sourcesFor(state){
  if(state.read&&state.knowledge.status!=='missing')out.push({id:'konzept',label:'Fachkonzept · '+state.knowledge.version});
  if(state.materialContext)out.push({id:'material:'+state.materialContext.origin,label:state.materialContext.sourceLabel+' · '+state.materialContext.materialId,origin:state.materialContext.origin,...(state.materialContext.assumption?{assumption:true,reason:state.materialContext.reason}:{})});
  const rmPreset=state.proposal?.calculation?.materialModel?.rmVorbelegung;
- if(rmPreset?.source&&['guideline','band'].includes(rmPreset.status))out.push({id:'rm:'+rmPreset.status,label:materialText(rmPreset.source.label,state.language),origin:rmPreset.origin,reference:rmPreset.source.reference,assumption:rmPreset.status==='band'});
+ if(rmPreset?.source&&['guideline','band'].includes(rmPreset.status))out.push({id:'rm:'+rmPreset.status,label:materialText(rmPreset.source.label,state.language),origin:rmPreset.origin,reference:rmPreset.source.reference,assumption:rmPreset.version===RM_POLICY_VERSION&&rmPreset.origin==='standard'?rmPreset.conditionBasis?.startsWith('provisional')===true:rmPreset.status==='band'});
  for(const m of state.proposal?.machines||[])out.push({id:'catalog:'+m.catalog.id,label:'Jern-Yao-Katalog '+m.catalog.id+', Seite '+m.catalog.page});
  for(const s of state.proposal?.calculation?.materialModel?.selectedFlowCurve?.sourceRefs||[])out.push({id:'flow:'+s.id,label:s.title+' · '+s.locator,url:s.url});
  return [...new Map([...out,...state.external].map(x=>[x.id,x])).values()].map(source=>({...source,label:t(source.label,state.language)}));
@@ -463,7 +491,7 @@ export function publicResult(result,{pricePolicy}={}){
  const policy=pricePolicy===PRICE_POLICY_TECHNICAL||result?.pricePolicy===PRICE_POLICY_TECHNICAL?PRICE_POLICY_TECHNICAL:PRICE_POLICY_FULL;
  const language=normalizeLanguage(result?.language),safe=resultForPolicy(result,policy);
  const answer=typeof safe?.answer==='string'?safe.answer:result?.answer&&policy===PRICE_POLICY_TECHNICAL?PRICE_RESPONSE[language]:'';
- return {answer,proposal:safe?.proposal||null,questions:Array.isArray(safe?.questions)?safe.questions:[],sources:Array.isArray(safe?.sources)?safe.sources:[],language,pricePolicy:policy,...(usesForceV2(safe)?{forcePolicy:FORCE_POLICY_VERSION}:{}),...(safe?.knowledgePublicationVersion?{knowledgePublicationVersion:safe.knowledgePublicationVersion}:{}),...(safe?.geometry?{geometry:safe.geometry}:{}),...(safe?.materialContext?{materialContext:safe.materialContext}:{})};
+ return {answer,proposal:safe?.proposal||null,questions:Array.isArray(safe?.questions)?safe.questions:[],sources:Array.isArray(safe?.sources)?safe.sources:[],language,pricePolicy:policy,...calculationPolicies(safe),...(safe?.knowledgePublicationVersion?{knowledgePublicationVersion:safe.knowledgePublicationVersion}:{}),...(safe?.geometry?{geometry:safe.geometry}:{}),...(safe?.materialContext?{materialContext:safe.materialContext}:{})};
 }
 export async function analyse(context,env,{timeoutMs=120000,maxRounds=5}={}){
  const deadline=Date.now()+timeoutMs;
@@ -507,7 +535,7 @@ export async function analyse(context,env,{timeoutMs=120000,maxRounds=5}={}){
    const source={id:'material:'+material.origin,label:material.sourceLabel+' · '+material.materialId,origin:material.origin,...(material.assumption?{assumption:true,reason:material.reason}:{})};
    result.sources=[...(result.sources||[]).filter(item=>!item.id.startsWith('material:')),source];
   }
-  return resultForPolicy({...result,knowledgePublicationVersion:PUBLIC_KNOWLEDGE_VERSION,...(usesForceV2(context)?{forcePolicy:FORCE_POLICY_VERSION}:{}),...(state.geometry?{geometry:state.geometry}:{})},pricePolicy);
+  return resultForPolicy({...result,knowledgePublicationVersion:PUBLIC_KNOWLEDGE_VERSION,...calculationPolicies(context),...(state.geometry?{geometry:state.geometry}:{})},pricePolicy);
  };
  const knownTopologyIssue=topologyGate({},context);
  if(['unsupported','drawing_required','structured_geometry','geometry_invalid'].includes(knownTopologyIssue?.topology?.status)){state.topologyRestriction=knownTopologyIssue;state.questions=knownTopologyIssue.questions.map(question=>t(question,language));}
@@ -523,7 +551,8 @@ export async function analyse(context,env,{timeoutMs=120000,maxRounds=5}={}){
  const completionInstruction=extendedCompletion?'Abschlussumfang: höchstens drei begründete Maschinenkandidaten, eine Empfehlung und bis zu zwei Alternativen, sowie höchstens drei Rückfragen. Das Stadienkonzept und den erforderlichen Variantenvergleich fachlich vollständig, aber knapp erklären. Das Feld answer auf höchstens 9000 Zeichen begrenzen. Keine Katalog-Datenblöcke, Modelltabellen oder vollständigen Werkzeugergebnisse wiederholen. Die endgültige Antwort muss ein vollständiges JSON-Objekt sein; keine Teilantwort oder abgebrochene JSON-Ausgabe.':'';
  const rollingInstruction=context.packageSix===true?'Prozessvorgabe für gewalzte Gewindespitzen: Unterscheide Pressrohling und Fertigteil. Wenn die Gewindespitze beim nachgelagerten Gewindewalzen abgewalzt wird, bleibt der Pressrohling an diesem Ende zylindrisch. Ziehe das Spitzenvolumen dann weder vom Pressrohling noch vom Abschnittvolumen ab und erfinde dafür keine Pressstufe; kennzeichne Gewindewalzen als nachgelagerte Operation. Eine tatsächlich vorgepresste Spitze ist ein anderer Prozessweg und darf nur aus einer ausdrücklichen Prozessangabe abgeleitet werden. Die Fertigteilzeichnung allein belegt keine vorgepresste Spitze. Die Vorgabe stammt aus der freigegebenen Projektpraxis, nicht aus einer behaupteten Norm.':'';
  const forceInstruction=usesForceV2(context)?'Aktiver Programmstand force-v2: Diese versionierten Programmregeln haben bei Widersprüchen Vorrang vor historischen Kraftregeln im Projektwissen. Verwende die vom Rechenkern gemeldeten extrapolierten Stationskräfte bis zum Gesamtumformgrad φ = 1,6 einschließlich Vorverfestigung, jeweils mit Fit, Kraftband und Sensitivitätsprüfung. Übernimm Stempelpressungen aus den Rechenergebnissen. Lochen folgt R-LOCH-RM mit 0,8 × Rm und ausgewiesener Herkunft. Als derived markierte Mutterngrößen sind vorläufige Ableitungen, keine bestätigten Katalogangaben; die Bestätigung liegt bei Jern Yao, nicht beim Kunden. Ohne entsprechenden Rechenwert keine Extrapolation, Kraft oder Pressung selbst erfinden.':'';
- const system=SYSTEM+'\n'+materialInstruction+'\n'+variantInstruction+'\n'+completionInstruction+(rollingInstruction?'\n'+rollingInstruction:'')+(forceInstruction?'\n'+forceInstruction:'')+'\n'+priceInstruction+'\n'+RESPONSE_LANGUAGE[language],offeredToolNames=new Set(TOOLS.map(tool=>tool.name));
+ const rmInstruction=usesRmV2(context)?'Aktiver Programmstand rm-v2: Verwende die Rm-Vorbelegung des Rechenkerns mit Herkunft, genauem Lieferzustand, Durchmesserbereich und Quellen. Eine belegte Normobergrenze ist kein erfundener Rm-Punktwert und keine Fließkurve. Ist die Lieferzustandszuordnung nur eine Prozessannahme, kennzeichne diese Zuordnung ausdrücklich; behaupte keinen bestätigten Zustand +AC aus dem Wort weichgeglüht allein. Kundenangaben und der tatsächliche Zustand nach Inline-Vorzug haben Vorrang. Rm-Bänder dienen der Abschnittprüfung und der gesonderten Scherrechnung, niemals als Ersatz einer Fließkurve. Stelle eine Rm-Rückfrage nur, wenn die Sensitivitätsprüfung die Maschinenauswahl ändern kann. Diese versionierten Programmregeln gehen abweichenden historischen Rm-Regeln im Projektwissen vor.':'';
+ const system=SYSTEM+'\n'+materialInstruction+'\n'+variantInstruction+'\n'+completionInstruction+(rollingInstruction?'\n'+rollingInstruction:'')+(forceInstruction?'\n'+forceInstruction:'')+(rmInstruction?'\n'+rmInstruction:'')+'\n'+priceInstruction+'\n'+RESPONSE_LANGUAGE[language],offeredToolNames=new Set(TOOLS.map(tool=>tool.name));
  for(let round=0;round<maxRounds;round++){
   // Diagnostics contain only this bounded counter and fixed server-owned
   // action names, never prompts, tool arguments, identifiers or provider text.

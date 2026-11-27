@@ -122,3 +122,87 @@ test('terminal v2 failures keep their policy so duplicate queue delivery does no
  await worker.queue({messages:[message]},env);const failed=await get(env,'analyse:'+record.id);assert.equal(failed.status,'failed');assert.equal(failed.result.forcePolicy,V2);const before=calls;
  await worker.queue({messages:[job(record.id)]},env);assert.equal(calls,before);assert.equal((await state(env,record)).resultSuperseded,undefined);
 });
+
+test('Rm policy is independent of the P2 force marker and cannot be enabled by client fields',async t=>{
+ const systems=[];modelMock(t,body=>systems.push(body.system));
+ for(const origin of [HY,MAIN,'https://www.jernyao.de',null]){
+  systems.length=0;const response=await post(environment(),'/chat',{message:'Bitte die Werkstoffbasis erläutern.',rmPolicy:'rm-v2',forcePolicy:V2,siteOrigin:HY},origin);
+  assert.equal(response.httpStatus,200);assert.equal(response.rmPolicy,origin===HY?'rm-v2':undefined);
+  assert.ok(systems.every(system=>system.includes('Aktiver Programmstand rm-v2:')===(origin===HY)));
+ }
+ for(const [siteOrigin,forcePolicy,rmPolicy,currentOrigin,expected]of [[HY,V2,undefined,HY,undefined],[HY,V2,'rm-v2',HY,'rm-v2'],[HY,V2,'rm-v2',MAIN,undefined],[MAIN,V2,'rm-v2',HY,undefined],[HY,undefined,'rm-v2',HY,undefined]]){
+  const env=environment(),record=await savedRecord(env,{siteOrigin,forcePolicy,rmPolicy});systems.length=0;
+  const response=await post(env,'/chat',{requestId:record.id,token:record.token,message:'Bitte Rm prüfen.',rmPolicy:'rm-v2'},currentOrigin);
+  assert.equal(response.httpStatus,200);assert.equal(response.rmPolicy,expected);assert.ok(systems.every(system=>system.includes('Aktiver Programmstand rm-v2:')===(expected==='rm-v2')));
+ }
+});
+
+test('P2 ready results stay P2 while a P3 record rejects a cached P2 result and recomputes once',async t=>{
+ const calls=modelMock(t),env=environment(),p2=await savedRecord(env,{forcePolicy:V2}),p3=await savedRecord(env,{forcePolicy:V2,rmPolicy:'rm-v2'});
+ for(const record of [p2,p3])await put(env,'analyse:'+record.id,{status:'ready',result:finalResult({forcePolicy:V2})});
+ assert.equal((await state(env,p2)).forcePolicy,V2);assert.equal((await state(env,p2)).rmPolicy,undefined);assert.equal((await state(env,p3)).resultSuperseded,true);
+ await worker.queue({messages:[job(p2.id)]},env);assert.equal(calls(),0,'P2 record must not silently upgrade');
+ await worker.queue({messages:[job(p3.id)]},env);assert.equal(calls(),2);const updated=await state(env,p3);assert.equal(updated.forcePolicy,V2);assert.equal(updated.rmPolicy,'rm-v2');
+ await worker.queue({messages:[job(p3.id)]},env);assert.equal(calls(),2);
+ const canonical=await get(env,'analyse:'+p3.id);
+ const chat=await post(env,'/chat',{requestId:p3.id,token:p3.token,message:'Bitte erläutern.'},MAIN);assert.equal(chat.rmPolicy,undefined);assert.deepEqual(await get(env,'analyse:'+p3.id),canonical);
+});
+
+test('new P3 preview keys do not replay cached P2 records and main never stores an Rm marker',async()=>{
+ for(const kind of ['drawing','geometry'])for(const origin of [HY,MAIN]){
+  const env=environment(),key='rm-policy-preview-123456',p2=await savedRecord(env,{siteOrigin:origin,...(origin===HY?{forcePolicy:V2}:{})}),namespace=kind==='drawing'?'vorschau-idempotenz:':'geometrie-idempotenz:';
+  const oldKey=namespace+await digest(origin+':'+(origin===HY?V2+':':'')+key);await put(env,oldKey,{id:p2.id,fingerprint:'P2-cache'});
+  if(origin===MAIN)env.SPEICHER.map.delete(oldKey);
+  const submit=async()=>{
+   if(kind==='geometry')return post(env,'/geometry-preview',{geometrySpec:spec(),d0:8,material:'C10C',idempotency_key:key,rmPolicy:'rm-v2'},origin);
+   const form=new FormData();form.set('datei',new File(['%PDF-1.7 drawing'],'part.pdf'));form.set('idempotency_key',key);form.set('rmPolicy','rm-v2');
+   const response=await worker.fetch(new Request('https://worker.test/preview',{method:'POST',headers:{Origin:origin},body:form}),env);return {httpStatus:response.status,...await response.json()};
+  };
+  const first=await submit();assert.equal(first.httpStatus,202);assert.notEqual(first.id,p2.id);const record=await get(env,'anfrage:'+first.id);assert.equal(record.rmPolicy,origin===HY?'rm-v2':undefined);
+  assert.equal((await submit()).id,first.id);assert.equal(env._jobs.length,1);assert.equal((await get(env,'anfrage:'+p2.id)).rmPolicy,undefined);
+ }
+});
+
+test('a terminal P3 failure preserves both policy versions across retries and public projection',async t=>{
+ const previous=globalThis.fetch;let calls=0;globalThis.fetch=async()=>{calls++;return Response.json({error:'unavailable'},{status:503});};t.after(()=>{globalThis.fetch=previous;});
+ const env=environment(),record=await savedRecord(env,{forcePolicy:V2,rmPolicy:'rm-v2'}),message=job(record.id);message.attempts=2;
+ await worker.queue({messages:[message]},env);const result=await state(env,record);assert.equal(result.status,'failed');assert.equal(result.forcePolicy,V2);assert.equal(result.rmPolicy,'rm-v2');assert.equal(result.resultSuperseded,undefined);
+ const before=calls;await worker.queue({messages:[job(record.id)]},env);assert.equal(calls,before);
+});
+
+test('the real Rm v2 service keeps norm bounds and condition provenance, while P2 stays unchanged',()=>{
+ const values={sD:4.4,sL:12,kD:9.5,kH:2.75,d0:4.7};
+ const evidence=Object.fromEntries(Object.entries(values).map(([key,value])=>[key,{origin:'user_text',quote:`${key} ${value} mm`,originalValue:value,originalUnit:'mm',reference:key}]));
+ const material=E.findMaterial('34CrMo4'),input={typ:'bolzen',material:material.id,materialEvidence:{origin:'user_text',quote:material.id},materialState:'soft-annealed',materialStateEvidence:{origin:'user_text',quote:'weichgeglüht'},curveId:material.flowCurves[0].id,values,evidence};
+ const context={note:'34CrMo4 weichgeglüht; '+Object.values(evidence).map(item=>item.quote).join('; '),packageSix:true,forcePolicy:V2};
+ const p2=screen({...input,rmPolicy:'rm-v2'},context),p3=screen(input,{...context,rmPolicy:'rm-v2'});
+ assert.equal(p2.ok,true);assert.equal(p3.ok,true);assert.equal(p2.rmPolicy,undefined);assert.equal(p2.proposal.calculation.input.rmPolicy,undefined);
+ assert.equal(p3.rmPolicy,'rm-v2');assert.equal(p3.proposal.calculation.rmPolicy,'rm-v2');assert.equal(p3.proposal.calculation.input.rmPolicy,'rm-v2');
+ const preset=p3.proposal.calculation.materialModel.rmVorbelegung;
+ assert.equal(preset.version,'rm-v2');assert.equal(preset.origin,'standard');assert.equal(preset.status,'band');assert.equal(preset.value,null);assert.ok(preset.band.max>0);
+ assert.equal(preset.conditionBasis,'provisional-spheroidized-delivery-assumption');assert.ok(preset.deliveryCondition);assert.ok(preset.diameterRange.minExclusive<values.d0&&preset.diameterRange.maxInclusive>=values.d0);assert.ok(preset.sourceRefs.length>=2);
+ assert.ok(preset.sourceRefs.every(source=>source.url.startsWith('https://')&&!/drive\.google|mail\.google/.test(source.url)));
+ assert.ok(p3.proposal.assumptions.some(line=>line.includes('Normobergrenze')&&line.includes('Rechenannahme')));assert.ok(!p3.proposal.assumptions.some(line=>line.includes('Das Band ist eine Annahme')));
+ assert.ok(p3.proposal.machines.length);const criteria=p3.proposal.machines.flatMap(machine=>machine.criteria).filter(c=>c.criterion==='Abschnitt-Ø');assert.ok(criteria.length);assert.ok(criteria.every(c=>c.rmVorbelegung?.version==='rm-v2'&&c.rmSensitivity));
+ for(const pricePolicy of ['with-prices','technical-only']){const result=publicResult({...p3,answer:'Konzept'},{pricePolicy});assert.equal(result.rmPolicy,'rm-v2');assert.deepEqual(result.proposal.calculation.materialModel.rmVorbelegung,preset);}
+ const supplied=screen({...input,values:{...values,rm:520},evidence:{...evidence,rm:{origin:'user_text',quote:'Rm 520 N/mm²',originalValue:520,originalUnit:'N/mm²',reference:'Zeugnis'}}},{...context,rmPolicy:'rm-v2',note:context.note+'; Rm 520 N/mm²'});
+ assert.equal(supplied.proposal.calculation.materialModel.rmVorbelegung.origin,'customer');assert.equal(supplied.proposal.calculation.materialModel.rmVorbelegung.value,520);
+});
+
+test('sourced delivery codes retain the entire sequence and never turn a negation into confirmation',()=>{
+ const values={sD:4.4,sL:12,kD:9.5,kH:2.75,d0:4.7},evidence=Object.fromEntries(Object.entries(values).map(([key,value])=>[key,{origin:'user_text',quote:`${key} ${value} mm`,originalValue:value,originalUnit:'mm',reference:key}]));
+ const material=E.findMaterial('34CrMo4'),base={typ:'bolzen',material:material.id,materialEvidence:{origin:'user_text',quote:material.id},materialState:'soft-annealed',curveId:material.flowCurves[0].id,values,evidence};
+ const note='34CrMo4; '+Object.values(evidence).map(item=>item.quote).join('; '),context={note,packageSix:true,forcePolicy:V2,rmPolicy:'rm-v2'};
+ const run=(quote,source=quote,extra={})=>screen({...base,materialStateEvidence:{origin:'user_text',quote}}, {...context,note:note+'; '+source,...extra});
+ const ac=run('+AC');assert.equal(ac.ok,true);assert.equal(ac.proposal.calculation.input.rmDeliveryCondition,'+AC');assert.equal(ac.proposal.calculation.materialModel.rmVorbelegung.status,'diameter-outside-range');
+ for(const code of ['+AC+C+AC']){
+  const r=run(code);assert.equal(r.ok,true);const preset=r.proposal.calculation.materialModel.rmVorbelegung;
+  assert.equal(r.proposal.calculation.input.rmDeliveryCondition,code);assert.equal(preset.status,'band');assert.equal(preset.deliveryCondition,code);assert.equal(preset.conditionBasis,'selected-delivery-condition');assert.equal(r.proposal.calculation.input.materialState,'soft-annealed');
+  assert.ok(r.proposal.assumptions.some(line=>line.includes('Normobergrenze')&&!line.includes('Rechenannahme')));
+ }
+ for(const [quote,source]of [['+AC','weichgeglüht, nicht +AC'],['+AC+C+AC','not +AC+C+AC'],['+AC+C+AC','+AC+C+AC wird nicht geliefert'],['weichgeglüht +A','weichgeglüht +A'],['+U+C+AC','+U+C+AC'],['+AC oder +AC+C+AC','+AC oder +AC+C+AC'],['+AC+C+AC+X','+AC+C+AC+X']]){
+  const r=run(quote,source);assert.equal(r.ok,true);assert.equal(r.proposal.calculation.materialModel.rmVorbelegung.status,'delivery-condition-mismatch',source);assert.equal(r.proposal.calculation.materialModel.rmVorbelegung.band,null);
+ }
+ const fake=run('+AC+C+AC','weichgeglüht');assert.equal(fake.proposal.calculation.input.rmDeliveryCondition,undefined);assert.equal(fake.proposal.calculation.materialModel.rmVorbelegung.band,null);
+ const p2=run('+AC+C+AC','+AC+C+AC',{rmPolicy:undefined});assert.equal(p2.proposal.calculation.input.rmDeliveryCondition,undefined);assert.equal(p2.proposal.calculation.input.materialState,'unknown','legacy parsing is unchanged');
+});

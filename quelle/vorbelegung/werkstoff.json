@@ -10,7 +10,10 @@
     {"kind":"nut","classes":["5","6","8"],"materialId":"C10C","state":"soft-annealed"},
     {"kind":"nut","classes":["10","12"],"materialId":"C35EC","state":"soft-annealed"},
     {"kind":"rivet","classes":["Stahl"],"materialId":"C4C","state":"soft-annealed"},
+    {"kind":"rivet","classes":["Cu"],"materialId":"Cu-ETP","state":"unknown","availability":"missing-flow-curve"},
+    {"kind":"rivet","classes":["CuZn"],"materialId":"CuZn37","state":"soft-annealed"},
+    {"kind":"rivet","classes":["Al"],"materialId":"AlMgSi1","state":"soft-annealed"},
     {"kind":"pin","classes":["Stahl"],"materialId":"C4C","state":"soft-annealed"}
   ],
-  "note":"Vorschläge für die Maschinenstudie. Die Festigkeitsklasse gilt dem fertigen Teil, die Fließkurve dem Draht vor Umformung und Wärmebehandlung. Nur vorhandene freigegebene Kurven auswählbar; keine stillen Ersatzwerkstoffe."
+  "note":"Vorschläge für die Maschinenstudie. Die Festigkeitsklasse gilt dem fertigen Teil, die Fließkurve dem Draht vor Umformung und Wärmebehandlung. Nur vorhandene freigegebene Kurven auswählbar; keine stillen Ersatzwerkstoffe. Die ausdrückliche Nietklasse Cu verwendet Cu-ETP ausschließlich geometrisch, solange die Fließkurve fehlt."
 }
