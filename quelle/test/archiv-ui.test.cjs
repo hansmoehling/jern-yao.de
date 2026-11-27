@@ -69,7 +69,7 @@ function setup(language,engine=E,showPrices,apiOptions,staged=false,integrated=f
  if(integrated){
   window.fetch=context.fetch;window.AbortController=AbortController;
   window.JYNormLibrary=require('../normen/library.js');window.JYStandards=require('../normen/resolver.js');window.JYNormAvailability=require('../normen/availability.js');
-  window.JY_NORM_DATA={schemaVersion:1,version:'integration-test',families:['ISO4762','ISO4014','ISO4017','ISO4162','ISO4026','ISO14579','ISO14580','ISO14583','ISO14584','DIN7500','DIN835','ISO2338','ISO13918','DIN124','DIN302','DIN660','DIN661','DIN662','DIN674','DIN6791','DIN6792','DIN7338','ISO4032','ISO4161','DIN985'].map(id=>require('../normen/'+id+'.json')),threads:require('../normen/gewinde.json'),materials:require('../vorbelegung/werkstoff.json')};
+  window.JY_NORM_DATA={schemaVersion:1,version:'integration-test',families:['ISO4762','ISO4014','ISO4017','ISO4162','ISO4026','ISO14579','ISO14580','ISO14583','ISO14584','ISO8676','DIN7500','DIN835','ISO2338','ISO13918','DIN124','DIN302','DIN660','DIN661','DIN662','DIN674','DIN6791','DIN6792','DIN7338','ISO4032','ISO4161','DIN985'].map(id=>require('../normen/'+id+'.json')),threads:require('../normen/gewinde.json'),materials:require('../vorbelegung/werkstoff.json')};
   window.JYKvpContext=require('../kvp-context.js');
   for(const file of ['normen/ui.js','kvp-ui.js'])vm.runInNewContext(fs.readFileSync(path.join(__dirname,'..',file),'utf8'),context);
  }
@@ -1087,5 +1087,21 @@ test('P7 fine nut holes use documented internal 6H data and clear stale values o
   const source='Bohrungs-Ø eingeben – Gewindetoleranzmodell fehlt',label=p.context.window.JYNormLibrary.missingLabel('nutHoleTolerance',key=>I.t(key,language));assert.equal(label,I.t(source,language));if(language!=='de')assert.notEqual(label,source);
   p.f.elements.mLoch.value='16.15';p.f.events.change({target:p.f.elements.mLoch});assert.equal(p.f.elements.mLoch.value,'16.15');assert.equal(received.mLoch,16.15);assert.equal(received.normRequiresGeometryReview,false);
   choose('groesse','M20x2');assert.equal(p.f.elements.mLoch.value,'16.15');assert.equal(received.standardDocument.overrides.mLoch.value,16.15);
+ }
+});
+
+test('P7 missing 6g records cannot carry the old M6 rolling blank into another screw size',()=>{
+ for(const language of I.supported)for(const showPrices of [true,false]){
+  let received;const p=setup(language,{...E,auslegen(input){received=input;return E.auslegen(input);}},showPrices,undefined,true,true);p.examples[0].events.click();
+  const choose=(key,value)=>{p.get('norm-'+key).value=value;p.get('norm-'+key).events.change();};
+  choose('id','ISO4762');choose('groesse','M6');choose('laenge','30');
+  assert.equal(p.f.elements.sD.value,'5.27');
+  choose('id','ISO8676');choose('groesse','M18');choose('laenge','35');
+  assert.equal(p.get('norm-steigung').value,'2');assert.equal(received.standardDocument.standardReference.steigung,2);assert.ok(p.get('norm-steigung').options.some(option=>option.value==='1.5'));
+  assert.equal(p.f.elements.sD.value,'');assert.equal(p.f.elements.kSW.value,'27');assert.equal(p.f.elements.sL.value,'35');
+  assert.ok(received.normMissingFields.includes('rollingBlankDiameter'));assert.equal(received.normRequiresGeometryReview,true);assert.equal(p.get('aus').hidden,true);
+  const key='Durchmesser des Walzrohlings',label=p.context.window.JYNormLibrary.missingLabel('rollingBlankDiameter',text=>I.t(text,language));assert.equal(label,I.t(key,language));if(language!=='de')assert.notEqual(label,key);
+  p.f.elements.sD.value='16.6';p.f.events.change({target:p.f.elements.sD});assert.equal(p.f.elements.sD.value,'16.6');assert.equal(received.sD,16.6);assert.ok(!received.normMissingFields.includes('rollingBlankDiameter'));
+  choose('groesse','M20');assert.equal(p.f.elements.sD.value,'16.6');assert.equal(received.standardDocument.overrides.sD.value,16.6);
  }
 });

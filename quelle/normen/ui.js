@@ -101,7 +101,7 @@
       wraps.laenge.hidden=kind()==='nut';controls.laenge.disabled=!ls.length;setLengthOpen(false);refreshLength();
       const row=f?.groessen?.[s.value],allPitches=N.pitches(data,s.value),allowed=row?.steigungen;
       const fixedPitch=row?.thread?.pitch??row?.roh?.P??data.threads?.rows?.[s.value]?.coarse;
-      const ps=Array.isArray(allowed)?allPitches.filter(p=>allowed.includes(p)):fixedPitch?[fixedPitch]:allPitches;
+      const ps=Array.isArray(allowed)?(enhancedLengths?[...new Set(allowed)].filter(p=>Number.isFinite(p)&&p>0):allPitches.filter(p=>allowed.includes(p))):fixedPitch?[fixedPitch]:allPitches;
       options(controls.steigung,ps.map(x=>[x,String(x)]),row?.roh?.P??row?.vorbelegung?.P??controls.steigung.value);
       controls.steigung.closest('label').hidden=ps.length<=1;
       const classes=kind()==='nut'?['8','10','12','5','6']:kind()==='rivet'?['Stahl','Cu','CuZn','Al']:kind()==='pin'?['Stahl']:['8.8','10.9','12.9','4.6','4.8','5.6','5.8'];

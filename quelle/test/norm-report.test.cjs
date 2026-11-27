@@ -2,7 +2,8 @@
 const test=require('node:test'),assert=require('node:assert/strict'),fs=require('node:fs'),path=require('node:path'),{spawnSync}=require('node:child_process');
 const report=require('../normen/report.cjs');
 const row=(sD,lengths={})=>({vorbelegung:sD==null?{}:{sD},roh:{},nachLaenge:lengths});
-const family=(id,extra={})=>({id,version:'fixture-v1',funktion:'schraube',kopfTyp:'zylinder',antrieb:{art:'none'},groessen:{},fields:{},...extra});
+// These fixtures describe plain contours, not threaded blanks without 6g evidence.
+const family=(id,extra={})=>({id,version:'fixture-v1',funktion:'stift',kopfTyp:'zylinder',antrieb:{art:'none'},groessen:{},fields:{},...extra});
 function fixture(){
   const A=family('A',{edition:'2024',groessen:{M4:row(4,{10:{},20:{}}),M80:row(80)},sizeCoverage:{M4:{status:'documented'},M7:{status:'unresearched'},M100:{status:'not-in-standard'}},
     sourceMeta:{primary:{url:'https://source.example/one.pdf'},mirror:{url:'https://source.example/one.pdf#page=2'},status:{url:'https://standards.example/status',scope:'edition-status'}},quellen:[{id:'independent',url:'https://source.example/two.pdf'}],

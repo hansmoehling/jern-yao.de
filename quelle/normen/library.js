@@ -212,7 +212,7 @@
       if(['self-tapping','thermoplastic','duo-taptite','trilobular'].includes(out.threadFamily)&&!document.overrides.schaftende&&['spitze','kegelstumpf_flach'].includes(out.schaftende)){
         out.finishedThreadEnd=out.schaftende;out.schaftende='voll';
       }
-      if(!['rivet','pin'].includes(kind)&&!shoulder&&!stud&&out.threadFamily==='metric'&&t?.rollBlank!=null){
+      if(!['rivet','pin'].includes(kind)&&!shoulder&&!stud&&out.threadFamily==='metric'&&(positive(t?.rollBlank)||shaftV2&&positive(document.overrides.sD?.value))){
         if(!document.overrides.sD)out.sD=t.rollBlank;
         // A reference b alone does not establish a plain shaft. The length row
         // must explicitly identify the threaded and unthreaded portions.
@@ -222,7 +222,7 @@
           plain=(geometricLengthRow.roh.ls_min+geometricLengthRow.roh.lg_max)/2;
           out.shaftModelAssumption={origin:'assumption',provisional:true,plainLength:plain,min:geometricLengthRow.roh.ls_min,max:geometricLengthRow.roh.lg_max};
         }
-        if(plain>0&&out.sL>plain)out.shaftSegments=[{diameter:t.d,length:plain},{diameter:out.sD,length:out.sL-plain}];
+        if(plain>0&&out.sL>plain)out.shaftSegments=[{diameter:t?.d??row?.thread?.diameter,length:plain},{diameter:out.sD,length:out.sL-plain}];
         if(!partialHandled&&document.overrides.sL&&!lengthRow&&Object.values(row?.nachLaenge||{}).some(x=>x.plainLength>0||x.roh?.ls_nom>0||x.roh?.ls_min>0)){
           out.normMissingFields.push('shaftLengthDistribution');out.normRequiresGeometryReview=true;
         }
@@ -230,6 +230,12 @@
       if(shoulder||stud||['trilobular','duo-taptite'].includes(out.threadFamily)||out.normMissingFields.includes('rollingBlankDiameter')){
         if(!document.overrides.sD)delete out.sD;
         if(['trilobular','duo-taptite'].includes(out.threadFamily)&&!document.overrides.sD)out.normMissingFields.push('rollingBlankDiameter');
+      }
+      if(shaftV2&&!['rivet','pin'].includes(kind)&&out.threadFamily==='metric'&&!positive(t?.rollBlank)&&!positive(document.overrides.sD?.value)){
+        // A missing 6g row must not reuse the previous norm's rolling blank.
+        // Unlike internal 6H minor diameters, no external limits are inferred.
+        if(!document.overrides.sD){out.sD=null;out.clearFields=[...new Set([...(out.clearFields||[]),'sD'])];}
+        out.normMissingFields.push('rollingBlankDiameter');
       }
       if(out.kopfForm==='none')out.kD=out.kH=out.kSW=0;
       for(const key of ['iSize','schaftende','bottomShape','bottomAngle','boreDepthMode','capHeight','flangeDiameter','flangeHeight','endLength','endDiameter','tipAngle','tipLength','tipDiameter'])if(document.overrides[key])out[key]=document.overrides[key].value;
