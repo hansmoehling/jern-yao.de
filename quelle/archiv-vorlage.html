@@ -232,7 +232,7 @@
   </div>
 
   <div class="typen entry-cards" role="radiogroup" aria-label="Teileart">
-    <label><input type="radio" name="typ" value="bolzen" form="f" checked>Schrauben<small>Bolzen und Schrauben</small></label>
+    <label><input type="radio" name="typ" value="bolzen" form="f" checked>Bolzen<small>Schrauben, Niete, Stifte</small></label>
     <label><input type="radio" name="typ" value="formteil" form="f">Formteile<small>Parts Former</small></label>
     <label><input type="radio" name="typ" value="mutter" form="f">Muttern<small>Klassische Muttern</small></label>
   </div>
@@ -286,9 +286,9 @@
 
         <div data-fuer="bolzen">
           <div class="felder">
-            <label class="feld voll"><span>Teilefamilie</span><select name="standardKind" id="standard-kind"><option value="screw">Schraube</option><option value="rivet">Niet</option><option value="pin">Bolzen</option><option value="headless">Kopfloses Teil</option></select></label>
+            <label class="feld voll"><span>Teilefamilie</span><select name="standardKind" id="standard-kind"><option value="screw">Schraube</option><option value="rivet">Niet</option><option value="pin">Stift</option><option value="headless">Gewindestift</option></select></label>
             <label class="feld voll" id="standard-norm-field"><span>Normfamilie</span><select name="standardNorm" id="standard-norm"></select></label>
-            <label class="feld voll" id="thread-family-field"><span>Gewindefamilie</span><select name="threadFamily"><option value="metric">Metrisches Gewinde</option><option value="trilobular">Trilobulares Gewinde</option><option value="duo-taptite">Duo-Taptite</option><option value="self-tapping">Schneidgewinde</option><option value="thermoplastic">Thermoplast</option></select></label>
+            <label class="feld voll" id="thread-family-field"><span>Gewindefamilie</span><select name="threadFamily"><option value="metric">Metrisches Gewinde</option><option value="none">Ohne Gewinde</option><option value="trilobular">Trilobulares Gewinde</option><option value="duo-taptite">Duo-Taptite</option><option value="self-tapping">Schneidgewinde</option><option value="thermoplastic">Thermoplast</option></select></label>
           </div>
           <p class="klein" id="standard-norm-note" hidden>Kopfform und Innenantrieb folgen der Normfamilie. Für eigene Varianten „Ohne Normvorgabe“ wählen.</p>
           <div id="bolt-head">

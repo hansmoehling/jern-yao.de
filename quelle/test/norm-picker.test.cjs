@@ -1,16 +1,16 @@
 const test=require('node:test'),assert=require('node:assert/strict'),fs=require('node:fs'),path=require('node:path'),vm=require('node:vm');
-const N=require('../normen/library.js'),R=require('../normen/resolver.js'),threads=require('../normen/gewinde.json'),baseI=require('../i18n.js'),p4=require('../i18n-p4.json');
-const I={...baseI,t:(key,language)=>language!=='de'&&p4[key]?p4[key][baseI.supported.indexOf(language)-1]:baseI.t(key,language)};
+const N=require('../normen/library.js'),R=require('../normen/resolver.js'),threads=require('../normen/gewinde.json'),baseI=require('../i18n.js'),extra={...require('../i18n-p4.json'),...require('../i18n-p5-ui.json')};
+const I={...baseI,t:(key,language)=>language!=='de'&&extra[key]?extra[key][baseI.supported.indexOf(language)-1]:baseI.t(key,language)};
 class El{constructor(tag='div'){this.tagName=tag.toUpperCase();this.value='';this.name='';this.type='';this.checked=false;this.children=[];this.events={};this.parent=null;this.hidden=false;}append(...nodes){nodes.forEach(n=>{n.parent=this;this.children.push(n);});}replaceChildren(...nodes){this.children=[];this.append(...nodes);}setAttribute(k,v){this[k]=v;}addEventListener(k,fn){this.events[k]=fn;}focus(){this.focused=true;}contains(node){return node===this||this.children.some(child=>child.contains(node));}closest(tag){return this.tagName.toLowerCase()===tag?this:this.parent?.closest(tag);}get options(){return this.children;}get textContent(){return this._text||this.children.map(x=>x.textContent).join('');}set textContent(x){this._text=x;}}
-function setup(language='de',enhanced=false,catalogue=[{die:[50,100],pun:[25,100],ml:120,cl:[10,200]}]){
+function setup(language='de',enhanced=false,catalogue=[{die:[50,100],pun:[25,100],ml:120,cl:[10,200]}],functional=false){
  const host=new El(),form=new El('form'),detail=new El('details'),nodes=[];form.elements={typ:{value:'bolzen'},standardKind:{value:'screw'}};
  const events={},document={createElement(tag){const e=new El(tag);nodes.push(e);return e;},getElementById(){return detail;},addEventListener(name,fn){events[name]=fn;}};
- const data={schemaVersion:1,version:'test',threads,materials:require('../vorbelegung/werkstoff.json'),families:['ISO4762','ISO14579','DIN934','DIN660','DIN6791','DIN7338','ISO13918'].map(id=>require('../normen/'+id+'.json'))};
+ const data={schemaVersion:1,version:'test',threads,materials:require('../vorbelegung/werkstoff.json'),families:['ISO4762','ISO14579','ISO4026','DIN835','ISO2338','DIN934','DIN660','DIN6791','DIN7338','ISO13918'].map(id=>require('../normen/'+id+'.json'))};
  // Synthetic coverage gap isolates missing length rows from later catalogue additions.
  data.families.push({id:'TEST-NO-LENGTH',funktion:'schraube',klasse:'bolzen',kopfTyp:'zylinder',antrieb:{art:'hex'},groessen:{M6:{vorbelegung:{sD:6,kD:10,kH:6,iSW:5,iT:3}},M8:{vorbelegung:{sD:8,kD:13,kH:8,iSW:6,iT:4}}}});
  const window={document,JYNormLibrary:N,JYStandards:R,JYNormAvailability:require('../normen/availability.js')};vm.runInNewContext(fs.readFileSync(path.join(__dirname,'../normen/ui.js'),'utf8'),{window});
  const part={d0:5.6,wst:'existing',nachricht:'unchanged customer text'};
- let applied;const picker=window.JYNormPicker.create({host,form,data,tr:x=>I.t(x,language),getType:()=>form.elements.typ.value,getPart:()=>({...part}),onApply:x=>{applied=x;},onChange(){},...(enhanced?{shaftPolicy:'shaft-v2',catalogue}: {})});
+ let applied;const picker=window.JYNormPicker.create({host,form,data,tr:x=>I.t(x,language),getType:()=>form.elements.typ.value,getPart:()=>({...part}),onApply:x=>{applied=x;},onChange(){},...(enhanced?{shaftPolicy:'shaft-v2',catalogue}: {}),...(functional?{functionPolicy:'function-v1'}:{})});
  return {picker,form,host,detail,part,events,setLanguage(value){language=value;picker.refreshType();},get:id=>nodes.find(n=>n.id===id),get applied(){return applied;}};
 }
 function edit(p,name,value,tagName='SELECT',type='',checked=false){p.form.events.change({target:{name,value,tagName,type,checked}});}
@@ -132,4 +132,30 @@ test('P4 disables only documented impossible contours and explains them in every
  }
  const unknown=setup('de',true,[{die:[11,100]}]);unknown.picker.select({id:'TEST-NO-LENGTH',groesse:'M6'});assert(unknown.get('norm-groesse').options.every(o=>!o.disabled));
  const openHead=setup('de',true,[{die:[11,100],pun:[10,100]}]);openHead.picker.select({id:'TEST-NO-LENGTH',groesse:'M8'});assert(openHead.get('norm-groesse').options.every(o=>!o.disabled),'a larger openly upset head does not exclude an otherwise fitting shank');
+});
+
+test('P5 functions have separate norm lists, five-language names and compatible technical kinds',()=>{
+ for(const language of I.supported){
+  const p=setup(language,true,undefined,true),field=p.get('norm-kind'),choose=value=>{field.value=value;field.events.change();};
+  assert.deepEqual(field.options.map(o=>o.value),['screw','rivet','pin','set-screw','stud','weld-stud','free']);
+  for(const [key,label,id,kind]of [['pin','Stift','ISO2338','pin'],['set-screw','Gewindestift','ISO4026','headless'],['stud','Stehbolzen','DIN835','headless'],['weld-stud','Schweißbolzen','ISO13918','pin']]){
+   choose(key);assert.equal(field.options.find(o=>o.value===key).textContent,I.t(label,language));
+   assert.deepEqual(p.get('norm-id').options.map(o=>o.value),['',id]);assert.equal(p.form.elements.standardKind.value,kind);assert.equal(p.picker.partFunction(),key);
+  }
+  choose('rivet');assert(p.get('norm-id').options.some(o=>o.value==='DIN6791'));assert(!p.get('norm-id').options.some(o=>o.value==='ISO13918'));
+  choose('free');assert.equal(p.picker.document(),null);assert.equal(p.picker.partFunction(),'free');assert.equal(p.get('norm-id').parent.hidden,true);
+ }
+});
+
+test('P5 function switching and free editing preserve each norm template, customer changes and selected variant',()=>{
+ const p=setup('de',true,undefined,true),choose=value=>{p.get('norm-kind').value=value;p.get('norm-kind').events.change();};
+ p.picker.select({id:'ISO4026',groesse:'M6',laenge:10});edit(p,'iSW','3.2','INPUT');assert.equal(p.picker.partFunction(),'set-screw');
+ const saved=JSON.stringify(p.picker.document());p.part.sL=12.3;
+ choose('free');assert.equal(p.part.sL,12.3);assert.equal(p.picker.document(),null);assert.equal(p.detail.open,true);
+ choose('set-screw');assert.equal(p.picker.document().standardReference.id,'ISO4026');assert.equal(p.applied.iSW,3.2);assert.equal(p.picker.document().standardReference.laenge,10);
+ p.picker.select({id:'DIN835',groesse:'M6',laenge:30});assert.equal(p.picker.partFunction(),'stud');assert.equal(p.applied.standardKind,'headless');
+ p.picker.select({id:'DIN934',groesse:'M8'});assert.equal(p.form.elements.typ.value,'mutter');
+ p.picker.select({id:'ISO13918',form:'PT',groesse:'M3',laenge:12});assert.equal(p.form.elements.typ.value,'bolzen');assert.equal(p.picker.partFunction(),'weld-stud');assert.equal(p.get('norm-form').value,'PT');assert.equal(p.applied.standardKind,'pin');
+ const before=JSON.stringify(p.picker.document());p.setLanguage('sl');assert.equal(p.get('norm-kind').value,'weld-stud');assert.equal(p.get('norm-kind').options.find(o=>o.value==='weld-stud').textContent,I.t('Schweißbolzen','sl'));assert.equal(JSON.stringify(p.picker.document()),before);
+ assert(saved.includes('3.2'));
 });

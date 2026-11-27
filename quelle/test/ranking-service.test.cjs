@@ -8,7 +8,7 @@ test('only a bounded technical shortlist is sent, without part details or price 
  const selection=fixture();selection.ranking.candidates[0].o.rp=987654;selection.ranking.candidates[0].private='customer';
  const payload=S.payloadFor(selection,30);assert.equal(payload.candidates.length,12);assert.equal(payload.demandPerMinute,30);assert.deepEqual(Object.keys(payload.candidates[0]).sort(),['model','status','suitability']);assert(!JSON.stringify(payload).includes('987654'));assert(!JSON.stringify(payload).includes('customer'));
  const result=S.applyResponse(selection,payload,response(payload));assert.equal(result.ranking.recommendation.o.m,payload.candidates[2].model);assert.equal(result.ranking.priceRankingComplete,false);assert.deepEqual(result.ranking.comparisonCoverage,{compared:12,eligible:15,priceComplete:true});
- const html=U.summaryHtml(result.ranking,{showPrices:false});assert(U.detailsHtml(result.ranking.recommendation,result.ranking,{showPrices:false}).includes('12 von 15'));assert(!html.includes('Niedrigster Richtpreis'));assert(!html.includes('Preisrang nicht vollständig verfügbar'));
+ const html=U.summaryHtml(result.ranking,{showPrices:false});assert(!U.detailsHtml(result.ranking.recommendation,result.ranking,{showPrices:false}).includes('12 von 15'));assert(!html.includes('Niedrigster Richtpreis'));assert(!html.includes('Preisrang nicht vollständig verfügbar'));
  assert(U.cardHtml(result.ranking.alternatives[0],result.ranking,{showPrices:false}).includes('25 % teurer'));
  assert(U.cardHtml(result.ranking.alternatives[0],result.ranking,{showPrices:false}).includes('20 % weniger'));
 });

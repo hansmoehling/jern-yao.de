@@ -99,6 +99,13 @@ test('price-free rendering never derives a relative table or absolute values fro
   assert.match(html,/Kein belastbarer Preisvergleich/);
 });
 
+test('price-free recommendation details contain no guide-price wording or redundant shortlist count',()=>{
+  const ranking=fixture();ranking.comparisonCoverage={priceComplete:true,compared:12,eligible:149};
+  const html=U.summaryHtml(ranking,{...options,showPrices:false})+U.detailsHtml(ranking.recommendation,ranking,{...options,showPrices:false});
+  assert.match(html,/Preislich günstigster verglichener Kandidat aus Eignungsklasse A/);
+  assert.doesNotMatch(html,/Richtpreis|12 von 149|wirtschaftlich verglichen/);
+});
+
 test('price-free comparison accepts only rounded explicit service results for the matching pair',()=>{
   const ranking=fixture(),row=ranking.alternatives[0],o={...options,showPrices:false};
   row.comparison=R.compareVariants(ranking.recommendation.o,row.o,{practice,demandPerMinute:30});

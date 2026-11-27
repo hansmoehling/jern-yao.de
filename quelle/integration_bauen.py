@@ -32,6 +32,18 @@ def technical_catalog(text):
     return text[:match.start(2)] + content + text[match.end(2):]
 
 
+def price_free_translations(text):
+    """Drop unused priced translations without changing technical text or code."""
+    pattern = r'(const catalog=)(\{.*?\})(;\s*const supported=)'
+    matches = list(re.finditer(pattern, text, flags=re.S))
+    assert len(matches) == 1, 'Expected one embedded translation catalogue'
+    match = matches[0]
+    catalog = json.loads(match[2])
+    catalog = {key: value for key, value in catalog.items() if 'richtpreis' not in key.casefold()}
+    content = json.dumps(catalog, ensure_ascii=False, separators=(',', ':'))
+    return text[:match.start(2)] + content + text[match.end(2):]
+
+
 def build(destination):
     destination = Path(destination).resolve()
     for name in ('endteil_chrom.png', 'Stadie.jpg', 'zeichnung.png', 'schraube-din912-chrom.png', 'mutter-chrom.png'):
@@ -42,7 +54,7 @@ def build(destination):
     config = (Q.parent / 'site-config.js').read_text(encoding='utf-8')
     assert 'window.JY_API_BASE' in config
     for source, folder in [('index.html', 'auslegung'), ('manual/konfigurator-v1.html', 'konfigurator')]:
-        text = technical_catalog((Q.parent / source).read_text(encoding='utf-8'))
+        text = price_free_translations(technical_catalog((Q.parent / source).read_text(encoding='utf-8')))
         text = replace_once(text, '<head>', '<head>\n<script>window.JY_SHOW_PRICES = false;</script>')
         text, config_count = re.subn(r'<script src="/site-config\.js(?:\?[^"<>]*)?"></script>', lambda _: '<script>' + config + '</script>', text)
         assert config_count == 1, 'Expected exactly one public site configuration script'

@@ -1,10 +1,11 @@
 (function(){
   'use strict';
   window.JYNormPicker={create};
-  function create({host,form,data,tr,getType,onApply,getPart,onChange,shaftPolicy,catalogue=[],formatNumber=value=>String(Math.round(value*100)/100)}){
+  function create({host,form,data,tr,getType,onApply,getPart,onChange,shaftPolicy,functionPolicy,catalogue=[],formatNumber=value=>String(Math.round(value*100)/100)}){
     const N=window.JYNormLibrary,R=window.JYStandards;
     let document=null,lastKind='',applying=false,lastBoltKind='screw',lengthOrigin='standard';
     const enhancedLengths=shaftPolicy==='shaft-v2';
+    const functionalFamilies=functionPolicy==='function-v1';
     const saved=new Map(),sizeReasons=new Map();
     const el=(tag,text,attrs={})=>{const n=window.document.createElement(tag);if(text)n.textContent=tr(text);Object.assign(n,attrs);return n;};
     const title=el('h3','Norm wählen, Maße übernehmen');host.append(title);
@@ -68,7 +69,9 @@
     const changes=el('div',null,{className:'norm-overrides'});host.append(changes);
     const detail=window.document.getElementById('norm-dimensions');
     function options(field,values,selected){field.replaceChildren(...values.map(([value,label])=>el('option',label,{value:String(value)})));field.value=values.some(([v])=>String(v)===String(selected))?String(selected):values[0]?.[0]??'';}
-    function kind(){return getType()==='mutter'?'nut':controls.kind.value||'screw';}
+    function selectedFunction(){return getType()==='mutter'?'nut':controls.kind.value||'screw';}
+    function kind(){return functionalFamilies?N.functionKind(selectedFunction()):selectedFunction();}
+    function availableFamilies(){return functionalFamilies?N.functionFamilies(data,selectedFunction()):N.families(data,kind());}
     function baseFamily(){return data.families.find(f=>f.id===controls.id.value);}
     function family(){return N.variantFamily(baseFamily(),controls.form.value);}
     function fill(resetLength=false){
@@ -98,13 +101,15 @@
     function refreshType(force=false){
       host.hidden=getType()==='formteil';if(host.hidden)return;
       const oldKind=controls.kind.value;if(oldKind&&oldKind!=='nut')lastBoltKind=oldKind;
-      options(controls.kind,[['screw','Schraube'],['rivet','Niet'],['pin','Bolzen'],['headless','Kopfloses Teil'],['nut','Mutter']],getType()==='mutter'?'nut':lastBoltKind);
+      const choices=functionalFamilies?N.functionChoices().filter(([key])=>getType()==='mutter'?key==='nut':key!=='nut'):[['screw','Schraube'],['rivet','Niet'],['pin','Stift'],['headless','Gewindestift'],['nut','Mutter']];
+      options(controls.kind,choices,getType()==='mutter'?'nut':lastBoltKind);
       controls.kind.closest('label').hidden=getType()==='mutter';
-      if(lastKind!==kind()||force){
-        if(lastKind&&lastKind!==kind()){saved.set(lastKind,document);document=saved.get(kind())||null;}
+      if(functionalFamilies&&getType()!=='mutter')form.elements.standardKind.value=kind();
+      if(lastKind!==selectedFunction()||force){
+        if(lastKind&&lastKind!==selectedFunction()){saved.set(lastKind,document);document=saved.get(selectedFunction())||null;}
         const id=controls.id.value;
-        options(controls.id,[['','Ohne Normvorgabe'],...N.families(data,kind()).filter(f=>N.sizes(f).length||N.variants(f).length).map(f=>[f.id,N.familyLabel(f,tr)])],document?.standardReference.id||id);
-        lastKind=kind();fill();
+        options(controls.id,[['','Ohne Normvorgabe'],...availableFamilies().filter(f=>N.sizes(f).length||N.variants(f).length).map(f=>[f.id,N.familyLabel(f,tr)])],document?.standardReference.id||id);
+        lastKind=selectedFunction();fill();
         if(enhancedLengths){lengthOrigin=document?.lengthSelection?.origin||'standard';lengthInput.value=lengthOrigin==='customer'&&document?.lengthSelection?.value!=null?String(document.lengthSelection.value):'';}
         if(document){if(document.standardReference.form!=null){controls.form.value=document.standardReference.form;fill();}for(const key of ['groesse','laenge','steigung','festigkeitsklasse'])if(document.standardReference[key]!=null)controls[key].value=String(document.standardReference[key]);fill();onApply(N.adapt(data,document));}
       }
@@ -112,9 +117,11 @@
     }
     function choose(key){
       if(key==='kind'){
-        form.elements.standardKind.value=controls.kind.value==='nut'?'screw':controls.kind.value;
+        const wasThreadless=['rivet','pin'].includes(form.elements.standardKind.value);
+        form.elements.standardKind.value=controls.kind.value==='nut'?'screw':functionalFamilies?N.functionKind(controls.kind.value):controls.kind.value;
         form.elements.typ.value=controls.kind.value==='nut'?'mutter':'bolzen';
-        controls.id.value='';refreshType(true);onChange();return;
+        if(functionalFamilies&&controls.kind.value==='free'&&wasThreadless)for(const name of ['threadFamily','iTyp'])if(form.elements[name])form.elements[name].value='none';
+        controls.id.value='';refreshType(true);if(!document&&functionalFamilies&&kind()==='headless')onApply({standardKind:'headless',kopfForm:'none',kD:0,kH:0,kSW:0});detail.open=!document||detail.open;onChange();return;
       }
       if(key==='id'||key==='form'||key==='groesse')fill(enhancedLengths);
       if(enhancedLengths&&key==='laenge'){
@@ -141,8 +148,11 @@
       }
       // Rebuild translated labels without resolving the norm again: a language
       // change must keep dimensions, the chosen variant and all customer edits.
-      options(controls.id,[['','Ohne Normvorgabe'],...N.families(data,kind()).filter(f=>N.sizes(f).length||N.variants(f).length).map(f=>[f.id,N.familyLabel(f,tr)])],controls.id.value);
+      options(controls.id,[['','Ohne Normvorgabe'],...availableFamilies().filter(f=>N.sizes(f).length||N.variants(f).length).map(f=>[f.id,N.familyLabel(f,tr)])],controls.id.value);
       options(controls.form,N.variants(baseFamily()).map(v=>[v.id,v.id+' · '+tr(v.label)]),controls.form.value);
+      const free=functionalFamilies&&selectedFunction()==='free';
+      for(const key of ['id','groesse','festigkeitsklasse'])wraps[key].hidden=free;
+      wraps.form.hidden=free||!N.variants(baseFamily()).length;wraps.laenge.hidden=free||kind()==='nut';wraps.steigung.hidden=free||controls.steigung.options.length<=1;
       for(const option of controls.festigkeitsklasse.options)option.textContent=tr(option.value);
       if(enhancedLengths){for(const option of controls.laenge.options)if(option.value==='custom')option.textContent=tr('Andere Länge …');sizeLabels();}
       refreshLength();
@@ -151,12 +161,11 @@
       changes.replaceChildren();
       if(!document)return;
       const entries=Object.entries(document.overrides);
-      for(const [name,override]of entries){const item=el('div',null,{className:'norm-override'});item.append(el('span',tr('Kundenabweichung')+': '+name+' = '+override.value));if(Object.hasOwn(document.normBaseline.values,name)||Object.hasOwn(document.retainedValues,name)){const reset=el('button','Normmaß wiederherstellen',{type:'button',className:'knopf zwei'});reset.addEventListener('click',()=>{document=R.resetOverride(document,name);apply();});item.append(reset);}changes.append(item);}
-      const missing=N.adapt(data,document).normMissingFields.map(key=>N.missingLabel(key,tr));
-      if(kind()!=='nut'&&!(enhancedLengths?document.standardReference.laenge:controls.laenge.value)&&!document.overrides.sL)missing.push(tr('Länge individuell eingeben; Normlängenreihe noch nicht vollständig belegt.'));
+      for(const [name,override]of entries){const item=el('div',null,{className:'norm-override'});item.append(el('span',tr('Kundenabweichung')+': '+N.missingLabel(name,tr)+' = '+override.value));if(Object.hasOwn(document.normBaseline.values,name)||Object.hasOwn(document.retainedValues,name)){const reset=el('button','Normmaß wiederherstellen',{type:'button',className:'knopf zwei'});reset.addEventListener('click',()=>{document=R.resetOverride(document,name);apply();});item.append(reset);}changes.append(item);}
+      const adapted=N.adapt(data,document),missing=adapted.normMissingFields.filter(key=>key!=='length').map(key=>N.missingLabel(key,tr));
+      if(adapted.normMissingFields.includes('length')||kind()!=='nut'&&!(enhancedLengths?document.standardReference.laenge:controls.laenge.value)&&!document.overrides.sL)changes.append(el('p','Bitte Länge eingeben.',{className:'norm-missing'}));
       if(missing.length)changes.append(el('p',tr('Noch zu ergänzen')+': '+missing.join(', '),{className:'norm-missing'}));
-      const adapted=N.adapt(data,document);
-      if(adapted.normRequiresGeometryReview)changes.append(el('p','Für diese Ausführung die fehlende Kontur im Baukasten ergänzen. Die belegten Normmaße bleiben erhalten.',{className:'norm-missing'}));
+      if(adapted.normRequiresGeometryReview&&adapted.normMissingFields.some(key=>key!=='length'))changes.append(el('p','Für diese Ausführung die fehlende Kontur im Baukasten ergänzen. Die belegten Normmaße bleiben erhalten.',{className:'norm-missing'}));
       if(adapted.threadModel)changes.append(el('p','Rollrohling und Mutterloch sind Prozessvorbelegungen. Festigkeitsklasse und Drahtzustand sind getrennte Angaben.',{className:'klein'}));
       if(missing.length)detail.open=true;
     }
@@ -165,15 +174,15 @@
       const input=event.target;if(applying||!document||!fields.has(input.name))return;
       const raw=String(input.value??'').trim(),value=input.type==='checkbox'?input.checked:input.tagName==='SELECT'?raw:Number(raw.replace(',','.'));
       if(input.type!=='checkbox'&&(raw===''||typeof value==='number'&&!Number.isFinite(value)))return;
-      document.partSnapshot=getPart();document=R.setOverride(document,input.name,value);render();
+      document.partSnapshot=getPart();document=R.setOverride(document,input.name,value);render();onChange();
     }
     form.addEventListener('input',edit);form.addEventListener('change',edit);
     refreshType();
     function current(){if(document)document.partSnapshot=getPart();return document;}
-    return {refreshType,document:()=>current()?R.snapshot(document):null,adapted:()=>current()?N.adapt(data,document):null,
+    return {refreshType,partFunction:()=>functionalFamilies?selectedFunction():document?N.familyFunction(baseFamily()):null,document:()=>current()?R.snapshot(document):null,adapted:()=>current()?N.adapt(data,document):null,
       reset(){document=null;saved.clear();controls.id.value='';if(enhancedLengths){lengthOrigin='standard';lengthInput.value='';}render();},
-      select(selection){const f=data.families.find(x=>x.id===selection.id);if(!f)return false;form.elements.typ.value=N.familyKind(f)==='nut'?'mutter':'bolzen';controls.kind.value=N.familyKind(f);lastKind='';refreshType(true);controls.id.value=f.id;fill();if(selection.form!=null){controls.form.value=selection.form;fill();}controls.groesse.value=selection.groesse;fill();for(const key of ['laenge','steigung','festigkeitsklasse'])if(selection[key]!=null)controls[key].value=String(selection[key]);if(enhancedLengths&&selection.laenge!=null){lengthOrigin=N.lengths(family(),selection.groesse).includes(String(selection.laenge))?'standard':'customer';lengthInput.value=lengthOrigin==='customer'?String(selection.laenge):'';if(lengthOrigin==='customer')controls.laenge.value='custom';}choose('selection');return true;},
-      summary(){return document?[N.reference(document,tr),...Object.entries(document.overrides).map(([key,x])=>tr('Kundenabweichung')+': '+key+' = '+x.value)].join('\n'):'';}
+      select(selection){const f=data.families.find(x=>x.id===selection.id);if(!f)return false;form.elements.typ.value=N.familyKind(f)==='nut'?'mutter':'bolzen';const selected=functionalFamilies?N.familyFunction(f):N.familyKind(f);if(selected!=='nut')lastBoltKind=selected;controls.kind.value=selected;lastKind='';refreshType(true);controls.id.value=f.id;fill();if(selection.form!=null){controls.form.value=selection.form;fill();}controls.groesse.value=selection.groesse;fill();for(const key of ['laenge','steigung','festigkeitsklasse'])if(selection[key]!=null)controls[key].value=String(selection[key]);if(enhancedLengths&&selection.laenge!=null){lengthOrigin=N.lengths(family(),selection.groesse).includes(String(selection.laenge))?'standard':'customer';lengthInput.value=lengthOrigin==='customer'?String(selection.laenge):'';if(lengthOrigin==='customer')controls.laenge.value='custom';}choose('selection');return true;},
+      summary(){return document?[N.reference(document,tr),...Object.entries(document.overrides).map(([key,x])=>tr('Kundenabweichung')+': '+N.missingLabel(key,tr)+' = '+x.value)].join('\n'):'';}
     };
   }
 })();

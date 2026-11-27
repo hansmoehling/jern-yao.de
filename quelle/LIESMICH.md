@@ -10,7 +10,7 @@ Auf der Hauptseite wird die Datei ausschließlich mit der Mailanfrage an Hans ge
 
 Krallenköpfe sind ausschließlich auf der Stempelseite auswählbar und serverseitig zulässig. Eine Körnung wird als konische Aussparung mit äußerer Öffnung und innenliegender Spitze modelliert: der trennkantenseitige Durchmesser darf null sein. Mindestens ein Kegelende muss einen positiven Durchmesser haben. Rechenkern und Schnittskizze verwenden dieselbe Orientierung.
 
-`standard-families.js` enthält recherchierte Normreferenzen für Schrauben, kopflose Gewindestifte und Muttern. Die Auswahl setzt die Grundform, keine ungeprüften Normmaße und keinen Draht-Ø aus der Gewindenennweite. Flanschmuttern führen in den Formteilbaukasten. Gewindearten steuern die tatsächlichen Rohschaftfelder; Profilquerschnitte und Spitzen werden nicht stillschweigend durch einen Rundschaft ersetzt. Jern Yao wird keine Doppeldruckmaschinen-Baureihe zugeschrieben.
+`standard-families.js` enthält recherchierte Normreferenzen für Schrauben, kopflose Gewindestifte und Muttern. Die Auswahl setzt die Grundform, keine ungeprüften Normmaße und keinen Draht-Ø aus der Gewindenennweite. Muttern mit Bund bleiben in der Mutternauslegung; der Bund ist ein geometrisches Merkmal. Gewindearten steuern die tatsächlichen Rohschaftfelder; Profilquerschnitte und Spitzen werden nicht stillschweigend durch einen Rundschaft ersetzt. Jern Yao wird keine Doppeldruckmaschinen-Baureihe zugeschrieben.
 
 ## Bauen
 

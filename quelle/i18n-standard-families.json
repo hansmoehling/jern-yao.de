@@ -7,7 +7,7 @@
   "ISO 4032 · Sechskantmutter, Typ 1": ["ISO 4032 · Dado esagonale, tipo 1", "ISO 4032 · Šestroba matica, tip 1", "ISO 4032 · Hexagon regular nut, style 1", "ISO 4032 · 六角螺母，1型"],
   "ISO 4033 · Hohe Sechskantmutter, Typ 2": ["ISO 4033 · Dado esagonale alto, tipo 2", "ISO 4033 · Visoka šestroba matica, tip 2", "ISO 4033 · Hexagon high nut, style 2", "ISO 4033 · 六角厚螺母，2型"],
   "ISO 4035 · Niedrige Sechskantmutter, Typ 0": ["ISO 4035 · Dado esagonale basso, tipo 0", "ISO 4035 · Nizka šestroba matica, tip 0", "ISO 4035 · Hexagon thin nut, style 0", "ISO 4035 · 六角薄螺母，0型"],
-  "ISO 4161 · Flanschmutter → Formteilbaukasten": ["ISO 4161 · Dado flangiato → modellazione del pezzo sagomato", "ISO 4161 · Matica s prirobnico → gradnik preoblikovanega izdelka", "ISO 4161 · Flange nut → formed-part builder", "ISO 4161 · 法兰螺母 → 异形件建模"],
+  "ISO 4161 · Sechskantmutter mit Bund": ["ISO 4161 · Dado esagonale con flangia", "ISO 4161 · Šestkotna matica s prirobnico", "ISO 4161 · Hexagon nut with flange", "ISO 4161 · 带法兰的六角螺母"],
   "Geometrie zur Ausarbeitung angenommen.": ["Geometria acquisita per l’elaborazione.", "Geometrija je sprejeta v obdelavo.", "Geometry accepted for process planning.", "几何模型已接收，准备制定工艺。"],
   "Das Stadienkonzept wird ausgearbeitet. Das benötigt etwas Zeit.": ["Il concetto delle fasi è in elaborazione. L’operazione richiede un po’ di tempo.", "Koncept faz je v pripravi. To zahteva nekaj časa.", "The forming concept is being developed. This takes a little time.", "正在制定成形工序方案，请稍候。"],
   "Stadienkonzept ausgearbeitet.": ["Concetto delle fasi elaborato.", "Koncept faz je pripravljen.", "Forming concept completed.", "成形工序方案已完成。"],

@@ -41,8 +41,6 @@
   "End-Ø der konischen Spitze": ["Ø finale della punta conica", "Končni premer stožčaste konice", "End Ø of the conical tip", "锥形尖端末端直径"],
   "Querschnittsfläche des Spitzenabschnitts in mm²": ["Area della sezione del tratto di punta in mm²", "Ploščina prereza dela konice v mm²", "Tip-section cross-sectional area in mm²", "尖端区段横截面积，mm²"],
   "Querschnittsfläche des Spitzenabschnitts": ["Area della sezione del tratto di punta", "Ploščina prereza dela konice", "Tip-section cross-sectional area", "尖端区段横截面积"],
-  "Flanschmuttern werden im Formteil-Baukasten ausgelegt.": ["I dadi flangiati si dimensionano nel configuratore dei pezzi sagomati.", "Matice s prirobnico se dimenzionirajo v sestavljalniku oblikovanih delov.", "Flange nuts are designed in the formed-part builder.", "法兰螺母在成形件构建器中设计。"],
-  "Flanschmutter als Formteil": ["Dado flangiato come pezzo sagomato", "Matica s prirobnico kot oblikovan del", "Flange nut as a formed part", "将法兰螺母作为成形件设计"],
   "Stempelseite": ["Lato punzone", "Stran pestiča", "Punch side", "冲头侧"],
   "Matrizenseite": ["Lato matrice", "Stran matrice", "Die side", "凹模侧"],
   "Beschnitt": ["Tranciatura", "Obrezovanje", "Trimming", "切边"],

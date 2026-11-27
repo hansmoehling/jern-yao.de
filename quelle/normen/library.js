@@ -45,6 +45,16 @@
     if(f.kopfTyp==='none'||f.kopfTyp==='kopflos'||/gewindestift|stehbolzen/.test(f.funktion||''))return 'headless';
     return 'screw';
   }
+  const FUNCTION_DEFINITIONS=Object.freeze({
+    screw:{source:'schraube',label:'Schraube',kind:'screw'},rivet:{source:'niet',label:'Niet',kind:'rivet'},pin:{source:'stift',label:'Stift',kind:'pin'},
+    'set-screw':{source:'gewindestift',label:'Gewindestift',kind:'headless'},stud:{source:'stehbolzen',label:'Stehbolzen',kind:'headless'},
+    'weld-stud':{source:'schweissbolzen',label:'Schweißbolzen',kind:'pin'},free:{source:'frei',label:'frei',kind:'screw'},nut:{source:'mutter',label:'Mutter',kind:'nut'}
+  });
+  function familyFunction(f){const source=String(f?.funktion||'').toLowerCase().replace(/ß/g,'ss');return Object.keys(FUNCTION_DEFINITIONS).find(key=>FUNCTION_DEFINITIONS[key].source===source)||'free';}
+  function functionKind(key){return FUNCTION_DEFINITIONS[key]?.kind||'screw';}
+  function functionLabel(key,tr=x=>x){return tr(FUNCTION_DEFINITIONS[key]?.label||'frei');}
+  function functionChoices(){return Object.keys(FUNCTION_DEFINITIONS).map(key=>[key,FUNCTION_DEFINITIONS[key].label]);}
+  function functionFamilies(data,kind){return kind==='free'?[]:data.families.filter(f=>familyFunction(f)===kind&&f.datasetKind!=='rivet-size-series'&&f.datasetKind!=='invalid-reference');}
   function families(data,kind){return data.families.filter(f=>familyKind(f)===kind&&f.datasetKind!=='rivet-size-series'&&f.datasetKind!=='invalid-reference');}
   function variants(f){return (f?.variants||[]).filter(v=>Object.keys(v.sizeData||{}).length>0);}
   function variantFamily(f,form){
@@ -55,7 +65,10 @@
   function selectionLibrary(data,selection){return {...data,families:data.families.map(f=>f.id===selection.id?variantFamily(f,selection.form):f)};}
   function editionLabel(edition,tr=x=>x){if(!edition)return '';return ['catalog-undated','catalogue-unassigned'].includes(edition)?tr('Ausgabe nicht zugeordnet'):edition;}
   function familyLabel(f,tr=x=>x){return f.id.replace(/^(ISO|DIN|EN)(\d)/,'$1 $2')+(f.edition?' · '+editionLabel(f.edition,tr):'');}
-  function missingLabel(key,tr=x=>x){return tr(({length:'Länge',lengthBeforeWelding:'Bauteillänge vor dem Schweißen',weldingTipProfile:'Schweiß- / Zündspitzenkontur',headProfileDefinition:'Kopfkontur',tubeProfile:'Rohrkontur',boreDepth:'Bohrtiefe',boreBottomShape:'Bohrungsgrund',shaftLengthDistribution:'Längenaufteilung des Schafts',endDiameter:'Enddurchmesser',endLength:'Länge des Schaftendes',shaftEndProfile:'Kontur am Schaftende',unsupportedDriveContour:'Normantrieb noch ohne unterstützte Kontur',rollingBlankDiameter:'Durchmesser des Walzrohlings',headToShaftLength:'Schaftlänge unter dem Senkkopf',sArea:'Rohling-Querschnittsfläche',recessVolumeModel:'Volumen des Innenantriebs',formingLeadProfile:'Kontur des gewindeformenden Anfangs',nominalLength:'Nennlänge mit eindeutigem Längenbezug',nutEndThreadLength:'Gewindelänge am Mutterende',threadRunout:'Gewindeauslauf',endGeometry:'Endgeometrie',shortStudException:'Längenverteilung des kurzen Stehbolzens'})[key]||key);}
+  const FIELD_LABELS={length:'Länge',lengthBeforeWelding:'Bauteillänge vor dem Schweißen',weldingTipProfile:'Schweiß- / Zündspitzenkontur',headProfileDefinition:'Kopfkontur',tubeProfile:'Rohrkontur',boreDepth:'Bohrtiefe',boreBottomShape:'Bohrungsgrund',shaftLengthDistribution:'Längenaufteilung des Schafts',endDiameter:'Enddurchmesser',endLength:'Länge des Schaftendes',shaftEndProfile:'Kontur am Schaftende',unsupportedDriveContour:'Normantrieb noch ohne unterstützte Kontur',rollingBlankDiameter:'Durchmesser des Walzrohlings',headToShaftLength:'Schaftlänge unter dem Senkkopf',sArea:'Rohling-Querschnittsfläche',recessVolumeModel:'Volumen des Innenantriebs',formingLeadProfile:'Kontur des gewindeformenden Anfangs',nominalLength:'Nennlänge mit eindeutigem Längenbezug',nutEndThreadLength:'Gewindelänge am Mutterende',threadRunout:'Gewindeauslauf',endGeometry:'Endgeometrie',shortStudException:'Längenverteilung des kurzen Stehbolzens',
+    blindHoleDepth:'Sacklochtiefe',capProfile:'Kuppenkontur',capWallThickness:'Kappenwanddicke',expandedDiameterAtSelectedLength:'Kerb-Aufweitungsdurchmesser für Länge und Werkstoff',flangeHeight:'Bundhöhe',flangeProfile:'Bundkontur',grooveProfile:'Kerbprofil',h_verified:'Bestätigte Gesamthöhe der Sicherungsmutter',headAngle:'Kopfwinkel',headGeometry:'Kopfgeometrie',headHeight:'Kopfhöhe',headProfileRadius:'Kopfwölbungsradius',headTransition:'Übergang Kopf/Schaft',iT:'Innenantriebstiefe',insertOuterProfile:'Außenkontur des Sicherungseinsatzes',insertSeatDepth:'Sitztiefe des Sicherungseinsatzes',insertSeatDiameter:'Sitzdurchmesser des Sicherungseinsatzes',partStandard:'Bauteilnorm',pilotDiameter:'Zentrierbunddurchmesser',pilotHeight:'Zentrierbundhöhe',prevailingTorqueProfile:'Klemmkontur des Sicherungsteils',secondSourceHeadAngle:'Bestätigung des Senkwinkels',selectedEndForm:'Ausführung am Schaftende',selectedForm:'Ausführung',squareNeckTransition:'Übergang am Vierkantansatz',underheadReinforcement:'Verstärkung unter dem Kopf',verifiedBoreDepth:'Bestätigte Bohrtiefe',verifiedHeadHeight:'Bestätigte Kopfhöhe',weldProjectionHeight:'Schweißwarzenhöhe',weldProjectionShape:'Schweißwarzenkontur',
+    kopfForm:'Kopfform',kD:'Kopfdurchmesser',kSW:'Kopfschlüsselweite',kH:'Kopfhöhe',kVol:'Kopf-Außenkonturvolumen',sD:'Schaftdurchmesser',sL:'Schaftlänge',iTyp:'Innenantrieb',iSize:'Antriebsgröße',iSW:'Innenantrieb-Schlüsselweite',iVol:'Volumen der Antriebsvertiefung',nutShape:'Mutternform',nutFlange:'Bund',mM:'Gewindenenngröße',mSW:'Mutternschlüsselweite',mH:'Mutternhöhe',mLoch:'Bohrungs-Ø',mFlansch:'Bunddurchmesser',mFlanschH:'Bundhöhe',d_b:'Bohrungs-Ø',t_b:'Bohrtiefe',schaftende:'Ausführung am Schaftende',bottomShape:'Bohrungsgrund',bottomAngle:'Grundwinkel in Grad',boreDepthMode:'Bezug der Bohrtiefe',kC:'Bundhöhe',capHeight:'Kuppenhöhe',flangeDiameter:'Bunddurchmesser',threadFamily:'Gewindefamilie',tipLength:'Spitzenlänge am Fertigteil',tipDiameter:'End-Ø nach Gewindewalzen',tipAngle:'Spitzenwinkel',tipArea:'Spitzenquerschnitt nach Gewindewalzen',shaftSegments:'Schaftsegmente',ds:'Glatter Schaftdurchmesser',b:'Gewindelänge'};
+  function missingLabel(key,tr=x=>x){return tr(FIELD_LABELS[key]||'Weiteres Geometriemaß');}
   function sizes(f){return Object.keys(f?.groessen||{}).sort((a,b)=>number(a.replace(/^M/,'').split('x')[0])-number(b.replace(/^M/,'').split('x')[0]));}
   function lengths(f,size){return Object.keys(f?.groessen?.[size]?.nachLaenge||{}).filter(x=>Number.isFinite(number(x))).sort((a,b)=>number(a)-number(b));}
   function thread(data,diameter,pitch){
@@ -76,7 +89,7 @@
     const lengthKey=document.overrides.sL?String(v.sL):String(r.laenge),lengthRow=row?.nachLaenge?.[lengthKey];
     const kind=familyKind(f||{}),t=['rivet','pin'].includes(kind)?null:thread(data,r.groesse,r.steigung??row?.roh?.P??row?.vorbelegung?.P);
     const head=HEADS[definition.kopfTyp]||definition.kopfTyp;
-    const out={...v,standardKind:kind==='nut'?undefined:kind,standardReference:reference(document),standardDocument:clone(document),threadModel:t,propertyClass:r.festigkeitsklasse};
+    const out={...v,standardKind:kind==='nut'?undefined:kind,partFunction:familyFunction(f),standardReference:reference(document),standardDocument:clone(document),threadModel:t,propertyClass:r.festigkeitsklasse};
     const shaftV2=document.shaftPolicy===SHAFT_POLICY_VERSION;
     if(shaftV2)out.shaftPolicy=SHAFT_POLICY_VERSION;
     out.normGeometryStatus=lengthRow?.geometryStatus||row?.geometryStatus||f?.geometryStatus||'partial';
@@ -94,7 +107,7 @@
       out.nutShape=document.overrides.nutShape?.value??(/vierkant|square/.test(f?.kopfTyp||f?.form||'')?'square':f?.id==='DIN1587'?'cap':'hex');
       out.mFlansch??=v.dc;out.mFlanschH??=v.c;
       if(t?.nutHole!=null&&!document.overrides.mLoch)out.mLoch=t.nutHole;
-      out.nutFlange=document.overrides.nutFlange?.value??(Number(out.mFlansch)>0);
+      out.nutFlange=document.overrides.nutFlange?.value??(f?.kopfTyp==='sechskant_bund'||positive(document.normBaseline.values.mFlansch??document.normBaseline.values.dc)||positive(document.overrides.mFlansch?.value));
       if(!out.nutFlange)out.mFlansch=out.mFlanschH=0;
     }else{
       if(head)out.kopfForm=head;
@@ -148,6 +161,15 @@
       }
       if(out.kopfForm==='none')out.kD=out.kH=out.kSW=0;
       for(const key of ['iSize','schaftende','bottomShape','bottomAngle','boreDepthMode','capHeight','flangeDiameter','flangeHeight','endLength','endDiameter','tipAngle','tipLength','tipDiameter'])if(document.overrides[key])out[key]=document.overrides[key].value;
+      if(out.schaftende==='halbhohl'){
+        const bottomValid=['flat','round'].includes(out.bottomShape)||out.bottomShape==='cone'&&out.bottomAngle>0&&out.bottomAngle<180;
+        if(bottomValid){
+          out.normMissingFields=out.normMissingFields.filter(key=>key!=='boreBottomShape');
+          out.geometryOrigins={bottomShape:{origin:document.overrides.bottomShape?'customer':'assumption',value:out.bottomShape},...(out.bottomShape==='cone'?{bottomAngle:{origin:document.overrides.bottomAngle?'customer':'assumption',value:out.bottomAngle}}:{})};
+          if(out.bottomShape==='cone'&&(!document.overrides.bottomShape||!document.overrides.bottomAngle))out.boreBottomAssumption={origin:'assumption',shape:'cone',angle:out.bottomAngle,angleOrigin:document.overrides.bottomAngle?'customer':'assumption'};
+        }
+      }
+      if(['rivet','pin'].includes(kind)){out.iTyp='none';out.normMissingFields=out.normMissingFields.filter(key=>key!=='unsupportedDriveContour');}
       if(document.overrides.schaftende&&!['ringschneide'].includes(out.schaftende))out.normMissingFields=out.normMissingFields.filter(key=>key!=='shaftEndProfile');
       if(document.overrides.schaftende&&['voll','kuppe','halbhohl','rohr'].includes(out.schaftende))out.normMissingFields=out.normMissingFields.filter(key=>!['endLength','endDiameter'].includes(key));
       if(out.schaftende==='kuppe'||out.schaftende==='kegelstumpf_flach'&&kind!=='headless'){
@@ -173,5 +195,5 @@
     out.normRequiresGeometryReview=out.normMissingFields.some(key=>['weldingTipProfile','lengthBeforeWelding','headProfileDefinition','tubeProfile','boreDepth','shaftLengthDistribution','endDiameter','endLength','shaftEndProfile','unsupportedDriveContour','rollingBlankDiameter','headToShaftLength','sArea',...(shaftV2?['length']:[])].includes(key));
     return out;
   }
-  return Object.freeze({SHAFT_POLICY_VERSION,familyKind,families,variants,variantFamily,selectionLibrary,editionLabel,familyLabel,missingLabel,sizes,lengths,thread,pitches,reference,adapt});
+  return Object.freeze({SHAFT_POLICY_VERSION,familyKind,families,familyFunction,functionKind,functionLabel,functionChoices,functionFamilies,variants,variantFamily,selectionLibrary,editionLabel,familyLabel,missingLabel,sizes,lengths,thread,pitches,reference,adapt});
 });

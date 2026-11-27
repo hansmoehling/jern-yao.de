@@ -69,7 +69,7 @@ function setup(language,engine=E,showPrices,apiOptions,staged=false,integrated=f
  if(integrated){
   window.fetch=context.fetch;window.AbortController=AbortController;
   window.JYNormLibrary=require('../normen/library.js');window.JYStandards=require('../normen/resolver.js');window.JYNormAvailability=require('../normen/availability.js');
-  window.JY_NORM_DATA={schemaVersion:1,version:'integration-test',families:['ISO4762','ISO4014','ISO4017','ISO4162','DIN660','DIN6791','ISO4032'].map(id=>require('../normen/'+id+'.json')),threads:require('../normen/gewinde.json'),materials:require('../vorbelegung/werkstoff.json')};
+  window.JY_NORM_DATA={schemaVersion:1,version:'integration-test',families:['ISO4762','ISO4014','ISO4017','ISO4162','ISO4026','DIN835','ISO2338','ISO13918','DIN660','DIN6791','ISO4032','ISO4161'].map(id=>require('../normen/'+id+'.json')),threads:require('../normen/gewinde.json'),materials:require('../vorbelegung/werkstoff.json')};
   window.JYKvpContext=require('../kvp-context.js');
   for(const file of ['normen/ui.js','kvp-ui.js'])vm.runInNewContext(fs.readFileSync(path.join(__dirname,'..',file),'utf8'),context);
  }
@@ -98,6 +98,12 @@ async function pollStatus(p){const timer=[...p.timers].find(([,item])=>item.ms==
 test('expert template contains no manual status refresh buttons',()=>{
  const html=fs.readFileSync(path.join(__dirname,'..','archiv-vorlage.html'),'utf8');
  assert.doesNotMatch(html,/parts-drawing-refresh|geometry-refresh|archive-mail-refresh|Stand aktualisieren/);
+});
+test('P5 bolt tab has the requested product subtitle and the legacy technical selector has no misplaced bolt or headless category',()=>{
+ const html=fs.readFileSync(path.join(__dirname,'..','archiv-vorlage.html'),'utf8');
+ assert.match(html,/value="bolzen" form="f" checked>Bolzen<small>Schrauben, Niete, Stifte<\/small>/);
+ assert.match(html,/<option value="pin">Stift<\/option><option value="headless">Gewindestift<\/option>/);
+ assert.doesNotMatch(html,/Bolzen und Schrauben|>Kopfloses Teil</);
 });
 test('force-chain translations cover all languages and preserve every numeric placeholder',()=>{
  const placeholders=text=>[...text.matchAll(/\{(\w+)\}/g)].map(match=>match[1]).sort();
@@ -166,7 +172,7 @@ test('price-free preset sends a v2 class-aware shortlist and displays the return
  const original=p.get('karten').innerHTML.match(/class="modell">([^<]+)/)[1];let expected,compared;
  p.answers.push(()=>{const body=JSON.parse(p.networkRequests.at(-1).options.body),primary=body.candidates.filter(row=>row.role==='primary'),reserve=body.candidates.filter(row=>row.role==='reserve');assert.equal(body.rankingVersion,'ranking-v2');assert(primary.length>0&&primary.length<=12);assert(reserve.length<=12);assert.equal(new Set(primary.map(row=>row.classification)).size,1);assert(!JSON.stringify(body).includes('rp'));assert(reserve.some(row=>row.model==='JBF-10B2S'));expected=primary.find(row=>row.model!==original).model;compared=body.candidates.length;return {data:{version:'ranking-v2',basis:'submitted-technical-status',priceRankingComplete:true,models:[{model:expected,comparison:null}]}};});
  const timer=[...p.timers].find(([,item])=>item.ms===450);assert(timer);p.timers.delete(timer[0]);await timer[1].fn();
- assert.equal(new URL(p.networkRequests[0].url).pathname,'/rangfolge');assert.equal(p.get('karten').innerHTML.match(/class="modell">([^<]+)/)[1],expected);assert(p.get('karten').innerHTML.includes(compared+' von '));assert(!p.get('karten').innerHTML.includes('€'));assert(!p.get('karten').innerHTML.includes('<th>Richtpreis</th>'));
+ assert.equal(new URL(p.networkRequests[0].url).pathname,'/rangfolge');assert.equal(p.get('karten').innerHTML.match(/class="modell">([^<]+)/)[1],expected);assert(!p.get('karten').innerHTML.includes(compared+' von '));assert(p.get('karten').innerHTML.includes('Alle geprüften Modelle'));assert(!p.get('karten').innerHTML.includes('€'));assert(!p.get('karten').innerHTML.includes('<th>Richtpreis</th>'));
  assert.equal((p.get('karten').innerHTML.match(/class="ranking-request"/g)||[]).length,1,'configuration questions occur once below the cards');
  const card=p.get('karten').innerHTML.match(/<section class="ranking-card"[\s\S]*?<\/section>/)[0];
  assert(!card.includes('Maschinenbereich'));assert(!card.includes('Draht-Ø'));assert(!card.includes('ranking-request'));
@@ -272,6 +278,50 @@ test('P4 flange model passes its documented approximation to preview, print and 
   const modelNote=I.t('Kopfmodell: Sechskant und zylindrischer Flansch; Flanschhöhe {height} mm aus dem veröffentlichten Mindestmaß c angenähert.',language).replace('{height}',input.flangeHeight.toLocaleString(I.numberLocale(language),{maximumFractionDigits:2}));
   assert(p.get('geometry-view').innerHTML.includes(modelNote));assert.doesNotMatch(p.get('geometry-view').innerHTML,/published-minimum-c|hex-prism-and-flange-cylinder/);
   p.get('drucken').events.click();assert(p.get('blatt').innerHTML.includes(modelNote));await sendMail(p);assert(new URL(p.context.location.href).searchParams.get('body').includes(modelNote));
+ }
+});
+test('P5 a missing norm length has a clear localized prompt, without a geometry-builder or engine-segment error',()=>{
+ for(const language of I.supported){
+  const p=setup(language,E,true,undefined,true,true);p.context.window.JYStandardPreview=require('../standard-preview.js');p.examples[1].events.click();
+  for(const[key,value]of [['id','ISO4014'],['groesse','M12']]){p.get('norm-'+key).value=value;p.get('norm-'+key).events.change();}
+  const prompt=I.t('Bitte Länge eingeben.',language);assert.equal(p.get('leer').textContent,prompt);assert(p.get('geometry-view').innerHTML.includes(prompt));
+  assert.doesNotMatch(p.get('geometry-view').innerHTML,/Jedes Schaftsegment|positive Länge|Baukasten/);assert.equal(p.get('aus').hidden,true);assert.equal(p.get('drucken').disabled,true);
+  const texts=node=>[node.textContent,...(node.children||[]).flatMap(texts)],picker=texts(p.get('norm-picker')).join('\n');assert(picker.includes(prompt));assert(!picker.includes(I.t('Für diese Ausführung die fehlende Kontur im Baukasten ergänzen. Die belegten Normmaße bleiben erhalten.',language)));
+  p.get('norm-to-chain').events.click();assert.equal(p.get('norm-chain-status').textContent,prompt);
+ }
+});
+test('P5 real functional selectors retain norm edits on reentry, keep free geometry and identify set screws in reports',async()=>{
+ for(const language of I.supported){
+  let input;const p=setup(language,{...E,auslegen(e){input=e;return E.auslegen(e);}},true,undefined,true,true);
+  p.examples[1].events.click();const choose=(key,value)=>{p.get('norm-'+key).value=value;p.get('norm-'+key).events.change();};
+  choose('kind','set-screw');assert.equal(p.f.elements.standardKind.value,'headless');assert.equal(p.f.elements.kopfForm.value,'none');assert.equal(p.f.elements.kH.value,'0');
+  choose('id','ISO4026');choose('groesse','M6');p.get('norm-laenge-custom').value='10';p.get('norm-laenge-custom').events.input();
+  // Deliberate customer deviation closes the otherwise undocumented end taper.
+  p.f.elements.schaftende.value='voll';p.f.events.change({target:p.f.elements.schaftende});
+  assert.equal(input.partFunction,'set-screw');assert.equal(input.standardKind,'headless');assert.equal(p.get('aus').hidden,false,JSON.stringify({missing:input.normMissingFields,note:p.get('leer').textContent,kD:input.kD,kH:input.kH,sD:input.sD,sL:input.sL,iTyp:input.iTyp,iT:input.iT}));
+  p.get('drucken').events.click();assert(p.get('blatt').innerHTML.includes(I.t('Gewindestift',language)));await sendMail(p);assert(new URL(p.context.location.href).searchParams.get('body').includes(I.t('Gewindestift',language)));
+  p.f.elements.sL.value='11';p.f.events.change({target:p.f.elements.sL});
+  choose('kind','free');assert.equal(input.partFunction,'free');assert.equal(input.standardReference,undefined);assert.equal(p.f.elements.sL.value,'11');assert.equal(p.f.elements.kopfForm.value,'none');
+  choose('kind','set-screw');assert.equal(input.standardDocument.standardReference.id,'ISO4026');assert.equal(input.sL,11);assert.equal(input.standardDocument.overrides.sL.origin,'customer');
+  choose('kind','stud');assert.deepEqual(p.get('norm-id').options.map(o=>o.value),['','DIN835']);
+  choose('kind','weld-stud');assert.deepEqual(p.get('norm-id').options.map(o=>o.value),['','ISO13918']);assert.equal(p.f.elements.standardKind.value,'pin');assert.equal(p.get('bolt-drive-fields').hidden,true);
+  choose('kind','rivet');assert.equal(p.get('bolt-drive-fields').hidden,true);assert.equal(p.f.elements.iTyp.disabled,true);assert.equal(input.iTyp,'none');
+  choose('kind','free');assert.equal(input.threadFamily,'none');assert.equal(input.iTyp,'none','free editing retains a former rivet or pin without inventing a thread or drive');
+ }
+});
+test('P5 semi-tubular rivet defaults explain the 120-degree bottom instead of asking again, in preview, print and mail',async()=>{
+ for(const language of I.supported){
+  let input;const p=setup(language,{...E,auslegen(e){input=e;return E.auslegen(e);}},true,undefined,true,true,true);p.context.window.JYStandardPreview=require('../standard-preview.js');p.examples[1].events.click();
+  for(const[key,value]of [['kind','rivet'],['id','DIN6791'],['groesse','4']]){p.get('norm-'+key).value=value;p.get('norm-'+key).events.change();}
+  p.get('norm-laenge-custom').value='12';p.get('norm-laenge-custom').events.input();
+  assert(!input.normMissingFields.includes('boreBottomShape'));assert.equal(input.geometryOrigins.bottomAngle.origin,'assumption');assert.equal(p.get('bolt-drive-fields').hidden,true);assert.equal(input.iTyp,'none');
+  assert.equal(p.f.elements.threadFamily.value,'none','the actual control retains the effective unthreaded geometry for later free editing');
+  const note=I.t('Bohrungsgrund: {angle}°-Kegel als Umformannahme; keine Normvorgabe.',language).replace('{angle}','120');assert(p.get('geometry-view').innerHTML.includes(note));
+  const texts=node=>[node.textContent,...(node.children||[]).flatMap(texts)],picker=texts(p.get('norm-picker')).join('\n');assert(picker.includes(I.t('Kopfwölbungsradius',language)));assert.doesNotMatch(picker,/headProfileRadius|boreBottomShape/);
+  p.get('drucken').events.click();assert(p.get('blatt').innerHTML.includes(note));await sendMail(p);assert(new URL(p.context.location.href).searchParams.get('body').includes(note));
+  const assumption=input.boreBottomAssumption;p.get('norm-to-chain').events.click();assert.equal(p.get('norm-chain-status').textContent,'');assert.equal(p.f.elements.typ.value,'formteil');
+  assert.deepEqual(JSON.parse(JSON.stringify(p.geometryWizard.getChain().modelAssumptions.bore)),assumption);assert(p.get('geometry-view').innerHTML.includes(note));
+  p.get('drucken').events.click();assert(p.get('blatt').innerHTML.includes(note));await sendMail(p);assert(new URL(p.context.location.href).searchParams.get('body').includes(note));
  }
 });
 test('norm-to-builder refuses unresolved shaft distribution and preserves the norm and customer edits',()=>{
@@ -509,13 +559,13 @@ test('switching to standard parts hides drawing controls and never attaches thei
  p.a.elements.email.value='customer@example.invalid';p.a.elements.ok.checked=true;p.answers.push({data:{id:'STANDARD',token:'private',kind:'enquiry',status:'received',notificationStatus:'sent'}});await p.get('senden').events.click();assert(!p.networkRequests[0].options.body.has('datei'));assert(!p.networkRequests[0].options.body.get('notiz').includes('retained.pdf'));
 });
 
-test('standard references set only shape and drive, flange nuts route to the parts builder, and profile fields follow the selected family',()=>{
+test('standard references set only shape and drive, nuts with a collar stay in nuts, and profile fields follow the selected family',()=>{
  let received;const p=setup('de',{...E,auslegen(input){received=input;return E.auslegen(input);}});p.examples[0].events.click();const diameter=p.f.elements.d0.value;
  p.f.elements.standardNorm.value='ISO4762';p.f.elements.standardNorm.events.change();assert.equal(p.f.elements.kopfForm.value,'rund');assert.equal(p.f.elements.iTyp.value,'hex');assert.equal(p.f.elements.d0.value,diameter);assert.equal(received.standardReference,'ISO4762');
  p.f.elements.standardKind.value='headless';p.f.elements.standardKind.events.change();assert.equal(p.f.elements.kH.value,'0');assert.equal(p.f.elements.kD.value,'0');assert(p.get('bolt-head').hidden);
  p.f.elements.threadFamily.value='duo-taptite';p.f.elements.sArea.value='20';p.f.elements.tipLength.value='5';p.f.elements.tipArea.value='15';p.f.elements.tipDiameter.value='999';p.f.events.change();assert.equal(received.sArea,20);assert.equal(received.tipLength,5);assert.equal(received.tipArea,15);assert.equal(received.tipDiameter,undefined);
  p.f.elements.threadFamily.value='metric';p.f.events.change();assert.equal(received.sArea,undefined);assert.equal(received.tipArea,undefined);assert.equal(received.tipLength,undefined);
- p.f.elements.typ.value='mutter';p.f.events.change();p.f.elements.nutNorm.value='ISO4161';p.f.elements.nutNorm.events.change();assert.equal(p.f.elements.typ.value,'formteil');assert(!p.get('geometry-panel').hidden);assert(p.get('standard-part-fields').hidden);
+ p.f.elements.typ.value='mutter';p.f.events.change();p.f.elements.nutNorm.value='ISO4161';p.f.events.change({target:p.f.elements.nutNorm});assert.equal(p.f.elements.typ.value,'mutter');assert(p.get('geometry-panel').hidden);assert(!p.get('standard-part-fields').hidden);assert.equal(p.get('flange-nut-route').events.click,undefined);
 });
 
 test('cylinder-head norms override a stale hexagon even when input calculation precedes change',async()=>{
@@ -761,7 +811,7 @@ test('rivets and pins ignore inherited screw profiles and drives in both sites a
   assert(p.get('thread-family-field').hidden);assert(p.f.elements.threadFamily.disabled);assert(p.get('bolt-drive-fields').hidden);assert(p.f.elements.iTyp.disabled);
   assert.equal(p.get('aus').hidden,false);assert(!/JNFP|JNF-|JNFR/.test(p.get('karten').innerHTML));
   p.get('drucken').events.click();const sheet=p.get('blatt').innerHTML;
-  assert(sheet.includes(I.t(kind==='rivet'?'Niet':'Bolzen',language)));
+  assert(sheet.includes(I.t(kind==='rivet'?'Niet':'Stift',language)));
   assert(!sheet.includes(I.t('Gewindefamilie',language)));assert(!sheet.includes('Duo-Taptite'));assert(!sheet.includes(I.t('Innenantrieb',language)));
   p.events['jy-languagechange']();assert.equal(received.threadFamily,'none');
   p.f.elements.standardKind.value='screw';p.f.elements.standardKind.events.change();
@@ -930,19 +980,14 @@ test('drawing material selection is explicit, leaves the original note intact an
  }
 });
 
-test('returning from the flange-nut builder never labels a standard nut calculation as ISO4161',()=>{
+test('P5 ISO4161 stays in the nut calculator with its own collar and never enters a formed-part route',()=>{
  for(const language of I.supported){
-  let received;const p=setup(language,{...E,auslegen(input){received=input;return E.auslegen(input);}});p.examples[2].events.click();
-  const dimensions=['mM','mSW','mH'].map(key=>p.f.elements[key].value);
-  p.f.elements.nutNorm.value='ISO4161';p.f.elements.nutNorm.events.change();p.f.events.change();
-  assert.equal(p.f.elements.typ.value,'formteil');assert.equal(p.get('geometry-panel').hidden,false);
-  p.f.elements.typ.value='mutter';p.f.events.change();
-  assert.equal(p.f.elements.nutNorm.value,'');assert.equal(received.standardReference,'');
-  assert.equal(p.get('geometry-panel').hidden,true);assert.equal(p.get('aus').hidden,false);
-  assert.deepEqual(['mM','mSW','mH'].map(key=>p.f.elements[key].value),dimensions,'returning keeps the entered nut dimensions');
-  p.get('drucken').events.click();assert(!p.get('blatt').innerHTML.includes('ISO4161'));
-  p.f.elements.nutNorm.value='ISO4032';p.f.elements.nutNorm.events.change();p.f.events.change();p.events['jy-languagechange']();
-  assert.equal(p.f.elements.typ.value,'mutter');assert.equal(received.standardReference,'ISO4032');
-  p.get('drucken').events.click();assert(p.get('blatt').innerHTML.includes('ISO4032'));
+  let received;const p=setup(language,{...E,auslegen(input){received=input;return E.auslegen(input);}},true,undefined,true,true);p.examples[2].events.click();
+  for(const[key,value]of [['id','ISO4161'],['groesse','M8']]){p.get('norm-'+key).value=value;p.get('norm-'+key).events.change();}
+  assert.equal(p.f.elements.typ.value,'mutter');assert.equal(received.partFunction,'nut');assert.equal(p.f.elements.nutFlange.checked,true);assert.equal(received.mFlansch,17.9);assert.equal(received.mFlanschH,1.2);
+  assert.equal(p.get('geometry-panel').hidden,true);assert.equal(p.get('aus').hidden,false);p.get('drucken').events.click();assert(p.get('blatt').innerHTML.includes('ISO4161'));
+  p.get('norm-id').value='ISO4032';p.get('norm-id').events.change();p.events['jy-languagechange']();
+  assert.equal(p.f.elements.typ.value,'mutter');assert.equal(p.f.elements.nutFlange.checked,false);assert.equal(received.mFlansch,undefined);assert.equal(received.standardDocument.standardReference.id,'ISO4032');
+  p.get('drucken').events.click();assert(p.get('blatt').innerHTML.includes('ISO4032'));assert(!p.get('blatt').innerHTML.includes('ISO4161'));
  }
 });

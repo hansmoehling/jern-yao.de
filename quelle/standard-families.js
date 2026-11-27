@@ -11,7 +11,7 @@
     {id:'ISO4032',kind:'nut',label:'ISO 4032 · Sechskantmutter, Typ 1',edition:2023,source:'https://www.iso.org/committee/626540/x/catalogue/'},
     {id:'ISO4033',kind:'nut',label:'ISO 4033 · Hohe Sechskantmutter, Typ 2',edition:2023,source:'https://www.iso.org/standard/75017.html'},
     {id:'ISO4035',kind:'nut',label:'ISO 4035 · Niedrige Sechskantmutter, Typ 0',edition:2023,source:'https://shop.standards.ie/en-ie/standards/i-s-en-iso-4035-2023-856982_saig_nsai_nsai_3322111/'},
-    {id:'ISO4161',kind:'nut',label:'ISO 4161 · Flanschmutter → Formteilbaukasten',route:'formteil',edition:2012,source:'https://committee.iso.org/ics/21.060.20/x/'}
+    {id:'ISO4161',kind:'nut',label:'ISO 4161 · Sechskantmutter mit Bund',edition:2012,source:'https://committee.iso.org/ics/21.060.20/x/'}
   ].map(Object.freeze);
   return Object.freeze({getFamilies:kind=>families.filter(f=>f.kind===kind),get:id=>families.find(f=>f.id===id)||null});
 });

@@ -132,7 +132,7 @@
       $('standard-norm-field').hidden=true;$('standard-kind').closest('label').hidden=true;
       $('nut-norm').closest('label').hidden=true;$('standard-norm-note').hidden=true;
       $('bolt-head').hidden=f.elements.standardKind.value==='headless';
-      $('thread-family-field').hidden=gewindelos();f.elements.threadFamily.disabled=gewindelos();
+      $('thread-family-field').hidden=gewindelos();f.elements.threadFamily.disabled=gewindelos();f.elements.iTyp.disabled=gewindelos();
       return;
     }
     const kind=f.elements.standardKind?.value||'screw';
@@ -240,11 +240,12 @@
     if (e.typ !== 'bolzen' || e.iTyp==='none') { e.iTyp='none'; e.iSize=e.iSW=e.iT=e.iVol=undefined; }
     if(staged&&normPicker){
       const preset=normPicker.adapted();
+      e.partFunction=normPicker.partFunction?.();
       if(preset){
-        for(const key of ['standardReference','standardDocument','threadModel','propertyClass','normGeometryStatus','normMissingFields','normRequiresGeometryReview','shaftPolicy','shaftType','shaftSegments','shaftModelStatus','shaftModelAssumption','ds','b','flangeDiameter','flangeHeight','flangeModelAssumption'])e[key]=preset[key];
+        for(const key of ['standardReference','standardDocument','threadModel','propertyClass','normGeometryStatus','normMissingFields','normRequiresGeometryReview','shaftPolicy','shaftType','shaftSegments','shaftModelStatus','shaftModelAssumption','ds','b','flangeDiameter','flangeHeight','flangeModelAssumption','partFunction','boreBottomAssumption','geometryOrigins'])e[key]=preset[key];
         if(e.typ==='mutter'&&preset.threadModel)e.threadPitch=preset.threadModel.P;
         for(const key of ['shaftSegments','d_b','t_b','endAngle','endShape','kC','kF','kAlpha','mFlansch','mFlanschH'])if(preset[key]!=null&&!f.elements[key])e[key]=preset[key];
-      }
+      }else{e.standardReference=undefined;e.standardDocument=undefined;}
     }
     return e;
   }
@@ -304,6 +305,8 @@
     const shaft=input.shaftModelAssumption||input.modelAssumptions?.shaft,flange=input.flangeModelAssumption||input.modelAssumptions?.flange,notes=[];
     if(shaft?.model==='nominal-blank-segmentation')notes.push(tr('Rohlingmodell: Glatter Schaft l − b, Gewinderohling über b; der Gewindeauslauf ist vereinfacht.'));
     if(flange?.heightBasis==='published-minimum-c')notes.push(msg('Kopfmodell: Sechskant und zylindrischer Flansch; Flanschhöhe {height} mm aus dem veröffentlichten Mindestmaß c angenähert.',{height:fmt(flange.height,2)}));
+    const bore=input.boreBottomAssumption||input.modelAssumptions?.bore;
+    if(bore?.origin==='assumption')notes.push(msg(bore.angleOrigin==='customer'?'Kegelförmiger Bohrungsgrund als Umformannahme; Winkel {angle}° aus Ihrer Eingabe.':'Bohrungsgrund: {angle}°-Kegel als Umformannahme; keine Normvorgabe.',{angle:fmt(bore.angle,0)}));
     return notes;
   }
   function geometryModelNotesHtml(input){return geometryModelNotes(input).map(text=>'<p class="klein geometry-model-note">'+esc(text)+'</p>').join('');}
@@ -331,12 +334,13 @@
     if (ungueltig()) {letzte=null;anfrageAuswahlLoeschen();$('aus').hidden=true;$('geometry-view').hidden=true;$('empty-visual').hidden=false;knoepfe();L.apply();return;}
     const e = lesen();
     const aus = E.auslegen(e);
+    const lengthOnly=e.normMissingFields?.length>0&&e.normMissingFields.every(key=>key==='length');
     if(staged&&window.JYStandardPreview){
       $('geometry-view').hidden=!(e.sD||e.kD||e.mM||e.mSW);
-      rendered($('geometry-view'),window.JYStandardPreview.render({input:e,analysis:e.normRequiresGeometryReview?{...aus,fehlt:['Kontur ergänzen']}:aus,material:selectedVariant()?.material,translate:tr,format:x=>fmt(x,3),engine:E})+geometryModelNotesHtml(e));
+      rendered($('geometry-view'),(lengthOnly?'<section class="standard-preview"><h2>'+h('Teilevorschau')+'</h2><p>'+h('Bitte Länge eingeben.')+'</p></section>':window.JYStandardPreview.render({input:e,analysis:e.normRequiresGeometryReview?{...aus,fehlt:['Kontur ergänzen']}:aus,material:selectedVariant()?.material,translate:tr,format:x=>fmt(x,3),engine:E}))+geometryModelNotesHtml(e));
     }
     if(e.normRequiresGeometryReview){
-      letzte=null;anfrageAuswahlLoeschen();$('aus').hidden=true;$('leer').hidden=false;$('leer').dataset.originalText='';$('leer').textContent=tr('Die Normvorlage enthält noch keine vollständige Rohteilkontur. Fehlende Geometrie im Baukasten ergänzen.');knoepfe();L.apply();return;
+      letzte=null;anfrageAuswahlLoeschen();$('aus').hidden=true;$('leer').hidden=false;$('leer').dataset.originalText='';$('leer').textContent=tr(lengthOnly?'Bitte Länge eingeben.':'Die Normvorlage enthält noch keine vollständige Rohteilkontur. Fehlende Geometrie im Baukasten ergänzen.');knoepfe();L.apply();return;
     }
     if(angefragtesModell&&JSON.stringify(e)!==JSON.stringify(letzte?.e))anfrageAuswahlLoeschen();
     if (aus.fehlt.length || !aus.stufen.length) { $('leer').hidden = false; $('aus').hidden = true; $('empty-visual').hidden=false; $('leer').dataset.originalText=''; $('leer').textContent = aus.fehlt.length ? tr('Es fehlen noch:') + ' ' + aus.fehlt.map(tr).join(', ') + '.' : tr('Mit Draht-Ø und den Hüllmaßen des Teils erscheinen hier Stadienfolge, Werkzeuggröße und die passenden Modelle.'); letzte = null; anfrageAuswahlLoeschen(); knoepfe(); return; }
@@ -502,7 +506,7 @@
     const force = value => value == null ? tr('Kraft noch offen') : fmt(value) + ' t';
     const selected=angefragteMaschine();
     if(selected)lines.push(msg('Anfrage für {model}',{model:selected.o.m}),'');
-    field('Teileart', tr(e.typ==='bolzen'?({screw:'Schraube',rivet:'Niet',pin:'Bolzen',headless:'Kopfloses Teil'}[e.standardKind]||'Schraube/Bolzen'):{formteil:'Formteil/Hülse',mutter:'Mutter'}[e.typ]));
+    field('Teileart', e.partFunction&&window.JYNormLibrary?window.JYNormLibrary.functionLabel(e.partFunction,tr):tr(e.typ==='bolzen'?({screw:'Schraube',rivet:'Niet',pin:'Stift',headless:'Gewindestift'}[e.standardKind]||'Bolzen'):{formteil:'Formteil/Hülse',mutter:'Mutter'}[e.typ]));
     if(e.standardReference)field('Normfamilie',normPicker?.summary()||e.standardReference);
     lines.push(...geometryModelNotes(e));
     if(e.typ==='bolzen'&&e.threadFamily!=='none')field('Gewindefamilie',tr(THREAD_LABELS[e.threadFamily]||e.threadFamily));
@@ -670,8 +674,6 @@
   document.querySelectorAll('input[name="typ"]').forEach(input=>input.addEventListener('change',rechnen));
   f.elements.standardKind?.addEventListener('change',()=>{standardKind=null;standardAuswahl();if(f.elements.standardKind.value==='headless')normAnwenden();else if(f.elements.kopfForm.value==='none')f.elements.kopfForm.value='rund';rechnen();});
   f.elements.standardNorm?.addEventListener('change',()=>{normAnwenden();rechnen();});
-  $('flange-nut-route')?.addEventListener('click',()=>{f.elements.typ.value='formteil';selectPartsMode('geometry');$('geometry-wizard').scrollIntoView({behavior:window.matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth',block:'start'});});
-  f.elements.nutNorm?.addEventListener('change',()=>{if(window.JYStandardFamilies?.get(f.elements.nutNorm.value)?.route==='formteil'){f.elements.nutNorm.value='';f.elements.typ.value='formteil';selectPartsMode('geometry');$('geometry-wizard').scrollIntoView({behavior:window.matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth',block:'start'});}});
   $('karten').addEventListener('click', event => {
     const requestButton=event.target.closest('button[data-request-model]');
     if(requestButton){
@@ -694,7 +696,7 @@
   $('senden').addEventListener('click', senden);
   $('drucken').addEventListener('click', drucken);
   if(staged&&window.JYNormPicker){
-    normPicker=window.JYNormPicker.create({host:$('norm-picker'),form:f,data:window.JY_NORM_DATA,tr,getType:typ,shaftPolicy:'shaft-v2',catalogue:MASCHINEN,formatNumber:value=>fmt(value,2),
+    normPicker=window.JYNormPicker.create({host:$('norm-picker'),form:f,data:window.JY_NORM_DATA,tr,getType:typ,shaftPolicy:'shaft-v2',functionPolicy:'function-v1',catalogue:MASCHINEN,formatNumber:value=>fmt(value,2),
       getPart:()=>Object.fromEntries(Array.from(f.elements).filter(field=>field.name&&field.type!=='file'&&(field.type!=='radio'||field.checked)).map(field=>[field.name,field.type==='checkbox'?field.checked:field.value])),
       onApply(preset){
         for(const key of preset.clearFields||[])if(f.elements[key])f.elements[key].value='';
@@ -727,6 +729,7 @@
     try{
       const e=lesen();
       if(e.normRequiresGeometryReview){
+        if(e.normMissingFields?.length&&e.normMissingFields.every(key=>key==='length')){status.textContent=tr('Bitte Länge eingeben.');return;}
         const missing=(e.normMissingFields||[]).map(key=>window.JYNormLibrary?.missingLabel(key,tr)||key);
         status.textContent=tr('Vor der Übernahme die offene Rohteilkontur ergänzen. Normvorlage und bisherige Eingaben bleiben erhalten.')+(missing.length?' '+tr('Noch zu ergänzen')+': '+missing.join(', ')+'.':'');
         return;

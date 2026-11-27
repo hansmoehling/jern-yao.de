@@ -136,8 +136,7 @@
     const c=context(options);if(!row?.o)return '';
     let html='<p class="ranking-reason">'+facts(row,c)+'</p>';
     if(row.o.m!==ranking?.recommendation?.o?.m)return html;
-    if(ranking.comparisonCoverage?.priceComplete===true&&ranking.comparisonCoverage.compared<ranking.comparisonCoverage.eligible)html+='<p>'+c.t('{compared} von {eligible} technisch möglichen Modellen wirtschaftlich verglichen. Die Empfehlung gilt für diese Vorauswahl.',{compared:c.n(ranking.comparisonCoverage.compared),eligible:c.n(ranking.comparisonCoverage.eligible)})+'</p>';
-    if(ranking.priceRankingComplete===true)html+='<p>'+c.t('Niedrigster Richtpreis der verglichenen Kandidaten aus Eignungsklasse {classification}.',{classification:row.ranking?.classification||'—'})+'</p>';
+    if(ranking.priceRankingComplete===true)html+='<p>'+c.t(c.o.showPrices===true?'Niedrigster Richtpreis der verglichenen Kandidaten aus Eignungsklasse {classification}.':'Preislich günstigster verglichener Kandidat aus Eignungsklasse {classification}.',{classification:row.ranking?.classification||'—'})+'</p>';
     else html+='<p>'+c.t('Preisrang nicht vollständig verfügbar; Reihenfolge nach technischer Bewertung.')+'</p>';
     return html;
   }

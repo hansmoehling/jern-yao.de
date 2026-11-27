@@ -1,5 +1,5 @@
 from pathlib import Path
-import json,importlib.util,re
+import json,importlib.util,re,subprocess
 Q=Path(__file__).resolve().parent
 
 def embed_defaults(text, marker, path):
@@ -56,6 +56,7 @@ def build():
             norms.append(value)
     norm_library={'schemaVersion':1,'version':'2026-11-26','families':norms,'threads':json.loads((Q/'normen/gewinde.json').read_text(encoding='utf-8')),'materials':json.loads((Q/'vorbelegung/werkstoff.json').read_text(encoding='utf-8'))}
     (Q/'normen/index.json').write_text(json.dumps({'schemaVersion':1,'version':norm_library['version'],'families':[{'id':n['id'],'edition':n.get('edition'),'file':n['id']+'.json','sizes':len(n.get('groessen',{}))} for n in norms]},ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
+    subprocess.run(['node',str(Q/'normen/report.cjs')],check=True)
     engine=embed_defaults((Q/'engine.js').read_text(encoding='utf-8-sig'),'RM_PRESETS','vorbelegung/rm.json')
     engine=embed_defaults((Q/'nut-model.js').read_text(encoding='utf-8'),'NUT_THREADS','normen/gewinde.json')+'\n'+engine
     engine=embed_defaults((Q/'machine-ranking.js').read_text(encoding='utf-8'),'RANKING_DEFAULTS','vorbelegung/rangfolge.json')+'\n'+engine
