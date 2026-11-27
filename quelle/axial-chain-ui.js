@@ -9,6 +9,10 @@
     const changed=()=>{refresh();onChange?.();};
     const showError=error=>{const message=root.querySelector('#chain-message');if(message)message.textContent=tr(error.message||error);};
     const replace=next=>{chain=C.retainIds(next,chain);editing=false;};
+    function commitShorthand(node){
+      const value=node.value.trim();if(!value||node.dataset.chainApplied===value)return;
+      try{const parsed=C.parse(value);remember();node.dataset.chainApplied=value;replace(parsed);panels();changed();}catch(error){showError(error);}
+    }
     const field=(label,key,value,id,kind='segment')=>'<label class="feld"><span>'+h(label)+'</span><input type="text" inputmode="decimal" data-chain-kind="'+kind+'" data-chain-id="'+id+'" data-chain-field="'+key+'" value="'+escape(value)+'"></label>';
     const select=(label,key,value,id,choices,kind='segment')=>'<label class="feld"><span>'+h(label)+'</span><select data-chain-kind="'+kind+'" data-chain-id="'+id+'" data-chain-field="'+key+'">'+choices.map(([v,l])=>'<option value="'+v+'"'+(v===value?' selected':'')+'>'+h(l)+'</option>').join('')+'</select></label>';
     const shapes=[['cylinder','Zylinder'],['cone','Kegelstumpf'],['hex','Sechskant']];
@@ -82,17 +86,17 @@
       }catch(error){if(key==='end'){target.length=null;changed();}showError(error);}
     }
     root.addEventListener('input',event=>{if(event.target.tagName!=='SELECT')input(event);});
-    root.addEventListener('focusout',()=>{editing=false;});
+    root.addEventListener('focusout',event=>{editing=false;if(event.target.id==='chain-shorthand')commitShorthand(event.target);});
     root.addEventListener('change',event=>{
       const n=event.target;
       if(n.dataset.chainField){if(n.tagName==='SELECT')input(event);return;}
-      if(n.id==='chain-shorthand'){try{const parsed=C.parse(n.value);remember();replace(parsed);panels();changed();}catch(e){showError(e);}return;}
+      if(n.id==='chain-shorthand'){commitShorthand(n);return;}
       if(n.id==='chain-template'&&n.value){const t=templates.find(x=>x.id===n.value);if(t){try{const next=C.fromTemplate(t);remember();replace(next);panels();changed();}catch(e){showError(e);}}return;}
       if(n.id==='chain-lead-diameter'){try{const next=C.scale(chain,numeric(n.value)/chain.leadDiameterMm);remember();replace(next);panels();changed();}catch(e){showError(e);}return;}
       if(n.id==='chain-parting'&&n.value!=='custom'){remember();chain.parting=Number(n.value);panels();changed();return;}
       if(n.id==='chain-flip'){remember();chain.flipped=n.checked;changed();}
     });
-    root.addEventListener('keydown',event=>{if(event.key==='Enter'&&event.target.dataset.chainKind==='segment'){event.preventDefault();remember();const index=chain.segments.findIndex(s=>s.id===event.target.dataset.chainId)+1;chain=C.addSegment(chain,index);active=chain.segments[index].id;editing=false;panels();changed();root.querySelector('[data-chain-id="'+active+'"][data-chain-field="length"]')?.focus();}});
+    root.addEventListener('keydown',event=>{if(event.key==='Enter'&&event.target.id==='chain-shorthand'){event.preventDefault();commitShorthand(event.target);return;}if(event.key==='Enter'&&event.target.dataset.chainKind==='segment'){event.preventDefault();remember();const index=chain.segments.findIndex(s=>s.id===event.target.dataset.chainId)+1;chain=C.addSegment(chain,index);active=chain.segments[index].id;editing=false;panels();changed();root.querySelector('[data-chain-id="'+active+'"][data-chain-field="length"]')?.focus();}});
     const selectSegment=event=>{const b=event.target.closest('[data-chain-boundary],[data-chain-select]');if(!b)return;active=b.dataset.chainBoundary||b.dataset.chainSelect;if(b.dataset.chainBoundary){remember();chain.parting=C.ranges(chain).find(s=>s.id===active).b;panels();changed();}else{panels();refresh();}root.querySelector('[data-chain-row="'+active+'"]')?.scrollIntoView({block:'nearest',behavior:'smooth'});};
     view.addEventListener('click',selectSegment);
     view.addEventListener('keydown',event=>{if(['Enter',' '].includes(event.key)&&event.target.dataset.chainSelect){event.preventDefault();selectSegment(event);}});

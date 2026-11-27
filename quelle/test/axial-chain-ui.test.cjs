@@ -6,6 +6,27 @@ const click=(node,data={},attribute)=>node.events.click({target:{closest:()=>({d
 const field=(node,kind,id,key,value,select=false)=>{node.events[select?'change':'input']({target:{dataset:{chainKind:kind,chainId:id,chainField:key},tagName:select?'SELECT':'INPUT',value}});};
 const change=(node,id,value)=>node.events.change({target:{id,value,dataset:{},tagName:'INPUT'}});
 
+test('shorthand commits on Enter or focus loss, survives refresh and does not commit a detached field twice',()=>{
+ for(const trigger of ['keydown','focusout']){
+  const p=setup();p.ui.setChain(C.parse('10x6,5.27x30'));
+  const target={id:'chain-shorthand',value:'12x6, 8x30, 6x5',dataset:{},tagName:'INPUT'};
+  p.root.events.input({target});p.ui.refresh();
+  assert.equal(p.ui.getChain().segments.length,2,'editing alone leaves the previous complete model intact');
+  let prevented=false;const before=p.changes;
+  p.root.events[trigger]({key:'Enter',target,preventDefault(){prevented=true;}});
+  if(trigger==='keydown')assert(prevented,'Enter does not submit the surrounding form');
+  assert.deepEqual(p.ui.getChain().segments.map(({diameter,length})=>[diameter,length]),[[12,6],[8,30],[6,5]]);
+  assert.equal(p.changes,before+1);assert(p.ui.isComplete());
+  p.root.events.change({target});p.root.events.focusout({target});
+  assert.equal(p.changes,before+1,'blur and change for the replaced field do not create duplicate undo entries');
+  click(p.root,{},'data-chain-undo');assert.deepEqual(p.ui.getChain().segments.map(({diameter,length})=>[diameter,length]),[[10,6],[5.27,30]]);
+ }
+ const p=setup();p.ui.setChain(C.parse('10x6,5.27x30'));
+ const target={id:'chain-shorthand',value:'12x6, incomplete',dataset:{},tagName:'INPUT'};
+ p.root.events.keydown({key:'Enter',target,preventDefault(){}});
+ assert.equal(p.ui.getChain().segments.length,2);assert(p.root.querySelector('#chain-message').textContent.includes('Kurzschreibweise'));
+});
+
 test('chain controller couples length/end, retains boundary selections and blocks invalid edits',()=>{
  const {root,view,ui}=setup();ui.setChain(C.parse('12×6,8×30'));
  field(root,'segment','S1','length','8,5');assert.equal(ui.getChain().segments[0].length,8.5);assert.equal(root.querySelector('[data-chain-id="S1"][data-chain-field="end"]').value,8.5);

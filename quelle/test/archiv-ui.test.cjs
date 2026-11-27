@@ -280,11 +280,32 @@ test('P4 flange model passes its documented approximation to preview, print and 
   p.get('drucken').events.click();assert(p.get('blatt').innerHTML.includes(modelNote));await sendMail(p);assert(new URL(p.context.location.href).searchParams.get('body').includes(modelNote));
  }
 });
+test('P5 K7 accepts shorthand after actual norm-to-parts conversion and a surrounding-form refresh',()=>{
+ for(const trigger of ['keydown','focusout']){
+  const p=setup('de',E,true,undefined,true,true,true);p.examples[1].events.click();p.get('norm-to-chain').events.click();
+  assert.equal(p.f.elements.typ.value,'formteil');assert.equal(p.geometryWizard.getChain().segments.length,2);
+  const root=p.get('geometry-wizard'),target={id:'chain-shorthand',value:'12x6, 8x30, 6x5',dataset:{},tagName:'INPUT'};
+  root.events.input({target});p.f.events.change({target});
+  assert.equal(target.value,'12x6, 8x30, 6x5');assert.equal(p.geometryWizard.getChain().segments.length,2);
+  root.events[trigger]({key:'Enter',target,preventDefault(){}});
+  assert.deepEqual(JSON.parse(JSON.stringify(p.geometryWizard.getChain().segments.map(({diameter,length})=>[diameter,length]))),[[12,6],[8,30],[6,5]]);
+  assert(p.geometryWizard.isComplete());assert(p.get('geometry-view').innerHTML.includes('S3'));
+ }
+});
+test('P5 incomplete or invalid geometry clears derived tool placeholders but retains customer tool values',()=>{
+ const p=setup('de',E,true,undefined,true,true);p.examples[1].events.click();
+ for(const key of ['lStempel','ko','pko','stationen'])assert(p.f.elements[key].placeholder);
+ p.f.elements.ko.value='17';p.f.events.change({target:p.f.elements.ko});
+ p.f.elements.sL.value='invalid';p.f.events.change({target:p.f.elements.sL});
+ for(const key of ['lStempel','ko','pko','stationen','zusatz'])assert.equal(p.f.elements[key].placeholder,'');
+ assert.equal(p.f.elements.ko.value,'17');assert.equal(p.get('aus').hidden,true);
+});
 test('P5 a missing norm length has a clear localized prompt, without a geometry-builder or engine-segment error',()=>{
  for(const language of I.supported){
   const p=setup(language,E,true,undefined,true,true);p.context.window.JYStandardPreview=require('../standard-preview.js');p.examples[1].events.click();
   for(const[key,value]of [['id','ISO4014'],['groesse','M12']]){p.get('norm-'+key).value=value;p.get('norm-'+key).events.change();}
-  const prompt=I.t('Bitte Länge eingeben.',language);assert.equal(p.get('leer').textContent,prompt);assert(p.get('geometry-view').innerHTML.includes(prompt));
+  const prompt=I.t('Bitte Länge eingeben.',language);assert.equal(p.get('leer').textContent,'');assert.equal(p.get('leer').hidden,true);assert(p.get('geometry-view').innerHTML.includes(prompt));
+  for(const key of ['lStempel','ko','pko','stationen','zusatz'])assert.equal(p.f.elements[key].placeholder,'',key+' has no result from the previous part');
   assert.doesNotMatch(p.get('geometry-view').innerHTML,/Jedes Schaftsegment|positive Länge|Baukasten/);assert.equal(p.get('aus').hidden,true);assert.equal(p.get('drucken').disabled,true);
   const texts=node=>[node.textContent,...(node.children||[]).flatMap(texts)],picker=texts(p.get('norm-picker')).join('\n');assert(picker.includes(prompt));assert(!picker.includes(I.t('Für diese Ausführung die fehlende Kontur im Baukasten ergänzen. Die belegten Normmaße bleiben erhalten.',language)));
   p.get('norm-to-chain').events.click();assert.equal(p.get('norm-chain-status').textContent,prompt);
@@ -316,7 +337,9 @@ test('P5 semi-tubular rivet defaults explain the 120-degree bottom instead of as
   p.get('norm-laenge-custom').value='12';p.get('norm-laenge-custom').events.input();
   assert(!input.normMissingFields.includes('boreBottomShape'));assert.equal(input.geometryOrigins.bottomAngle.origin,'assumption');assert.equal(p.get('bolt-drive-fields').hidden,true);assert.equal(input.iTyp,'none');
   assert.equal(p.f.elements.threadFamily.value,'none','the actual control retains the effective unthreaded geometry for later free editing');
-  const note=I.t('Bohrungsgrund: {angle}°-Kegel als Umformannahme; keine Normvorgabe.',language).replace('{angle}','120');assert(p.get('geometry-view').innerHTML.includes(note));
+  const note=I.t('Bohrungsgrund: {angle}°-Kegel als Umformannahme; keine Normvorgabe.',language).replace('{angle}','120');
+  const previewNote=I.t('Kegelgrund 120° als Geometrie-/Prozessannahme, nicht aus der Normgröße abgeleitet.',language);
+  assert(p.get('geometry-view').innerHTML.includes(previewNote));assert(!p.get('geometry-view').innerHTML.includes(note),'standard preview has one bore-assumption note');
   const texts=node=>[node.textContent,...(node.children||[]).flatMap(texts)],picker=texts(p.get('norm-picker')).join('\n');assert(picker.includes(I.t('Kopfwölbungsradius',language)));assert.doesNotMatch(picker,/headProfileRadius|boreBottomShape/);
   p.get('drucken').events.click();assert(p.get('blatt').innerHTML.includes(note));await sendMail(p);assert(new URL(p.context.location.href).searchParams.get('body').includes(note));
   const assumption=input.boreBottomAssumption;p.get('norm-to-chain').events.click();assert.equal(p.get('norm-chain-status').textContent,'');assert.equal(p.f.elements.typ.value,'formteil');

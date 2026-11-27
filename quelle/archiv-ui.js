@@ -301,17 +301,18 @@
     drawingResult=null;drawingSelectedModel=null;kvpUI?.refresh({reset:true});anfrageAuswahlZeigen();drawingFileFeedback();drawingPreview?.update();drawingGallery();knoepfe();
   }
   function selectPartsMode(mode,focus=false){partsMode=mode==='geometry'?'geometry':'drawing';anfrageAuswahlLoeschen();rechnen();if(focus)$('parts-'+partsMode+'-tab').focus();}
-  function geometryModelNotes(input={}){
+  function geometryModelNotes(input={},includeBore=true){
     const shaft=input.shaftModelAssumption||input.modelAssumptions?.shaft,flange=input.flangeModelAssumption||input.modelAssumptions?.flange,notes=[];
     if(shaft?.model==='nominal-blank-segmentation')notes.push(tr('Rohlingmodell: Glatter Schaft l − b, Gewinderohling über b; der Gewindeauslauf ist vereinfacht.'));
     if(flange?.heightBasis==='published-minimum-c')notes.push(msg('Kopfmodell: Sechskant und zylindrischer Flansch; Flanschhöhe {height} mm aus dem veröffentlichten Mindestmaß c angenähert.',{height:fmt(flange.height,2)}));
     const bore=input.boreBottomAssumption||input.modelAssumptions?.bore;
-    if(bore?.origin==='assumption')notes.push(msg(bore.angleOrigin==='customer'?'Kegelförmiger Bohrungsgrund als Umformannahme; Winkel {angle}° aus Ihrer Eingabe.':'Bohrungsgrund: {angle}°-Kegel als Umformannahme; keine Normvorgabe.',{angle:fmt(bore.angle,0)}));
+    if(includeBore&&bore?.origin==='assumption')notes.push(msg(bore.angleOrigin==='customer'?'Kegelförmiger Bohrungsgrund als Umformannahme; Winkel {angle}° aus Ihrer Eingabe.':'Bohrungsgrund: {angle}°-Kegel als Umformannahme; keine Normvorgabe.',{angle:fmt(bore.angle,0)}));
     return notes;
   }
-  function geometryModelNotesHtml(input){return geometryModelNotes(input).map(text=>'<p class="klein geometry-model-note">'+esc(text)+'</p>').join('');}
+  function geometryModelNotesHtml(input,includeBore=true){return geometryModelNotes(input,includeBore).map(text=>'<p class="klein geometry-model-note">'+esc(text)+'</p>').join('');}
   function rechnen() {
     rankingService?.reset();
+    for(const key of ['lStempel','ko','pko','stationen','zusatz'])f.elements[key].placeholder='';
     sichtbar();
     $('empty-screws').hidden=typ()!=='bolzen';
     $('empty-nuts').hidden=typ()!=='mutter';
@@ -337,10 +338,10 @@
     const lengthOnly=e.normMissingFields?.length>0&&e.normMissingFields.every(key=>key==='length');
     if(staged&&window.JYStandardPreview){
       $('geometry-view').hidden=!(e.sD||e.kD||e.mM||e.mSW);
-      rendered($('geometry-view'),(lengthOnly?'<section class="standard-preview"><h2>'+h('Teilevorschau')+'</h2><p>'+h('Bitte Länge eingeben.')+'</p></section>':window.JYStandardPreview.render({input:e,analysis:e.normRequiresGeometryReview?{...aus,fehlt:['Kontur ergänzen']}:aus,material:selectedVariant()?.material,translate:tr,format:x=>fmt(x,3),engine:E}))+geometryModelNotesHtml(e));
+      rendered($('geometry-view'),(lengthOnly?'<section class="standard-preview"><h2>'+h('Teilevorschau')+'</h2><p>'+h('Bitte Länge eingeben.')+'</p></section>':window.JYStandardPreview.render({input:e,analysis:e.normRequiresGeometryReview?{...aus,fehlt:['Kontur ergänzen']}:aus,material:selectedVariant()?.material,translate:tr,format:x=>fmt(x,3),engine:E}))+geometryModelNotesHtml(e,false));
     }
     if(e.normRequiresGeometryReview){
-      letzte=null;anfrageAuswahlLoeschen();$('aus').hidden=true;$('leer').hidden=false;$('leer').dataset.originalText='';$('leer').textContent=tr(lengthOnly?'Bitte Länge eingeben.':'Die Normvorlage enthält noch keine vollständige Rohteilkontur. Fehlende Geometrie im Baukasten ergänzen.');knoepfe();L.apply();return;
+      letzte=null;anfrageAuswahlLoeschen();$('aus').hidden=true;$('leer').hidden=lengthOnly;$('leer').dataset.originalText='';$('leer').textContent=lengthOnly?'':tr('Die Normvorlage enthält noch keine vollständige Rohteilkontur. Fehlende Geometrie im Baukasten ergänzen.');knoepfe();L.apply();return;
     }
     if(angefragtesModell&&JSON.stringify(e)!==JSON.stringify(letzte?.e))anfrageAuswahlLoeschen();
     if (aus.fehlt.length || !aus.stufen.length) { $('leer').hidden = false; $('aus').hidden = true; $('empty-visual').hidden=false; $('leer').dataset.originalText=''; $('leer').textContent = aus.fehlt.length ? tr('Es fehlen noch:') + ' ' + aus.fehlt.map(tr).join(', ') + '.' : tr('Mit Draht-Ø und den Hüllmaßen des Teils erscheinen hier Stadienfolge, Werkzeuggröße und die passenden Modelle.'); letzte = null; anfrageAuswahlLoeschen(); knoepfe(); return; }
