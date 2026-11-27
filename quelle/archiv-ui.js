@@ -196,7 +196,7 @@
     const bolt=typ()==='bolzen',head=f.elements.kopfForm.value,drive=antriebsFamilie(),thread=gewindeFamilie();
     if(['kD','kH','kSW','kVol'].includes(name))return bolt&&head!=='none'&&(name!=='kSW'||['sechskant','abgratet','sechskant_bund'].includes(head))&&(name!=='kVol'||head==='krallen');
     if(['kC','capHeight','flangeDiameter','flangeHeight'].includes(name))return bolt&&!!f.elements[name]&&!f.elements[name].closest('[data-kopf]')?.hidden;
-    if(['d_b','t_b'].includes(name))return bolt&&f.elements.schaftende?.value&&f.elements.schaftende.value!=='voll'&&(name!=='t_b'||f.elements.schaftende.value==='halbhohl');
+    if(['d_b','t_b'].includes(name))return bolt&&['halbhohl','rohr'].includes(f.elements.schaftende?.value)&&(name!=='t_b'||f.elements.schaftende.value==='halbhohl');
     if(['endLength','endDiameter','tipAngle'].includes(name))return bolt&&['spitze','zapfen','kegelstumpf_flach'].includes(f.elements.schaftende?.value);
     if(['sD','sL'].includes(name))return bolt;
     if(['mM','mSW','mH','mLoch'].includes(name))return typ()==='mutter';
@@ -218,7 +218,7 @@
       standardKind:typ()==='bolzen'?f.elements.standardKind?.value||'screw':undefined,standardReference:typ()==='mutter'?f.elements.nutNorm?.value:f.elements.standardNorm?.value,threadFamily:typ()==='bolzen'?gewindeFamilie():undefined,
       wirePreparation:f.elements.wirePreparation.value||'as-supplied',rodDiameter:f.elements.wirePreparation.value==='inline-drawing'?g('rodDiameter'):undefined,
       kopfForm: f.elements.kopfForm.value, kD: g('kD'), kSW: g('kSW'), kH: g('kH'), kVol:f.elements.kopfForm.value==='krallen'?g('kVol'):undefined,sD: g('sD'), sL: g('sL'),
-      ...(staged&&f.elements.schaftende?{kopfTyp:f.elements.kopfForm.value==='rund'?'zylinder':f.elements.kopfForm.value,kC:g('kC'),capHeight:g('capHeight'),flangeDiameter:g('flangeDiameter'),flangeHeight:g('flangeHeight'),schaftende:f.elements.schaftende.value,d_b:g('d_b'),t_b:g('t_b'),bottomShape:f.elements.bottomShape?.value||'cone',bottomAngle:num(f.elements.bottomAngle?.value||'120'),boreDepthMode:'total'}:{}),
+      ...(staged&&f.elements.schaftende?{kopfTyp:f.elements.kopfForm.value==='rund'?'zylinder':f.elements.kopfForm.value,kC:g('kC'),capHeight:g('capHeight'),flangeDiameter:g('flangeDiameter'),flangeHeight:g('flangeHeight'),schaftende:f.elements.schaftende.value,d_b:g('d_b'),t_b:g('t_b'),...(f.elements.schaftende.value==='halbhohl'?{bottomShape:f.elements.bottomShape?.value||'cone',bottomAngle:num(f.elements.bottomAngle?.value||'120'),boreDepthMode:'total'}:{})}:{}),
       iTyp: antriebsFamilie(), iSize: f.elements.iSize.value,
       iSW: f.elements.iSize.value==='custom'?g('iSW'):num(f.elements.iSize.value), iT: g('iT'), iVol: g('iVol'),
       mM: g('mM'), mSW: g('mSW'), mH: g('mH'), mLoch: g('mLoch'),
@@ -242,9 +242,9 @@
       const preset=normPicker.adapted();
       e.partFunction=normPicker.partFunction?.();
       if(preset){
-        for(const key of ['standardReference','standardDocument','threadModel','propertyClass','normGeometryStatus','normMissingFields','normRequiresGeometryReview','shaftPolicy','shaftType','shaftSegments','shaftModelStatus','shaftModelAssumption','ds','b','flangeDiameter','flangeHeight','flangeModelAssumption','partFunction','boreBottomAssumption','geometryOrigins'])e[key]=preset[key];
+        for(const key of ['standardReference','standardDocument','threadModel','propertyClass','normGeometryStatus','normMissingFields','normRequiresGeometryReview','shaftPolicy','shaftType','shaftSegments','shaftModelStatus','shaftModelAssumption','ds','b','flangeDiameter','flangeHeight','flangeModelAssumption','partFunction','boreBottomAssumption','geometryOrigins','headModelAssumption','rivetGeometryReference','weldingLength','l1','l2'])e[key]=preset[key];
         if(e.typ==='mutter'&&preset.threadModel)e.threadPitch=preset.threadModel.P;
-        for(const key of ['shaftSegments','d_b','t_b','endAngle','endShape','kC','kF','kAlpha','mFlansch','mFlanschH'])if(preset[key]!=null&&!f.elements[key])e[key]=preset[key];
+        for(const key of ['shaftSegments','d_b','t_b','endAngle','endShape','kC','kF','kAlpha','alpha','mFlansch','mFlanschH'])if(preset[key]!=null&&!f.elements[key])e[key]=preset[key];
       }else{e.standardReference=undefined;e.standardDocument=undefined;}
     }
     return e;

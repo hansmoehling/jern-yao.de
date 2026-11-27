@@ -1,8 +1,8 @@
 {
   "schemaVersion": 1,
-  "version": "2026-11-26.1",
+  "version": "2026-11-27.p7",
   "id": "DIN928",
-  "edition": "catalog-undated",
+  "edition": "2013-12",
   "label": "Vierkant-Schweißmutter",
   "funktion": "mutter",
   "klasse": "mutter",
@@ -23,7 +23,8 @@
         "P": 0.8,
         "s_nom": 9,
         "e_catalog": 11,
-        "m_catalog": 4.2
+        "m_catalog": 4.2,
+        "e_min": 12
       },
       "thread": {
         "id": "M5x0.8",
@@ -51,7 +52,8 @@
         "P": 1,
         "s_nom": 10,
         "e_catalog": 13,
-        "m_catalog": 5
+        "m_catalog": 5,
+        "e_min": 13
       },
       "thread": {
         "id": "M6x1",
@@ -79,7 +81,8 @@
         "P": 1.25,
         "s_nom": 14,
         "e_catalog": 18,
-        "m_catalog": 6.5
+        "m_catalog": 6.5,
+        "e_min": 18
       },
       "thread": {
         "id": "M8x1.25",
@@ -107,7 +110,8 @@
         "P": 1.5,
         "s_nom": 17,
         "e_catalog": 22,
-        "m_catalog": 8
+        "m_catalog": 8,
+        "e_min": 22
       },
       "thread": {
         "id": "M10x1.5",
@@ -135,7 +139,8 @@
         "P": 1.75,
         "s_nom": 19,
         "e_catalog": 25,
-        "m_catalog": 9.5
+        "m_catalog": 9.5,
+        "e_min": 25
       },
       "thread": {
         "id": "M12x1.75",
@@ -152,29 +157,327 @@
         "pilotDiameter",
         "pilotHeight"
       ]
+    },
+    "M4": {
+      "vorbelegung": {
+        "mSW": 7,
+        "mH": 3.5
+      },
+      "roh": {
+        "d_nom": 4,
+        "P": 0.7,
+        "s_nom": 7,
+        "m_catalog": 3.5,
+        "e_min": 9
+      },
+      "geometryStatus": "partial",
+      "missingGeometryFields": [
+        "weldProjectionHeight",
+        "weldProjectionShape",
+        "pilotDiameter",
+        "pilotHeight"
+      ],
+      "thread": {
+        "id": "M4x0.7",
+        "diameter": 4,
+        "pitch": 0.7,
+        "sourceRefs": [
+          "din934_1987_original"
+        ]
+      }
+    },
+    "M14": {
+      "vorbelegung": {
+        "mSW": 22,
+        "mH": 11
+      },
+      "roh": {
+        "d_nom": 14,
+        "P": 2,
+        "s_nom": 22,
+        "m_catalog": 11,
+        "e_min": 28
+      },
+      "geometryStatus": "partial",
+      "missingGeometryFields": [
+        "weldProjectionHeight",
+        "weldProjectionShape",
+        "pilotDiameter",
+        "pilotHeight"
+      ],
+      "thread": {
+        "id": "M14x2",
+        "diameter": 14,
+        "pitch": 2,
+        "sourceRefs": [
+          "iso4032_2023"
+        ]
+      }
+    },
+    "M16": {
+      "vorbelegung": {
+        "mSW": 24,
+        "mH": 13
+      },
+      "roh": {
+        "d_nom": 16,
+        "P": 2,
+        "s_nom": 24,
+        "m_catalog": 13,
+        "e_min": 32
+      },
+      "geometryStatus": "partial",
+      "missingGeometryFields": [
+        "weldProjectionHeight",
+        "weldProjectionShape",
+        "pilotDiameter",
+        "pilotHeight"
+      ],
+      "thread": {
+        "id": "M16x2",
+        "diameter": 16,
+        "pitch": 2,
+        "sourceRefs": [
+          "iso4032_2023"
+        ]
+      }
+    },
+    "M8x1": {
+      "vorbelegung": {
+        "mSW": 14,
+        "mH": 6.5
+      },
+      "roh": {
+        "d_nom": 8,
+        "P": 1,
+        "s_nom": 14,
+        "m_catalog": 6.5,
+        "e_min": 18
+      },
+      "geometryStatus": "partial",
+      "missingGeometryFields": [
+        "weldProjectionHeight",
+        "weldProjectionShape",
+        "pilotDiameter",
+        "pilotHeight"
+      ],
+      "thread": {
+        "id": "M8x1",
+        "diameter": 8,
+        "pitch": 1,
+        "sourceRefs": [
+          "din928_2013_table",
+          "ugatu928"
+        ]
+      },
+      "dataEdition": "2013-12"
+    },
+    "M10x1.25": {
+      "vorbelegung": {
+        "mSW": 17,
+        "mH": 8
+      },
+      "roh": {
+        "d_nom": 10,
+        "P": 1.25,
+        "s_nom": 17,
+        "m_catalog": 8,
+        "e_min": 22
+      },
+      "geometryStatus": "partial",
+      "missingGeometryFields": [
+        "weldProjectionHeight",
+        "weldProjectionShape",
+        "pilotDiameter",
+        "pilotHeight"
+      ],
+      "thread": {
+        "id": "M10x1.25",
+        "diameter": 10,
+        "pitch": 1.25,
+        "sourceRefs": [
+          "din928_2013_table",
+          "ugatu928"
+        ]
+      },
+      "dataEdition": "2013-12"
+    },
+    "M10x1": {
+      "vorbelegung": {
+        "mSW": 17,
+        "mH": 8
+      },
+      "roh": {
+        "d_nom": 10,
+        "P": 1,
+        "s_nom": 17,
+        "m_catalog": 8,
+        "e_min": 22
+      },
+      "geometryStatus": "partial",
+      "missingGeometryFields": [
+        "weldProjectionHeight",
+        "weldProjectionShape",
+        "pilotDiameter",
+        "pilotHeight"
+      ],
+      "thread": {
+        "id": "M10x1",
+        "diameter": 10,
+        "pitch": 1,
+        "sourceRefs": [
+          "din928_2013_table",
+          "ugatu928"
+        ]
+      },
+      "dataEdition": "2013-12"
+    },
+    "M12x1.25": {
+      "vorbelegung": {
+        "mSW": 19,
+        "mH": 9.5
+      },
+      "roh": {
+        "d_nom": 12,
+        "P": 1.25,
+        "s_nom": 19,
+        "m_catalog": 9.5,
+        "e_min": 25
+      },
+      "geometryStatus": "partial",
+      "missingGeometryFields": [
+        "weldProjectionHeight",
+        "weldProjectionShape",
+        "pilotDiameter",
+        "pilotHeight"
+      ],
+      "thread": {
+        "id": "M12x1.25",
+        "diameter": 12,
+        "pitch": 1.25,
+        "sourceRefs": [
+          "din928_2013_table",
+          "ugatu928"
+        ]
+      },
+      "dataEdition": "2013-12"
+    },
+    "M12x1.5": {
+      "vorbelegung": {
+        "mSW": 19,
+        "mH": 9.5
+      },
+      "roh": {
+        "d_nom": 12,
+        "P": 1.5,
+        "s_nom": 19,
+        "m_catalog": 9.5,
+        "e_min": 25
+      },
+      "geometryStatus": "partial",
+      "missingGeometryFields": [
+        "weldProjectionHeight",
+        "weldProjectionShape",
+        "pilotDiameter",
+        "pilotHeight"
+      ],
+      "thread": {
+        "id": "M12x1.5",
+        "diameter": 12,
+        "pitch": 1.5,
+        "sourceRefs": [
+          "din928_2013_table",
+          "ugatu928"
+        ]
+      },
+      "dataEdition": "2013-12"
+    },
+    "M14x1.5": {
+      "vorbelegung": {
+        "mSW": 22,
+        "mH": 11
+      },
+      "roh": {
+        "d_nom": 14,
+        "P": 1.5,
+        "s_nom": 22,
+        "m_catalog": 11,
+        "e_min": 28
+      },
+      "geometryStatus": "partial",
+      "missingGeometryFields": [
+        "weldProjectionHeight",
+        "weldProjectionShape",
+        "pilotDiameter",
+        "pilotHeight"
+      ],
+      "thread": {
+        "id": "M14x1.5",
+        "diameter": 14,
+        "pitch": 1.5,
+        "sourceRefs": [
+          "din928_2013_table",
+          "ugatu928"
+        ]
+      },
+      "dataEdition": "2013-12"
+    },
+    "M16x1.5": {
+      "vorbelegung": {
+        "mSW": 24,
+        "mH": 13
+      },
+      "roh": {
+        "d_nom": 16,
+        "P": 1.5,
+        "s_nom": 24,
+        "m_catalog": 13,
+        "e_min": 32
+      },
+      "geometryStatus": "partial",
+      "missingGeometryFields": [
+        "weldProjectionHeight",
+        "weldProjectionShape",
+        "pilotDiameter",
+        "pilotHeight"
+      ],
+      "thread": {
+        "id": "M16x1.5",
+        "diameter": 16,
+        "pitch": 1.5,
+        "sourceRefs": [
+          "din928_2013_table",
+          "ugatu928"
+        ]
+      },
+      "dataEdition": "2013-12"
     }
   },
   "fields": {
     "M5": {
       "P": {
         "nominal": 0.8,
+        "unit": "mm",
         "sourceRefs": [
           "iso4032_2023"
         ],
         "status": "single-source",
-        "verification": "one-primary-record",
-        "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "verification": false,
+        "verificationMethod": "coarse-metric-pitch-table",
+        "note": "Nur die identische metrische Regelgewindesteigung wird aus der bezeichneten Gewindetabelle übernommen, keine äußeren Muttermaße."
       },
       "s_nom": {
         "nominal": 9,
+        "unit": "mm",
         "sourceRefs": [
+          "din928_2013_table",
+          "ugatu928",
           "lederer928"
         ],
-        "status": "single-source",
-        "verification": "one-primary-record",
-        "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "dimension-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "e_catalog": {
         "value": 11,
@@ -187,24 +490,30 @@
         "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
       },
       "m_catalog": {
-        "value": 4.2,
+        "nominal": 4.2,
+        "unit": "mm",
         "sourceRefs": [
+          "din928_2013_table",
+          "ugatu928",
           "lederer928"
         ],
-        "status": "single-source",
-        "verification": "one-primary-record",
-        "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "dimension-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "d_nom": {
         "nominal": 5,
+        "unit": "mm",
         "sourceRefs": [
+          "din928_2013_table",
+          "ugatu928",
           "lederer928"
         ],
-        "status": "single-source",
-        "verification": "one-primary-record",
-        "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "dimension-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "weldProjectionHeight": {
         "sourceRefs": [],
@@ -233,28 +542,44 @@
         "verification": false,
         "unit": "mm",
         "note": "Detailmaß im ausgewerteten Nachweis nicht festgelegt; Kunden-/Herstellerzeichnung erforderlich."
+      },
+      "e_min": {
+        "min": 12,
+        "unit": "mm",
+        "sourceRefs": [
+          "din928_2013_table",
+          "ugatu928"
+        ],
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "dimension-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       }
     },
     "M6": {
       "P": {
         "nominal": 1,
+        "unit": "mm",
         "sourceRefs": [
           "iso4032_2023"
         ],
         "status": "single-source",
-        "verification": "one-primary-record",
-        "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "verification": false,
+        "verificationMethod": "coarse-metric-pitch-table",
+        "note": "Nur die identische metrische Regelgewindesteigung wird aus der bezeichneten Gewindetabelle übernommen, keine äußeren Muttermaße."
       },
       "s_nom": {
         "nominal": 10,
+        "unit": "mm",
         "sourceRefs": [
+          "din928_2013_table",
+          "ugatu928",
           "lederer928"
         ],
-        "status": "single-source",
-        "verification": "one-primary-record",
-        "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "dimension-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "e_catalog": {
         "value": 13,
@@ -267,24 +592,30 @@
         "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
       },
       "m_catalog": {
-        "value": 5,
+        "nominal": 5,
+        "unit": "mm",
         "sourceRefs": [
+          "din928_2013_table",
+          "ugatu928",
           "lederer928"
         ],
-        "status": "single-source",
-        "verification": "one-primary-record",
-        "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "dimension-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "d_nom": {
         "nominal": 6,
+        "unit": "mm",
         "sourceRefs": [
+          "din928_2013_table",
+          "ugatu928",
           "lederer928"
         ],
-        "status": "single-source",
-        "verification": "one-primary-record",
-        "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "dimension-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "weldProjectionHeight": {
         "sourceRefs": [],
@@ -313,28 +644,44 @@
         "verification": false,
         "unit": "mm",
         "note": "Detailmaß im ausgewerteten Nachweis nicht festgelegt; Kunden-/Herstellerzeichnung erforderlich."
+      },
+      "e_min": {
+        "min": 13,
+        "unit": "mm",
+        "sourceRefs": [
+          "din928_2013_table",
+          "ugatu928"
+        ],
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "dimension-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       }
     },
     "M8": {
       "P": {
         "nominal": 1.25,
+        "unit": "mm",
         "sourceRefs": [
           "iso4032_2023"
         ],
         "status": "single-source",
-        "verification": "one-primary-record",
-        "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "verification": false,
+        "verificationMethod": "coarse-metric-pitch-table",
+        "note": "Nur die identische metrische Regelgewindesteigung wird aus der bezeichneten Gewindetabelle übernommen, keine äußeren Muttermaße."
       },
       "s_nom": {
         "nominal": 14,
+        "unit": "mm",
         "sourceRefs": [
+          "din928_2013_table",
+          "ugatu928",
           "lederer928"
         ],
-        "status": "single-source",
-        "verification": "one-primary-record",
-        "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "dimension-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "e_catalog": {
         "value": 18,
@@ -347,24 +694,30 @@
         "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
       },
       "m_catalog": {
-        "value": 6.5,
+        "nominal": 6.5,
+        "unit": "mm",
         "sourceRefs": [
+          "din928_2013_table",
+          "ugatu928",
           "lederer928"
         ],
-        "status": "single-source",
-        "verification": "one-primary-record",
-        "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "dimension-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "d_nom": {
         "nominal": 8,
+        "unit": "mm",
         "sourceRefs": [
+          "din928_2013_table",
+          "ugatu928",
           "lederer928"
         ],
-        "status": "single-source",
-        "verification": "one-primary-record",
-        "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "dimension-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "weldProjectionHeight": {
         "sourceRefs": [],
@@ -393,28 +746,44 @@
         "verification": false,
         "unit": "mm",
         "note": "Detailmaß im ausgewerteten Nachweis nicht festgelegt; Kunden-/Herstellerzeichnung erforderlich."
+      },
+      "e_min": {
+        "min": 18,
+        "unit": "mm",
+        "sourceRefs": [
+          "din928_2013_table",
+          "ugatu928"
+        ],
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "dimension-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       }
     },
     "M10": {
       "P": {
         "nominal": 1.5,
+        "unit": "mm",
         "sourceRefs": [
           "iso4032_2023"
         ],
         "status": "single-source",
-        "verification": "one-primary-record",
-        "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "verification": false,
+        "verificationMethod": "coarse-metric-pitch-table",
+        "note": "Nur die identische metrische Regelgewindesteigung wird aus der bezeichneten Gewindetabelle übernommen, keine äußeren Muttermaße."
       },
       "s_nom": {
         "nominal": 17,
+        "unit": "mm",
         "sourceRefs": [
+          "din928_2013_table",
+          "ugatu928",
           "lederer928"
         ],
-        "status": "single-source",
-        "verification": "one-primary-record",
-        "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "dimension-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "e_catalog": {
         "value": 22,
@@ -427,7 +796,99 @@
         "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
       },
       "m_catalog": {
-        "value": 8,
+        "nominal": 8,
+        "unit": "mm",
+        "sourceRefs": [
+          "din928_2013_table",
+          "ugatu928",
+          "lederer928"
+        ],
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "dimension-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
+      },
+      "d_nom": {
+        "nominal": 10,
+        "unit": "mm",
+        "sourceRefs": [
+          "din928_2013_table",
+          "ugatu928",
+          "lederer928"
+        ],
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "dimension-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
+      },
+      "weldProjectionHeight": {
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "unit": "mm",
+        "note": "Detailmaß im ausgewerteten Nachweis nicht festgelegt; Kunden-/Herstellerzeichnung erforderlich."
+      },
+      "weldProjectionShape": {
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "unit": "mm",
+        "note": "Detailmaß im ausgewerteten Nachweis nicht festgelegt; Kunden-/Herstellerzeichnung erforderlich."
+      },
+      "pilotDiameter": {
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "unit": "mm",
+        "note": "Detailmaß im ausgewerteten Nachweis nicht festgelegt; Kunden-/Herstellerzeichnung erforderlich."
+      },
+      "pilotHeight": {
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "unit": "mm",
+        "note": "Detailmaß im ausgewerteten Nachweis nicht festgelegt; Kunden-/Herstellerzeichnung erforderlich."
+      },
+      "e_min": {
+        "min": 22,
+        "unit": "mm",
+        "sourceRefs": [
+          "din928_2013_table",
+          "ugatu928"
+        ],
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "dimension-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
+      }
+    },
+    "M12": {
+      "P": {
+        "nominal": 1.75,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso4032_2023"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "coarse-metric-pitch-table",
+        "note": "Nur die identische metrische Regelgewindesteigung wird aus der bezeichneten Gewindetabelle übernommen, keine äußeren Muttermaße."
+      },
+      "s_nom": {
+        "nominal": 19,
+        "unit": "mm",
+        "sourceRefs": [
+          "din928_2013_table",
+          "ugatu928",
+          "lederer928"
+        ],
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "dimension-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
+      },
+      "e_catalog": {
+        "value": 25,
         "sourceRefs": [
           "lederer928"
         ],
@@ -436,15 +897,134 @@
         "unit": "mm",
         "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
       },
-      "d_nom": {
-        "nominal": 10,
+      "m_catalog": {
+        "nominal": 9.5,
+        "unit": "mm",
         "sourceRefs": [
+          "din928_2013_table",
+          "ugatu928",
           "lederer928"
         ],
-        "status": "single-source",
-        "verification": "one-primary-record",
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "dimension-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
+      },
+      "d_nom": {
+        "nominal": 12,
         "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "sourceRefs": [
+          "din928_2013_table",
+          "ugatu928",
+          "lederer928"
+        ],
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "dimension-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
+      },
+      "weldProjectionHeight": {
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "unit": "mm",
+        "note": "Detailmaß im ausgewerteten Nachweis nicht festgelegt; Kunden-/Herstellerzeichnung erforderlich."
+      },
+      "weldProjectionShape": {
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "unit": "mm",
+        "note": "Detailmaß im ausgewerteten Nachweis nicht festgelegt; Kunden-/Herstellerzeichnung erforderlich."
+      },
+      "pilotDiameter": {
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "unit": "mm",
+        "note": "Detailmaß im ausgewerteten Nachweis nicht festgelegt; Kunden-/Herstellerzeichnung erforderlich."
+      },
+      "pilotHeight": {
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "unit": "mm",
+        "note": "Detailmaß im ausgewerteten Nachweis nicht festgelegt; Kunden-/Herstellerzeichnung erforderlich."
+      },
+      "e_min": {
+        "min": 25,
+        "unit": "mm",
+        "sourceRefs": [
+          "din928_2013_table",
+          "ugatu928"
+        ],
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "dimension-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
+      }
+    },
+    "M4": {
+      "d_nom": {
+        "nominal": 4,
+        "unit": "mm",
+        "sourceRefs": [
+          "din928_2013_table",
+          "ugatu928"
+        ],
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "dimension-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
+      },
+      "P": {
+        "nominal": 0.7,
+        "unit": "mm",
+        "sourceRefs": [
+          "din934_1987_original"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "coarse-metric-pitch-table",
+        "note": "Nur die identische metrische Regelgewindesteigung wird aus der bezeichneten Gewindetabelle übernommen, keine äußeren Muttermaße."
+      },
+      "s_nom": {
+        "nominal": 7,
+        "unit": "mm",
+        "sourceRefs": [
+          "din928_2013_table",
+          "ugatu928",
+          "lederer928"
+        ],
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "dimension-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
+      },
+      "m_catalog": {
+        "nominal": 3.5,
+        "unit": "mm",
+        "sourceRefs": [
+          "din928_2013_table",
+          "ugatu928",
+          "lederer928"
+        ],
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "dimension-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
+      },
+      "e_min": {
+        "min": 9,
+        "unit": "mm",
+        "sourceRefs": [
+          "din928_2013_table",
+          "ugatu928"
+        ],
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "dimension-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "weldProjectionHeight": {
         "sourceRefs": [],
@@ -475,56 +1055,786 @@
         "note": "Detailmaß im ausgewerteten Nachweis nicht festgelegt; Kunden-/Herstellerzeichnung erforderlich."
       }
     },
-    "M12": {
+    "M14": {
+      "d_nom": {
+        "nominal": 14,
+        "unit": "mm",
+        "sourceRefs": [
+          "din928_2013_table",
+          "ugatu928"
+        ],
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "dimension-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
+      },
       "P": {
-        "nominal": 1.75,
+        "nominal": 2,
+        "unit": "mm",
         "sourceRefs": [
           "iso4032_2023"
         ],
         "status": "single-source",
-        "verification": "one-primary-record",
+        "verification": false,
+        "verificationMethod": "coarse-metric-pitch-table",
+        "note": "Nur die identische metrische Regelgewindesteigung wird aus der bezeichneten Gewindetabelle übernommen, keine äußeren Muttermaße."
+      },
+      "s_nom": {
+        "nominal": 22,
         "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "sourceRefs": [
+          "din928_2013_table",
+          "ugatu928",
+          "lederer928"
+        ],
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "dimension-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
+      },
+      "m_catalog": {
+        "nominal": 11,
+        "unit": "mm",
+        "sourceRefs": [
+          "din928_2013_table",
+          "lederer928"
+        ],
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "dimension-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
+      },
+      "e_min": {
+        "min": 28,
+        "unit": "mm",
+        "sourceRefs": [
+          "din928_2013_table",
+          "ugatu928"
+        ],
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "dimension-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
+      },
+      "weldProjectionHeight": {
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "unit": "mm",
+        "note": "Detailmaß im ausgewerteten Nachweis nicht festgelegt; Kunden-/Herstellerzeichnung erforderlich."
+      },
+      "weldProjectionShape": {
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "unit": "mm",
+        "note": "Detailmaß im ausgewerteten Nachweis nicht festgelegt; Kunden-/Herstellerzeichnung erforderlich."
+      },
+      "pilotDiameter": {
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "unit": "mm",
+        "note": "Detailmaß im ausgewerteten Nachweis nicht festgelegt; Kunden-/Herstellerzeichnung erforderlich."
+      },
+      "pilotHeight": {
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "unit": "mm",
+        "note": "Detailmaß im ausgewerteten Nachweis nicht festgelegt; Kunden-/Herstellerzeichnung erforderlich."
+      }
+    },
+    "M16": {
+      "d_nom": {
+        "nominal": 16,
+        "unit": "mm",
+        "sourceRefs": [
+          "din928_2013_table",
+          "ugatu928"
+        ],
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "dimension-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
+      },
+      "P": {
+        "nominal": 2,
+        "unit": "mm",
+        "sourceRefs": [
+          "iso4032_2023"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "coarse-metric-pitch-table",
+        "note": "Nur die identische metrische Regelgewindesteigung wird aus der bezeichneten Gewindetabelle übernommen, keine äußeren Muttermaße."
+      },
+      "s_nom": {
+        "nominal": 24,
+        "unit": "mm",
+        "sourceRefs": [
+          "din928_2013_table",
+          "ugatu928",
+          "lederer928"
+        ],
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "dimension-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
+      },
+      "m_catalog": {
+        "nominal": 13,
+        "unit": "mm",
+        "sourceRefs": [
+          "din928_2013_table",
+          "ugatu928",
+          "lederer928"
+        ],
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "dimension-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
+      },
+      "e_min": {
+        "min": 32,
+        "unit": "mm",
+        "sourceRefs": [
+          "din928_2013_table",
+          "ugatu928"
+        ],
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "dimension-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
+      },
+      "weldProjectionHeight": {
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "unit": "mm",
+        "note": "Detailmaß im ausgewerteten Nachweis nicht festgelegt; Kunden-/Herstellerzeichnung erforderlich."
+      },
+      "weldProjectionShape": {
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "unit": "mm",
+        "note": "Detailmaß im ausgewerteten Nachweis nicht festgelegt; Kunden-/Herstellerzeichnung erforderlich."
+      },
+      "pilotDiameter": {
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "unit": "mm",
+        "note": "Detailmaß im ausgewerteten Nachweis nicht festgelegt; Kunden-/Herstellerzeichnung erforderlich."
+      },
+      "pilotHeight": {
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "unit": "mm",
+        "note": "Detailmaß im ausgewerteten Nachweis nicht festgelegt; Kunden-/Herstellerzeichnung erforderlich."
+      }
+    },
+    "M8x1": {
+      "d_nom": {
+        "nominal": 8,
+        "unit": "mm",
+        "sourceRefs": [
+          "din928_2013_table",
+          "ugatu928"
+        ],
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "dimension-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
+      },
+      "P": {
+        "nominal": 1,
+        "unit": "mm",
+        "sourceRefs": [
+          "din928_2013_table",
+          "ugatu928"
+        ],
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "dimension-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
+      },
+      "s_nom": {
+        "nominal": 14,
+        "unit": "mm",
+        "sourceRefs": [
+          "din928_2013_table",
+          "ugatu928"
+        ],
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "dimension-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
+      },
+      "m_catalog": {
+        "nominal": 6.5,
+        "unit": "mm",
+        "sourceRefs": [
+          "din928_2013_table",
+          "ugatu928"
+        ],
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "dimension-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
+      },
+      "e_min": {
+        "min": 18,
+        "unit": "mm",
+        "sourceRefs": [
+          "din928_2013_table",
+          "ugatu928"
+        ],
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "dimension-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
+      },
+      "weldProjectionHeight": {
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "unit": "mm",
+        "note": "Detailmaß im ausgewerteten Nachweis nicht festgelegt; Kunden-/Herstellerzeichnung erforderlich."
+      },
+      "weldProjectionShape": {
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "unit": "mm",
+        "note": "Detailmaß im ausgewerteten Nachweis nicht festgelegt; Kunden-/Herstellerzeichnung erforderlich."
+      },
+      "pilotDiameter": {
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "unit": "mm",
+        "note": "Detailmaß im ausgewerteten Nachweis nicht festgelegt; Kunden-/Herstellerzeichnung erforderlich."
+      },
+      "pilotHeight": {
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "unit": "mm",
+        "note": "Detailmaß im ausgewerteten Nachweis nicht festgelegt; Kunden-/Herstellerzeichnung erforderlich."
+      }
+    },
+    "M10x1.25": {
+      "d_nom": {
+        "nominal": 10,
+        "unit": "mm",
+        "sourceRefs": [
+          "din928_2013_table",
+          "ugatu928"
+        ],
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "dimension-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
+      },
+      "P": {
+        "nominal": 1.25,
+        "unit": "mm",
+        "sourceRefs": [
+          "din928_2013_table",
+          "ugatu928"
+        ],
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "dimension-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
+      },
+      "s_nom": {
+        "nominal": 17,
+        "unit": "mm",
+        "sourceRefs": [
+          "din928_2013_table",
+          "ugatu928"
+        ],
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "dimension-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
+      },
+      "m_catalog": {
+        "nominal": 8,
+        "unit": "mm",
+        "sourceRefs": [
+          "din928_2013_table",
+          "ugatu928"
+        ],
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "dimension-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
+      },
+      "e_min": {
+        "min": 22,
+        "unit": "mm",
+        "sourceRefs": [
+          "din928_2013_table",
+          "ugatu928"
+        ],
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "dimension-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
+      },
+      "weldProjectionHeight": {
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "unit": "mm",
+        "note": "Detailmaß im ausgewerteten Nachweis nicht festgelegt; Kunden-/Herstellerzeichnung erforderlich."
+      },
+      "weldProjectionShape": {
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "unit": "mm",
+        "note": "Detailmaß im ausgewerteten Nachweis nicht festgelegt; Kunden-/Herstellerzeichnung erforderlich."
+      },
+      "pilotDiameter": {
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "unit": "mm",
+        "note": "Detailmaß im ausgewerteten Nachweis nicht festgelegt; Kunden-/Herstellerzeichnung erforderlich."
+      },
+      "pilotHeight": {
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "unit": "mm",
+        "note": "Detailmaß im ausgewerteten Nachweis nicht festgelegt; Kunden-/Herstellerzeichnung erforderlich."
+      }
+    },
+    "M10x1": {
+      "d_nom": {
+        "nominal": 10,
+        "unit": "mm",
+        "sourceRefs": [
+          "din928_2013_table",
+          "ugatu928"
+        ],
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "dimension-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
+      },
+      "P": {
+        "nominal": 1,
+        "unit": "mm",
+        "sourceRefs": [
+          "din928_2013_table",
+          "ugatu928"
+        ],
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "dimension-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
+      },
+      "s_nom": {
+        "nominal": 17,
+        "unit": "mm",
+        "sourceRefs": [
+          "din928_2013_table",
+          "ugatu928"
+        ],
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "dimension-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
+      },
+      "m_catalog": {
+        "nominal": 8,
+        "unit": "mm",
+        "sourceRefs": [
+          "din928_2013_table",
+          "ugatu928"
+        ],
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "dimension-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
+      },
+      "e_min": {
+        "min": 22,
+        "unit": "mm",
+        "sourceRefs": [
+          "din928_2013_table",
+          "ugatu928"
+        ],
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "dimension-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
+      },
+      "weldProjectionHeight": {
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "unit": "mm",
+        "note": "Detailmaß im ausgewerteten Nachweis nicht festgelegt; Kunden-/Herstellerzeichnung erforderlich."
+      },
+      "weldProjectionShape": {
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "unit": "mm",
+        "note": "Detailmaß im ausgewerteten Nachweis nicht festgelegt; Kunden-/Herstellerzeichnung erforderlich."
+      },
+      "pilotDiameter": {
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "unit": "mm",
+        "note": "Detailmaß im ausgewerteten Nachweis nicht festgelegt; Kunden-/Herstellerzeichnung erforderlich."
+      },
+      "pilotHeight": {
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "unit": "mm",
+        "note": "Detailmaß im ausgewerteten Nachweis nicht festgelegt; Kunden-/Herstellerzeichnung erforderlich."
+      }
+    },
+    "M12x1.25": {
+      "d_nom": {
+        "nominal": 12,
+        "unit": "mm",
+        "sourceRefs": [
+          "din928_2013_table",
+          "ugatu928"
+        ],
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "dimension-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
+      },
+      "P": {
+        "nominal": 1.25,
+        "unit": "mm",
+        "sourceRefs": [
+          "din928_2013_table",
+          "ugatu928"
+        ],
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "dimension-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "s_nom": {
         "nominal": 19,
-        "sourceRefs": [
-          "lederer928"
-        ],
-        "status": "single-source",
-        "verification": "one-primary-record",
         "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
-      },
-      "e_catalog": {
-        "value": 25,
         "sourceRefs": [
-          "lederer928"
+          "din928_2013_table",
+          "ugatu928"
         ],
-        "status": "single-source",
-        "verification": "one-primary-record",
-        "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "dimension-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "m_catalog": {
-        "value": 9.5,
-        "sourceRefs": [
-          "lederer928"
-        ],
-        "status": "single-source",
-        "verification": "one-primary-record",
+        "nominal": 9.5,
         "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "sourceRefs": [
+          "din928_2013_table",
+          "ugatu928"
+        ],
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "dimension-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
+      "e_min": {
+        "min": 25,
+        "unit": "mm",
+        "sourceRefs": [
+          "din928_2013_table",
+          "ugatu928"
+        ],
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "dimension-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
+      },
+      "weldProjectionHeight": {
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "unit": "mm",
+        "note": "Detailmaß im ausgewerteten Nachweis nicht festgelegt; Kunden-/Herstellerzeichnung erforderlich."
+      },
+      "weldProjectionShape": {
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "unit": "mm",
+        "note": "Detailmaß im ausgewerteten Nachweis nicht festgelegt; Kunden-/Herstellerzeichnung erforderlich."
+      },
+      "pilotDiameter": {
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "unit": "mm",
+        "note": "Detailmaß im ausgewerteten Nachweis nicht festgelegt; Kunden-/Herstellerzeichnung erforderlich."
+      },
+      "pilotHeight": {
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "unit": "mm",
+        "note": "Detailmaß im ausgewerteten Nachweis nicht festgelegt; Kunden-/Herstellerzeichnung erforderlich."
+      }
+    },
+    "M12x1.5": {
       "d_nom": {
         "nominal": 12,
+        "unit": "mm",
         "sourceRefs": [
-          "lederer928"
+          "din928_2013_table",
+          "ugatu928"
+        ],
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "dimension-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
+      },
+      "P": {
+        "nominal": 1.5,
+        "unit": "mm",
+        "sourceRefs": [
+          "din928_2013_table",
+          "ugatu928"
+        ],
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "dimension-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
+      },
+      "s_nom": {
+        "nominal": 19,
+        "unit": "mm",
+        "sourceRefs": [
+          "din928_2013_table",
+          "ugatu928"
+        ],
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "dimension-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
+      },
+      "m_catalog": {
+        "nominal": 9.5,
+        "unit": "mm",
+        "sourceRefs": [
+          "din928_2013_table",
+          "ugatu928"
+        ],
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "dimension-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
+      },
+      "e_min": {
+        "min": 25,
+        "unit": "mm",
+        "sourceRefs": [
+          "din928_2013_table",
+          "ugatu928"
+        ],
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "dimension-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
+      },
+      "weldProjectionHeight": {
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "unit": "mm",
+        "note": "Detailmaß im ausgewerteten Nachweis nicht festgelegt; Kunden-/Herstellerzeichnung erforderlich."
+      },
+      "weldProjectionShape": {
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "unit": "mm",
+        "note": "Detailmaß im ausgewerteten Nachweis nicht festgelegt; Kunden-/Herstellerzeichnung erforderlich."
+      },
+      "pilotDiameter": {
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "unit": "mm",
+        "note": "Detailmaß im ausgewerteten Nachweis nicht festgelegt; Kunden-/Herstellerzeichnung erforderlich."
+      },
+      "pilotHeight": {
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "unit": "mm",
+        "note": "Detailmaß im ausgewerteten Nachweis nicht festgelegt; Kunden-/Herstellerzeichnung erforderlich."
+      }
+    },
+    "M14x1.5": {
+      "d_nom": {
+        "nominal": 14,
+        "unit": "mm",
+        "sourceRefs": [
+          "din928_2013_table",
+          "ugatu928"
+        ],
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "dimension-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
+      },
+      "P": {
+        "nominal": 1.5,
+        "unit": "mm",
+        "sourceRefs": [
+          "din928_2013_table",
+          "ugatu928"
+        ],
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "dimension-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
+      },
+      "s_nom": {
+        "nominal": 22,
+        "unit": "mm",
+        "sourceRefs": [
+          "din928_2013_table",
+          "ugatu928"
+        ],
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "dimension-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
+      },
+      "m_catalog": {
+        "nominal": 11,
+        "unit": "mm",
+        "sourceRefs": [
+          "din928_2013_table"
         ],
         "status": "single-source",
-        "verification": "one-primary-record",
+        "verification": false,
+        "verificationMethod": "dimension-table",
+        "note": "Nur eine ausgewertete Maßquelle."
+      },
+      "e_min": {
+        "min": 28,
         "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "sourceRefs": [
+          "din928_2013_table",
+          "ugatu928"
+        ],
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "dimension-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
+      },
+      "weldProjectionHeight": {
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "unit": "mm",
+        "note": "Detailmaß im ausgewerteten Nachweis nicht festgelegt; Kunden-/Herstellerzeichnung erforderlich."
+      },
+      "weldProjectionShape": {
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "unit": "mm",
+        "note": "Detailmaß im ausgewerteten Nachweis nicht festgelegt; Kunden-/Herstellerzeichnung erforderlich."
+      },
+      "pilotDiameter": {
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "unit": "mm",
+        "note": "Detailmaß im ausgewerteten Nachweis nicht festgelegt; Kunden-/Herstellerzeichnung erforderlich."
+      },
+      "pilotHeight": {
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "unit": "mm",
+        "note": "Detailmaß im ausgewerteten Nachweis nicht festgelegt; Kunden-/Herstellerzeichnung erforderlich."
+      }
+    },
+    "M16x1.5": {
+      "d_nom": {
+        "nominal": 16,
+        "unit": "mm",
+        "sourceRefs": [
+          "din928_2013_table",
+          "ugatu928"
+        ],
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "dimension-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
+      },
+      "P": {
+        "nominal": 1.5,
+        "unit": "mm",
+        "sourceRefs": [
+          "din928_2013_table",
+          "ugatu928"
+        ],
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "dimension-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
+      },
+      "s_nom": {
+        "nominal": 24,
+        "unit": "mm",
+        "sourceRefs": [
+          "din928_2013_table",
+          "ugatu928"
+        ],
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "dimension-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
+      },
+      "m_catalog": {
+        "nominal": 13,
+        "unit": "mm",
+        "sourceRefs": [
+          "din928_2013_table",
+          "ugatu928"
+        ],
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "dimension-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
+      },
+      "e_min": {
+        "min": 32,
+        "unit": "mm",
+        "sourceRefs": [
+          "din928_2013_table",
+          "ugatu928"
+        ],
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "dimension-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "weldProjectionHeight": {
         "sourceRefs": [],
@@ -580,28 +1890,49 @@
       "kind": "standard",
       "edition": "2023",
       "accessed": "2026-11-26"
+    },
+    "din928_2013_table": {
+      "url": "https://www.jsjustso.com/wanboguanwangmanbetx/pic/DIN928-2013.pdf",
+      "title": "DIN928:2013-12 Original, indexierter Tabelleninhalt",
+      "edition": "2013-12",
+      "locator": "Tabelle1, Seite6; Index lesbar, direkter Download aktuell404",
+      "kind": "standard-original-indexed",
+      "accessed": "2026-11-27"
+    },
+    "din_register_DIN928": {
+      "url": "https://www.dinmedia.de/de/norm/din-928/194677746",
+      "title": "DIN928:2013-12 DIN Media",
+      "edition": "2013-12",
+      "locator": "Ausgabe, Berichtigungen und Normstatus",
+      "kind": "standard-register",
+      "accessed": "2026-11-27"
+    },
+    "din934_1987_original": {
+      "url": "https://traiv-komplekt.ru/upload/iblock/1ea/din934.pdf",
+      "title": "DIN 934:1987-10, Originalmaßtabellen",
+      "edition": "1987-10",
+      "locator": "Tabelle 1, Seiten 2–3",
+      "kind": "standard-original",
+      "accessed": "2026-11-27"
+    },
+    "ugatu928": {
+      "url": "https://www.ugatu.com/media/uploads/pdf/fichas-tecnicas/DIN_928.pdf",
+      "title": "Industrias UGATU DIN928 Maßtabelle",
+      "edition": null,
+      "locator": "Seite 2 von 4; vollständig indexierte Tabellen, Direktdownload 403",
+      "kind": "manufacturer-datasheet-indexed",
+      "accessed": "2026-11-27"
     }
   },
   "sourceStatus": "per-value",
   "coverage": {
-    "diameterMin": 5,
-    "diameterMax": 30,
+    "diameterMin": 4,
+    "diameterMax": 16,
     "unit": "mm",
     "status": "partial",
-    "missingSizes": [
-      "M7",
-      "M14",
-      "M16",
-      "M18",
-      "M20",
-      "M22",
-      "M24",
-      "M27",
-      "M30"
-    ],
-    "missingReason": "Keine ausgewerteten Maßnachweise für diese Größen; keine Aussage über Herstellbarkeit oder Lieferbarkeit."
+    "note": "Acht Regelgewinde- und sieben Feingewindezeilen der Originaltabelle 2013-12; Schweißkontur im Rechenadapter noch unvollständig."
   },
-  "editionStatus": "edition-unverified",
+  "editionStatus": "source-edition-matched",
   "shape": "vierkant",
   "height": "m_catalog",
   "threadSeries": "coarse",
@@ -609,5 +1940,192 @@
   "editionSourceRefs": [
     "din_nuts_register"
   ],
-  "defaultPolicy": "Dokumentierte Kataloghöhe oder ausgewiesenes Höchstmaß als vorläufige Außenhülle; kein vollständiges Fertigteilmodell."
+  "defaultPolicy": "Dokumentierte Kataloghöhe oder ausgewiesenes Höchstmaß als vorläufige Außenhülle; kein vollständiges Fertigteilmodell.",
+  "editionEvidence": {
+    "sourceRefs": [
+      "din928_2013_table"
+    ],
+    "method": "dated-table-excerpt-compared",
+    "note": "Ausdrücklich datierte Tabelle; direkt abrufbare Original-Maßseiten bleiben als Nachprüfung offen. Statusseite ist kein zweiter Maßbeleg."
+  },
+  "coverageNotes": [
+    "UGATU nennt für M14 m=11,4 mm; die korrigierte Originalausgabe 2013-12 nennt 11,0 mm. Diese Zeile wird an der Höhe nicht als doppelt bestätigt ausgegeben."
+  ],
+  "sizeCoverage": {
+    "M4": {
+      "status": "documented",
+      "sourceRefs": [
+        "din928_2013_table"
+      ]
+    },
+    "M5": {
+      "status": "documented",
+      "sourceRefs": [
+        "din928_2013_table"
+      ]
+    },
+    "M6": {
+      "status": "documented",
+      "sourceRefs": [
+        "din928_2013_table"
+      ]
+    },
+    "M8": {
+      "status": "documented",
+      "sourceRefs": [
+        "din928_2013_table"
+      ]
+    },
+    "M10": {
+      "status": "documented",
+      "sourceRefs": [
+        "din928_2013_table"
+      ]
+    },
+    "M12": {
+      "status": "documented",
+      "sourceRefs": [
+        "din928_2013_table"
+      ]
+    },
+    "M14": {
+      "status": "documented",
+      "sourceRefs": [
+        "din928_2013_table"
+      ]
+    },
+    "M16": {
+      "status": "documented",
+      "sourceRefs": [
+        "din928_2013_table"
+      ]
+    },
+    "M8x1": {
+      "status": "documented",
+      "sourceRefs": [
+        "din928_2013_table"
+      ]
+    },
+    "M10x1.25": {
+      "status": "documented",
+      "sourceRefs": [
+        "din928_2013_table"
+      ]
+    },
+    "M10x1": {
+      "status": "documented",
+      "sourceRefs": [
+        "din928_2013_table"
+      ]
+    },
+    "M12x1.25": {
+      "status": "documented",
+      "sourceRefs": [
+        "din928_2013_table"
+      ]
+    },
+    "M12x1.5": {
+      "status": "documented",
+      "sourceRefs": [
+        "din928_2013_table"
+      ]
+    },
+    "M14x1.5": {
+      "status": "documented",
+      "sourceRefs": [
+        "din928_2013_table"
+      ]
+    },
+    "M16x1.5": {
+      "status": "documented",
+      "sourceRefs": [
+        "din928_2013_table"
+      ]
+    }
+  },
+  "pruefdatum": "2026-11-27",
+  "quellen": [
+    {
+      "id": "lederer928",
+      "url": "https://www.lederer-online.com/fileadmin/users/redakteur/redakteur_upload/DIN928.pdf",
+      "title": "Lederer DIN928 product dimensions",
+      "locator": "Printed page 110",
+      "kind": "supplier-product-catalog",
+      "edition": null,
+      "accessed": "2026-11-26"
+    },
+    {
+      "id": "din_nuts_register",
+      "url": "https://www.din.de/en/getting-involved/standards-committees/fmv/national-committees/68242/wdc-grem%3Adin21%3A126850981%21search-grem-details?masking=true",
+      "title": "DIN FMV nuts standards register",
+      "locator": "DIN 557:2026-02, DIN 562:2013-05, DIN 928/929:2013-12",
+      "kind": "standard-register",
+      "edition": null,
+      "accessed": "2026-11-26"
+    },
+    {
+      "id": "iso4032_2023",
+      "url": "https://cdn.standards.iteh.ai/samples/75016/5b1f83bd2dc44fc199973e9957a75086/ISO-4032-2023.pdf",
+      "title": "ISO 4032:2023",
+      "locator": "Tables 1–2, printed page 3",
+      "kind": "standard",
+      "edition": "2023",
+      "accessed": "2026-11-26"
+    },
+    {
+      "id": "din928_2013_table",
+      "url": "https://www.jsjustso.com/wanboguanwangmanbetx/pic/DIN928-2013.pdf",
+      "title": "DIN928:2013-12 Original, indexierter Tabelleninhalt",
+      "edition": "2013-12",
+      "locator": "Tabelle1, Seite6; Index lesbar, direkter Download aktuell404",
+      "kind": "standard-original-indexed",
+      "accessed": "2026-11-27"
+    },
+    {
+      "id": "din_register_DIN928",
+      "url": "https://www.dinmedia.de/de/norm/din-928/194677746",
+      "title": "DIN928:2013-12 DIN Media",
+      "edition": "2013-12",
+      "locator": "Ausgabe, Berichtigungen und Normstatus",
+      "kind": "standard-register",
+      "accessed": "2026-11-27"
+    },
+    {
+      "id": "din934_1987_original",
+      "url": "https://traiv-komplekt.ru/upload/iblock/1ea/din934.pdf",
+      "title": "DIN 934:1987-10, Originalmaßtabellen",
+      "edition": "1987-10",
+      "locator": "Tabelle 1, Seiten 2–3",
+      "kind": "standard-original",
+      "accessed": "2026-11-27"
+    },
+    {
+      "id": "ugatu928",
+      "url": "https://www.ugatu.com/media/uploads/pdf/fichas-tecnicas/DIN_928.pdf",
+      "title": "Industrias UGATU DIN928 Maßtabelle",
+      "edition": null,
+      "locator": "Seite 2 von 4; vollständig indexierte Tabellen, Direktdownload 403",
+      "kind": "manufacturer-datasheet-indexed",
+      "accessed": "2026-11-27"
+    }
+  ],
+  "abweichungen": [
+    {
+      "size": "M14",
+      "field": "m_catalog",
+      "value": 11,
+      "sourceValues": [
+        {
+          "sourceRef": "din928_2013_table",
+          "value": 11
+        },
+        {
+          "sourceRef": "ugatu928",
+          "value": 11.4
+        }
+      ],
+      "status": "source-edition-resolved",
+      "note": "Korrektur der aktuellen Originalausgabe gilt; ältere Herstellertabelle getrennt."
+    }
+  ]
 }

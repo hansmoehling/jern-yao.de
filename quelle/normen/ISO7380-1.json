@@ -37,10 +37,427 @@
         "b_ref": 18
       },
       "coverage": "documented",
-      "lengthCoverage": "unresearched",
-      "nachLaenge": {},
+      "lengthCoverage": "partial",
+      "nachLaenge": {
+        "6": {
+          "coverage": "documented",
+          "geometryStatus": "documented",
+          "missingGeometryFields": [],
+          "vorbelegung": {
+            "sL": 6
+          },
+          "roh": {
+            "nominalLength": 6
+          },
+          "fields": {
+            "sL": {
+              "nominal": 6,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "boell7380a2"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            },
+            "nominalLength": {
+              "nominal": 6,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "boell7380a2"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            }
+          },
+          "shaftPolicy": "shaft-v2",
+          "lengthEvidence": {
+            "kind": "catalogue-matrix",
+            "edition": null,
+            "sourceRefs": [
+              "boell7380a2"
+            ],
+            "verification": false,
+            "nominalOnly": true,
+            "note": "Nur tatsächlich ausgewiesene Größen-/Längenkombination. Nicht gelistete Kombinationen sind keine Normverbote."
+          }
+        },
+        "8": {
+          "coverage": "documented",
+          "geometryStatus": "documented",
+          "missingGeometryFields": [],
+          "vorbelegung": {
+            "sL": 8
+          },
+          "roh": {
+            "nominalLength": 8
+          },
+          "fields": {
+            "sL": {
+              "nominal": 8,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "boell7380a2"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            },
+            "nominalLength": {
+              "nominal": 8,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "boell7380a2"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            }
+          },
+          "shaftPolicy": "shaft-v2",
+          "lengthEvidence": {
+            "kind": "catalogue-matrix",
+            "edition": null,
+            "sourceRefs": [
+              "boell7380a2"
+            ],
+            "verification": false,
+            "nominalOnly": true,
+            "note": "Nur tatsächlich ausgewiesene Größen-/Längenkombination. Nicht gelistete Kombinationen sind keine Normverbote."
+          }
+        },
+        "10": {
+          "coverage": "documented",
+          "geometryStatus": "documented",
+          "missingGeometryFields": [],
+          "vorbelegung": {
+            "sL": 10
+          },
+          "roh": {
+            "nominalLength": 10
+          },
+          "fields": {
+            "sL": {
+              "nominal": 10,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "boell7380a2"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            },
+            "nominalLength": {
+              "nominal": 10,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "boell7380a2"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            }
+          },
+          "shaftPolicy": "shaft-v2",
+          "lengthEvidence": {
+            "kind": "catalogue-matrix",
+            "edition": null,
+            "sourceRefs": [
+              "boell7380a2"
+            ],
+            "verification": false,
+            "nominalOnly": true,
+            "note": "Nur tatsächlich ausgewiesene Größen-/Längenkombination. Nicht gelistete Kombinationen sind keine Normverbote."
+          }
+        },
+        "12": {
+          "coverage": "documented",
+          "geometryStatus": "documented",
+          "missingGeometryFields": [],
+          "vorbelegung": {
+            "sL": 12
+          },
+          "roh": {
+            "nominalLength": 12
+          },
+          "fields": {
+            "sL": {
+              "nominal": 12,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "boell7380a2"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            },
+            "nominalLength": {
+              "nominal": 12,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "boell7380a2"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            }
+          },
+          "shaftPolicy": "shaft-v2",
+          "lengthEvidence": {
+            "kind": "catalogue-matrix",
+            "edition": null,
+            "sourceRefs": [
+              "boell7380a2"
+            ],
+            "verification": false,
+            "nominalOnly": true,
+            "note": "Nur tatsächlich ausgewiesene Größen-/Längenkombination. Nicht gelistete Kombinationen sind keine Normverbote."
+          }
+        },
+        "16": {
+          "coverage": "documented",
+          "geometryStatus": "documented",
+          "missingGeometryFields": [],
+          "vorbelegung": {
+            "sL": 16
+          },
+          "roh": {
+            "nominalLength": 16
+          },
+          "fields": {
+            "sL": {
+              "nominal": 16,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "boell7380a2"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            },
+            "nominalLength": {
+              "nominal": 16,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "boell7380a2"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            }
+          },
+          "shaftPolicy": "shaft-v2",
+          "lengthEvidence": {
+            "kind": "catalogue-matrix",
+            "edition": null,
+            "sourceRefs": [
+              "boell7380a2"
+            ],
+            "verification": false,
+            "nominalOnly": true,
+            "note": "Nur tatsächlich ausgewiesene Größen-/Längenkombination. Nicht gelistete Kombinationen sind keine Normverbote."
+          }
+        },
+        "20": {
+          "coverage": "documented",
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "shaftLengthDistribution"
+          ],
+          "vorbelegung": {
+            "sL": 20
+          },
+          "roh": {
+            "nominalLength": 20
+          },
+          "fields": {
+            "sL": {
+              "nominal": 20,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "boell7380a2"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            },
+            "nominalLength": {
+              "nominal": 20,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "boell7380a2"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            }
+          },
+          "shaftPolicy": "shaft-v2",
+          "lengthEvidence": {
+            "kind": "catalogue-matrix",
+            "edition": null,
+            "sourceRefs": [
+              "boell7380a2"
+            ],
+            "verification": false,
+            "nominalOnly": true,
+            "note": "Nur tatsächlich ausgewiesene Größen-/Längenkombination. Nicht gelistete Kombinationen sind keine Normverbote."
+          }
+        },
+        "25": {
+          "coverage": "documented",
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "shaftLengthDistribution"
+          ],
+          "vorbelegung": {
+            "sL": 25
+          },
+          "roh": {
+            "nominalLength": 25
+          },
+          "fields": {
+            "sL": {
+              "nominal": 25,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "boell7380a2"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            },
+            "nominalLength": {
+              "nominal": 25,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "boell7380a2"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            }
+          },
+          "shaftPolicy": "shaft-v2",
+          "lengthEvidence": {
+            "kind": "catalogue-matrix",
+            "edition": null,
+            "sourceRefs": [
+              "boell7380a2"
+            ],
+            "verification": false,
+            "nominalOnly": true,
+            "note": "Nur tatsächlich ausgewiesene Größen-/Längenkombination. Nicht gelistete Kombinationen sind keine Normverbote."
+          }
+        },
+        "30": {
+          "coverage": "documented",
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "shaftLengthDistribution"
+          ],
+          "vorbelegung": {
+            "sL": 30
+          },
+          "roh": {
+            "nominalLength": 30
+          },
+          "fields": {
+            "sL": {
+              "nominal": 30,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "boell7380a2"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            },
+            "nominalLength": {
+              "nominal": 30,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "boell7380a2"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            }
+          },
+          "shaftPolicy": "shaft-v2",
+          "lengthEvidence": {
+            "kind": "catalogue-matrix",
+            "edition": null,
+            "sourceRefs": [
+              "boell7380a2"
+            ],
+            "verification": false,
+            "nominalOnly": true,
+            "note": "Nur tatsächlich ausgewiesene Größen-/Längenkombination. Nicht gelistete Kombinationen sind keine Normverbote."
+          }
+        }
+      },
       "missingGeometryFields": [],
-      "geometryStatus": "documented"
+      "geometryStatus": "documented",
+      "laengen": [
+        6,
+        8,
+        10,
+        12,
+        16,
+        20,
+        25,
+        30
+      ]
     },
     "M4": {
       "vorbelegung": {
@@ -62,10 +479,372 @@
         "b_ref": 20
       },
       "coverage": "documented",
-      "lengthCoverage": "unresearched",
-      "nachLaenge": {},
+      "lengthCoverage": "partial",
+      "nachLaenge": {
+        "6": {
+          "coverage": "documented",
+          "geometryStatus": "documented",
+          "missingGeometryFields": [],
+          "vorbelegung": {
+            "sL": 6
+          },
+          "roh": {
+            "nominalLength": 6
+          },
+          "fields": {
+            "sL": {
+              "nominal": 6,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "boell7380a2"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            },
+            "nominalLength": {
+              "nominal": 6,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "boell7380a2"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            }
+          },
+          "shaftPolicy": "shaft-v2",
+          "lengthEvidence": {
+            "kind": "catalogue-matrix",
+            "edition": null,
+            "sourceRefs": [
+              "boell7380a2"
+            ],
+            "verification": false,
+            "nominalOnly": true,
+            "note": "Nur tatsächlich ausgewiesene Größen-/Längenkombination. Nicht gelistete Kombinationen sind keine Normverbote."
+          }
+        },
+        "8": {
+          "coverage": "documented",
+          "geometryStatus": "documented",
+          "missingGeometryFields": [],
+          "vorbelegung": {
+            "sL": 8
+          },
+          "roh": {
+            "nominalLength": 8
+          },
+          "fields": {
+            "sL": {
+              "nominal": 8,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "boell7380a2"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            },
+            "nominalLength": {
+              "nominal": 8,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "boell7380a2"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            }
+          },
+          "shaftPolicy": "shaft-v2",
+          "lengthEvidence": {
+            "kind": "catalogue-matrix",
+            "edition": null,
+            "sourceRefs": [
+              "boell7380a2"
+            ],
+            "verification": false,
+            "nominalOnly": true,
+            "note": "Nur tatsächlich ausgewiesene Größen-/Längenkombination. Nicht gelistete Kombinationen sind keine Normverbote."
+          }
+        },
+        "10": {
+          "coverage": "documented",
+          "geometryStatus": "documented",
+          "missingGeometryFields": [],
+          "vorbelegung": {
+            "sL": 10
+          },
+          "roh": {
+            "nominalLength": 10
+          },
+          "fields": {
+            "sL": {
+              "nominal": 10,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "boell7380a2"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            },
+            "nominalLength": {
+              "nominal": 10,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "boell7380a2"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            }
+          },
+          "shaftPolicy": "shaft-v2",
+          "lengthEvidence": {
+            "kind": "catalogue-matrix",
+            "edition": null,
+            "sourceRefs": [
+              "boell7380a2"
+            ],
+            "verification": false,
+            "nominalOnly": true,
+            "note": "Nur tatsächlich ausgewiesene Größen-/Längenkombination. Nicht gelistete Kombinationen sind keine Normverbote."
+          }
+        },
+        "12": {
+          "coverage": "documented",
+          "geometryStatus": "documented",
+          "missingGeometryFields": [],
+          "vorbelegung": {
+            "sL": 12
+          },
+          "roh": {
+            "nominalLength": 12
+          },
+          "fields": {
+            "sL": {
+              "nominal": 12,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "boell7380a2"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            },
+            "nominalLength": {
+              "nominal": 12,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "boell7380a2"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            }
+          },
+          "shaftPolicy": "shaft-v2",
+          "lengthEvidence": {
+            "kind": "catalogue-matrix",
+            "edition": null,
+            "sourceRefs": [
+              "boell7380a2"
+            ],
+            "verification": false,
+            "nominalOnly": true,
+            "note": "Nur tatsächlich ausgewiesene Größen-/Längenkombination. Nicht gelistete Kombinationen sind keine Normverbote."
+          }
+        },
+        "16": {
+          "coverage": "documented",
+          "geometryStatus": "documented",
+          "missingGeometryFields": [],
+          "vorbelegung": {
+            "sL": 16
+          },
+          "roh": {
+            "nominalLength": 16
+          },
+          "fields": {
+            "sL": {
+              "nominal": 16,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "boell7380a2"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            },
+            "nominalLength": {
+              "nominal": 16,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "boell7380a2"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            }
+          },
+          "shaftPolicy": "shaft-v2",
+          "lengthEvidence": {
+            "kind": "catalogue-matrix",
+            "edition": null,
+            "sourceRefs": [
+              "boell7380a2"
+            ],
+            "verification": false,
+            "nominalOnly": true,
+            "note": "Nur tatsächlich ausgewiesene Größen-/Längenkombination. Nicht gelistete Kombinationen sind keine Normverbote."
+          }
+        },
+        "20": {
+          "coverage": "documented",
+          "geometryStatus": "documented",
+          "missingGeometryFields": [],
+          "vorbelegung": {
+            "sL": 20
+          },
+          "roh": {
+            "nominalLength": 20
+          },
+          "fields": {
+            "sL": {
+              "nominal": 20,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "boell7380a2"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            },
+            "nominalLength": {
+              "nominal": 20,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "boell7380a2"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            }
+          },
+          "shaftPolicy": "shaft-v2",
+          "lengthEvidence": {
+            "kind": "catalogue-matrix",
+            "edition": null,
+            "sourceRefs": [
+              "boell7380a2"
+            ],
+            "verification": false,
+            "nominalOnly": true,
+            "note": "Nur tatsächlich ausgewiesene Größen-/Längenkombination. Nicht gelistete Kombinationen sind keine Normverbote."
+          }
+        },
+        "25": {
+          "coverage": "documented",
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "shaftLengthDistribution"
+          ],
+          "vorbelegung": {
+            "sL": 25
+          },
+          "roh": {
+            "nominalLength": 25
+          },
+          "fields": {
+            "sL": {
+              "nominal": 25,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "boell7380a2"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            },
+            "nominalLength": {
+              "nominal": 25,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "boell7380a2"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            }
+          },
+          "shaftPolicy": "shaft-v2",
+          "lengthEvidence": {
+            "kind": "catalogue-matrix",
+            "edition": null,
+            "sourceRefs": [
+              "boell7380a2"
+            ],
+            "verification": false,
+            "nominalOnly": true,
+            "note": "Nur tatsächlich ausgewiesene Größen-/Längenkombination. Nicht gelistete Kombinationen sind keine Normverbote."
+          }
+        }
+      },
       "missingGeometryFields": [],
-      "geometryStatus": "documented"
+      "geometryStatus": "documented",
+      "laengen": [
+        6,
+        8,
+        10,
+        12,
+        16,
+        20,
+        25
+      ]
     },
     "M5": {
       "vorbelegung": {
@@ -87,10 +866,480 @@
         "b_ref": 22
       },
       "coverage": "documented",
-      "lengthCoverage": "unresearched",
-      "nachLaenge": {},
+      "lengthCoverage": "partial",
+      "nachLaenge": {
+        "8": {
+          "coverage": "documented",
+          "geometryStatus": "documented",
+          "missingGeometryFields": [],
+          "vorbelegung": {
+            "sL": 8
+          },
+          "roh": {
+            "nominalLength": 8
+          },
+          "fields": {
+            "sL": {
+              "nominal": 8,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "boell7380a2"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            },
+            "nominalLength": {
+              "nominal": 8,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "boell7380a2"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            }
+          },
+          "shaftPolicy": "shaft-v2",
+          "lengthEvidence": {
+            "kind": "catalogue-matrix",
+            "edition": null,
+            "sourceRefs": [
+              "boell7380a2"
+            ],
+            "verification": false,
+            "nominalOnly": true,
+            "note": "Nur tatsächlich ausgewiesene Größen-/Längenkombination. Nicht gelistete Kombinationen sind keine Normverbote."
+          }
+        },
+        "10": {
+          "coverage": "documented",
+          "geometryStatus": "documented",
+          "missingGeometryFields": [],
+          "vorbelegung": {
+            "sL": 10
+          },
+          "roh": {
+            "nominalLength": 10
+          },
+          "fields": {
+            "sL": {
+              "nominal": 10,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "boell7380a2"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            },
+            "nominalLength": {
+              "nominal": 10,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "boell7380a2"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            }
+          },
+          "shaftPolicy": "shaft-v2",
+          "lengthEvidence": {
+            "kind": "catalogue-matrix",
+            "edition": null,
+            "sourceRefs": [
+              "boell7380a2"
+            ],
+            "verification": false,
+            "nominalOnly": true,
+            "note": "Nur tatsächlich ausgewiesene Größen-/Längenkombination. Nicht gelistete Kombinationen sind keine Normverbote."
+          }
+        },
+        "12": {
+          "coverage": "documented",
+          "geometryStatus": "documented",
+          "missingGeometryFields": [],
+          "vorbelegung": {
+            "sL": 12
+          },
+          "roh": {
+            "nominalLength": 12
+          },
+          "fields": {
+            "sL": {
+              "nominal": 12,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "boell7380a2"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            },
+            "nominalLength": {
+              "nominal": 12,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "boell7380a2"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            }
+          },
+          "shaftPolicy": "shaft-v2",
+          "lengthEvidence": {
+            "kind": "catalogue-matrix",
+            "edition": null,
+            "sourceRefs": [
+              "boell7380a2"
+            ],
+            "verification": false,
+            "nominalOnly": true,
+            "note": "Nur tatsächlich ausgewiesene Größen-/Längenkombination. Nicht gelistete Kombinationen sind keine Normverbote."
+          }
+        },
+        "16": {
+          "coverage": "documented",
+          "geometryStatus": "documented",
+          "missingGeometryFields": [],
+          "vorbelegung": {
+            "sL": 16
+          },
+          "roh": {
+            "nominalLength": 16
+          },
+          "fields": {
+            "sL": {
+              "nominal": 16,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "boell7380a2"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            },
+            "nominalLength": {
+              "nominal": 16,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "boell7380a2"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            }
+          },
+          "shaftPolicy": "shaft-v2",
+          "lengthEvidence": {
+            "kind": "catalogue-matrix",
+            "edition": null,
+            "sourceRefs": [
+              "boell7380a2"
+            ],
+            "verification": false,
+            "nominalOnly": true,
+            "note": "Nur tatsächlich ausgewiesene Größen-/Längenkombination. Nicht gelistete Kombinationen sind keine Normverbote."
+          }
+        },
+        "20": {
+          "coverage": "documented",
+          "geometryStatus": "documented",
+          "missingGeometryFields": [],
+          "vorbelegung": {
+            "sL": 20
+          },
+          "roh": {
+            "nominalLength": 20
+          },
+          "fields": {
+            "sL": {
+              "nominal": 20,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "boell7380a2"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            },
+            "nominalLength": {
+              "nominal": 20,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "boell7380a2"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            }
+          },
+          "shaftPolicy": "shaft-v2",
+          "lengthEvidence": {
+            "kind": "catalogue-matrix",
+            "edition": null,
+            "sourceRefs": [
+              "boell7380a2"
+            ],
+            "verification": false,
+            "nominalOnly": true,
+            "note": "Nur tatsächlich ausgewiesene Größen-/Längenkombination. Nicht gelistete Kombinationen sind keine Normverbote."
+          }
+        },
+        "25": {
+          "coverage": "documented",
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "shaftLengthDistribution"
+          ],
+          "vorbelegung": {
+            "sL": 25
+          },
+          "roh": {
+            "nominalLength": 25
+          },
+          "fields": {
+            "sL": {
+              "nominal": 25,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "boell7380a2"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            },
+            "nominalLength": {
+              "nominal": 25,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "boell7380a2"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            }
+          },
+          "shaftPolicy": "shaft-v2",
+          "lengthEvidence": {
+            "kind": "catalogue-matrix",
+            "edition": null,
+            "sourceRefs": [
+              "boell7380a2"
+            ],
+            "verification": false,
+            "nominalOnly": true,
+            "note": "Nur tatsächlich ausgewiesene Größen-/Längenkombination. Nicht gelistete Kombinationen sind keine Normverbote."
+          }
+        },
+        "30": {
+          "coverage": "documented",
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "shaftLengthDistribution"
+          ],
+          "vorbelegung": {
+            "sL": 30
+          },
+          "roh": {
+            "nominalLength": 30
+          },
+          "fields": {
+            "sL": {
+              "nominal": 30,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "boell7380a2"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            },
+            "nominalLength": {
+              "nominal": 30,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "boell7380a2"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            }
+          },
+          "shaftPolicy": "shaft-v2",
+          "lengthEvidence": {
+            "kind": "catalogue-matrix",
+            "edition": null,
+            "sourceRefs": [
+              "boell7380a2"
+            ],
+            "verification": false,
+            "nominalOnly": true,
+            "note": "Nur tatsächlich ausgewiesene Größen-/Längenkombination. Nicht gelistete Kombinationen sind keine Normverbote."
+          }
+        },
+        "35": {
+          "coverage": "documented",
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "shaftLengthDistribution"
+          ],
+          "vorbelegung": {
+            "sL": 35
+          },
+          "roh": {
+            "nominalLength": 35
+          },
+          "fields": {
+            "sL": {
+              "nominal": 35,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "boell7380a2"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            },
+            "nominalLength": {
+              "nominal": 35,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "boell7380a2"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            }
+          },
+          "shaftPolicy": "shaft-v2",
+          "lengthEvidence": {
+            "kind": "catalogue-matrix",
+            "edition": null,
+            "sourceRefs": [
+              "boell7380a2"
+            ],
+            "verification": false,
+            "nominalOnly": true,
+            "note": "Nur tatsächlich ausgewiesene Größen-/Längenkombination. Nicht gelistete Kombinationen sind keine Normverbote."
+          }
+        },
+        "40": {
+          "coverage": "documented",
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "shaftLengthDistribution"
+          ],
+          "vorbelegung": {
+            "sL": 40
+          },
+          "roh": {
+            "nominalLength": 40
+          },
+          "fields": {
+            "sL": {
+              "nominal": 40,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "boell7380a2"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            },
+            "nominalLength": {
+              "nominal": 40,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "boell7380a2"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            }
+          },
+          "shaftPolicy": "shaft-v2",
+          "lengthEvidence": {
+            "kind": "catalogue-matrix",
+            "edition": null,
+            "sourceRefs": [
+              "boell7380a2"
+            ],
+            "verification": false,
+            "nominalOnly": true,
+            "note": "Nur tatsächlich ausgewiesene Größen-/Längenkombination. Nicht gelistete Kombinationen sind keine Normverbote."
+          }
+        }
+      },
       "missingGeometryFields": [],
-      "geometryStatus": "documented"
+      "geometryStatus": "documented",
+      "laengen": [
+        8,
+        10,
+        12,
+        16,
+        20,
+        25,
+        30,
+        35,
+        40
+      ]
     },
     "M6": {
       "vorbelegung": {
@@ -112,10 +1361,690 @@
         "b_ref": 24
       },
       "coverage": "documented",
-      "lengthCoverage": "unresearched",
-      "nachLaenge": {},
+      "lengthCoverage": "partial",
+      "nachLaenge": {
+        "8": {
+          "coverage": "documented",
+          "geometryStatus": "documented",
+          "missingGeometryFields": [],
+          "vorbelegung": {
+            "sL": 8
+          },
+          "roh": {
+            "nominalLength": 8
+          },
+          "fields": {
+            "sL": {
+              "nominal": 8,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "boell7380a2"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            },
+            "nominalLength": {
+              "nominal": 8,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "boell7380a2"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            }
+          },
+          "shaftPolicy": "shaft-v2",
+          "lengthEvidence": {
+            "kind": "catalogue-matrix",
+            "edition": null,
+            "sourceRefs": [
+              "boell7380a2"
+            ],
+            "verification": false,
+            "nominalOnly": true,
+            "note": "Nur tatsächlich ausgewiesene Größen-/Längenkombination. Nicht gelistete Kombinationen sind keine Normverbote."
+          }
+        },
+        "10": {
+          "coverage": "documented",
+          "geometryStatus": "documented",
+          "missingGeometryFields": [],
+          "vorbelegung": {
+            "sL": 10
+          },
+          "roh": {
+            "nominalLength": 10
+          },
+          "fields": {
+            "sL": {
+              "nominal": 10,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "boell7380a2"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            },
+            "nominalLength": {
+              "nominal": 10,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "boell7380a2"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            }
+          },
+          "shaftPolicy": "shaft-v2",
+          "lengthEvidence": {
+            "kind": "catalogue-matrix",
+            "edition": null,
+            "sourceRefs": [
+              "boell7380a2"
+            ],
+            "verification": false,
+            "nominalOnly": true,
+            "note": "Nur tatsächlich ausgewiesene Größen-/Längenkombination. Nicht gelistete Kombinationen sind keine Normverbote."
+          }
+        },
+        "12": {
+          "coverage": "documented",
+          "geometryStatus": "documented",
+          "missingGeometryFields": [],
+          "vorbelegung": {
+            "sL": 12
+          },
+          "roh": {
+            "nominalLength": 12
+          },
+          "fields": {
+            "sL": {
+              "nominal": 12,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "boell7380a2"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            },
+            "nominalLength": {
+              "nominal": 12,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "boell7380a2"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            }
+          },
+          "shaftPolicy": "shaft-v2",
+          "lengthEvidence": {
+            "kind": "catalogue-matrix",
+            "edition": null,
+            "sourceRefs": [
+              "boell7380a2"
+            ],
+            "verification": false,
+            "nominalOnly": true,
+            "note": "Nur tatsächlich ausgewiesene Größen-/Längenkombination. Nicht gelistete Kombinationen sind keine Normverbote."
+          }
+        },
+        "14": {
+          "coverage": "documented",
+          "geometryStatus": "documented",
+          "missingGeometryFields": [],
+          "vorbelegung": {
+            "sL": 14
+          },
+          "roh": {
+            "nominalLength": 14
+          },
+          "fields": {
+            "sL": {
+              "nominal": 14,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "boell7380a2"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            },
+            "nominalLength": {
+              "nominal": 14,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "boell7380a2"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            }
+          },
+          "shaftPolicy": "shaft-v2",
+          "lengthEvidence": {
+            "kind": "catalogue-matrix",
+            "edition": null,
+            "sourceRefs": [
+              "boell7380a2"
+            ],
+            "verification": false,
+            "nominalOnly": true,
+            "note": "Nur tatsächlich ausgewiesene Größen-/Längenkombination. Nicht gelistete Kombinationen sind keine Normverbote."
+          }
+        },
+        "16": {
+          "coverage": "documented",
+          "geometryStatus": "documented",
+          "missingGeometryFields": [],
+          "vorbelegung": {
+            "sL": 16
+          },
+          "roh": {
+            "nominalLength": 16
+          },
+          "fields": {
+            "sL": {
+              "nominal": 16,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "boell7380a2"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            },
+            "nominalLength": {
+              "nominal": 16,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "boell7380a2"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            }
+          },
+          "shaftPolicy": "shaft-v2",
+          "lengthEvidence": {
+            "kind": "catalogue-matrix",
+            "edition": null,
+            "sourceRefs": [
+              "boell7380a2"
+            ],
+            "verification": false,
+            "nominalOnly": true,
+            "note": "Nur tatsächlich ausgewiesene Größen-/Längenkombination. Nicht gelistete Kombinationen sind keine Normverbote."
+          }
+        },
+        "20": {
+          "coverage": "documented",
+          "geometryStatus": "documented",
+          "missingGeometryFields": [],
+          "vorbelegung": {
+            "sL": 20
+          },
+          "roh": {
+            "nominalLength": 20
+          },
+          "fields": {
+            "sL": {
+              "nominal": 20,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "boell7380a2"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            },
+            "nominalLength": {
+              "nominal": 20,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "boell7380a2"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            }
+          },
+          "shaftPolicy": "shaft-v2",
+          "lengthEvidence": {
+            "kind": "catalogue-matrix",
+            "edition": null,
+            "sourceRefs": [
+              "boell7380a2"
+            ],
+            "verification": false,
+            "nominalOnly": true,
+            "note": "Nur tatsächlich ausgewiesene Größen-/Längenkombination. Nicht gelistete Kombinationen sind keine Normverbote."
+          }
+        },
+        "25": {
+          "coverage": "documented",
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "shaftLengthDistribution"
+          ],
+          "vorbelegung": {
+            "sL": 25
+          },
+          "roh": {
+            "nominalLength": 25
+          },
+          "fields": {
+            "sL": {
+              "nominal": 25,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "boell7380a2"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            },
+            "nominalLength": {
+              "nominal": 25,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "boell7380a2"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            }
+          },
+          "shaftPolicy": "shaft-v2",
+          "lengthEvidence": {
+            "kind": "catalogue-matrix",
+            "edition": null,
+            "sourceRefs": [
+              "boell7380a2"
+            ],
+            "verification": false,
+            "nominalOnly": true,
+            "note": "Nur tatsächlich ausgewiesene Größen-/Längenkombination. Nicht gelistete Kombinationen sind keine Normverbote."
+          }
+        },
+        "30": {
+          "coverage": "documented",
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "shaftLengthDistribution"
+          ],
+          "vorbelegung": {
+            "sL": 30
+          },
+          "roh": {
+            "nominalLength": 30
+          },
+          "fields": {
+            "sL": {
+              "nominal": 30,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "boell7380a2"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            },
+            "nominalLength": {
+              "nominal": 30,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "boell7380a2"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            }
+          },
+          "shaftPolicy": "shaft-v2",
+          "lengthEvidence": {
+            "kind": "catalogue-matrix",
+            "edition": null,
+            "sourceRefs": [
+              "boell7380a2"
+            ],
+            "verification": false,
+            "nominalOnly": true,
+            "note": "Nur tatsächlich ausgewiesene Größen-/Längenkombination. Nicht gelistete Kombinationen sind keine Normverbote."
+          }
+        },
+        "35": {
+          "coverage": "documented",
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "shaftLengthDistribution"
+          ],
+          "vorbelegung": {
+            "sL": 35
+          },
+          "roh": {
+            "nominalLength": 35
+          },
+          "fields": {
+            "sL": {
+              "nominal": 35,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "boell7380a2"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            },
+            "nominalLength": {
+              "nominal": 35,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "boell7380a2"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            }
+          },
+          "shaftPolicy": "shaft-v2",
+          "lengthEvidence": {
+            "kind": "catalogue-matrix",
+            "edition": null,
+            "sourceRefs": [
+              "boell7380a2"
+            ],
+            "verification": false,
+            "nominalOnly": true,
+            "note": "Nur tatsächlich ausgewiesene Größen-/Längenkombination. Nicht gelistete Kombinationen sind keine Normverbote."
+          }
+        },
+        "40": {
+          "coverage": "documented",
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "shaftLengthDistribution"
+          ],
+          "vorbelegung": {
+            "sL": 40
+          },
+          "roh": {
+            "nominalLength": 40
+          },
+          "fields": {
+            "sL": {
+              "nominal": 40,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "boell7380a2"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            },
+            "nominalLength": {
+              "nominal": 40,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "boell7380a2"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            }
+          },
+          "shaftPolicy": "shaft-v2",
+          "lengthEvidence": {
+            "kind": "catalogue-matrix",
+            "edition": null,
+            "sourceRefs": [
+              "boell7380a2"
+            ],
+            "verification": false,
+            "nominalOnly": true,
+            "note": "Nur tatsächlich ausgewiesene Größen-/Längenkombination. Nicht gelistete Kombinationen sind keine Normverbote."
+          }
+        },
+        "45": {
+          "coverage": "documented",
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "shaftLengthDistribution"
+          ],
+          "vorbelegung": {
+            "sL": 45
+          },
+          "roh": {
+            "nominalLength": 45
+          },
+          "fields": {
+            "sL": {
+              "nominal": 45,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "boell7380a2"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            },
+            "nominalLength": {
+              "nominal": 45,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "boell7380a2"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            }
+          },
+          "shaftPolicy": "shaft-v2",
+          "lengthEvidence": {
+            "kind": "catalogue-matrix",
+            "edition": null,
+            "sourceRefs": [
+              "boell7380a2"
+            ],
+            "verification": false,
+            "nominalOnly": true,
+            "note": "Nur tatsächlich ausgewiesene Größen-/Längenkombination. Nicht gelistete Kombinationen sind keine Normverbote."
+          }
+        },
+        "50": {
+          "coverage": "documented",
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "shaftLengthDistribution"
+          ],
+          "vorbelegung": {
+            "sL": 50
+          },
+          "roh": {
+            "nominalLength": 50
+          },
+          "fields": {
+            "sL": {
+              "nominal": 50,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "boell7380a2"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            },
+            "nominalLength": {
+              "nominal": 50,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "boell7380a2"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            }
+          },
+          "shaftPolicy": "shaft-v2",
+          "lengthEvidence": {
+            "kind": "catalogue-matrix",
+            "edition": null,
+            "sourceRefs": [
+              "boell7380a2"
+            ],
+            "verification": false,
+            "nominalOnly": true,
+            "note": "Nur tatsächlich ausgewiesene Größen-/Längenkombination. Nicht gelistete Kombinationen sind keine Normverbote."
+          }
+        },
+        "60": {
+          "coverage": "documented",
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "shaftLengthDistribution"
+          ],
+          "vorbelegung": {
+            "sL": 60
+          },
+          "roh": {
+            "nominalLength": 60
+          },
+          "fields": {
+            "sL": {
+              "nominal": 60,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "boell7380a2"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            },
+            "nominalLength": {
+              "nominal": 60,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "boell7380a2"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            }
+          },
+          "shaftPolicy": "shaft-v2",
+          "lengthEvidence": {
+            "kind": "catalogue-matrix",
+            "edition": null,
+            "sourceRefs": [
+              "boell7380a2"
+            ],
+            "verification": false,
+            "nominalOnly": true,
+            "note": "Nur tatsächlich ausgewiesene Größen-/Längenkombination. Nicht gelistete Kombinationen sind keine Normverbote."
+          }
+        }
+      },
       "missingGeometryFields": [],
-      "geometryStatus": "documented"
+      "geometryStatus": "documented",
+      "laengen": [
+        8,
+        10,
+        12,
+        14,
+        16,
+        20,
+        25,
+        30,
+        35,
+        40,
+        45,
+        50,
+        60
+      ]
     },
     "M8": {
       "vorbelegung": {
@@ -137,10 +2066,588 @@
         "b_ref": 28
       },
       "coverage": "documented",
-      "lengthCoverage": "unresearched",
-      "nachLaenge": {},
+      "lengthCoverage": "partial",
+      "nachLaenge": {
+        "12": {
+          "coverage": "documented",
+          "geometryStatus": "documented",
+          "missingGeometryFields": [],
+          "vorbelegung": {
+            "sL": 12
+          },
+          "roh": {
+            "nominalLength": 12
+          },
+          "fields": {
+            "sL": {
+              "nominal": 12,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "boell7380a2"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            },
+            "nominalLength": {
+              "nominal": 12,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "boell7380a2"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            }
+          },
+          "shaftPolicy": "shaft-v2",
+          "lengthEvidence": {
+            "kind": "catalogue-matrix",
+            "edition": null,
+            "sourceRefs": [
+              "boell7380a2"
+            ],
+            "verification": false,
+            "nominalOnly": true,
+            "note": "Nur tatsächlich ausgewiesene Größen-/Längenkombination. Nicht gelistete Kombinationen sind keine Normverbote."
+          }
+        },
+        "16": {
+          "coverage": "documented",
+          "geometryStatus": "documented",
+          "missingGeometryFields": [],
+          "vorbelegung": {
+            "sL": 16
+          },
+          "roh": {
+            "nominalLength": 16
+          },
+          "fields": {
+            "sL": {
+              "nominal": 16,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "boell7380a2"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            },
+            "nominalLength": {
+              "nominal": 16,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "boell7380a2"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            }
+          },
+          "shaftPolicy": "shaft-v2",
+          "lengthEvidence": {
+            "kind": "catalogue-matrix",
+            "edition": null,
+            "sourceRefs": [
+              "boell7380a2"
+            ],
+            "verification": false,
+            "nominalOnly": true,
+            "note": "Nur tatsächlich ausgewiesene Größen-/Längenkombination. Nicht gelistete Kombinationen sind keine Normverbote."
+          }
+        },
+        "20": {
+          "coverage": "documented",
+          "geometryStatus": "documented",
+          "missingGeometryFields": [],
+          "vorbelegung": {
+            "sL": 20
+          },
+          "roh": {
+            "nominalLength": 20
+          },
+          "fields": {
+            "sL": {
+              "nominal": 20,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "boell7380a2"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            },
+            "nominalLength": {
+              "nominal": 20,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "boell7380a2"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            }
+          },
+          "shaftPolicy": "shaft-v2",
+          "lengthEvidence": {
+            "kind": "catalogue-matrix",
+            "edition": null,
+            "sourceRefs": [
+              "boell7380a2"
+            ],
+            "verification": false,
+            "nominalOnly": true,
+            "note": "Nur tatsächlich ausgewiesene Größen-/Längenkombination. Nicht gelistete Kombinationen sind keine Normverbote."
+          }
+        },
+        "25": {
+          "coverage": "documented",
+          "geometryStatus": "documented",
+          "missingGeometryFields": [],
+          "vorbelegung": {
+            "sL": 25
+          },
+          "roh": {
+            "nominalLength": 25
+          },
+          "fields": {
+            "sL": {
+              "nominal": 25,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "boell7380a2"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            },
+            "nominalLength": {
+              "nominal": 25,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "boell7380a2"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            }
+          },
+          "shaftPolicy": "shaft-v2",
+          "lengthEvidence": {
+            "kind": "catalogue-matrix",
+            "edition": null,
+            "sourceRefs": [
+              "boell7380a2"
+            ],
+            "verification": false,
+            "nominalOnly": true,
+            "note": "Nur tatsächlich ausgewiesene Größen-/Längenkombination. Nicht gelistete Kombinationen sind keine Normverbote."
+          }
+        },
+        "30": {
+          "coverage": "documented",
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "shaftLengthDistribution"
+          ],
+          "vorbelegung": {
+            "sL": 30
+          },
+          "roh": {
+            "nominalLength": 30
+          },
+          "fields": {
+            "sL": {
+              "nominal": 30,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "boell7380a2"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            },
+            "nominalLength": {
+              "nominal": 30,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "boell7380a2"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            }
+          },
+          "shaftPolicy": "shaft-v2",
+          "lengthEvidence": {
+            "kind": "catalogue-matrix",
+            "edition": null,
+            "sourceRefs": [
+              "boell7380a2"
+            ],
+            "verification": false,
+            "nominalOnly": true,
+            "note": "Nur tatsächlich ausgewiesene Größen-/Längenkombination. Nicht gelistete Kombinationen sind keine Normverbote."
+          }
+        },
+        "35": {
+          "coverage": "documented",
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "shaftLengthDistribution"
+          ],
+          "vorbelegung": {
+            "sL": 35
+          },
+          "roh": {
+            "nominalLength": 35
+          },
+          "fields": {
+            "sL": {
+              "nominal": 35,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "boell7380a2"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            },
+            "nominalLength": {
+              "nominal": 35,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "boell7380a2"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            }
+          },
+          "shaftPolicy": "shaft-v2",
+          "lengthEvidence": {
+            "kind": "catalogue-matrix",
+            "edition": null,
+            "sourceRefs": [
+              "boell7380a2"
+            ],
+            "verification": false,
+            "nominalOnly": true,
+            "note": "Nur tatsächlich ausgewiesene Größen-/Längenkombination. Nicht gelistete Kombinationen sind keine Normverbote."
+          }
+        },
+        "40": {
+          "coverage": "documented",
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "shaftLengthDistribution"
+          ],
+          "vorbelegung": {
+            "sL": 40
+          },
+          "roh": {
+            "nominalLength": 40
+          },
+          "fields": {
+            "sL": {
+              "nominal": 40,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "boell7380a2"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            },
+            "nominalLength": {
+              "nominal": 40,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "boell7380a2"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            }
+          },
+          "shaftPolicy": "shaft-v2",
+          "lengthEvidence": {
+            "kind": "catalogue-matrix",
+            "edition": null,
+            "sourceRefs": [
+              "boell7380a2"
+            ],
+            "verification": false,
+            "nominalOnly": true,
+            "note": "Nur tatsächlich ausgewiesene Größen-/Längenkombination. Nicht gelistete Kombinationen sind keine Normverbote."
+          }
+        },
+        "45": {
+          "coverage": "documented",
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "shaftLengthDistribution"
+          ],
+          "vorbelegung": {
+            "sL": 45
+          },
+          "roh": {
+            "nominalLength": 45
+          },
+          "fields": {
+            "sL": {
+              "nominal": 45,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "boell7380a2"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            },
+            "nominalLength": {
+              "nominal": 45,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "boell7380a2"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            }
+          },
+          "shaftPolicy": "shaft-v2",
+          "lengthEvidence": {
+            "kind": "catalogue-matrix",
+            "edition": null,
+            "sourceRefs": [
+              "boell7380a2"
+            ],
+            "verification": false,
+            "nominalOnly": true,
+            "note": "Nur tatsächlich ausgewiesene Größen-/Längenkombination. Nicht gelistete Kombinationen sind keine Normverbote."
+          }
+        },
+        "50": {
+          "coverage": "documented",
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "shaftLengthDistribution"
+          ],
+          "vorbelegung": {
+            "sL": 50
+          },
+          "roh": {
+            "nominalLength": 50
+          },
+          "fields": {
+            "sL": {
+              "nominal": 50,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "boell7380a2"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            },
+            "nominalLength": {
+              "nominal": 50,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "boell7380a2"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            }
+          },
+          "shaftPolicy": "shaft-v2",
+          "lengthEvidence": {
+            "kind": "catalogue-matrix",
+            "edition": null,
+            "sourceRefs": [
+              "boell7380a2"
+            ],
+            "verification": false,
+            "nominalOnly": true,
+            "note": "Nur tatsächlich ausgewiesene Größen-/Längenkombination. Nicht gelistete Kombinationen sind keine Normverbote."
+          }
+        },
+        "55": {
+          "coverage": "documented",
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "shaftLengthDistribution"
+          ],
+          "vorbelegung": {
+            "sL": 55
+          },
+          "roh": {
+            "nominalLength": 55
+          },
+          "fields": {
+            "sL": {
+              "nominal": 55,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "boell7380a2"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            },
+            "nominalLength": {
+              "nominal": 55,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "boell7380a2"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            }
+          },
+          "shaftPolicy": "shaft-v2",
+          "lengthEvidence": {
+            "kind": "catalogue-matrix",
+            "edition": null,
+            "sourceRefs": [
+              "boell7380a2"
+            ],
+            "verification": false,
+            "nominalOnly": true,
+            "note": "Nur tatsächlich ausgewiesene Größen-/Längenkombination. Nicht gelistete Kombinationen sind keine Normverbote."
+          }
+        },
+        "60": {
+          "coverage": "documented",
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "shaftLengthDistribution"
+          ],
+          "vorbelegung": {
+            "sL": 60
+          },
+          "roh": {
+            "nominalLength": 60
+          },
+          "fields": {
+            "sL": {
+              "nominal": 60,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "boell7380a2"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            },
+            "nominalLength": {
+              "nominal": 60,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "boell7380a2"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            }
+          },
+          "shaftPolicy": "shaft-v2",
+          "lengthEvidence": {
+            "kind": "catalogue-matrix",
+            "edition": null,
+            "sourceRefs": [
+              "boell7380a2"
+            ],
+            "verification": false,
+            "nominalOnly": true,
+            "note": "Nur tatsächlich ausgewiesene Größen-/Längenkombination. Nicht gelistete Kombinationen sind keine Normverbote."
+          }
+        }
+      },
       "missingGeometryFields": [],
-      "geometryStatus": "documented"
+      "geometryStatus": "documented",
+      "laengen": [
+        12,
+        16,
+        20,
+        25,
+        30,
+        35,
+        40,
+        45,
+        50,
+        55,
+        60
+      ]
     },
     "M10": {
       "vorbelegung": {
@@ -162,10 +2669,378 @@
         "b_ref": 32
       },
       "coverage": "documented",
-      "lengthCoverage": "unresearched",
-      "nachLaenge": {},
+      "lengthCoverage": "partial",
+      "nachLaenge": {
+        "20": {
+          "coverage": "documented",
+          "geometryStatus": "documented",
+          "missingGeometryFields": [],
+          "vorbelegung": {
+            "sL": 20
+          },
+          "roh": {
+            "nominalLength": 20
+          },
+          "fields": {
+            "sL": {
+              "nominal": 20,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "boell7380a2"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            },
+            "nominalLength": {
+              "nominal": 20,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "boell7380a2"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            }
+          },
+          "shaftPolicy": "shaft-v2",
+          "lengthEvidence": {
+            "kind": "catalogue-matrix",
+            "edition": null,
+            "sourceRefs": [
+              "boell7380a2"
+            ],
+            "verification": false,
+            "nominalOnly": true,
+            "note": "Nur tatsächlich ausgewiesene Größen-/Längenkombination. Nicht gelistete Kombinationen sind keine Normverbote."
+          }
+        },
+        "25": {
+          "coverage": "documented",
+          "geometryStatus": "documented",
+          "missingGeometryFields": [],
+          "vorbelegung": {
+            "sL": 25
+          },
+          "roh": {
+            "nominalLength": 25
+          },
+          "fields": {
+            "sL": {
+              "nominal": 25,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "boell7380a2"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            },
+            "nominalLength": {
+              "nominal": 25,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "boell7380a2"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            }
+          },
+          "shaftPolicy": "shaft-v2",
+          "lengthEvidence": {
+            "kind": "catalogue-matrix",
+            "edition": null,
+            "sourceRefs": [
+              "boell7380a2"
+            ],
+            "verification": false,
+            "nominalOnly": true,
+            "note": "Nur tatsächlich ausgewiesene Größen-/Längenkombination. Nicht gelistete Kombinationen sind keine Normverbote."
+          }
+        },
+        "30": {
+          "coverage": "documented",
+          "geometryStatus": "documented",
+          "missingGeometryFields": [],
+          "vorbelegung": {
+            "sL": 30
+          },
+          "roh": {
+            "nominalLength": 30
+          },
+          "fields": {
+            "sL": {
+              "nominal": 30,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "boell7380a2"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            },
+            "nominalLength": {
+              "nominal": 30,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "boell7380a2"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            }
+          },
+          "shaftPolicy": "shaft-v2",
+          "lengthEvidence": {
+            "kind": "catalogue-matrix",
+            "edition": null,
+            "sourceRefs": [
+              "boell7380a2"
+            ],
+            "verification": false,
+            "nominalOnly": true,
+            "note": "Nur tatsächlich ausgewiesene Größen-/Längenkombination. Nicht gelistete Kombinationen sind keine Normverbote."
+          }
+        },
+        "35": {
+          "coverage": "documented",
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "shaftLengthDistribution"
+          ],
+          "vorbelegung": {
+            "sL": 35
+          },
+          "roh": {
+            "nominalLength": 35
+          },
+          "fields": {
+            "sL": {
+              "nominal": 35,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "boell7380a2"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            },
+            "nominalLength": {
+              "nominal": 35,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "boell7380a2"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            }
+          },
+          "shaftPolicy": "shaft-v2",
+          "lengthEvidence": {
+            "kind": "catalogue-matrix",
+            "edition": null,
+            "sourceRefs": [
+              "boell7380a2"
+            ],
+            "verification": false,
+            "nominalOnly": true,
+            "note": "Nur tatsächlich ausgewiesene Größen-/Längenkombination. Nicht gelistete Kombinationen sind keine Normverbote."
+          }
+        },
+        "40": {
+          "coverage": "documented",
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "shaftLengthDistribution"
+          ],
+          "vorbelegung": {
+            "sL": 40
+          },
+          "roh": {
+            "nominalLength": 40
+          },
+          "fields": {
+            "sL": {
+              "nominal": 40,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "boell7380a2"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            },
+            "nominalLength": {
+              "nominal": 40,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "boell7380a2"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            }
+          },
+          "shaftPolicy": "shaft-v2",
+          "lengthEvidence": {
+            "kind": "catalogue-matrix",
+            "edition": null,
+            "sourceRefs": [
+              "boell7380a2"
+            ],
+            "verification": false,
+            "nominalOnly": true,
+            "note": "Nur tatsächlich ausgewiesene Größen-/Längenkombination. Nicht gelistete Kombinationen sind keine Normverbote."
+          }
+        },
+        "45": {
+          "coverage": "documented",
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "shaftLengthDistribution"
+          ],
+          "vorbelegung": {
+            "sL": 45
+          },
+          "roh": {
+            "nominalLength": 45
+          },
+          "fields": {
+            "sL": {
+              "nominal": 45,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "boell7380a2"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            },
+            "nominalLength": {
+              "nominal": 45,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "boell7380a2"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            }
+          },
+          "shaftPolicy": "shaft-v2",
+          "lengthEvidence": {
+            "kind": "catalogue-matrix",
+            "edition": null,
+            "sourceRefs": [
+              "boell7380a2"
+            ],
+            "verification": false,
+            "nominalOnly": true,
+            "note": "Nur tatsächlich ausgewiesene Größen-/Längenkombination. Nicht gelistete Kombinationen sind keine Normverbote."
+          }
+        },
+        "50": {
+          "coverage": "documented",
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "shaftLengthDistribution"
+          ],
+          "vorbelegung": {
+            "sL": 50
+          },
+          "roh": {
+            "nominalLength": 50
+          },
+          "fields": {
+            "sL": {
+              "nominal": 50,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "boell7380a2"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            },
+            "nominalLength": {
+              "nominal": 50,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "boell7380a2"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            }
+          },
+          "shaftPolicy": "shaft-v2",
+          "lengthEvidence": {
+            "kind": "catalogue-matrix",
+            "edition": null,
+            "sourceRefs": [
+              "boell7380a2"
+            ],
+            "verification": false,
+            "nominalOnly": true,
+            "note": "Nur tatsächlich ausgewiesene Größen-/Längenkombination. Nicht gelistete Kombinationen sind keine Normverbote."
+          }
+        }
+      },
       "missingGeometryFields": [],
-      "geometryStatus": "documented"
+      "geometryStatus": "documented",
+      "laengen": [
+        20,
+        25,
+        30,
+        35,
+        40,
+        45,
+        50
+      ]
     },
     "M12": {
       "vorbelegung": {
@@ -187,10 +3062,64 @@
         "b_ref": 36
       },
       "coverage": "documented",
-      "lengthCoverage": "unresearched",
-      "nachLaenge": {},
+      "lengthCoverage": "partial",
+      "nachLaenge": {
+        "20": {
+          "coverage": "documented",
+          "geometryStatus": "documented",
+          "missingGeometryFields": [],
+          "vorbelegung": {
+            "sL": 20
+          },
+          "roh": {
+            "nominalLength": 20
+          },
+          "fields": {
+            "sL": {
+              "nominal": 20,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "accu7380m12"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            },
+            "nominalLength": {
+              "nominal": 20,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "accu7380m12"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            }
+          },
+          "shaftPolicy": "shaft-v2",
+          "lengthEvidence": {
+            "kind": "catalogue-matrix",
+            "edition": null,
+            "sourceRefs": [
+              "accu7380m12"
+            ],
+            "verification": false,
+            "nominalOnly": true,
+            "note": "Nur tatsächlich ausgewiesene Größen-/Längenkombination. Nicht gelistete Kombinationen sind keine Normverbote."
+          }
+        }
+      },
       "missingGeometryFields": [],
-      "geometryStatus": "documented"
+      "geometryStatus": "documented",
+      "laengen": [
+        20
+      ]
     },
     "M16": {
       "vorbelegung": {
@@ -212,10 +3141,64 @@
         "b_ref": 44
       },
       "coverage": "documented",
-      "lengthCoverage": "unresearched",
-      "nachLaenge": {},
+      "lengthCoverage": "partial",
+      "nachLaenge": {
+        "30": {
+          "coverage": "documented",
+          "geometryStatus": "documented",
+          "missingGeometryFields": [],
+          "vorbelegung": {
+            "sL": 30
+          },
+          "roh": {
+            "nominalLength": 30
+          },
+          "fields": {
+            "sL": {
+              "nominal": 30,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "wuerth7380m16"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            },
+            "nominalLength": {
+              "nominal": 30,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "wuerth7380m16"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            }
+          },
+          "shaftPolicy": "shaft-v2",
+          "lengthEvidence": {
+            "kind": "catalogue-matrix",
+            "edition": null,
+            "sourceRefs": [
+              "wuerth7380m16"
+            ],
+            "verification": false,
+            "nominalOnly": true,
+            "note": "Nur tatsächlich ausgewiesene Größen-/Längenkombination. Nicht gelistete Kombinationen sind keine Normverbote."
+          }
+        }
+      },
       "missingGeometryFields": [],
-      "geometryStatus": "documented"
+      "geometryStatus": "documented",
+      "laengen": [
+        30
+      ]
     }
   },
   "status": "partial",
@@ -247,6 +3230,33 @@
       "titel": "Engineers Edge - ISO Socket Button Head ISO 7380 (Seite benennt 7380-2, Maße dk/k/s identisch zu 7380-1)",
       "abgerufen": "2026-11-25",
       "type": "supplied-research-source"
+    },
+    {
+      "id": "boell7380a2",
+      "url": "https://eshop.boellhoff.at/out/media/pdf/ISO_7380-1_Edelstahl_A2_Innensechskant___en.pdf",
+      "titel": "Böllhoff ISO7380-1 A2",
+      "locator": "Downloaded PDF p.2 bullet matrix, retrieved2026-11-27. Live matrix differs from search index; only live PDF cells used.",
+      "type": "manufacturer-table",
+      "accessed": "2026-11-27",
+      "publisher": "Böllhoff"
+    },
+    {
+      "id": "accu7380m12",
+      "url": "https://www.accu.co.uk/socket-button-screws/8239-SSB-M12-20-A2",
+      "titel": "Accu SSB-M12-20-A2",
+      "locator": "Explicit individual size and length in product technical data; does not imply intermediate sizes or current stock.",
+      "type": "manufacturer-table",
+      "accessed": "2026-11-27",
+      "publisher": "Accu"
+    },
+    {
+      "id": "wuerth7380m16",
+      "url": "https://eshop.wuerth.de/Schraube-abgeflachter-Halbrundkopf-und-Innensechskant-ISO-7380-1-Stahl-0109-verzinkt-blau-passiviert-A2K-SHR-ISO7380-1-0109-IS10-A2K-M16X30/0060011630.sku/de/DE/EUR/",
+      "titel": "Würth0060011630",
+      "locator": "Explicit individual size and length in product technical data; does not imply intermediate sizes or current stock.",
+      "type": "manufacturer-table",
+      "accessed": "2026-11-27",
+      "publisher": "Würth"
     }
   ],
   "abweichungen": [
@@ -1272,10 +4282,37 @@
       "titel": "Engineers Edge - ISO Socket Button Head ISO 7380 (Seite benennt 7380-2, Maße dk/k/s identisch zu 7380-1)",
       "abgerufen": "2026-11-25",
       "type": "supplied-research-source"
+    },
+    "boell7380a2": {
+      "id": "boell7380a2",
+      "url": "https://eshop.boellhoff.at/out/media/pdf/ISO_7380-1_Edelstahl_A2_Innensechskant___en.pdf",
+      "titel": "Böllhoff ISO7380-1 A2",
+      "locator": "Downloaded PDF p.2 bullet matrix, retrieved2026-11-27. Live matrix differs from search index; only live PDF cells used.",
+      "type": "manufacturer-table",
+      "accessed": "2026-11-27",
+      "publisher": "Böllhoff"
+    },
+    "accu7380m12": {
+      "id": "accu7380m12",
+      "url": "https://www.accu.co.uk/socket-button-screws/8239-SSB-M12-20-A2",
+      "titel": "Accu SSB-M12-20-A2",
+      "locator": "Explicit individual size and length in product technical data; does not imply intermediate sizes or current stock.",
+      "type": "manufacturer-table",
+      "accessed": "2026-11-27",
+      "publisher": "Accu"
+    },
+    "wuerth7380m16": {
+      "id": "wuerth7380m16",
+      "url": "https://eshop.wuerth.de/Schraube-abgeflachter-Halbrundkopf-und-Innensechskant-ISO-7380-1-Stahl-0109-verzinkt-blau-passiviert-A2K-SHR-ISO7380-1-0109-IS10-A2K-M16X30/0060011630.sku/de/DE/EUR/",
+      "titel": "Würth0060011630",
+      "locator": "Explicit individual size and length in product technical data; does not imply intermediate sizes or current stock.",
+      "type": "manufacturer-table",
+      "accessed": "2026-11-27",
+      "publisher": "Würth"
     }
   },
   "coverage": "documented",
-  "lengthCoverage": "unresearched",
+  "lengthCoverage": "partial",
   "requiredGeometryFields": [
     "kD",
     "kH",
@@ -1348,10 +4385,17 @@
       "note": "Keine Größenzeile vorhanden; daraus folgt kein Normverbot."
     }
   },
-  "pruefdatum": "2026-11-26",
+  "pruefdatum": "2026-11-27",
   "klassen": {
     "status": "unresearched",
     "values": [],
     "note": "Festigkeits-/Werkstoffklassen noch nicht vollständig aus dieser Norm belegt."
+  },
+  "lengthMatrixPolicy": {
+    "version": "length-matrix-v1",
+    "complete": false,
+    "note": "Einzeln belegte Norm- oder Katalogzellen. Einquellenwerte sind ausdrücklich nicht zweifach bestätigt; aktuelle Ausgaben werden nicht auf ältere Tabellen rückdatiert.",
+    "sizeGaps": [],
+    "singleSourceCells": 57
   }
 }

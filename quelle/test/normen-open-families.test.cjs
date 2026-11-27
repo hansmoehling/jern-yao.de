@@ -11,7 +11,7 @@ const read=id=>families.find(f=>f.id===id);
 const library={schemaVersion:1,version:'2026-11-26',families};
 function resolve(id,groesse,laenge,form){const selection={id,groesse,...(laenge==null?{}:{laenge}),...(form?{form}:{})};return R.resolveStandard(L.selectionLibrary(library,selection),selection);}
 
-test('all 75 new size rows and their lengths have field-level primary evidence',()=>{
+test('all 85 size rows and their lengths have field-level primary evidence',()=>{
   let count=0,lengths=0;
   for(const f of families){
     const variants=f.variants?.length?f.variants.map(v=>L.variantFamily(f,v.id)):[f];
@@ -45,19 +45,20 @@ test('all 75 new size rows and their lengths have field-level primary evidence',
       for(const [length,r]of Object.entries(row.nachLaenge)){lengths++;check(r,{...v.fields[size],...r.fields},v.id+'/'+size+'/'+length);}
     }
   }
-  assert.equal(count,75);assert.ok(lengths>200);
+  assert.equal(count,85);assert.ok(lengths>200);
 });
 
 test('DIN stud insertion ends and historical editions do not become shaft lengths',()=>{
   const a=read('DIN835'),b=read('DIN940');
   assert.equal(a.groessen.M6.vorbelegung.metalEndLength,12);
   assert.equal(b.groessen.M5.vorbelegung.metalEndLength,13);
-  assert.equal(a.edition,null);assert.equal(a.currentEdition,'2025-08');
+  assert.equal(a.edition,'2010-07');assert.equal(a.currentEdition,'2025-08');
   assert.equal(b.edition,'2010-07');assert.equal(b.currentEdition,'2025-08');
   assert.equal(b.fields.M5.bm.status,'verified');
   const d=resolve('DIN940','M5',30);
   assert.equal(d.effective.metalEndLength,13);assert.equal(d.effective.sL,undefined);
-  assert.ok(d.issues.some(x=>x.code==='length-not-resolved'));
+  assert.ok(!d.issues.some(x=>x.code==='length-not-resolved'));
+  assert.equal(d.effective.nominalLength,30);assert.equal(d.effective.nutEndThreadLength,16);
   assert.equal(d.effective.b,undefined);
 });
 

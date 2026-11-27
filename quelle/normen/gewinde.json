@@ -824,6 +824,14 @@
       "checked": "2026-11-26",
       "scope": "Coarse thread limits, external 6g and internal 6H; no claim of complete ISO 965:2026 verification.",
       "accessStatus": "Search-index excerpt only; live URL returned 404 on 2026-11-26. Not counted as a live table verification."
+    },
+    "iteh724_2023": {
+      "id": "iteh724_2023",
+      "url": "https://cdn.standards.iteh.ai/samples/85104/9815392ad8904c9aa23cf7727e7b1dde/ISO-724-2023.pdf",
+      "title": "ISO724:2023, basic dimensions",
+      "edition": "2023-04",
+      "locator": "Clause5, printed page2: D1=d−1.082532P, rounded to third decimal place",
+      "accessed": "2026-11-27"
     }
   },
   "TD1Grade6": {
@@ -841,5 +849,19 @@
     "3": 0.5,
     "3.5": 0.56,
     "4": 0.6
+  },
+  "internalMinorDiameterRule": {
+    "version": "internal-6h-v1",
+    "sourceRefs": [
+      "iteh724_2023",
+      "iteh965_1_2013"
+    ],
+    "scope": "Only documented metric nut d/P pairs in a standard-family row; only pitches with an existing TD1Grade6 entry; shaft-v2 adaptation only. No external-thread dimension or rolling blank is inferred.",
+    "derivation": "D1min = round(d − 1.082532 × P, 3) from ISO724:2023 clause5. H: EI=0 from ISO965-1:2013 clause5/Table1. D1max = D1min + TD1 grade6 from ISO965-1:2013 Table2. nutHole = midpoint rounded to 0.01mm; cutting-tap blank model, not forming-tap geometry.",
+    "sourceEditions": [
+      "ISO724:2023",
+      "ISO965-1:2013"
+    ],
+    "currentEditionVerification": "No claim of ISO965-1:2026 table verification."
   }
 }

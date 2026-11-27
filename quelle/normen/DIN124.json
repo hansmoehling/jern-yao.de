@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "id": "DIN124",
-  "version": "2026-11-26",
+  "version": "2026-11-27",
   "edition": "2011-03",
   "label": "Halbrundniete, Nenndurchmesser 10 mm bis 36 mm",
   "alias": [],
@@ -31,15 +31,290 @@
         "d_min": 9.4,
         "e_max": 5,
         "k_nom": 6.5,
-        "r_max": 8,
-        "s_setting_allowance": 10.15
+        "r_max": 0.5,
+        "s_setting_allowance": 10.15,
+        "r1_ca": 8
       },
       "coverage": "documented",
-      "geometryStatus": "partial",
-      "missingGeometryFields": [
-        "headTransition"
-      ],
-      "nachLaenge": {}
+      "geometryStatus": "complete",
+      "missingGeometryFields": [],
+      "nachLaenge": {
+        "16": {
+          "vorbelegung": {
+            "sL": 16
+          },
+          "roh": {
+            "l_nominal": 16
+          },
+          "fields": {
+            "l_nominal": {
+              "nominal": 16,
+              "unit": "mm",
+              "sourceRefs": [
+                "p7-handbook",
+                "p7-opm"
+              ],
+              "status": "verified",
+              "verification": "primary-sources-crosschecked",
+              "kind": "norm-table-and-commercial-combination",
+              "note": "Diese konkrete Durchmesser-Längen-Kombination ist belegt. Lieferprogramm und Normreihe sind nicht gleichgesetzt; keine vollständige Normmatrix behauptet."
+            }
+          },
+          "coverage": "documented",
+          "geometryStatus": "complete",
+          "missingGeometryFields": []
+        },
+        "18": {
+          "vorbelegung": {
+            "sL": 18
+          },
+          "roh": {
+            "l_nominal": 18
+          },
+          "fields": {
+            "l_nominal": {
+              "nominal": 18,
+              "unit": "mm",
+              "sourceRefs": [
+                "p7-handbook",
+                "p7-opm"
+              ],
+              "status": "verified",
+              "verification": "primary-sources-crosschecked",
+              "kind": "norm-table-and-commercial-combination",
+              "note": "Diese konkrete Durchmesser-Längen-Kombination ist belegt. Lieferprogramm und Normreihe sind nicht gleichgesetzt; keine vollständige Normmatrix behauptet."
+            }
+          },
+          "coverage": "documented",
+          "geometryStatus": "complete",
+          "missingGeometryFields": []
+        },
+        "20": {
+          "vorbelegung": {
+            "sL": 20
+          },
+          "roh": {
+            "l_nominal": 20
+          },
+          "fields": {
+            "l_nominal": {
+              "nominal": 20,
+              "unit": "mm",
+              "sourceRefs": [
+                "p7-handbook",
+                "p7-opm"
+              ],
+              "status": "verified",
+              "verification": "primary-sources-crosschecked",
+              "kind": "norm-table-and-commercial-combination",
+              "note": "Diese konkrete Durchmesser-Längen-Kombination ist belegt. Lieferprogramm und Normreihe sind nicht gleichgesetzt; keine vollständige Normmatrix behauptet."
+            }
+          },
+          "coverage": "documented",
+          "geometryStatus": "complete",
+          "missingGeometryFields": []
+        },
+        "22": {
+          "vorbelegung": {
+            "sL": 22
+          },
+          "roh": {
+            "l_nominal": 22
+          },
+          "fields": {
+            "l_nominal": {
+              "nominal": 22,
+              "unit": "mm",
+              "sourceRefs": [
+                "p7-handbook",
+                "p7-opm"
+              ],
+              "status": "verified",
+              "verification": "primary-sources-crosschecked",
+              "kind": "norm-table-and-commercial-combination",
+              "note": "Diese konkrete Durchmesser-Längen-Kombination ist belegt. Lieferprogramm und Normreihe sind nicht gleichgesetzt; keine vollständige Normmatrix behauptet."
+            }
+          },
+          "coverage": "documented",
+          "geometryStatus": "complete",
+          "missingGeometryFields": []
+        },
+        "24": {
+          "vorbelegung": {
+            "sL": 24
+          },
+          "roh": {
+            "l_nominal": 24
+          },
+          "fields": {
+            "l_nominal": {
+              "nominal": 24,
+              "unit": "mm",
+              "sourceRefs": [
+                "p7-handbook",
+                "p7-opm"
+              ],
+              "status": "verified",
+              "verification": "primary-sources-crosschecked",
+              "kind": "norm-table-and-commercial-combination",
+              "note": "Diese konkrete Durchmesser-Längen-Kombination ist belegt. Lieferprogramm und Normreihe sind nicht gleichgesetzt; keine vollständige Normmatrix behauptet."
+            }
+          },
+          "coverage": "documented",
+          "geometryStatus": "complete",
+          "missingGeometryFields": []
+        },
+        "26": {
+          "vorbelegung": {
+            "sL": 26
+          },
+          "roh": {
+            "l_nominal": 26
+          },
+          "fields": {
+            "l_nominal": {
+              "nominal": 26,
+              "unit": "mm",
+              "sourceRefs": [
+                "p7-handbook",
+                "p7-opm"
+              ],
+              "status": "verified",
+              "verification": "primary-sources-crosschecked",
+              "kind": "norm-table-and-commercial-combination",
+              "note": "Diese konkrete Durchmesser-Längen-Kombination ist belegt. Lieferprogramm und Normreihe sind nicht gleichgesetzt; keine vollständige Normmatrix behauptet."
+            }
+          },
+          "coverage": "documented",
+          "geometryStatus": "complete",
+          "missingGeometryFields": []
+        },
+        "30": {
+          "vorbelegung": {
+            "sL": 30
+          },
+          "roh": {
+            "l_nominal": 30
+          },
+          "fields": {
+            "l_nominal": {
+              "nominal": 30,
+              "unit": "mm",
+              "sourceRefs": [
+                "p7-handbook",
+                "p7-opm"
+              ],
+              "status": "verified",
+              "verification": "primary-sources-crosschecked",
+              "kind": "norm-table-and-commercial-combination",
+              "note": "Diese konkrete Durchmesser-Längen-Kombination ist belegt. Lieferprogramm und Normreihe sind nicht gleichgesetzt; keine vollständige Normmatrix behauptet."
+            }
+          },
+          "coverage": "documented",
+          "geometryStatus": "complete",
+          "missingGeometryFields": []
+        },
+        "40": {
+          "vorbelegung": {
+            "sL": 40
+          },
+          "roh": {
+            "l_nominal": 40
+          },
+          "fields": {
+            "l_nominal": {
+              "nominal": 40,
+              "unit": "mm",
+              "sourceRefs": [
+                "p7-handbook",
+                "p7-opm"
+              ],
+              "status": "verified",
+              "verification": "primary-sources-crosschecked",
+              "kind": "norm-table-and-commercial-combination",
+              "note": "Diese konkrete Durchmesser-Längen-Kombination ist belegt. Lieferprogramm und Normreihe sind nicht gleichgesetzt; keine vollständige Normmatrix behauptet."
+            }
+          },
+          "coverage": "documented",
+          "geometryStatus": "complete",
+          "missingGeometryFields": []
+        },
+        "45": {
+          "vorbelegung": {
+            "sL": 45
+          },
+          "roh": {
+            "l_nominal": 45
+          },
+          "fields": {
+            "l_nominal": {
+              "nominal": 45,
+              "unit": "mm",
+              "sourceRefs": [
+                "p7-handbook",
+                "p7-opm"
+              ],
+              "status": "verified",
+              "verification": "primary-sources-crosschecked",
+              "kind": "norm-table-and-commercial-combination",
+              "note": "Diese konkrete Durchmesser-Längen-Kombination ist belegt. Lieferprogramm und Normreihe sind nicht gleichgesetzt; keine vollständige Normmatrix behauptet."
+            }
+          },
+          "coverage": "documented",
+          "geometryStatus": "complete",
+          "missingGeometryFields": []
+        },
+        "50": {
+          "vorbelegung": {
+            "sL": 50
+          },
+          "roh": {
+            "l_nominal": 50
+          },
+          "fields": {
+            "l_nominal": {
+              "nominal": 50,
+              "unit": "mm",
+              "sourceRefs": [
+                "p7-handbook",
+                "p7-opm"
+              ],
+              "status": "verified",
+              "verification": "primary-sources-crosschecked",
+              "kind": "norm-table-and-commercial-combination",
+              "note": "Diese konkrete Durchmesser-Längen-Kombination ist belegt. Lieferprogramm und Normreihe sind nicht gleichgesetzt; keine vollständige Normmatrix behauptet."
+            }
+          },
+          "coverage": "documented",
+          "geometryStatus": "complete",
+          "missingGeometryFields": []
+        },
+        "60": {
+          "vorbelegung": {
+            "sL": 60
+          },
+          "roh": {
+            "l_nominal": 60
+          },
+          "fields": {
+            "l_nominal": {
+              "nominal": 60,
+              "unit": "mm",
+              "sourceRefs": [
+                "p7-handbook",
+                "p7-opm"
+              ],
+              "status": "verified",
+              "verification": "primary-sources-crosschecked",
+              "kind": "norm-table-and-commercial-combination",
+              "note": "Diese konkrete Durchmesser-Längen-Kombination ist belegt. Lieferprogramm und Normreihe sind nicht gleichgesetzt; keine vollständige Normmatrix behauptet."
+            }
+          },
+          "coverage": "documented",
+          "geometryStatus": "complete",
+          "missingGeometryFields": []
+        }
+      }
     },
     "12": {
       "vorbelegung": {
@@ -53,15 +328,90 @@
         "d_min": 11.3,
         "e_max": 6,
         "k_nom": 7.5,
-        "r_max": 9.5,
-        "s_setting_allowance": 12.18
+        "r_max": 0.6,
+        "s_setting_allowance": 12.18,
+        "r1_ca": 9.5
       },
       "coverage": "documented",
-      "geometryStatus": "partial",
-      "missingGeometryFields": [
-        "headTransition"
-      ],
-      "nachLaenge": {}
+      "geometryStatus": "complete",
+      "missingGeometryFields": [],
+      "nachLaenge": {
+        "18": {
+          "vorbelegung": {
+            "sL": 18
+          },
+          "roh": {
+            "l_nominal": 18
+          },
+          "fields": {
+            "l_nominal": {
+              "nominal": 18,
+              "unit": "mm",
+              "sourceRefs": [
+                "p7-handbook",
+                "p7-opm"
+              ],
+              "status": "verified",
+              "verification": "primary-sources-crosschecked",
+              "kind": "norm-table-and-commercial-combination",
+              "note": "Diese konkrete Durchmesser-Längen-Kombination ist belegt. Lieferprogramm und Normreihe sind nicht gleichgesetzt; keine vollständige Normmatrix behauptet."
+            }
+          },
+          "coverage": "documented",
+          "geometryStatus": "complete",
+          "missingGeometryFields": []
+        },
+        "30": {
+          "vorbelegung": {
+            "sL": 30
+          },
+          "roh": {
+            "l_nominal": 30
+          },
+          "fields": {
+            "l_nominal": {
+              "nominal": 30,
+              "unit": "mm",
+              "sourceRefs": [
+                "p7-handbook",
+                "p7-opm"
+              ],
+              "status": "verified",
+              "verification": "primary-sources-crosschecked",
+              "kind": "norm-table-and-commercial-combination",
+              "note": "Diese konkrete Durchmesser-Längen-Kombination ist belegt. Lieferprogramm und Normreihe sind nicht gleichgesetzt; keine vollständige Normmatrix behauptet."
+            }
+          },
+          "coverage": "documented",
+          "geometryStatus": "complete",
+          "missingGeometryFields": []
+        },
+        "40": {
+          "vorbelegung": {
+            "sL": 40
+          },
+          "roh": {
+            "l_nominal": 40
+          },
+          "fields": {
+            "l_nominal": {
+              "nominal": 40,
+              "unit": "mm",
+              "sourceRefs": [
+                "p7-handbook",
+                "p7-opm"
+              ],
+              "status": "verified",
+              "verification": "primary-sources-crosschecked",
+              "kind": "norm-table-and-commercial-combination",
+              "note": "Diese konkrete Durchmesser-Längen-Kombination ist belegt. Lieferprogramm und Normreihe sind nicht gleichgesetzt; keine vollständige Normmatrix behauptet."
+            }
+          },
+          "coverage": "documented",
+          "geometryStatus": "complete",
+          "missingGeometryFields": []
+        }
+      }
     },
     "14": {
       "vorbelegung": {
@@ -75,14 +425,13 @@
         "d_min": 13.2,
         "e_max": 7,
         "k_nom": 9,
-        "r_max": 11,
-        "s_setting_allowance": 14.21
+        "r_max": 0.6,
+        "s_setting_allowance": 14.21,
+        "r1_ca": 11
       },
       "coverage": "documented",
-      "geometryStatus": "partial",
-      "missingGeometryFields": [
-        "headTransition"
-      ],
+      "geometryStatus": "complete",
+      "missingGeometryFields": [],
       "nachLaenge": {}
     },
     "16": {
@@ -97,15 +446,40 @@
         "d_min": 15.2,
         "e_max": 8,
         "k_nom": 10,
-        "r_max": 13,
-        "s_setting_allowance": 16.24
+        "r_max": 0.8,
+        "s_setting_allowance": 16.24,
+        "r1_ca": 13
       },
       "coverage": "documented",
-      "geometryStatus": "partial",
-      "missingGeometryFields": [
-        "headTransition"
-      ],
-      "nachLaenge": {}
+      "geometryStatus": "complete",
+      "missingGeometryFields": [],
+      "nachLaenge": {
+        "30": {
+          "vorbelegung": {
+            "sL": 30
+          },
+          "roh": {
+            "l_nominal": 30
+          },
+          "fields": {
+            "l_nominal": {
+              "nominal": 30,
+              "unit": "mm",
+              "sourceRefs": [
+                "p7-handbook",
+                "p7-opm"
+              ],
+              "status": "verified",
+              "verification": "primary-sources-crosschecked",
+              "kind": "norm-table-and-commercial-combination",
+              "note": "Diese konkrete Durchmesser-Längen-Kombination ist belegt. Lieferprogramm und Normreihe sind nicht gleichgesetzt; keine vollständige Normmatrix behauptet."
+            }
+          },
+          "coverage": "documented",
+          "geometryStatus": "complete",
+          "missingGeometryFields": []
+        }
+      }
     },
     "18": {
       "vorbelegung": {
@@ -119,14 +493,13 @@
         "d_min": 17.1,
         "e_max": 9,
         "k_nom": 11.5,
-        "r_max": 14.5,
-        "s_setting_allowance": 18.27
+        "r_max": 0.8,
+        "s_setting_allowance": 18.27,
+        "r1_ca": 14.5
       },
       "coverage": "documented",
-      "geometryStatus": "partial",
-      "missingGeometryFields": [
-        "headTransition"
-      ],
+      "geometryStatus": "complete",
+      "missingGeometryFields": [],
       "nachLaenge": {}
     },
     "20": {
@@ -141,14 +514,13 @@
         "d_min": 19.1,
         "e_max": 10,
         "k_nom": 13,
-        "r_max": 16.5,
-        "s_setting_allowance": 20.3
+        "r_max": 1,
+        "s_setting_allowance": 20.3,
+        "r1_ca": 16.5
       },
       "coverage": "documented",
-      "geometryStatus": "partial",
-      "missingGeometryFields": [
-        "headTransition"
-      ],
+      "geometryStatus": "complete",
+      "missingGeometryFields": [],
       "nachLaenge": {}
     },
     "22": {
@@ -163,14 +535,13 @@
         "d_min": 20.9,
         "e_max": 11,
         "k_nom": 14,
-        "r_max": 18.5,
-        "s_setting_allowance": 22.33
+        "r_max": 1,
+        "s_setting_allowance": 22.33,
+        "r1_ca": 18.5
       },
       "coverage": "documented",
-      "geometryStatus": "partial",
-      "missingGeometryFields": [
-        "headTransition"
-      ],
+      "geometryStatus": "complete",
+      "missingGeometryFields": [],
       "nachLaenge": {}
     },
     "24": {
@@ -185,14 +556,13 @@
         "d_min": 22.9,
         "e_max": 12,
         "k_nom": 16,
-        "r_max": 20.5,
-        "s_setting_allowance": 24.36
+        "r_max": 1.2,
+        "s_setting_allowance": 24.36,
+        "r1_ca": 20.5
       },
       "coverage": "documented",
-      "geometryStatus": "partial",
-      "missingGeometryFields": [
-        "headTransition"
-      ],
+      "geometryStatus": "complete",
+      "missingGeometryFields": [],
       "nachLaenge": {}
     },
     "27": {
@@ -207,14 +577,13 @@
         "d_min": 25.8,
         "e_max": 13.5,
         "k_nom": 17,
-        "r_max": 22,
-        "s_setting_allowance": 27.41
+        "r_max": 1.2,
+        "s_setting_allowance": 27.41,
+        "r1_ca": 22
       },
       "coverage": "documented",
-      "geometryStatus": "partial",
-      "missingGeometryFields": [
-        "headTransition"
-      ],
+      "geometryStatus": "complete",
+      "missingGeometryFields": [],
       "nachLaenge": {}
     },
     "30": {
@@ -229,14 +598,13 @@
         "d_min": 28.6,
         "e_max": 15,
         "k_nom": 19,
-        "r_max": 24.5,
-        "s_setting_allowance": 30.45
+        "r_max": 1.6,
+        "s_setting_allowance": 30.45,
+        "r1_ca": 24.5
       },
       "coverage": "documented",
-      "geometryStatus": "partial",
-      "missingGeometryFields": [
-        "headTransition"
-      ],
+      "geometryStatus": "complete",
+      "missingGeometryFields": [],
       "nachLaenge": {}
     },
     "33": {
@@ -251,14 +619,13 @@
         "d_min": 31.6,
         "e_max": 16.5,
         "k_nom": 21,
-        "r_max": 27,
-        "s_setting_allowance": 33.5
+        "r_max": 1.6,
+        "s_setting_allowance": 33.5,
+        "r1_ca": 27
       },
       "coverage": "documented",
-      "geometryStatus": "partial",
-      "missingGeometryFields": [
-        "headTransition"
-      ],
+      "geometryStatus": "complete",
+      "missingGeometryFields": [],
       "nachLaenge": {}
     },
     "36": {
@@ -273,14 +640,13 @@
         "d_min": 34.6,
         "e_max": 18,
         "k_nom": 23,
-        "r_max": 30,
-        "s_setting_allowance": 36.54
+        "r_max": 2,
+        "s_setting_allowance": 36.54,
+        "r1_ca": 30
       },
       "coverage": "documented",
-      "geometryStatus": "partial",
-      "missingGeometryFields": [
-        "headTransition"
-      ],
+      "geometryStatus": "complete",
+      "missingGeometryFields": [],
       "nachLaenge": {}
     }
   },
@@ -341,14 +707,22 @@
         "unit": "mm"
       },
       "r_max": {
-        "sourceRefs": [
-          "DIN124-s1"
-        ],
-        "status": "single-source",
-        "verification": "norm-table-not-independently-verified",
-        "note": "Radius",
+        "max": 0.5,
         "unit": "mm",
-        "max": 8
+        "sourceRefs": [
+          "p7-handbook",
+          "p7-opm"
+        ],
+        "status": "verified",
+        "verification": "primary-sources-crosschecked",
+        "note": "Übergangsradius r, maximal. Der frühere als r_max übernommene große Kopfradius gehört zu r1.",
+        "superseded": {
+          "value": 8,
+          "sourceRefs": [
+            "DIN124-s1"
+          ],
+          "reason": "head-radius-was-mislabelled-as-transition-radius"
+        }
       },
       "s_setting_allowance": {
         "nominal": 10.15,
@@ -359,6 +733,17 @@
         "verification": "norm-table-not-independently-verified",
         "note": "Spaltenname 's setting allowance' der Quelle (Nietzugabe vermutet, nicht definiert)",
         "unit": "mm"
+      },
+      "r1_ca": {
+        "nominal": 8,
+        "unit": "mm",
+        "sourceRefs": [
+          "p7-handbook",
+          "p7-opm"
+        ],
+        "status": "verified",
+        "verification": "primary-sources-crosschecked",
+        "note": "Kopfwölbungsradius r1, Näherungswert; kein Übergangsradius."
       }
     },
     "12": {
@@ -417,14 +802,22 @@
         "unit": "mm"
       },
       "r_max": {
-        "sourceRefs": [
-          "DIN124-s1"
-        ],
-        "status": "single-source",
-        "verification": "norm-table-not-independently-verified",
-        "note": "Radius",
+        "max": 0.6,
         "unit": "mm",
-        "max": 9.5
+        "sourceRefs": [
+          "p7-handbook",
+          "p7-opm"
+        ],
+        "status": "verified",
+        "verification": "primary-sources-crosschecked",
+        "note": "Übergangsradius r, maximal. Der frühere als r_max übernommene große Kopfradius gehört zu r1.",
+        "superseded": {
+          "value": 9.5,
+          "sourceRefs": [
+            "DIN124-s1"
+          ],
+          "reason": "head-radius-was-mislabelled-as-transition-radius"
+        }
       },
       "s_setting_allowance": {
         "nominal": 12.18,
@@ -435,6 +828,17 @@
         "verification": "norm-table-not-independently-verified",
         "note": "Spaltenname 's setting allowance' der Quelle (Nietzugabe vermutet, nicht definiert)",
         "unit": "mm"
+      },
+      "r1_ca": {
+        "nominal": 9.5,
+        "unit": "mm",
+        "sourceRefs": [
+          "p7-handbook",
+          "p7-opm"
+        ],
+        "status": "verified",
+        "verification": "primary-sources-crosschecked",
+        "note": "Kopfwölbungsradius r1, Näherungswert; kein Übergangsradius."
       }
     },
     "14": {
@@ -493,14 +897,22 @@
         "unit": "mm"
       },
       "r_max": {
-        "sourceRefs": [
-          "DIN124-s1"
-        ],
-        "status": "single-source",
-        "verification": "norm-table-not-independently-verified",
-        "note": "Radius",
+        "max": 0.6,
         "unit": "mm",
-        "max": 11
+        "sourceRefs": [
+          "p7-handbook",
+          "p7-opm"
+        ],
+        "status": "verified",
+        "verification": "primary-sources-crosschecked",
+        "note": "Übergangsradius r, maximal. Der frühere als r_max übernommene große Kopfradius gehört zu r1.",
+        "superseded": {
+          "value": 11,
+          "sourceRefs": [
+            "DIN124-s1"
+          ],
+          "reason": "head-radius-was-mislabelled-as-transition-radius"
+        }
       },
       "s_setting_allowance": {
         "nominal": 14.21,
@@ -511,6 +923,17 @@
         "verification": "norm-table-not-independently-verified",
         "note": "Spaltenname 's setting allowance' der Quelle (Nietzugabe vermutet, nicht definiert)",
         "unit": "mm"
+      },
+      "r1_ca": {
+        "nominal": 11,
+        "unit": "mm",
+        "sourceRefs": [
+          "p7-handbook",
+          "p7-opm"
+        ],
+        "status": "verified",
+        "verification": "primary-sources-crosschecked",
+        "note": "Kopfwölbungsradius r1, Näherungswert; kein Übergangsradius."
       }
     },
     "16": {
@@ -569,14 +992,22 @@
         "unit": "mm"
       },
       "r_max": {
-        "sourceRefs": [
-          "DIN124-s1"
-        ],
-        "status": "single-source",
-        "verification": "norm-table-not-independently-verified",
-        "note": "Radius",
+        "max": 0.8,
         "unit": "mm",
-        "max": 13
+        "sourceRefs": [
+          "p7-handbook",
+          "p7-opm"
+        ],
+        "status": "verified",
+        "verification": "primary-sources-crosschecked",
+        "note": "Übergangsradius r, maximal. Der frühere als r_max übernommene große Kopfradius gehört zu r1.",
+        "superseded": {
+          "value": 13,
+          "sourceRefs": [
+            "DIN124-s1"
+          ],
+          "reason": "head-radius-was-mislabelled-as-transition-radius"
+        }
       },
       "s_setting_allowance": {
         "nominal": 16.24,
@@ -587,6 +1018,17 @@
         "verification": "norm-table-not-independently-verified",
         "note": "Spaltenname 's setting allowance' der Quelle (Nietzugabe vermutet, nicht definiert)",
         "unit": "mm"
+      },
+      "r1_ca": {
+        "nominal": 13,
+        "unit": "mm",
+        "sourceRefs": [
+          "p7-handbook",
+          "p7-opm"
+        ],
+        "status": "verified",
+        "verification": "primary-sources-crosschecked",
+        "note": "Kopfwölbungsradius r1, Näherungswert; kein Übergangsradius."
       }
     },
     "18": {
@@ -645,14 +1087,22 @@
         "unit": "mm"
       },
       "r_max": {
-        "sourceRefs": [
-          "DIN124-s1"
-        ],
-        "status": "single-source",
-        "verification": "norm-table-not-independently-verified",
-        "note": "Radius",
+        "max": 0.8,
         "unit": "mm",
-        "max": 14.5
+        "sourceRefs": [
+          "p7-handbook",
+          "p7-opm"
+        ],
+        "status": "verified",
+        "verification": "primary-sources-crosschecked",
+        "note": "Übergangsradius r, maximal. Der frühere als r_max übernommene große Kopfradius gehört zu r1.",
+        "superseded": {
+          "value": 14.5,
+          "sourceRefs": [
+            "DIN124-s1"
+          ],
+          "reason": "head-radius-was-mislabelled-as-transition-radius"
+        }
       },
       "s_setting_allowance": {
         "nominal": 18.27,
@@ -663,6 +1113,17 @@
         "verification": "norm-table-not-independently-verified",
         "note": "Spaltenname 's setting allowance' der Quelle (Nietzugabe vermutet, nicht definiert)",
         "unit": "mm"
+      },
+      "r1_ca": {
+        "nominal": 14.5,
+        "unit": "mm",
+        "sourceRefs": [
+          "p7-handbook",
+          "p7-opm"
+        ],
+        "status": "verified",
+        "verification": "primary-sources-crosschecked",
+        "note": "Kopfwölbungsradius r1, Näherungswert; kein Übergangsradius."
       }
     },
     "20": {
@@ -721,14 +1182,22 @@
         "unit": "mm"
       },
       "r_max": {
-        "sourceRefs": [
-          "DIN124-s1"
-        ],
-        "status": "single-source",
-        "verification": "norm-table-not-independently-verified",
-        "note": "Radius",
+        "max": 1,
         "unit": "mm",
-        "max": 16.5
+        "sourceRefs": [
+          "p7-handbook",
+          "p7-opm"
+        ],
+        "status": "verified",
+        "verification": "primary-sources-crosschecked",
+        "note": "Übergangsradius r, maximal. Der frühere als r_max übernommene große Kopfradius gehört zu r1.",
+        "superseded": {
+          "value": 16.5,
+          "sourceRefs": [
+            "DIN124-s1"
+          ],
+          "reason": "head-radius-was-mislabelled-as-transition-radius"
+        }
       },
       "s_setting_allowance": {
         "nominal": 20.3,
@@ -739,6 +1208,17 @@
         "verification": "norm-table-not-independently-verified",
         "note": "Spaltenname 's setting allowance' der Quelle (Nietzugabe vermutet, nicht definiert)",
         "unit": "mm"
+      },
+      "r1_ca": {
+        "nominal": 16.5,
+        "unit": "mm",
+        "sourceRefs": [
+          "p7-handbook",
+          "p7-opm"
+        ],
+        "status": "verified",
+        "verification": "primary-sources-crosschecked",
+        "note": "Kopfwölbungsradius r1, Näherungswert; kein Übergangsradius."
       }
     },
     "22": {
@@ -797,14 +1277,22 @@
         "unit": "mm"
       },
       "r_max": {
-        "sourceRefs": [
-          "DIN124-s1"
-        ],
-        "status": "single-source",
-        "verification": "norm-table-not-independently-verified",
-        "note": "Radius",
+        "max": 1,
         "unit": "mm",
-        "max": 18.5
+        "sourceRefs": [
+          "p7-handbook",
+          "p7-opm"
+        ],
+        "status": "verified",
+        "verification": "primary-sources-crosschecked",
+        "note": "Übergangsradius r, maximal. Der frühere als r_max übernommene große Kopfradius gehört zu r1.",
+        "superseded": {
+          "value": 18.5,
+          "sourceRefs": [
+            "DIN124-s1"
+          ],
+          "reason": "head-radius-was-mislabelled-as-transition-radius"
+        }
       },
       "s_setting_allowance": {
         "nominal": 22.33,
@@ -815,6 +1303,17 @@
         "verification": "norm-table-not-independently-verified",
         "note": "Spaltenname 's setting allowance' der Quelle (Nietzugabe vermutet, nicht definiert)",
         "unit": "mm"
+      },
+      "r1_ca": {
+        "nominal": 18.5,
+        "unit": "mm",
+        "sourceRefs": [
+          "p7-handbook",
+          "p7-opm"
+        ],
+        "status": "verified",
+        "verification": "primary-sources-crosschecked",
+        "note": "Kopfwölbungsradius r1, Näherungswert; kein Übergangsradius."
       }
     },
     "24": {
@@ -873,14 +1372,22 @@
         "unit": "mm"
       },
       "r_max": {
-        "sourceRefs": [
-          "DIN124-s1"
-        ],
-        "status": "single-source",
-        "verification": "norm-table-not-independently-verified",
-        "note": "Radius",
+        "max": 1.2,
         "unit": "mm",
-        "max": 20.5
+        "sourceRefs": [
+          "p7-handbook",
+          "p7-opm"
+        ],
+        "status": "verified",
+        "verification": "primary-sources-crosschecked",
+        "note": "Übergangsradius r, maximal. Der frühere als r_max übernommene große Kopfradius gehört zu r1.",
+        "superseded": {
+          "value": 20.5,
+          "sourceRefs": [
+            "DIN124-s1"
+          ],
+          "reason": "head-radius-was-mislabelled-as-transition-radius"
+        }
       },
       "s_setting_allowance": {
         "nominal": 24.36,
@@ -891,6 +1398,17 @@
         "verification": "norm-table-not-independently-verified",
         "note": "Spaltenname 's setting allowance' der Quelle (Nietzugabe vermutet, nicht definiert)",
         "unit": "mm"
+      },
+      "r1_ca": {
+        "nominal": 20.5,
+        "unit": "mm",
+        "sourceRefs": [
+          "p7-handbook",
+          "p7-opm"
+        ],
+        "status": "verified",
+        "verification": "primary-sources-crosschecked",
+        "note": "Kopfwölbungsradius r1, Näherungswert; kein Übergangsradius."
       }
     },
     "27": {
@@ -949,14 +1467,22 @@
         "unit": "mm"
       },
       "r_max": {
-        "sourceRefs": [
-          "DIN124-s1"
-        ],
-        "status": "single-source",
-        "verification": "norm-table-not-independently-verified",
-        "note": "Radius",
+        "max": 1.2,
         "unit": "mm",
-        "max": 22
+        "sourceRefs": [
+          "p7-handbook",
+          "p7-opm"
+        ],
+        "status": "verified",
+        "verification": "primary-sources-crosschecked",
+        "note": "Übergangsradius r, maximal. Der frühere als r_max übernommene große Kopfradius gehört zu r1.",
+        "superseded": {
+          "value": 22,
+          "sourceRefs": [
+            "DIN124-s1"
+          ],
+          "reason": "head-radius-was-mislabelled-as-transition-radius"
+        }
       },
       "s_setting_allowance": {
         "nominal": 27.41,
@@ -967,6 +1493,17 @@
         "verification": "norm-table-not-independently-verified",
         "note": "Spaltenname 's setting allowance' der Quelle (Nietzugabe vermutet, nicht definiert)",
         "unit": "mm"
+      },
+      "r1_ca": {
+        "nominal": 22,
+        "unit": "mm",
+        "sourceRefs": [
+          "p7-handbook",
+          "p7-opm"
+        ],
+        "status": "verified",
+        "verification": "primary-sources-crosschecked",
+        "note": "Kopfwölbungsradius r1, Näherungswert; kein Übergangsradius."
       }
     },
     "30": {
@@ -1025,14 +1562,22 @@
         "unit": "mm"
       },
       "r_max": {
-        "sourceRefs": [
-          "DIN124-s1"
-        ],
-        "status": "single-source",
-        "verification": "norm-table-not-independently-verified",
-        "note": "Radius",
+        "max": 1.6,
         "unit": "mm",
-        "max": 24.5
+        "sourceRefs": [
+          "p7-handbook",
+          "p7-opm"
+        ],
+        "status": "verified",
+        "verification": "primary-sources-crosschecked",
+        "note": "Übergangsradius r, maximal. Der frühere als r_max übernommene große Kopfradius gehört zu r1.",
+        "superseded": {
+          "value": 24.5,
+          "sourceRefs": [
+            "DIN124-s1"
+          ],
+          "reason": "head-radius-was-mislabelled-as-transition-radius"
+        }
       },
       "s_setting_allowance": {
         "nominal": 30.45,
@@ -1043,6 +1588,17 @@
         "verification": "norm-table-not-independently-verified",
         "note": "Spaltenname 's setting allowance' der Quelle (Nietzugabe vermutet, nicht definiert)",
         "unit": "mm"
+      },
+      "r1_ca": {
+        "nominal": 24.5,
+        "unit": "mm",
+        "sourceRefs": [
+          "p7-handbook",
+          "p7-opm"
+        ],
+        "status": "verified",
+        "verification": "primary-sources-crosschecked",
+        "note": "Kopfwölbungsradius r1, Näherungswert; kein Übergangsradius."
       }
     },
     "33": {
@@ -1101,14 +1657,22 @@
         "unit": "mm"
       },
       "r_max": {
-        "sourceRefs": [
-          "DIN124-s1"
-        ],
-        "status": "single-source",
-        "verification": "norm-table-not-independently-verified",
-        "note": "Radius",
+        "max": 1.6,
         "unit": "mm",
-        "max": 27
+        "sourceRefs": [
+          "p7-handbook",
+          "p7-opm"
+        ],
+        "status": "verified",
+        "verification": "primary-sources-crosschecked",
+        "note": "Übergangsradius r, maximal. Der frühere als r_max übernommene große Kopfradius gehört zu r1.",
+        "superseded": {
+          "value": 27,
+          "sourceRefs": [
+            "DIN124-s1"
+          ],
+          "reason": "head-radius-was-mislabelled-as-transition-radius"
+        }
       },
       "s_setting_allowance": {
         "nominal": 33.5,
@@ -1119,6 +1683,17 @@
         "verification": "norm-table-not-independently-verified",
         "note": "Spaltenname 's setting allowance' der Quelle (Nietzugabe vermutet, nicht definiert)",
         "unit": "mm"
+      },
+      "r1_ca": {
+        "nominal": 27,
+        "unit": "mm",
+        "sourceRefs": [
+          "p7-handbook",
+          "p7-opm"
+        ],
+        "status": "verified",
+        "verification": "primary-sources-crosschecked",
+        "note": "Kopfwölbungsradius r1, Näherungswert; kein Übergangsradius."
       }
     },
     "36": {
@@ -1177,14 +1752,22 @@
         "unit": "mm"
       },
       "r_max": {
-        "sourceRefs": [
-          "DIN124-s1"
-        ],
-        "status": "single-source",
-        "verification": "norm-table-not-independently-verified",
-        "note": "Radius",
+        "max": 2,
         "unit": "mm",
-        "max": 30
+        "sourceRefs": [
+          "p7-handbook",
+          "p7-opm"
+        ],
+        "status": "verified",
+        "verification": "primary-sources-crosschecked",
+        "note": "Übergangsradius r, maximal. Der frühere als r_max übernommene große Kopfradius gehört zu r1.",
+        "superseded": {
+          "value": 30,
+          "sourceRefs": [
+            "DIN124-s1"
+          ],
+          "reason": "head-radius-was-mislabelled-as-transition-radius"
+        }
       },
       "s_setting_allowance": {
         "nominal": 36.54,
@@ -1195,6 +1778,17 @@
         "verification": "norm-table-not-independently-verified",
         "note": "Spaltenname 's setting allowance' der Quelle (Nietzugabe vermutet, nicht definiert)",
         "unit": "mm"
+      },
+      "r1_ca": {
+        "nominal": 30,
+        "unit": "mm",
+        "sourceRefs": [
+          "p7-handbook",
+          "p7-opm"
+        ],
+        "status": "verified",
+        "verification": "primary-sources-crosschecked",
+        "note": "Kopfwölbungsradius r1, Näherungswert; kein Übergangsradius."
       }
     }
   },
@@ -1219,24 +1813,43 @@
       "titel": "Fasenco Maßtabelle DIN124",
       "abgerufen": "2026-11-26",
       "scope": "dimensions"
+    },
+    {
+      "id": "p7-handbook",
+      "url": "https://api.pageplace.de/preview/DT0400.9783410226949_A35867930/preview-9783410226949_A35867930.pdf",
+      "titel": "DIN-Taschenbuch 43 · offizielle Verlagsvorschau",
+      "abgerufen": "2026-11-27",
+      "scope": "dimensions",
+      "locator": "DIN 124:2011-03, Bild 1 / Tabelle 1, PDF S.32–34",
+      "edition": "2011-03"
+    },
+    {
+      "id": "p7-opm",
+      "url": "https://opm.ru/catalog/zaklepki/din-124-zaklepka/",
+      "titel": "OPM · eigene DIN-124-Maßtabelle und Lieferartikel",
+      "abgerufen": "2026-11-27",
+      "scope": "dimensions",
+      "locator": "Maßtabelle r / r1 und konkrete Lieferartikel"
     }
   ],
   "status": "partial",
   "coverage": "documented",
-  "pruefdatum": "2026-11-26",
+  "pruefdatum": "2026-11-27",
   "normstatus": {
     "edition": "2011-03",
-    "status": "status-from-supplied-source",
+    "status": "current",
     "sourceRefs": [
       "DIN124-s2"
-    ]
+    ],
+    "checkedAt": "2026-11-27",
+    "note": "Ausgabe und Status auf DIN Media geprüft. Statusseite bestätigt keine Maßzahl."
   },
   "hinweise": [
     "Fehlende Größe oder Länge bedeutet fehlende Datenabdeckung, kein Normverbot.",
     "Maßdaten sind einzeln belegt; Editionsstatus allein bestätigt keine Maßtabelle."
   ],
   "gaps": [
-    "Vollständige Normlängenmatrix je Größe und aktuelle Originalmaßtabelle nicht unabhängig bestätigt."
+    "Vollständige Normlängenmatrix nicht doppelt belegt; eingetragene Kombinationen sind Einzelbelege aus Originaltabelle und Lieferprogramm."
   ],
   "lengthDependentFields": [
     "sL"

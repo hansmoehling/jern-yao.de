@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "id": "DIN674",
-  "version": "2026-11-26",
+  "version": "2026-11-27",
   "edition": "2011-03",
   "label": "DIN 674 · Flachrundniet",
   "alias": [],
@@ -22,191 +22,443 @@
     "2": {
       "vorbelegung": {
         "sD": 2,
-        "kD": 4.5
+        "kD": 4.5,
+        "kH": 1
       },
       "roh": {
         "d_nominal": 2,
         "dk_nom": 4.5,
-        "k_js14": 1.12,
+        "k_js14": 1,
         "e_max": 1,
         "r1_ca": 3.6,
         "d_min": 1.87
       },
       "coverage": "documented",
-      "geometryStatus": "partial",
-      "missingGeometryFields": [
-        "headProfileDefinition",
-        "verifiedHeadHeight"
-      ],
-      "nachLaenge": {}
+      "geometryStatus": "complete",
+      "missingGeometryFields": [],
+      "nachLaenge": {},
+      "headGeometry": {
+        "model": "spherical-cap-envelope",
+        "exactNormContour": false,
+        "inputFields": [
+          "dk_nom",
+          "k_js14"
+        ],
+        "sourceRefs": [
+          "p7-original674",
+          "p7-huzur"
+        ],
+        "note": "Maschinenauswahlmodell mit Kugelkappe aus d2/k. Näherungsradius r1 und kleine Übergänge nicht gleichzeitig als exakte Werkzeugkontur erzwungen."
+      }
     },
     "3": {
       "vorbelegung": {
         "sD": 3,
-        "kD": 6.8
+        "kD": 6.8,
+        "kH": 1.5
       },
       "roh": {
         "d_nominal": 3,
         "dk_nom": 6.8,
-        "k_js14": 1.62,
+        "k_js14": 1.5,
         "e_max": 1.5,
         "r1_ca": 5.4,
         "d_min": 2.87
       },
       "coverage": "documented",
-      "geometryStatus": "partial",
-      "missingGeometryFields": [
-        "headProfileDefinition",
-        "verifiedHeadHeight"
-      ],
-      "nachLaenge": {}
+      "geometryStatus": "complete",
+      "missingGeometryFields": [],
+      "nachLaenge": {},
+      "headGeometry": {
+        "model": "spherical-cap-envelope",
+        "exactNormContour": false,
+        "inputFields": [
+          "dk_nom",
+          "k_js14"
+        ],
+        "sourceRefs": [
+          "p7-original674",
+          "p7-huzur"
+        ],
+        "note": "Maschinenauswahlmodell mit Kugelkappe aus d2/k. Näherungsradius r1 und kleine Übergänge nicht gleichzeitig als exakte Werkzeugkontur erzwungen."
+      }
     },
     "4": {
       "vorbelegung": {
         "sD": 4,
-        "kD": 9
+        "kD": 9,
+        "kH": 2
       },
       "roh": {
         "d_nominal": 4,
         "dk_nom": 9,
-        "k_js14": 2.12,
+        "k_js14": 2,
         "e_max": 2,
         "r1_ca": 7.1,
         "d_min": 3.87
       },
       "coverage": "documented",
-      "geometryStatus": "partial",
-      "missingGeometryFields": [
-        "headProfileDefinition",
-        "verifiedHeadHeight"
-      ],
-      "nachLaenge": {}
+      "geometryStatus": "complete",
+      "missingGeometryFields": [],
+      "nachLaenge": {
+        "8": {
+          "vorbelegung": {
+            "sL": 8
+          },
+          "roh": {
+            "l_nominal": 8
+          },
+          "fields": {
+            "l_nominal": {
+              "nominal": 8,
+              "unit": "mm",
+              "sourceRefs": [
+                "p7-original674",
+                "p7-keller674"
+              ],
+              "status": "verified",
+              "verification": "primary-sources-crosschecked",
+              "kind": "norm-table-and-commercial-combination",
+              "note": "Diese konkrete Durchmesser-Längen-Kombination ist belegt. Lieferprogramm und Normreihe sind nicht gleichgesetzt; keine vollständige Normmatrix behauptet."
+            }
+          },
+          "coverage": "documented",
+          "geometryStatus": "complete",
+          "missingGeometryFields": []
+        },
+        "10": {
+          "vorbelegung": {
+            "sL": 10
+          },
+          "roh": {
+            "l_nominal": 10
+          },
+          "fields": {
+            "l_nominal": {
+              "nominal": 10,
+              "unit": "mm",
+              "sourceRefs": [
+                "p7-original674",
+                "p7-keller674"
+              ],
+              "status": "verified",
+              "verification": "primary-sources-crosschecked",
+              "kind": "norm-table-and-commercial-combination",
+              "note": "Diese konkrete Durchmesser-Längen-Kombination ist belegt. Lieferprogramm und Normreihe sind nicht gleichgesetzt; keine vollständige Normmatrix behauptet."
+            }
+          },
+          "coverage": "documented",
+          "geometryStatus": "complete",
+          "missingGeometryFields": []
+        },
+        "12": {
+          "vorbelegung": {
+            "sL": 12
+          },
+          "roh": {
+            "l_nominal": 12
+          },
+          "fields": {
+            "l_nominal": {
+              "nominal": 12,
+              "unit": "mm",
+              "sourceRefs": [
+                "p7-original674",
+                "p7-keller674"
+              ],
+              "status": "verified",
+              "verification": "primary-sources-crosschecked",
+              "kind": "norm-table-and-commercial-combination",
+              "note": "Diese konkrete Durchmesser-Längen-Kombination ist belegt. Lieferprogramm und Normreihe sind nicht gleichgesetzt; keine vollständige Normmatrix behauptet."
+            }
+          },
+          "coverage": "documented",
+          "geometryStatus": "complete",
+          "missingGeometryFields": []
+        }
+      },
+      "headGeometry": {
+        "model": "spherical-cap-envelope",
+        "exactNormContour": false,
+        "inputFields": [
+          "dk_nom",
+          "k_js14"
+        ],
+        "sourceRefs": [
+          "p7-original674",
+          "p7-huzur"
+        ],
+        "note": "Maschinenauswahlmodell mit Kugelkappe aus d2/k. Näherungsradius r1 und kleine Übergänge nicht gleichzeitig als exakte Werkzeugkontur erzwungen."
+      }
     },
     "5": {
       "vorbelegung": {
         "sD": 5,
-        "kD": 11.2
+        "kD": 11.2,
+        "kH": 2.5
       },
       "roh": {
         "d_nominal": 5,
         "dk_nom": 11.2,
-        "k_js14": 2.62,
+        "k_js14": 2.5,
         "e_max": 2.5,
         "r1_ca": 8.8,
         "d_min": 4.82
       },
       "coverage": "documented",
-      "geometryStatus": "partial",
-      "missingGeometryFields": [
-        "headProfileDefinition",
-        "verifiedHeadHeight"
-      ],
-      "nachLaenge": {}
+      "geometryStatus": "complete",
+      "missingGeometryFields": [],
+      "nachLaenge": {
+        "10": {
+          "vorbelegung": {
+            "sL": 10
+          },
+          "roh": {
+            "l_nominal": 10
+          },
+          "fields": {
+            "l_nominal": {
+              "nominal": 10,
+              "unit": "mm",
+              "sourceRefs": [
+                "p7-original674",
+                "p7-keller674"
+              ],
+              "status": "verified",
+              "verification": "primary-sources-crosschecked",
+              "kind": "norm-table-and-commercial-combination",
+              "note": "Diese konkrete Durchmesser-Längen-Kombination ist belegt. Lieferprogramm und Normreihe sind nicht gleichgesetzt; keine vollständige Normmatrix behauptet."
+            }
+          },
+          "coverage": "documented",
+          "geometryStatus": "complete",
+          "missingGeometryFields": []
+        }
+      },
+      "headGeometry": {
+        "model": "spherical-cap-envelope",
+        "exactNormContour": false,
+        "inputFields": [
+          "dk_nom",
+          "k_js14"
+        ],
+        "sourceRefs": [
+          "p7-original674",
+          "p7-huzur"
+        ],
+        "note": "Maschinenauswahlmodell mit Kugelkappe aus d2/k. Näherungsradius r1 und kleine Übergänge nicht gleichzeitig als exakte Werkzeugkontur erzwungen."
+      }
     },
     "6": {
       "vorbelegung": {
         "sD": 6,
-        "kD": 13.5
+        "kD": 13.5,
+        "kH": 3
       },
       "roh": {
         "d_nominal": 6,
         "dk_nom": 13.5,
-        "k_js14": 3.15,
+        "k_js14": 3,
         "e_max": 3,
         "r1_ca": 10.7,
         "d_min": 5.82
       },
       "coverage": "documented",
-      "geometryStatus": "partial",
-      "missingGeometryFields": [
-        "headProfileDefinition",
-        "verifiedHeadHeight"
-      ],
-      "nachLaenge": {}
+      "geometryStatus": "complete",
+      "missingGeometryFields": [],
+      "nachLaenge": {
+        "8": {
+          "vorbelegung": {
+            "sL": 8
+          },
+          "roh": {
+            "l_nominal": 8
+          },
+          "fields": {
+            "l_nominal": {
+              "nominal": 8,
+              "unit": "mm",
+              "sourceRefs": [
+                "p7-original674",
+                "p7-keller674"
+              ],
+              "status": "verified",
+              "verification": "primary-sources-crosschecked",
+              "kind": "norm-table-and-commercial-combination",
+              "note": "Diese konkrete Durchmesser-Längen-Kombination ist belegt. Lieferprogramm und Normreihe sind nicht gleichgesetzt; keine vollständige Normmatrix behauptet."
+            }
+          },
+          "coverage": "documented",
+          "geometryStatus": "complete",
+          "missingGeometryFields": []
+        },
+        "12": {
+          "vorbelegung": {
+            "sL": 12
+          },
+          "roh": {
+            "l_nominal": 12
+          },
+          "fields": {
+            "l_nominal": {
+              "nominal": 12,
+              "unit": "mm",
+              "sourceRefs": [
+                "p7-original674",
+                "p7-keller674"
+              ],
+              "status": "verified",
+              "verification": "primary-sources-crosschecked",
+              "kind": "norm-table-and-commercial-combination",
+              "note": "Diese konkrete Durchmesser-Längen-Kombination ist belegt. Lieferprogramm und Normreihe sind nicht gleichgesetzt; keine vollständige Normmatrix behauptet."
+            }
+          },
+          "coverage": "documented",
+          "geometryStatus": "complete",
+          "missingGeometryFields": []
+        }
+      },
+      "headGeometry": {
+        "model": "spherical-cap-envelope",
+        "exactNormContour": false,
+        "inputFields": [
+          "dk_nom",
+          "k_js14"
+        ],
+        "sourceRefs": [
+          "p7-original674",
+          "p7-huzur"
+        ],
+        "note": "Maschinenauswahlmodell mit Kugelkappe aus d2/k. Näherungsradius r1 und kleine Übergänge nicht gleichzeitig als exakte Werkzeugkontur erzwungen."
+      }
     },
     "1.4": {
       "vorbelegung": {
         "sD": 1.4,
-        "kD": 3.2
+        "kD": 3.2,
+        "kH": 0.7
       },
       "roh": {
         "d_nominal": 1.4,
         "dk_nom": 3.2,
-        "k_js14": 0.82,
+        "k_js14": 0.7,
         "e_max": 0.7,
         "r1_ca": 2.8,
         "d_min": 1.33
       },
       "coverage": "documented",
-      "geometryStatus": "partial",
-      "missingGeometryFields": [
-        "headProfileDefinition",
-        "verifiedHeadHeight"
-      ],
-      "nachLaenge": {}
+      "geometryStatus": "complete",
+      "missingGeometryFields": [],
+      "nachLaenge": {},
+      "headGeometry": {
+        "model": "spherical-cap-envelope",
+        "exactNormContour": false,
+        "inputFields": [
+          "dk_nom",
+          "k_js14"
+        ],
+        "sourceRefs": [
+          "p7-original674",
+          "p7-huzur"
+        ],
+        "note": "Maschinenauswahlmodell mit Kugelkappe aus d2/k. Näherungsradius r1 und kleine Übergänge nicht gleichzeitig als exakte Werkzeugkontur erzwungen."
+      }
     },
     "1.6": {
       "vorbelegung": {
         "sD": 1.6,
-        "kD": 3.6
+        "kD": 3.6,
+        "kH": 0.8
       },
       "roh": {
         "d_nominal": 1.6,
         "dk_nom": 3.6,
-        "k_js14": 0.92,
+        "k_js14": 0.8,
         "e_max": 0.8,
         "r1_ca": 3,
         "d_min": 1.52
       },
       "coverage": "documented",
-      "geometryStatus": "partial",
-      "missingGeometryFields": [
-        "headProfileDefinition",
-        "verifiedHeadHeight"
-      ],
-      "nachLaenge": {}
+      "geometryStatus": "complete",
+      "missingGeometryFields": [],
+      "nachLaenge": {},
+      "headGeometry": {
+        "model": "spherical-cap-envelope",
+        "exactNormContour": false,
+        "inputFields": [
+          "dk_nom",
+          "k_js14"
+        ],
+        "sourceRefs": [
+          "p7-original674",
+          "p7-huzur"
+        ],
+        "note": "Maschinenauswahlmodell mit Kugelkappe aus d2/k. Näherungsradius r1 und kleine Übergänge nicht gleichzeitig als exakte Werkzeugkontur erzwungen."
+      }
     },
     "2.5": {
       "vorbelegung": {
         "sD": 2.5,
-        "kD": 5.6
+        "kD": 5.6,
+        "kH": 1.3
       },
       "roh": {
         "d_nominal": 2.5,
         "dk_nom": 5.6,
-        "k_js14": 1.42,
+        "k_js14": 1.3,
         "e_max": 1.25,
         "r1_ca": 4.2,
         "d_min": 2.37
       },
       "coverage": "documented",
-      "geometryStatus": "partial",
-      "missingGeometryFields": [
-        "headProfileDefinition",
-        "verifiedHeadHeight"
-      ],
-      "nachLaenge": {}
+      "geometryStatus": "complete",
+      "missingGeometryFields": [],
+      "nachLaenge": {},
+      "headGeometry": {
+        "model": "spherical-cap-envelope",
+        "exactNormContour": false,
+        "inputFields": [
+          "dk_nom",
+          "k_js14"
+        ],
+        "sourceRefs": [
+          "p7-original674",
+          "p7-huzur"
+        ],
+        "note": "Maschinenauswahlmodell mit Kugelkappe aus d2/k. Näherungsradius r1 und kleine Übergänge nicht gleichzeitig als exakte Werkzeugkontur erzwungen."
+      }
     },
     "3.5": {
       "vorbelegung": {
         "sD": 3.5,
-        "kD": 7.8
+        "kD": 7.8,
+        "kH": 1.8
       },
       "roh": {
         "d_nominal": 3.5,
         "dk_nom": 7.8,
-        "k_js14": 1.92,
+        "k_js14": 1.8,
         "e_max": 1.75,
         "r1_ca": 6.1,
         "d_min": 3.37
       },
       "coverage": "documented",
-      "geometryStatus": "partial",
-      "missingGeometryFields": [
-        "headProfileDefinition",
-        "verifiedHeadHeight"
-      ],
-      "nachLaenge": {}
+      "geometryStatus": "complete",
+      "missingGeometryFields": [],
+      "nachLaenge": {},
+      "headGeometry": {
+        "model": "spherical-cap-envelope",
+        "exactNormContour": false,
+        "inputFields": [
+          "dk_nom",
+          "k_js14"
+        ],
+        "sourceRefs": [
+          "p7-original674",
+          "p7-huzur"
+        ],
+        "note": "Maschinenauswahlmodell mit Kugelkappe aus d2/k. Näherungsradius r1 und kleine Übergänge nicht gleichzeitig als exakte Werkzeugkontur erzwungen."
+      }
     }
   },
   "fields": {
@@ -234,24 +486,24 @@
         "unit": "mm"
       },
       "k_js14": {
-        "nominal": 1.12,
+        "nominal": 1,
+        "unit": "mm",
         "sourceRefs": [
-          "DIN674-s1",
+          "p7-original674",
+          "p7-huzur",
           "fasenco"
         ],
-        "status": "conflict",
-        "verification": "different-head-heights",
-        "note": "2011-Katalogwert und Herstellerwert ohne Editionsangabe widersprechen sich. Keine sichere automatische Kopfhöhe.",
-        "unit": "mm",
-        "alternatives": [
-          {
-            "nominal": 1,
-            "sourceRefs": [
-              "fasenco"
-            ],
-            "edition": null
-          }
-        ]
+        "status": "verified",
+        "verification": "primary-sources-crosschecked",
+        "note": "Kopfhöhe aus Originalnorm 2011-03; der abweichende Katalogwert wurde durch Originalprüfung aufgelöst.",
+        "superseded": {
+          "value": 1.12,
+          "sourceRefs": [
+            "DIN674-s1",
+            "fasenco"
+          ],
+          "reason": "contradicted-by-original-2011-table"
+        }
       },
       "e_max": {
         "sourceRefs": [
@@ -266,13 +518,14 @@
       },
       "r1_ca": {
         "nominal": 3.6,
+        "unit": "mm",
         "sourceRefs": [
-          "DIN674-s1"
+          "p7-original674",
+          "p7-huzur"
         ],
-        "status": "single-source",
-        "verification": "norm-table-not-independently-verified",
-        "note": "Kopfradius ca.",
-        "unit": "mm"
+        "status": "verified",
+        "verification": "primary-sources-crosschecked",
+        "note": "Angenäherter Wölbungsradius r1."
       },
       "d_min": {
         "sourceRefs": [
@@ -310,24 +563,24 @@
         "unit": "mm"
       },
       "k_js14": {
-        "nominal": 1.62,
+        "nominal": 1.5,
+        "unit": "mm",
         "sourceRefs": [
-          "DIN674-s1",
+          "p7-original674",
+          "p7-huzur",
           "fasenco"
         ],
-        "status": "conflict",
-        "verification": "different-head-heights",
-        "note": "2011-Katalogwert und Herstellerwert ohne Editionsangabe widersprechen sich. Keine sichere automatische Kopfhöhe.",
-        "unit": "mm",
-        "alternatives": [
-          {
-            "nominal": 1.5,
-            "sourceRefs": [
-              "fasenco"
-            ],
-            "edition": null
-          }
-        ]
+        "status": "verified",
+        "verification": "primary-sources-crosschecked",
+        "note": "Kopfhöhe aus Originalnorm 2011-03; der abweichende Katalogwert wurde durch Originalprüfung aufgelöst.",
+        "superseded": {
+          "value": 1.62,
+          "sourceRefs": [
+            "DIN674-s1",
+            "fasenco"
+          ],
+          "reason": "contradicted-by-original-2011-table"
+        }
       },
       "e_max": {
         "sourceRefs": [
@@ -342,13 +595,14 @@
       },
       "r1_ca": {
         "nominal": 5.4,
+        "unit": "mm",
         "sourceRefs": [
-          "DIN674-s1"
+          "p7-original674",
+          "p7-huzur"
         ],
-        "status": "single-source",
-        "verification": "norm-table-not-independently-verified",
-        "note": "Kopfradius ca.",
-        "unit": "mm"
+        "status": "verified",
+        "verification": "primary-sources-crosschecked",
+        "note": "Angenäherter Wölbungsradius r1."
       },
       "d_min": {
         "sourceRefs": [
@@ -386,24 +640,24 @@
         "unit": "mm"
       },
       "k_js14": {
-        "nominal": 2.12,
+        "nominal": 2,
+        "unit": "mm",
         "sourceRefs": [
-          "DIN674-s1",
+          "p7-original674",
+          "p7-huzur",
           "fasenco"
         ],
-        "status": "conflict",
-        "verification": "different-head-heights",
-        "note": "2011-Katalogwert und Herstellerwert ohne Editionsangabe widersprechen sich. Keine sichere automatische Kopfhöhe.",
-        "unit": "mm",
-        "alternatives": [
-          {
-            "nominal": 2,
-            "sourceRefs": [
-              "fasenco"
-            ],
-            "edition": null
-          }
-        ]
+        "status": "verified",
+        "verification": "primary-sources-crosschecked",
+        "note": "Kopfhöhe aus Originalnorm 2011-03; der abweichende Katalogwert wurde durch Originalprüfung aufgelöst.",
+        "superseded": {
+          "value": 2.12,
+          "sourceRefs": [
+            "DIN674-s1",
+            "fasenco"
+          ],
+          "reason": "contradicted-by-original-2011-table"
+        }
       },
       "e_max": {
         "sourceRefs": [
@@ -418,13 +672,14 @@
       },
       "r1_ca": {
         "nominal": 7.1,
+        "unit": "mm",
         "sourceRefs": [
-          "DIN674-s1"
+          "p7-original674",
+          "p7-huzur"
         ],
-        "status": "single-source",
-        "verification": "norm-table-not-independently-verified",
-        "note": "Kopfradius ca.",
-        "unit": "mm"
+        "status": "verified",
+        "verification": "primary-sources-crosschecked",
+        "note": "Angenäherter Wölbungsradius r1."
       },
       "d_min": {
         "sourceRefs": [
@@ -462,24 +717,24 @@
         "unit": "mm"
       },
       "k_js14": {
-        "nominal": 2.62,
+        "nominal": 2.5,
+        "unit": "mm",
         "sourceRefs": [
-          "DIN674-s1",
+          "p7-original674",
+          "p7-huzur",
           "fasenco"
         ],
-        "status": "conflict",
-        "verification": "different-head-heights",
-        "note": "2011-Katalogwert und Herstellerwert ohne Editionsangabe widersprechen sich. Keine sichere automatische Kopfhöhe.",
-        "unit": "mm",
-        "alternatives": [
-          {
-            "nominal": 2.5,
-            "sourceRefs": [
-              "fasenco"
-            ],
-            "edition": null
-          }
-        ]
+        "status": "verified",
+        "verification": "primary-sources-crosschecked",
+        "note": "Kopfhöhe aus Originalnorm 2011-03; der abweichende Katalogwert wurde durch Originalprüfung aufgelöst.",
+        "superseded": {
+          "value": 2.62,
+          "sourceRefs": [
+            "DIN674-s1",
+            "fasenco"
+          ],
+          "reason": "contradicted-by-original-2011-table"
+        }
       },
       "e_max": {
         "sourceRefs": [
@@ -494,13 +749,14 @@
       },
       "r1_ca": {
         "nominal": 8.8,
+        "unit": "mm",
         "sourceRefs": [
-          "DIN674-s1"
+          "p7-original674",
+          "p7-huzur"
         ],
-        "status": "single-source",
-        "verification": "norm-table-not-independently-verified",
-        "note": "Kopfradius ca.",
-        "unit": "mm"
+        "status": "verified",
+        "verification": "primary-sources-crosschecked",
+        "note": "Angenäherter Wölbungsradius r1."
       },
       "d_min": {
         "sourceRefs": [
@@ -538,24 +794,24 @@
         "unit": "mm"
       },
       "k_js14": {
-        "nominal": 3.15,
+        "nominal": 3,
+        "unit": "mm",
         "sourceRefs": [
-          "DIN674-s1",
+          "p7-original674",
+          "p7-huzur",
           "fasenco"
         ],
-        "status": "conflict",
-        "verification": "different-head-heights",
-        "note": "2011-Katalogwert und Herstellerwert ohne Editionsangabe widersprechen sich. Keine sichere automatische Kopfhöhe.",
-        "unit": "mm",
-        "alternatives": [
-          {
-            "nominal": 3,
-            "sourceRefs": [
-              "fasenco"
-            ],
-            "edition": null
-          }
-        ]
+        "status": "verified",
+        "verification": "primary-sources-crosschecked",
+        "note": "Kopfhöhe aus Originalnorm 2011-03; der abweichende Katalogwert wurde durch Originalprüfung aufgelöst.",
+        "superseded": {
+          "value": 3.15,
+          "sourceRefs": [
+            "DIN674-s1",
+            "fasenco"
+          ],
+          "reason": "contradicted-by-original-2011-table"
+        }
       },
       "e_max": {
         "sourceRefs": [
@@ -570,13 +826,14 @@
       },
       "r1_ca": {
         "nominal": 10.7,
+        "unit": "mm",
         "sourceRefs": [
-          "DIN674-s1"
+          "p7-original674",
+          "p7-huzur"
         ],
-        "status": "single-source",
-        "verification": "norm-table-not-independently-verified",
-        "note": "Kopfradius ca.",
-        "unit": "mm"
+        "status": "verified",
+        "verification": "primary-sources-crosschecked",
+        "note": "Angenäherter Wölbungsradius r1."
       },
       "d_min": {
         "sourceRefs": [
@@ -614,24 +871,24 @@
         "unit": "mm"
       },
       "k_js14": {
-        "nominal": 0.82,
+        "nominal": 0.7,
+        "unit": "mm",
         "sourceRefs": [
-          "DIN674-s1",
+          "p7-original674",
+          "p7-huzur",
           "fasenco"
         ],
-        "status": "conflict",
-        "verification": "different-head-heights",
-        "note": "2011-Katalogwert und Herstellerwert ohne Editionsangabe widersprechen sich. Keine sichere automatische Kopfhöhe.",
-        "unit": "mm",
-        "alternatives": [
-          {
-            "nominal": 0.7,
-            "sourceRefs": [
-              "fasenco"
-            ],
-            "edition": null
-          }
-        ]
+        "status": "verified",
+        "verification": "primary-sources-crosschecked",
+        "note": "Kopfhöhe aus Originalnorm 2011-03; der abweichende Katalogwert wurde durch Originalprüfung aufgelöst.",
+        "superseded": {
+          "value": 0.82,
+          "sourceRefs": [
+            "DIN674-s1",
+            "fasenco"
+          ],
+          "reason": "contradicted-by-original-2011-table"
+        }
       },
       "e_max": {
         "sourceRefs": [
@@ -646,13 +903,14 @@
       },
       "r1_ca": {
         "nominal": 2.8,
+        "unit": "mm",
         "sourceRefs": [
-          "DIN674-s1"
+          "p7-original674",
+          "p7-huzur"
         ],
-        "status": "single-source",
-        "verification": "norm-table-not-independently-verified",
-        "note": "Kopfradius ca.",
-        "unit": "mm"
+        "status": "verified",
+        "verification": "primary-sources-crosschecked",
+        "note": "Angenäherter Wölbungsradius r1."
       },
       "d_min": {
         "sourceRefs": [
@@ -690,24 +948,24 @@
         "unit": "mm"
       },
       "k_js14": {
-        "nominal": 0.92,
+        "nominal": 0.8,
+        "unit": "mm",
         "sourceRefs": [
-          "DIN674-s1",
+          "p7-original674",
+          "p7-huzur",
           "fasenco"
         ],
-        "status": "conflict",
-        "verification": "different-head-heights",
-        "note": "2011-Katalogwert und Herstellerwert ohne Editionsangabe widersprechen sich. Keine sichere automatische Kopfhöhe.",
-        "unit": "mm",
-        "alternatives": [
-          {
-            "nominal": 0.8,
-            "sourceRefs": [
-              "fasenco"
-            ],
-            "edition": null
-          }
-        ]
+        "status": "verified",
+        "verification": "primary-sources-crosschecked",
+        "note": "Kopfhöhe aus Originalnorm 2011-03; der abweichende Katalogwert wurde durch Originalprüfung aufgelöst.",
+        "superseded": {
+          "value": 0.92,
+          "sourceRefs": [
+            "DIN674-s1",
+            "fasenco"
+          ],
+          "reason": "contradicted-by-original-2011-table"
+        }
       },
       "e_max": {
         "sourceRefs": [
@@ -722,13 +980,14 @@
       },
       "r1_ca": {
         "nominal": 3,
+        "unit": "mm",
         "sourceRefs": [
-          "DIN674-s1"
+          "p7-original674",
+          "p7-huzur"
         ],
-        "status": "single-source",
-        "verification": "norm-table-not-independently-verified",
-        "note": "Kopfradius ca.",
-        "unit": "mm"
+        "status": "verified",
+        "verification": "primary-sources-crosschecked",
+        "note": "Angenäherter Wölbungsradius r1."
       },
       "d_min": {
         "sourceRefs": [
@@ -766,24 +1025,24 @@
         "unit": "mm"
       },
       "k_js14": {
-        "nominal": 1.42,
+        "nominal": 1.3,
+        "unit": "mm",
         "sourceRefs": [
-          "DIN674-s1",
+          "p7-original674",
+          "p7-huzur",
           "fasenco"
         ],
-        "status": "conflict",
-        "verification": "different-head-heights",
-        "note": "2011-Katalogwert und Herstellerwert ohne Editionsangabe widersprechen sich. Keine sichere automatische Kopfhöhe.",
-        "unit": "mm",
-        "alternatives": [
-          {
-            "nominal": 1.3,
-            "sourceRefs": [
-              "fasenco"
-            ],
-            "edition": null
-          }
-        ]
+        "status": "verified",
+        "verification": "primary-sources-crosschecked",
+        "note": "Kopfhöhe aus Originalnorm 2011-03; der abweichende Katalogwert wurde durch Originalprüfung aufgelöst.",
+        "superseded": {
+          "value": 1.42,
+          "sourceRefs": [
+            "DIN674-s1",
+            "fasenco"
+          ],
+          "reason": "contradicted-by-original-2011-table"
+        }
       },
       "e_max": {
         "sourceRefs": [
@@ -798,13 +1057,14 @@
       },
       "r1_ca": {
         "nominal": 4.2,
+        "unit": "mm",
         "sourceRefs": [
-          "DIN674-s1"
+          "p7-original674",
+          "p7-huzur"
         ],
-        "status": "single-source",
-        "verification": "norm-table-not-independently-verified",
-        "note": "Kopfradius ca.",
-        "unit": "mm"
+        "status": "verified",
+        "verification": "primary-sources-crosschecked",
+        "note": "Angenäherter Wölbungsradius r1."
       },
       "d_min": {
         "sourceRefs": [
@@ -842,24 +1102,24 @@
         "unit": "mm"
       },
       "k_js14": {
-        "nominal": 1.92,
+        "nominal": 1.8,
+        "unit": "mm",
         "sourceRefs": [
-          "DIN674-s1",
+          "p7-original674",
+          "p7-huzur",
           "fasenco"
         ],
-        "status": "conflict",
-        "verification": "different-head-heights",
-        "note": "2011-Katalogwert und Herstellerwert ohne Editionsangabe widersprechen sich. Keine sichere automatische Kopfhöhe.",
-        "unit": "mm",
-        "alternatives": [
-          {
-            "nominal": 1.8,
-            "sourceRefs": [
-              "fasenco"
-            ],
-            "edition": null
-          }
-        ]
+        "status": "verified",
+        "verification": "primary-sources-crosschecked",
+        "note": "Kopfhöhe aus Originalnorm 2011-03; der abweichende Katalogwert wurde durch Originalprüfung aufgelöst.",
+        "superseded": {
+          "value": 1.92,
+          "sourceRefs": [
+            "DIN674-s1",
+            "fasenco"
+          ],
+          "reason": "contradicted-by-original-2011-table"
+        }
       },
       "e_max": {
         "sourceRefs": [
@@ -874,13 +1134,14 @@
       },
       "r1_ca": {
         "nominal": 6.1,
+        "unit": "mm",
         "sourceRefs": [
-          "DIN674-s1"
+          "p7-original674",
+          "p7-huzur"
         ],
-        "status": "single-source",
-        "verification": "norm-table-not-independently-verified",
-        "note": "Kopfradius ca.",
-        "unit": "mm"
+        "status": "verified",
+        "verification": "primary-sources-crosschecked",
+        "note": "Angenäherter Wölbungsradius r1."
       },
       "d_min": {
         "sourceRefs": [
@@ -916,25 +1177,52 @@
       "titel": "Fasenco Maßtabelle DIN674",
       "abgerufen": "2026-11-26",
       "scope": "dimensions"
+    },
+    {
+      "id": "p7-original674",
+      "url": "https://bugel.kz/static/uploads/uploaded_files/standarts/DIN%20674.pdf",
+      "titel": "DIN 674:2011-03 · Originalnorm, öffentlicher Lieferantenabdruck",
+      "abgerufen": "2026-11-27",
+      "scope": "dimensions",
+      "locator": "Bild1 / Tabelle1, S.4–5",
+      "edition": "2011-03"
+    },
+    {
+      "id": "p7-huzur",
+      "url": "https://huzurcivata.com.tr/huzurcivata.pdf",
+      "titel": "Huzur Cıvata · eigener Produktkatalog",
+      "abgerufen": "2026-11-27",
+      "scope": "dimensions",
+      "locator": "PDF S.48 / Druckseite46, DIN674"
+    },
+    {
+      "id": "p7-keller674",
+      "url": "https://www.keller-kalmbach.de/p/D674BYAA410/pdf",
+      "titel": "Keller & Kalmbach · DIN 674, eigene Artikelvarianten",
+      "abgerufen": "2026-11-27",
+      "scope": "dimensions",
+      "locator": "PDF S.1–2, konkrete Artikelvarianten"
     }
   ],
   "status": "partial",
   "coverage": "documented",
-  "pruefdatum": "2026-11-26",
+  "pruefdatum": "2026-11-27",
   "normstatus": {
     "edition": "2011-03",
-    "status": "status-from-supplied-source",
+    "status": "current",
     "sourceRefs": [
       "DIN674-s2"
-    ]
+    ],
+    "checkedAt": "2026-11-27",
+    "note": "Ausgabe und Status auf DIN Media geprüft. Statusseite bestätigt keine Maßzahl."
   },
   "hinweise": [
     "Fehlende Größe oder Länge bedeutet fehlende Datenabdeckung, kein Normverbot.",
     "Maßdaten sind einzeln belegt; Editionsstatus allein bestätigt keine Maßtabelle."
   ],
   "gaps": [
-    "Vollständige Normlängenmatrix je Größe und aktuelle Originalmaßtabelle nicht unabhängig bestätigt.",
-    "Gewichtstabellenkopf 1,2 statt 1,4 widersprüchlich; keine Zuordnung der Längen aus dieser Spalte."
+    "Originaltabelle 2011-03 geprüft; vollständige Normlängenmatrix nicht doppelt belegt.",
+    "Kopf als Hüllmodell aus d2/k; keine Behauptung einer exakten Werkzeugkontur aus gerundeten r1-Werten."
   ],
   "lengthDependentFields": [
     "sL"

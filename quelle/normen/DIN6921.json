@@ -30,12 +30,567 @@
         "kD": 11.8
       },
       "coverage": "documented",
-      "nachLaenge": {},
-      "lengthCoverage": "unresearched",
+      "nachLaenge": {
+        "10": {
+          "coverage": "documented",
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "flangeHeight"
+          ],
+          "vorbelegung": {
+            "sL": 10
+          },
+          "roh": {
+            "nominalLength": 10
+          },
+          "fields": {
+            "sL": {
+              "nominal": 10,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "kinex6921",
+                "boell6921"
+              ],
+              "status": "verified",
+              "verification": true,
+              "verificationMethod": "independent-publishers-agree",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            },
+            "nominalLength": {
+              "nominal": 10,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "kinex6921",
+                "boell6921"
+              ],
+              "status": "verified",
+              "verification": true,
+              "verificationMethod": "independent-publishers-agree",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            }
+          },
+          "shaftPolicy": "shaft-v2",
+          "lengthEvidence": {
+            "kind": "catalogue-matrix",
+            "edition": null,
+            "sourceRefs": [
+              "kinex6921",
+              "boell6921"
+            ],
+            "verification": true,
+            "nominalOnly": true,
+            "note": "Nur tatsächlich ausgewiesene Größen-/Längenkombination. Nicht gelistete Kombinationen sind keine Normverbote."
+          }
+        },
+        "12": {
+          "coverage": "documented",
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "flangeHeight"
+          ],
+          "vorbelegung": {
+            "sL": 12
+          },
+          "roh": {
+            "nominalLength": 12
+          },
+          "fields": {
+            "sL": {
+              "nominal": 12,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "kinex6921",
+                "boell6921"
+              ],
+              "status": "verified",
+              "verification": true,
+              "verificationMethod": "independent-publishers-agree",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            },
+            "nominalLength": {
+              "nominal": 12,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "kinex6921",
+                "boell6921"
+              ],
+              "status": "verified",
+              "verification": true,
+              "verificationMethod": "independent-publishers-agree",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            }
+          },
+          "shaftPolicy": "shaft-v2",
+          "lengthEvidence": {
+            "kind": "catalogue-matrix",
+            "edition": null,
+            "sourceRefs": [
+              "kinex6921",
+              "boell6921"
+            ],
+            "verification": true,
+            "nominalOnly": true,
+            "note": "Nur tatsächlich ausgewiesene Größen-/Längenkombination. Nicht gelistete Kombinationen sind keine Normverbote."
+          }
+        },
+        "16": {
+          "coverage": "documented",
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "flangeHeight"
+          ],
+          "vorbelegung": {
+            "sL": 16
+          },
+          "roh": {
+            "nominalLength": 16
+          },
+          "fields": {
+            "sL": {
+              "nominal": 16,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "kinex6921",
+                "boell6921"
+              ],
+              "status": "verified",
+              "verification": true,
+              "verificationMethod": "independent-publishers-agree",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            },
+            "nominalLength": {
+              "nominal": 16,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "kinex6921",
+                "boell6921"
+              ],
+              "status": "verified",
+              "verification": true,
+              "verificationMethod": "independent-publishers-agree",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            }
+          },
+          "shaftPolicy": "shaft-v2",
+          "lengthEvidence": {
+            "kind": "catalogue-matrix",
+            "edition": null,
+            "sourceRefs": [
+              "kinex6921",
+              "boell6921"
+            ],
+            "verification": true,
+            "nominalOnly": true,
+            "note": "Nur tatsächlich ausgewiesene Größen-/Längenkombination. Nicht gelistete Kombinationen sind keine Normverbote."
+          }
+        },
+        "20": {
+          "coverage": "documented",
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "flangeHeight",
+            "shaftLengthDistribution"
+          ],
+          "vorbelegung": {
+            "sL": 20
+          },
+          "roh": {
+            "nominalLength": 20
+          },
+          "fields": {
+            "sL": {
+              "nominal": 20,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "kinex6921",
+                "boell6921"
+              ],
+              "status": "verified",
+              "verification": true,
+              "verificationMethod": "independent-publishers-agree",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            },
+            "nominalLength": {
+              "nominal": 20,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "kinex6921",
+                "boell6921"
+              ],
+              "status": "verified",
+              "verification": true,
+              "verificationMethod": "independent-publishers-agree",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            }
+          },
+          "shaftPolicy": "shaft-v2",
+          "lengthEvidence": {
+            "kind": "catalogue-matrix",
+            "edition": null,
+            "sourceRefs": [
+              "kinex6921",
+              "boell6921"
+            ],
+            "verification": true,
+            "nominalOnly": true,
+            "note": "Nur tatsächlich ausgewiesene Größen-/Längenkombination. Nicht gelistete Kombinationen sind keine Normverbote."
+          }
+        },
+        "25": {
+          "coverage": "documented",
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "flangeHeight",
+            "shaftLengthDistribution"
+          ],
+          "vorbelegung": {
+            "sL": 25
+          },
+          "roh": {
+            "nominalLength": 25
+          },
+          "fields": {
+            "sL": {
+              "nominal": 25,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "kinex6921",
+                "boell6921"
+              ],
+              "status": "verified",
+              "verification": true,
+              "verificationMethod": "independent-publishers-agree",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            },
+            "nominalLength": {
+              "nominal": 25,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "kinex6921",
+                "boell6921"
+              ],
+              "status": "verified",
+              "verification": true,
+              "verificationMethod": "independent-publishers-agree",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            }
+          },
+          "shaftPolicy": "shaft-v2",
+          "lengthEvidence": {
+            "kind": "catalogue-matrix",
+            "edition": null,
+            "sourceRefs": [
+              "kinex6921",
+              "boell6921"
+            ],
+            "verification": true,
+            "nominalOnly": true,
+            "note": "Nur tatsächlich ausgewiesene Größen-/Längenkombination. Nicht gelistete Kombinationen sind keine Normverbote."
+          }
+        },
+        "30": {
+          "coverage": "documented",
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "flangeHeight",
+            "shaftLengthDistribution"
+          ],
+          "vorbelegung": {
+            "sL": 30
+          },
+          "roh": {
+            "nominalLength": 30
+          },
+          "fields": {
+            "sL": {
+              "nominal": 30,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "kinex6921"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            },
+            "nominalLength": {
+              "nominal": 30,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "kinex6921"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            }
+          },
+          "shaftPolicy": "shaft-v2",
+          "lengthEvidence": {
+            "kind": "catalogue-matrix",
+            "edition": null,
+            "sourceRefs": [
+              "kinex6921"
+            ],
+            "verification": false,
+            "nominalOnly": true,
+            "note": "Nur tatsächlich ausgewiesene Größen-/Längenkombination. Nicht gelistete Kombinationen sind keine Normverbote."
+          }
+        },
+        "35": {
+          "coverage": "documented",
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "flangeHeight",
+            "shaftLengthDistribution"
+          ],
+          "vorbelegung": {
+            "sL": 35
+          },
+          "roh": {
+            "nominalLength": 35
+          },
+          "fields": {
+            "sL": {
+              "nominal": 35,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "kinex6921"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            },
+            "nominalLength": {
+              "nominal": 35,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "kinex6921"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            }
+          },
+          "shaftPolicy": "shaft-v2",
+          "lengthEvidence": {
+            "kind": "catalogue-matrix",
+            "edition": null,
+            "sourceRefs": [
+              "kinex6921"
+            ],
+            "verification": false,
+            "nominalOnly": true,
+            "note": "Nur tatsächlich ausgewiesene Größen-/Längenkombination. Nicht gelistete Kombinationen sind keine Normverbote."
+          }
+        },
+        "40": {
+          "coverage": "documented",
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "flangeHeight",
+            "shaftLengthDistribution"
+          ],
+          "vorbelegung": {
+            "sL": 40
+          },
+          "roh": {
+            "nominalLength": 40
+          },
+          "fields": {
+            "sL": {
+              "nominal": 40,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "kinex6921"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            },
+            "nominalLength": {
+              "nominal": 40,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "kinex6921"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            }
+          },
+          "shaftPolicy": "shaft-v2",
+          "lengthEvidence": {
+            "kind": "catalogue-matrix",
+            "edition": null,
+            "sourceRefs": [
+              "kinex6921"
+            ],
+            "verification": false,
+            "nominalOnly": true,
+            "note": "Nur tatsächlich ausgewiesene Größen-/Längenkombination. Nicht gelistete Kombinationen sind keine Normverbote."
+          }
+        },
+        "45": {
+          "coverage": "documented",
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "flangeHeight",
+            "shaftLengthDistribution"
+          ],
+          "vorbelegung": {
+            "sL": 45
+          },
+          "roh": {
+            "nominalLength": 45
+          },
+          "fields": {
+            "sL": {
+              "nominal": 45,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "kinex6921"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            },
+            "nominalLength": {
+              "nominal": 45,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "kinex6921"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            }
+          },
+          "shaftPolicy": "shaft-v2",
+          "lengthEvidence": {
+            "kind": "catalogue-matrix",
+            "edition": null,
+            "sourceRefs": [
+              "kinex6921"
+            ],
+            "verification": false,
+            "nominalOnly": true,
+            "note": "Nur tatsächlich ausgewiesene Größen-/Längenkombination. Nicht gelistete Kombinationen sind keine Normverbote."
+          }
+        },
+        "50": {
+          "coverage": "documented",
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "flangeHeight",
+            "shaftLengthDistribution"
+          ],
+          "vorbelegung": {
+            "sL": 50
+          },
+          "roh": {
+            "nominalLength": 50
+          },
+          "fields": {
+            "sL": {
+              "nominal": 50,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "kinex6921"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            },
+            "nominalLength": {
+              "nominal": 50,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "kinex6921"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            }
+          },
+          "shaftPolicy": "shaft-v2",
+          "lengthEvidence": {
+            "kind": "catalogue-matrix",
+            "edition": null,
+            "sourceRefs": [
+              "kinex6921"
+            ],
+            "verification": false,
+            "nominalOnly": true,
+            "note": "Nur tatsächlich ausgewiesene Größen-/Längenkombination. Nicht gelistete Kombinationen sind keine Normverbote."
+          }
+        }
+      },
+      "lengthCoverage": "partial",
       "missingGeometryFields": [
         "flangeHeight"
       ],
-      "geometryStatus": "partial"
+      "geometryStatus": "partial",
+      "laengen": [
+        10,
+        12,
+        16,
+        20,
+        25,
+        30,
+        35,
+        40,
+        45,
+        50
+      ]
     },
     "M6": {
       "roh": {
@@ -50,12 +605,625 @@
         "kD": 14.2
       },
       "coverage": "documented",
-      "nachLaenge": {},
-      "lengthCoverage": "unresearched",
+      "nachLaenge": {
+        "12": {
+          "coverage": "documented",
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "flangeHeight"
+          ],
+          "vorbelegung": {
+            "sL": 12
+          },
+          "roh": {
+            "nominalLength": 12
+          },
+          "fields": {
+            "sL": {
+              "nominal": 12,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "kinex6921",
+                "boell6921"
+              ],
+              "status": "verified",
+              "verification": true,
+              "verificationMethod": "independent-publishers-agree",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            },
+            "nominalLength": {
+              "nominal": 12,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "kinex6921",
+                "boell6921"
+              ],
+              "status": "verified",
+              "verification": true,
+              "verificationMethod": "independent-publishers-agree",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            }
+          },
+          "shaftPolicy": "shaft-v2",
+          "lengthEvidence": {
+            "kind": "catalogue-matrix",
+            "edition": null,
+            "sourceRefs": [
+              "kinex6921",
+              "boell6921"
+            ],
+            "verification": true,
+            "nominalOnly": true,
+            "note": "Nur tatsächlich ausgewiesene Größen-/Längenkombination. Nicht gelistete Kombinationen sind keine Normverbote."
+          }
+        },
+        "16": {
+          "coverage": "documented",
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "flangeHeight"
+          ],
+          "vorbelegung": {
+            "sL": 16
+          },
+          "roh": {
+            "nominalLength": 16
+          },
+          "fields": {
+            "sL": {
+              "nominal": 16,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "kinex6921",
+                "boell6921"
+              ],
+              "status": "verified",
+              "verification": true,
+              "verificationMethod": "independent-publishers-agree",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            },
+            "nominalLength": {
+              "nominal": 16,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "kinex6921",
+                "boell6921"
+              ],
+              "status": "verified",
+              "verification": true,
+              "verificationMethod": "independent-publishers-agree",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            }
+          },
+          "shaftPolicy": "shaft-v2",
+          "lengthEvidence": {
+            "kind": "catalogue-matrix",
+            "edition": null,
+            "sourceRefs": [
+              "kinex6921",
+              "boell6921"
+            ],
+            "verification": true,
+            "nominalOnly": true,
+            "note": "Nur tatsächlich ausgewiesene Größen-/Längenkombination. Nicht gelistete Kombinationen sind keine Normverbote."
+          }
+        },
+        "20": {
+          "coverage": "documented",
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "flangeHeight",
+            "shaftLengthDistribution"
+          ],
+          "vorbelegung": {
+            "sL": 20
+          },
+          "roh": {
+            "nominalLength": 20
+          },
+          "fields": {
+            "sL": {
+              "nominal": 20,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "kinex6921",
+                "boell6921"
+              ],
+              "status": "verified",
+              "verification": true,
+              "verificationMethod": "independent-publishers-agree",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            },
+            "nominalLength": {
+              "nominal": 20,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "kinex6921",
+                "boell6921"
+              ],
+              "status": "verified",
+              "verification": true,
+              "verificationMethod": "independent-publishers-agree",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            }
+          },
+          "shaftPolicy": "shaft-v2",
+          "lengthEvidence": {
+            "kind": "catalogue-matrix",
+            "edition": null,
+            "sourceRefs": [
+              "kinex6921",
+              "boell6921"
+            ],
+            "verification": true,
+            "nominalOnly": true,
+            "note": "Nur tatsächlich ausgewiesene Größen-/Längenkombination. Nicht gelistete Kombinationen sind keine Normverbote."
+          }
+        },
+        "25": {
+          "coverage": "documented",
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "flangeHeight",
+            "shaftLengthDistribution"
+          ],
+          "vorbelegung": {
+            "sL": 25
+          },
+          "roh": {
+            "nominalLength": 25
+          },
+          "fields": {
+            "sL": {
+              "nominal": 25,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "kinex6921",
+                "boell6921"
+              ],
+              "status": "verified",
+              "verification": true,
+              "verificationMethod": "independent-publishers-agree",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            },
+            "nominalLength": {
+              "nominal": 25,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "kinex6921",
+                "boell6921"
+              ],
+              "status": "verified",
+              "verification": true,
+              "verificationMethod": "independent-publishers-agree",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            }
+          },
+          "shaftPolicy": "shaft-v2",
+          "lengthEvidence": {
+            "kind": "catalogue-matrix",
+            "edition": null,
+            "sourceRefs": [
+              "kinex6921",
+              "boell6921"
+            ],
+            "verification": true,
+            "nominalOnly": true,
+            "note": "Nur tatsächlich ausgewiesene Größen-/Längenkombination. Nicht gelistete Kombinationen sind keine Normverbote."
+          }
+        },
+        "30": {
+          "coverage": "documented",
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "flangeHeight",
+            "shaftLengthDistribution"
+          ],
+          "vorbelegung": {
+            "sL": 30
+          },
+          "roh": {
+            "nominalLength": 30
+          },
+          "fields": {
+            "sL": {
+              "nominal": 30,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "kinex6921",
+                "boell6921"
+              ],
+              "status": "verified",
+              "verification": true,
+              "verificationMethod": "independent-publishers-agree",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            },
+            "nominalLength": {
+              "nominal": 30,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "kinex6921",
+                "boell6921"
+              ],
+              "status": "verified",
+              "verification": true,
+              "verificationMethod": "independent-publishers-agree",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            }
+          },
+          "shaftPolicy": "shaft-v2",
+          "lengthEvidence": {
+            "kind": "catalogue-matrix",
+            "edition": null,
+            "sourceRefs": [
+              "kinex6921",
+              "boell6921"
+            ],
+            "verification": true,
+            "nominalOnly": true,
+            "note": "Nur tatsächlich ausgewiesene Größen-/Längenkombination. Nicht gelistete Kombinationen sind keine Normverbote."
+          }
+        },
+        "35": {
+          "coverage": "documented",
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "flangeHeight",
+            "shaftLengthDistribution"
+          ],
+          "vorbelegung": {
+            "sL": 35
+          },
+          "roh": {
+            "nominalLength": 35
+          },
+          "fields": {
+            "sL": {
+              "nominal": 35,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "kinex6921"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            },
+            "nominalLength": {
+              "nominal": 35,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "kinex6921"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            }
+          },
+          "shaftPolicy": "shaft-v2",
+          "lengthEvidence": {
+            "kind": "catalogue-matrix",
+            "edition": null,
+            "sourceRefs": [
+              "kinex6921"
+            ],
+            "verification": false,
+            "nominalOnly": true,
+            "note": "Nur tatsächlich ausgewiesene Größen-/Längenkombination. Nicht gelistete Kombinationen sind keine Normverbote."
+          }
+        },
+        "40": {
+          "coverage": "documented",
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "flangeHeight",
+            "shaftLengthDistribution"
+          ],
+          "vorbelegung": {
+            "sL": 40
+          },
+          "roh": {
+            "nominalLength": 40
+          },
+          "fields": {
+            "sL": {
+              "nominal": 40,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "kinex6921",
+                "boell6921"
+              ],
+              "status": "verified",
+              "verification": true,
+              "verificationMethod": "independent-publishers-agree",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            },
+            "nominalLength": {
+              "nominal": 40,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "kinex6921",
+                "boell6921"
+              ],
+              "status": "verified",
+              "verification": true,
+              "verificationMethod": "independent-publishers-agree",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            }
+          },
+          "shaftPolicy": "shaft-v2",
+          "lengthEvidence": {
+            "kind": "catalogue-matrix",
+            "edition": null,
+            "sourceRefs": [
+              "kinex6921",
+              "boell6921"
+            ],
+            "verification": true,
+            "nominalOnly": true,
+            "note": "Nur tatsächlich ausgewiesene Größen-/Längenkombination. Nicht gelistete Kombinationen sind keine Normverbote."
+          }
+        },
+        "45": {
+          "coverage": "documented",
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "flangeHeight",
+            "shaftLengthDistribution"
+          ],
+          "vorbelegung": {
+            "sL": 45
+          },
+          "roh": {
+            "nominalLength": 45
+          },
+          "fields": {
+            "sL": {
+              "nominal": 45,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "kinex6921"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            },
+            "nominalLength": {
+              "nominal": 45,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "kinex6921"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            }
+          },
+          "shaftPolicy": "shaft-v2",
+          "lengthEvidence": {
+            "kind": "catalogue-matrix",
+            "edition": null,
+            "sourceRefs": [
+              "kinex6921"
+            ],
+            "verification": false,
+            "nominalOnly": true,
+            "note": "Nur tatsächlich ausgewiesene Größen-/Längenkombination. Nicht gelistete Kombinationen sind keine Normverbote."
+          }
+        },
+        "50": {
+          "coverage": "documented",
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "flangeHeight",
+            "shaftLengthDistribution"
+          ],
+          "vorbelegung": {
+            "sL": 50
+          },
+          "roh": {
+            "nominalLength": 50
+          },
+          "fields": {
+            "sL": {
+              "nominal": 50,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "kinex6921"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            },
+            "nominalLength": {
+              "nominal": 50,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "kinex6921"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            }
+          },
+          "shaftPolicy": "shaft-v2",
+          "lengthEvidence": {
+            "kind": "catalogue-matrix",
+            "edition": null,
+            "sourceRefs": [
+              "kinex6921"
+            ],
+            "verification": false,
+            "nominalOnly": true,
+            "note": "Nur tatsächlich ausgewiesene Größen-/Längenkombination. Nicht gelistete Kombinationen sind keine Normverbote."
+          }
+        },
+        "55": {
+          "coverage": "documented",
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "flangeHeight",
+            "shaftLengthDistribution"
+          ],
+          "vorbelegung": {
+            "sL": 55
+          },
+          "roh": {
+            "nominalLength": 55
+          },
+          "fields": {
+            "sL": {
+              "nominal": 55,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "kinex6921"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            },
+            "nominalLength": {
+              "nominal": 55,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "kinex6921"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            }
+          },
+          "shaftPolicy": "shaft-v2",
+          "lengthEvidence": {
+            "kind": "catalogue-matrix",
+            "edition": null,
+            "sourceRefs": [
+              "kinex6921"
+            ],
+            "verification": false,
+            "nominalOnly": true,
+            "note": "Nur tatsächlich ausgewiesene Größen-/Längenkombination. Nicht gelistete Kombinationen sind keine Normverbote."
+          }
+        },
+        "60": {
+          "coverage": "documented",
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "flangeHeight",
+            "shaftLengthDistribution"
+          ],
+          "vorbelegung": {
+            "sL": 60
+          },
+          "roh": {
+            "nominalLength": 60
+          },
+          "fields": {
+            "sL": {
+              "nominal": 60,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "kinex6921"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            },
+            "nominalLength": {
+              "nominal": 60,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "kinex6921"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            }
+          },
+          "shaftPolicy": "shaft-v2",
+          "lengthEvidence": {
+            "kind": "catalogue-matrix",
+            "edition": null,
+            "sourceRefs": [
+              "kinex6921"
+            ],
+            "verification": false,
+            "nominalOnly": true,
+            "note": "Nur tatsächlich ausgewiesene Größen-/Längenkombination. Nicht gelistete Kombinationen sind keine Normverbote."
+          }
+        }
+      },
+      "lengthCoverage": "partial",
       "missingGeometryFields": [
         "flangeHeight"
       ],
-      "geometryStatus": "partial"
+      "geometryStatus": "partial",
+      "laengen": [
+        12,
+        16,
+        20,
+        25,
+        30,
+        35,
+        40,
+        45,
+        50,
+        55,
+        60
+      ]
     },
     "M8": {
       "roh": {
@@ -70,12 +1238,784 @@
         "kD": 18
       },
       "coverage": "documented",
-      "nachLaenge": {},
-      "lengthCoverage": "unresearched",
+      "nachLaenge": {
+        "16": {
+          "coverage": "documented",
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "flangeHeight"
+          ],
+          "vorbelegung": {
+            "sL": 16
+          },
+          "roh": {
+            "nominalLength": 16
+          },
+          "fields": {
+            "sL": {
+              "nominal": 16,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "kinex6921",
+                "boell6921"
+              ],
+              "status": "verified",
+              "verification": true,
+              "verificationMethod": "independent-publishers-agree",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            },
+            "nominalLength": {
+              "nominal": 16,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "kinex6921",
+                "boell6921"
+              ],
+              "status": "verified",
+              "verification": true,
+              "verificationMethod": "independent-publishers-agree",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            }
+          },
+          "shaftPolicy": "shaft-v2",
+          "lengthEvidence": {
+            "kind": "catalogue-matrix",
+            "edition": null,
+            "sourceRefs": [
+              "kinex6921",
+              "boell6921"
+            ],
+            "verification": true,
+            "nominalOnly": true,
+            "note": "Nur tatsächlich ausgewiesene Größen-/Längenkombination. Nicht gelistete Kombinationen sind keine Normverbote."
+          }
+        },
+        "20": {
+          "coverage": "documented",
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "flangeHeight"
+          ],
+          "vorbelegung": {
+            "sL": 20
+          },
+          "roh": {
+            "nominalLength": 20
+          },
+          "fields": {
+            "sL": {
+              "nominal": 20,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "kinex6921",
+                "boell6921"
+              ],
+              "status": "verified",
+              "verification": true,
+              "verificationMethod": "independent-publishers-agree",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            },
+            "nominalLength": {
+              "nominal": 20,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "kinex6921",
+                "boell6921"
+              ],
+              "status": "verified",
+              "verification": true,
+              "verificationMethod": "independent-publishers-agree",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            }
+          },
+          "shaftPolicy": "shaft-v2",
+          "lengthEvidence": {
+            "kind": "catalogue-matrix",
+            "edition": null,
+            "sourceRefs": [
+              "kinex6921",
+              "boell6921"
+            ],
+            "verification": true,
+            "nominalOnly": true,
+            "note": "Nur tatsächlich ausgewiesene Größen-/Längenkombination. Nicht gelistete Kombinationen sind keine Normverbote."
+          }
+        },
+        "25": {
+          "coverage": "documented",
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "flangeHeight",
+            "shaftLengthDistribution"
+          ],
+          "vorbelegung": {
+            "sL": 25
+          },
+          "roh": {
+            "nominalLength": 25
+          },
+          "fields": {
+            "sL": {
+              "nominal": 25,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "kinex6921",
+                "boell6921"
+              ],
+              "status": "verified",
+              "verification": true,
+              "verificationMethod": "independent-publishers-agree",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            },
+            "nominalLength": {
+              "nominal": 25,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "kinex6921",
+                "boell6921"
+              ],
+              "status": "verified",
+              "verification": true,
+              "verificationMethod": "independent-publishers-agree",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            }
+          },
+          "shaftPolicy": "shaft-v2",
+          "lengthEvidence": {
+            "kind": "catalogue-matrix",
+            "edition": null,
+            "sourceRefs": [
+              "kinex6921",
+              "boell6921"
+            ],
+            "verification": true,
+            "nominalOnly": true,
+            "note": "Nur tatsächlich ausgewiesene Größen-/Längenkombination. Nicht gelistete Kombinationen sind keine Normverbote."
+          }
+        },
+        "30": {
+          "coverage": "documented",
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "flangeHeight",
+            "shaftLengthDistribution"
+          ],
+          "vorbelegung": {
+            "sL": 30
+          },
+          "roh": {
+            "nominalLength": 30
+          },
+          "fields": {
+            "sL": {
+              "nominal": 30,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "kinex6921"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            },
+            "nominalLength": {
+              "nominal": 30,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "kinex6921"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            }
+          },
+          "shaftPolicy": "shaft-v2",
+          "lengthEvidence": {
+            "kind": "catalogue-matrix",
+            "edition": null,
+            "sourceRefs": [
+              "kinex6921"
+            ],
+            "verification": false,
+            "nominalOnly": true,
+            "note": "Nur tatsächlich ausgewiesene Größen-/Längenkombination. Nicht gelistete Kombinationen sind keine Normverbote."
+          }
+        },
+        "35": {
+          "coverage": "documented",
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "flangeHeight",
+            "shaftLengthDistribution"
+          ],
+          "vorbelegung": {
+            "sL": 35
+          },
+          "roh": {
+            "nominalLength": 35
+          },
+          "fields": {
+            "sL": {
+              "nominal": 35,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "kinex6921",
+                "boell6921"
+              ],
+              "status": "verified",
+              "verification": true,
+              "verificationMethod": "independent-publishers-agree",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            },
+            "nominalLength": {
+              "nominal": 35,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "kinex6921",
+                "boell6921"
+              ],
+              "status": "verified",
+              "verification": true,
+              "verificationMethod": "independent-publishers-agree",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            }
+          },
+          "shaftPolicy": "shaft-v2",
+          "lengthEvidence": {
+            "kind": "catalogue-matrix",
+            "edition": null,
+            "sourceRefs": [
+              "kinex6921",
+              "boell6921"
+            ],
+            "verification": true,
+            "nominalOnly": true,
+            "note": "Nur tatsächlich ausgewiesene Größen-/Längenkombination. Nicht gelistete Kombinationen sind keine Normverbote."
+          }
+        },
+        "40": {
+          "coverage": "documented",
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "flangeHeight",
+            "shaftLengthDistribution"
+          ],
+          "vorbelegung": {
+            "sL": 40
+          },
+          "roh": {
+            "nominalLength": 40
+          },
+          "fields": {
+            "sL": {
+              "nominal": 40,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "kinex6921"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            },
+            "nominalLength": {
+              "nominal": 40,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "kinex6921"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            }
+          },
+          "shaftPolicy": "shaft-v2",
+          "lengthEvidence": {
+            "kind": "catalogue-matrix",
+            "edition": null,
+            "sourceRefs": [
+              "kinex6921"
+            ],
+            "verification": false,
+            "nominalOnly": true,
+            "note": "Nur tatsächlich ausgewiesene Größen-/Längenkombination. Nicht gelistete Kombinationen sind keine Normverbote."
+          }
+        },
+        "45": {
+          "coverage": "documented",
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "flangeHeight",
+            "shaftLengthDistribution"
+          ],
+          "vorbelegung": {
+            "sL": 45
+          },
+          "roh": {
+            "nominalLength": 45
+          },
+          "fields": {
+            "sL": {
+              "nominal": 45,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "kinex6921"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            },
+            "nominalLength": {
+              "nominal": 45,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "kinex6921"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            }
+          },
+          "shaftPolicy": "shaft-v2",
+          "lengthEvidence": {
+            "kind": "catalogue-matrix",
+            "edition": null,
+            "sourceRefs": [
+              "kinex6921"
+            ],
+            "verification": false,
+            "nominalOnly": true,
+            "note": "Nur tatsächlich ausgewiesene Größen-/Längenkombination. Nicht gelistete Kombinationen sind keine Normverbote."
+          }
+        },
+        "50": {
+          "coverage": "documented",
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "flangeHeight",
+            "shaftLengthDistribution"
+          ],
+          "vorbelegung": {
+            "sL": 50
+          },
+          "roh": {
+            "nominalLength": 50
+          },
+          "fields": {
+            "sL": {
+              "nominal": 50,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "kinex6921",
+                "boell6921"
+              ],
+              "status": "verified",
+              "verification": true,
+              "verificationMethod": "independent-publishers-agree",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            },
+            "nominalLength": {
+              "nominal": 50,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "kinex6921",
+                "boell6921"
+              ],
+              "status": "verified",
+              "verification": true,
+              "verificationMethod": "independent-publishers-agree",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            }
+          },
+          "shaftPolicy": "shaft-v2",
+          "lengthEvidence": {
+            "kind": "catalogue-matrix",
+            "edition": null,
+            "sourceRefs": [
+              "kinex6921",
+              "boell6921"
+            ],
+            "verification": true,
+            "nominalOnly": true,
+            "note": "Nur tatsächlich ausgewiesene Größen-/Längenkombination. Nicht gelistete Kombinationen sind keine Normverbote."
+          }
+        },
+        "55": {
+          "coverage": "documented",
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "flangeHeight",
+            "shaftLengthDistribution"
+          ],
+          "vorbelegung": {
+            "sL": 55
+          },
+          "roh": {
+            "nominalLength": 55
+          },
+          "fields": {
+            "sL": {
+              "nominal": 55,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "kinex6921"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            },
+            "nominalLength": {
+              "nominal": 55,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "kinex6921"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            }
+          },
+          "shaftPolicy": "shaft-v2",
+          "lengthEvidence": {
+            "kind": "catalogue-matrix",
+            "edition": null,
+            "sourceRefs": [
+              "kinex6921"
+            ],
+            "verification": false,
+            "nominalOnly": true,
+            "note": "Nur tatsächlich ausgewiesene Größen-/Längenkombination. Nicht gelistete Kombinationen sind keine Normverbote."
+          }
+        },
+        "60": {
+          "coverage": "documented",
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "flangeHeight",
+            "shaftLengthDistribution"
+          ],
+          "vorbelegung": {
+            "sL": 60
+          },
+          "roh": {
+            "nominalLength": 60
+          },
+          "fields": {
+            "sL": {
+              "nominal": 60,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "kinex6921"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            },
+            "nominalLength": {
+              "nominal": 60,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "kinex6921"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            }
+          },
+          "shaftPolicy": "shaft-v2",
+          "lengthEvidence": {
+            "kind": "catalogue-matrix",
+            "edition": null,
+            "sourceRefs": [
+              "kinex6921"
+            ],
+            "verification": false,
+            "nominalOnly": true,
+            "note": "Nur tatsächlich ausgewiesene Größen-/Längenkombination. Nicht gelistete Kombinationen sind keine Normverbote."
+          }
+        },
+        "65": {
+          "coverage": "documented",
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "flangeHeight",
+            "shaftLengthDistribution"
+          ],
+          "vorbelegung": {
+            "sL": 65
+          },
+          "roh": {
+            "nominalLength": 65
+          },
+          "fields": {
+            "sL": {
+              "nominal": 65,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "kinex6921"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            },
+            "nominalLength": {
+              "nominal": 65,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "kinex6921"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            }
+          },
+          "shaftPolicy": "shaft-v2",
+          "lengthEvidence": {
+            "kind": "catalogue-matrix",
+            "edition": null,
+            "sourceRefs": [
+              "kinex6921"
+            ],
+            "verification": false,
+            "nominalOnly": true,
+            "note": "Nur tatsächlich ausgewiesene Größen-/Längenkombination. Nicht gelistete Kombinationen sind keine Normverbote."
+          }
+        },
+        "70": {
+          "coverage": "documented",
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "flangeHeight",
+            "shaftLengthDistribution"
+          ],
+          "vorbelegung": {
+            "sL": 70
+          },
+          "roh": {
+            "nominalLength": 70
+          },
+          "fields": {
+            "sL": {
+              "nominal": 70,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "kinex6921"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            },
+            "nominalLength": {
+              "nominal": 70,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "kinex6921"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            }
+          },
+          "shaftPolicy": "shaft-v2",
+          "lengthEvidence": {
+            "kind": "catalogue-matrix",
+            "edition": null,
+            "sourceRefs": [
+              "kinex6921"
+            ],
+            "verification": false,
+            "nominalOnly": true,
+            "note": "Nur tatsächlich ausgewiesene Größen-/Längenkombination. Nicht gelistete Kombinationen sind keine Normverbote."
+          }
+        },
+        "75": {
+          "coverage": "documented",
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "flangeHeight",
+            "shaftLengthDistribution"
+          ],
+          "vorbelegung": {
+            "sL": 75
+          },
+          "roh": {
+            "nominalLength": 75
+          },
+          "fields": {
+            "sL": {
+              "nominal": 75,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "kinex6921"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            },
+            "nominalLength": {
+              "nominal": 75,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "kinex6921"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            }
+          },
+          "shaftPolicy": "shaft-v2",
+          "lengthEvidence": {
+            "kind": "catalogue-matrix",
+            "edition": null,
+            "sourceRefs": [
+              "kinex6921"
+            ],
+            "verification": false,
+            "nominalOnly": true,
+            "note": "Nur tatsächlich ausgewiesene Größen-/Längenkombination. Nicht gelistete Kombinationen sind keine Normverbote."
+          }
+        },
+        "80": {
+          "coverage": "documented",
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "flangeHeight",
+            "shaftLengthDistribution"
+          ],
+          "vorbelegung": {
+            "sL": 80
+          },
+          "roh": {
+            "nominalLength": 80
+          },
+          "fields": {
+            "sL": {
+              "nominal": 80,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "kinex6921"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            },
+            "nominalLength": {
+              "nominal": 80,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "kinex6921"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            }
+          },
+          "shaftPolicy": "shaft-v2",
+          "lengthEvidence": {
+            "kind": "catalogue-matrix",
+            "edition": null,
+            "sourceRefs": [
+              "kinex6921"
+            ],
+            "verification": false,
+            "nominalOnly": true,
+            "note": "Nur tatsächlich ausgewiesene Größen-/Längenkombination. Nicht gelistete Kombinationen sind keine Normverbote."
+          }
+        }
+      },
+      "lengthCoverage": "partial",
       "missingGeometryFields": [
         "flangeHeight"
       ],
-      "geometryStatus": "partial"
+      "geometryStatus": "partial",
+      "laengen": [
+        16,
+        20,
+        25,
+        30,
+        35,
+        40,
+        45,
+        50,
+        55,
+        60,
+        65,
+        70,
+        75,
+        80
+      ]
     },
     "M10": {
       "roh": {
@@ -90,12 +2030,832 @@
         "kD": 22.3
       },
       "coverage": "documented",
-      "nachLaenge": {},
-      "lengthCoverage": "unresearched",
+      "nachLaenge": {
+        "20": {
+          "coverage": "documented",
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "flangeHeight"
+          ],
+          "vorbelegung": {
+            "sL": 20
+          },
+          "roh": {
+            "nominalLength": 20
+          },
+          "fields": {
+            "sL": {
+              "nominal": 20,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "kinex6921",
+                "boell6921"
+              ],
+              "status": "verified",
+              "verification": true,
+              "verificationMethod": "independent-publishers-agree",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            },
+            "nominalLength": {
+              "nominal": 20,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "kinex6921",
+                "boell6921"
+              ],
+              "status": "verified",
+              "verification": true,
+              "verificationMethod": "independent-publishers-agree",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            }
+          },
+          "shaftPolicy": "shaft-v2",
+          "lengthEvidence": {
+            "kind": "catalogue-matrix",
+            "edition": null,
+            "sourceRefs": [
+              "kinex6921",
+              "boell6921"
+            ],
+            "verification": true,
+            "nominalOnly": true,
+            "note": "Nur tatsächlich ausgewiesene Größen-/Längenkombination. Nicht gelistete Kombinationen sind keine Normverbote."
+          }
+        },
+        "25": {
+          "coverage": "documented",
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "flangeHeight"
+          ],
+          "vorbelegung": {
+            "sL": 25
+          },
+          "roh": {
+            "nominalLength": 25
+          },
+          "fields": {
+            "sL": {
+              "nominal": 25,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "kinex6921",
+                "boell6921"
+              ],
+              "status": "verified",
+              "verification": true,
+              "verificationMethod": "independent-publishers-agree",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            },
+            "nominalLength": {
+              "nominal": 25,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "kinex6921",
+                "boell6921"
+              ],
+              "status": "verified",
+              "verification": true,
+              "verificationMethod": "independent-publishers-agree",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            }
+          },
+          "shaftPolicy": "shaft-v2",
+          "lengthEvidence": {
+            "kind": "catalogue-matrix",
+            "edition": null,
+            "sourceRefs": [
+              "kinex6921",
+              "boell6921"
+            ],
+            "verification": true,
+            "nominalOnly": true,
+            "note": "Nur tatsächlich ausgewiesene Größen-/Längenkombination. Nicht gelistete Kombinationen sind keine Normverbote."
+          }
+        },
+        "30": {
+          "coverage": "documented",
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "flangeHeight",
+            "shaftLengthDistribution"
+          ],
+          "vorbelegung": {
+            "sL": 30
+          },
+          "roh": {
+            "nominalLength": 30
+          },
+          "fields": {
+            "sL": {
+              "nominal": 30,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "kinex6921",
+                "boell6921"
+              ],
+              "status": "verified",
+              "verification": true,
+              "verificationMethod": "independent-publishers-agree",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            },
+            "nominalLength": {
+              "nominal": 30,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "kinex6921",
+                "boell6921"
+              ],
+              "status": "verified",
+              "verification": true,
+              "verificationMethod": "independent-publishers-agree",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            }
+          },
+          "shaftPolicy": "shaft-v2",
+          "lengthEvidence": {
+            "kind": "catalogue-matrix",
+            "edition": null,
+            "sourceRefs": [
+              "kinex6921",
+              "boell6921"
+            ],
+            "verification": true,
+            "nominalOnly": true,
+            "note": "Nur tatsächlich ausgewiesene Größen-/Längenkombination. Nicht gelistete Kombinationen sind keine Normverbote."
+          }
+        },
+        "35": {
+          "coverage": "documented",
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "flangeHeight",
+            "shaftLengthDistribution"
+          ],
+          "vorbelegung": {
+            "sL": 35
+          },
+          "roh": {
+            "nominalLength": 35
+          },
+          "fields": {
+            "sL": {
+              "nominal": 35,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "kinex6921"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            },
+            "nominalLength": {
+              "nominal": 35,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "kinex6921"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            }
+          },
+          "shaftPolicy": "shaft-v2",
+          "lengthEvidence": {
+            "kind": "catalogue-matrix",
+            "edition": null,
+            "sourceRefs": [
+              "kinex6921"
+            ],
+            "verification": false,
+            "nominalOnly": true,
+            "note": "Nur tatsächlich ausgewiesene Größen-/Längenkombination. Nicht gelistete Kombinationen sind keine Normverbote."
+          }
+        },
+        "40": {
+          "coverage": "documented",
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "flangeHeight",
+            "shaftLengthDistribution"
+          ],
+          "vorbelegung": {
+            "sL": 40
+          },
+          "roh": {
+            "nominalLength": 40
+          },
+          "fields": {
+            "sL": {
+              "nominal": 40,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "kinex6921"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            },
+            "nominalLength": {
+              "nominal": 40,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "kinex6921"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            }
+          },
+          "shaftPolicy": "shaft-v2",
+          "lengthEvidence": {
+            "kind": "catalogue-matrix",
+            "edition": null,
+            "sourceRefs": [
+              "kinex6921"
+            ],
+            "verification": false,
+            "nominalOnly": true,
+            "note": "Nur tatsächlich ausgewiesene Größen-/Längenkombination. Nicht gelistete Kombinationen sind keine Normverbote."
+          }
+        },
+        "45": {
+          "coverage": "documented",
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "flangeHeight",
+            "shaftLengthDistribution"
+          ],
+          "vorbelegung": {
+            "sL": 45
+          },
+          "roh": {
+            "nominalLength": 45
+          },
+          "fields": {
+            "sL": {
+              "nominal": 45,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "kinex6921"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            },
+            "nominalLength": {
+              "nominal": 45,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "kinex6921"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            }
+          },
+          "shaftPolicy": "shaft-v2",
+          "lengthEvidence": {
+            "kind": "catalogue-matrix",
+            "edition": null,
+            "sourceRefs": [
+              "kinex6921"
+            ],
+            "verification": false,
+            "nominalOnly": true,
+            "note": "Nur tatsächlich ausgewiesene Größen-/Längenkombination. Nicht gelistete Kombinationen sind keine Normverbote."
+          }
+        },
+        "50": {
+          "coverage": "documented",
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "flangeHeight",
+            "shaftLengthDistribution"
+          ],
+          "vorbelegung": {
+            "sL": 50
+          },
+          "roh": {
+            "nominalLength": 50
+          },
+          "fields": {
+            "sL": {
+              "nominal": 50,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "kinex6921"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            },
+            "nominalLength": {
+              "nominal": 50,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "kinex6921"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            }
+          },
+          "shaftPolicy": "shaft-v2",
+          "lengthEvidence": {
+            "kind": "catalogue-matrix",
+            "edition": null,
+            "sourceRefs": [
+              "kinex6921"
+            ],
+            "verification": false,
+            "nominalOnly": true,
+            "note": "Nur tatsächlich ausgewiesene Größen-/Längenkombination. Nicht gelistete Kombinationen sind keine Normverbote."
+          }
+        },
+        "55": {
+          "coverage": "documented",
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "flangeHeight",
+            "shaftLengthDistribution"
+          ],
+          "vorbelegung": {
+            "sL": 55
+          },
+          "roh": {
+            "nominalLength": 55
+          },
+          "fields": {
+            "sL": {
+              "nominal": 55,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "kinex6921"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            },
+            "nominalLength": {
+              "nominal": 55,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "kinex6921"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            }
+          },
+          "shaftPolicy": "shaft-v2",
+          "lengthEvidence": {
+            "kind": "catalogue-matrix",
+            "edition": null,
+            "sourceRefs": [
+              "kinex6921"
+            ],
+            "verification": false,
+            "nominalOnly": true,
+            "note": "Nur tatsächlich ausgewiesene Größen-/Längenkombination. Nicht gelistete Kombinationen sind keine Normverbote."
+          }
+        },
+        "60": {
+          "coverage": "documented",
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "flangeHeight",
+            "shaftLengthDistribution"
+          ],
+          "vorbelegung": {
+            "sL": 60
+          },
+          "roh": {
+            "nominalLength": 60
+          },
+          "fields": {
+            "sL": {
+              "nominal": 60,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "kinex6921"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            },
+            "nominalLength": {
+              "nominal": 60,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "kinex6921"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            }
+          },
+          "shaftPolicy": "shaft-v2",
+          "lengthEvidence": {
+            "kind": "catalogue-matrix",
+            "edition": null,
+            "sourceRefs": [
+              "kinex6921"
+            ],
+            "verification": false,
+            "nominalOnly": true,
+            "note": "Nur tatsächlich ausgewiesene Größen-/Längenkombination. Nicht gelistete Kombinationen sind keine Normverbote."
+          }
+        },
+        "65": {
+          "coverage": "documented",
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "flangeHeight",
+            "shaftLengthDistribution"
+          ],
+          "vorbelegung": {
+            "sL": 65
+          },
+          "roh": {
+            "nominalLength": 65
+          },
+          "fields": {
+            "sL": {
+              "nominal": 65,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "kinex6921"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            },
+            "nominalLength": {
+              "nominal": 65,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "kinex6921"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            }
+          },
+          "shaftPolicy": "shaft-v2",
+          "lengthEvidence": {
+            "kind": "catalogue-matrix",
+            "edition": null,
+            "sourceRefs": [
+              "kinex6921"
+            ],
+            "verification": false,
+            "nominalOnly": true,
+            "note": "Nur tatsächlich ausgewiesene Größen-/Längenkombination. Nicht gelistete Kombinationen sind keine Normverbote."
+          }
+        },
+        "70": {
+          "coverage": "documented",
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "flangeHeight",
+            "shaftLengthDistribution"
+          ],
+          "vorbelegung": {
+            "sL": 70
+          },
+          "roh": {
+            "nominalLength": 70
+          },
+          "fields": {
+            "sL": {
+              "nominal": 70,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "kinex6921"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            },
+            "nominalLength": {
+              "nominal": 70,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "kinex6921"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            }
+          },
+          "shaftPolicy": "shaft-v2",
+          "lengthEvidence": {
+            "kind": "catalogue-matrix",
+            "edition": null,
+            "sourceRefs": [
+              "kinex6921"
+            ],
+            "verification": false,
+            "nominalOnly": true,
+            "note": "Nur tatsächlich ausgewiesene Größen-/Längenkombination. Nicht gelistete Kombinationen sind keine Normverbote."
+          }
+        },
+        "75": {
+          "coverage": "documented",
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "flangeHeight",
+            "shaftLengthDistribution"
+          ],
+          "vorbelegung": {
+            "sL": 75
+          },
+          "roh": {
+            "nominalLength": 75
+          },
+          "fields": {
+            "sL": {
+              "nominal": 75,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "kinex6921"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            },
+            "nominalLength": {
+              "nominal": 75,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "kinex6921"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            }
+          },
+          "shaftPolicy": "shaft-v2",
+          "lengthEvidence": {
+            "kind": "catalogue-matrix",
+            "edition": null,
+            "sourceRefs": [
+              "kinex6921"
+            ],
+            "verification": false,
+            "nominalOnly": true,
+            "note": "Nur tatsächlich ausgewiesene Größen-/Längenkombination. Nicht gelistete Kombinationen sind keine Normverbote."
+          }
+        },
+        "80": {
+          "coverage": "documented",
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "flangeHeight",
+            "shaftLengthDistribution"
+          ],
+          "vorbelegung": {
+            "sL": 80
+          },
+          "roh": {
+            "nominalLength": 80
+          },
+          "fields": {
+            "sL": {
+              "nominal": 80,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "kinex6921"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            },
+            "nominalLength": {
+              "nominal": 80,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "kinex6921"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            }
+          },
+          "shaftPolicy": "shaft-v2",
+          "lengthEvidence": {
+            "kind": "catalogue-matrix",
+            "edition": null,
+            "sourceRefs": [
+              "kinex6921"
+            ],
+            "verification": false,
+            "nominalOnly": true,
+            "note": "Nur tatsächlich ausgewiesene Größen-/Längenkombination. Nicht gelistete Kombinationen sind keine Normverbote."
+          }
+        },
+        "90": {
+          "coverage": "documented",
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "flangeHeight",
+            "shaftLengthDistribution"
+          ],
+          "vorbelegung": {
+            "sL": 90
+          },
+          "roh": {
+            "nominalLength": 90
+          },
+          "fields": {
+            "sL": {
+              "nominal": 90,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "kinex6921"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            },
+            "nominalLength": {
+              "nominal": 90,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "kinex6921"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            }
+          },
+          "shaftPolicy": "shaft-v2",
+          "lengthEvidence": {
+            "kind": "catalogue-matrix",
+            "edition": null,
+            "sourceRefs": [
+              "kinex6921"
+            ],
+            "verification": false,
+            "nominalOnly": true,
+            "note": "Nur tatsächlich ausgewiesene Größen-/Längenkombination. Nicht gelistete Kombinationen sind keine Normverbote."
+          }
+        },
+        "100": {
+          "coverage": "documented",
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "flangeHeight",
+            "shaftLengthDistribution"
+          ],
+          "vorbelegung": {
+            "sL": 100
+          },
+          "roh": {
+            "nominalLength": 100
+          },
+          "fields": {
+            "sL": {
+              "nominal": 100,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "kinex6921"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            },
+            "nominalLength": {
+              "nominal": 100,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "kinex6921"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            }
+          },
+          "shaftPolicy": "shaft-v2",
+          "lengthEvidence": {
+            "kind": "catalogue-matrix",
+            "edition": null,
+            "sourceRefs": [
+              "kinex6921"
+            ],
+            "verification": false,
+            "nominalOnly": true,
+            "note": "Nur tatsächlich ausgewiesene Größen-/Längenkombination. Nicht gelistete Kombinationen sind keine Normverbote."
+          }
+        }
+      },
+      "lengthCoverage": "partial",
       "missingGeometryFields": [
         "flangeHeight"
       ],
-      "geometryStatus": "partial"
+      "geometryStatus": "partial",
+      "laengen": [
+        20,
+        25,
+        30,
+        35,
+        40,
+        45,
+        50,
+        55,
+        60,
+        65,
+        70,
+        75,
+        80,
+        90,
+        100
+      ]
     },
     "M12": {
       "roh": {
@@ -110,12 +2870,877 @@
         "kD": 26.6
       },
       "coverage": "documented",
-      "nachLaenge": {},
-      "lengthCoverage": "unresearched",
+      "nachLaenge": {
+        "25": {
+          "coverage": "documented",
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "flangeHeight"
+          ],
+          "vorbelegung": {
+            "sL": 25
+          },
+          "roh": {
+            "nominalLength": 25
+          },
+          "fields": {
+            "sL": {
+              "nominal": 25,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "kinex6921"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            },
+            "nominalLength": {
+              "nominal": 25,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "kinex6921"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            }
+          },
+          "shaftPolicy": "shaft-v2",
+          "lengthEvidence": {
+            "kind": "catalogue-matrix",
+            "edition": null,
+            "sourceRefs": [
+              "kinex6921"
+            ],
+            "verification": false,
+            "nominalOnly": true,
+            "note": "Nur tatsächlich ausgewiesene Größen-/Längenkombination. Nicht gelistete Kombinationen sind keine Normverbote."
+          }
+        },
+        "30": {
+          "coverage": "documented",
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "flangeHeight"
+          ],
+          "vorbelegung": {
+            "sL": 30
+          },
+          "roh": {
+            "nominalLength": 30
+          },
+          "fields": {
+            "sL": {
+              "nominal": 30,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "kinex6921"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            },
+            "nominalLength": {
+              "nominal": 30,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "kinex6921"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            }
+          },
+          "shaftPolicy": "shaft-v2",
+          "lengthEvidence": {
+            "kind": "catalogue-matrix",
+            "edition": null,
+            "sourceRefs": [
+              "kinex6921"
+            ],
+            "verification": false,
+            "nominalOnly": true,
+            "note": "Nur tatsächlich ausgewiesene Größen-/Längenkombination. Nicht gelistete Kombinationen sind keine Normverbote."
+          }
+        },
+        "35": {
+          "coverage": "documented",
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "flangeHeight",
+            "shaftLengthDistribution"
+          ],
+          "vorbelegung": {
+            "sL": 35
+          },
+          "roh": {
+            "nominalLength": 35
+          },
+          "fields": {
+            "sL": {
+              "nominal": 35,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "kinex6921"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            },
+            "nominalLength": {
+              "nominal": 35,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "kinex6921"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            }
+          },
+          "shaftPolicy": "shaft-v2",
+          "lengthEvidence": {
+            "kind": "catalogue-matrix",
+            "edition": null,
+            "sourceRefs": [
+              "kinex6921"
+            ],
+            "verification": false,
+            "nominalOnly": true,
+            "note": "Nur tatsächlich ausgewiesene Größen-/Längenkombination. Nicht gelistete Kombinationen sind keine Normverbote."
+          }
+        },
+        "40": {
+          "coverage": "documented",
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "flangeHeight",
+            "shaftLengthDistribution"
+          ],
+          "vorbelegung": {
+            "sL": 40
+          },
+          "roh": {
+            "nominalLength": 40
+          },
+          "fields": {
+            "sL": {
+              "nominal": 40,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "kinex6921"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            },
+            "nominalLength": {
+              "nominal": 40,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "kinex6921"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            }
+          },
+          "shaftPolicy": "shaft-v2",
+          "lengthEvidence": {
+            "kind": "catalogue-matrix",
+            "edition": null,
+            "sourceRefs": [
+              "kinex6921"
+            ],
+            "verification": false,
+            "nominalOnly": true,
+            "note": "Nur tatsächlich ausgewiesene Größen-/Längenkombination. Nicht gelistete Kombinationen sind keine Normverbote."
+          }
+        },
+        "45": {
+          "coverage": "documented",
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "flangeHeight",
+            "shaftLengthDistribution"
+          ],
+          "vorbelegung": {
+            "sL": 45
+          },
+          "roh": {
+            "nominalLength": 45
+          },
+          "fields": {
+            "sL": {
+              "nominal": 45,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "kinex6921"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            },
+            "nominalLength": {
+              "nominal": 45,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "kinex6921"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            }
+          },
+          "shaftPolicy": "shaft-v2",
+          "lengthEvidence": {
+            "kind": "catalogue-matrix",
+            "edition": null,
+            "sourceRefs": [
+              "kinex6921"
+            ],
+            "verification": false,
+            "nominalOnly": true,
+            "note": "Nur tatsächlich ausgewiesene Größen-/Längenkombination. Nicht gelistete Kombinationen sind keine Normverbote."
+          }
+        },
+        "50": {
+          "coverage": "documented",
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "flangeHeight",
+            "shaftLengthDistribution"
+          ],
+          "vorbelegung": {
+            "sL": 50
+          },
+          "roh": {
+            "nominalLength": 50
+          },
+          "fields": {
+            "sL": {
+              "nominal": 50,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "kinex6921"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            },
+            "nominalLength": {
+              "nominal": 50,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "kinex6921"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            }
+          },
+          "shaftPolicy": "shaft-v2",
+          "lengthEvidence": {
+            "kind": "catalogue-matrix",
+            "edition": null,
+            "sourceRefs": [
+              "kinex6921"
+            ],
+            "verification": false,
+            "nominalOnly": true,
+            "note": "Nur tatsächlich ausgewiesene Größen-/Längenkombination. Nicht gelistete Kombinationen sind keine Normverbote."
+          }
+        },
+        "55": {
+          "coverage": "documented",
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "flangeHeight",
+            "shaftLengthDistribution"
+          ],
+          "vorbelegung": {
+            "sL": 55
+          },
+          "roh": {
+            "nominalLength": 55
+          },
+          "fields": {
+            "sL": {
+              "nominal": 55,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "kinex6921"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            },
+            "nominalLength": {
+              "nominal": 55,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "kinex6921"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            }
+          },
+          "shaftPolicy": "shaft-v2",
+          "lengthEvidence": {
+            "kind": "catalogue-matrix",
+            "edition": null,
+            "sourceRefs": [
+              "kinex6921"
+            ],
+            "verification": false,
+            "nominalOnly": true,
+            "note": "Nur tatsächlich ausgewiesene Größen-/Längenkombination. Nicht gelistete Kombinationen sind keine Normverbote."
+          }
+        },
+        "60": {
+          "coverage": "documented",
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "flangeHeight",
+            "shaftLengthDistribution"
+          ],
+          "vorbelegung": {
+            "sL": 60
+          },
+          "roh": {
+            "nominalLength": 60
+          },
+          "fields": {
+            "sL": {
+              "nominal": 60,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "kinex6921"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            },
+            "nominalLength": {
+              "nominal": 60,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "kinex6921"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            }
+          },
+          "shaftPolicy": "shaft-v2",
+          "lengthEvidence": {
+            "kind": "catalogue-matrix",
+            "edition": null,
+            "sourceRefs": [
+              "kinex6921"
+            ],
+            "verification": false,
+            "nominalOnly": true,
+            "note": "Nur tatsächlich ausgewiesene Größen-/Längenkombination. Nicht gelistete Kombinationen sind keine Normverbote."
+          }
+        },
+        "65": {
+          "coverage": "documented",
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "flangeHeight",
+            "shaftLengthDistribution"
+          ],
+          "vorbelegung": {
+            "sL": 65
+          },
+          "roh": {
+            "nominalLength": 65
+          },
+          "fields": {
+            "sL": {
+              "nominal": 65,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "kinex6921"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            },
+            "nominalLength": {
+              "nominal": 65,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "kinex6921"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            }
+          },
+          "shaftPolicy": "shaft-v2",
+          "lengthEvidence": {
+            "kind": "catalogue-matrix",
+            "edition": null,
+            "sourceRefs": [
+              "kinex6921"
+            ],
+            "verification": false,
+            "nominalOnly": true,
+            "note": "Nur tatsächlich ausgewiesene Größen-/Längenkombination. Nicht gelistete Kombinationen sind keine Normverbote."
+          }
+        },
+        "70": {
+          "coverage": "documented",
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "flangeHeight",
+            "shaftLengthDistribution"
+          ],
+          "vorbelegung": {
+            "sL": 70
+          },
+          "roh": {
+            "nominalLength": 70
+          },
+          "fields": {
+            "sL": {
+              "nominal": 70,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "kinex6921"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            },
+            "nominalLength": {
+              "nominal": 70,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "kinex6921"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            }
+          },
+          "shaftPolicy": "shaft-v2",
+          "lengthEvidence": {
+            "kind": "catalogue-matrix",
+            "edition": null,
+            "sourceRefs": [
+              "kinex6921"
+            ],
+            "verification": false,
+            "nominalOnly": true,
+            "note": "Nur tatsächlich ausgewiesene Größen-/Längenkombination. Nicht gelistete Kombinationen sind keine Normverbote."
+          }
+        },
+        "75": {
+          "coverage": "documented",
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "flangeHeight",
+            "shaftLengthDistribution"
+          ],
+          "vorbelegung": {
+            "sL": 75
+          },
+          "roh": {
+            "nominalLength": 75
+          },
+          "fields": {
+            "sL": {
+              "nominal": 75,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "kinex6921"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            },
+            "nominalLength": {
+              "nominal": 75,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "kinex6921"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            }
+          },
+          "shaftPolicy": "shaft-v2",
+          "lengthEvidence": {
+            "kind": "catalogue-matrix",
+            "edition": null,
+            "sourceRefs": [
+              "kinex6921"
+            ],
+            "verification": false,
+            "nominalOnly": true,
+            "note": "Nur tatsächlich ausgewiesene Größen-/Längenkombination. Nicht gelistete Kombinationen sind keine Normverbote."
+          }
+        },
+        "80": {
+          "coverage": "documented",
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "flangeHeight",
+            "shaftLengthDistribution"
+          ],
+          "vorbelegung": {
+            "sL": 80
+          },
+          "roh": {
+            "nominalLength": 80
+          },
+          "fields": {
+            "sL": {
+              "nominal": 80,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "kinex6921"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            },
+            "nominalLength": {
+              "nominal": 80,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "kinex6921"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            }
+          },
+          "shaftPolicy": "shaft-v2",
+          "lengthEvidence": {
+            "kind": "catalogue-matrix",
+            "edition": null,
+            "sourceRefs": [
+              "kinex6921"
+            ],
+            "verification": false,
+            "nominalOnly": true,
+            "note": "Nur tatsächlich ausgewiesene Größen-/Längenkombination. Nicht gelistete Kombinationen sind keine Normverbote."
+          }
+        },
+        "90": {
+          "coverage": "documented",
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "flangeHeight",
+            "shaftLengthDistribution"
+          ],
+          "vorbelegung": {
+            "sL": 90
+          },
+          "roh": {
+            "nominalLength": 90
+          },
+          "fields": {
+            "sL": {
+              "nominal": 90,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "kinex6921"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            },
+            "nominalLength": {
+              "nominal": 90,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "kinex6921"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            }
+          },
+          "shaftPolicy": "shaft-v2",
+          "lengthEvidence": {
+            "kind": "catalogue-matrix",
+            "edition": null,
+            "sourceRefs": [
+              "kinex6921"
+            ],
+            "verification": false,
+            "nominalOnly": true,
+            "note": "Nur tatsächlich ausgewiesene Größen-/Längenkombination. Nicht gelistete Kombinationen sind keine Normverbote."
+          }
+        },
+        "100": {
+          "coverage": "documented",
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "flangeHeight",
+            "shaftLengthDistribution"
+          ],
+          "vorbelegung": {
+            "sL": 100
+          },
+          "roh": {
+            "nominalLength": 100
+          },
+          "fields": {
+            "sL": {
+              "nominal": 100,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "kinex6921"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            },
+            "nominalLength": {
+              "nominal": 100,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "kinex6921"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            }
+          },
+          "shaftPolicy": "shaft-v2",
+          "lengthEvidence": {
+            "kind": "catalogue-matrix",
+            "edition": null,
+            "sourceRefs": [
+              "kinex6921"
+            ],
+            "verification": false,
+            "nominalOnly": true,
+            "note": "Nur tatsächlich ausgewiesene Größen-/Längenkombination. Nicht gelistete Kombinationen sind keine Normverbote."
+          }
+        },
+        "110": {
+          "coverage": "documented",
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "flangeHeight",
+            "shaftLengthDistribution"
+          ],
+          "vorbelegung": {
+            "sL": 110
+          },
+          "roh": {
+            "nominalLength": 110
+          },
+          "fields": {
+            "sL": {
+              "nominal": 110,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "kinex6921"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            },
+            "nominalLength": {
+              "nominal": 110,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "kinex6921"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            }
+          },
+          "shaftPolicy": "shaft-v2",
+          "lengthEvidence": {
+            "kind": "catalogue-matrix",
+            "edition": null,
+            "sourceRefs": [
+              "kinex6921"
+            ],
+            "verification": false,
+            "nominalOnly": true,
+            "note": "Nur tatsächlich ausgewiesene Größen-/Längenkombination. Nicht gelistete Kombinationen sind keine Normverbote."
+          }
+        },
+        "120": {
+          "coverage": "documented",
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "flangeHeight",
+            "shaftLengthDistribution"
+          ],
+          "vorbelegung": {
+            "sL": 120
+          },
+          "roh": {
+            "nominalLength": 120
+          },
+          "fields": {
+            "sL": {
+              "nominal": 120,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "kinex6921"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            },
+            "nominalLength": {
+              "nominal": 120,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "kinex6921"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            }
+          },
+          "shaftPolicy": "shaft-v2",
+          "lengthEvidence": {
+            "kind": "catalogue-matrix",
+            "edition": null,
+            "sourceRefs": [
+              "kinex6921"
+            ],
+            "verification": false,
+            "nominalOnly": true,
+            "note": "Nur tatsächlich ausgewiesene Größen-/Längenkombination. Nicht gelistete Kombinationen sind keine Normverbote."
+          }
+        }
+      },
+      "lengthCoverage": "partial",
       "missingGeometryFields": [
         "flangeHeight"
       ],
-      "geometryStatus": "partial"
+      "geometryStatus": "partial",
+      "laengen": [
+        25,
+        30,
+        35,
+        40,
+        45,
+        50,
+        55,
+        60,
+        65,
+        70,
+        75,
+        80,
+        90,
+        100,
+        110,
+        120
+      ]
     },
     "M14": {
       "roh": {
@@ -130,12 +3755,824 @@
         "kD": 30.5
       },
       "coverage": "documented",
-      "nachLaenge": {},
-      "lengthCoverage": "unresearched",
+      "nachLaenge": {
+        "30": {
+          "coverage": "documented",
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "flangeHeight"
+          ],
+          "vorbelegung": {
+            "sL": 30
+          },
+          "roh": {
+            "nominalLength": 30
+          },
+          "fields": {
+            "sL": {
+              "nominal": 30,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "kinex6921"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            },
+            "nominalLength": {
+              "nominal": 30,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "kinex6921"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            }
+          },
+          "shaftPolicy": "shaft-v2",
+          "lengthEvidence": {
+            "kind": "catalogue-matrix",
+            "edition": null,
+            "sourceRefs": [
+              "kinex6921"
+            ],
+            "verification": false,
+            "nominalOnly": true,
+            "note": "Nur tatsächlich ausgewiesene Größen-/Längenkombination. Nicht gelistete Kombinationen sind keine Normverbote."
+          }
+        },
+        "35": {
+          "coverage": "documented",
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "flangeHeight",
+            "shaftLengthDistribution"
+          ],
+          "vorbelegung": {
+            "sL": 35
+          },
+          "roh": {
+            "nominalLength": 35
+          },
+          "fields": {
+            "sL": {
+              "nominal": 35,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "kinex6921"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            },
+            "nominalLength": {
+              "nominal": 35,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "kinex6921"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            }
+          },
+          "shaftPolicy": "shaft-v2",
+          "lengthEvidence": {
+            "kind": "catalogue-matrix",
+            "edition": null,
+            "sourceRefs": [
+              "kinex6921"
+            ],
+            "verification": false,
+            "nominalOnly": true,
+            "note": "Nur tatsächlich ausgewiesene Größen-/Längenkombination. Nicht gelistete Kombinationen sind keine Normverbote."
+          }
+        },
+        "40": {
+          "coverage": "documented",
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "flangeHeight",
+            "shaftLengthDistribution"
+          ],
+          "vorbelegung": {
+            "sL": 40
+          },
+          "roh": {
+            "nominalLength": 40
+          },
+          "fields": {
+            "sL": {
+              "nominal": 40,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "kinex6921"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            },
+            "nominalLength": {
+              "nominal": 40,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "kinex6921"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            }
+          },
+          "shaftPolicy": "shaft-v2",
+          "lengthEvidence": {
+            "kind": "catalogue-matrix",
+            "edition": null,
+            "sourceRefs": [
+              "kinex6921"
+            ],
+            "verification": false,
+            "nominalOnly": true,
+            "note": "Nur tatsächlich ausgewiesene Größen-/Längenkombination. Nicht gelistete Kombinationen sind keine Normverbote."
+          }
+        },
+        "45": {
+          "coverage": "documented",
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "flangeHeight",
+            "shaftLengthDistribution"
+          ],
+          "vorbelegung": {
+            "sL": 45
+          },
+          "roh": {
+            "nominalLength": 45
+          },
+          "fields": {
+            "sL": {
+              "nominal": 45,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "kinex6921"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            },
+            "nominalLength": {
+              "nominal": 45,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "kinex6921"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            }
+          },
+          "shaftPolicy": "shaft-v2",
+          "lengthEvidence": {
+            "kind": "catalogue-matrix",
+            "edition": null,
+            "sourceRefs": [
+              "kinex6921"
+            ],
+            "verification": false,
+            "nominalOnly": true,
+            "note": "Nur tatsächlich ausgewiesene Größen-/Längenkombination. Nicht gelistete Kombinationen sind keine Normverbote."
+          }
+        },
+        "50": {
+          "coverage": "documented",
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "flangeHeight",
+            "shaftLengthDistribution"
+          ],
+          "vorbelegung": {
+            "sL": 50
+          },
+          "roh": {
+            "nominalLength": 50
+          },
+          "fields": {
+            "sL": {
+              "nominal": 50,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "kinex6921"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            },
+            "nominalLength": {
+              "nominal": 50,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "kinex6921"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            }
+          },
+          "shaftPolicy": "shaft-v2",
+          "lengthEvidence": {
+            "kind": "catalogue-matrix",
+            "edition": null,
+            "sourceRefs": [
+              "kinex6921"
+            ],
+            "verification": false,
+            "nominalOnly": true,
+            "note": "Nur tatsächlich ausgewiesene Größen-/Längenkombination. Nicht gelistete Kombinationen sind keine Normverbote."
+          }
+        },
+        "55": {
+          "coverage": "documented",
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "flangeHeight",
+            "shaftLengthDistribution"
+          ],
+          "vorbelegung": {
+            "sL": 55
+          },
+          "roh": {
+            "nominalLength": 55
+          },
+          "fields": {
+            "sL": {
+              "nominal": 55,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "kinex6921"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            },
+            "nominalLength": {
+              "nominal": 55,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "kinex6921"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            }
+          },
+          "shaftPolicy": "shaft-v2",
+          "lengthEvidence": {
+            "kind": "catalogue-matrix",
+            "edition": null,
+            "sourceRefs": [
+              "kinex6921"
+            ],
+            "verification": false,
+            "nominalOnly": true,
+            "note": "Nur tatsächlich ausgewiesene Größen-/Längenkombination. Nicht gelistete Kombinationen sind keine Normverbote."
+          }
+        },
+        "60": {
+          "coverage": "documented",
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "flangeHeight",
+            "shaftLengthDistribution"
+          ],
+          "vorbelegung": {
+            "sL": 60
+          },
+          "roh": {
+            "nominalLength": 60
+          },
+          "fields": {
+            "sL": {
+              "nominal": 60,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "kinex6921"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            },
+            "nominalLength": {
+              "nominal": 60,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "kinex6921"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            }
+          },
+          "shaftPolicy": "shaft-v2",
+          "lengthEvidence": {
+            "kind": "catalogue-matrix",
+            "edition": null,
+            "sourceRefs": [
+              "kinex6921"
+            ],
+            "verification": false,
+            "nominalOnly": true,
+            "note": "Nur tatsächlich ausgewiesene Größen-/Längenkombination. Nicht gelistete Kombinationen sind keine Normverbote."
+          }
+        },
+        "65": {
+          "coverage": "documented",
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "flangeHeight",
+            "shaftLengthDistribution"
+          ],
+          "vorbelegung": {
+            "sL": 65
+          },
+          "roh": {
+            "nominalLength": 65
+          },
+          "fields": {
+            "sL": {
+              "nominal": 65,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "kinex6921"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            },
+            "nominalLength": {
+              "nominal": 65,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "kinex6921"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            }
+          },
+          "shaftPolicy": "shaft-v2",
+          "lengthEvidence": {
+            "kind": "catalogue-matrix",
+            "edition": null,
+            "sourceRefs": [
+              "kinex6921"
+            ],
+            "verification": false,
+            "nominalOnly": true,
+            "note": "Nur tatsächlich ausgewiesene Größen-/Längenkombination. Nicht gelistete Kombinationen sind keine Normverbote."
+          }
+        },
+        "70": {
+          "coverage": "documented",
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "flangeHeight",
+            "shaftLengthDistribution"
+          ],
+          "vorbelegung": {
+            "sL": 70
+          },
+          "roh": {
+            "nominalLength": 70
+          },
+          "fields": {
+            "sL": {
+              "nominal": 70,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "kinex6921"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            },
+            "nominalLength": {
+              "nominal": 70,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "kinex6921"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            }
+          },
+          "shaftPolicy": "shaft-v2",
+          "lengthEvidence": {
+            "kind": "catalogue-matrix",
+            "edition": null,
+            "sourceRefs": [
+              "kinex6921"
+            ],
+            "verification": false,
+            "nominalOnly": true,
+            "note": "Nur tatsächlich ausgewiesene Größen-/Längenkombination. Nicht gelistete Kombinationen sind keine Normverbote."
+          }
+        },
+        "75": {
+          "coverage": "documented",
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "flangeHeight",
+            "shaftLengthDistribution"
+          ],
+          "vorbelegung": {
+            "sL": 75
+          },
+          "roh": {
+            "nominalLength": 75
+          },
+          "fields": {
+            "sL": {
+              "nominal": 75,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "kinex6921"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            },
+            "nominalLength": {
+              "nominal": 75,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "kinex6921"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            }
+          },
+          "shaftPolicy": "shaft-v2",
+          "lengthEvidence": {
+            "kind": "catalogue-matrix",
+            "edition": null,
+            "sourceRefs": [
+              "kinex6921"
+            ],
+            "verification": false,
+            "nominalOnly": true,
+            "note": "Nur tatsächlich ausgewiesene Größen-/Längenkombination. Nicht gelistete Kombinationen sind keine Normverbote."
+          }
+        },
+        "80": {
+          "coverage": "documented",
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "flangeHeight",
+            "shaftLengthDistribution"
+          ],
+          "vorbelegung": {
+            "sL": 80
+          },
+          "roh": {
+            "nominalLength": 80
+          },
+          "fields": {
+            "sL": {
+              "nominal": 80,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "kinex6921"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            },
+            "nominalLength": {
+              "nominal": 80,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "kinex6921"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            }
+          },
+          "shaftPolicy": "shaft-v2",
+          "lengthEvidence": {
+            "kind": "catalogue-matrix",
+            "edition": null,
+            "sourceRefs": [
+              "kinex6921"
+            ],
+            "verification": false,
+            "nominalOnly": true,
+            "note": "Nur tatsächlich ausgewiesene Größen-/Längenkombination. Nicht gelistete Kombinationen sind keine Normverbote."
+          }
+        },
+        "90": {
+          "coverage": "documented",
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "flangeHeight",
+            "shaftLengthDistribution"
+          ],
+          "vorbelegung": {
+            "sL": 90
+          },
+          "roh": {
+            "nominalLength": 90
+          },
+          "fields": {
+            "sL": {
+              "nominal": 90,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "kinex6921"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            },
+            "nominalLength": {
+              "nominal": 90,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "kinex6921"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            }
+          },
+          "shaftPolicy": "shaft-v2",
+          "lengthEvidence": {
+            "kind": "catalogue-matrix",
+            "edition": null,
+            "sourceRefs": [
+              "kinex6921"
+            ],
+            "verification": false,
+            "nominalOnly": true,
+            "note": "Nur tatsächlich ausgewiesene Größen-/Längenkombination. Nicht gelistete Kombinationen sind keine Normverbote."
+          }
+        },
+        "100": {
+          "coverage": "documented",
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "flangeHeight",
+            "shaftLengthDistribution"
+          ],
+          "vorbelegung": {
+            "sL": 100
+          },
+          "roh": {
+            "nominalLength": 100
+          },
+          "fields": {
+            "sL": {
+              "nominal": 100,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "kinex6921"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            },
+            "nominalLength": {
+              "nominal": 100,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "kinex6921"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            }
+          },
+          "shaftPolicy": "shaft-v2",
+          "lengthEvidence": {
+            "kind": "catalogue-matrix",
+            "edition": null,
+            "sourceRefs": [
+              "kinex6921"
+            ],
+            "verification": false,
+            "nominalOnly": true,
+            "note": "Nur tatsächlich ausgewiesene Größen-/Längenkombination. Nicht gelistete Kombinationen sind keine Normverbote."
+          }
+        },
+        "110": {
+          "coverage": "documented",
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "flangeHeight",
+            "shaftLengthDistribution"
+          ],
+          "vorbelegung": {
+            "sL": 110
+          },
+          "roh": {
+            "nominalLength": 110
+          },
+          "fields": {
+            "sL": {
+              "nominal": 110,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "kinex6921"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            },
+            "nominalLength": {
+              "nominal": 110,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "kinex6921"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            }
+          },
+          "shaftPolicy": "shaft-v2",
+          "lengthEvidence": {
+            "kind": "catalogue-matrix",
+            "edition": null,
+            "sourceRefs": [
+              "kinex6921"
+            ],
+            "verification": false,
+            "nominalOnly": true,
+            "note": "Nur tatsächlich ausgewiesene Größen-/Längenkombination. Nicht gelistete Kombinationen sind keine Normverbote."
+          }
+        },
+        "120": {
+          "coverage": "documented",
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "flangeHeight",
+            "shaftLengthDistribution"
+          ],
+          "vorbelegung": {
+            "sL": 120
+          },
+          "roh": {
+            "nominalLength": 120
+          },
+          "fields": {
+            "sL": {
+              "nominal": 120,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "kinex6921"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            },
+            "nominalLength": {
+              "nominal": 120,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "kinex6921"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            }
+          },
+          "shaftPolicy": "shaft-v2",
+          "lengthEvidence": {
+            "kind": "catalogue-matrix",
+            "edition": null,
+            "sourceRefs": [
+              "kinex6921"
+            ],
+            "verification": false,
+            "nominalOnly": true,
+            "note": "Nur tatsächlich ausgewiesene Größen-/Längenkombination. Nicht gelistete Kombinationen sind keine Normverbote."
+          }
+        }
+      },
+      "lengthCoverage": "partial",
       "missingGeometryFields": [
         "flangeHeight"
       ],
-      "geometryStatus": "partial"
+      "geometryStatus": "partial",
+      "laengen": [
+        30,
+        35,
+        40,
+        45,
+        50,
+        55,
+        60,
+        65,
+        70,
+        75,
+        80,
+        90,
+        100,
+        110,
+        120
+      ]
     },
     "M16": {
       "roh": {
@@ -150,12 +4587,770 @@
         "kD": 35
       },
       "coverage": "documented",
-      "nachLaenge": {},
-      "lengthCoverage": "unresearched",
+      "nachLaenge": {
+        "35": {
+          "coverage": "documented",
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "flangeHeight"
+          ],
+          "vorbelegung": {
+            "sL": 35
+          },
+          "roh": {
+            "nominalLength": 35
+          },
+          "fields": {
+            "sL": {
+              "nominal": 35,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "kinex6921"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            },
+            "nominalLength": {
+              "nominal": 35,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "kinex6921"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            }
+          },
+          "shaftPolicy": "shaft-v2",
+          "lengthEvidence": {
+            "kind": "catalogue-matrix",
+            "edition": null,
+            "sourceRefs": [
+              "kinex6921"
+            ],
+            "verification": false,
+            "nominalOnly": true,
+            "note": "Nur tatsächlich ausgewiesene Größen-/Längenkombination. Nicht gelistete Kombinationen sind keine Normverbote."
+          }
+        },
+        "40": {
+          "coverage": "documented",
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "flangeHeight",
+            "shaftLengthDistribution"
+          ],
+          "vorbelegung": {
+            "sL": 40
+          },
+          "roh": {
+            "nominalLength": 40
+          },
+          "fields": {
+            "sL": {
+              "nominal": 40,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "kinex6921"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            },
+            "nominalLength": {
+              "nominal": 40,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "kinex6921"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            }
+          },
+          "shaftPolicy": "shaft-v2",
+          "lengthEvidence": {
+            "kind": "catalogue-matrix",
+            "edition": null,
+            "sourceRefs": [
+              "kinex6921"
+            ],
+            "verification": false,
+            "nominalOnly": true,
+            "note": "Nur tatsächlich ausgewiesene Größen-/Längenkombination. Nicht gelistete Kombinationen sind keine Normverbote."
+          }
+        },
+        "45": {
+          "coverage": "documented",
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "flangeHeight",
+            "shaftLengthDistribution"
+          ],
+          "vorbelegung": {
+            "sL": 45
+          },
+          "roh": {
+            "nominalLength": 45
+          },
+          "fields": {
+            "sL": {
+              "nominal": 45,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "kinex6921"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            },
+            "nominalLength": {
+              "nominal": 45,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "kinex6921"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            }
+          },
+          "shaftPolicy": "shaft-v2",
+          "lengthEvidence": {
+            "kind": "catalogue-matrix",
+            "edition": null,
+            "sourceRefs": [
+              "kinex6921"
+            ],
+            "verification": false,
+            "nominalOnly": true,
+            "note": "Nur tatsächlich ausgewiesene Größen-/Längenkombination. Nicht gelistete Kombinationen sind keine Normverbote."
+          }
+        },
+        "50": {
+          "coverage": "documented",
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "flangeHeight",
+            "shaftLengthDistribution"
+          ],
+          "vorbelegung": {
+            "sL": 50
+          },
+          "roh": {
+            "nominalLength": 50
+          },
+          "fields": {
+            "sL": {
+              "nominal": 50,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "kinex6921"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            },
+            "nominalLength": {
+              "nominal": 50,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "kinex6921"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            }
+          },
+          "shaftPolicy": "shaft-v2",
+          "lengthEvidence": {
+            "kind": "catalogue-matrix",
+            "edition": null,
+            "sourceRefs": [
+              "kinex6921"
+            ],
+            "verification": false,
+            "nominalOnly": true,
+            "note": "Nur tatsächlich ausgewiesene Größen-/Längenkombination. Nicht gelistete Kombinationen sind keine Normverbote."
+          }
+        },
+        "55": {
+          "coverage": "documented",
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "flangeHeight",
+            "shaftLengthDistribution"
+          ],
+          "vorbelegung": {
+            "sL": 55
+          },
+          "roh": {
+            "nominalLength": 55
+          },
+          "fields": {
+            "sL": {
+              "nominal": 55,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "kinex6921"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            },
+            "nominalLength": {
+              "nominal": 55,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "kinex6921"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            }
+          },
+          "shaftPolicy": "shaft-v2",
+          "lengthEvidence": {
+            "kind": "catalogue-matrix",
+            "edition": null,
+            "sourceRefs": [
+              "kinex6921"
+            ],
+            "verification": false,
+            "nominalOnly": true,
+            "note": "Nur tatsächlich ausgewiesene Größen-/Längenkombination. Nicht gelistete Kombinationen sind keine Normverbote."
+          }
+        },
+        "60": {
+          "coverage": "documented",
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "flangeHeight",
+            "shaftLengthDistribution"
+          ],
+          "vorbelegung": {
+            "sL": 60
+          },
+          "roh": {
+            "nominalLength": 60
+          },
+          "fields": {
+            "sL": {
+              "nominal": 60,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "kinex6921"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            },
+            "nominalLength": {
+              "nominal": 60,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "kinex6921"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            }
+          },
+          "shaftPolicy": "shaft-v2",
+          "lengthEvidence": {
+            "kind": "catalogue-matrix",
+            "edition": null,
+            "sourceRefs": [
+              "kinex6921"
+            ],
+            "verification": false,
+            "nominalOnly": true,
+            "note": "Nur tatsächlich ausgewiesene Größen-/Längenkombination. Nicht gelistete Kombinationen sind keine Normverbote."
+          }
+        },
+        "65": {
+          "coverage": "documented",
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "flangeHeight",
+            "shaftLengthDistribution"
+          ],
+          "vorbelegung": {
+            "sL": 65
+          },
+          "roh": {
+            "nominalLength": 65
+          },
+          "fields": {
+            "sL": {
+              "nominal": 65,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "kinex6921"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            },
+            "nominalLength": {
+              "nominal": 65,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "kinex6921"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            }
+          },
+          "shaftPolicy": "shaft-v2",
+          "lengthEvidence": {
+            "kind": "catalogue-matrix",
+            "edition": null,
+            "sourceRefs": [
+              "kinex6921"
+            ],
+            "verification": false,
+            "nominalOnly": true,
+            "note": "Nur tatsächlich ausgewiesene Größen-/Längenkombination. Nicht gelistete Kombinationen sind keine Normverbote."
+          }
+        },
+        "70": {
+          "coverage": "documented",
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "flangeHeight",
+            "shaftLengthDistribution"
+          ],
+          "vorbelegung": {
+            "sL": 70
+          },
+          "roh": {
+            "nominalLength": 70
+          },
+          "fields": {
+            "sL": {
+              "nominal": 70,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "kinex6921"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            },
+            "nominalLength": {
+              "nominal": 70,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "kinex6921"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            }
+          },
+          "shaftPolicy": "shaft-v2",
+          "lengthEvidence": {
+            "kind": "catalogue-matrix",
+            "edition": null,
+            "sourceRefs": [
+              "kinex6921"
+            ],
+            "verification": false,
+            "nominalOnly": true,
+            "note": "Nur tatsächlich ausgewiesene Größen-/Längenkombination. Nicht gelistete Kombinationen sind keine Normverbote."
+          }
+        },
+        "75": {
+          "coverage": "documented",
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "flangeHeight",
+            "shaftLengthDistribution"
+          ],
+          "vorbelegung": {
+            "sL": 75
+          },
+          "roh": {
+            "nominalLength": 75
+          },
+          "fields": {
+            "sL": {
+              "nominal": 75,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "kinex6921"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            },
+            "nominalLength": {
+              "nominal": 75,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "kinex6921"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            }
+          },
+          "shaftPolicy": "shaft-v2",
+          "lengthEvidence": {
+            "kind": "catalogue-matrix",
+            "edition": null,
+            "sourceRefs": [
+              "kinex6921"
+            ],
+            "verification": false,
+            "nominalOnly": true,
+            "note": "Nur tatsächlich ausgewiesene Größen-/Längenkombination. Nicht gelistete Kombinationen sind keine Normverbote."
+          }
+        },
+        "80": {
+          "coverage": "documented",
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "flangeHeight",
+            "shaftLengthDistribution"
+          ],
+          "vorbelegung": {
+            "sL": 80
+          },
+          "roh": {
+            "nominalLength": 80
+          },
+          "fields": {
+            "sL": {
+              "nominal": 80,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "kinex6921"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            },
+            "nominalLength": {
+              "nominal": 80,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "kinex6921"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            }
+          },
+          "shaftPolicy": "shaft-v2",
+          "lengthEvidence": {
+            "kind": "catalogue-matrix",
+            "edition": null,
+            "sourceRefs": [
+              "kinex6921"
+            ],
+            "verification": false,
+            "nominalOnly": true,
+            "note": "Nur tatsächlich ausgewiesene Größen-/Längenkombination. Nicht gelistete Kombinationen sind keine Normverbote."
+          }
+        },
+        "90": {
+          "coverage": "documented",
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "flangeHeight",
+            "shaftLengthDistribution"
+          ],
+          "vorbelegung": {
+            "sL": 90
+          },
+          "roh": {
+            "nominalLength": 90
+          },
+          "fields": {
+            "sL": {
+              "nominal": 90,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "kinex6921"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            },
+            "nominalLength": {
+              "nominal": 90,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "kinex6921"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            }
+          },
+          "shaftPolicy": "shaft-v2",
+          "lengthEvidence": {
+            "kind": "catalogue-matrix",
+            "edition": null,
+            "sourceRefs": [
+              "kinex6921"
+            ],
+            "verification": false,
+            "nominalOnly": true,
+            "note": "Nur tatsächlich ausgewiesene Größen-/Längenkombination. Nicht gelistete Kombinationen sind keine Normverbote."
+          }
+        },
+        "100": {
+          "coverage": "documented",
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "flangeHeight",
+            "shaftLengthDistribution"
+          ],
+          "vorbelegung": {
+            "sL": 100
+          },
+          "roh": {
+            "nominalLength": 100
+          },
+          "fields": {
+            "sL": {
+              "nominal": 100,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "kinex6921"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            },
+            "nominalLength": {
+              "nominal": 100,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "kinex6921"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            }
+          },
+          "shaftPolicy": "shaft-v2",
+          "lengthEvidence": {
+            "kind": "catalogue-matrix",
+            "edition": null,
+            "sourceRefs": [
+              "kinex6921"
+            ],
+            "verification": false,
+            "nominalOnly": true,
+            "note": "Nur tatsächlich ausgewiesene Größen-/Längenkombination. Nicht gelistete Kombinationen sind keine Normverbote."
+          }
+        },
+        "110": {
+          "coverage": "documented",
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "flangeHeight",
+            "shaftLengthDistribution"
+          ],
+          "vorbelegung": {
+            "sL": 110
+          },
+          "roh": {
+            "nominalLength": 110
+          },
+          "fields": {
+            "sL": {
+              "nominal": 110,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "kinex6921"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            },
+            "nominalLength": {
+              "nominal": 110,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "kinex6921"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            }
+          },
+          "shaftPolicy": "shaft-v2",
+          "lengthEvidence": {
+            "kind": "catalogue-matrix",
+            "edition": null,
+            "sourceRefs": [
+              "kinex6921"
+            ],
+            "verification": false,
+            "nominalOnly": true,
+            "note": "Nur tatsächlich ausgewiesene Größen-/Längenkombination. Nicht gelistete Kombinationen sind keine Normverbote."
+          }
+        },
+        "120": {
+          "coverage": "documented",
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "flangeHeight",
+            "shaftLengthDistribution"
+          ],
+          "vorbelegung": {
+            "sL": 120
+          },
+          "roh": {
+            "nominalLength": 120
+          },
+          "fields": {
+            "sL": {
+              "nominal": 120,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "kinex6921"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            },
+            "nominalLength": {
+              "nominal": 120,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "kinex6921"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            }
+          },
+          "shaftPolicy": "shaft-v2",
+          "lengthEvidence": {
+            "kind": "catalogue-matrix",
+            "edition": null,
+            "sourceRefs": [
+              "kinex6921"
+            ],
+            "verification": false,
+            "nominalOnly": true,
+            "note": "Nur tatsächlich ausgewiesene Größen-/Längenkombination. Nicht gelistete Kombinationen sind keine Normverbote."
+          }
+        }
+      },
+      "lengthCoverage": "partial",
       "missingGeometryFields": [
         "flangeHeight"
       ],
-      "geometryStatus": "partial"
+      "geometryStatus": "partial",
+      "laengen": [
+        35,
+        40,
+        45,
+        50,
+        55,
+        60,
+        65,
+        70,
+        75,
+        80,
+        90,
+        100,
+        110,
+        120
+      ]
     }
   },
   "fields": {
@@ -608,10 +5803,20 @@
       "abgerufen": "2026-11-25"
     },
     "boell6921": {
+      "id": "boell6921",
       "url": "https://eshop.boellhoff.de/out/media/pdf/DIN_6921_Edelstahl_A2___en.pdf",
       "titel": "Böllhoff DIN 6921, Produktdatenblatt",
       "type": "manufacturer",
       "accessed": "2026-11-26"
+    },
+    "kinex6921": {
+      "id": "kinex6921",
+      "url": "https://www.kinex.fi/storage/product_files/6/10030146-DIN6921_0493192dd84e7440c7e0205a38b71019.pdf",
+      "titel": "Kinex DIN6921 nominal size matrix",
+      "locator": "Single sheet: populated nominal size/weight cells. Undated catalogue, not normative completeness.",
+      "type": "manufacturer-table",
+      "accessed": "2026-11-27",
+      "publisher": "Kinex"
     }
   },
   "quellen": [
@@ -627,12 +5832,21 @@
       "titel": "Böllhoff DIN 6921, Produktdatenblatt",
       "type": "manufacturer",
       "accessed": "2026-11-26"
+    },
+    {
+      "id": "kinex6921",
+      "url": "https://www.kinex.fi/storage/product_files/6/10030146-DIN6921_0493192dd84e7440c7e0205a38b71019.pdf",
+      "titel": "Kinex DIN6921 nominal size matrix",
+      "locator": "Single sheet: populated nominal size/weight cells. Undated catalogue, not normative completeness.",
+      "type": "manufacturer-table",
+      "accessed": "2026-11-27",
+      "publisher": "Kinex"
     }
   ],
   "abweichungen": [],
   "status": "partial",
   "coverage": "documented",
-  "lengthCoverage": "unresearched",
+  "lengthCoverage": "partial",
   "hinweise": [],
   "normstatus": {
     "status": "unresolved",
@@ -711,10 +5925,17 @@
       "note": "Keine Größenzeile vorhanden; daraus folgt kein Normverbot."
     }
   },
-  "pruefdatum": "2026-11-26",
+  "pruefdatum": "2026-11-27",
   "klassen": {
     "status": "unresearched",
     "values": [],
     "note": "Festigkeits-/Werkstoffklassen noch nicht vollständig aus dieser Norm belegt."
+  },
+  "lengthMatrixPolicy": {
+    "version": "length-matrix-v1",
+    "complete": false,
+    "note": "Einzeln belegte Norm- oder Katalogzellen. Einquellenwerte sind ausdrücklich nicht zweifach bestätigt; aktuelle Ausgaben werden nicht auf ältere Tabellen rückdatiert.",
+    "sizeGaps": [],
+    "singleSourceCells": 76
   }
 }

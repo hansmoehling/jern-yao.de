@@ -49,8 +49,8 @@ test('supplement values and every mapped default retain evidence or an explicit 
       }
     }
   }
-  assert.equal(newSizeCount,53);
-  assert.equal(lengthCount,70);
+  assert.equal(newSizeCount,59);
+  assert.equal(lengthCount,1089);
 });
 
 test('DIN603 and ISO8677 keep their different head dimensions and square neck geometry',()=>{
@@ -59,8 +59,9 @@ test('DIN603 and ISO8677 keep their different head dimensions and square neck ge
   assert.equal(iso.effective.kD,20);assert.equal(iso.effective.kH,4.8);
   for(const doc of [din,iso]){
     assert.equal(doc.effective.squareNeckWidth,8.58);assert.equal(doc.effective.squareNeckLength,5.6);
-    assert.equal(doc.effective.sL,undefined);assert.equal(doc.effective.b,undefined);
-    assert.ok(doc.issues.some(x=>x.code==='length-not-resolved'));
+    assert.equal(doc.effective.sL,40);assert.equal(doc.effective.b,undefined);
+    assert.ok(!doc.issues.some(x=>x.code==='length-not-resolved'));
+    assert.ok(doc.normBaseline.provenance.sL.sourceRefs.length>0);
   }
   assert.equal(family('DIN603').fields.M5.dk_max.status,'conflict');
   assert.equal(family('DIN603').groessen.M5.roh.dk_max,13.55);

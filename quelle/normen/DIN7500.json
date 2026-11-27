@@ -1,6 +1,6 @@
 {
   "id": "DIN7500",
-  "version": "2026-11-26",
+  "version": "2026-11-27",
   "schemaVersion": 1,
   "label": "DIN7500 · Gewindefurchende Schraube; Kopfform wählen",
   "edition": null,
@@ -42,6 +42,15 @@
       "type": "standards-body",
       "locator": "Einführungsbeitrag",
       "abgerufen": "2026-11-26"
+    },
+    "boellhoff-duo-torx-2013": {
+      "id": "boellhoff-duo-torx-2013",
+      "url": "https://media.boellhoff.com/files/pdf10/innensechsrund-torx-de-820031111.pdf",
+      "titel": "Böllhoff Innensechsrund/TORX, 8200/13.01",
+      "type": "manufacturer",
+      "edition": "2013-01",
+      "locator": "Seite 4: DIN7500 Form C/Duo und M/Duo mit Innensechsrund, Maß- und konkrete Lieferkombinationen",
+      "abgerufen": "2026-11-27"
     }
   },
   "quellen": [
@@ -68,6 +77,15 @@
       "type": "standards-body",
       "locator": "Einführungsbeitrag",
       "abgerufen": "2026-11-26"
+    },
+    {
+      "id": "boellhoff-duo-torx-2013",
+      "url": "https://media.boellhoff.com/files/pdf10/innensechsrund-torx-de-820031111.pdf",
+      "titel": "Böllhoff Innensechsrund/TORX, 8200/13.01",
+      "type": "manufacturer",
+      "edition": "2013-01",
+      "locator": "Seite 4: DIN7500 Form C/Duo und M/Duo mit Innensechsrund, Maß- und konkrete Lieferkombinationen",
+      "abgerufen": "2026-11-27"
     }
   ],
   "abweichungen": [],
@@ -77,7 +95,8 @@
   "hinweise": [
     "C und M sind hier ausdrücklich belegte Böllhoff-Kopfausführungen. Keine Mischung mit abweichenden DIN7985-/ISO7045-Katalogköpfen anderer Anbieter.",
     "Die Tabellen liefern keine vollständige trilobulare Rohteilfläche und keine belastbare Furchbereichskontur.",
-    "DIN7500-1 betrifft gewindefurchende Schrauben; ISO898-1-Festigkeitsklassen sind dafür nicht direkt anzuwenden."
+    "DIN7500-1 betrifft gewindefurchende Schrauben; ISO898-1-Festigkeitsklassen sind dafür nicht direkt anzuwenden.",
+    "Die Duo-Innensechsrund-Ausführungen C und M sind eigene Böllhoff-Katalogvarianten von 2013. Ihre Kopfmaße werden nicht mit den PZ-Ausführungen vermischt. Antriebstiefe, genaue Kopf-/Rohteilkontur und unabhängiger Zweitbeleg bleiben offen."
   ],
   "normstatus": {
     "status": "current",
@@ -98,9 +117,10 @@
       "status": "documented",
       "sourceRefs": [
         "boellhoffC",
-        "boellhoffM"
+        "boellhoffM",
+        "boellhoff-duo-torx-2013"
       ],
-      "note": "Maße hängen von der gewählten C-/M-Kopfausführung ab."
+      "note": "Variantenabhängige Herstellermaße; M2,5 nur in den dokumentierten Duo-Innensechsrund-Ausführungen."
     },
     "M3.5": {
       "status": "unresearched",
@@ -110,25 +130,28 @@
       "status": "documented",
       "sourceRefs": [
         "boellhoffC",
-        "boellhoffM"
+        "boellhoffM",
+        "boellhoff-duo-torx-2013"
       ],
-      "note": "Maße hängen von der gewählten C-/M-Kopfausführung ab."
+      "note": "Variantenabhängige Herstellermaße; M2,5 nur in den dokumentierten Duo-Innensechsrund-Ausführungen."
     },
     "M5": {
       "status": "documented",
       "sourceRefs": [
         "boellhoffC",
-        "boellhoffM"
+        "boellhoffM",
+        "boellhoff-duo-torx-2013"
       ],
-      "note": "Maße hängen von der gewählten C-/M-Kopfausführung ab."
+      "note": "Variantenabhängige Herstellermaße; M2,5 nur in den dokumentierten Duo-Innensechsrund-Ausführungen."
     },
     "M6": {
       "status": "documented",
       "sourceRefs": [
         "boellhoffC",
-        "boellhoffM"
+        "boellhoffM",
+        "boellhoff-duo-torx-2013"
       ],
-      "note": "Maße hängen von der gewählten C-/M-Kopfausführung ab."
+      "note": "Variantenabhängige Herstellermaße; M2,5 nur in den dokumentierten Duo-Innensechsrund-Ausführungen."
     },
     "M7": {
       "status": "unresearched",
@@ -208,9 +231,16 @@
         "din-status"
       ],
       "note": "Außerhalb des belegten Größenbereichs dieser Normausgabe."
+    },
+    "M2.5": {
+      "status": "documented",
+      "sourceRefs": [
+        "boellhoff-duo-torx-2013"
+      ],
+      "note": "Variantenabhängige Herstellermaße; M2,5 nur in den dokumentierten Duo-Innensechsrund-Ausführungen."
     }
   },
-  "pruefdatum": "2026-11-26",
+  "pruefdatum": "2026-11-27",
   "klassen": {
     "status": "not-applicable",
     "values": [],
@@ -2678,6 +2708,3485 @@
         "recessVolumeModel",
         "formingLeadProfile"
       ]
+    },
+    {
+      "id": "C-DUO-TX",
+      "label": "Linsenkopf C · Duo · Innensechsrund",
+      "kopfTyp": "linse",
+      "antrieb": {
+        "art": "torx"
+      },
+      "threadFamily": "trilobular",
+      "formingThreadDesignation": "Duo",
+      "schaftende": "voll",
+      "feldzuordnung": {
+        "kD": "dk_max",
+        "kH": "k_max",
+        "iSize": "recess_size",
+        "sL": "l_nominal"
+      },
+      "clearAutomaticFields": [
+        "sD",
+        "sArea",
+        "iT",
+        "iVol",
+        "capHeight",
+        "kC",
+        "kVol"
+      ],
+      "sizeData": {
+        "M2.5": {
+          "roh": {
+            "dk_max": 5,
+            "k_max": 2.12,
+            "recess_size": 8
+          },
+          "vorbelegung": {
+            "kD": 5,
+            "kH": 2.12,
+            "iSize": 8
+          },
+          "coverage": "documented",
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "sArea",
+            "recessVolumeModel",
+            "formingLeadProfile",
+            "iT",
+            "headProfileDefinition"
+          ],
+          "nachLaenge": {
+            "5": {
+              "vorbelegung": {
+                "sL": 5
+              },
+              "roh": {
+                "l_nominal": 5
+              },
+              "fields": {
+                "l_nominal": {
+                  "nominal": 5,
+                  "min": null,
+                  "max": null,
+                  "unit": "mm",
+                  "sourceRefs": [
+                    "boellhoff-duo-torx-2013"
+                  ],
+                  "status": "single-source",
+                  "verification": false,
+                  "verificationMethod": "single-primary-source",
+                  "note": "Belegter Wert der Böllhoff-Duo-Ausführung im Katalog 8200/13.01; unabhängiger Zweitbeleg offen. Kein Nachweis der gesamten DIN7500-Normreihe oder aktueller Lagerverfügbarkeit."
+                }
+              },
+              "geometryStatus": "partial",
+              "missingGeometryFields": [
+                "sArea",
+                "recessVolumeModel",
+                "formingLeadProfile",
+                "iT",
+                "headProfileDefinition"
+              ],
+              "lengthEvidence": {
+                "kind": "manufacturer-range",
+                "edition": "2013-01",
+                "sourceRefs": [
+                  "boellhoff-duo-torx-2013"
+                ],
+                "verification": false,
+                "note": "Einzeln gelistete Lieferkombination dieser Ausführung; keine allgemeine Normlängenreihe."
+              }
+            },
+            "6": {
+              "vorbelegung": {
+                "sL": 6
+              },
+              "roh": {
+                "l_nominal": 6
+              },
+              "fields": {
+                "l_nominal": {
+                  "nominal": 6,
+                  "min": null,
+                  "max": null,
+                  "unit": "mm",
+                  "sourceRefs": [
+                    "boellhoff-duo-torx-2013"
+                  ],
+                  "status": "single-source",
+                  "verification": false,
+                  "verificationMethod": "single-primary-source",
+                  "note": "Belegter Wert der Böllhoff-Duo-Ausführung im Katalog 8200/13.01; unabhängiger Zweitbeleg offen. Kein Nachweis der gesamten DIN7500-Normreihe oder aktueller Lagerverfügbarkeit."
+                }
+              },
+              "geometryStatus": "partial",
+              "missingGeometryFields": [
+                "sArea",
+                "recessVolumeModel",
+                "formingLeadProfile",
+                "iT",
+                "headProfileDefinition"
+              ],
+              "lengthEvidence": {
+                "kind": "manufacturer-range",
+                "edition": "2013-01",
+                "sourceRefs": [
+                  "boellhoff-duo-torx-2013"
+                ],
+                "verification": false,
+                "note": "Einzeln gelistete Lieferkombination dieser Ausführung; keine allgemeine Normlängenreihe."
+              }
+            },
+            "8": {
+              "vorbelegung": {
+                "sL": 8
+              },
+              "roh": {
+                "l_nominal": 8
+              },
+              "fields": {
+                "l_nominal": {
+                  "nominal": 8,
+                  "min": null,
+                  "max": null,
+                  "unit": "mm",
+                  "sourceRefs": [
+                    "boellhoff-duo-torx-2013"
+                  ],
+                  "status": "single-source",
+                  "verification": false,
+                  "verificationMethod": "single-primary-source",
+                  "note": "Belegter Wert der Böllhoff-Duo-Ausführung im Katalog 8200/13.01; unabhängiger Zweitbeleg offen. Kein Nachweis der gesamten DIN7500-Normreihe oder aktueller Lagerverfügbarkeit."
+                }
+              },
+              "geometryStatus": "partial",
+              "missingGeometryFields": [
+                "sArea",
+                "recessVolumeModel",
+                "formingLeadProfile",
+                "iT",
+                "headProfileDefinition"
+              ],
+              "lengthEvidence": {
+                "kind": "manufacturer-range",
+                "edition": "2013-01",
+                "sourceRefs": [
+                  "boellhoff-duo-torx-2013"
+                ],
+                "verification": false,
+                "note": "Einzeln gelistete Lieferkombination dieser Ausführung; keine allgemeine Normlängenreihe."
+              }
+            },
+            "10": {
+              "vorbelegung": {
+                "sL": 10
+              },
+              "roh": {
+                "l_nominal": 10
+              },
+              "fields": {
+                "l_nominal": {
+                  "nominal": 10,
+                  "min": null,
+                  "max": null,
+                  "unit": "mm",
+                  "sourceRefs": [
+                    "boellhoff-duo-torx-2013"
+                  ],
+                  "status": "single-source",
+                  "verification": false,
+                  "verificationMethod": "single-primary-source",
+                  "note": "Belegter Wert der Böllhoff-Duo-Ausführung im Katalog 8200/13.01; unabhängiger Zweitbeleg offen. Kein Nachweis der gesamten DIN7500-Normreihe oder aktueller Lagerverfügbarkeit."
+                }
+              },
+              "geometryStatus": "partial",
+              "missingGeometryFields": [
+                "sArea",
+                "recessVolumeModel",
+                "formingLeadProfile",
+                "iT",
+                "headProfileDefinition"
+              ],
+              "lengthEvidence": {
+                "kind": "manufacturer-range",
+                "edition": "2013-01",
+                "sourceRefs": [
+                  "boellhoff-duo-torx-2013"
+                ],
+                "verification": false,
+                "note": "Einzeln gelistete Lieferkombination dieser Ausführung; keine allgemeine Normlängenreihe."
+              }
+            }
+          },
+          "lengthCoverage": "documented-manufacturer-subset",
+          "laengen": [
+            5,
+            6,
+            8,
+            10
+          ]
+        },
+        "M3": {
+          "roh": {
+            "dk_max": 6,
+            "k_max": 2.52,
+            "recess_size": 10
+          },
+          "vorbelegung": {
+            "kD": 6,
+            "kH": 2.52,
+            "iSize": 10
+          },
+          "coverage": "documented",
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "sArea",
+            "recessVolumeModel",
+            "formingLeadProfile",
+            "iT",
+            "headProfileDefinition"
+          ],
+          "nachLaenge": {
+            "5": {
+              "vorbelegung": {
+                "sL": 5
+              },
+              "roh": {
+                "l_nominal": 5
+              },
+              "fields": {
+                "l_nominal": {
+                  "nominal": 5,
+                  "min": null,
+                  "max": null,
+                  "unit": "mm",
+                  "sourceRefs": [
+                    "boellhoff-duo-torx-2013"
+                  ],
+                  "status": "single-source",
+                  "verification": false,
+                  "verificationMethod": "single-primary-source",
+                  "note": "Belegter Wert der Böllhoff-Duo-Ausführung im Katalog 8200/13.01; unabhängiger Zweitbeleg offen. Kein Nachweis der gesamten DIN7500-Normreihe oder aktueller Lagerverfügbarkeit."
+                }
+              },
+              "geometryStatus": "partial",
+              "missingGeometryFields": [
+                "sArea",
+                "recessVolumeModel",
+                "formingLeadProfile",
+                "iT",
+                "headProfileDefinition"
+              ],
+              "lengthEvidence": {
+                "kind": "manufacturer-range",
+                "edition": "2013-01",
+                "sourceRefs": [
+                  "boellhoff-duo-torx-2013"
+                ],
+                "verification": false,
+                "note": "Einzeln gelistete Lieferkombination dieser Ausführung; keine allgemeine Normlängenreihe."
+              }
+            },
+            "6": {
+              "vorbelegung": {
+                "sL": 6
+              },
+              "roh": {
+                "l_nominal": 6
+              },
+              "fields": {
+                "l_nominal": {
+                  "nominal": 6,
+                  "min": null,
+                  "max": null,
+                  "unit": "mm",
+                  "sourceRefs": [
+                    "boellhoff-duo-torx-2013"
+                  ],
+                  "status": "single-source",
+                  "verification": false,
+                  "verificationMethod": "single-primary-source",
+                  "note": "Belegter Wert der Böllhoff-Duo-Ausführung im Katalog 8200/13.01; unabhängiger Zweitbeleg offen. Kein Nachweis der gesamten DIN7500-Normreihe oder aktueller Lagerverfügbarkeit."
+                }
+              },
+              "geometryStatus": "partial",
+              "missingGeometryFields": [
+                "sArea",
+                "recessVolumeModel",
+                "formingLeadProfile",
+                "iT",
+                "headProfileDefinition"
+              ],
+              "lengthEvidence": {
+                "kind": "manufacturer-range",
+                "edition": "2013-01",
+                "sourceRefs": [
+                  "boellhoff-duo-torx-2013"
+                ],
+                "verification": false,
+                "note": "Einzeln gelistete Lieferkombination dieser Ausführung; keine allgemeine Normlängenreihe."
+              }
+            },
+            "8": {
+              "vorbelegung": {
+                "sL": 8
+              },
+              "roh": {
+                "l_nominal": 8
+              },
+              "fields": {
+                "l_nominal": {
+                  "nominal": 8,
+                  "min": null,
+                  "max": null,
+                  "unit": "mm",
+                  "sourceRefs": [
+                    "boellhoff-duo-torx-2013"
+                  ],
+                  "status": "single-source",
+                  "verification": false,
+                  "verificationMethod": "single-primary-source",
+                  "note": "Belegter Wert der Böllhoff-Duo-Ausführung im Katalog 8200/13.01; unabhängiger Zweitbeleg offen. Kein Nachweis der gesamten DIN7500-Normreihe oder aktueller Lagerverfügbarkeit."
+                }
+              },
+              "geometryStatus": "partial",
+              "missingGeometryFields": [
+                "sArea",
+                "recessVolumeModel",
+                "formingLeadProfile",
+                "iT",
+                "headProfileDefinition"
+              ],
+              "lengthEvidence": {
+                "kind": "manufacturer-range",
+                "edition": "2013-01",
+                "sourceRefs": [
+                  "boellhoff-duo-torx-2013"
+                ],
+                "verification": false,
+                "note": "Einzeln gelistete Lieferkombination dieser Ausführung; keine allgemeine Normlängenreihe."
+              }
+            },
+            "10": {
+              "vorbelegung": {
+                "sL": 10
+              },
+              "roh": {
+                "l_nominal": 10
+              },
+              "fields": {
+                "l_nominal": {
+                  "nominal": 10,
+                  "min": null,
+                  "max": null,
+                  "unit": "mm",
+                  "sourceRefs": [
+                    "boellhoff-duo-torx-2013"
+                  ],
+                  "status": "single-source",
+                  "verification": false,
+                  "verificationMethod": "single-primary-source",
+                  "note": "Belegter Wert der Böllhoff-Duo-Ausführung im Katalog 8200/13.01; unabhängiger Zweitbeleg offen. Kein Nachweis der gesamten DIN7500-Normreihe oder aktueller Lagerverfügbarkeit."
+                }
+              },
+              "geometryStatus": "partial",
+              "missingGeometryFields": [
+                "sArea",
+                "recessVolumeModel",
+                "formingLeadProfile",
+                "iT",
+                "headProfileDefinition"
+              ],
+              "lengthEvidence": {
+                "kind": "manufacturer-range",
+                "edition": "2013-01",
+                "sourceRefs": [
+                  "boellhoff-duo-torx-2013"
+                ],
+                "verification": false,
+                "note": "Einzeln gelistete Lieferkombination dieser Ausführung; keine allgemeine Normlängenreihe."
+              }
+            },
+            "12": {
+              "vorbelegung": {
+                "sL": 12
+              },
+              "roh": {
+                "l_nominal": 12
+              },
+              "fields": {
+                "l_nominal": {
+                  "nominal": 12,
+                  "min": null,
+                  "max": null,
+                  "unit": "mm",
+                  "sourceRefs": [
+                    "boellhoff-duo-torx-2013"
+                  ],
+                  "status": "single-source",
+                  "verification": false,
+                  "verificationMethod": "single-primary-source",
+                  "note": "Belegter Wert der Böllhoff-Duo-Ausführung im Katalog 8200/13.01; unabhängiger Zweitbeleg offen. Kein Nachweis der gesamten DIN7500-Normreihe oder aktueller Lagerverfügbarkeit."
+                }
+              },
+              "geometryStatus": "partial",
+              "missingGeometryFields": [
+                "sArea",
+                "recessVolumeModel",
+                "formingLeadProfile",
+                "iT",
+                "headProfileDefinition"
+              ],
+              "lengthEvidence": {
+                "kind": "manufacturer-range",
+                "edition": "2013-01",
+                "sourceRefs": [
+                  "boellhoff-duo-torx-2013"
+                ],
+                "verification": false,
+                "note": "Einzeln gelistete Lieferkombination dieser Ausführung; keine allgemeine Normlängenreihe."
+              }
+            },
+            "16": {
+              "vorbelegung": {
+                "sL": 16
+              },
+              "roh": {
+                "l_nominal": 16
+              },
+              "fields": {
+                "l_nominal": {
+                  "nominal": 16,
+                  "min": null,
+                  "max": null,
+                  "unit": "mm",
+                  "sourceRefs": [
+                    "boellhoff-duo-torx-2013"
+                  ],
+                  "status": "single-source",
+                  "verification": false,
+                  "verificationMethod": "single-primary-source",
+                  "note": "Belegter Wert der Böllhoff-Duo-Ausführung im Katalog 8200/13.01; unabhängiger Zweitbeleg offen. Kein Nachweis der gesamten DIN7500-Normreihe oder aktueller Lagerverfügbarkeit."
+                }
+              },
+              "geometryStatus": "partial",
+              "missingGeometryFields": [
+                "sArea",
+                "recessVolumeModel",
+                "formingLeadProfile",
+                "iT",
+                "headProfileDefinition"
+              ],
+              "lengthEvidence": {
+                "kind": "manufacturer-range",
+                "edition": "2013-01",
+                "sourceRefs": [
+                  "boellhoff-duo-torx-2013"
+                ],
+                "verification": false,
+                "note": "Einzeln gelistete Lieferkombination dieser Ausführung; keine allgemeine Normlängenreihe."
+              }
+            }
+          },
+          "lengthCoverage": "documented-manufacturer-subset",
+          "laengen": [
+            5,
+            6,
+            8,
+            10,
+            12,
+            16
+          ]
+        },
+        "M4": {
+          "roh": {
+            "dk_max": 8,
+            "k_max": 3.25,
+            "recess_size": 20
+          },
+          "vorbelegung": {
+            "kD": 8,
+            "kH": 3.25,
+            "iSize": 20
+          },
+          "coverage": "documented",
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "sArea",
+            "recessVolumeModel",
+            "formingLeadProfile",
+            "iT",
+            "headProfileDefinition"
+          ],
+          "nachLaenge": {
+            "6": {
+              "vorbelegung": {
+                "sL": 6
+              },
+              "roh": {
+                "l_nominal": 6
+              },
+              "fields": {
+                "l_nominal": {
+                  "nominal": 6,
+                  "min": null,
+                  "max": null,
+                  "unit": "mm",
+                  "sourceRefs": [
+                    "boellhoff-duo-torx-2013"
+                  ],
+                  "status": "single-source",
+                  "verification": false,
+                  "verificationMethod": "single-primary-source",
+                  "note": "Belegter Wert der Böllhoff-Duo-Ausführung im Katalog 8200/13.01; unabhängiger Zweitbeleg offen. Kein Nachweis der gesamten DIN7500-Normreihe oder aktueller Lagerverfügbarkeit."
+                }
+              },
+              "geometryStatus": "partial",
+              "missingGeometryFields": [
+                "sArea",
+                "recessVolumeModel",
+                "formingLeadProfile",
+                "iT",
+                "headProfileDefinition"
+              ],
+              "lengthEvidence": {
+                "kind": "manufacturer-range",
+                "edition": "2013-01",
+                "sourceRefs": [
+                  "boellhoff-duo-torx-2013"
+                ],
+                "verification": false,
+                "note": "Einzeln gelistete Lieferkombination dieser Ausführung; keine allgemeine Normlängenreihe."
+              }
+            },
+            "8": {
+              "vorbelegung": {
+                "sL": 8
+              },
+              "roh": {
+                "l_nominal": 8
+              },
+              "fields": {
+                "l_nominal": {
+                  "nominal": 8,
+                  "min": null,
+                  "max": null,
+                  "unit": "mm",
+                  "sourceRefs": [
+                    "boellhoff-duo-torx-2013"
+                  ],
+                  "status": "single-source",
+                  "verification": false,
+                  "verificationMethod": "single-primary-source",
+                  "note": "Belegter Wert der Böllhoff-Duo-Ausführung im Katalog 8200/13.01; unabhängiger Zweitbeleg offen. Kein Nachweis der gesamten DIN7500-Normreihe oder aktueller Lagerverfügbarkeit."
+                }
+              },
+              "geometryStatus": "partial",
+              "missingGeometryFields": [
+                "sArea",
+                "recessVolumeModel",
+                "formingLeadProfile",
+                "iT",
+                "headProfileDefinition"
+              ],
+              "lengthEvidence": {
+                "kind": "manufacturer-range",
+                "edition": "2013-01",
+                "sourceRefs": [
+                  "boellhoff-duo-torx-2013"
+                ],
+                "verification": false,
+                "note": "Einzeln gelistete Lieferkombination dieser Ausführung; keine allgemeine Normlängenreihe."
+              }
+            },
+            "10": {
+              "vorbelegung": {
+                "sL": 10
+              },
+              "roh": {
+                "l_nominal": 10
+              },
+              "fields": {
+                "l_nominal": {
+                  "nominal": 10,
+                  "min": null,
+                  "max": null,
+                  "unit": "mm",
+                  "sourceRefs": [
+                    "boellhoff-duo-torx-2013"
+                  ],
+                  "status": "single-source",
+                  "verification": false,
+                  "verificationMethod": "single-primary-source",
+                  "note": "Belegter Wert der Böllhoff-Duo-Ausführung im Katalog 8200/13.01; unabhängiger Zweitbeleg offen. Kein Nachweis der gesamten DIN7500-Normreihe oder aktueller Lagerverfügbarkeit."
+                }
+              },
+              "geometryStatus": "partial",
+              "missingGeometryFields": [
+                "sArea",
+                "recessVolumeModel",
+                "formingLeadProfile",
+                "iT",
+                "headProfileDefinition"
+              ],
+              "lengthEvidence": {
+                "kind": "manufacturer-range",
+                "edition": "2013-01",
+                "sourceRefs": [
+                  "boellhoff-duo-torx-2013"
+                ],
+                "verification": false,
+                "note": "Einzeln gelistete Lieferkombination dieser Ausführung; keine allgemeine Normlängenreihe."
+              }
+            },
+            "12": {
+              "vorbelegung": {
+                "sL": 12
+              },
+              "roh": {
+                "l_nominal": 12
+              },
+              "fields": {
+                "l_nominal": {
+                  "nominal": 12,
+                  "min": null,
+                  "max": null,
+                  "unit": "mm",
+                  "sourceRefs": [
+                    "boellhoff-duo-torx-2013"
+                  ],
+                  "status": "single-source",
+                  "verification": false,
+                  "verificationMethod": "single-primary-source",
+                  "note": "Belegter Wert der Böllhoff-Duo-Ausführung im Katalog 8200/13.01; unabhängiger Zweitbeleg offen. Kein Nachweis der gesamten DIN7500-Normreihe oder aktueller Lagerverfügbarkeit."
+                }
+              },
+              "geometryStatus": "partial",
+              "missingGeometryFields": [
+                "sArea",
+                "recessVolumeModel",
+                "formingLeadProfile",
+                "iT",
+                "headProfileDefinition"
+              ],
+              "lengthEvidence": {
+                "kind": "manufacturer-range",
+                "edition": "2013-01",
+                "sourceRefs": [
+                  "boellhoff-duo-torx-2013"
+                ],
+                "verification": false,
+                "note": "Einzeln gelistete Lieferkombination dieser Ausführung; keine allgemeine Normlängenreihe."
+              }
+            },
+            "16": {
+              "vorbelegung": {
+                "sL": 16
+              },
+              "roh": {
+                "l_nominal": 16
+              },
+              "fields": {
+                "l_nominal": {
+                  "nominal": 16,
+                  "min": null,
+                  "max": null,
+                  "unit": "mm",
+                  "sourceRefs": [
+                    "boellhoff-duo-torx-2013"
+                  ],
+                  "status": "single-source",
+                  "verification": false,
+                  "verificationMethod": "single-primary-source",
+                  "note": "Belegter Wert der Böllhoff-Duo-Ausführung im Katalog 8200/13.01; unabhängiger Zweitbeleg offen. Kein Nachweis der gesamten DIN7500-Normreihe oder aktueller Lagerverfügbarkeit."
+                }
+              },
+              "geometryStatus": "partial",
+              "missingGeometryFields": [
+                "sArea",
+                "recessVolumeModel",
+                "formingLeadProfile",
+                "iT",
+                "headProfileDefinition"
+              ],
+              "lengthEvidence": {
+                "kind": "manufacturer-range",
+                "edition": "2013-01",
+                "sourceRefs": [
+                  "boellhoff-duo-torx-2013"
+                ],
+                "verification": false,
+                "note": "Einzeln gelistete Lieferkombination dieser Ausführung; keine allgemeine Normlängenreihe."
+              }
+            },
+            "20": {
+              "vorbelegung": {
+                "sL": 20
+              },
+              "roh": {
+                "l_nominal": 20
+              },
+              "fields": {
+                "l_nominal": {
+                  "nominal": 20,
+                  "min": null,
+                  "max": null,
+                  "unit": "mm",
+                  "sourceRefs": [
+                    "boellhoff-duo-torx-2013"
+                  ],
+                  "status": "single-source",
+                  "verification": false,
+                  "verificationMethod": "single-primary-source",
+                  "note": "Belegter Wert der Böllhoff-Duo-Ausführung im Katalog 8200/13.01; unabhängiger Zweitbeleg offen. Kein Nachweis der gesamten DIN7500-Normreihe oder aktueller Lagerverfügbarkeit."
+                }
+              },
+              "geometryStatus": "partial",
+              "missingGeometryFields": [
+                "sArea",
+                "recessVolumeModel",
+                "formingLeadProfile",
+                "iT",
+                "headProfileDefinition"
+              ],
+              "lengthEvidence": {
+                "kind": "manufacturer-range",
+                "edition": "2013-01",
+                "sourceRefs": [
+                  "boellhoff-duo-torx-2013"
+                ],
+                "verification": false,
+                "note": "Einzeln gelistete Lieferkombination dieser Ausführung; keine allgemeine Normlängenreihe."
+              }
+            }
+          },
+          "lengthCoverage": "documented-manufacturer-subset",
+          "laengen": [
+            6,
+            8,
+            10,
+            12,
+            16,
+            20
+          ]
+        },
+        "M5": {
+          "roh": {
+            "dk_max": 10,
+            "k_max": 3.95,
+            "recess_size": 25
+          },
+          "vorbelegung": {
+            "kD": 10,
+            "kH": 3.95,
+            "iSize": 25
+          },
+          "coverage": "documented",
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "sArea",
+            "recessVolumeModel",
+            "formingLeadProfile",
+            "iT",
+            "headProfileDefinition"
+          ],
+          "nachLaenge": {
+            "8": {
+              "vorbelegung": {
+                "sL": 8
+              },
+              "roh": {
+                "l_nominal": 8
+              },
+              "fields": {
+                "l_nominal": {
+                  "nominal": 8,
+                  "min": null,
+                  "max": null,
+                  "unit": "mm",
+                  "sourceRefs": [
+                    "boellhoff-duo-torx-2013"
+                  ],
+                  "status": "single-source",
+                  "verification": false,
+                  "verificationMethod": "single-primary-source",
+                  "note": "Belegter Wert der Böllhoff-Duo-Ausführung im Katalog 8200/13.01; unabhängiger Zweitbeleg offen. Kein Nachweis der gesamten DIN7500-Normreihe oder aktueller Lagerverfügbarkeit."
+                }
+              },
+              "geometryStatus": "partial",
+              "missingGeometryFields": [
+                "sArea",
+                "recessVolumeModel",
+                "formingLeadProfile",
+                "iT",
+                "headProfileDefinition"
+              ],
+              "lengthEvidence": {
+                "kind": "manufacturer-range",
+                "edition": "2013-01",
+                "sourceRefs": [
+                  "boellhoff-duo-torx-2013"
+                ],
+                "verification": false,
+                "note": "Einzeln gelistete Lieferkombination dieser Ausführung; keine allgemeine Normlängenreihe."
+              }
+            },
+            "10": {
+              "vorbelegung": {
+                "sL": 10
+              },
+              "roh": {
+                "l_nominal": 10
+              },
+              "fields": {
+                "l_nominal": {
+                  "nominal": 10,
+                  "min": null,
+                  "max": null,
+                  "unit": "mm",
+                  "sourceRefs": [
+                    "boellhoff-duo-torx-2013"
+                  ],
+                  "status": "single-source",
+                  "verification": false,
+                  "verificationMethod": "single-primary-source",
+                  "note": "Belegter Wert der Böllhoff-Duo-Ausführung im Katalog 8200/13.01; unabhängiger Zweitbeleg offen. Kein Nachweis der gesamten DIN7500-Normreihe oder aktueller Lagerverfügbarkeit."
+                }
+              },
+              "geometryStatus": "partial",
+              "missingGeometryFields": [
+                "sArea",
+                "recessVolumeModel",
+                "formingLeadProfile",
+                "iT",
+                "headProfileDefinition"
+              ],
+              "lengthEvidence": {
+                "kind": "manufacturer-range",
+                "edition": "2013-01",
+                "sourceRefs": [
+                  "boellhoff-duo-torx-2013"
+                ],
+                "verification": false,
+                "note": "Einzeln gelistete Lieferkombination dieser Ausführung; keine allgemeine Normlängenreihe."
+              }
+            },
+            "12": {
+              "vorbelegung": {
+                "sL": 12
+              },
+              "roh": {
+                "l_nominal": 12
+              },
+              "fields": {
+                "l_nominal": {
+                  "nominal": 12,
+                  "min": null,
+                  "max": null,
+                  "unit": "mm",
+                  "sourceRefs": [
+                    "boellhoff-duo-torx-2013"
+                  ],
+                  "status": "single-source",
+                  "verification": false,
+                  "verificationMethod": "single-primary-source",
+                  "note": "Belegter Wert der Böllhoff-Duo-Ausführung im Katalog 8200/13.01; unabhängiger Zweitbeleg offen. Kein Nachweis der gesamten DIN7500-Normreihe oder aktueller Lagerverfügbarkeit."
+                }
+              },
+              "geometryStatus": "partial",
+              "missingGeometryFields": [
+                "sArea",
+                "recessVolumeModel",
+                "formingLeadProfile",
+                "iT",
+                "headProfileDefinition"
+              ],
+              "lengthEvidence": {
+                "kind": "manufacturer-range",
+                "edition": "2013-01",
+                "sourceRefs": [
+                  "boellhoff-duo-torx-2013"
+                ],
+                "verification": false,
+                "note": "Einzeln gelistete Lieferkombination dieser Ausführung; keine allgemeine Normlängenreihe."
+              }
+            },
+            "16": {
+              "vorbelegung": {
+                "sL": 16
+              },
+              "roh": {
+                "l_nominal": 16
+              },
+              "fields": {
+                "l_nominal": {
+                  "nominal": 16,
+                  "min": null,
+                  "max": null,
+                  "unit": "mm",
+                  "sourceRefs": [
+                    "boellhoff-duo-torx-2013"
+                  ],
+                  "status": "single-source",
+                  "verification": false,
+                  "verificationMethod": "single-primary-source",
+                  "note": "Belegter Wert der Böllhoff-Duo-Ausführung im Katalog 8200/13.01; unabhängiger Zweitbeleg offen. Kein Nachweis der gesamten DIN7500-Normreihe oder aktueller Lagerverfügbarkeit."
+                }
+              },
+              "geometryStatus": "partial",
+              "missingGeometryFields": [
+                "sArea",
+                "recessVolumeModel",
+                "formingLeadProfile",
+                "iT",
+                "headProfileDefinition"
+              ],
+              "lengthEvidence": {
+                "kind": "manufacturer-range",
+                "edition": "2013-01",
+                "sourceRefs": [
+                  "boellhoff-duo-torx-2013"
+                ],
+                "verification": false,
+                "note": "Einzeln gelistete Lieferkombination dieser Ausführung; keine allgemeine Normlängenreihe."
+              }
+            },
+            "20": {
+              "vorbelegung": {
+                "sL": 20
+              },
+              "roh": {
+                "l_nominal": 20
+              },
+              "fields": {
+                "l_nominal": {
+                  "nominal": 20,
+                  "min": null,
+                  "max": null,
+                  "unit": "mm",
+                  "sourceRefs": [
+                    "boellhoff-duo-torx-2013"
+                  ],
+                  "status": "single-source",
+                  "verification": false,
+                  "verificationMethod": "single-primary-source",
+                  "note": "Belegter Wert der Böllhoff-Duo-Ausführung im Katalog 8200/13.01; unabhängiger Zweitbeleg offen. Kein Nachweis der gesamten DIN7500-Normreihe oder aktueller Lagerverfügbarkeit."
+                }
+              },
+              "geometryStatus": "partial",
+              "missingGeometryFields": [
+                "sArea",
+                "recessVolumeModel",
+                "formingLeadProfile",
+                "iT",
+                "headProfileDefinition"
+              ],
+              "lengthEvidence": {
+                "kind": "manufacturer-range",
+                "edition": "2013-01",
+                "sourceRefs": [
+                  "boellhoff-duo-torx-2013"
+                ],
+                "verification": false,
+                "note": "Einzeln gelistete Lieferkombination dieser Ausführung; keine allgemeine Normlängenreihe."
+              }
+            },
+            "25": {
+              "vorbelegung": {
+                "sL": 25
+              },
+              "roh": {
+                "l_nominal": 25
+              },
+              "fields": {
+                "l_nominal": {
+                  "nominal": 25,
+                  "min": null,
+                  "max": null,
+                  "unit": "mm",
+                  "sourceRefs": [
+                    "boellhoff-duo-torx-2013"
+                  ],
+                  "status": "single-source",
+                  "verification": false,
+                  "verificationMethod": "single-primary-source",
+                  "note": "Belegter Wert der Böllhoff-Duo-Ausführung im Katalog 8200/13.01; unabhängiger Zweitbeleg offen. Kein Nachweis der gesamten DIN7500-Normreihe oder aktueller Lagerverfügbarkeit."
+                }
+              },
+              "geometryStatus": "partial",
+              "missingGeometryFields": [
+                "sArea",
+                "recessVolumeModel",
+                "formingLeadProfile",
+                "iT",
+                "headProfileDefinition"
+              ],
+              "lengthEvidence": {
+                "kind": "manufacturer-range",
+                "edition": "2013-01",
+                "sourceRefs": [
+                  "boellhoff-duo-torx-2013"
+                ],
+                "verification": false,
+                "note": "Einzeln gelistete Lieferkombination dieser Ausführung; keine allgemeine Normlängenreihe."
+              }
+            }
+          },
+          "lengthCoverage": "documented-manufacturer-subset",
+          "laengen": [
+            8,
+            10,
+            12,
+            16,
+            20,
+            25
+          ]
+        },
+        "M6": {
+          "roh": {
+            "dk_max": 12,
+            "k_max": 4.75,
+            "recess_size": 30
+          },
+          "vorbelegung": {
+            "kD": 12,
+            "kH": 4.75,
+            "iSize": 30
+          },
+          "coverage": "documented",
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "sArea",
+            "recessVolumeModel",
+            "formingLeadProfile",
+            "iT",
+            "headProfileDefinition"
+          ],
+          "nachLaenge": {
+            "10": {
+              "vorbelegung": {
+                "sL": 10
+              },
+              "roh": {
+                "l_nominal": 10
+              },
+              "fields": {
+                "l_nominal": {
+                  "nominal": 10,
+                  "min": null,
+                  "max": null,
+                  "unit": "mm",
+                  "sourceRefs": [
+                    "boellhoff-duo-torx-2013"
+                  ],
+                  "status": "single-source",
+                  "verification": false,
+                  "verificationMethod": "single-primary-source",
+                  "note": "Belegter Wert der Böllhoff-Duo-Ausführung im Katalog 8200/13.01; unabhängiger Zweitbeleg offen. Kein Nachweis der gesamten DIN7500-Normreihe oder aktueller Lagerverfügbarkeit."
+                }
+              },
+              "geometryStatus": "partial",
+              "missingGeometryFields": [
+                "sArea",
+                "recessVolumeModel",
+                "formingLeadProfile",
+                "iT",
+                "headProfileDefinition"
+              ],
+              "lengthEvidence": {
+                "kind": "manufacturer-range",
+                "edition": "2013-01",
+                "sourceRefs": [
+                  "boellhoff-duo-torx-2013"
+                ],
+                "verification": false,
+                "note": "Einzeln gelistete Lieferkombination dieser Ausführung; keine allgemeine Normlängenreihe."
+              }
+            },
+            "12": {
+              "vorbelegung": {
+                "sL": 12
+              },
+              "roh": {
+                "l_nominal": 12
+              },
+              "fields": {
+                "l_nominal": {
+                  "nominal": 12,
+                  "min": null,
+                  "max": null,
+                  "unit": "mm",
+                  "sourceRefs": [
+                    "boellhoff-duo-torx-2013"
+                  ],
+                  "status": "single-source",
+                  "verification": false,
+                  "verificationMethod": "single-primary-source",
+                  "note": "Belegter Wert der Böllhoff-Duo-Ausführung im Katalog 8200/13.01; unabhängiger Zweitbeleg offen. Kein Nachweis der gesamten DIN7500-Normreihe oder aktueller Lagerverfügbarkeit."
+                }
+              },
+              "geometryStatus": "partial",
+              "missingGeometryFields": [
+                "sArea",
+                "recessVolumeModel",
+                "formingLeadProfile",
+                "iT",
+                "headProfileDefinition"
+              ],
+              "lengthEvidence": {
+                "kind": "manufacturer-range",
+                "edition": "2013-01",
+                "sourceRefs": [
+                  "boellhoff-duo-torx-2013"
+                ],
+                "verification": false,
+                "note": "Einzeln gelistete Lieferkombination dieser Ausführung; keine allgemeine Normlängenreihe."
+              }
+            },
+            "16": {
+              "vorbelegung": {
+                "sL": 16
+              },
+              "roh": {
+                "l_nominal": 16
+              },
+              "fields": {
+                "l_nominal": {
+                  "nominal": 16,
+                  "min": null,
+                  "max": null,
+                  "unit": "mm",
+                  "sourceRefs": [
+                    "boellhoff-duo-torx-2013"
+                  ],
+                  "status": "single-source",
+                  "verification": false,
+                  "verificationMethod": "single-primary-source",
+                  "note": "Belegter Wert der Böllhoff-Duo-Ausführung im Katalog 8200/13.01; unabhängiger Zweitbeleg offen. Kein Nachweis der gesamten DIN7500-Normreihe oder aktueller Lagerverfügbarkeit."
+                }
+              },
+              "geometryStatus": "partial",
+              "missingGeometryFields": [
+                "sArea",
+                "recessVolumeModel",
+                "formingLeadProfile",
+                "iT",
+                "headProfileDefinition"
+              ],
+              "lengthEvidence": {
+                "kind": "manufacturer-range",
+                "edition": "2013-01",
+                "sourceRefs": [
+                  "boellhoff-duo-torx-2013"
+                ],
+                "verification": false,
+                "note": "Einzeln gelistete Lieferkombination dieser Ausführung; keine allgemeine Normlängenreihe."
+              }
+            },
+            "20": {
+              "vorbelegung": {
+                "sL": 20
+              },
+              "roh": {
+                "l_nominal": 20
+              },
+              "fields": {
+                "l_nominal": {
+                  "nominal": 20,
+                  "min": null,
+                  "max": null,
+                  "unit": "mm",
+                  "sourceRefs": [
+                    "boellhoff-duo-torx-2013"
+                  ],
+                  "status": "single-source",
+                  "verification": false,
+                  "verificationMethod": "single-primary-source",
+                  "note": "Belegter Wert der Böllhoff-Duo-Ausführung im Katalog 8200/13.01; unabhängiger Zweitbeleg offen. Kein Nachweis der gesamten DIN7500-Normreihe oder aktueller Lagerverfügbarkeit."
+                }
+              },
+              "geometryStatus": "partial",
+              "missingGeometryFields": [
+                "sArea",
+                "recessVolumeModel",
+                "formingLeadProfile",
+                "iT",
+                "headProfileDefinition"
+              ],
+              "lengthEvidence": {
+                "kind": "manufacturer-range",
+                "edition": "2013-01",
+                "sourceRefs": [
+                  "boellhoff-duo-torx-2013"
+                ],
+                "verification": false,
+                "note": "Einzeln gelistete Lieferkombination dieser Ausführung; keine allgemeine Normlängenreihe."
+              }
+            },
+            "25": {
+              "vorbelegung": {
+                "sL": 25
+              },
+              "roh": {
+                "l_nominal": 25
+              },
+              "fields": {
+                "l_nominal": {
+                  "nominal": 25,
+                  "min": null,
+                  "max": null,
+                  "unit": "mm",
+                  "sourceRefs": [
+                    "boellhoff-duo-torx-2013"
+                  ],
+                  "status": "single-source",
+                  "verification": false,
+                  "verificationMethod": "single-primary-source",
+                  "note": "Belegter Wert der Böllhoff-Duo-Ausführung im Katalog 8200/13.01; unabhängiger Zweitbeleg offen. Kein Nachweis der gesamten DIN7500-Normreihe oder aktueller Lagerverfügbarkeit."
+                }
+              },
+              "geometryStatus": "partial",
+              "missingGeometryFields": [
+                "sArea",
+                "recessVolumeModel",
+                "formingLeadProfile",
+                "iT",
+                "headProfileDefinition"
+              ],
+              "lengthEvidence": {
+                "kind": "manufacturer-range",
+                "edition": "2013-01",
+                "sourceRefs": [
+                  "boellhoff-duo-torx-2013"
+                ],
+                "verification": false,
+                "note": "Einzeln gelistete Lieferkombination dieser Ausführung; keine allgemeine Normlängenreihe."
+              }
+            },
+            "30": {
+              "vorbelegung": {
+                "sL": 30
+              },
+              "roh": {
+                "l_nominal": 30
+              },
+              "fields": {
+                "l_nominal": {
+                  "nominal": 30,
+                  "min": null,
+                  "max": null,
+                  "unit": "mm",
+                  "sourceRefs": [
+                    "boellhoff-duo-torx-2013"
+                  ],
+                  "status": "single-source",
+                  "verification": false,
+                  "verificationMethod": "single-primary-source",
+                  "note": "Belegter Wert der Böllhoff-Duo-Ausführung im Katalog 8200/13.01; unabhängiger Zweitbeleg offen. Kein Nachweis der gesamten DIN7500-Normreihe oder aktueller Lagerverfügbarkeit."
+                }
+              },
+              "geometryStatus": "partial",
+              "missingGeometryFields": [
+                "sArea",
+                "recessVolumeModel",
+                "formingLeadProfile",
+                "iT",
+                "headProfileDefinition"
+              ],
+              "lengthEvidence": {
+                "kind": "manufacturer-range",
+                "edition": "2013-01",
+                "sourceRefs": [
+                  "boellhoff-duo-torx-2013"
+                ],
+                "verification": false,
+                "note": "Einzeln gelistete Lieferkombination dieser Ausführung; keine allgemeine Normlängenreihe."
+              }
+            }
+          },
+          "lengthCoverage": "documented-manufacturer-subset",
+          "laengen": [
+            10,
+            12,
+            16,
+            20,
+            25,
+            30
+          ]
+        }
+      },
+      "fields": {
+        "M2.5": {
+          "dk_max": {
+            "nominal": 5,
+            "min": null,
+            "max": 5,
+            "unit": "mm",
+            "sourceRefs": [
+              "boellhoff-duo-torx-2013"
+            ],
+            "status": "single-source",
+            "verification": false,
+            "verificationMethod": "single-primary-source",
+            "note": "Belegter Wert der Böllhoff-Duo-Ausführung im Katalog 8200/13.01; unabhängiger Zweitbeleg offen. Kein Nachweis der gesamten DIN7500-Normreihe oder aktueller Lagerverfügbarkeit."
+          },
+          "k_max": {
+            "nominal": 2.12,
+            "min": null,
+            "max": 2.12,
+            "unit": "mm",
+            "sourceRefs": [
+              "boellhoff-duo-torx-2013"
+            ],
+            "status": "single-source",
+            "verification": false,
+            "verificationMethod": "single-primary-source",
+            "note": "Belegter Wert der Böllhoff-Duo-Ausführung im Katalog 8200/13.01; unabhängiger Zweitbeleg offen. Kein Nachweis der gesamten DIN7500-Normreihe oder aktueller Lagerverfügbarkeit."
+          },
+          "recess_size": {
+            "nominal": 8,
+            "min": null,
+            "max": null,
+            "unit": null,
+            "sourceRefs": [
+              "boellhoff-duo-torx-2013"
+            ],
+            "status": "single-source",
+            "verification": false,
+            "verificationMethod": "single-primary-source",
+            "note": "Belegter Wert der Böllhoff-Duo-Ausführung im Katalog 8200/13.01; unabhängiger Zweitbeleg offen. Kein Nachweis der gesamten DIN7500-Normreihe oder aktueller Lagerverfügbarkeit."
+          },
+          "sArea": {
+            "nominal": null,
+            "min": null,
+            "max": null,
+            "unit": "mm²",
+            "sourceRefs": [],
+            "status": "missing",
+            "verification": false,
+            "verificationMethod": "not-available",
+            "note": "In der Maßtabelle dieser Duo-Ausführung nicht angegeben. Keine Übernahme aus PZ, einer anderen Kopfform oder ähnlichen ISO-Norm."
+          },
+          "recessVolumeModel": {
+            "nominal": null,
+            "min": null,
+            "max": null,
+            "unit": "mm³",
+            "sourceRefs": [],
+            "status": "missing",
+            "verification": false,
+            "verificationMethod": "not-available",
+            "note": "In der Maßtabelle dieser Duo-Ausführung nicht angegeben. Keine Übernahme aus PZ, einer anderen Kopfform oder ähnlichen ISO-Norm."
+          },
+          "formingLeadProfile": {
+            "nominal": null,
+            "min": null,
+            "max": null,
+            "unit": null,
+            "sourceRefs": [],
+            "status": "missing",
+            "verification": false,
+            "verificationMethod": "not-available",
+            "note": "In der Maßtabelle dieser Duo-Ausführung nicht angegeben. Keine Übernahme aus PZ, einer anderen Kopfform oder ähnlichen ISO-Norm."
+          },
+          "iT": {
+            "nominal": null,
+            "min": null,
+            "max": null,
+            "unit": "mm",
+            "sourceRefs": [],
+            "status": "missing",
+            "verification": false,
+            "verificationMethod": "not-available",
+            "note": "In der Maßtabelle dieser Duo-Ausführung nicht angegeben. Keine Übernahme aus PZ, einer anderen Kopfform oder ähnlichen ISO-Norm."
+          },
+          "headProfileDefinition": {
+            "nominal": null,
+            "min": null,
+            "max": null,
+            "unit": null,
+            "sourceRefs": [],
+            "status": "missing",
+            "verification": false,
+            "verificationMethod": "not-available",
+            "note": "In der Maßtabelle dieser Duo-Ausführung nicht angegeben. Keine Übernahme aus PZ, einer anderen Kopfform oder ähnlichen ISO-Norm."
+          }
+        },
+        "M3": {
+          "dk_max": {
+            "nominal": 6,
+            "min": null,
+            "max": 6,
+            "unit": "mm",
+            "sourceRefs": [
+              "boellhoff-duo-torx-2013"
+            ],
+            "status": "single-source",
+            "verification": false,
+            "verificationMethod": "single-primary-source",
+            "note": "Belegter Wert der Böllhoff-Duo-Ausführung im Katalog 8200/13.01; unabhängiger Zweitbeleg offen. Kein Nachweis der gesamten DIN7500-Normreihe oder aktueller Lagerverfügbarkeit."
+          },
+          "k_max": {
+            "nominal": 2.52,
+            "min": null,
+            "max": 2.52,
+            "unit": "mm",
+            "sourceRefs": [
+              "boellhoff-duo-torx-2013"
+            ],
+            "status": "single-source",
+            "verification": false,
+            "verificationMethod": "single-primary-source",
+            "note": "Belegter Wert der Böllhoff-Duo-Ausführung im Katalog 8200/13.01; unabhängiger Zweitbeleg offen. Kein Nachweis der gesamten DIN7500-Normreihe oder aktueller Lagerverfügbarkeit."
+          },
+          "recess_size": {
+            "nominal": 10,
+            "min": null,
+            "max": null,
+            "unit": null,
+            "sourceRefs": [
+              "boellhoff-duo-torx-2013"
+            ],
+            "status": "single-source",
+            "verification": false,
+            "verificationMethod": "single-primary-source",
+            "note": "Belegter Wert der Böllhoff-Duo-Ausführung im Katalog 8200/13.01; unabhängiger Zweitbeleg offen. Kein Nachweis der gesamten DIN7500-Normreihe oder aktueller Lagerverfügbarkeit."
+          },
+          "sArea": {
+            "nominal": null,
+            "min": null,
+            "max": null,
+            "unit": "mm²",
+            "sourceRefs": [],
+            "status": "missing",
+            "verification": false,
+            "verificationMethod": "not-available",
+            "note": "In der Maßtabelle dieser Duo-Ausführung nicht angegeben. Keine Übernahme aus PZ, einer anderen Kopfform oder ähnlichen ISO-Norm."
+          },
+          "recessVolumeModel": {
+            "nominal": null,
+            "min": null,
+            "max": null,
+            "unit": "mm³",
+            "sourceRefs": [],
+            "status": "missing",
+            "verification": false,
+            "verificationMethod": "not-available",
+            "note": "In der Maßtabelle dieser Duo-Ausführung nicht angegeben. Keine Übernahme aus PZ, einer anderen Kopfform oder ähnlichen ISO-Norm."
+          },
+          "formingLeadProfile": {
+            "nominal": null,
+            "min": null,
+            "max": null,
+            "unit": null,
+            "sourceRefs": [],
+            "status": "missing",
+            "verification": false,
+            "verificationMethod": "not-available",
+            "note": "In der Maßtabelle dieser Duo-Ausführung nicht angegeben. Keine Übernahme aus PZ, einer anderen Kopfform oder ähnlichen ISO-Norm."
+          },
+          "iT": {
+            "nominal": null,
+            "min": null,
+            "max": null,
+            "unit": "mm",
+            "sourceRefs": [],
+            "status": "missing",
+            "verification": false,
+            "verificationMethod": "not-available",
+            "note": "In der Maßtabelle dieser Duo-Ausführung nicht angegeben. Keine Übernahme aus PZ, einer anderen Kopfform oder ähnlichen ISO-Norm."
+          },
+          "headProfileDefinition": {
+            "nominal": null,
+            "min": null,
+            "max": null,
+            "unit": null,
+            "sourceRefs": [],
+            "status": "missing",
+            "verification": false,
+            "verificationMethod": "not-available",
+            "note": "In der Maßtabelle dieser Duo-Ausführung nicht angegeben. Keine Übernahme aus PZ, einer anderen Kopfform oder ähnlichen ISO-Norm."
+          }
+        },
+        "M4": {
+          "dk_max": {
+            "nominal": 8,
+            "min": null,
+            "max": 8,
+            "unit": "mm",
+            "sourceRefs": [
+              "boellhoff-duo-torx-2013"
+            ],
+            "status": "single-source",
+            "verification": false,
+            "verificationMethod": "single-primary-source",
+            "note": "Belegter Wert der Böllhoff-Duo-Ausführung im Katalog 8200/13.01; unabhängiger Zweitbeleg offen. Kein Nachweis der gesamten DIN7500-Normreihe oder aktueller Lagerverfügbarkeit."
+          },
+          "k_max": {
+            "nominal": 3.25,
+            "min": null,
+            "max": 3.25,
+            "unit": "mm",
+            "sourceRefs": [
+              "boellhoff-duo-torx-2013"
+            ],
+            "status": "single-source",
+            "verification": false,
+            "verificationMethod": "single-primary-source",
+            "note": "Belegter Wert der Böllhoff-Duo-Ausführung im Katalog 8200/13.01; unabhängiger Zweitbeleg offen. Kein Nachweis der gesamten DIN7500-Normreihe oder aktueller Lagerverfügbarkeit."
+          },
+          "recess_size": {
+            "nominal": 20,
+            "min": null,
+            "max": null,
+            "unit": null,
+            "sourceRefs": [
+              "boellhoff-duo-torx-2013"
+            ],
+            "status": "single-source",
+            "verification": false,
+            "verificationMethod": "single-primary-source",
+            "note": "Belegter Wert der Böllhoff-Duo-Ausführung im Katalog 8200/13.01; unabhängiger Zweitbeleg offen. Kein Nachweis der gesamten DIN7500-Normreihe oder aktueller Lagerverfügbarkeit."
+          },
+          "sArea": {
+            "nominal": null,
+            "min": null,
+            "max": null,
+            "unit": "mm²",
+            "sourceRefs": [],
+            "status": "missing",
+            "verification": false,
+            "verificationMethod": "not-available",
+            "note": "In der Maßtabelle dieser Duo-Ausführung nicht angegeben. Keine Übernahme aus PZ, einer anderen Kopfform oder ähnlichen ISO-Norm."
+          },
+          "recessVolumeModel": {
+            "nominal": null,
+            "min": null,
+            "max": null,
+            "unit": "mm³",
+            "sourceRefs": [],
+            "status": "missing",
+            "verification": false,
+            "verificationMethod": "not-available",
+            "note": "In der Maßtabelle dieser Duo-Ausführung nicht angegeben. Keine Übernahme aus PZ, einer anderen Kopfform oder ähnlichen ISO-Norm."
+          },
+          "formingLeadProfile": {
+            "nominal": null,
+            "min": null,
+            "max": null,
+            "unit": null,
+            "sourceRefs": [],
+            "status": "missing",
+            "verification": false,
+            "verificationMethod": "not-available",
+            "note": "In der Maßtabelle dieser Duo-Ausführung nicht angegeben. Keine Übernahme aus PZ, einer anderen Kopfform oder ähnlichen ISO-Norm."
+          },
+          "iT": {
+            "nominal": null,
+            "min": null,
+            "max": null,
+            "unit": "mm",
+            "sourceRefs": [],
+            "status": "missing",
+            "verification": false,
+            "verificationMethod": "not-available",
+            "note": "In der Maßtabelle dieser Duo-Ausführung nicht angegeben. Keine Übernahme aus PZ, einer anderen Kopfform oder ähnlichen ISO-Norm."
+          },
+          "headProfileDefinition": {
+            "nominal": null,
+            "min": null,
+            "max": null,
+            "unit": null,
+            "sourceRefs": [],
+            "status": "missing",
+            "verification": false,
+            "verificationMethod": "not-available",
+            "note": "In der Maßtabelle dieser Duo-Ausführung nicht angegeben. Keine Übernahme aus PZ, einer anderen Kopfform oder ähnlichen ISO-Norm."
+          }
+        },
+        "M5": {
+          "dk_max": {
+            "nominal": 10,
+            "min": null,
+            "max": 10,
+            "unit": "mm",
+            "sourceRefs": [
+              "boellhoff-duo-torx-2013"
+            ],
+            "status": "single-source",
+            "verification": false,
+            "verificationMethod": "single-primary-source",
+            "note": "Belegter Wert der Böllhoff-Duo-Ausführung im Katalog 8200/13.01; unabhängiger Zweitbeleg offen. Kein Nachweis der gesamten DIN7500-Normreihe oder aktueller Lagerverfügbarkeit."
+          },
+          "k_max": {
+            "nominal": 3.95,
+            "min": null,
+            "max": 3.95,
+            "unit": "mm",
+            "sourceRefs": [
+              "boellhoff-duo-torx-2013"
+            ],
+            "status": "single-source",
+            "verification": false,
+            "verificationMethod": "single-primary-source",
+            "note": "Belegter Wert der Böllhoff-Duo-Ausführung im Katalog 8200/13.01; unabhängiger Zweitbeleg offen. Kein Nachweis der gesamten DIN7500-Normreihe oder aktueller Lagerverfügbarkeit."
+          },
+          "recess_size": {
+            "nominal": 25,
+            "min": null,
+            "max": null,
+            "unit": null,
+            "sourceRefs": [
+              "boellhoff-duo-torx-2013"
+            ],
+            "status": "single-source",
+            "verification": false,
+            "verificationMethod": "single-primary-source",
+            "note": "Belegter Wert der Böllhoff-Duo-Ausführung im Katalog 8200/13.01; unabhängiger Zweitbeleg offen. Kein Nachweis der gesamten DIN7500-Normreihe oder aktueller Lagerverfügbarkeit."
+          },
+          "sArea": {
+            "nominal": null,
+            "min": null,
+            "max": null,
+            "unit": "mm²",
+            "sourceRefs": [],
+            "status": "missing",
+            "verification": false,
+            "verificationMethod": "not-available",
+            "note": "In der Maßtabelle dieser Duo-Ausführung nicht angegeben. Keine Übernahme aus PZ, einer anderen Kopfform oder ähnlichen ISO-Norm."
+          },
+          "recessVolumeModel": {
+            "nominal": null,
+            "min": null,
+            "max": null,
+            "unit": "mm³",
+            "sourceRefs": [],
+            "status": "missing",
+            "verification": false,
+            "verificationMethod": "not-available",
+            "note": "In der Maßtabelle dieser Duo-Ausführung nicht angegeben. Keine Übernahme aus PZ, einer anderen Kopfform oder ähnlichen ISO-Norm."
+          },
+          "formingLeadProfile": {
+            "nominal": null,
+            "min": null,
+            "max": null,
+            "unit": null,
+            "sourceRefs": [],
+            "status": "missing",
+            "verification": false,
+            "verificationMethod": "not-available",
+            "note": "In der Maßtabelle dieser Duo-Ausführung nicht angegeben. Keine Übernahme aus PZ, einer anderen Kopfform oder ähnlichen ISO-Norm."
+          },
+          "iT": {
+            "nominal": null,
+            "min": null,
+            "max": null,
+            "unit": "mm",
+            "sourceRefs": [],
+            "status": "missing",
+            "verification": false,
+            "verificationMethod": "not-available",
+            "note": "In der Maßtabelle dieser Duo-Ausführung nicht angegeben. Keine Übernahme aus PZ, einer anderen Kopfform oder ähnlichen ISO-Norm."
+          },
+          "headProfileDefinition": {
+            "nominal": null,
+            "min": null,
+            "max": null,
+            "unit": null,
+            "sourceRefs": [],
+            "status": "missing",
+            "verification": false,
+            "verificationMethod": "not-available",
+            "note": "In der Maßtabelle dieser Duo-Ausführung nicht angegeben. Keine Übernahme aus PZ, einer anderen Kopfform oder ähnlichen ISO-Norm."
+          }
+        },
+        "M6": {
+          "dk_max": {
+            "nominal": 12,
+            "min": null,
+            "max": 12,
+            "unit": "mm",
+            "sourceRefs": [
+              "boellhoff-duo-torx-2013"
+            ],
+            "status": "single-source",
+            "verification": false,
+            "verificationMethod": "single-primary-source",
+            "note": "Belegter Wert der Böllhoff-Duo-Ausführung im Katalog 8200/13.01; unabhängiger Zweitbeleg offen. Kein Nachweis der gesamten DIN7500-Normreihe oder aktueller Lagerverfügbarkeit."
+          },
+          "k_max": {
+            "nominal": 4.75,
+            "min": null,
+            "max": 4.75,
+            "unit": "mm",
+            "sourceRefs": [
+              "boellhoff-duo-torx-2013"
+            ],
+            "status": "single-source",
+            "verification": false,
+            "verificationMethod": "single-primary-source",
+            "note": "Belegter Wert der Böllhoff-Duo-Ausführung im Katalog 8200/13.01; unabhängiger Zweitbeleg offen. Kein Nachweis der gesamten DIN7500-Normreihe oder aktueller Lagerverfügbarkeit."
+          },
+          "recess_size": {
+            "nominal": 30,
+            "min": null,
+            "max": null,
+            "unit": null,
+            "sourceRefs": [
+              "boellhoff-duo-torx-2013"
+            ],
+            "status": "single-source",
+            "verification": false,
+            "verificationMethod": "single-primary-source",
+            "note": "Belegter Wert der Böllhoff-Duo-Ausführung im Katalog 8200/13.01; unabhängiger Zweitbeleg offen. Kein Nachweis der gesamten DIN7500-Normreihe oder aktueller Lagerverfügbarkeit."
+          },
+          "sArea": {
+            "nominal": null,
+            "min": null,
+            "max": null,
+            "unit": "mm²",
+            "sourceRefs": [],
+            "status": "missing",
+            "verification": false,
+            "verificationMethod": "not-available",
+            "note": "In der Maßtabelle dieser Duo-Ausführung nicht angegeben. Keine Übernahme aus PZ, einer anderen Kopfform oder ähnlichen ISO-Norm."
+          },
+          "recessVolumeModel": {
+            "nominal": null,
+            "min": null,
+            "max": null,
+            "unit": "mm³",
+            "sourceRefs": [],
+            "status": "missing",
+            "verification": false,
+            "verificationMethod": "not-available",
+            "note": "In der Maßtabelle dieser Duo-Ausführung nicht angegeben. Keine Übernahme aus PZ, einer anderen Kopfform oder ähnlichen ISO-Norm."
+          },
+          "formingLeadProfile": {
+            "nominal": null,
+            "min": null,
+            "max": null,
+            "unit": null,
+            "sourceRefs": [],
+            "status": "missing",
+            "verification": false,
+            "verificationMethod": "not-available",
+            "note": "In der Maßtabelle dieser Duo-Ausführung nicht angegeben. Keine Übernahme aus PZ, einer anderen Kopfform oder ähnlichen ISO-Norm."
+          },
+          "iT": {
+            "nominal": null,
+            "min": null,
+            "max": null,
+            "unit": "mm",
+            "sourceRefs": [],
+            "status": "missing",
+            "verification": false,
+            "verificationMethod": "not-available",
+            "note": "In der Maßtabelle dieser Duo-Ausführung nicht angegeben. Keine Übernahme aus PZ, einer anderen Kopfform oder ähnlichen ISO-Norm."
+          },
+          "headProfileDefinition": {
+            "nominal": null,
+            "min": null,
+            "max": null,
+            "unit": null,
+            "sourceRefs": [],
+            "status": "missing",
+            "verification": false,
+            "verificationMethod": "not-available",
+            "note": "In der Maßtabelle dieser Duo-Ausführung nicht angegeben. Keine Übernahme aus PZ, einer anderen Kopfform oder ähnlichen ISO-Norm."
+          }
+        }
+      },
+      "geometryStatus": "partial",
+      "lengthCoverage": "documented-manufacturer-subset",
+      "requiredGeometryFields": [
+        "sArea",
+        "recessVolumeModel",
+        "formingLeadProfile",
+        "iT",
+        "headProfileDefinition"
+      ],
+      "sourceRefs": [
+        "boellhoff-duo-torx-2013"
+      ],
+      "catalogueEdition": "2013-01"
+    },
+    {
+      "id": "M-DUO-TX",
+      "label": "Senkkopf M · Duo · Innensechsrund",
+      "kopfTyp": "kegelstumpf",
+      "antrieb": {
+        "art": "torx"
+      },
+      "threadFamily": "trilobular",
+      "formingThreadDesignation": "Duo",
+      "schaftende": "voll",
+      "feldzuordnung": {
+        "kD": "dk_max",
+        "kH": "k_max",
+        "iSize": "recess_size",
+        "totalLength": "l_nominal"
+      },
+      "clearAutomaticFields": [
+        "sD",
+        "sArea",
+        "iT",
+        "iVol",
+        "capHeight",
+        "kC",
+        "kVol"
+      ],
+      "sizeData": {
+        "M2.5": {
+          "roh": {
+            "dk_max": 4.7,
+            "k_max": 1.5,
+            "recess_size": 8
+          },
+          "vorbelegung": {
+            "kD": 4.7,
+            "kH": 1.5,
+            "iSize": 8
+          },
+          "coverage": "documented",
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "sArea",
+            "recessVolumeModel",
+            "formingLeadProfile",
+            "iT",
+            "headToShaftLength"
+          ],
+          "nachLaenge": {
+            "6": {
+              "vorbelegung": {
+                "totalLength": 6
+              },
+              "roh": {
+                "l_nominal": 6
+              },
+              "fields": {
+                "l_nominal": {
+                  "nominal": 6,
+                  "min": null,
+                  "max": null,
+                  "unit": "mm",
+                  "sourceRefs": [
+                    "boellhoff-duo-torx-2013"
+                  ],
+                  "status": "single-source",
+                  "verification": false,
+                  "verificationMethod": "single-primary-source",
+                  "note": "Belegter Wert der Böllhoff-Duo-Ausführung im Katalog 8200/13.01; unabhängiger Zweitbeleg offen. Kein Nachweis der gesamten DIN7500-Normreihe oder aktueller Lagerverfügbarkeit."
+                }
+              },
+              "geometryStatus": "partial",
+              "missingGeometryFields": [
+                "sArea",
+                "recessVolumeModel",
+                "formingLeadProfile",
+                "iT",
+                "headToShaftLength"
+              ],
+              "lengthEvidence": {
+                "kind": "manufacturer-range",
+                "edition": "2013-01",
+                "sourceRefs": [
+                  "boellhoff-duo-torx-2013"
+                ],
+                "verification": false,
+                "note": "Einzeln gelistete Lieferkombination dieser Ausführung; keine allgemeine Normlängenreihe."
+              }
+            },
+            "8": {
+              "vorbelegung": {
+                "totalLength": 8
+              },
+              "roh": {
+                "l_nominal": 8
+              },
+              "fields": {
+                "l_nominal": {
+                  "nominal": 8,
+                  "min": null,
+                  "max": null,
+                  "unit": "mm",
+                  "sourceRefs": [
+                    "boellhoff-duo-torx-2013"
+                  ],
+                  "status": "single-source",
+                  "verification": false,
+                  "verificationMethod": "single-primary-source",
+                  "note": "Belegter Wert der Böllhoff-Duo-Ausführung im Katalog 8200/13.01; unabhängiger Zweitbeleg offen. Kein Nachweis der gesamten DIN7500-Normreihe oder aktueller Lagerverfügbarkeit."
+                }
+              },
+              "geometryStatus": "partial",
+              "missingGeometryFields": [
+                "sArea",
+                "recessVolumeModel",
+                "formingLeadProfile",
+                "iT",
+                "headToShaftLength"
+              ],
+              "lengthEvidence": {
+                "kind": "manufacturer-range",
+                "edition": "2013-01",
+                "sourceRefs": [
+                  "boellhoff-duo-torx-2013"
+                ],
+                "verification": false,
+                "note": "Einzeln gelistete Lieferkombination dieser Ausführung; keine allgemeine Normlängenreihe."
+              }
+            },
+            "10": {
+              "vorbelegung": {
+                "totalLength": 10
+              },
+              "roh": {
+                "l_nominal": 10
+              },
+              "fields": {
+                "l_nominal": {
+                  "nominal": 10,
+                  "min": null,
+                  "max": null,
+                  "unit": "mm",
+                  "sourceRefs": [
+                    "boellhoff-duo-torx-2013"
+                  ],
+                  "status": "single-source",
+                  "verification": false,
+                  "verificationMethod": "single-primary-source",
+                  "note": "Belegter Wert der Böllhoff-Duo-Ausführung im Katalog 8200/13.01; unabhängiger Zweitbeleg offen. Kein Nachweis der gesamten DIN7500-Normreihe oder aktueller Lagerverfügbarkeit."
+                }
+              },
+              "geometryStatus": "partial",
+              "missingGeometryFields": [
+                "sArea",
+                "recessVolumeModel",
+                "formingLeadProfile",
+                "iT",
+                "headToShaftLength"
+              ],
+              "lengthEvidence": {
+                "kind": "manufacturer-range",
+                "edition": "2013-01",
+                "sourceRefs": [
+                  "boellhoff-duo-torx-2013"
+                ],
+                "verification": false,
+                "note": "Einzeln gelistete Lieferkombination dieser Ausführung; keine allgemeine Normlängenreihe."
+              }
+            }
+          },
+          "lengthCoverage": "documented-manufacturer-subset",
+          "laengen": [
+            6,
+            8,
+            10
+          ]
+        },
+        "M3": {
+          "roh": {
+            "dk_max": 5.6,
+            "k_max": 1.65,
+            "recess_size": 10
+          },
+          "vorbelegung": {
+            "kD": 5.6,
+            "kH": 1.65,
+            "iSize": 10
+          },
+          "coverage": "documented",
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "sArea",
+            "recessVolumeModel",
+            "formingLeadProfile",
+            "iT",
+            "headToShaftLength"
+          ],
+          "nachLaenge": {
+            "6": {
+              "vorbelegung": {
+                "totalLength": 6
+              },
+              "roh": {
+                "l_nominal": 6
+              },
+              "fields": {
+                "l_nominal": {
+                  "nominal": 6,
+                  "min": null,
+                  "max": null,
+                  "unit": "mm",
+                  "sourceRefs": [
+                    "boellhoff-duo-torx-2013"
+                  ],
+                  "status": "single-source",
+                  "verification": false,
+                  "verificationMethod": "single-primary-source",
+                  "note": "Belegter Wert der Böllhoff-Duo-Ausführung im Katalog 8200/13.01; unabhängiger Zweitbeleg offen. Kein Nachweis der gesamten DIN7500-Normreihe oder aktueller Lagerverfügbarkeit."
+                }
+              },
+              "geometryStatus": "partial",
+              "missingGeometryFields": [
+                "sArea",
+                "recessVolumeModel",
+                "formingLeadProfile",
+                "iT",
+                "headToShaftLength"
+              ],
+              "lengthEvidence": {
+                "kind": "manufacturer-range",
+                "edition": "2013-01",
+                "sourceRefs": [
+                  "boellhoff-duo-torx-2013"
+                ],
+                "verification": false,
+                "note": "Einzeln gelistete Lieferkombination dieser Ausführung; keine allgemeine Normlängenreihe."
+              }
+            },
+            "8": {
+              "vorbelegung": {
+                "totalLength": 8
+              },
+              "roh": {
+                "l_nominal": 8
+              },
+              "fields": {
+                "l_nominal": {
+                  "nominal": 8,
+                  "min": null,
+                  "max": null,
+                  "unit": "mm",
+                  "sourceRefs": [
+                    "boellhoff-duo-torx-2013"
+                  ],
+                  "status": "single-source",
+                  "verification": false,
+                  "verificationMethod": "single-primary-source",
+                  "note": "Belegter Wert der Böllhoff-Duo-Ausführung im Katalog 8200/13.01; unabhängiger Zweitbeleg offen. Kein Nachweis der gesamten DIN7500-Normreihe oder aktueller Lagerverfügbarkeit."
+                }
+              },
+              "geometryStatus": "partial",
+              "missingGeometryFields": [
+                "sArea",
+                "recessVolumeModel",
+                "formingLeadProfile",
+                "iT",
+                "headToShaftLength"
+              ],
+              "lengthEvidence": {
+                "kind": "manufacturer-range",
+                "edition": "2013-01",
+                "sourceRefs": [
+                  "boellhoff-duo-torx-2013"
+                ],
+                "verification": false,
+                "note": "Einzeln gelistete Lieferkombination dieser Ausführung; keine allgemeine Normlängenreihe."
+              }
+            },
+            "10": {
+              "vorbelegung": {
+                "totalLength": 10
+              },
+              "roh": {
+                "l_nominal": 10
+              },
+              "fields": {
+                "l_nominal": {
+                  "nominal": 10,
+                  "min": null,
+                  "max": null,
+                  "unit": "mm",
+                  "sourceRefs": [
+                    "boellhoff-duo-torx-2013"
+                  ],
+                  "status": "single-source",
+                  "verification": false,
+                  "verificationMethod": "single-primary-source",
+                  "note": "Belegter Wert der Böllhoff-Duo-Ausführung im Katalog 8200/13.01; unabhängiger Zweitbeleg offen. Kein Nachweis der gesamten DIN7500-Normreihe oder aktueller Lagerverfügbarkeit."
+                }
+              },
+              "geometryStatus": "partial",
+              "missingGeometryFields": [
+                "sArea",
+                "recessVolumeModel",
+                "formingLeadProfile",
+                "iT",
+                "headToShaftLength"
+              ],
+              "lengthEvidence": {
+                "kind": "manufacturer-range",
+                "edition": "2013-01",
+                "sourceRefs": [
+                  "boellhoff-duo-torx-2013"
+                ],
+                "verification": false,
+                "note": "Einzeln gelistete Lieferkombination dieser Ausführung; keine allgemeine Normlängenreihe."
+              }
+            },
+            "12": {
+              "vorbelegung": {
+                "totalLength": 12
+              },
+              "roh": {
+                "l_nominal": 12
+              },
+              "fields": {
+                "l_nominal": {
+                  "nominal": 12,
+                  "min": null,
+                  "max": null,
+                  "unit": "mm",
+                  "sourceRefs": [
+                    "boellhoff-duo-torx-2013"
+                  ],
+                  "status": "single-source",
+                  "verification": false,
+                  "verificationMethod": "single-primary-source",
+                  "note": "Belegter Wert der Böllhoff-Duo-Ausführung im Katalog 8200/13.01; unabhängiger Zweitbeleg offen. Kein Nachweis der gesamten DIN7500-Normreihe oder aktueller Lagerverfügbarkeit."
+                }
+              },
+              "geometryStatus": "partial",
+              "missingGeometryFields": [
+                "sArea",
+                "recessVolumeModel",
+                "formingLeadProfile",
+                "iT",
+                "headToShaftLength"
+              ],
+              "lengthEvidence": {
+                "kind": "manufacturer-range",
+                "edition": "2013-01",
+                "sourceRefs": [
+                  "boellhoff-duo-torx-2013"
+                ],
+                "verification": false,
+                "note": "Einzeln gelistete Lieferkombination dieser Ausführung; keine allgemeine Normlängenreihe."
+              }
+            },
+            "16": {
+              "vorbelegung": {
+                "totalLength": 16
+              },
+              "roh": {
+                "l_nominal": 16
+              },
+              "fields": {
+                "l_nominal": {
+                  "nominal": 16,
+                  "min": null,
+                  "max": null,
+                  "unit": "mm",
+                  "sourceRefs": [
+                    "boellhoff-duo-torx-2013"
+                  ],
+                  "status": "single-source",
+                  "verification": false,
+                  "verificationMethod": "single-primary-source",
+                  "note": "Belegter Wert der Böllhoff-Duo-Ausführung im Katalog 8200/13.01; unabhängiger Zweitbeleg offen. Kein Nachweis der gesamten DIN7500-Normreihe oder aktueller Lagerverfügbarkeit."
+                }
+              },
+              "geometryStatus": "partial",
+              "missingGeometryFields": [
+                "sArea",
+                "recessVolumeModel",
+                "formingLeadProfile",
+                "iT",
+                "headToShaftLength"
+              ],
+              "lengthEvidence": {
+                "kind": "manufacturer-range",
+                "edition": "2013-01",
+                "sourceRefs": [
+                  "boellhoff-duo-torx-2013"
+                ],
+                "verification": false,
+                "note": "Einzeln gelistete Lieferkombination dieser Ausführung; keine allgemeine Normlängenreihe."
+              }
+            }
+          },
+          "lengthCoverage": "documented-manufacturer-subset",
+          "laengen": [
+            6,
+            8,
+            10,
+            12,
+            16
+          ]
+        },
+        "M4": {
+          "roh": {
+            "dk_max": 7.5,
+            "k_max": 2.2,
+            "recess_size": 20
+          },
+          "vorbelegung": {
+            "kD": 7.5,
+            "kH": 2.2,
+            "iSize": 20
+          },
+          "coverage": "documented",
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "sArea",
+            "recessVolumeModel",
+            "formingLeadProfile",
+            "iT",
+            "headToShaftLength"
+          ],
+          "nachLaenge": {
+            "8": {
+              "vorbelegung": {
+                "totalLength": 8
+              },
+              "roh": {
+                "l_nominal": 8
+              },
+              "fields": {
+                "l_nominal": {
+                  "nominal": 8,
+                  "min": null,
+                  "max": null,
+                  "unit": "mm",
+                  "sourceRefs": [
+                    "boellhoff-duo-torx-2013"
+                  ],
+                  "status": "single-source",
+                  "verification": false,
+                  "verificationMethod": "single-primary-source",
+                  "note": "Belegter Wert der Böllhoff-Duo-Ausführung im Katalog 8200/13.01; unabhängiger Zweitbeleg offen. Kein Nachweis der gesamten DIN7500-Normreihe oder aktueller Lagerverfügbarkeit."
+                }
+              },
+              "geometryStatus": "partial",
+              "missingGeometryFields": [
+                "sArea",
+                "recessVolumeModel",
+                "formingLeadProfile",
+                "iT",
+                "headToShaftLength"
+              ],
+              "lengthEvidence": {
+                "kind": "manufacturer-range",
+                "edition": "2013-01",
+                "sourceRefs": [
+                  "boellhoff-duo-torx-2013"
+                ],
+                "verification": false,
+                "note": "Einzeln gelistete Lieferkombination dieser Ausführung; keine allgemeine Normlängenreihe."
+              }
+            },
+            "10": {
+              "vorbelegung": {
+                "totalLength": 10
+              },
+              "roh": {
+                "l_nominal": 10
+              },
+              "fields": {
+                "l_nominal": {
+                  "nominal": 10,
+                  "min": null,
+                  "max": null,
+                  "unit": "mm",
+                  "sourceRefs": [
+                    "boellhoff-duo-torx-2013"
+                  ],
+                  "status": "single-source",
+                  "verification": false,
+                  "verificationMethod": "single-primary-source",
+                  "note": "Belegter Wert der Böllhoff-Duo-Ausführung im Katalog 8200/13.01; unabhängiger Zweitbeleg offen. Kein Nachweis der gesamten DIN7500-Normreihe oder aktueller Lagerverfügbarkeit."
+                }
+              },
+              "geometryStatus": "partial",
+              "missingGeometryFields": [
+                "sArea",
+                "recessVolumeModel",
+                "formingLeadProfile",
+                "iT",
+                "headToShaftLength"
+              ],
+              "lengthEvidence": {
+                "kind": "manufacturer-range",
+                "edition": "2013-01",
+                "sourceRefs": [
+                  "boellhoff-duo-torx-2013"
+                ],
+                "verification": false,
+                "note": "Einzeln gelistete Lieferkombination dieser Ausführung; keine allgemeine Normlängenreihe."
+              }
+            },
+            "12": {
+              "vorbelegung": {
+                "totalLength": 12
+              },
+              "roh": {
+                "l_nominal": 12
+              },
+              "fields": {
+                "l_nominal": {
+                  "nominal": 12,
+                  "min": null,
+                  "max": null,
+                  "unit": "mm",
+                  "sourceRefs": [
+                    "boellhoff-duo-torx-2013"
+                  ],
+                  "status": "single-source",
+                  "verification": false,
+                  "verificationMethod": "single-primary-source",
+                  "note": "Belegter Wert der Böllhoff-Duo-Ausführung im Katalog 8200/13.01; unabhängiger Zweitbeleg offen. Kein Nachweis der gesamten DIN7500-Normreihe oder aktueller Lagerverfügbarkeit."
+                }
+              },
+              "geometryStatus": "partial",
+              "missingGeometryFields": [
+                "sArea",
+                "recessVolumeModel",
+                "formingLeadProfile",
+                "iT",
+                "headToShaftLength"
+              ],
+              "lengthEvidence": {
+                "kind": "manufacturer-range",
+                "edition": "2013-01",
+                "sourceRefs": [
+                  "boellhoff-duo-torx-2013"
+                ],
+                "verification": false,
+                "note": "Einzeln gelistete Lieferkombination dieser Ausführung; keine allgemeine Normlängenreihe."
+              }
+            },
+            "16": {
+              "vorbelegung": {
+                "totalLength": 16
+              },
+              "roh": {
+                "l_nominal": 16
+              },
+              "fields": {
+                "l_nominal": {
+                  "nominal": 16,
+                  "min": null,
+                  "max": null,
+                  "unit": "mm",
+                  "sourceRefs": [
+                    "boellhoff-duo-torx-2013"
+                  ],
+                  "status": "single-source",
+                  "verification": false,
+                  "verificationMethod": "single-primary-source",
+                  "note": "Belegter Wert der Böllhoff-Duo-Ausführung im Katalog 8200/13.01; unabhängiger Zweitbeleg offen. Kein Nachweis der gesamten DIN7500-Normreihe oder aktueller Lagerverfügbarkeit."
+                }
+              },
+              "geometryStatus": "partial",
+              "missingGeometryFields": [
+                "sArea",
+                "recessVolumeModel",
+                "formingLeadProfile",
+                "iT",
+                "headToShaftLength"
+              ],
+              "lengthEvidence": {
+                "kind": "manufacturer-range",
+                "edition": "2013-01",
+                "sourceRefs": [
+                  "boellhoff-duo-torx-2013"
+                ],
+                "verification": false,
+                "note": "Einzeln gelistete Lieferkombination dieser Ausführung; keine allgemeine Normlängenreihe."
+              }
+            },
+            "20": {
+              "vorbelegung": {
+                "totalLength": 20
+              },
+              "roh": {
+                "l_nominal": 20
+              },
+              "fields": {
+                "l_nominal": {
+                  "nominal": 20,
+                  "min": null,
+                  "max": null,
+                  "unit": "mm",
+                  "sourceRefs": [
+                    "boellhoff-duo-torx-2013"
+                  ],
+                  "status": "single-source",
+                  "verification": false,
+                  "verificationMethod": "single-primary-source",
+                  "note": "Belegter Wert der Böllhoff-Duo-Ausführung im Katalog 8200/13.01; unabhängiger Zweitbeleg offen. Kein Nachweis der gesamten DIN7500-Normreihe oder aktueller Lagerverfügbarkeit."
+                }
+              },
+              "geometryStatus": "partial",
+              "missingGeometryFields": [
+                "sArea",
+                "recessVolumeModel",
+                "formingLeadProfile",
+                "iT",
+                "headToShaftLength"
+              ],
+              "lengthEvidence": {
+                "kind": "manufacturer-range",
+                "edition": "2013-01",
+                "sourceRefs": [
+                  "boellhoff-duo-torx-2013"
+                ],
+                "verification": false,
+                "note": "Einzeln gelistete Lieferkombination dieser Ausführung; keine allgemeine Normlängenreihe."
+              }
+            },
+            "25": {
+              "vorbelegung": {
+                "totalLength": 25
+              },
+              "roh": {
+                "l_nominal": 25
+              },
+              "fields": {
+                "l_nominal": {
+                  "nominal": 25,
+                  "min": null,
+                  "max": null,
+                  "unit": "mm",
+                  "sourceRefs": [
+                    "boellhoff-duo-torx-2013"
+                  ],
+                  "status": "single-source",
+                  "verification": false,
+                  "verificationMethod": "single-primary-source",
+                  "note": "Belegter Wert der Böllhoff-Duo-Ausführung im Katalog 8200/13.01; unabhängiger Zweitbeleg offen. Kein Nachweis der gesamten DIN7500-Normreihe oder aktueller Lagerverfügbarkeit."
+                }
+              },
+              "geometryStatus": "partial",
+              "missingGeometryFields": [
+                "sArea",
+                "recessVolumeModel",
+                "formingLeadProfile",
+                "iT",
+                "headToShaftLength"
+              ],
+              "lengthEvidence": {
+                "kind": "manufacturer-range",
+                "edition": "2013-01",
+                "sourceRefs": [
+                  "boellhoff-duo-torx-2013"
+                ],
+                "verification": false,
+                "note": "Einzeln gelistete Lieferkombination dieser Ausführung; keine allgemeine Normlängenreihe."
+              }
+            }
+          },
+          "lengthCoverage": "documented-manufacturer-subset",
+          "laengen": [
+            8,
+            10,
+            12,
+            16,
+            20,
+            25
+          ]
+        },
+        "M5": {
+          "roh": {
+            "dk_max": 9.2,
+            "k_max": 2.5,
+            "recess_size": 25
+          },
+          "vorbelegung": {
+            "kD": 9.2,
+            "kH": 2.5,
+            "iSize": 25
+          },
+          "coverage": "documented",
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "sArea",
+            "recessVolumeModel",
+            "formingLeadProfile",
+            "iT",
+            "headToShaftLength"
+          ],
+          "nachLaenge": {
+            "10": {
+              "vorbelegung": {
+                "totalLength": 10
+              },
+              "roh": {
+                "l_nominal": 10
+              },
+              "fields": {
+                "l_nominal": {
+                  "nominal": 10,
+                  "min": null,
+                  "max": null,
+                  "unit": "mm",
+                  "sourceRefs": [
+                    "boellhoff-duo-torx-2013"
+                  ],
+                  "status": "single-source",
+                  "verification": false,
+                  "verificationMethod": "single-primary-source",
+                  "note": "Belegter Wert der Böllhoff-Duo-Ausführung im Katalog 8200/13.01; unabhängiger Zweitbeleg offen. Kein Nachweis der gesamten DIN7500-Normreihe oder aktueller Lagerverfügbarkeit."
+                }
+              },
+              "geometryStatus": "partial",
+              "missingGeometryFields": [
+                "sArea",
+                "recessVolumeModel",
+                "formingLeadProfile",
+                "iT",
+                "headToShaftLength"
+              ],
+              "lengthEvidence": {
+                "kind": "manufacturer-range",
+                "edition": "2013-01",
+                "sourceRefs": [
+                  "boellhoff-duo-torx-2013"
+                ],
+                "verification": false,
+                "note": "Einzeln gelistete Lieferkombination dieser Ausführung; keine allgemeine Normlängenreihe."
+              }
+            },
+            "12": {
+              "vorbelegung": {
+                "totalLength": 12
+              },
+              "roh": {
+                "l_nominal": 12
+              },
+              "fields": {
+                "l_nominal": {
+                  "nominal": 12,
+                  "min": null,
+                  "max": null,
+                  "unit": "mm",
+                  "sourceRefs": [
+                    "boellhoff-duo-torx-2013"
+                  ],
+                  "status": "single-source",
+                  "verification": false,
+                  "verificationMethod": "single-primary-source",
+                  "note": "Belegter Wert der Böllhoff-Duo-Ausführung im Katalog 8200/13.01; unabhängiger Zweitbeleg offen. Kein Nachweis der gesamten DIN7500-Normreihe oder aktueller Lagerverfügbarkeit."
+                }
+              },
+              "geometryStatus": "partial",
+              "missingGeometryFields": [
+                "sArea",
+                "recessVolumeModel",
+                "formingLeadProfile",
+                "iT",
+                "headToShaftLength"
+              ],
+              "lengthEvidence": {
+                "kind": "manufacturer-range",
+                "edition": "2013-01",
+                "sourceRefs": [
+                  "boellhoff-duo-torx-2013"
+                ],
+                "verification": false,
+                "note": "Einzeln gelistete Lieferkombination dieser Ausführung; keine allgemeine Normlängenreihe."
+              }
+            },
+            "16": {
+              "vorbelegung": {
+                "totalLength": 16
+              },
+              "roh": {
+                "l_nominal": 16
+              },
+              "fields": {
+                "l_nominal": {
+                  "nominal": 16,
+                  "min": null,
+                  "max": null,
+                  "unit": "mm",
+                  "sourceRefs": [
+                    "boellhoff-duo-torx-2013"
+                  ],
+                  "status": "single-source",
+                  "verification": false,
+                  "verificationMethod": "single-primary-source",
+                  "note": "Belegter Wert der Böllhoff-Duo-Ausführung im Katalog 8200/13.01; unabhängiger Zweitbeleg offen. Kein Nachweis der gesamten DIN7500-Normreihe oder aktueller Lagerverfügbarkeit."
+                }
+              },
+              "geometryStatus": "partial",
+              "missingGeometryFields": [
+                "sArea",
+                "recessVolumeModel",
+                "formingLeadProfile",
+                "iT",
+                "headToShaftLength"
+              ],
+              "lengthEvidence": {
+                "kind": "manufacturer-range",
+                "edition": "2013-01",
+                "sourceRefs": [
+                  "boellhoff-duo-torx-2013"
+                ],
+                "verification": false,
+                "note": "Einzeln gelistete Lieferkombination dieser Ausführung; keine allgemeine Normlängenreihe."
+              }
+            },
+            "20": {
+              "vorbelegung": {
+                "totalLength": 20
+              },
+              "roh": {
+                "l_nominal": 20
+              },
+              "fields": {
+                "l_nominal": {
+                  "nominal": 20,
+                  "min": null,
+                  "max": null,
+                  "unit": "mm",
+                  "sourceRefs": [
+                    "boellhoff-duo-torx-2013"
+                  ],
+                  "status": "single-source",
+                  "verification": false,
+                  "verificationMethod": "single-primary-source",
+                  "note": "Belegter Wert der Böllhoff-Duo-Ausführung im Katalog 8200/13.01; unabhängiger Zweitbeleg offen. Kein Nachweis der gesamten DIN7500-Normreihe oder aktueller Lagerverfügbarkeit."
+                }
+              },
+              "geometryStatus": "partial",
+              "missingGeometryFields": [
+                "sArea",
+                "recessVolumeModel",
+                "formingLeadProfile",
+                "iT",
+                "headToShaftLength"
+              ],
+              "lengthEvidence": {
+                "kind": "manufacturer-range",
+                "edition": "2013-01",
+                "sourceRefs": [
+                  "boellhoff-duo-torx-2013"
+                ],
+                "verification": false,
+                "note": "Einzeln gelistete Lieferkombination dieser Ausführung; keine allgemeine Normlängenreihe."
+              }
+            },
+            "25": {
+              "vorbelegung": {
+                "totalLength": 25
+              },
+              "roh": {
+                "l_nominal": 25
+              },
+              "fields": {
+                "l_nominal": {
+                  "nominal": 25,
+                  "min": null,
+                  "max": null,
+                  "unit": "mm",
+                  "sourceRefs": [
+                    "boellhoff-duo-torx-2013"
+                  ],
+                  "status": "single-source",
+                  "verification": false,
+                  "verificationMethod": "single-primary-source",
+                  "note": "Belegter Wert der Böllhoff-Duo-Ausführung im Katalog 8200/13.01; unabhängiger Zweitbeleg offen. Kein Nachweis der gesamten DIN7500-Normreihe oder aktueller Lagerverfügbarkeit."
+                }
+              },
+              "geometryStatus": "partial",
+              "missingGeometryFields": [
+                "sArea",
+                "recessVolumeModel",
+                "formingLeadProfile",
+                "iT",
+                "headToShaftLength"
+              ],
+              "lengthEvidence": {
+                "kind": "manufacturer-range",
+                "edition": "2013-01",
+                "sourceRefs": [
+                  "boellhoff-duo-torx-2013"
+                ],
+                "verification": false,
+                "note": "Einzeln gelistete Lieferkombination dieser Ausführung; keine allgemeine Normlängenreihe."
+              }
+            }
+          },
+          "lengthCoverage": "documented-manufacturer-subset",
+          "laengen": [
+            10,
+            12,
+            16,
+            20,
+            25
+          ]
+        },
+        "M6": {
+          "roh": {
+            "dk_max": 11,
+            "k_max": 3,
+            "recess_size": 30
+          },
+          "vorbelegung": {
+            "kD": 11,
+            "kH": 3,
+            "iSize": 30
+          },
+          "coverage": "documented",
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "sArea",
+            "recessVolumeModel",
+            "formingLeadProfile",
+            "iT",
+            "headToShaftLength"
+          ],
+          "nachLaenge": {
+            "10": {
+              "vorbelegung": {
+                "totalLength": 10
+              },
+              "roh": {
+                "l_nominal": 10
+              },
+              "fields": {
+                "l_nominal": {
+                  "nominal": 10,
+                  "min": null,
+                  "max": null,
+                  "unit": "mm",
+                  "sourceRefs": [
+                    "boellhoff-duo-torx-2013"
+                  ],
+                  "status": "single-source",
+                  "verification": false,
+                  "verificationMethod": "single-primary-source",
+                  "note": "Belegter Wert der Böllhoff-Duo-Ausführung im Katalog 8200/13.01; unabhängiger Zweitbeleg offen. Kein Nachweis der gesamten DIN7500-Normreihe oder aktueller Lagerverfügbarkeit."
+                }
+              },
+              "geometryStatus": "partial",
+              "missingGeometryFields": [
+                "sArea",
+                "recessVolumeModel",
+                "formingLeadProfile",
+                "iT",
+                "headToShaftLength"
+              ],
+              "lengthEvidence": {
+                "kind": "manufacturer-range",
+                "edition": "2013-01",
+                "sourceRefs": [
+                  "boellhoff-duo-torx-2013"
+                ],
+                "verification": false,
+                "note": "Einzeln gelistete Lieferkombination dieser Ausführung; keine allgemeine Normlängenreihe."
+              }
+            },
+            "12": {
+              "vorbelegung": {
+                "totalLength": 12
+              },
+              "roh": {
+                "l_nominal": 12
+              },
+              "fields": {
+                "l_nominal": {
+                  "nominal": 12,
+                  "min": null,
+                  "max": null,
+                  "unit": "mm",
+                  "sourceRefs": [
+                    "boellhoff-duo-torx-2013"
+                  ],
+                  "status": "single-source",
+                  "verification": false,
+                  "verificationMethod": "single-primary-source",
+                  "note": "Belegter Wert der Böllhoff-Duo-Ausführung im Katalog 8200/13.01; unabhängiger Zweitbeleg offen. Kein Nachweis der gesamten DIN7500-Normreihe oder aktueller Lagerverfügbarkeit."
+                }
+              },
+              "geometryStatus": "partial",
+              "missingGeometryFields": [
+                "sArea",
+                "recessVolumeModel",
+                "formingLeadProfile",
+                "iT",
+                "headToShaftLength"
+              ],
+              "lengthEvidence": {
+                "kind": "manufacturer-range",
+                "edition": "2013-01",
+                "sourceRefs": [
+                  "boellhoff-duo-torx-2013"
+                ],
+                "verification": false,
+                "note": "Einzeln gelistete Lieferkombination dieser Ausführung; keine allgemeine Normlängenreihe."
+              }
+            },
+            "16": {
+              "vorbelegung": {
+                "totalLength": 16
+              },
+              "roh": {
+                "l_nominal": 16
+              },
+              "fields": {
+                "l_nominal": {
+                  "nominal": 16,
+                  "min": null,
+                  "max": null,
+                  "unit": "mm",
+                  "sourceRefs": [
+                    "boellhoff-duo-torx-2013"
+                  ],
+                  "status": "single-source",
+                  "verification": false,
+                  "verificationMethod": "single-primary-source",
+                  "note": "Belegter Wert der Böllhoff-Duo-Ausführung im Katalog 8200/13.01; unabhängiger Zweitbeleg offen. Kein Nachweis der gesamten DIN7500-Normreihe oder aktueller Lagerverfügbarkeit."
+                }
+              },
+              "geometryStatus": "partial",
+              "missingGeometryFields": [
+                "sArea",
+                "recessVolumeModel",
+                "formingLeadProfile",
+                "iT",
+                "headToShaftLength"
+              ],
+              "lengthEvidence": {
+                "kind": "manufacturer-range",
+                "edition": "2013-01",
+                "sourceRefs": [
+                  "boellhoff-duo-torx-2013"
+                ],
+                "verification": false,
+                "note": "Einzeln gelistete Lieferkombination dieser Ausführung; keine allgemeine Normlängenreihe."
+              }
+            },
+            "20": {
+              "vorbelegung": {
+                "totalLength": 20
+              },
+              "roh": {
+                "l_nominal": 20
+              },
+              "fields": {
+                "l_nominal": {
+                  "nominal": 20,
+                  "min": null,
+                  "max": null,
+                  "unit": "mm",
+                  "sourceRefs": [
+                    "boellhoff-duo-torx-2013"
+                  ],
+                  "status": "single-source",
+                  "verification": false,
+                  "verificationMethod": "single-primary-source",
+                  "note": "Belegter Wert der Böllhoff-Duo-Ausführung im Katalog 8200/13.01; unabhängiger Zweitbeleg offen. Kein Nachweis der gesamten DIN7500-Normreihe oder aktueller Lagerverfügbarkeit."
+                }
+              },
+              "geometryStatus": "partial",
+              "missingGeometryFields": [
+                "sArea",
+                "recessVolumeModel",
+                "formingLeadProfile",
+                "iT",
+                "headToShaftLength"
+              ],
+              "lengthEvidence": {
+                "kind": "manufacturer-range",
+                "edition": "2013-01",
+                "sourceRefs": [
+                  "boellhoff-duo-torx-2013"
+                ],
+                "verification": false,
+                "note": "Einzeln gelistete Lieferkombination dieser Ausführung; keine allgemeine Normlängenreihe."
+              }
+            },
+            "25": {
+              "vorbelegung": {
+                "totalLength": 25
+              },
+              "roh": {
+                "l_nominal": 25
+              },
+              "fields": {
+                "l_nominal": {
+                  "nominal": 25,
+                  "min": null,
+                  "max": null,
+                  "unit": "mm",
+                  "sourceRefs": [
+                    "boellhoff-duo-torx-2013"
+                  ],
+                  "status": "single-source",
+                  "verification": false,
+                  "verificationMethod": "single-primary-source",
+                  "note": "Belegter Wert der Böllhoff-Duo-Ausführung im Katalog 8200/13.01; unabhängiger Zweitbeleg offen. Kein Nachweis der gesamten DIN7500-Normreihe oder aktueller Lagerverfügbarkeit."
+                }
+              },
+              "geometryStatus": "partial",
+              "missingGeometryFields": [
+                "sArea",
+                "recessVolumeModel",
+                "formingLeadProfile",
+                "iT",
+                "headToShaftLength"
+              ],
+              "lengthEvidence": {
+                "kind": "manufacturer-range",
+                "edition": "2013-01",
+                "sourceRefs": [
+                  "boellhoff-duo-torx-2013"
+                ],
+                "verification": false,
+                "note": "Einzeln gelistete Lieferkombination dieser Ausführung; keine allgemeine Normlängenreihe."
+              }
+            },
+            "30": {
+              "vorbelegung": {
+                "totalLength": 30
+              },
+              "roh": {
+                "l_nominal": 30
+              },
+              "fields": {
+                "l_nominal": {
+                  "nominal": 30,
+                  "min": null,
+                  "max": null,
+                  "unit": "mm",
+                  "sourceRefs": [
+                    "boellhoff-duo-torx-2013"
+                  ],
+                  "status": "single-source",
+                  "verification": false,
+                  "verificationMethod": "single-primary-source",
+                  "note": "Belegter Wert der Böllhoff-Duo-Ausführung im Katalog 8200/13.01; unabhängiger Zweitbeleg offen. Kein Nachweis der gesamten DIN7500-Normreihe oder aktueller Lagerverfügbarkeit."
+                }
+              },
+              "geometryStatus": "partial",
+              "missingGeometryFields": [
+                "sArea",
+                "recessVolumeModel",
+                "formingLeadProfile",
+                "iT",
+                "headToShaftLength"
+              ],
+              "lengthEvidence": {
+                "kind": "manufacturer-range",
+                "edition": "2013-01",
+                "sourceRefs": [
+                  "boellhoff-duo-torx-2013"
+                ],
+                "verification": false,
+                "note": "Einzeln gelistete Lieferkombination dieser Ausführung; keine allgemeine Normlängenreihe."
+              }
+            }
+          },
+          "lengthCoverage": "documented-manufacturer-subset",
+          "laengen": [
+            10,
+            12,
+            16,
+            20,
+            25,
+            30
+          ]
+        }
+      },
+      "fields": {
+        "M2.5": {
+          "dk_max": {
+            "nominal": 4.7,
+            "min": null,
+            "max": 4.7,
+            "unit": "mm",
+            "sourceRefs": [
+              "boellhoff-duo-torx-2013"
+            ],
+            "status": "single-source",
+            "verification": false,
+            "verificationMethod": "single-primary-source",
+            "note": "Belegter Wert der Böllhoff-Duo-Ausführung im Katalog 8200/13.01; unabhängiger Zweitbeleg offen. Kein Nachweis der gesamten DIN7500-Normreihe oder aktueller Lagerverfügbarkeit."
+          },
+          "k_max": {
+            "nominal": 1.5,
+            "min": null,
+            "max": 1.5,
+            "unit": "mm",
+            "sourceRefs": [
+              "boellhoff-duo-torx-2013"
+            ],
+            "status": "single-source",
+            "verification": false,
+            "verificationMethod": "single-primary-source",
+            "note": "Belegter Wert der Böllhoff-Duo-Ausführung im Katalog 8200/13.01; unabhängiger Zweitbeleg offen. Kein Nachweis der gesamten DIN7500-Normreihe oder aktueller Lagerverfügbarkeit."
+          },
+          "recess_size": {
+            "nominal": 8,
+            "min": null,
+            "max": null,
+            "unit": null,
+            "sourceRefs": [
+              "boellhoff-duo-torx-2013"
+            ],
+            "status": "single-source",
+            "verification": false,
+            "verificationMethod": "single-primary-source",
+            "note": "Belegter Wert der Böllhoff-Duo-Ausführung im Katalog 8200/13.01; unabhängiger Zweitbeleg offen. Kein Nachweis der gesamten DIN7500-Normreihe oder aktueller Lagerverfügbarkeit."
+          },
+          "sArea": {
+            "nominal": null,
+            "min": null,
+            "max": null,
+            "unit": "mm²",
+            "sourceRefs": [],
+            "status": "missing",
+            "verification": false,
+            "verificationMethod": "not-available",
+            "note": "In der Maßtabelle dieser Duo-Ausführung nicht angegeben. Keine Übernahme aus PZ, einer anderen Kopfform oder ähnlichen ISO-Norm."
+          },
+          "recessVolumeModel": {
+            "nominal": null,
+            "min": null,
+            "max": null,
+            "unit": "mm³",
+            "sourceRefs": [],
+            "status": "missing",
+            "verification": false,
+            "verificationMethod": "not-available",
+            "note": "In der Maßtabelle dieser Duo-Ausführung nicht angegeben. Keine Übernahme aus PZ, einer anderen Kopfform oder ähnlichen ISO-Norm."
+          },
+          "formingLeadProfile": {
+            "nominal": null,
+            "min": null,
+            "max": null,
+            "unit": null,
+            "sourceRefs": [],
+            "status": "missing",
+            "verification": false,
+            "verificationMethod": "not-available",
+            "note": "In der Maßtabelle dieser Duo-Ausführung nicht angegeben. Keine Übernahme aus PZ, einer anderen Kopfform oder ähnlichen ISO-Norm."
+          },
+          "iT": {
+            "nominal": null,
+            "min": null,
+            "max": null,
+            "unit": "mm",
+            "sourceRefs": [],
+            "status": "missing",
+            "verification": false,
+            "verificationMethod": "not-available",
+            "note": "In der Maßtabelle dieser Duo-Ausführung nicht angegeben. Keine Übernahme aus PZ, einer anderen Kopfform oder ähnlichen ISO-Norm."
+          },
+          "headToShaftLength": {
+            "nominal": null,
+            "min": null,
+            "max": null,
+            "unit": "mm",
+            "sourceRefs": [],
+            "status": "missing",
+            "verification": false,
+            "verificationMethod": "not-available",
+            "note": "In der Maßtabelle dieser Duo-Ausführung nicht angegeben. Keine Übernahme aus PZ, einer anderen Kopfform oder ähnlichen ISO-Norm."
+          }
+        },
+        "M3": {
+          "dk_max": {
+            "nominal": 5.6,
+            "min": null,
+            "max": 5.6,
+            "unit": "mm",
+            "sourceRefs": [
+              "boellhoff-duo-torx-2013"
+            ],
+            "status": "single-source",
+            "verification": false,
+            "verificationMethod": "single-primary-source",
+            "note": "Belegter Wert der Böllhoff-Duo-Ausführung im Katalog 8200/13.01; unabhängiger Zweitbeleg offen. Kein Nachweis der gesamten DIN7500-Normreihe oder aktueller Lagerverfügbarkeit."
+          },
+          "k_max": {
+            "nominal": 1.65,
+            "min": null,
+            "max": 1.65,
+            "unit": "mm",
+            "sourceRefs": [
+              "boellhoff-duo-torx-2013"
+            ],
+            "status": "single-source",
+            "verification": false,
+            "verificationMethod": "single-primary-source",
+            "note": "Belegter Wert der Böllhoff-Duo-Ausführung im Katalog 8200/13.01; unabhängiger Zweitbeleg offen. Kein Nachweis der gesamten DIN7500-Normreihe oder aktueller Lagerverfügbarkeit."
+          },
+          "recess_size": {
+            "nominal": 10,
+            "min": null,
+            "max": null,
+            "unit": null,
+            "sourceRefs": [
+              "boellhoff-duo-torx-2013"
+            ],
+            "status": "single-source",
+            "verification": false,
+            "verificationMethod": "single-primary-source",
+            "note": "Belegter Wert der Böllhoff-Duo-Ausführung im Katalog 8200/13.01; unabhängiger Zweitbeleg offen. Kein Nachweis der gesamten DIN7500-Normreihe oder aktueller Lagerverfügbarkeit."
+          },
+          "sArea": {
+            "nominal": null,
+            "min": null,
+            "max": null,
+            "unit": "mm²",
+            "sourceRefs": [],
+            "status": "missing",
+            "verification": false,
+            "verificationMethod": "not-available",
+            "note": "In der Maßtabelle dieser Duo-Ausführung nicht angegeben. Keine Übernahme aus PZ, einer anderen Kopfform oder ähnlichen ISO-Norm."
+          },
+          "recessVolumeModel": {
+            "nominal": null,
+            "min": null,
+            "max": null,
+            "unit": "mm³",
+            "sourceRefs": [],
+            "status": "missing",
+            "verification": false,
+            "verificationMethod": "not-available",
+            "note": "In der Maßtabelle dieser Duo-Ausführung nicht angegeben. Keine Übernahme aus PZ, einer anderen Kopfform oder ähnlichen ISO-Norm."
+          },
+          "formingLeadProfile": {
+            "nominal": null,
+            "min": null,
+            "max": null,
+            "unit": null,
+            "sourceRefs": [],
+            "status": "missing",
+            "verification": false,
+            "verificationMethod": "not-available",
+            "note": "In der Maßtabelle dieser Duo-Ausführung nicht angegeben. Keine Übernahme aus PZ, einer anderen Kopfform oder ähnlichen ISO-Norm."
+          },
+          "iT": {
+            "nominal": null,
+            "min": null,
+            "max": null,
+            "unit": "mm",
+            "sourceRefs": [],
+            "status": "missing",
+            "verification": false,
+            "verificationMethod": "not-available",
+            "note": "In der Maßtabelle dieser Duo-Ausführung nicht angegeben. Keine Übernahme aus PZ, einer anderen Kopfform oder ähnlichen ISO-Norm."
+          },
+          "headToShaftLength": {
+            "nominal": null,
+            "min": null,
+            "max": null,
+            "unit": "mm",
+            "sourceRefs": [],
+            "status": "missing",
+            "verification": false,
+            "verificationMethod": "not-available",
+            "note": "In der Maßtabelle dieser Duo-Ausführung nicht angegeben. Keine Übernahme aus PZ, einer anderen Kopfform oder ähnlichen ISO-Norm."
+          }
+        },
+        "M4": {
+          "dk_max": {
+            "nominal": 7.5,
+            "min": null,
+            "max": 7.5,
+            "unit": "mm",
+            "sourceRefs": [
+              "boellhoff-duo-torx-2013"
+            ],
+            "status": "single-source",
+            "verification": false,
+            "verificationMethod": "single-primary-source",
+            "note": "Belegter Wert der Böllhoff-Duo-Ausführung im Katalog 8200/13.01; unabhängiger Zweitbeleg offen. Kein Nachweis der gesamten DIN7500-Normreihe oder aktueller Lagerverfügbarkeit."
+          },
+          "k_max": {
+            "nominal": 2.2,
+            "min": null,
+            "max": 2.2,
+            "unit": "mm",
+            "sourceRefs": [
+              "boellhoff-duo-torx-2013"
+            ],
+            "status": "single-source",
+            "verification": false,
+            "verificationMethod": "single-primary-source",
+            "note": "Belegter Wert der Böllhoff-Duo-Ausführung im Katalog 8200/13.01; unabhängiger Zweitbeleg offen. Kein Nachweis der gesamten DIN7500-Normreihe oder aktueller Lagerverfügbarkeit."
+          },
+          "recess_size": {
+            "nominal": 20,
+            "min": null,
+            "max": null,
+            "unit": null,
+            "sourceRefs": [
+              "boellhoff-duo-torx-2013"
+            ],
+            "status": "single-source",
+            "verification": false,
+            "verificationMethod": "single-primary-source",
+            "note": "Belegter Wert der Böllhoff-Duo-Ausführung im Katalog 8200/13.01; unabhängiger Zweitbeleg offen. Kein Nachweis der gesamten DIN7500-Normreihe oder aktueller Lagerverfügbarkeit."
+          },
+          "sArea": {
+            "nominal": null,
+            "min": null,
+            "max": null,
+            "unit": "mm²",
+            "sourceRefs": [],
+            "status": "missing",
+            "verification": false,
+            "verificationMethod": "not-available",
+            "note": "In der Maßtabelle dieser Duo-Ausführung nicht angegeben. Keine Übernahme aus PZ, einer anderen Kopfform oder ähnlichen ISO-Norm."
+          },
+          "recessVolumeModel": {
+            "nominal": null,
+            "min": null,
+            "max": null,
+            "unit": "mm³",
+            "sourceRefs": [],
+            "status": "missing",
+            "verification": false,
+            "verificationMethod": "not-available",
+            "note": "In der Maßtabelle dieser Duo-Ausführung nicht angegeben. Keine Übernahme aus PZ, einer anderen Kopfform oder ähnlichen ISO-Norm."
+          },
+          "formingLeadProfile": {
+            "nominal": null,
+            "min": null,
+            "max": null,
+            "unit": null,
+            "sourceRefs": [],
+            "status": "missing",
+            "verification": false,
+            "verificationMethod": "not-available",
+            "note": "In der Maßtabelle dieser Duo-Ausführung nicht angegeben. Keine Übernahme aus PZ, einer anderen Kopfform oder ähnlichen ISO-Norm."
+          },
+          "iT": {
+            "nominal": null,
+            "min": null,
+            "max": null,
+            "unit": "mm",
+            "sourceRefs": [],
+            "status": "missing",
+            "verification": false,
+            "verificationMethod": "not-available",
+            "note": "In der Maßtabelle dieser Duo-Ausführung nicht angegeben. Keine Übernahme aus PZ, einer anderen Kopfform oder ähnlichen ISO-Norm."
+          },
+          "headToShaftLength": {
+            "nominal": null,
+            "min": null,
+            "max": null,
+            "unit": "mm",
+            "sourceRefs": [],
+            "status": "missing",
+            "verification": false,
+            "verificationMethod": "not-available",
+            "note": "In der Maßtabelle dieser Duo-Ausführung nicht angegeben. Keine Übernahme aus PZ, einer anderen Kopfform oder ähnlichen ISO-Norm."
+          }
+        },
+        "M5": {
+          "dk_max": {
+            "nominal": 9.2,
+            "min": null,
+            "max": 9.2,
+            "unit": "mm",
+            "sourceRefs": [
+              "boellhoff-duo-torx-2013"
+            ],
+            "status": "single-source",
+            "verification": false,
+            "verificationMethod": "single-primary-source",
+            "note": "Belegter Wert der Böllhoff-Duo-Ausführung im Katalog 8200/13.01; unabhängiger Zweitbeleg offen. Kein Nachweis der gesamten DIN7500-Normreihe oder aktueller Lagerverfügbarkeit."
+          },
+          "k_max": {
+            "nominal": 2.5,
+            "min": null,
+            "max": 2.5,
+            "unit": "mm",
+            "sourceRefs": [
+              "boellhoff-duo-torx-2013"
+            ],
+            "status": "single-source",
+            "verification": false,
+            "verificationMethod": "single-primary-source",
+            "note": "Belegter Wert der Böllhoff-Duo-Ausführung im Katalog 8200/13.01; unabhängiger Zweitbeleg offen. Kein Nachweis der gesamten DIN7500-Normreihe oder aktueller Lagerverfügbarkeit."
+          },
+          "recess_size": {
+            "nominal": 25,
+            "min": null,
+            "max": null,
+            "unit": null,
+            "sourceRefs": [
+              "boellhoff-duo-torx-2013"
+            ],
+            "status": "single-source",
+            "verification": false,
+            "verificationMethod": "single-primary-source",
+            "note": "Belegter Wert der Böllhoff-Duo-Ausführung im Katalog 8200/13.01; unabhängiger Zweitbeleg offen. Kein Nachweis der gesamten DIN7500-Normreihe oder aktueller Lagerverfügbarkeit."
+          },
+          "sArea": {
+            "nominal": null,
+            "min": null,
+            "max": null,
+            "unit": "mm²",
+            "sourceRefs": [],
+            "status": "missing",
+            "verification": false,
+            "verificationMethod": "not-available",
+            "note": "In der Maßtabelle dieser Duo-Ausführung nicht angegeben. Keine Übernahme aus PZ, einer anderen Kopfform oder ähnlichen ISO-Norm."
+          },
+          "recessVolumeModel": {
+            "nominal": null,
+            "min": null,
+            "max": null,
+            "unit": "mm³",
+            "sourceRefs": [],
+            "status": "missing",
+            "verification": false,
+            "verificationMethod": "not-available",
+            "note": "In der Maßtabelle dieser Duo-Ausführung nicht angegeben. Keine Übernahme aus PZ, einer anderen Kopfform oder ähnlichen ISO-Norm."
+          },
+          "formingLeadProfile": {
+            "nominal": null,
+            "min": null,
+            "max": null,
+            "unit": null,
+            "sourceRefs": [],
+            "status": "missing",
+            "verification": false,
+            "verificationMethod": "not-available",
+            "note": "In der Maßtabelle dieser Duo-Ausführung nicht angegeben. Keine Übernahme aus PZ, einer anderen Kopfform oder ähnlichen ISO-Norm."
+          },
+          "iT": {
+            "nominal": null,
+            "min": null,
+            "max": null,
+            "unit": "mm",
+            "sourceRefs": [],
+            "status": "missing",
+            "verification": false,
+            "verificationMethod": "not-available",
+            "note": "In der Maßtabelle dieser Duo-Ausführung nicht angegeben. Keine Übernahme aus PZ, einer anderen Kopfform oder ähnlichen ISO-Norm."
+          },
+          "headToShaftLength": {
+            "nominal": null,
+            "min": null,
+            "max": null,
+            "unit": "mm",
+            "sourceRefs": [],
+            "status": "missing",
+            "verification": false,
+            "verificationMethod": "not-available",
+            "note": "In der Maßtabelle dieser Duo-Ausführung nicht angegeben. Keine Übernahme aus PZ, einer anderen Kopfform oder ähnlichen ISO-Norm."
+          }
+        },
+        "M6": {
+          "dk_max": {
+            "nominal": 11,
+            "min": null,
+            "max": 11,
+            "unit": "mm",
+            "sourceRefs": [
+              "boellhoff-duo-torx-2013"
+            ],
+            "status": "single-source",
+            "verification": false,
+            "verificationMethod": "single-primary-source",
+            "note": "Belegter Wert der Böllhoff-Duo-Ausführung im Katalog 8200/13.01; unabhängiger Zweitbeleg offen. Kein Nachweis der gesamten DIN7500-Normreihe oder aktueller Lagerverfügbarkeit."
+          },
+          "k_max": {
+            "nominal": 3,
+            "min": null,
+            "max": 3,
+            "unit": "mm",
+            "sourceRefs": [
+              "boellhoff-duo-torx-2013"
+            ],
+            "status": "single-source",
+            "verification": false,
+            "verificationMethod": "single-primary-source",
+            "note": "Belegter Wert der Böllhoff-Duo-Ausführung im Katalog 8200/13.01; unabhängiger Zweitbeleg offen. Kein Nachweis der gesamten DIN7500-Normreihe oder aktueller Lagerverfügbarkeit."
+          },
+          "recess_size": {
+            "nominal": 30,
+            "min": null,
+            "max": null,
+            "unit": null,
+            "sourceRefs": [
+              "boellhoff-duo-torx-2013"
+            ],
+            "status": "single-source",
+            "verification": false,
+            "verificationMethod": "single-primary-source",
+            "note": "Belegter Wert der Böllhoff-Duo-Ausführung im Katalog 8200/13.01; unabhängiger Zweitbeleg offen. Kein Nachweis der gesamten DIN7500-Normreihe oder aktueller Lagerverfügbarkeit."
+          },
+          "sArea": {
+            "nominal": null,
+            "min": null,
+            "max": null,
+            "unit": "mm²",
+            "sourceRefs": [],
+            "status": "missing",
+            "verification": false,
+            "verificationMethod": "not-available",
+            "note": "In der Maßtabelle dieser Duo-Ausführung nicht angegeben. Keine Übernahme aus PZ, einer anderen Kopfform oder ähnlichen ISO-Norm."
+          },
+          "recessVolumeModel": {
+            "nominal": null,
+            "min": null,
+            "max": null,
+            "unit": "mm³",
+            "sourceRefs": [],
+            "status": "missing",
+            "verification": false,
+            "verificationMethod": "not-available",
+            "note": "In der Maßtabelle dieser Duo-Ausführung nicht angegeben. Keine Übernahme aus PZ, einer anderen Kopfform oder ähnlichen ISO-Norm."
+          },
+          "formingLeadProfile": {
+            "nominal": null,
+            "min": null,
+            "max": null,
+            "unit": null,
+            "sourceRefs": [],
+            "status": "missing",
+            "verification": false,
+            "verificationMethod": "not-available",
+            "note": "In der Maßtabelle dieser Duo-Ausführung nicht angegeben. Keine Übernahme aus PZ, einer anderen Kopfform oder ähnlichen ISO-Norm."
+          },
+          "iT": {
+            "nominal": null,
+            "min": null,
+            "max": null,
+            "unit": "mm",
+            "sourceRefs": [],
+            "status": "missing",
+            "verification": false,
+            "verificationMethod": "not-available",
+            "note": "In der Maßtabelle dieser Duo-Ausführung nicht angegeben. Keine Übernahme aus PZ, einer anderen Kopfform oder ähnlichen ISO-Norm."
+          },
+          "headToShaftLength": {
+            "nominal": null,
+            "min": null,
+            "max": null,
+            "unit": "mm",
+            "sourceRefs": [],
+            "status": "missing",
+            "verification": false,
+            "verificationMethod": "not-available",
+            "note": "In der Maßtabelle dieser Duo-Ausführung nicht angegeben. Keine Übernahme aus PZ, einer anderen Kopfform oder ähnlichen ISO-Norm."
+          }
+        }
+      },
+      "geometryStatus": "partial",
+      "lengthCoverage": "documented-manufacturer-subset",
+      "requiredGeometryFields": [
+        "sArea",
+        "recessVolumeModel",
+        "formingLeadProfile",
+        "iT",
+        "headToShaftLength"
+      ],
+      "sourceRefs": [
+        "boellhoff-duo-torx-2013"
+      ],
+      "catalogueEdition": "2013-01"
     }
   ],
   "currentEditionEvidence": {

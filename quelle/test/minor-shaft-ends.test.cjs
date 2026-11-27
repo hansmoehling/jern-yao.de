@@ -11,7 +11,7 @@ for(const [id,size,length] of [['ISO4762','M6',30],['ISO4017','M8',40]])test(id+
 });
 
 test('ISO4014 minor end does not invent a geometry blocker or conceal an unresolved length distribution',()=>{
- const e=input('ISO4014','M8',40);assert(!e.normRequiresGeometryReview);assert(!e.normMissingFields.includes('shaftEndProfile'));assert.equal(e.shaftEndAssumption.volumeModel,'full-envelope');assert(e.standardDocument.issues.some(x=>x.code==='length-not-resolved'));assert.equal(e.shaftSegments,undefined);
+ const e=input('ISO4014','M8',41);assert(!e.normRequiresGeometryReview);assert(!e.normMissingFields.includes('shaftEndProfile'));assert.equal(e.shaftEndAssumption.volumeModel,'full-envelope');assert(e.standardDocument.issues.some(x=>x.code==='length-not-resolved'));assert.equal(e.shaftSegments,undefined);
 });
 
 test('a usual screw thread-entry chamfer uses the full envelope without an extra pressing operation',()=>{

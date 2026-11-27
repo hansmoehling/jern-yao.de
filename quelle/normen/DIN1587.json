@@ -1,8 +1,8 @@
 {
   "schemaVersion": 1,
-  "version": "2026-11-26.1",
+  "version": "2026-11-27.p7",
   "id": "DIN1587",
-  "edition": "catalog-undated",
+  "edition": "2021-11",
   "label": "Hohe Sechskant-Hutmutter",
   "funktion": "mutter",
   "klasse": "mutter",
@@ -24,14 +24,16 @@
         "s_nom": 8,
         "h_catalog": 10,
         "m_max": 4,
-        "capDiameter_max": 7.5
+        "capDiameter_max": 7.5,
+        "h_max": 10,
+        "threadDepth_min": 7.21
       },
       "thread": {
         "id": "M5x0.8",
         "diameter": 5,
         "pitch": 0.8,
         "sourceRefs": [
-          "iso4032_2023"
+          "spm1587_2021"
         ]
       },
       "geometryStatus": "partial",
@@ -39,7 +41,8 @@
         "blindHoleDepth",
         "capWallThickness",
         "capProfile"
-      ]
+      ],
+      "note": "Gewindetiefe ist keine Bohrungs- oder Napftiefe. Kuppeninnenkontur bleibt als Geometrie offen."
     },
     "M6": {
       "vorbelegung": {
@@ -52,14 +55,16 @@
         "s_nom": 10,
         "h_catalog": 12,
         "m_max": 5,
-        "capDiameter_max": 9.5
+        "capDiameter_max": 9.5,
+        "h_max": 12,
+        "threadDepth_min": 7.71
       },
       "thread": {
         "id": "M6x1",
         "diameter": 6,
         "pitch": 1,
         "sourceRefs": [
-          "iso4032_2023"
+          "spm1587_2021"
         ]
       },
       "geometryStatus": "partial",
@@ -67,7 +72,8 @@
         "blindHoleDepth",
         "capWallThickness",
         "capProfile"
-      ]
+      ],
+      "note": "Gewindetiefe ist keine Bohrungs- oder Napftiefe. Kuppeninnenkontur bleibt als Geometrie offen."
     },
     "M8": {
       "vorbelegung": {
@@ -80,14 +86,16 @@
         "s_nom": 13,
         "h_catalog": 15,
         "m_max": 6.5,
-        "capDiameter_max": 12.5
+        "capDiameter_max": 12.5,
+        "h_max": 15,
+        "threadDepth_min": 10.65
       },
       "thread": {
         "id": "M8x1.25",
         "diameter": 8,
         "pitch": 1.25,
         "sourceRefs": [
-          "iso4032_2023"
+          "spm1587_2021"
         ]
       },
       "geometryStatus": "partial",
@@ -95,7 +103,8 @@
         "blindHoleDepth",
         "capWallThickness",
         "capProfile"
-      ]
+      ],
+      "note": "Gewindetiefe ist keine Bohrungs- oder Napftiefe. Kuppeninnenkontur bleibt als Geometrie offen."
     },
     "M10": {
       "vorbelegung": {
@@ -108,14 +117,16 @@
         "s_nom": 16,
         "h_catalog": 18,
         "m_max": 8,
-        "capDiameter_max": 16
+        "capDiameter_max": 15,
+        "h_max": 18,
+        "threadDepth_min": 12.65
       },
       "thread": {
         "id": "M10x1.5",
         "diameter": 10,
         "pitch": 1.5,
         "sourceRefs": [
-          "iso4032_2023"
+          "spm1587_2021"
         ]
       },
       "geometryStatus": "partial",
@@ -123,7 +134,8 @@
         "blindHoleDepth",
         "capWallThickness",
         "capProfile"
-      ]
+      ],
+      "note": "Gewindetiefe ist keine Bohrungs- oder Napftiefe. Kuppeninnenkontur bleibt als Geometrie offen."
     },
     "M12": {
       "vorbelegung": {
@@ -136,14 +148,16 @@
         "s_nom": 18,
         "h_catalog": 22,
         "m_max": 10,
-        "capDiameter_max": 18
+        "capDiameter_max": 17,
+        "h_max": 22,
+        "threadDepth_min": 15.65
       },
       "thread": {
         "id": "M12x1.75",
         "diameter": 12,
         "pitch": 1.75,
         "sourceRefs": [
-          "iso4032_2023"
+          "spm1587_2021"
         ]
       },
       "geometryStatus": "partial",
@@ -151,7 +165,8 @@
         "blindHoleDepth",
         "capWallThickness",
         "capProfile"
-      ]
+      ],
+      "note": "Gewindetiefe ist keine Bohrungs- oder Napftiefe. Kuppeninnenkontur bleibt als Geometrie offen."
     },
     "M14": {
       "vorbelegung": {
@@ -164,14 +179,16 @@
         "s_nom": 21,
         "h_catalog": 25,
         "m_max": 11,
-        "capDiameter_max": 21
+        "capDiameter_max": 20,
+        "h_max": 25,
+        "threadDepth_min": 17.65
       },
       "thread": {
         "id": "M14x2",
         "diameter": 14,
         "pitch": 2,
         "sourceRefs": [
-          "iso4032_2023"
+          "spm1587_2021"
         ]
       },
       "geometryStatus": "partial",
@@ -179,7 +196,8 @@
         "blindHoleDepth",
         "capWallThickness",
         "capProfile"
-      ]
+      ],
+      "note": "Gewindetiefe ist keine Bohrungs- oder Napftiefe. Kuppeninnenkontur bleibt als Geometrie offen."
     },
     "M16": {
       "vorbelegung": {
@@ -192,14 +210,16 @@
         "s_nom": 24,
         "h_catalog": 28,
         "m_max": 13,
-        "capDiameter_max": 23
+        "capDiameter_max": 23,
+        "h_max": 28,
+        "threadDepth_min": 20.58
       },
       "thread": {
         "id": "M16x2",
         "diameter": 16,
         "pitch": 2,
         "sourceRefs": [
-          "iso4032_2023"
+          "spm1587_2021"
         ]
       },
       "geometryStatus": "partial",
@@ -207,7 +227,8 @@
         "blindHoleDepth",
         "capWallThickness",
         "capProfile"
-      ]
+      ],
+      "note": "Gewindetiefe ist keine Bohrungs- oder Napftiefe. Kuppeninnenkontur bleibt als Geometrie offen."
     },
     "M18": {
       "vorbelegung": {
@@ -220,14 +241,16 @@
         "s_nom": 27,
         "h_catalog": 32,
         "m_max": 15,
-        "capDiameter_max": 26
+        "capDiameter_max": 26,
+        "h_max": 32,
+        "threadDepth_min": 24.58
       },
       "thread": {
         "id": "M18x2.5",
         "diameter": 18,
         "pitch": 2.5,
         "sourceRefs": [
-          "iso4032_2023"
+          "spm1587_2021"
         ]
       },
       "geometryStatus": "partial",
@@ -235,7 +258,8 @@
         "blindHoleDepth",
         "capWallThickness",
         "capProfile"
-      ]
+      ],
+      "note": "Gewindetiefe ist keine Bohrungs- oder Napftiefe. Kuppeninnenkontur bleibt als Geometrie offen."
     },
     "M20": {
       "vorbelegung": {
@@ -248,14 +272,16 @@
         "s_nom": 30,
         "h_catalog": 34,
         "m_max": 16,
-        "capDiameter_max": 28
+        "capDiameter_max": 28,
+        "h_max": 34,
+        "threadDepth_min": 25.58
       },
       "thread": {
         "id": "M20x2.5",
         "diameter": 20,
         "pitch": 2.5,
         "sourceRefs": [
-          "iso4032_2023"
+          "spm1587_2021"
         ]
       },
       "geometryStatus": "partial",
@@ -263,7 +289,8 @@
         "blindHoleDepth",
         "capWallThickness",
         "capProfile"
-      ]
+      ],
+      "note": "Gewindetiefe ist keine Bohrungs- oder Napftiefe. Kuppeninnenkontur bleibt als Geometrie offen."
     },
     "M22": {
       "vorbelegung": {
@@ -276,14 +303,16 @@
         "s_nom": 34,
         "h_catalog": 39,
         "m_max": 18,
-        "capDiameter_max": 33
+        "capDiameter_max": 33,
+        "h_max": 39,
+        "threadDepth_min": 28.58
       },
       "thread": {
         "id": "M22x2.5",
         "diameter": 22,
         "pitch": 2.5,
         "sourceRefs": [
-          "iso4032_2023"
+          "spm1587_2021"
         ]
       },
       "geometryStatus": "partial",
@@ -291,7 +320,8 @@
         "blindHoleDepth",
         "capWallThickness",
         "capProfile"
-      ]
+      ],
+      "note": "Gewindetiefe ist keine Bohrungs- oder Napftiefe. Kuppeninnenkontur bleibt als Geometrie offen."
     },
     "M24": {
       "vorbelegung": {
@@ -304,14 +334,16 @@
         "s_nom": 36,
         "h_catalog": 42,
         "m_max": 19,
-        "capDiameter_max": 34
+        "capDiameter_max": 34,
+        "h_max": 42,
+        "threadDepth_min": 30.5
       },
       "thread": {
         "id": "M24x3",
         "diameter": 24,
         "pitch": 3,
         "sourceRefs": [
-          "iso4032_2023"
+          "spm1587_2021"
         ]
       },
       "geometryStatus": "partial",
@@ -319,7 +351,8 @@
         "blindHoleDepth",
         "capWallThickness",
         "capProfile"
-      ]
+      ],
+      "note": "Gewindetiefe ist keine Bohrungs- oder Napftiefe. Kuppeninnenkontur bleibt als Geometrie offen."
     },
     "M27": {
       "vorbelegung": {
@@ -347,7 +380,10 @@
         "blindHoleDepth",
         "capWallThickness",
         "capProfile"
-      ]
+      ],
+      "dataEdition": "supplier-additional",
+      "standardMatrixMembership": false,
+      "note": "Lederer-Liefergröße außerhalb des M4–M24-Tabellenbereichs der DIN1587:2021. Maße sind Herstellerdaten, keine behauptete Normzeile."
     },
     "M30": {
       "vorbelegung": {
@@ -375,70 +411,118 @@
         "blindHoleDepth",
         "capWallThickness",
         "capProfile"
-      ]
+      ],
+      "dataEdition": "supplier-additional",
+      "standardMatrixMembership": false,
+      "note": "Lederer-Liefergröße außerhalb des M4–M24-Tabellenbereichs der DIN1587:2021. Maße sind Herstellerdaten, keine behauptete Normzeile."
+    },
+    "M4": {
+      "vorbelegung": {
+        "mSW": 7,
+        "mH": 8
+      },
+      "roh": {
+        "d_nom": 4,
+        "P": 0.7,
+        "s_nom": 7,
+        "h_max": 8,
+        "h_catalog": 8,
+        "m_max": 3.2,
+        "threadDepth_min": 5.26,
+        "capDiameter_max": 6.5
+      },
+      "geometryStatus": "partial",
+      "missingGeometryFields": [
+        "blindHoleDepth",
+        "capWallThickness",
+        "capProfile"
+      ],
+      "thread": {
+        "id": "M4x0.7",
+        "diameter": 4,
+        "pitch": 0.7,
+        "sourceRefs": [
+          "spm1587_2021"
+        ]
+      },
+      "note": "Gewindetiefe ist keine Bohrungs- oder Napftiefe. Kuppeninnenkontur bleibt als Geometrie offen."
     }
   },
   "fields": {
     "M5": {
       "P": {
         "nominal": 0.8,
-        "sourceRefs": [
-          "iso4032_2023"
-        ],
-        "status": "single-source",
-        "verification": "one-primary-record",
         "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "sourceRefs": [
+          "spm1587_2021",
+          "ekinsun1587_2021"
+        ],
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "dimension-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "s_nom": {
         "nominal": 8,
+        "unit": "mm",
         "sourceRefs": [
+          "spm1587_2021",
+          "ekinsun1587_2021",
           "lederer1587"
         ],
-        "status": "single-source",
-        "verification": "one-primary-record",
-        "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "dimension-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "h_catalog": {
-        "value": 10,
+        "nominal": 10,
+        "unit": "mm",
         "sourceRefs": [
+          "spm1587_2021",
+          "ekinsun1587_2021",
           "lederer1587"
         ],
-        "status": "single-source",
-        "verification": "one-primary-record",
-        "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "dimension-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "m_max": {
         "max": 4,
+        "unit": "mm",
         "sourceRefs": [
+          "spm1587_2021",
           "lederer1587"
         ],
-        "status": "single-source",
-        "verification": "one-primary-record",
-        "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "dimension-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "capDiameter_max": {
         "max": 7.5,
+        "unit": "mm",
         "sourceRefs": [
+          "ekinsun1587_2021",
           "lederer1587"
         ],
-        "status": "single-source",
-        "verification": "one-primary-record",
-        "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "dimension-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "d_nom": {
         "nominal": 5,
+        "unit": "mm",
         "sourceRefs": [
+          "spm1587_2021",
           "lederer1587"
         ],
-        "status": "single-source",
-        "verification": "one-primary-record",
-        "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "dimension-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "blindHoleDepth": {
         "sourceRefs": [],
@@ -460,68 +544,106 @@
         "verification": false,
         "unit": "mm",
         "note": "Detailmaß im ausgewerteten Nachweis nicht festgelegt; Kunden-/Herstellerzeichnung erforderlich."
+      },
+      "h_max": {
+        "max": 10,
+        "unit": "mm",
+        "sourceRefs": [
+          "spm1587_2021",
+          "ekinsun1587_2021"
+        ],
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "dimension-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
+      },
+      "threadDepth_min": {
+        "min": 7.21,
+        "unit": "mm",
+        "sourceRefs": [
+          "spm1587_2021",
+          "ekinsun1587_2021"
+        ],
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "dimension-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       }
     },
     "M6": {
       "P": {
         "nominal": 1,
-        "sourceRefs": [
-          "iso4032_2023"
-        ],
-        "status": "single-source",
-        "verification": "one-primary-record",
         "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "sourceRefs": [
+          "spm1587_2021",
+          "ekinsun1587_2021"
+        ],
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "dimension-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "s_nom": {
         "nominal": 10,
+        "unit": "mm",
         "sourceRefs": [
+          "spm1587_2021",
+          "ekinsun1587_2021",
           "lederer1587"
         ],
-        "status": "single-source",
-        "verification": "one-primary-record",
-        "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "dimension-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "h_catalog": {
-        "value": 12,
+        "nominal": 12,
+        "unit": "mm",
         "sourceRefs": [
+          "spm1587_2021",
+          "ekinsun1587_2021",
           "lederer1587"
         ],
-        "status": "single-source",
-        "verification": "one-primary-record",
-        "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "dimension-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "m_max": {
         "max": 5,
+        "unit": "mm",
         "sourceRefs": [
+          "spm1587_2021",
           "lederer1587"
         ],
-        "status": "single-source",
-        "verification": "one-primary-record",
-        "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "dimension-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "capDiameter_max": {
         "max": 9.5,
+        "unit": "mm",
         "sourceRefs": [
+          "ekinsun1587_2021",
           "lederer1587"
         ],
-        "status": "single-source",
-        "verification": "one-primary-record",
-        "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "dimension-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "d_nom": {
         "nominal": 6,
+        "unit": "mm",
         "sourceRefs": [
+          "spm1587_2021",
           "lederer1587"
         ],
-        "status": "single-source",
-        "verification": "one-primary-record",
-        "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "dimension-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "blindHoleDepth": {
         "sourceRefs": [],
@@ -543,68 +665,106 @@
         "verification": false,
         "unit": "mm",
         "note": "Detailmaß im ausgewerteten Nachweis nicht festgelegt; Kunden-/Herstellerzeichnung erforderlich."
+      },
+      "h_max": {
+        "max": 12,
+        "unit": "mm",
+        "sourceRefs": [
+          "spm1587_2021",
+          "ekinsun1587_2021"
+        ],
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "dimension-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
+      },
+      "threadDepth_min": {
+        "min": 7.71,
+        "unit": "mm",
+        "sourceRefs": [
+          "spm1587_2021",
+          "ekinsun1587_2021"
+        ],
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "dimension-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       }
     },
     "M8": {
       "P": {
         "nominal": 1.25,
-        "sourceRefs": [
-          "iso4032_2023"
-        ],
-        "status": "single-source",
-        "verification": "one-primary-record",
         "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "sourceRefs": [
+          "spm1587_2021",
+          "ekinsun1587_2021"
+        ],
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "dimension-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "s_nom": {
         "nominal": 13,
+        "unit": "mm",
         "sourceRefs": [
+          "spm1587_2021",
+          "ekinsun1587_2021",
           "lederer1587"
         ],
-        "status": "single-source",
-        "verification": "one-primary-record",
-        "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "dimension-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "h_catalog": {
-        "value": 15,
+        "nominal": 15,
+        "unit": "mm",
         "sourceRefs": [
+          "spm1587_2021",
+          "ekinsun1587_2021",
           "lederer1587"
         ],
-        "status": "single-source",
-        "verification": "one-primary-record",
-        "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "dimension-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "m_max": {
         "max": 6.5,
+        "unit": "mm",
         "sourceRefs": [
+          "spm1587_2021",
           "lederer1587"
         ],
-        "status": "single-source",
-        "verification": "one-primary-record",
-        "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "dimension-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "capDiameter_max": {
         "max": 12.5,
+        "unit": "mm",
         "sourceRefs": [
+          "ekinsun1587_2021",
           "lederer1587"
         ],
-        "status": "single-source",
-        "verification": "one-primary-record",
-        "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "dimension-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "d_nom": {
         "nominal": 8,
+        "unit": "mm",
         "sourceRefs": [
+          "spm1587_2021",
           "lederer1587"
         ],
-        "status": "single-source",
-        "verification": "one-primary-record",
-        "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "dimension-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "blindHoleDepth": {
         "sourceRefs": [],
@@ -626,68 +786,105 @@
         "verification": false,
         "unit": "mm",
         "note": "Detailmaß im ausgewerteten Nachweis nicht festgelegt; Kunden-/Herstellerzeichnung erforderlich."
+      },
+      "h_max": {
+        "max": 15,
+        "unit": "mm",
+        "sourceRefs": [
+          "spm1587_2021",
+          "ekinsun1587_2021"
+        ],
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "dimension-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
+      },
+      "threadDepth_min": {
+        "min": 10.65,
+        "unit": "mm",
+        "sourceRefs": [
+          "spm1587_2021",
+          "ekinsun1587_2021"
+        ],
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "dimension-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       }
     },
     "M10": {
       "P": {
         "nominal": 1.5,
-        "sourceRefs": [
-          "iso4032_2023"
-        ],
-        "status": "single-source",
-        "verification": "one-primary-record",
         "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "sourceRefs": [
+          "spm1587_2021",
+          "ekinsun1587_2021"
+        ],
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "dimension-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "s_nom": {
         "nominal": 16,
+        "unit": "mm",
         "sourceRefs": [
+          "spm1587_2021",
+          "ekinsun1587_2021",
           "lederer1587"
         ],
-        "status": "single-source",
-        "verification": "one-primary-record",
-        "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "dimension-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "h_catalog": {
-        "value": 18,
+        "nominal": 18,
+        "unit": "mm",
         "sourceRefs": [
+          "spm1587_2021",
+          "ekinsun1587_2021",
           "lederer1587"
         ],
-        "status": "single-source",
-        "verification": "one-primary-record",
-        "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "dimension-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "m_max": {
         "max": 8,
+        "unit": "mm",
         "sourceRefs": [
+          "spm1587_2021",
           "lederer1587"
         ],
-        "status": "single-source",
-        "verification": "one-primary-record",
-        "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "dimension-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "capDiameter_max": {
-        "max": 16,
+        "max": 15,
+        "unit": "mm",
         "sourceRefs": [
-          "lederer1587"
+          "ekinsun1587_2021"
         ],
         "status": "single-source",
-        "verification": "one-primary-record",
-        "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "verification": false,
+        "verificationMethod": "dimension-table",
+        "note": "Nur eine ausgewertete Maßquelle."
       },
       "d_nom": {
         "nominal": 10,
+        "unit": "mm",
         "sourceRefs": [
+          "spm1587_2021",
           "lederer1587"
         ],
-        "status": "single-source",
-        "verification": "one-primary-record",
-        "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "dimension-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "blindHoleDepth": {
         "sourceRefs": [],
@@ -709,68 +906,105 @@
         "verification": false,
         "unit": "mm",
         "note": "Detailmaß im ausgewerteten Nachweis nicht festgelegt; Kunden-/Herstellerzeichnung erforderlich."
+      },
+      "h_max": {
+        "max": 18,
+        "unit": "mm",
+        "sourceRefs": [
+          "spm1587_2021",
+          "ekinsun1587_2021"
+        ],
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "dimension-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
+      },
+      "threadDepth_min": {
+        "min": 12.65,
+        "unit": "mm",
+        "sourceRefs": [
+          "spm1587_2021",
+          "ekinsun1587_2021"
+        ],
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "dimension-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       }
     },
     "M12": {
       "P": {
         "nominal": 1.75,
-        "sourceRefs": [
-          "iso4032_2023"
-        ],
-        "status": "single-source",
-        "verification": "one-primary-record",
         "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "sourceRefs": [
+          "spm1587_2021",
+          "ekinsun1587_2021"
+        ],
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "dimension-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "s_nom": {
         "nominal": 18,
+        "unit": "mm",
         "sourceRefs": [
+          "spm1587_2021",
+          "ekinsun1587_2021",
           "lederer1587"
         ],
-        "status": "single-source",
-        "verification": "one-primary-record",
-        "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "dimension-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "h_catalog": {
-        "value": 22,
+        "nominal": 22,
+        "unit": "mm",
         "sourceRefs": [
+          "spm1587_2021",
+          "ekinsun1587_2021",
           "lederer1587"
         ],
-        "status": "single-source",
-        "verification": "one-primary-record",
-        "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "dimension-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "m_max": {
         "max": 10,
+        "unit": "mm",
         "sourceRefs": [
+          "spm1587_2021",
           "lederer1587"
         ],
-        "status": "single-source",
-        "verification": "one-primary-record",
-        "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "dimension-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "capDiameter_max": {
-        "max": 18,
+        "max": 17,
+        "unit": "mm",
         "sourceRefs": [
-          "lederer1587"
+          "ekinsun1587_2021"
         ],
         "status": "single-source",
-        "verification": "one-primary-record",
-        "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "verification": false,
+        "verificationMethod": "dimension-table",
+        "note": "Nur eine ausgewertete Maßquelle."
       },
       "d_nom": {
         "nominal": 12,
+        "unit": "mm",
         "sourceRefs": [
+          "spm1587_2021",
           "lederer1587"
         ],
-        "status": "single-source",
-        "verification": "one-primary-record",
-        "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "dimension-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "blindHoleDepth": {
         "sourceRefs": [],
@@ -792,68 +1026,105 @@
         "verification": false,
         "unit": "mm",
         "note": "Detailmaß im ausgewerteten Nachweis nicht festgelegt; Kunden-/Herstellerzeichnung erforderlich."
+      },
+      "h_max": {
+        "max": 22,
+        "unit": "mm",
+        "sourceRefs": [
+          "spm1587_2021",
+          "ekinsun1587_2021"
+        ],
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "dimension-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
+      },
+      "threadDepth_min": {
+        "min": 15.65,
+        "unit": "mm",
+        "sourceRefs": [
+          "spm1587_2021",
+          "ekinsun1587_2021"
+        ],
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "dimension-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       }
     },
     "M14": {
       "P": {
         "nominal": 2,
-        "sourceRefs": [
-          "iso4032_2023"
-        ],
-        "status": "single-source",
-        "verification": "one-primary-record",
         "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "sourceRefs": [
+          "spm1587_2021",
+          "ekinsun1587_2021"
+        ],
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "dimension-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "s_nom": {
         "nominal": 21,
+        "unit": "mm",
         "sourceRefs": [
+          "spm1587_2021",
+          "ekinsun1587_2021",
           "lederer1587"
         ],
-        "status": "single-source",
-        "verification": "one-primary-record",
-        "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "dimension-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "h_catalog": {
-        "value": 25,
+        "nominal": 25,
+        "unit": "mm",
         "sourceRefs": [
+          "spm1587_2021",
+          "ekinsun1587_2021",
           "lederer1587"
         ],
-        "status": "single-source",
-        "verification": "one-primary-record",
-        "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "dimension-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "m_max": {
         "max": 11,
+        "unit": "mm",
         "sourceRefs": [
+          "spm1587_2021",
           "lederer1587"
         ],
-        "status": "single-source",
-        "verification": "one-primary-record",
-        "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "dimension-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "capDiameter_max": {
-        "max": 21,
+        "max": 20,
+        "unit": "mm",
         "sourceRefs": [
-          "lederer1587"
+          "ekinsun1587_2021"
         ],
         "status": "single-source",
-        "verification": "one-primary-record",
-        "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "verification": false,
+        "verificationMethod": "dimension-table",
+        "note": "Nur eine ausgewertete Maßquelle."
       },
       "d_nom": {
         "nominal": 14,
+        "unit": "mm",
         "sourceRefs": [
+          "spm1587_2021",
           "lederer1587"
         ],
-        "status": "single-source",
-        "verification": "one-primary-record",
-        "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "dimension-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "blindHoleDepth": {
         "sourceRefs": [],
@@ -875,68 +1146,106 @@
         "verification": false,
         "unit": "mm",
         "note": "Detailmaß im ausgewerteten Nachweis nicht festgelegt; Kunden-/Herstellerzeichnung erforderlich."
+      },
+      "h_max": {
+        "max": 25,
+        "unit": "mm",
+        "sourceRefs": [
+          "spm1587_2021",
+          "ekinsun1587_2021"
+        ],
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "dimension-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
+      },
+      "threadDepth_min": {
+        "min": 17.65,
+        "unit": "mm",
+        "sourceRefs": [
+          "spm1587_2021",
+          "ekinsun1587_2021"
+        ],
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "dimension-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       }
     },
     "M16": {
       "P": {
         "nominal": 2,
-        "sourceRefs": [
-          "iso4032_2023"
-        ],
-        "status": "single-source",
-        "verification": "one-primary-record",
         "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "sourceRefs": [
+          "spm1587_2021",
+          "ekinsun1587_2021"
+        ],
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "dimension-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "s_nom": {
         "nominal": 24,
+        "unit": "mm",
         "sourceRefs": [
+          "spm1587_2021",
+          "ekinsun1587_2021",
           "lederer1587"
         ],
-        "status": "single-source",
-        "verification": "one-primary-record",
-        "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "dimension-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "h_catalog": {
-        "value": 28,
+        "nominal": 28,
+        "unit": "mm",
         "sourceRefs": [
+          "spm1587_2021",
+          "ekinsun1587_2021",
           "lederer1587"
         ],
-        "status": "single-source",
-        "verification": "one-primary-record",
-        "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "dimension-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "m_max": {
         "max": 13,
+        "unit": "mm",
         "sourceRefs": [
+          "spm1587_2021",
           "lederer1587"
         ],
-        "status": "single-source",
-        "verification": "one-primary-record",
-        "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "dimension-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "capDiameter_max": {
         "max": 23,
+        "unit": "mm",
         "sourceRefs": [
+          "ekinsun1587_2021",
           "lederer1587"
         ],
-        "status": "single-source",
-        "verification": "one-primary-record",
-        "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "dimension-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "d_nom": {
         "nominal": 16,
+        "unit": "mm",
         "sourceRefs": [
+          "spm1587_2021",
           "lederer1587"
         ],
-        "status": "single-source",
-        "verification": "one-primary-record",
-        "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "dimension-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "blindHoleDepth": {
         "sourceRefs": [],
@@ -958,68 +1267,106 @@
         "verification": false,
         "unit": "mm",
         "note": "Detailmaß im ausgewerteten Nachweis nicht festgelegt; Kunden-/Herstellerzeichnung erforderlich."
+      },
+      "h_max": {
+        "max": 28,
+        "unit": "mm",
+        "sourceRefs": [
+          "spm1587_2021",
+          "ekinsun1587_2021"
+        ],
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "dimension-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
+      },
+      "threadDepth_min": {
+        "min": 20.58,
+        "unit": "mm",
+        "sourceRefs": [
+          "spm1587_2021",
+          "ekinsun1587_2021"
+        ],
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "dimension-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       }
     },
     "M18": {
       "P": {
         "nominal": 2.5,
-        "sourceRefs": [
-          "iso4032_2023"
-        ],
-        "status": "single-source",
-        "verification": "one-primary-record",
         "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "sourceRefs": [
+          "spm1587_2021",
+          "ekinsun1587_2021"
+        ],
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "dimension-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "s_nom": {
         "nominal": 27,
+        "unit": "mm",
         "sourceRefs": [
+          "spm1587_2021",
+          "ekinsun1587_2021",
           "lederer1587"
         ],
-        "status": "single-source",
-        "verification": "one-primary-record",
-        "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "dimension-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "h_catalog": {
-        "value": 32,
+        "nominal": 32,
+        "unit": "mm",
         "sourceRefs": [
+          "spm1587_2021",
+          "ekinsun1587_2021",
           "lederer1587"
         ],
-        "status": "single-source",
-        "verification": "one-primary-record",
-        "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "dimension-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "m_max": {
         "max": 15,
+        "unit": "mm",
         "sourceRefs": [
+          "spm1587_2021",
           "lederer1587"
         ],
-        "status": "single-source",
-        "verification": "one-primary-record",
-        "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "dimension-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "capDiameter_max": {
         "max": 26,
+        "unit": "mm",
         "sourceRefs": [
+          "ekinsun1587_2021",
           "lederer1587"
         ],
-        "status": "single-source",
-        "verification": "one-primary-record",
-        "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "dimension-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "d_nom": {
         "nominal": 18,
+        "unit": "mm",
         "sourceRefs": [
+          "spm1587_2021",
           "lederer1587"
         ],
-        "status": "single-source",
-        "verification": "one-primary-record",
-        "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "dimension-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "blindHoleDepth": {
         "sourceRefs": [],
@@ -1041,68 +1388,106 @@
         "verification": false,
         "unit": "mm",
         "note": "Detailmaß im ausgewerteten Nachweis nicht festgelegt; Kunden-/Herstellerzeichnung erforderlich."
+      },
+      "h_max": {
+        "max": 32,
+        "unit": "mm",
+        "sourceRefs": [
+          "spm1587_2021",
+          "ekinsun1587_2021"
+        ],
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "dimension-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
+      },
+      "threadDepth_min": {
+        "min": 24.58,
+        "unit": "mm",
+        "sourceRefs": [
+          "spm1587_2021",
+          "ekinsun1587_2021"
+        ],
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "dimension-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       }
     },
     "M20": {
       "P": {
         "nominal": 2.5,
-        "sourceRefs": [
-          "iso4032_2023"
-        ],
-        "status": "single-source",
-        "verification": "one-primary-record",
         "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "sourceRefs": [
+          "spm1587_2021",
+          "ekinsun1587_2021"
+        ],
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "dimension-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "s_nom": {
         "nominal": 30,
+        "unit": "mm",
         "sourceRefs": [
+          "spm1587_2021",
+          "ekinsun1587_2021",
           "lederer1587"
         ],
-        "status": "single-source",
-        "verification": "one-primary-record",
-        "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "dimension-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "h_catalog": {
-        "value": 34,
+        "nominal": 34,
+        "unit": "mm",
         "sourceRefs": [
+          "spm1587_2021",
+          "ekinsun1587_2021",
           "lederer1587"
         ],
-        "status": "single-source",
-        "verification": "one-primary-record",
-        "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "dimension-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "m_max": {
         "max": 16,
+        "unit": "mm",
         "sourceRefs": [
+          "spm1587_2021",
           "lederer1587"
         ],
-        "status": "single-source",
-        "verification": "one-primary-record",
-        "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "dimension-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "capDiameter_max": {
         "max": 28,
+        "unit": "mm",
         "sourceRefs": [
+          "ekinsun1587_2021",
           "lederer1587"
         ],
-        "status": "single-source",
-        "verification": "one-primary-record",
-        "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "dimension-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "d_nom": {
         "nominal": 20,
+        "unit": "mm",
         "sourceRefs": [
+          "spm1587_2021",
           "lederer1587"
         ],
-        "status": "single-source",
-        "verification": "one-primary-record",
-        "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "dimension-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "blindHoleDepth": {
         "sourceRefs": [],
@@ -1124,68 +1509,106 @@
         "verification": false,
         "unit": "mm",
         "note": "Detailmaß im ausgewerteten Nachweis nicht festgelegt; Kunden-/Herstellerzeichnung erforderlich."
+      },
+      "h_max": {
+        "max": 34,
+        "unit": "mm",
+        "sourceRefs": [
+          "spm1587_2021",
+          "ekinsun1587_2021"
+        ],
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "dimension-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
+      },
+      "threadDepth_min": {
+        "min": 25.58,
+        "unit": "mm",
+        "sourceRefs": [
+          "spm1587_2021",
+          "ekinsun1587_2021"
+        ],
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "dimension-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       }
     },
     "M22": {
       "P": {
         "nominal": 2.5,
-        "sourceRefs": [
-          "iso4032_2023"
-        ],
-        "status": "single-source",
-        "verification": "one-primary-record",
         "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "sourceRefs": [
+          "spm1587_2021",
+          "ekinsun1587_2021"
+        ],
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "dimension-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "s_nom": {
         "nominal": 34,
+        "unit": "mm",
         "sourceRefs": [
+          "spm1587_2021",
+          "ekinsun1587_2021",
           "lederer1587"
         ],
-        "status": "single-source",
-        "verification": "one-primary-record",
-        "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "dimension-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "h_catalog": {
-        "value": 39,
+        "nominal": 39,
+        "unit": "mm",
         "sourceRefs": [
+          "spm1587_2021",
+          "ekinsun1587_2021",
           "lederer1587"
         ],
-        "status": "single-source",
-        "verification": "one-primary-record",
-        "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "dimension-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "m_max": {
         "max": 18,
+        "unit": "mm",
         "sourceRefs": [
+          "spm1587_2021",
           "lederer1587"
         ],
-        "status": "single-source",
-        "verification": "one-primary-record",
-        "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "dimension-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "capDiameter_max": {
         "max": 33,
+        "unit": "mm",
         "sourceRefs": [
+          "ekinsun1587_2021",
           "lederer1587"
         ],
-        "status": "single-source",
-        "verification": "one-primary-record",
-        "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "dimension-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "d_nom": {
         "nominal": 22,
+        "unit": "mm",
         "sourceRefs": [
+          "spm1587_2021",
           "lederer1587"
         ],
-        "status": "single-source",
-        "verification": "one-primary-record",
-        "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "dimension-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "blindHoleDepth": {
         "sourceRefs": [],
@@ -1207,68 +1630,106 @@
         "verification": false,
         "unit": "mm",
         "note": "Detailmaß im ausgewerteten Nachweis nicht festgelegt; Kunden-/Herstellerzeichnung erforderlich."
+      },
+      "h_max": {
+        "max": 39,
+        "unit": "mm",
+        "sourceRefs": [
+          "spm1587_2021",
+          "ekinsun1587_2021"
+        ],
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "dimension-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
+      },
+      "threadDepth_min": {
+        "min": 28.58,
+        "unit": "mm",
+        "sourceRefs": [
+          "spm1587_2021",
+          "ekinsun1587_2021"
+        ],
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "dimension-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       }
     },
     "M24": {
       "P": {
         "nominal": 3,
-        "sourceRefs": [
-          "iso4032_2023"
-        ],
-        "status": "single-source",
-        "verification": "one-primary-record",
         "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "sourceRefs": [
+          "spm1587_2021",
+          "ekinsun1587_2021"
+        ],
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "dimension-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "s_nom": {
         "nominal": 36,
+        "unit": "mm",
         "sourceRefs": [
+          "spm1587_2021",
+          "ekinsun1587_2021",
           "lederer1587"
         ],
-        "status": "single-source",
-        "verification": "one-primary-record",
-        "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "dimension-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "h_catalog": {
-        "value": 42,
+        "nominal": 42,
+        "unit": "mm",
         "sourceRefs": [
+          "spm1587_2021",
+          "ekinsun1587_2021",
           "lederer1587"
         ],
-        "status": "single-source",
-        "verification": "one-primary-record",
-        "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "dimension-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "m_max": {
         "max": 19,
+        "unit": "mm",
         "sourceRefs": [
+          "spm1587_2021",
           "lederer1587"
         ],
-        "status": "single-source",
-        "verification": "one-primary-record",
-        "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "dimension-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "capDiameter_max": {
         "max": 34,
+        "unit": "mm",
         "sourceRefs": [
+          "ekinsun1587_2021",
           "lederer1587"
         ],
-        "status": "single-source",
-        "verification": "one-primary-record",
-        "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "dimension-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "d_nom": {
         "nominal": 24,
+        "unit": "mm",
         "sourceRefs": [
+          "spm1587_2021",
           "lederer1587"
         ],
-        "status": "single-source",
-        "verification": "one-primary-record",
-        "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "dimension-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "blindHoleDepth": {
         "sourceRefs": [],
@@ -1290,6 +1751,30 @@
         "verification": false,
         "unit": "mm",
         "note": "Detailmaß im ausgewerteten Nachweis nicht festgelegt; Kunden-/Herstellerzeichnung erforderlich."
+      },
+      "h_max": {
+        "max": 42,
+        "unit": "mm",
+        "sourceRefs": [
+          "spm1587_2021",
+          "ekinsun1587_2021"
+        ],
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "dimension-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
+      },
+      "threadDepth_min": {
+        "min": 30.5,
+        "unit": "mm",
+        "sourceRefs": [
+          "spm1587_2021",
+          "ekinsun1587_2021"
+        ],
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "dimension-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       }
     },
     "M27": {
@@ -1457,6 +1942,122 @@
         "unit": "mm",
         "note": "Detailmaß im ausgewerteten Nachweis nicht festgelegt; Kunden-/Herstellerzeichnung erforderlich."
       }
+    },
+    "M4": {
+      "d_nom": {
+        "nominal": 4,
+        "unit": "mm",
+        "sourceRefs": [
+          "spm1587_2021"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "dimension-table",
+        "note": "Nur eine ausgewertete Maßquelle."
+      },
+      "P": {
+        "nominal": 0.7,
+        "unit": "mm",
+        "sourceRefs": [
+          "spm1587_2021",
+          "ekinsun1587_2021"
+        ],
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "dimension-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
+      },
+      "s_nom": {
+        "nominal": 7,
+        "unit": "mm",
+        "sourceRefs": [
+          "spm1587_2021",
+          "ekinsun1587_2021"
+        ],
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "dimension-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
+      },
+      "h_max": {
+        "max": 8,
+        "unit": "mm",
+        "sourceRefs": [
+          "spm1587_2021",
+          "ekinsun1587_2021"
+        ],
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "dimension-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
+      },
+      "h_catalog": {
+        "nominal": 8,
+        "unit": "mm",
+        "sourceRefs": [
+          "spm1587_2021",
+          "ekinsun1587_2021"
+        ],
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "dimension-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
+      },
+      "m_max": {
+        "max": 3.2,
+        "unit": "mm",
+        "sourceRefs": [
+          "spm1587_2021"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "dimension-table",
+        "note": "Nur eine ausgewertete Maßquelle."
+      },
+      "threadDepth_min": {
+        "min": 5.26,
+        "unit": "mm",
+        "sourceRefs": [
+          "spm1587_2021",
+          "ekinsun1587_2021"
+        ],
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "dimension-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
+      },
+      "capDiameter_max": {
+        "max": 6.5,
+        "unit": "mm",
+        "sourceRefs": [
+          "ekinsun1587_2021"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "dimension-table",
+        "note": "Nur eine ausgewertete Maßquelle."
+      },
+      "blindHoleDepth": {
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "unit": "mm",
+        "note": "Detailmaß im ausgewerteten Nachweis nicht festgelegt; Kunden-/Herstellerzeichnung erforderlich."
+      },
+      "capWallThickness": {
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "unit": "mm",
+        "note": "Detailmaß im ausgewerteten Nachweis nicht festgelegt; Kunden-/Herstellerzeichnung erforderlich."
+      },
+      "capProfile": {
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "unit": "mm",
+        "note": "Detailmaß im ausgewerteten Nachweis nicht festgelegt; Kunden-/Herstellerzeichnung erforderlich."
+      }
     }
   },
   "sourceMeta": {
@@ -1475,21 +2076,213 @@
       "kind": "standard",
       "edition": "2023",
       "accessed": "2026-11-26"
+    },
+    "spm1587_2021": {
+      "url": "https://spmetalparts.com/products/nuts/hex-dome-cap-nuts/",
+      "title": "SPM Super Metal, DIN1587:2021 ausgewählte Bezugsmaße",
+      "edition": "2021-11",
+      "locator": "Tabelle M4–M24; Hersteller benennt seine Datengrundlage",
+      "kind": "manufacturer-declared-standard-table",
+      "accessed": "2026-11-27"
+    },
+    "ekinsun1587_2021": {
+      "url": "https://www.ekinsun.com/de/sondermuttern/hutmutter-din-1587/",
+      "title": "EKINSUN DIN1587:2021 Maßtabelle",
+      "edition": "2021-11",
+      "locator": "Hohe Hutmutter, M4–M24",
+      "kind": "manufacturer-declared-standard-table",
+      "accessed": "2026-11-27"
+    },
+    "din1587_register": {
+      "url": "https://www.dinmedia.de/de/norm/din-1587/344995769",
+      "title": "DIN Media DIN1587:2021-11",
+      "edition": "2021-11",
+      "locator": "Ausgabe, Änderungsvermerk und Geltungsbereich",
+      "kind": "standard-register",
+      "accessed": "2026-11-27"
     }
   },
   "sourceStatus": "per-value",
   "coverage": {
-    "diameterMin": 5,
+    "diameterMin": 4,
     "diameterMax": 30,
     "unit": "mm",
     "status": "partial",
-    "missingSizes": [
-      "M7"
-    ],
-    "missingReason": "Keine ausgewerteten Maßnachweise für diese Größen; keine Aussage über Herstellbarkeit oder Lieferbarkeit."
+    "note": "12 Regelgewindezeilen M4–M24 nach ausdrücklich bezeichneten Herstellerreferenzen zu2021; M27/M30 als Zusatz-Liefergrößen. Vollständiger Originaltabellenabgleich und Feingewinde offen."
   },
-  "editionStatus": "edition-unverified",
+  "editionStatus": "source-edition-matched",
   "height": "h_catalog",
   "threadSeries": "coarse",
-  "defaultPolicy": "Dokumentierte Kataloghöhe oder ausgewiesenes Höchstmaß als vorläufige Außenhülle; kein vollständiges Fertigteilmodell."
+  "defaultPolicy": "Dokumentierte Kataloghöhe oder ausgewiesenes Höchstmaß als vorläufige Außenhülle; kein vollständiges Fertigteilmodell.",
+  "currentEdition": "2021-11",
+  "editionEvidence": {
+    "sourceRefs": [
+      "spm1587_2021"
+    ],
+    "method": "supplier-declared-edition-and-dimension-comparison",
+    "note": "Datenausgabe der ausgewerteten Maßtabelle; aktueller Normstatus wird getrennt geführt."
+  },
+  "coverageNotes": [
+    "Normstatus bei DIN geprüft. Maßbeleg sind die bezeichneten Herstellertabellen, kein vollständig eingesehenes Normoriginal. SPM nennt eine nachgelagerte Datengrundlage; die unabhängige Herkunft aller Tabellenwerte wird nicht behauptet. Gewindetiefe wird nicht als Napftiefe eingesetzt."
+  ],
+  "sizeCoverage": {
+    "M4": {
+      "status": "documented",
+      "sourceRefs": [
+        "spm1587_2021"
+      ]
+    },
+    "M5": {
+      "status": "documented",
+      "sourceRefs": [
+        "spm1587_2021"
+      ]
+    },
+    "M6": {
+      "status": "documented",
+      "sourceRefs": [
+        "spm1587_2021"
+      ]
+    },
+    "M8": {
+      "status": "documented",
+      "sourceRefs": [
+        "spm1587_2021"
+      ]
+    },
+    "M10": {
+      "status": "documented",
+      "sourceRefs": [
+        "spm1587_2021"
+      ]
+    },
+    "M12": {
+      "status": "documented",
+      "sourceRefs": [
+        "spm1587_2021"
+      ]
+    },
+    "M14": {
+      "status": "documented",
+      "sourceRefs": [
+        "spm1587_2021"
+      ]
+    },
+    "M16": {
+      "status": "documented",
+      "sourceRefs": [
+        "spm1587_2021"
+      ]
+    },
+    "M18": {
+      "status": "documented",
+      "sourceRefs": [
+        "spm1587_2021"
+      ]
+    },
+    "M20": {
+      "status": "documented",
+      "sourceRefs": [
+        "spm1587_2021"
+      ]
+    },
+    "M22": {
+      "status": "documented",
+      "sourceRefs": [
+        "spm1587_2021"
+      ]
+    },
+    "M24": {
+      "status": "documented",
+      "sourceRefs": [
+        "spm1587_2021"
+      ]
+    }
+  },
+  "abweichungen": [
+    {
+      "size": "M10",
+      "field": "capDiameter_max",
+      "previousValue": 16,
+      "value": 15,
+      "sourceRefs": [
+        "ekinsun1587_2021",
+        "lederer1587"
+      ],
+      "status": "source-edition-resolved",
+      "note": "Maßtabelle der bezeichneten Datenausgabe verwendet; abweichender Herstellerwert bleibt dokumentiert."
+    },
+    {
+      "size": "M12",
+      "field": "capDiameter_max",
+      "previousValue": 18,
+      "value": 17,
+      "sourceRefs": [
+        "ekinsun1587_2021",
+        "lederer1587"
+      ],
+      "status": "source-edition-resolved",
+      "note": "Maßtabelle der bezeichneten Datenausgabe verwendet; abweichender Herstellerwert bleibt dokumentiert."
+    },
+    {
+      "size": "M14",
+      "field": "capDiameter_max",
+      "previousValue": 21,
+      "value": 20,
+      "sourceRefs": [
+        "ekinsun1587_2021",
+        "lederer1587"
+      ],
+      "status": "source-edition-resolved",
+      "note": "Maßtabelle der bezeichneten Datenausgabe verwendet; abweichender Herstellerwert bleibt dokumentiert."
+    }
+  ],
+  "pruefdatum": "2026-11-27",
+  "quellen": [
+    {
+      "id": "lederer1587",
+      "url": "https://www.lederer-online.com/fileadmin/users/redakteur/redakteur_upload/DIN1587.pdf",
+      "title": "Lederer DIN1587 product dimensions",
+      "locator": "Printed page 160",
+      "kind": "supplier-product-catalog",
+      "edition": null,
+      "accessed": "2026-11-26"
+    },
+    {
+      "id": "iso4032_2023",
+      "url": "https://cdn.standards.iteh.ai/samples/75016/5b1f83bd2dc44fc199973e9957a75086/ISO-4032-2023.pdf",
+      "title": "ISO 4032:2023",
+      "locator": "Tables 1–2, printed page 3",
+      "kind": "standard",
+      "edition": "2023",
+      "accessed": "2026-11-26"
+    },
+    {
+      "id": "spm1587_2021",
+      "url": "https://spmetalparts.com/products/nuts/hex-dome-cap-nuts/",
+      "title": "SPM Super Metal, DIN1587:2021 ausgewählte Bezugsmaße",
+      "edition": "2021-11",
+      "locator": "Tabelle M4–M24; Hersteller benennt seine Datengrundlage",
+      "kind": "manufacturer-declared-standard-table",
+      "accessed": "2026-11-27"
+    },
+    {
+      "id": "ekinsun1587_2021",
+      "url": "https://www.ekinsun.com/de/sondermuttern/hutmutter-din-1587/",
+      "title": "EKINSUN DIN1587:2021 Maßtabelle",
+      "edition": "2021-11",
+      "locator": "Hohe Hutmutter, M4–M24",
+      "kind": "manufacturer-declared-standard-table",
+      "accessed": "2026-11-27"
+    },
+    {
+      "id": "din1587_register",
+      "url": "https://www.dinmedia.de/de/norm/din-1587/344995769",
+      "title": "DIN Media DIN1587:2021-11",
+      "edition": "2021-11",
+      "locator": "Ausgabe, Änderungsvermerk und Geltungsbereich",
+      "kind": "standard-register",
+      "accessed": "2026-11-27"
+    }
+  ]
 }

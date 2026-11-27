@@ -1,8 +1,8 @@
 {
   "schemaVersion": 1,
-  "version": "2026-11-26.1",
+  "version": "2026-11-27.p7",
   "id": "DIN980",
-  "edition": "catalog-undated",
+  "edition": "1987-05",
   "label": "Ganzmetall-Klemmmutter, Form V",
   "funktion": "mutter",
   "klasse": "mutter",
@@ -32,7 +32,7 @@
         "diameter": 5,
         "pitch": 0.8,
         "sourceRefs": [
-          "boellhoff980"
+          "din980_1987_original"
         ]
       },
       "geometryStatus": "partial",
@@ -59,7 +59,7 @@
         "diameter": 6,
         "pitch": 1,
         "sourceRefs": [
-          "boellhoff980"
+          "din980_1987_original"
         ]
       },
       "geometryStatus": "partial",
@@ -86,7 +86,7 @@
         "diameter": 7,
         "pitch": 1,
         "sourceRefs": [
-          "berat980"
+          "din980_1987_original"
         ]
       },
       "geometryStatus": "partial",
@@ -113,7 +113,7 @@
         "diameter": 8,
         "pitch": 1.25,
         "sourceRefs": [
-          "boellhoff980"
+          "din980_1987_original"
         ]
       },
       "geometryStatus": "partial",
@@ -140,7 +140,7 @@
         "diameter": 10,
         "pitch": 1.5,
         "sourceRefs": [
-          "boellhoff980"
+          "din980_1987_original"
         ]
       },
       "geometryStatus": "partial",
@@ -167,7 +167,7 @@
         "diameter": 12,
         "pitch": 1.75,
         "sourceRefs": [
-          "boellhoff980"
+          "din980_1987_original"
         ]
       },
       "geometryStatus": "partial",
@@ -194,7 +194,7 @@
         "diameter": 14,
         "pitch": 2,
         "sourceRefs": [
-          "boellhoff980"
+          "din980_1987_original"
         ]
       },
       "geometryStatus": "partial",
@@ -221,7 +221,7 @@
         "diameter": 16,
         "pitch": 2,
         "sourceRefs": [
-          "boellhoff980"
+          "din980_1987_original"
         ]
       },
       "geometryStatus": "partial",
@@ -248,7 +248,7 @@
         "diameter": 18,
         "pitch": 2.5,
         "sourceRefs": [
-          "boellhoff980"
+          "din980_1987_original"
         ]
       },
       "geometryStatus": "partial",
@@ -275,7 +275,7 @@
         "diameter": 20,
         "pitch": 2.5,
         "sourceRefs": [
-          "boellhoff980"
+          "din980_1987_original"
         ]
       },
       "geometryStatus": "partial",
@@ -302,7 +302,7 @@
         "diameter": 22,
         "pitch": 2.5,
         "sourceRefs": [
-          "boellhoff980"
+          "din980_1987_original"
         ]
       },
       "geometryStatus": "partial",
@@ -329,7 +329,7 @@
         "diameter": 24,
         "pitch": 3,
         "sourceRefs": [
-          "boellhoff980"
+          "din980_1987_original"
         ]
       },
       "geometryStatus": "partial",
@@ -356,7 +356,7 @@
         "diameter": 27,
         "pitch": 3,
         "sourceRefs": [
-          "berat980"
+          "din980_1987_original"
         ]
       },
       "geometryStatus": "partial",
@@ -383,7 +383,7 @@
         "diameter": 30,
         "pitch": 3.5,
         "sourceRefs": [
-          "boellhoff980"
+          "din980_1987_original"
         ]
       },
       "geometryStatus": "partial",
@@ -410,7 +410,7 @@
         "diameter": 8,
         "pitch": 1,
         "sourceRefs": [
-          "berat980"
+          "din980_1987_original"
         ]
       },
       "geometryStatus": "partial",
@@ -437,7 +437,7 @@
         "diameter": 10,
         "pitch": 1.25,
         "sourceRefs": [
-          "berat980"
+          "din980_1987_original"
         ]
       },
       "geometryStatus": "partial",
@@ -464,7 +464,7 @@
         "diameter": 10,
         "pitch": 1,
         "sourceRefs": [
-          "berat980"
+          "din980_1987_original"
         ]
       },
       "geometryStatus": "partial",
@@ -491,7 +491,7 @@
         "diameter": 12,
         "pitch": 1.5,
         "sourceRefs": [
-          "berat980"
+          "din980_1987_original"
         ]
       },
       "geometryStatus": "partial",
@@ -518,7 +518,7 @@
         "diameter": 12,
         "pitch": 1.25,
         "sourceRefs": [
-          "berat980"
+          "din980_1987_original"
         ]
       },
       "geometryStatus": "partial",
@@ -545,7 +545,7 @@
         "diameter": 14,
         "pitch": 1.5,
         "sourceRefs": [
-          "berat980"
+          "din980_1987_original"
         ]
       },
       "geometryStatus": "partial",
@@ -572,7 +572,7 @@
         "diameter": 16,
         "pitch": 1.5,
         "sourceRefs": [
-          "berat980"
+          "din980_1987_original"
         ]
       },
       "geometryStatus": "partial",
@@ -599,7 +599,7 @@
         "diameter": 18,
         "pitch": 2,
         "sourceRefs": [
-          "berat980"
+          "din980_1987_original"
         ]
       },
       "geometryStatus": "partial",
@@ -626,7 +626,7 @@
         "diameter": 18,
         "pitch": 1.5,
         "sourceRefs": [
-          "berat980"
+          "din980_1987_original"
         ]
       },
       "geometryStatus": "partial",
@@ -653,7 +653,7 @@
         "diameter": 20,
         "pitch": 2,
         "sourceRefs": [
-          "berat980"
+          "din980_1987_original"
         ]
       },
       "geometryStatus": "partial",
@@ -680,7 +680,7 @@
         "diameter": 20,
         "pitch": 1.5,
         "sourceRefs": [
-          "berat980"
+          "din980_1987_original"
         ]
       },
       "geometryStatus": "partial",
@@ -707,7 +707,7 @@
         "diameter": 22,
         "pitch": 2,
         "sourceRefs": [
-          "berat980"
+          "din980_1987_original"
         ]
       },
       "geometryStatus": "partial",
@@ -734,7 +734,7 @@
         "diameter": 22,
         "pitch": 1.5,
         "sourceRefs": [
-          "berat980"
+          "din980_1987_original"
         ]
       },
       "geometryStatus": "partial",
@@ -761,7 +761,7 @@
         "diameter": 24,
         "pitch": 2,
         "sourceRefs": [
-          "berat980"
+          "din980_1987_original"
         ]
       },
       "geometryStatus": "partial",
@@ -788,7 +788,7 @@
         "diameter": 27,
         "pitch": 2,
         "sourceRefs": [
-          "berat980"
+          "din980_1987_original"
         ]
       },
       "geometryStatus": "partial",
@@ -815,86 +815,322 @@
         "diameter": 30,
         "pitch": 2,
         "sourceRefs": [
-          "berat980"
+          "din980_1987_original"
         ]
       },
       "geometryStatus": "partial",
       "missingGeometryFields": [
         "prevailingTorqueProfile"
       ]
+    },
+    "M3": {
+      "vorbelegung": {
+        "mSW": 5.5,
+        "mH": 3.7
+      },
+      "roh": {
+        "d_nom": 3,
+        "P": 0.5,
+        "s_nom": 5.5,
+        "s_min": 5.32,
+        "h_max": 3.7,
+        "h_min": 3.4,
+        "e_min": 6.01
+      },
+      "geometryStatus": "partial",
+      "missingGeometryFields": [
+        "prevailingTorqueProfile"
+      ],
+      "thread": {
+        "id": "M3x0.5",
+        "diameter": 3,
+        "pitch": 0.5,
+        "sourceRefs": [
+          "din980_1987_original"
+        ]
+      }
+    },
+    "M4": {
+      "vorbelegung": {
+        "mSW": 7,
+        "mH": 4.2
+      },
+      "roh": {
+        "d_nom": 4,
+        "P": 0.7,
+        "s_nom": 7,
+        "s_min": 6.78,
+        "h_max": 4.2,
+        "h_min": 3.9,
+        "e_min": 7.66
+      },
+      "geometryStatus": "partial",
+      "missingGeometryFields": [
+        "prevailingTorqueProfile"
+      ],
+      "thread": {
+        "id": "M4x0.7",
+        "diameter": 4,
+        "pitch": 0.7,
+        "sourceRefs": [
+          "din980_1987_original"
+        ]
+      }
+    },
+    "M33": {
+      "vorbelegung": {
+        "mSW": 50,
+        "mH": 33
+      },
+      "roh": {
+        "d_nom": 33,
+        "P": 3.5,
+        "s_nom": 50,
+        "s_min": 49,
+        "h_max": 33,
+        "h_min": 31,
+        "e_min": 55.37
+      },
+      "geometryStatus": "partial",
+      "missingGeometryFields": [
+        "prevailingTorqueProfile"
+      ],
+      "thread": {
+        "id": "M33x3.5",
+        "diameter": 33,
+        "pitch": 3.5,
+        "sourceRefs": [
+          "din980_1987_original"
+        ]
+      }
+    },
+    "M33x2": {
+      "vorbelegung": {
+        "mSW": 50,
+        "mH": 33
+      },
+      "roh": {
+        "d_nom": 33,
+        "P": 2,
+        "s_nom": 50,
+        "s_min": 49,
+        "h_max": 33,
+        "h_min": 31,
+        "e_min": 55.37
+      },
+      "geometryStatus": "partial",
+      "missingGeometryFields": [
+        "prevailingTorqueProfile"
+      ],
+      "thread": {
+        "id": "M33x2",
+        "diameter": 33,
+        "pitch": 2,
+        "sourceRefs": [
+          "din980_1987_original"
+        ]
+      }
+    },
+    "M36": {
+      "vorbelegung": {
+        "mSW": 55,
+        "mH": 36
+      },
+      "roh": {
+        "d_nom": 36,
+        "P": 4,
+        "s_nom": 55,
+        "s_min": 53.8,
+        "h_max": 36,
+        "h_min": 34,
+        "e_min": 60.79
+      },
+      "geometryStatus": "partial",
+      "missingGeometryFields": [
+        "prevailingTorqueProfile"
+      ],
+      "thread": {
+        "id": "M36x4",
+        "diameter": 36,
+        "pitch": 4,
+        "sourceRefs": [
+          "din980_1987_original"
+        ]
+      }
+    },
+    "M36x3": {
+      "vorbelegung": {
+        "mSW": 55,
+        "mH": 36
+      },
+      "roh": {
+        "d_nom": 36,
+        "P": 3,
+        "s_nom": 55,
+        "s_min": 53.8,
+        "h_max": 36,
+        "h_min": 34,
+        "e_min": 60.79
+      },
+      "geometryStatus": "partial",
+      "missingGeometryFields": [
+        "prevailingTorqueProfile"
+      ],
+      "thread": {
+        "id": "M36x3",
+        "diameter": 36,
+        "pitch": 3,
+        "sourceRefs": [
+          "din980_1987_original"
+        ]
+      }
+    },
+    "M39": {
+      "vorbelegung": {
+        "mSW": 60,
+        "mH": 39
+      },
+      "roh": {
+        "d_nom": 39,
+        "P": 4,
+        "s_nom": 60,
+        "s_min": 58.8,
+        "h_max": 39,
+        "h_min": 37,
+        "e_min": 66.44
+      },
+      "geometryStatus": "partial",
+      "missingGeometryFields": [
+        "prevailingTorqueProfile"
+      ],
+      "thread": {
+        "id": "M39x4",
+        "diameter": 39,
+        "pitch": 4,
+        "sourceRefs": [
+          "din980_1987_original"
+        ]
+      }
+    },
+    "M39x3": {
+      "vorbelegung": {
+        "mSW": 60,
+        "mH": 39
+      },
+      "roh": {
+        "d_nom": 39,
+        "P": 3,
+        "s_nom": 60,
+        "s_min": 58.8,
+        "h_max": 39,
+        "h_min": 37,
+        "e_min": 66.44
+      },
+      "geometryStatus": "partial",
+      "missingGeometryFields": [
+        "prevailingTorqueProfile"
+      ],
+      "thread": {
+        "id": "M39x3",
+        "diameter": 39,
+        "pitch": 3,
+        "sourceRefs": [
+          "din980_1987_original"
+        ]
+      }
     }
   },
   "fields": {
     "M5": {
       "P": {
         "nominal": 0.8,
+        "unit": "mm",
         "sourceRefs": [
+          "din980_1987_original",
           "boellhoff980",
           "berat980"
         ],
         "status": "verified",
-        "verification": "independent-source-agreement",
-        "unit": "mm"
+        "verification": true,
+        "verificationMethod": "original-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "s_nom": {
         "nominal": 8,
+        "unit": "mm",
         "sourceRefs": [
+          "din980_1987_original",
           "boellhoff980",
           "berat980"
         ],
         "status": "verified",
-        "verification": "independent-source-agreement",
-        "unit": "mm"
+        "verification": true,
+        "verificationMethod": "original-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "s_min": {
         "min": 7.78,
+        "unit": "mm",
         "sourceRefs": [
+          "din980_1987_original",
           "boellhoff980",
           "berat980"
         ],
         "status": "verified",
-        "verification": "independent-source-agreement",
-        "unit": "mm"
+        "verification": true,
+        "verificationMethod": "original-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "e_min": {
         "min": 8.79,
+        "unit": "mm",
         "sourceRefs": [
+          "din980_1987_original",
           "boellhoff980",
           "berat980"
         ],
         "status": "verified",
-        "verification": "independent-source-agreement",
-        "unit": "mm"
+        "verification": true,
+        "verificationMethod": "original-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "h_max": {
         "max": 5.1,
+        "unit": "mm",
         "sourceRefs": [
+          "din980_1987_original",
           "boellhoff980",
           "berat980"
         ],
         "status": "verified",
-        "verification": "independent-source-agreement",
-        "unit": "mm"
+        "verification": true,
+        "verificationMethod": "original-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "h_min": {
         "min": 4.8,
+        "unit": "mm",
         "sourceRefs": [
+          "din980_1987_original",
           "boellhoff980",
           "berat980"
         ],
         "status": "verified",
-        "verification": "independent-source-agreement",
-        "unit": "mm"
+        "verification": true,
+        "verificationMethod": "original-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "d_nom": {
         "nominal": 5,
+        "unit": "mm",
         "sourceRefs": [
+          "din980_1987_original",
           "boellhoff980"
         ],
-        "status": "single-source",
-        "verification": "one-primary-record",
-        "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "original-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "prevailingTorqueProfile": {
         "sourceRefs": [],
@@ -907,73 +1143,93 @@
     "M6": {
       "P": {
         "nominal": 1,
+        "unit": "mm",
         "sourceRefs": [
+          "din980_1987_original",
           "boellhoff980",
           "berat980"
         ],
         "status": "verified",
-        "verification": "independent-source-agreement",
-        "unit": "mm"
+        "verification": true,
+        "verificationMethod": "original-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "s_nom": {
         "nominal": 10,
+        "unit": "mm",
         "sourceRefs": [
+          "din980_1987_original",
           "boellhoff980",
           "berat980"
         ],
         "status": "verified",
-        "verification": "independent-source-agreement",
-        "unit": "mm"
+        "verification": true,
+        "verificationMethod": "original-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "s_min": {
         "min": 9.78,
+        "unit": "mm",
         "sourceRefs": [
+          "din980_1987_original",
           "boellhoff980",
           "berat980"
         ],
         "status": "verified",
-        "verification": "independent-source-agreement",
-        "unit": "mm"
+        "verification": true,
+        "verificationMethod": "original-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "e_min": {
         "min": 11.05,
+        "unit": "mm",
         "sourceRefs": [
+          "din980_1987_original",
           "boellhoff980",
           "berat980"
         ],
         "status": "verified",
-        "verification": "independent-source-agreement",
-        "unit": "mm"
+        "verification": true,
+        "verificationMethod": "original-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "h_max": {
         "max": 6,
+        "unit": "mm",
         "sourceRefs": [
+          "din980_1987_original",
           "boellhoff980",
           "berat980"
         ],
         "status": "verified",
-        "verification": "independent-source-agreement",
-        "unit": "mm"
+        "verification": true,
+        "verificationMethod": "original-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "h_min": {
         "min": 5.7,
+        "unit": "mm",
         "sourceRefs": [
+          "din980_1987_original",
           "boellhoff980",
           "berat980"
         ],
         "status": "verified",
-        "verification": "independent-source-agreement",
-        "unit": "mm"
+        "verification": true,
+        "verificationMethod": "original-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "d_nom": {
         "nominal": 6,
+        "unit": "mm",
         "sourceRefs": [
+          "din980_1987_original",
           "boellhoff980"
         ],
-        "status": "single-source",
-        "verification": "one-primary-record",
-        "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "original-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "prevailingTorqueProfile": {
         "sourceRefs": [],
@@ -986,73 +1242,87 @@
     "M7": {
       "P": {
         "nominal": 1,
+        "unit": "mm",
         "sourceRefs": [
+          "din980_1987_original",
           "berat980"
         ],
-        "status": "single-source",
-        "verification": "one-primary-record",
-        "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "original-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "s_nom": {
         "nominal": 11,
+        "unit": "mm",
         "sourceRefs": [
+          "din980_1987_original",
           "berat980"
         ],
-        "status": "single-source",
-        "verification": "one-primary-record",
-        "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "original-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "s_min": {
         "min": 10.73,
+        "unit": "mm",
         "sourceRefs": [
+          "din980_1987_original",
           "berat980"
         ],
-        "status": "single-source",
-        "verification": "one-primary-record",
-        "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "original-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "e_min": {
         "min": 12.12,
+        "unit": "mm",
         "sourceRefs": [
+          "din980_1987_original",
           "berat980"
         ],
-        "status": "single-source",
-        "verification": "one-primary-record",
-        "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "original-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "h_max": {
         "max": 7,
+        "unit": "mm",
         "sourceRefs": [
+          "din980_1987_original",
           "berat980"
         ],
-        "status": "single-source",
-        "verification": "one-primary-record",
-        "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "original-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "h_min": {
         "min": 6.5,
+        "unit": "mm",
         "sourceRefs": [
+          "din980_1987_original",
           "berat980"
         ],
-        "status": "single-source",
-        "verification": "one-primary-record",
-        "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "original-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "d_nom": {
         "nominal": 7,
+        "unit": "mm",
         "sourceRefs": [
+          "din980_1987_original",
           "berat980"
         ],
-        "status": "single-source",
-        "verification": "one-primary-record",
-        "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "original-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "prevailingTorqueProfile": {
         "sourceRefs": [],
@@ -1065,73 +1335,93 @@
     "M8": {
       "P": {
         "nominal": 1.25,
+        "unit": "mm",
         "sourceRefs": [
+          "din980_1987_original",
           "boellhoff980",
           "berat980"
         ],
         "status": "verified",
-        "verification": "independent-source-agreement",
-        "unit": "mm"
+        "verification": true,
+        "verificationMethod": "original-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "s_nom": {
         "nominal": 13,
+        "unit": "mm",
         "sourceRefs": [
+          "din980_1987_original",
           "boellhoff980",
           "berat980"
         ],
         "status": "verified",
-        "verification": "independent-source-agreement",
-        "unit": "mm"
+        "verification": true,
+        "verificationMethod": "original-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "s_min": {
         "min": 12.73,
+        "unit": "mm",
         "sourceRefs": [
+          "din980_1987_original",
           "boellhoff980",
           "berat980"
         ],
         "status": "verified",
-        "verification": "independent-source-agreement",
-        "unit": "mm"
+        "verification": true,
+        "verificationMethod": "original-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "e_min": {
         "min": 14.38,
+        "unit": "mm",
         "sourceRefs": [
+          "din980_1987_original",
           "boellhoff980",
           "berat980"
         ],
         "status": "verified",
-        "verification": "independent-source-agreement",
-        "unit": "mm"
+        "verification": true,
+        "verificationMethod": "original-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "h_max": {
         "max": 8,
+        "unit": "mm",
         "sourceRefs": [
+          "din980_1987_original",
           "boellhoff980",
           "berat980"
         ],
         "status": "verified",
-        "verification": "independent-source-agreement",
-        "unit": "mm"
+        "verification": true,
+        "verificationMethod": "original-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "h_min": {
         "min": 7.5,
+        "unit": "mm",
         "sourceRefs": [
+          "din980_1987_original",
           "boellhoff980",
           "berat980"
         ],
         "status": "verified",
-        "verification": "independent-source-agreement",
-        "unit": "mm"
+        "verification": true,
+        "verificationMethod": "original-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "d_nom": {
         "nominal": 8,
+        "unit": "mm",
         "sourceRefs": [
+          "din980_1987_original",
           "boellhoff980"
         ],
-        "status": "single-source",
-        "verification": "one-primary-record",
-        "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "original-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "prevailingTorqueProfile": {
         "sourceRefs": [],
@@ -1144,73 +1434,93 @@
     "M10": {
       "P": {
         "nominal": 1.5,
+        "unit": "mm",
         "sourceRefs": [
+          "din980_1987_original",
           "boellhoff980",
           "berat980"
         ],
         "status": "verified",
-        "verification": "independent-source-agreement",
-        "unit": "mm"
+        "verification": true,
+        "verificationMethod": "original-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "s_nom": {
         "nominal": 17,
+        "unit": "mm",
         "sourceRefs": [
+          "din980_1987_original",
           "boellhoff980",
           "berat980"
         ],
         "status": "verified",
-        "verification": "independent-source-agreement",
-        "unit": "mm"
+        "verification": true,
+        "verificationMethod": "original-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "s_min": {
         "min": 16.73,
+        "unit": "mm",
         "sourceRefs": [
+          "din980_1987_original",
           "boellhoff980",
           "berat980"
         ],
         "status": "verified",
-        "verification": "independent-source-agreement",
-        "unit": "mm"
+        "verification": true,
+        "verificationMethod": "original-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "e_min": {
         "min": 18.9,
+        "unit": "mm",
         "sourceRefs": [
+          "din980_1987_original",
           "boellhoff980",
           "berat980"
         ],
         "status": "verified",
-        "verification": "independent-source-agreement",
-        "unit": "mm"
+        "verification": true,
+        "verificationMethod": "original-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "h_max": {
         "max": 10,
+        "unit": "mm",
         "sourceRefs": [
+          "din980_1987_original",
           "boellhoff980",
           "berat980"
         ],
         "status": "verified",
-        "verification": "independent-source-agreement",
-        "unit": "mm"
+        "verification": true,
+        "verificationMethod": "original-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "h_min": {
         "min": 9,
+        "unit": "mm",
         "sourceRefs": [
+          "din980_1987_original",
           "boellhoff980",
           "berat980"
         ],
         "status": "verified",
-        "verification": "independent-source-agreement",
-        "unit": "mm"
+        "verification": true,
+        "verificationMethod": "original-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "d_nom": {
         "nominal": 10,
+        "unit": "mm",
         "sourceRefs": [
+          "din980_1987_original",
           "boellhoff980"
         ],
-        "status": "single-source",
-        "verification": "one-primary-record",
-        "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "original-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "prevailingTorqueProfile": {
         "sourceRefs": [],
@@ -1223,73 +1533,93 @@
     "M12": {
       "P": {
         "nominal": 1.75,
+        "unit": "mm",
         "sourceRefs": [
+          "din980_1987_original",
           "boellhoff980",
           "berat980"
         ],
         "status": "verified",
-        "verification": "independent-source-agreement",
-        "unit": "mm"
+        "verification": true,
+        "verificationMethod": "original-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "s_nom": {
         "nominal": 19,
+        "unit": "mm",
         "sourceRefs": [
+          "din980_1987_original",
           "boellhoff980",
           "berat980"
         ],
         "status": "verified",
-        "verification": "independent-source-agreement",
-        "unit": "mm"
+        "verification": true,
+        "verificationMethod": "original-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "s_min": {
         "min": 18.67,
+        "unit": "mm",
         "sourceRefs": [
+          "din980_1987_original",
           "boellhoff980",
           "berat980"
         ],
         "status": "verified",
-        "verification": "independent-source-agreement",
-        "unit": "mm"
+        "verification": true,
+        "verificationMethod": "original-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "e_min": {
         "min": 21.1,
+        "unit": "mm",
         "sourceRefs": [
+          "din980_1987_original",
           "boellhoff980",
           "berat980"
         ],
         "status": "verified",
-        "verification": "independent-source-agreement",
-        "unit": "mm"
+        "verification": true,
+        "verificationMethod": "original-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "h_max": {
         "max": 12,
+        "unit": "mm",
         "sourceRefs": [
+          "din980_1987_original",
           "boellhoff980",
           "berat980"
         ],
         "status": "verified",
-        "verification": "independent-source-agreement",
-        "unit": "mm"
+        "verification": true,
+        "verificationMethod": "original-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "h_min": {
         "min": 11,
+        "unit": "mm",
         "sourceRefs": [
+          "din980_1987_original",
           "boellhoff980",
           "berat980"
         ],
         "status": "verified",
-        "verification": "independent-source-agreement",
-        "unit": "mm"
+        "verification": true,
+        "verificationMethod": "original-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "d_nom": {
         "nominal": 12,
+        "unit": "mm",
         "sourceRefs": [
+          "din980_1987_original",
           "boellhoff980"
         ],
-        "status": "single-source",
-        "verification": "one-primary-record",
-        "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "original-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "prevailingTorqueProfile": {
         "sourceRefs": [],
@@ -1302,73 +1632,93 @@
     "M14": {
       "P": {
         "nominal": 2,
+        "unit": "mm",
         "sourceRefs": [
+          "din980_1987_original",
           "boellhoff980",
           "berat980"
         ],
         "status": "verified",
-        "verification": "independent-source-agreement",
-        "unit": "mm"
+        "verification": true,
+        "verificationMethod": "original-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "s_nom": {
         "nominal": 22,
+        "unit": "mm",
         "sourceRefs": [
+          "din980_1987_original",
           "boellhoff980",
           "berat980"
         ],
         "status": "verified",
-        "verification": "independent-source-agreement",
-        "unit": "mm"
+        "verification": true,
+        "verificationMethod": "original-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "s_min": {
         "min": 21.67,
+        "unit": "mm",
         "sourceRefs": [
+          "din980_1987_original",
           "boellhoff980",
           "berat980"
         ],
         "status": "verified",
-        "verification": "independent-source-agreement",
-        "unit": "mm"
+        "verification": true,
+        "verificationMethod": "original-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "e_min": {
         "min": 24.49,
+        "unit": "mm",
         "sourceRefs": [
+          "din980_1987_original",
           "boellhoff980",
           "berat980"
         ],
         "status": "verified",
-        "verification": "independent-source-agreement",
-        "unit": "mm"
+        "verification": true,
+        "verificationMethod": "original-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "h_max": {
         "max": 14,
+        "unit": "mm",
         "sourceRefs": [
+          "din980_1987_original",
           "boellhoff980",
           "berat980"
         ],
         "status": "verified",
-        "verification": "independent-source-agreement",
-        "unit": "mm"
+        "verification": true,
+        "verificationMethod": "original-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "h_min": {
         "min": 12,
+        "unit": "mm",
         "sourceRefs": [
+          "din980_1987_original",
           "boellhoff980",
           "berat980"
         ],
         "status": "verified",
-        "verification": "independent-source-agreement",
-        "unit": "mm"
+        "verification": true,
+        "verificationMethod": "original-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "d_nom": {
         "nominal": 14,
+        "unit": "mm",
         "sourceRefs": [
+          "din980_1987_original",
           "boellhoff980"
         ],
-        "status": "single-source",
-        "verification": "one-primary-record",
-        "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "original-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "prevailingTorqueProfile": {
         "sourceRefs": [],
@@ -1381,73 +1731,93 @@
     "M16": {
       "P": {
         "nominal": 2,
+        "unit": "mm",
         "sourceRefs": [
+          "din980_1987_original",
           "boellhoff980",
           "berat980"
         ],
         "status": "verified",
-        "verification": "independent-source-agreement",
-        "unit": "mm"
+        "verification": true,
+        "verificationMethod": "original-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "s_nom": {
         "nominal": 24,
+        "unit": "mm",
         "sourceRefs": [
+          "din980_1987_original",
           "boellhoff980",
           "berat980"
         ],
         "status": "verified",
-        "verification": "independent-source-agreement",
-        "unit": "mm"
+        "verification": true,
+        "verificationMethod": "original-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "s_min": {
         "min": 23.67,
+        "unit": "mm",
         "sourceRefs": [
+          "din980_1987_original",
           "boellhoff980",
           "berat980"
         ],
         "status": "verified",
-        "verification": "independent-source-agreement",
-        "unit": "mm"
+        "verification": true,
+        "verificationMethod": "original-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "e_min": {
         "min": 26.75,
+        "unit": "mm",
         "sourceRefs": [
+          "din980_1987_original",
           "boellhoff980",
           "berat980"
         ],
         "status": "verified",
-        "verification": "independent-source-agreement",
-        "unit": "mm"
+        "verification": true,
+        "verificationMethod": "original-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "h_max": {
         "max": 16,
+        "unit": "mm",
         "sourceRefs": [
+          "din980_1987_original",
           "boellhoff980",
           "berat980"
         ],
         "status": "verified",
-        "verification": "independent-source-agreement",
-        "unit": "mm"
+        "verification": true,
+        "verificationMethod": "original-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "h_min": {
         "min": 14,
+        "unit": "mm",
         "sourceRefs": [
+          "din980_1987_original",
           "boellhoff980",
           "berat980"
         ],
         "status": "verified",
-        "verification": "independent-source-agreement",
-        "unit": "mm"
+        "verification": true,
+        "verificationMethod": "original-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "d_nom": {
         "nominal": 16,
+        "unit": "mm",
         "sourceRefs": [
+          "din980_1987_original",
           "boellhoff980"
         ],
-        "status": "single-source",
-        "verification": "one-primary-record",
-        "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "original-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "prevailingTorqueProfile": {
         "sourceRefs": [],
@@ -1460,73 +1830,93 @@
     "M18": {
       "P": {
         "nominal": 2.5,
+        "unit": "mm",
         "sourceRefs": [
+          "din980_1987_original",
           "boellhoff980",
           "berat980"
         ],
         "status": "verified",
-        "verification": "independent-source-agreement",
-        "unit": "mm"
+        "verification": true,
+        "verificationMethod": "original-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "s_nom": {
         "nominal": 27,
+        "unit": "mm",
         "sourceRefs": [
+          "din980_1987_original",
           "boellhoff980",
           "berat980"
         ],
         "status": "verified",
-        "verification": "independent-source-agreement",
-        "unit": "mm"
+        "verification": true,
+        "verificationMethod": "original-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "s_min": {
         "min": 26.16,
+        "unit": "mm",
         "sourceRefs": [
+          "din980_1987_original",
           "boellhoff980",
           "berat980"
         ],
         "status": "verified",
-        "verification": "independent-source-agreement",
-        "unit": "mm"
+        "verification": true,
+        "verificationMethod": "original-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "e_min": {
         "min": 29.56,
+        "unit": "mm",
         "sourceRefs": [
+          "din980_1987_original",
           "boellhoff980",
           "berat980"
         ],
         "status": "verified",
-        "verification": "independent-source-agreement",
-        "unit": "mm"
+        "verification": true,
+        "verificationMethod": "original-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "h_max": {
         "max": 18,
+        "unit": "mm",
         "sourceRefs": [
+          "din980_1987_original",
           "boellhoff980",
           "berat980"
         ],
         "status": "verified",
-        "verification": "independent-source-agreement",
-        "unit": "mm"
+        "verification": true,
+        "verificationMethod": "original-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "h_min": {
         "min": 16,
+        "unit": "mm",
         "sourceRefs": [
+          "din980_1987_original",
           "boellhoff980",
           "berat980"
         ],
         "status": "verified",
-        "verification": "independent-source-agreement",
-        "unit": "mm"
+        "verification": true,
+        "verificationMethod": "original-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "d_nom": {
         "nominal": 18,
+        "unit": "mm",
         "sourceRefs": [
+          "din980_1987_original",
           "boellhoff980"
         ],
-        "status": "single-source",
-        "verification": "one-primary-record",
-        "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "original-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "prevailingTorqueProfile": {
         "sourceRefs": [],
@@ -1539,73 +1929,93 @@
     "M20": {
       "P": {
         "nominal": 2.5,
+        "unit": "mm",
         "sourceRefs": [
+          "din980_1987_original",
           "boellhoff980",
           "berat980"
         ],
         "status": "verified",
-        "verification": "independent-source-agreement",
-        "unit": "mm"
+        "verification": true,
+        "verificationMethod": "original-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "s_nom": {
         "nominal": 30,
+        "unit": "mm",
         "sourceRefs": [
+          "din980_1987_original",
           "boellhoff980",
           "berat980"
         ],
         "status": "verified",
-        "verification": "independent-source-agreement",
-        "unit": "mm"
+        "verification": true,
+        "verificationMethod": "original-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "s_min": {
         "min": 29.16,
+        "unit": "mm",
         "sourceRefs": [
+          "din980_1987_original",
           "boellhoff980",
           "berat980"
         ],
         "status": "verified",
-        "verification": "independent-source-agreement",
-        "unit": "mm"
+        "verification": true,
+        "verificationMethod": "original-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "e_min": {
         "min": 32.95,
+        "unit": "mm",
         "sourceRefs": [
+          "din980_1987_original",
           "boellhoff980",
           "berat980"
         ],
         "status": "verified",
-        "verification": "independent-source-agreement",
-        "unit": "mm"
+        "verification": true,
+        "verificationMethod": "original-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "h_max": {
         "max": 20,
+        "unit": "mm",
         "sourceRefs": [
+          "din980_1987_original",
           "boellhoff980",
           "berat980"
         ],
         "status": "verified",
-        "verification": "independent-source-agreement",
-        "unit": "mm"
+        "verification": true,
+        "verificationMethod": "original-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "h_min": {
         "min": 18,
+        "unit": "mm",
         "sourceRefs": [
+          "din980_1987_original",
           "boellhoff980",
           "berat980"
         ],
         "status": "verified",
-        "verification": "independent-source-agreement",
-        "unit": "mm"
+        "verification": true,
+        "verificationMethod": "original-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "d_nom": {
         "nominal": 20,
+        "unit": "mm",
         "sourceRefs": [
+          "din980_1987_original",
           "boellhoff980"
         ],
-        "status": "single-source",
-        "verification": "one-primary-record",
-        "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "original-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "prevailingTorqueProfile": {
         "sourceRefs": [],
@@ -1618,44 +2028,55 @@
     "M22": {
       "P": {
         "nominal": 2.5,
+        "unit": "mm",
         "sourceRefs": [
+          "din980_1987_original",
           "boellhoff980",
           "berat980"
         ],
         "status": "verified",
-        "verification": "independent-source-agreement",
-        "unit": "mm"
+        "verification": true,
+        "verificationMethod": "original-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "s_nom": {
         "nominal": 32,
+        "unit": "mm",
         "sourceRefs": [
+          "din980_1987_original",
           "boellhoff980",
           "berat980"
         ],
         "status": "verified",
-        "verification": "independent-source-agreement",
-        "unit": "mm"
+        "verification": true,
+        "verificationMethod": "original-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "s_min": {
         "min": 31,
+        "unit": "mm",
         "sourceRefs": [
+          "din980_1987_original",
           "boellhoff980",
           "berat980"
         ],
         "status": "verified",
-        "verification": "independent-source-agreement",
-        "unit": "mm"
+        "verification": true,
+        "verificationMethod": "original-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "e_min": {
         "min": 35.03,
+        "unit": "mm",
         "sourceRefs": [
+          "din980_1987_original",
           "boellhoff980",
           "berat980"
         ],
-        "status": "conflict",
-        "verification": "primary-record-preferred",
-        "unit": "mm",
-        "note": "Berat-Tabelle enthält 350,30 mm; Böllhoff weist 35,03 mm aus. Keine automatische Dezimalkorrektur der Quelle.",
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "original-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27.",
         "sourceValues": [
           {
             "value": 35.03,
@@ -1665,37 +2086,46 @@
             "value": 350.3,
             "sourceRef": "berat980"
           }
-        ]
+        ],
+        "previousConflict": true
       },
       "h_max": {
         "max": 22,
+        "unit": "mm",
         "sourceRefs": [
+          "din980_1987_original",
           "boellhoff980",
           "berat980"
         ],
         "status": "verified",
-        "verification": "independent-source-agreement",
-        "unit": "mm"
+        "verification": true,
+        "verificationMethod": "original-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "h_min": {
         "min": 20,
+        "unit": "mm",
         "sourceRefs": [
+          "din980_1987_original",
           "boellhoff980",
           "berat980"
         ],
         "status": "verified",
-        "verification": "independent-source-agreement",
-        "unit": "mm"
+        "verification": true,
+        "verificationMethod": "original-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "d_nom": {
         "nominal": 22,
+        "unit": "mm",
         "sourceRefs": [
+          "din980_1987_original",
           "boellhoff980"
         ],
-        "status": "single-source",
-        "verification": "one-primary-record",
-        "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "original-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "prevailingTorqueProfile": {
         "sourceRefs": [],
@@ -1708,73 +2138,93 @@
     "M24": {
       "P": {
         "nominal": 3,
+        "unit": "mm",
         "sourceRefs": [
+          "din980_1987_original",
           "boellhoff980",
           "berat980"
         ],
         "status": "verified",
-        "verification": "independent-source-agreement",
-        "unit": "mm"
+        "verification": true,
+        "verificationMethod": "original-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "s_nom": {
         "nominal": 36,
+        "unit": "mm",
         "sourceRefs": [
+          "din980_1987_original",
           "boellhoff980",
           "berat980"
         ],
         "status": "verified",
-        "verification": "independent-source-agreement",
-        "unit": "mm"
+        "verification": true,
+        "verificationMethod": "original-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "s_min": {
         "min": 35,
+        "unit": "mm",
         "sourceRefs": [
+          "din980_1987_original",
           "boellhoff980",
           "berat980"
         ],
         "status": "verified",
-        "verification": "independent-source-agreement",
-        "unit": "mm"
+        "verification": true,
+        "verificationMethod": "original-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "e_min": {
         "min": 39.55,
+        "unit": "mm",
         "sourceRefs": [
+          "din980_1987_original",
           "boellhoff980",
           "berat980"
         ],
         "status": "verified",
-        "verification": "independent-source-agreement",
-        "unit": "mm"
+        "verification": true,
+        "verificationMethod": "original-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "h_max": {
         "max": 24,
+        "unit": "mm",
         "sourceRefs": [
+          "din980_1987_original",
           "boellhoff980",
           "berat980"
         ],
         "status": "verified",
-        "verification": "independent-source-agreement",
-        "unit": "mm"
+        "verification": true,
+        "verificationMethod": "original-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "h_min": {
         "min": 22,
+        "unit": "mm",
         "sourceRefs": [
+          "din980_1987_original",
           "boellhoff980",
           "berat980"
         ],
         "status": "verified",
-        "verification": "independent-source-agreement",
-        "unit": "mm"
+        "verification": true,
+        "verificationMethod": "original-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "d_nom": {
         "nominal": 24,
+        "unit": "mm",
         "sourceRefs": [
+          "din980_1987_original",
           "boellhoff980"
         ],
-        "status": "single-source",
-        "verification": "one-primary-record",
-        "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "original-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "prevailingTorqueProfile": {
         "sourceRefs": [],
@@ -1787,73 +2237,87 @@
     "M27": {
       "P": {
         "nominal": 3,
+        "unit": "mm",
         "sourceRefs": [
+          "din980_1987_original",
           "berat980"
         ],
-        "status": "single-source",
-        "verification": "one-primary-record",
-        "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "original-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "s_nom": {
         "nominal": 41,
+        "unit": "mm",
         "sourceRefs": [
+          "din980_1987_original",
           "berat980"
         ],
-        "status": "single-source",
-        "verification": "one-primary-record",
-        "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "original-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "s_min": {
         "min": 40,
+        "unit": "mm",
         "sourceRefs": [
+          "din980_1987_original",
           "berat980"
         ],
-        "status": "single-source",
-        "verification": "one-primary-record",
-        "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "original-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "e_min": {
         "min": 45.2,
+        "unit": "mm",
         "sourceRefs": [
+          "din980_1987_original",
           "berat980"
         ],
-        "status": "single-source",
-        "verification": "one-primary-record",
-        "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "original-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "h_max": {
         "max": 27,
+        "unit": "mm",
         "sourceRefs": [
+          "din980_1987_original",
           "berat980"
         ],
-        "status": "single-source",
-        "verification": "one-primary-record",
-        "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "original-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "h_min": {
         "min": 25,
+        "unit": "mm",
         "sourceRefs": [
+          "din980_1987_original",
           "berat980"
         ],
-        "status": "single-source",
-        "verification": "one-primary-record",
-        "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "original-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "d_nom": {
         "nominal": 27,
+        "unit": "mm",
         "sourceRefs": [
+          "din980_1987_original",
           "berat980"
         ],
-        "status": "single-source",
-        "verification": "one-primary-record",
-        "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "original-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "prevailingTorqueProfile": {
         "sourceRefs": [],
@@ -1866,73 +2330,93 @@
     "M30": {
       "P": {
         "nominal": 3.5,
+        "unit": "mm",
         "sourceRefs": [
+          "din980_1987_original",
           "boellhoff980",
           "berat980"
         ],
         "status": "verified",
-        "verification": "independent-source-agreement",
-        "unit": "mm"
+        "verification": true,
+        "verificationMethod": "original-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "s_nom": {
         "nominal": 46,
+        "unit": "mm",
         "sourceRefs": [
+          "din980_1987_original",
           "boellhoff980",
           "berat980"
         ],
         "status": "verified",
-        "verification": "independent-source-agreement",
-        "unit": "mm"
+        "verification": true,
+        "verificationMethod": "original-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "s_min": {
         "min": 45,
+        "unit": "mm",
         "sourceRefs": [
+          "din980_1987_original",
           "boellhoff980",
           "berat980"
         ],
         "status": "verified",
-        "verification": "independent-source-agreement",
-        "unit": "mm"
+        "verification": true,
+        "verificationMethod": "original-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "e_min": {
         "min": 50.85,
+        "unit": "mm",
         "sourceRefs": [
+          "din980_1987_original",
           "boellhoff980",
           "berat980"
         ],
         "status": "verified",
-        "verification": "independent-source-agreement",
-        "unit": "mm"
+        "verification": true,
+        "verificationMethod": "original-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "h_max": {
         "max": 30,
+        "unit": "mm",
         "sourceRefs": [
+          "din980_1987_original",
           "boellhoff980",
           "berat980"
         ],
         "status": "verified",
-        "verification": "independent-source-agreement",
-        "unit": "mm"
+        "verification": true,
+        "verificationMethod": "original-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "h_min": {
         "min": 28,
+        "unit": "mm",
         "sourceRefs": [
+          "din980_1987_original",
           "boellhoff980",
           "berat980"
         ],
         "status": "verified",
-        "verification": "independent-source-agreement",
-        "unit": "mm"
+        "verification": true,
+        "verificationMethod": "original-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "d_nom": {
         "nominal": 30,
+        "unit": "mm",
         "sourceRefs": [
+          "din980_1987_original",
           "boellhoff980"
         ],
-        "status": "single-source",
-        "verification": "one-primary-record",
-        "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "original-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "prevailingTorqueProfile": {
         "sourceRefs": [],
@@ -1945,73 +2429,87 @@
     "M8x1": {
       "P": {
         "nominal": 1,
+        "unit": "mm",
         "sourceRefs": [
+          "din980_1987_original",
           "berat980"
         ],
-        "status": "single-source",
-        "verification": "one-primary-record",
-        "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "original-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "s_nom": {
         "nominal": 13,
+        "unit": "mm",
         "sourceRefs": [
+          "din980_1987_original",
           "berat980"
         ],
-        "status": "single-source",
-        "verification": "one-primary-record",
-        "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "original-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "s_min": {
         "min": 12.73,
+        "unit": "mm",
         "sourceRefs": [
+          "din980_1987_original",
           "berat980"
         ],
-        "status": "single-source",
-        "verification": "one-primary-record",
-        "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "original-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "e_min": {
         "min": 14.38,
+        "unit": "mm",
         "sourceRefs": [
+          "din980_1987_original",
           "berat980"
         ],
-        "status": "single-source",
-        "verification": "one-primary-record",
-        "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "original-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "h_max": {
         "max": 8,
+        "unit": "mm",
         "sourceRefs": [
+          "din980_1987_original",
           "berat980"
         ],
-        "status": "single-source",
-        "verification": "one-primary-record",
-        "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "original-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "h_min": {
         "min": 7.5,
+        "unit": "mm",
         "sourceRefs": [
+          "din980_1987_original",
           "berat980"
         ],
-        "status": "single-source",
-        "verification": "one-primary-record",
-        "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "original-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "d_nom": {
         "nominal": 8,
+        "unit": "mm",
         "sourceRefs": [
+          "din980_1987_original",
           "berat980"
         ],
-        "status": "single-source",
-        "verification": "one-primary-record",
-        "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "original-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "prevailingTorqueProfile": {
         "sourceRefs": [],
@@ -2024,73 +2522,87 @@
     "M10x1.25": {
       "P": {
         "nominal": 1.25,
+        "unit": "mm",
         "sourceRefs": [
+          "din980_1987_original",
           "berat980"
         ],
-        "status": "single-source",
-        "verification": "one-primary-record",
-        "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "original-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "s_nom": {
         "nominal": 17,
+        "unit": "mm",
         "sourceRefs": [
+          "din980_1987_original",
           "berat980"
         ],
-        "status": "single-source",
-        "verification": "one-primary-record",
-        "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "original-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "s_min": {
         "min": 16.73,
+        "unit": "mm",
         "sourceRefs": [
+          "din980_1987_original",
           "berat980"
         ],
-        "status": "single-source",
-        "verification": "one-primary-record",
-        "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "original-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "e_min": {
         "min": 18.9,
+        "unit": "mm",
         "sourceRefs": [
+          "din980_1987_original",
           "berat980"
         ],
-        "status": "single-source",
-        "verification": "one-primary-record",
-        "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "original-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "h_max": {
         "max": 10,
+        "unit": "mm",
         "sourceRefs": [
+          "din980_1987_original",
           "berat980"
         ],
-        "status": "single-source",
-        "verification": "one-primary-record",
-        "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "original-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "h_min": {
         "min": 9,
+        "unit": "mm",
         "sourceRefs": [
+          "din980_1987_original",
           "berat980"
         ],
-        "status": "single-source",
-        "verification": "one-primary-record",
-        "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "original-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "d_nom": {
         "nominal": 10,
+        "unit": "mm",
         "sourceRefs": [
+          "din980_1987_original",
           "berat980"
         ],
-        "status": "single-source",
-        "verification": "one-primary-record",
-        "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "original-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "prevailingTorqueProfile": {
         "sourceRefs": [],
@@ -2103,73 +2615,87 @@
     "M10x1": {
       "P": {
         "nominal": 1,
+        "unit": "mm",
         "sourceRefs": [
+          "din980_1987_original",
           "berat980"
         ],
-        "status": "single-source",
-        "verification": "one-primary-record",
-        "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "original-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "s_nom": {
         "nominal": 17,
+        "unit": "mm",
         "sourceRefs": [
+          "din980_1987_original",
           "berat980"
         ],
-        "status": "single-source",
-        "verification": "one-primary-record",
-        "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "original-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "s_min": {
         "min": 16.73,
+        "unit": "mm",
         "sourceRefs": [
+          "din980_1987_original",
           "berat980"
         ],
-        "status": "single-source",
-        "verification": "one-primary-record",
-        "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "original-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "e_min": {
         "min": 18.9,
+        "unit": "mm",
         "sourceRefs": [
+          "din980_1987_original",
           "berat980"
         ],
-        "status": "single-source",
-        "verification": "one-primary-record",
-        "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "original-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "h_max": {
         "max": 10,
+        "unit": "mm",
         "sourceRefs": [
+          "din980_1987_original",
           "berat980"
         ],
-        "status": "single-source",
-        "verification": "one-primary-record",
-        "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "original-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "h_min": {
         "min": 9,
+        "unit": "mm",
         "sourceRefs": [
+          "din980_1987_original",
           "berat980"
         ],
-        "status": "single-source",
-        "verification": "one-primary-record",
-        "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "original-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "d_nom": {
         "nominal": 10,
+        "unit": "mm",
         "sourceRefs": [
+          "din980_1987_original",
           "berat980"
         ],
-        "status": "single-source",
-        "verification": "one-primary-record",
-        "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "original-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "prevailingTorqueProfile": {
         "sourceRefs": [],
@@ -2182,73 +2708,87 @@
     "M12x1.5": {
       "P": {
         "nominal": 1.5,
+        "unit": "mm",
         "sourceRefs": [
+          "din980_1987_original",
           "berat980"
         ],
-        "status": "single-source",
-        "verification": "one-primary-record",
-        "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "original-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "s_nom": {
         "nominal": 19,
+        "unit": "mm",
         "sourceRefs": [
+          "din980_1987_original",
           "berat980"
         ],
-        "status": "single-source",
-        "verification": "one-primary-record",
-        "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "original-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "s_min": {
         "min": 18.67,
+        "unit": "mm",
         "sourceRefs": [
+          "din980_1987_original",
           "berat980"
         ],
-        "status": "single-source",
-        "verification": "one-primary-record",
-        "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "original-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "e_min": {
         "min": 21.1,
+        "unit": "mm",
         "sourceRefs": [
+          "din980_1987_original",
           "berat980"
         ],
-        "status": "single-source",
-        "verification": "one-primary-record",
-        "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "original-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "h_max": {
         "max": 12,
+        "unit": "mm",
         "sourceRefs": [
+          "din980_1987_original",
           "berat980"
         ],
-        "status": "single-source",
-        "verification": "one-primary-record",
-        "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "original-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "h_min": {
         "min": 11,
+        "unit": "mm",
         "sourceRefs": [
+          "din980_1987_original",
           "berat980"
         ],
-        "status": "single-source",
-        "verification": "one-primary-record",
-        "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "original-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "d_nom": {
         "nominal": 12,
+        "unit": "mm",
         "sourceRefs": [
+          "din980_1987_original",
           "berat980"
         ],
-        "status": "single-source",
-        "verification": "one-primary-record",
-        "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "original-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "prevailingTorqueProfile": {
         "sourceRefs": [],
@@ -2261,73 +2801,87 @@
     "M12x1.25": {
       "P": {
         "nominal": 1.25,
+        "unit": "mm",
         "sourceRefs": [
+          "din980_1987_original",
           "berat980"
         ],
-        "status": "single-source",
-        "verification": "one-primary-record",
-        "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "original-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "s_nom": {
         "nominal": 19,
+        "unit": "mm",
         "sourceRefs": [
+          "din980_1987_original",
           "berat980"
         ],
-        "status": "single-source",
-        "verification": "one-primary-record",
-        "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "original-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "s_min": {
         "min": 18.67,
+        "unit": "mm",
         "sourceRefs": [
+          "din980_1987_original",
           "berat980"
         ],
-        "status": "single-source",
-        "verification": "one-primary-record",
-        "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "original-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "e_min": {
         "min": 21.1,
+        "unit": "mm",
         "sourceRefs": [
+          "din980_1987_original",
           "berat980"
         ],
-        "status": "single-source",
-        "verification": "one-primary-record",
-        "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "original-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "h_max": {
         "max": 12,
+        "unit": "mm",
         "sourceRefs": [
+          "din980_1987_original",
           "berat980"
         ],
-        "status": "single-source",
-        "verification": "one-primary-record",
-        "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "original-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "h_min": {
         "min": 11,
+        "unit": "mm",
         "sourceRefs": [
+          "din980_1987_original",
           "berat980"
         ],
-        "status": "single-source",
-        "verification": "one-primary-record",
-        "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "original-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "d_nom": {
         "nominal": 12,
+        "unit": "mm",
         "sourceRefs": [
+          "din980_1987_original",
           "berat980"
         ],
-        "status": "single-source",
-        "verification": "one-primary-record",
-        "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "original-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "prevailingTorqueProfile": {
         "sourceRefs": [],
@@ -2340,73 +2894,87 @@
     "M14x1.5": {
       "P": {
         "nominal": 1.5,
+        "unit": "mm",
         "sourceRefs": [
+          "din980_1987_original",
           "berat980"
         ],
-        "status": "single-source",
-        "verification": "one-primary-record",
-        "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "original-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "s_nom": {
         "nominal": 22,
+        "unit": "mm",
         "sourceRefs": [
+          "din980_1987_original",
           "berat980"
         ],
-        "status": "single-source",
-        "verification": "one-primary-record",
-        "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "original-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "s_min": {
         "min": 21.67,
+        "unit": "mm",
         "sourceRefs": [
+          "din980_1987_original",
           "berat980"
         ],
-        "status": "single-source",
-        "verification": "one-primary-record",
-        "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "original-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "e_min": {
         "min": 24.49,
+        "unit": "mm",
         "sourceRefs": [
+          "din980_1987_original",
           "berat980"
         ],
-        "status": "single-source",
-        "verification": "one-primary-record",
-        "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "original-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "h_max": {
         "max": 14,
+        "unit": "mm",
         "sourceRefs": [
+          "din980_1987_original",
           "berat980"
         ],
-        "status": "single-source",
-        "verification": "one-primary-record",
-        "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "original-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "h_min": {
         "min": 12,
+        "unit": "mm",
         "sourceRefs": [
+          "din980_1987_original",
           "berat980"
         ],
-        "status": "single-source",
-        "verification": "one-primary-record",
-        "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "original-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "d_nom": {
         "nominal": 14,
+        "unit": "mm",
         "sourceRefs": [
+          "din980_1987_original",
           "berat980"
         ],
-        "status": "single-source",
-        "verification": "one-primary-record",
-        "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "original-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "prevailingTorqueProfile": {
         "sourceRefs": [],
@@ -2419,73 +2987,87 @@
     "M16x1.5": {
       "P": {
         "nominal": 1.5,
+        "unit": "mm",
         "sourceRefs": [
+          "din980_1987_original",
           "berat980"
         ],
-        "status": "single-source",
-        "verification": "one-primary-record",
-        "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "original-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "s_nom": {
         "nominal": 24,
+        "unit": "mm",
         "sourceRefs": [
+          "din980_1987_original",
           "berat980"
         ],
-        "status": "single-source",
-        "verification": "one-primary-record",
-        "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "original-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "s_min": {
         "min": 23.67,
+        "unit": "mm",
         "sourceRefs": [
+          "din980_1987_original",
           "berat980"
         ],
-        "status": "single-source",
-        "verification": "one-primary-record",
-        "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "original-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "e_min": {
         "min": 26.75,
+        "unit": "mm",
         "sourceRefs": [
+          "din980_1987_original",
           "berat980"
         ],
-        "status": "single-source",
-        "verification": "one-primary-record",
-        "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "original-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "h_max": {
         "max": 16,
+        "unit": "mm",
         "sourceRefs": [
+          "din980_1987_original",
           "berat980"
         ],
-        "status": "single-source",
-        "verification": "one-primary-record",
-        "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "original-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "h_min": {
         "min": 14,
+        "unit": "mm",
         "sourceRefs": [
+          "din980_1987_original",
           "berat980"
         ],
-        "status": "single-source",
-        "verification": "one-primary-record",
-        "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "original-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "d_nom": {
         "nominal": 16,
+        "unit": "mm",
         "sourceRefs": [
+          "din980_1987_original",
           "berat980"
         ],
-        "status": "single-source",
-        "verification": "one-primary-record",
-        "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "original-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "prevailingTorqueProfile": {
         "sourceRefs": [],
@@ -2498,73 +3080,87 @@
     "M18x2": {
       "P": {
         "nominal": 2,
+        "unit": "mm",
         "sourceRefs": [
+          "din980_1987_original",
           "berat980"
         ],
-        "status": "single-source",
-        "verification": "one-primary-record",
-        "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "original-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "s_nom": {
         "nominal": 27,
+        "unit": "mm",
         "sourceRefs": [
+          "din980_1987_original",
           "berat980"
         ],
-        "status": "single-source",
-        "verification": "one-primary-record",
-        "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "original-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "s_min": {
         "min": 26.16,
+        "unit": "mm",
         "sourceRefs": [
+          "din980_1987_original",
           "berat980"
         ],
-        "status": "single-source",
-        "verification": "one-primary-record",
-        "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "original-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "e_min": {
         "min": 29.56,
+        "unit": "mm",
         "sourceRefs": [
+          "din980_1987_original",
           "berat980"
         ],
-        "status": "single-source",
-        "verification": "one-primary-record",
-        "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "original-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "h_max": {
         "max": 18,
+        "unit": "mm",
         "sourceRefs": [
+          "din980_1987_original",
           "berat980"
         ],
-        "status": "single-source",
-        "verification": "one-primary-record",
-        "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "original-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "h_min": {
         "min": 16,
+        "unit": "mm",
         "sourceRefs": [
+          "din980_1987_original",
           "berat980"
         ],
-        "status": "single-source",
-        "verification": "one-primary-record",
-        "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "original-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "d_nom": {
         "nominal": 18,
+        "unit": "mm",
         "sourceRefs": [
+          "din980_1987_original",
           "berat980"
         ],
-        "status": "single-source",
-        "verification": "one-primary-record",
-        "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "original-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "prevailingTorqueProfile": {
         "sourceRefs": [],
@@ -2577,73 +3173,87 @@
     "M18x1.5": {
       "P": {
         "nominal": 1.5,
+        "unit": "mm",
         "sourceRefs": [
+          "din980_1987_original",
           "berat980"
         ],
-        "status": "single-source",
-        "verification": "one-primary-record",
-        "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "original-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "s_nom": {
         "nominal": 27,
+        "unit": "mm",
         "sourceRefs": [
+          "din980_1987_original",
           "berat980"
         ],
-        "status": "single-source",
-        "verification": "one-primary-record",
-        "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "original-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "s_min": {
         "min": 26.16,
+        "unit": "mm",
         "sourceRefs": [
+          "din980_1987_original",
           "berat980"
         ],
-        "status": "single-source",
-        "verification": "one-primary-record",
-        "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "original-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "e_min": {
         "min": 29.56,
+        "unit": "mm",
         "sourceRefs": [
+          "din980_1987_original",
           "berat980"
         ],
-        "status": "single-source",
-        "verification": "one-primary-record",
-        "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "original-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "h_max": {
         "max": 18,
+        "unit": "mm",
         "sourceRefs": [
+          "din980_1987_original",
           "berat980"
         ],
-        "status": "single-source",
-        "verification": "one-primary-record",
-        "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "original-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "h_min": {
         "min": 16,
+        "unit": "mm",
         "sourceRefs": [
+          "din980_1987_original",
           "berat980"
         ],
-        "status": "single-source",
-        "verification": "one-primary-record",
-        "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "original-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "d_nom": {
         "nominal": 18,
+        "unit": "mm",
         "sourceRefs": [
+          "din980_1987_original",
           "berat980"
         ],
-        "status": "single-source",
-        "verification": "one-primary-record",
-        "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "original-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "prevailingTorqueProfile": {
         "sourceRefs": [],
@@ -2656,73 +3266,87 @@
     "M20x2": {
       "P": {
         "nominal": 2,
+        "unit": "mm",
         "sourceRefs": [
+          "din980_1987_original",
           "berat980"
         ],
-        "status": "single-source",
-        "verification": "one-primary-record",
-        "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "original-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "s_nom": {
         "nominal": 30,
+        "unit": "mm",
         "sourceRefs": [
+          "din980_1987_original",
           "berat980"
         ],
-        "status": "single-source",
-        "verification": "one-primary-record",
-        "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "original-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "s_min": {
         "min": 29.16,
+        "unit": "mm",
         "sourceRefs": [
+          "din980_1987_original",
           "berat980"
         ],
-        "status": "single-source",
-        "verification": "one-primary-record",
-        "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "original-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "e_min": {
         "min": 32.95,
+        "unit": "mm",
         "sourceRefs": [
+          "din980_1987_original",
           "berat980"
         ],
-        "status": "single-source",
-        "verification": "one-primary-record",
-        "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "original-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "h_max": {
         "max": 20,
+        "unit": "mm",
         "sourceRefs": [
+          "din980_1987_original",
           "berat980"
         ],
-        "status": "single-source",
-        "verification": "one-primary-record",
-        "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "original-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "h_min": {
         "min": 18,
+        "unit": "mm",
         "sourceRefs": [
+          "din980_1987_original",
           "berat980"
         ],
-        "status": "single-source",
-        "verification": "one-primary-record",
-        "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "original-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "d_nom": {
         "nominal": 20,
+        "unit": "mm",
         "sourceRefs": [
+          "din980_1987_original",
           "berat980"
         ],
-        "status": "single-source",
-        "verification": "one-primary-record",
-        "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "original-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "prevailingTorqueProfile": {
         "sourceRefs": [],
@@ -2735,73 +3359,87 @@
     "M20x1.5": {
       "P": {
         "nominal": 1.5,
+        "unit": "mm",
         "sourceRefs": [
+          "din980_1987_original",
           "berat980"
         ],
-        "status": "single-source",
-        "verification": "one-primary-record",
-        "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "original-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "s_nom": {
         "nominal": 30,
+        "unit": "mm",
         "sourceRefs": [
+          "din980_1987_original",
           "berat980"
         ],
-        "status": "single-source",
-        "verification": "one-primary-record",
-        "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "original-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "s_min": {
         "min": 29.16,
+        "unit": "mm",
         "sourceRefs": [
+          "din980_1987_original",
           "berat980"
         ],
-        "status": "single-source",
-        "verification": "one-primary-record",
-        "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "original-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "e_min": {
         "min": 32.95,
+        "unit": "mm",
         "sourceRefs": [
+          "din980_1987_original",
           "berat980"
         ],
-        "status": "single-source",
-        "verification": "one-primary-record",
-        "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "original-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "h_max": {
         "max": 20,
+        "unit": "mm",
         "sourceRefs": [
+          "din980_1987_original",
           "berat980"
         ],
-        "status": "single-source",
-        "verification": "one-primary-record",
-        "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "original-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "h_min": {
         "min": 18,
+        "unit": "mm",
         "sourceRefs": [
+          "din980_1987_original",
           "berat980"
         ],
-        "status": "single-source",
-        "verification": "one-primary-record",
-        "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "original-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "d_nom": {
         "nominal": 20,
+        "unit": "mm",
         "sourceRefs": [
+          "din980_1987_original",
           "berat980"
         ],
-        "status": "single-source",
-        "verification": "one-primary-record",
-        "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "original-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "prevailingTorqueProfile": {
         "sourceRefs": [],
@@ -2814,44 +3452,52 @@
     "M22x2": {
       "P": {
         "nominal": 2,
+        "unit": "mm",
         "sourceRefs": [
+          "din980_1987_original",
           "berat980"
         ],
-        "status": "single-source",
-        "verification": "one-primary-record",
-        "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "original-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "s_nom": {
         "nominal": 32,
+        "unit": "mm",
         "sourceRefs": [
+          "din980_1987_original",
           "berat980"
         ],
-        "status": "single-source",
-        "verification": "one-primary-record",
-        "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "original-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "s_min": {
         "min": 31,
+        "unit": "mm",
         "sourceRefs": [
+          "din980_1987_original",
           "berat980"
         ],
-        "status": "single-source",
-        "verification": "one-primary-record",
-        "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "original-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "e_min": {
         "min": 35.03,
+        "unit": "mm",
         "sourceRefs": [
+          "din980_1987_original",
           "boellhoff980",
           "berat980"
         ],
-        "status": "conflict",
-        "verification": "primary-record-preferred",
-        "unit": "mm",
-        "note": "Berat-Eckmaß 350,30 mm widerspricht Böllhoff 35,03 mm. Weitere Feinmaß-Grenzen stammen nur aus Berat.",
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "original-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27.",
         "sourceValues": [
           {
             "value": 35.03,
@@ -2861,37 +3507,44 @@
             "value": 350.3,
             "sourceRef": "berat980"
           }
-        ]
+        ],
+        "previousConflict": true
       },
       "h_max": {
         "max": 22,
+        "unit": "mm",
         "sourceRefs": [
+          "din980_1987_original",
           "berat980"
         ],
-        "status": "single-source",
-        "verification": "one-primary-record",
-        "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "original-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "h_min": {
         "min": 20,
+        "unit": "mm",
         "sourceRefs": [
+          "din980_1987_original",
           "berat980"
         ],
-        "status": "single-source",
-        "verification": "one-primary-record",
-        "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "original-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "d_nom": {
         "nominal": 22,
+        "unit": "mm",
         "sourceRefs": [
+          "din980_1987_original",
           "berat980"
         ],
-        "status": "single-source",
-        "verification": "one-primary-record",
-        "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "original-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "prevailingTorqueProfile": {
         "sourceRefs": [],
@@ -2904,44 +3557,52 @@
     "M22x1.5": {
       "P": {
         "nominal": 1.5,
+        "unit": "mm",
         "sourceRefs": [
+          "din980_1987_original",
           "berat980"
         ],
-        "status": "single-source",
-        "verification": "one-primary-record",
-        "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "original-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "s_nom": {
         "nominal": 32,
+        "unit": "mm",
         "sourceRefs": [
+          "din980_1987_original",
           "berat980"
         ],
-        "status": "single-source",
-        "verification": "one-primary-record",
-        "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "original-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "s_min": {
         "min": 31,
+        "unit": "mm",
         "sourceRefs": [
+          "din980_1987_original",
           "berat980"
         ],
-        "status": "single-source",
-        "verification": "one-primary-record",
-        "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "original-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "e_min": {
         "min": 35.03,
+        "unit": "mm",
         "sourceRefs": [
+          "din980_1987_original",
           "boellhoff980",
           "berat980"
         ],
-        "status": "conflict",
-        "verification": "primary-record-preferred",
-        "unit": "mm",
-        "note": "Berat-Eckmaß 350,30 mm widerspricht Böllhoff 35,03 mm. Weitere Feinmaß-Grenzen stammen nur aus Berat.",
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "original-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27.",
         "sourceValues": [
           {
             "value": 35.03,
@@ -2951,37 +3612,44 @@
             "value": 350.3,
             "sourceRef": "berat980"
           }
-        ]
+        ],
+        "previousConflict": true
       },
       "h_max": {
         "max": 22,
+        "unit": "mm",
         "sourceRefs": [
+          "din980_1987_original",
           "berat980"
         ],
-        "status": "single-source",
-        "verification": "one-primary-record",
-        "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "original-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "h_min": {
         "min": 20,
+        "unit": "mm",
         "sourceRefs": [
+          "din980_1987_original",
           "berat980"
         ],
-        "status": "single-source",
-        "verification": "one-primary-record",
-        "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "original-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "d_nom": {
         "nominal": 22,
+        "unit": "mm",
         "sourceRefs": [
+          "din980_1987_original",
           "berat980"
         ],
-        "status": "single-source",
-        "verification": "one-primary-record",
-        "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "original-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "prevailingTorqueProfile": {
         "sourceRefs": [],
@@ -2994,73 +3662,87 @@
     "M24x2": {
       "P": {
         "nominal": 2,
+        "unit": "mm",
         "sourceRefs": [
+          "din980_1987_original",
           "berat980"
         ],
-        "status": "single-source",
-        "verification": "one-primary-record",
-        "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "original-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "s_nom": {
         "nominal": 36,
+        "unit": "mm",
         "sourceRefs": [
+          "din980_1987_original",
           "berat980"
         ],
-        "status": "single-source",
-        "verification": "one-primary-record",
-        "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "original-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "s_min": {
         "min": 35,
+        "unit": "mm",
         "sourceRefs": [
+          "din980_1987_original",
           "berat980"
         ],
-        "status": "single-source",
-        "verification": "one-primary-record",
-        "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "original-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "e_min": {
         "min": 39.55,
+        "unit": "mm",
         "sourceRefs": [
+          "din980_1987_original",
           "berat980"
         ],
-        "status": "single-source",
-        "verification": "one-primary-record",
-        "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "original-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "h_max": {
         "max": 24,
+        "unit": "mm",
         "sourceRefs": [
+          "din980_1987_original",
           "berat980"
         ],
-        "status": "single-source",
-        "verification": "one-primary-record",
-        "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "original-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "h_min": {
         "min": 22,
+        "unit": "mm",
         "sourceRefs": [
+          "din980_1987_original",
           "berat980"
         ],
-        "status": "single-source",
-        "verification": "one-primary-record",
-        "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "original-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "d_nom": {
         "nominal": 24,
+        "unit": "mm",
         "sourceRefs": [
+          "din980_1987_original",
           "berat980"
         ],
-        "status": "single-source",
-        "verification": "one-primary-record",
-        "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "original-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "prevailingTorqueProfile": {
         "sourceRefs": [],
@@ -3073,73 +3755,87 @@
     "M27x2": {
       "P": {
         "nominal": 2,
+        "unit": "mm",
         "sourceRefs": [
+          "din980_1987_original",
           "berat980"
         ],
-        "status": "single-source",
-        "verification": "one-primary-record",
-        "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "original-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "s_nom": {
         "nominal": 41,
+        "unit": "mm",
         "sourceRefs": [
+          "din980_1987_original",
           "berat980"
         ],
-        "status": "single-source",
-        "verification": "one-primary-record",
-        "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "original-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "s_min": {
         "min": 40,
+        "unit": "mm",
         "sourceRefs": [
+          "din980_1987_original",
           "berat980"
         ],
-        "status": "single-source",
-        "verification": "one-primary-record",
-        "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "original-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "e_min": {
         "min": 45.2,
+        "unit": "mm",
         "sourceRefs": [
+          "din980_1987_original",
           "berat980"
         ],
-        "status": "single-source",
-        "verification": "one-primary-record",
-        "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "original-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "h_max": {
         "max": 27,
+        "unit": "mm",
         "sourceRefs": [
+          "din980_1987_original",
           "berat980"
         ],
-        "status": "single-source",
-        "verification": "one-primary-record",
-        "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "original-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "h_min": {
         "min": 25,
+        "unit": "mm",
         "sourceRefs": [
+          "din980_1987_original",
           "berat980"
         ],
-        "status": "single-source",
-        "verification": "one-primary-record",
-        "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "original-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "d_nom": {
         "nominal": 27,
+        "unit": "mm",
         "sourceRefs": [
+          "din980_1987_original",
           "berat980"
         ],
-        "status": "single-source",
-        "verification": "one-primary-record",
-        "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "original-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "prevailingTorqueProfile": {
         "sourceRefs": [],
@@ -3152,73 +3848,775 @@
     "M30x2": {
       "P": {
         "nominal": 2,
+        "unit": "mm",
         "sourceRefs": [
+          "din980_1987_original",
           "berat980"
         ],
-        "status": "single-source",
-        "verification": "one-primary-record",
-        "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "original-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "s_nom": {
         "nominal": 46,
+        "unit": "mm",
         "sourceRefs": [
+          "din980_1987_original",
           "berat980"
         ],
-        "status": "single-source",
-        "verification": "one-primary-record",
-        "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "original-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "s_min": {
         "min": 45,
+        "unit": "mm",
         "sourceRefs": [
+          "din980_1987_original",
           "berat980"
         ],
-        "status": "single-source",
-        "verification": "one-primary-record",
-        "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "original-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "e_min": {
         "min": 50.85,
+        "unit": "mm",
         "sourceRefs": [
+          "din980_1987_original",
           "berat980"
         ],
-        "status": "single-source",
-        "verification": "one-primary-record",
-        "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "original-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "h_max": {
         "max": 30,
+        "unit": "mm",
         "sourceRefs": [
+          "din980_1987_original",
           "berat980"
         ],
-        "status": "single-source",
-        "verification": "one-primary-record",
-        "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "original-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "h_min": {
         "min": 28,
+        "unit": "mm",
         "sourceRefs": [
+          "din980_1987_original",
           "berat980"
         ],
-        "status": "single-source",
-        "verification": "one-primary-record",
-        "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "original-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "d_nom": {
         "nominal": 30,
+        "unit": "mm",
         "sourceRefs": [
+          "din980_1987_original",
           "berat980"
         ],
-        "status": "single-source",
-        "verification": "one-primary-record",
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "original-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
+      },
+      "prevailingTorqueProfile": {
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
         "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "note": "Detailmaß im ausgewerteten Nachweis nicht festgelegt; Kunden-/Herstellerzeichnung erforderlich."
+      }
+    },
+    "M3": {
+      "d_nom": {
+        "nominal": 3,
+        "unit": "mm",
+        "sourceRefs": [
+          "din980_1987_original"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "original-table",
+        "note": "Nur eine ausgewertete Maßquelle."
+      },
+      "P": {
+        "nominal": 0.5,
+        "unit": "mm",
+        "sourceRefs": [
+          "din980_1987_original"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "original-table",
+        "note": "Nur eine ausgewertete Maßquelle."
+      },
+      "s_nom": {
+        "nominal": 5.5,
+        "unit": "mm",
+        "sourceRefs": [
+          "din980_1987_original"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "original-table",
+        "note": "Nur eine ausgewertete Maßquelle."
+      },
+      "s_min": {
+        "min": 5.32,
+        "unit": "mm",
+        "sourceRefs": [
+          "din980_1987_original"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "original-table",
+        "note": "Nur eine ausgewertete Maßquelle."
+      },
+      "h_max": {
+        "max": 3.7,
+        "unit": "mm",
+        "sourceRefs": [
+          "din980_1987_original"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "original-table",
+        "note": "Nur eine ausgewertete Maßquelle."
+      },
+      "h_min": {
+        "min": 3.4,
+        "unit": "mm",
+        "sourceRefs": [
+          "din980_1987_original"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "original-table",
+        "note": "Nur eine ausgewertete Maßquelle."
+      },
+      "e_min": {
+        "min": 6.01,
+        "unit": "mm",
+        "sourceRefs": [
+          "din980_1987_original"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "original-table",
+        "note": "Nur eine ausgewertete Maßquelle."
+      },
+      "prevailingTorqueProfile": {
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "unit": "mm",
+        "note": "Detailmaß im ausgewerteten Nachweis nicht festgelegt; Kunden-/Herstellerzeichnung erforderlich."
+      }
+    },
+    "M4": {
+      "d_nom": {
+        "nominal": 4,
+        "unit": "mm",
+        "sourceRefs": [
+          "din980_1987_original"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "original-table",
+        "note": "Nur eine ausgewertete Maßquelle."
+      },
+      "P": {
+        "nominal": 0.7,
+        "unit": "mm",
+        "sourceRefs": [
+          "din980_1987_original"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "original-table",
+        "note": "Nur eine ausgewertete Maßquelle."
+      },
+      "s_nom": {
+        "nominal": 7,
+        "unit": "mm",
+        "sourceRefs": [
+          "din980_1987_original"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "original-table",
+        "note": "Nur eine ausgewertete Maßquelle."
+      },
+      "s_min": {
+        "min": 6.78,
+        "unit": "mm",
+        "sourceRefs": [
+          "din980_1987_original"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "original-table",
+        "note": "Nur eine ausgewertete Maßquelle."
+      },
+      "h_max": {
+        "max": 4.2,
+        "unit": "mm",
+        "sourceRefs": [
+          "din980_1987_original"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "original-table",
+        "note": "Nur eine ausgewertete Maßquelle."
+      },
+      "h_min": {
+        "min": 3.9,
+        "unit": "mm",
+        "sourceRefs": [
+          "din980_1987_original"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "original-table",
+        "note": "Nur eine ausgewertete Maßquelle."
+      },
+      "e_min": {
+        "min": 7.66,
+        "unit": "mm",
+        "sourceRefs": [
+          "din980_1987_original"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "original-table",
+        "note": "Nur eine ausgewertete Maßquelle."
+      },
+      "prevailingTorqueProfile": {
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "unit": "mm",
+        "note": "Detailmaß im ausgewerteten Nachweis nicht festgelegt; Kunden-/Herstellerzeichnung erforderlich."
+      }
+    },
+    "M33": {
+      "d_nom": {
+        "nominal": 33,
+        "unit": "mm",
+        "sourceRefs": [
+          "din980_1987_original"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "original-table",
+        "note": "Nur eine ausgewertete Maßquelle."
+      },
+      "P": {
+        "nominal": 3.5,
+        "unit": "mm",
+        "sourceRefs": [
+          "din980_1987_original"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "original-table",
+        "note": "Nur eine ausgewertete Maßquelle."
+      },
+      "s_nom": {
+        "nominal": 50,
+        "unit": "mm",
+        "sourceRefs": [
+          "din980_1987_original"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "original-table",
+        "note": "Nur eine ausgewertete Maßquelle."
+      },
+      "s_min": {
+        "min": 49,
+        "unit": "mm",
+        "sourceRefs": [
+          "din980_1987_original"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "original-table",
+        "note": "Nur eine ausgewertete Maßquelle."
+      },
+      "h_max": {
+        "max": 33,
+        "unit": "mm",
+        "sourceRefs": [
+          "din980_1987_original"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "original-table",
+        "note": "Nur eine ausgewertete Maßquelle."
+      },
+      "h_min": {
+        "min": 31,
+        "unit": "mm",
+        "sourceRefs": [
+          "din980_1987_original"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "original-table",
+        "note": "Nur eine ausgewertete Maßquelle."
+      },
+      "e_min": {
+        "min": 55.37,
+        "unit": "mm",
+        "sourceRefs": [
+          "din980_1987_original"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "original-table",
+        "note": "Nur eine ausgewertete Maßquelle."
+      },
+      "prevailingTorqueProfile": {
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "unit": "mm",
+        "note": "Detailmaß im ausgewerteten Nachweis nicht festgelegt; Kunden-/Herstellerzeichnung erforderlich."
+      }
+    },
+    "M33x2": {
+      "d_nom": {
+        "nominal": 33,
+        "unit": "mm",
+        "sourceRefs": [
+          "din980_1987_original"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "original-table",
+        "note": "Nur eine ausgewertete Maßquelle."
+      },
+      "P": {
+        "nominal": 2,
+        "unit": "mm",
+        "sourceRefs": [
+          "din980_1987_original"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "original-table",
+        "note": "Nur eine ausgewertete Maßquelle."
+      },
+      "s_nom": {
+        "nominal": 50,
+        "unit": "mm",
+        "sourceRefs": [
+          "din980_1987_original"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "original-table",
+        "note": "Nur eine ausgewertete Maßquelle."
+      },
+      "s_min": {
+        "min": 49,
+        "unit": "mm",
+        "sourceRefs": [
+          "din980_1987_original"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "original-table",
+        "note": "Nur eine ausgewertete Maßquelle."
+      },
+      "h_max": {
+        "max": 33,
+        "unit": "mm",
+        "sourceRefs": [
+          "din980_1987_original"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "original-table",
+        "note": "Nur eine ausgewertete Maßquelle."
+      },
+      "h_min": {
+        "min": 31,
+        "unit": "mm",
+        "sourceRefs": [
+          "din980_1987_original"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "original-table",
+        "note": "Nur eine ausgewertete Maßquelle."
+      },
+      "e_min": {
+        "min": 55.37,
+        "unit": "mm",
+        "sourceRefs": [
+          "din980_1987_original"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "original-table",
+        "note": "Nur eine ausgewertete Maßquelle."
+      },
+      "prevailingTorqueProfile": {
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "unit": "mm",
+        "note": "Detailmaß im ausgewerteten Nachweis nicht festgelegt; Kunden-/Herstellerzeichnung erforderlich."
+      }
+    },
+    "M36": {
+      "d_nom": {
+        "nominal": 36,
+        "unit": "mm",
+        "sourceRefs": [
+          "din980_1987_original"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "original-table",
+        "note": "Nur eine ausgewertete Maßquelle."
+      },
+      "P": {
+        "nominal": 4,
+        "unit": "mm",
+        "sourceRefs": [
+          "din980_1987_original"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "original-table",
+        "note": "Nur eine ausgewertete Maßquelle."
+      },
+      "s_nom": {
+        "nominal": 55,
+        "unit": "mm",
+        "sourceRefs": [
+          "din980_1987_original"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "original-table",
+        "note": "Nur eine ausgewertete Maßquelle."
+      },
+      "s_min": {
+        "min": 53.8,
+        "unit": "mm",
+        "sourceRefs": [
+          "din980_1987_original"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "original-table",
+        "note": "Nur eine ausgewertete Maßquelle."
+      },
+      "h_max": {
+        "max": 36,
+        "unit": "mm",
+        "sourceRefs": [
+          "din980_1987_original"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "original-table",
+        "note": "Nur eine ausgewertete Maßquelle."
+      },
+      "h_min": {
+        "min": 34,
+        "unit": "mm",
+        "sourceRefs": [
+          "din980_1987_original"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "original-table",
+        "note": "Nur eine ausgewertete Maßquelle."
+      },
+      "e_min": {
+        "min": 60.79,
+        "unit": "mm",
+        "sourceRefs": [
+          "din980_1987_original"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "original-table",
+        "note": "Nur eine ausgewertete Maßquelle."
+      },
+      "prevailingTorqueProfile": {
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "unit": "mm",
+        "note": "Detailmaß im ausgewerteten Nachweis nicht festgelegt; Kunden-/Herstellerzeichnung erforderlich."
+      }
+    },
+    "M36x3": {
+      "d_nom": {
+        "nominal": 36,
+        "unit": "mm",
+        "sourceRefs": [
+          "din980_1987_original"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "original-table",
+        "note": "Nur eine ausgewertete Maßquelle."
+      },
+      "P": {
+        "nominal": 3,
+        "unit": "mm",
+        "sourceRefs": [
+          "din980_1987_original"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "original-table",
+        "note": "Nur eine ausgewertete Maßquelle."
+      },
+      "s_nom": {
+        "nominal": 55,
+        "unit": "mm",
+        "sourceRefs": [
+          "din980_1987_original"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "original-table",
+        "note": "Nur eine ausgewertete Maßquelle."
+      },
+      "s_min": {
+        "min": 53.8,
+        "unit": "mm",
+        "sourceRefs": [
+          "din980_1987_original"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "original-table",
+        "note": "Nur eine ausgewertete Maßquelle."
+      },
+      "h_max": {
+        "max": 36,
+        "unit": "mm",
+        "sourceRefs": [
+          "din980_1987_original"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "original-table",
+        "note": "Nur eine ausgewertete Maßquelle."
+      },
+      "h_min": {
+        "min": 34,
+        "unit": "mm",
+        "sourceRefs": [
+          "din980_1987_original"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "original-table",
+        "note": "Nur eine ausgewertete Maßquelle."
+      },
+      "e_min": {
+        "min": 60.79,
+        "unit": "mm",
+        "sourceRefs": [
+          "din980_1987_original"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "original-table",
+        "note": "Nur eine ausgewertete Maßquelle."
+      },
+      "prevailingTorqueProfile": {
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "unit": "mm",
+        "note": "Detailmaß im ausgewerteten Nachweis nicht festgelegt; Kunden-/Herstellerzeichnung erforderlich."
+      }
+    },
+    "M39": {
+      "d_nom": {
+        "nominal": 39,
+        "unit": "mm",
+        "sourceRefs": [
+          "din980_1987_original"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "original-table",
+        "note": "Nur eine ausgewertete Maßquelle."
+      },
+      "P": {
+        "nominal": 4,
+        "unit": "mm",
+        "sourceRefs": [
+          "din980_1987_original"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "original-table",
+        "note": "Nur eine ausgewertete Maßquelle."
+      },
+      "s_nom": {
+        "nominal": 60,
+        "unit": "mm",
+        "sourceRefs": [
+          "din980_1987_original"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "original-table",
+        "note": "Nur eine ausgewertete Maßquelle."
+      },
+      "s_min": {
+        "min": 58.8,
+        "unit": "mm",
+        "sourceRefs": [
+          "din980_1987_original"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "original-table",
+        "note": "Nur eine ausgewertete Maßquelle."
+      },
+      "h_max": {
+        "max": 39,
+        "unit": "mm",
+        "sourceRefs": [
+          "din980_1987_original"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "original-table",
+        "note": "Nur eine ausgewertete Maßquelle."
+      },
+      "h_min": {
+        "min": 37,
+        "unit": "mm",
+        "sourceRefs": [
+          "din980_1987_original"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "original-table",
+        "note": "Nur eine ausgewertete Maßquelle."
+      },
+      "e_min": {
+        "min": 66.44,
+        "unit": "mm",
+        "sourceRefs": [
+          "din980_1987_original"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "original-table",
+        "note": "Nur eine ausgewertete Maßquelle."
+      },
+      "prevailingTorqueProfile": {
+        "sourceRefs": [],
+        "status": "missing",
+        "verification": false,
+        "unit": "mm",
+        "note": "Detailmaß im ausgewerteten Nachweis nicht festgelegt; Kunden-/Herstellerzeichnung erforderlich."
+      }
+    },
+    "M39x3": {
+      "d_nom": {
+        "nominal": 39,
+        "unit": "mm",
+        "sourceRefs": [
+          "din980_1987_original"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "original-table",
+        "note": "Nur eine ausgewertete Maßquelle."
+      },
+      "P": {
+        "nominal": 3,
+        "unit": "mm",
+        "sourceRefs": [
+          "din980_1987_original"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "original-table",
+        "note": "Nur eine ausgewertete Maßquelle."
+      },
+      "s_nom": {
+        "nominal": 60,
+        "unit": "mm",
+        "sourceRefs": [
+          "din980_1987_original"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "original-table",
+        "note": "Nur eine ausgewertete Maßquelle."
+      },
+      "s_min": {
+        "min": 58.8,
+        "unit": "mm",
+        "sourceRefs": [
+          "din980_1987_original"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "original-table",
+        "note": "Nur eine ausgewertete Maßquelle."
+      },
+      "h_max": {
+        "max": 39,
+        "unit": "mm",
+        "sourceRefs": [
+          "din980_1987_original"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "original-table",
+        "note": "Nur eine ausgewertete Maßquelle."
+      },
+      "h_min": {
+        "min": 37,
+        "unit": "mm",
+        "sourceRefs": [
+          "din980_1987_original"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "original-table",
+        "note": "Nur eine ausgewertete Maßquelle."
+      },
+      "e_min": {
+        "min": 66.44,
+        "unit": "mm",
+        "sourceRefs": [
+          "din980_1987_original"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "original-table",
+        "note": "Nur eine ausgewertete Maßquelle."
       },
       "prevailingTorqueProfile": {
         "sourceRefs": [],
@@ -3245,23 +4643,295 @@
       "kind": "manufacturer-catalog",
       "edition": null,
       "accessed": "2026-11-26"
+    },
+    "din980_1987_original": {
+      "url": "https://www.finesz.com/pic/DIN980.pdf",
+      "title": "DIN 980:1987-05, Original",
+      "edition": "1987-05",
+      "locator": "Tabelle 1, Seite 2",
+      "kind": "standard-original",
+      "accessed": "2026-11-27"
     }
   },
   "sourceStatus": "per-value",
   "coverage": {
-    "diameterMin": 5,
-    "diameterMax": 30,
+    "diameterMin": 3,
+    "diameterMax": 39,
     "unit": "mm",
-    "status": "partial",
-    "missingSizes": [],
-    "missingReason": "Keine ausgewerteten Maßnachweise für diese Größen; keine Aussage über Herstellbarkeit oder Lieferbarkeit."
+    "status": "standard-table-dimensions",
+    "note": "Bezeichnete Tabelle 1987-05; Klemmkontur bleibt herstellerspezifisch. Neue Randgrößen teils nur Originalquelle."
   },
-  "editionStatus": "edition-unverified",
+  "editionStatus": "source-edition-matched",
   "height": "h_max",
   "threadSeries": "coarse-and-documented-fine",
   "form": "V",
-  "coverageNotes": [
-    "Form V einteilig; Form M ist eine andere Bauform. Normausgabe der Katalogtabelle nicht angegeben."
-  ],
-  "defaultPolicy": "Dokumentierte Kataloghöhe oder ausgewiesenes Höchstmaß als vorläufige Außenhülle; kein vollständiges Fertigteilmodell."
+  "coverageNotes": [],
+  "defaultPolicy": "Dokumentierte Kataloghöhe oder ausgewiesenes Höchstmaß als vorläufige Außenhülle; kein vollständiges Fertigteilmodell.",
+  "editionEvidence": {
+    "sourceRefs": [
+      "din980_1987_original"
+    ],
+    "method": "dimension-table-comparison",
+    "note": "Datenausgabe der ausgewerteten Maßtabelle; aktueller Normstatus wird getrennt geführt."
+  },
+  "sizeCoverage": {
+    "M3": {
+      "status": "documented",
+      "sourceRefs": [
+        "din980_1987_original"
+      ]
+    },
+    "M4": {
+      "status": "documented",
+      "sourceRefs": [
+        "din980_1987_original"
+      ]
+    },
+    "M5": {
+      "status": "documented",
+      "sourceRefs": [
+        "din980_1987_original"
+      ]
+    },
+    "M6": {
+      "status": "documented",
+      "sourceRefs": [
+        "din980_1987_original"
+      ]
+    },
+    "M7": {
+      "status": "documented",
+      "sourceRefs": [
+        "din980_1987_original"
+      ]
+    },
+    "M8": {
+      "status": "documented",
+      "sourceRefs": [
+        "din980_1987_original"
+      ]
+    },
+    "M8x1": {
+      "status": "documented",
+      "sourceRefs": [
+        "din980_1987_original"
+      ]
+    },
+    "M10": {
+      "status": "documented",
+      "sourceRefs": [
+        "din980_1987_original"
+      ]
+    },
+    "M10x1": {
+      "status": "documented",
+      "sourceRefs": [
+        "din980_1987_original"
+      ]
+    },
+    "M10x1.25": {
+      "status": "documented",
+      "sourceRefs": [
+        "din980_1987_original"
+      ]
+    },
+    "M12": {
+      "status": "documented",
+      "sourceRefs": [
+        "din980_1987_original"
+      ]
+    },
+    "M12x1.5": {
+      "status": "documented",
+      "sourceRefs": [
+        "din980_1987_original"
+      ]
+    },
+    "M12x1.25": {
+      "status": "documented",
+      "sourceRefs": [
+        "din980_1987_original"
+      ]
+    },
+    "M14": {
+      "status": "documented",
+      "sourceRefs": [
+        "din980_1987_original"
+      ]
+    },
+    "M14x1.5": {
+      "status": "documented",
+      "sourceRefs": [
+        "din980_1987_original"
+      ]
+    },
+    "M16": {
+      "status": "documented",
+      "sourceRefs": [
+        "din980_1987_original"
+      ]
+    },
+    "M16x1.5": {
+      "status": "documented",
+      "sourceRefs": [
+        "din980_1987_original"
+      ]
+    },
+    "M18": {
+      "status": "documented",
+      "sourceRefs": [
+        "din980_1987_original"
+      ]
+    },
+    "M18x1.5": {
+      "status": "documented",
+      "sourceRefs": [
+        "din980_1987_original"
+      ]
+    },
+    "M18x2": {
+      "status": "documented",
+      "sourceRefs": [
+        "din980_1987_original"
+      ]
+    },
+    "M20": {
+      "status": "documented",
+      "sourceRefs": [
+        "din980_1987_original"
+      ]
+    },
+    "M20x2": {
+      "status": "documented",
+      "sourceRefs": [
+        "din980_1987_original"
+      ]
+    },
+    "M20x1.5": {
+      "status": "documented",
+      "sourceRefs": [
+        "din980_1987_original"
+      ]
+    },
+    "M22": {
+      "status": "documented",
+      "sourceRefs": [
+        "din980_1987_original"
+      ]
+    },
+    "M22x1.5": {
+      "status": "documented",
+      "sourceRefs": [
+        "din980_1987_original"
+      ]
+    },
+    "M22x2": {
+      "status": "documented",
+      "sourceRefs": [
+        "din980_1987_original"
+      ]
+    },
+    "M24": {
+      "status": "documented",
+      "sourceRefs": [
+        "din980_1987_original"
+      ]
+    },
+    "M24x2": {
+      "status": "documented",
+      "sourceRefs": [
+        "din980_1987_original"
+      ]
+    },
+    "M27": {
+      "status": "documented",
+      "sourceRefs": [
+        "din980_1987_original"
+      ]
+    },
+    "M27x2": {
+      "status": "documented",
+      "sourceRefs": [
+        "din980_1987_original"
+      ]
+    },
+    "M30": {
+      "status": "documented",
+      "sourceRefs": [
+        "din980_1987_original"
+      ]
+    },
+    "M30x2": {
+      "status": "documented",
+      "sourceRefs": [
+        "din980_1987_original"
+      ]
+    },
+    "M33": {
+      "status": "documented",
+      "sourceRefs": [
+        "din980_1987_original"
+      ]
+    },
+    "M33x2": {
+      "status": "documented",
+      "sourceRefs": [
+        "din980_1987_original"
+      ]
+    },
+    "M36": {
+      "status": "documented",
+      "sourceRefs": [
+        "din980_1987_original"
+      ]
+    },
+    "M36x3": {
+      "status": "documented",
+      "sourceRefs": [
+        "din980_1987_original"
+      ]
+    },
+    "M39": {
+      "status": "documented",
+      "sourceRefs": [
+        "din980_1987_original"
+      ]
+    },
+    "M39x3": {
+      "status": "documented",
+      "sourceRefs": [
+        "din980_1987_original"
+      ]
+    }
+  },
+  "pruefdatum": "2026-11-27",
+  "quellen": [
+    {
+      "id": "boellhoff980",
+      "url": "https://eshop.boellhoff.de/out/media/pdf/DIN_980_Stahl_8_gv___de.pdf",
+      "title": "Böllhoff DIN 980 type V product data sheet",
+      "locator": "Page 1, dimensions",
+      "kind": "manufacturer-catalog",
+      "edition": null,
+      "accessed": "2026-11-26"
+    },
+    {
+      "id": "berat980",
+      "url": "https://www.beratcivata.com/images/PDF_TEKNIK/SOMUNLAR/DIN980.pdf",
+      "title": "Berat Cıvata DIN 980 V product dimensions",
+      "locator": "Dimensional table",
+      "kind": "manufacturer-catalog",
+      "edition": null,
+      "accessed": "2026-11-26"
+    },
+    {
+      "id": "din980_1987_original",
+      "url": "https://www.finesz.com/pic/DIN980.pdf",
+      "title": "DIN 980:1987-05, Original",
+      "edition": "1987-05",
+      "locator": "Tabelle 1, Seite 2",
+      "kind": "standard-original",
+      "accessed": "2026-11-27"
+    }
+  ]
 }

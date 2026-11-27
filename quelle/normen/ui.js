@@ -37,15 +37,19 @@
       lengthOpen=!!open&&!controls.laenge.disabled;controls.laenge.hidden=!lengthOpen;lengthToggle.setAttribute('aria-expanded',String(lengthOpen));
       if(focus)(lengthOpen?controls.laenge:lengthToggle).focus();
     }
+    function lengthLabel(custom=false){
+      const f=family();if(f?.id==='ISO13918')return f.lengthDefinition?.reference==='l2'?'Länge nach dem Schweißen in mm':'Länge vor dem Schweißen in mm';
+      return custom?'Individuelle Länge in mm':'Länge in mm';
+    }
     function refreshLength(){
       const field=controls.laenge,value=field.value==='custom'?tr('Andere Länge …'):field.value?field.value+' mm':'—';lengthValue.textContent=value;
-      lengthToggle.disabled=field.disabled;lengthToggle.setAttribute('aria-label',tr(family()?.id==='ISO13918'?'Länge vor dem Schweißen in mm':'Länge in mm')+': '+value);
+      lengthToggle.disabled=field.disabled;lengthToggle.setAttribute('aria-label',tr(lengthLabel())+': '+value);
       // size >= 2 guarantees an in-document list rather than an OS popup,
       // including a family for which only one length is documented.
       field.size=Math.max(2,Math.min(6,field.options.length));if(field.disabled)setLengthOpen(false);
       if(enhancedLengths){
         const custom=field.value==='custom';lengthToggle.hidden=!N.lengths(family(),controls.groesse.value).length;
-        lengthInput.hidden=!custom||!family();lengthInput.disabled=!family();lengthInput.setAttribute('aria-label',tr(family()?.id==='ISO13918'?'Länge vor dem Schweißen in mm':'Individuelle Länge in mm'));
+        lengthInput.hidden=!custom||!family();lengthInput.disabled=!family();lengthInput.setAttribute('aria-label',tr(lengthLabel(true)));
         lengthRange.hidden=!custom||!family();lengthRange.textContent=lengthRange.hidden?'':lengthRangeText();
       }
     }
@@ -57,6 +61,12 @@
       const range=window.JYNormAvailability?.lengthAvailability({part:availabilityPart()||{},catalogue}),product=range?.productLength?.max,cutoff=range?.cutoffLength;
       const text=(key,values)=>tr(key).replace(/\{(\w+)\}/g,(all,key)=>typeof values[key]==='number'?formatNumber(values[key]):values[key]??all);
       const parts=[];
+      const def=family()?.groessen?.[controls.groesse.value]?.lengthDefinition;
+      if(def){
+        if(def.min>0&&def.max>0)parts.push(text('Normbereich {reference}: {min}–{max} mm.',{reference:def.reference,min:def.min,max:def.max}));
+        else if(def.min>0)parts.push(text(def.approximate?'Normrichtwert {reference}: mindestens etwa {min} mm.':'Normmindestlänge {reference}: {min} mm.',{reference:def.reference,min:def.min}));
+        if(def.otherLengths==='by-agreement')parts.push(tr('Andere Längen sind nach Vereinbarung möglich.'));
+      }
       if(product>0)parts.push(text('Dokumentierte Produktlängen im Maschinenkatalog: bis {value} mm.',{value:product}));
       if(cutoff?.min>0&&cutoff?.max>0)parts.push(text('Dokumentierte Abschnittlängen {min}–{max} mm; der Abschnitt wird aus dem Volumen berechnet.',{min:cutoff.min,max:cutoff.max}));
       return parts.join(' ')||tr('Individuelle Länge eingeben; die Maschinenprüfung folgt aus der vollständigen Geometrie.');
@@ -87,7 +97,7 @@
       const ls=N.lengths(f,s.value),oldLength=resetLength&&lengthOrigin!=='customer'?'':controls.laenge.value;
       const lengthChoices=ls.map(x=>[x,x]);if(enhancedLengths&&f)lengthChoices.push(['custom','Andere Länge …']);
       options(controls.laenge,lengthChoices,enhancedLengths&&(lengthOrigin==='customer'||!ls.length)?'custom':oldLength||(!enhancedLengths?'30':''));
-      const lengthLabel=f?.id==='ISO13918'?'Länge vor dem Schweißen in mm':'Länge in mm';wraps.laenge.children[0].textContent=tr(lengthLabel);controls.laenge.setAttribute('aria-label',tr(lengthLabel));
+      wraps.laenge.children[0].textContent=tr(lengthLabel());controls.laenge.setAttribute('aria-label',tr(lengthLabel()));
       wraps.laenge.hidden=kind()==='nut';controls.laenge.disabled=!ls.length;setLengthOpen(false);refreshLength();
       const row=f?.groessen?.[s.value],allPitches=N.pitches(data,s.value),allowed=row?.steigungen;
       const fixedPitch=row?.thread?.pitch??row?.roh?.P??data.threads?.rows?.[s.value]?.coarse;
@@ -123,7 +133,13 @@
         if(functionalFamilies&&controls.kind.value==='free'&&wasThreadless)for(const name of ['threadFamily','iTyp'])if(form.elements[name])form.elements[name].value='none';
         controls.id.value='';refreshType(true);if(!document&&functionalFamilies&&kind()==='headless')onApply({standardKind:'headless',kopfForm:'none',kD:0,kH:0,kSW:0});detail.open=!document||detail.open;onChange();return;
       }
-      if(key==='id'||key==='form'||key==='groesse')fill(enhancedLengths);
+      if(key==='id'||key==='form'||key==='groesse'){
+        if(enhancedLengths&&document&&key!=='groesse'){
+          const old=N.variantFamily(data.families.find(f=>f.id===document.standardReference.id),document.standardReference.form);
+          if(old?.lengthDefinition?.reference!==family()?.lengthDefinition?.reference){lengthInput.value='';lengthOrigin='standard';}
+        }
+        fill(enhancedLengths);
+      }
       if(enhancedLengths&&key==='laenge'){
         lengthOrigin=controls.laenge.value==='custom'?'customer':'standard';
         if(lengthOrigin==='customer'&&!lengthInput.value&&document?.standardReference.laenge!=null)lengthInput.value=String(document.standardReference.laenge);
@@ -143,7 +159,7 @@
     function apply(){applying=true;onApply(N.adapt(data,document));applying=false;render();if(!Object.keys(document.overrides).length&&!N.adapt(data,document).normMissingFields.length&&(kind()==='nut'||controls.laenge.value))detail.open=false;onChange();}
     function render(){
       for(const [key,label]of labels){
-        const source=key==='laenge'&&family()?.id==='ISO13918'?'Länge vor dem Schweißen in mm':label;
+        const source=key==='laenge'?lengthLabel():label;
         wraps[key].children[0].textContent=tr(source);controls[key].setAttribute('aria-label',tr(source));
       }
       // Rebuild translated labels without resolving the norm again: a language

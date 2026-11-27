@@ -1,8 +1,8 @@
 {
   "schemaVersion": 1,
-  "version": "2026-11-26.1",
+  "version": "2026-11-27.p7",
   "id": "DIN439",
-  "edition": "catalog-undated",
+  "edition": "1987-10",
   "label": "Niedrige Sechskantmutter, Form B mit Fase",
   "funktion": "mutter",
   "klasse": "mutter",
@@ -23,14 +23,16 @@
         "P": 0.8,
         "s_nom": 8,
         "m_catalog": 2.7,
-        "e_catalog": 8.79
+        "e_catalog": 8.79,
+        "m_max": 2.7,
+        "e_min": 8.79
       },
       "thread": {
         "id": "M5x0.8",
         "diameter": 5,
         "pitch": 0.8,
         "sourceRefs": [
-          "iso4032_2023"
+          "taurus439_1987"
         ]
       },
       "geometryStatus": "dimensioned",
@@ -46,14 +48,16 @@
         "P": 1,
         "s_nom": 10,
         "m_catalog": 3.2,
-        "e_catalog": 11.05
+        "e_catalog": 11.05,
+        "m_max": 3.2,
+        "e_min": 11.05
       },
       "thread": {
         "id": "M6x1",
         "diameter": 6,
         "pitch": 1,
         "sourceRefs": [
-          "iso4032_2023"
+          "taurus439_1987"
         ]
       },
       "geometryStatus": "dimensioned",
@@ -69,14 +73,16 @@
         "P": 1.25,
         "s_nom": 13,
         "m_catalog": 4,
-        "e_catalog": 14.38
+        "e_catalog": 14.38,
+        "m_max": 4,
+        "e_min": 14.38
       },
       "thread": {
         "id": "M8x1.25",
         "diameter": 8,
         "pitch": 1.25,
         "sourceRefs": [
-          "iso4032_2023"
+          "taurus439_1987"
         ]
       },
       "geometryStatus": "dimensioned",
@@ -92,14 +98,16 @@
         "P": 1.5,
         "s_nom": 17,
         "m_catalog": 5,
-        "e_catalog": 18.9
+        "e_catalog": 18.9,
+        "m_max": 5,
+        "e_min": 18.9
       },
       "thread": {
         "id": "M10x1.5",
         "diameter": 10,
         "pitch": 1.5,
         "sourceRefs": [
-          "iso4032_2023"
+          "taurus439_1987"
         ]
       },
       "geometryStatus": "dimensioned",
@@ -115,14 +123,16 @@
         "P": 1.75,
         "s_nom": 19,
         "m_catalog": 6,
-        "e_catalog": 21.1
+        "e_catalog": 21.1,
+        "m_max": 6,
+        "e_min": 21.1
       },
       "thread": {
         "id": "M12x1.75",
         "diameter": 12,
         "pitch": 1.75,
         "sourceRefs": [
-          "iso4032_2023"
+          "taurus439_1987"
         ]
       },
       "geometryStatus": "dimensioned",
@@ -138,14 +148,16 @@
         "P": 2,
         "s_nom": 22,
         "m_catalog": 7,
-        "e_catalog": 24.49
+        "e_catalog": 24.49,
+        "m_max": 7,
+        "e_min": 24.49
       },
       "thread": {
         "id": "M14x2",
         "diameter": 14,
         "pitch": 2,
         "sourceRefs": [
-          "iso4032_2023"
+          "taurus439_1987"
         ]
       },
       "geometryStatus": "dimensioned",
@@ -161,14 +173,16 @@
         "P": 2,
         "s_nom": 24,
         "m_catalog": 8,
-        "e_catalog": 26.75
+        "e_catalog": 26.75,
+        "m_max": 8,
+        "e_min": 26.75
       },
       "thread": {
         "id": "M16x2",
         "diameter": 16,
         "pitch": 2,
         "sourceRefs": [
-          "iso4032_2023"
+          "taurus439_1987"
         ]
       },
       "geometryStatus": "dimensioned",
@@ -184,14 +198,16 @@
         "P": 2.5,
         "s_nom": 27,
         "m_catalog": 9,
-        "e_catalog": 29.56
+        "e_catalog": 29.56,
+        "m_max": 9,
+        "e_min": 29.56
       },
       "thread": {
         "id": "M18x2.5",
         "diameter": 18,
         "pitch": 2.5,
         "sourceRefs": [
-          "iso4032_2023"
+          "taurus439_1987"
         ]
       },
       "geometryStatus": "dimensioned",
@@ -207,14 +223,16 @@
         "P": 2.5,
         "s_nom": 30,
         "m_catalog": 10,
-        "e_catalog": 32.95
+        "e_catalog": 32.95,
+        "m_max": 10,
+        "e_min": 32.95
       },
       "thread": {
         "id": "M20x2.5",
         "diameter": 20,
         "pitch": 2.5,
         "sourceRefs": [
-          "iso4032_2023"
+          "taurus439_1987"
         ]
       },
       "geometryStatus": "dimensioned",
@@ -230,14 +248,16 @@
         "P": 2.5,
         "s_nom": 32,
         "m_catalog": 11,
-        "e_catalog": 35.03
+        "e_catalog": 35.03,
+        "m_max": 11,
+        "e_min": 35.03
       },
       "thread": {
         "id": "M22x2.5",
         "diameter": 22,
         "pitch": 2.5,
         "sourceRefs": [
-          "iso4032_2023"
+          "taurus439_1987"
         ]
       },
       "geometryStatus": "dimensioned",
@@ -253,14 +273,16 @@
         "P": 3,
         "s_nom": 36,
         "m_catalog": 12,
-        "e_catalog": 39.55
+        "e_catalog": 39.55,
+        "m_max": 12,
+        "e_min": 39.55
       },
       "thread": {
         "id": "M24x3",
         "diameter": 24,
         "pitch": 3,
         "sourceRefs": [
-          "iso4032_2023"
+          "taurus439_1987"
         ]
       },
       "geometryStatus": "dimensioned",
@@ -276,14 +298,16 @@
         "P": 3,
         "s_nom": 41,
         "m_catalog": 13.5,
-        "e_catalog": 45.2
+        "e_catalog": 45.2,
+        "m_max": 13.5,
+        "e_min": 45.2
       },
       "thread": {
         "id": "M27x3",
         "diameter": 27,
         "pitch": 3,
         "sourceRefs": [
-          "iso4032_2023"
+          "taurus439_1987"
         ]
       },
       "geometryStatus": "dimensioned",
@@ -299,14 +323,16 @@
         "P": 3.5,
         "s_nom": 46,
         "m_catalog": 15,
-        "e_catalog": 50.85
+        "e_catalog": 50.85,
+        "m_max": 15,
+        "e_min": 50.85
       },
       "thread": {
         "id": "M30x3.5",
         "diameter": 30,
         "pitch": 3.5,
         "sourceRefs": [
-          "iso4032_2023"
+          "taurus439_1987"
         ]
       },
       "geometryStatus": "dimensioned",
@@ -333,7 +359,9 @@
         ]
       },
       "geometryStatus": "dimensioned",
-      "missingGeometryFields": []
+      "missingGeometryFields": [],
+      "dataEdition": "supplier-additional",
+      "note": "Feingewinde-Lieferzeile aus Lederer; die hier abgeglichene zweite Tabelle enthält nur Regelgewinde. Keine unabhängige Bestätigung der Gewindekombination."
     },
     "M8x1": {
       "vorbelegung": {
@@ -356,7 +384,9 @@
         ]
       },
       "geometryStatus": "dimensioned",
-      "missingGeometryFields": []
+      "missingGeometryFields": [],
+      "dataEdition": "supplier-additional",
+      "note": "Feingewinde-Lieferzeile aus Lederer; die hier abgeglichene zweite Tabelle enthält nur Regelgewinde. Keine unabhängige Bestätigung der Gewindekombination."
     },
     "M10x0.75": {
       "vorbelegung": {
@@ -379,7 +409,9 @@
         ]
       },
       "geometryStatus": "dimensioned",
-      "missingGeometryFields": []
+      "missingGeometryFields": [],
+      "dataEdition": "supplier-additional",
+      "note": "Feingewinde-Lieferzeile aus Lederer; die hier abgeglichene zweite Tabelle enthält nur Regelgewinde. Keine unabhängige Bestätigung der Gewindekombination."
     },
     "M10x1": {
       "vorbelegung": {
@@ -402,7 +434,9 @@
         ]
       },
       "geometryStatus": "dimensioned",
-      "missingGeometryFields": []
+      "missingGeometryFields": [],
+      "dataEdition": "supplier-additional",
+      "note": "Feingewinde-Lieferzeile aus Lederer; die hier abgeglichene zweite Tabelle enthält nur Regelgewinde. Keine unabhängige Bestätigung der Gewindekombination."
     },
     "M10x1.25": {
       "vorbelegung": {
@@ -425,7 +459,9 @@
         ]
       },
       "geometryStatus": "dimensioned",
-      "missingGeometryFields": []
+      "missingGeometryFields": [],
+      "dataEdition": "supplier-additional",
+      "note": "Feingewinde-Lieferzeile aus Lederer; die hier abgeglichene zweite Tabelle enthält nur Regelgewinde. Keine unabhängige Bestätigung der Gewindekombination."
     },
     "M12x1": {
       "vorbelegung": {
@@ -448,7 +484,9 @@
         ]
       },
       "geometryStatus": "dimensioned",
-      "missingGeometryFields": []
+      "missingGeometryFields": [],
+      "dataEdition": "supplier-additional",
+      "note": "Feingewinde-Lieferzeile aus Lederer; die hier abgeglichene zweite Tabelle enthält nur Regelgewinde. Keine unabhängige Bestätigung der Gewindekombination."
     },
     "M12x1.25": {
       "vorbelegung": {
@@ -471,7 +509,9 @@
         ]
       },
       "geometryStatus": "dimensioned",
-      "missingGeometryFields": []
+      "missingGeometryFields": [],
+      "dataEdition": "supplier-additional",
+      "note": "Feingewinde-Lieferzeile aus Lederer; die hier abgeglichene zweite Tabelle enthält nur Regelgewinde. Keine unabhängige Bestätigung der Gewindekombination."
     },
     "M12x1.5": {
       "vorbelegung": {
@@ -494,7 +534,9 @@
         ]
       },
       "geometryStatus": "dimensioned",
-      "missingGeometryFields": []
+      "missingGeometryFields": [],
+      "dataEdition": "supplier-additional",
+      "note": "Feingewinde-Lieferzeile aus Lederer; die hier abgeglichene zweite Tabelle enthält nur Regelgewinde. Keine unabhängige Bestätigung der Gewindekombination."
     },
     "M14x1.5": {
       "vorbelegung": {
@@ -517,7 +559,9 @@
         ]
       },
       "geometryStatus": "dimensioned",
-      "missingGeometryFields": []
+      "missingGeometryFields": [],
+      "dataEdition": "supplier-additional",
+      "note": "Feingewinde-Lieferzeile aus Lederer; die hier abgeglichene zweite Tabelle enthält nur Regelgewinde. Keine unabhängige Bestätigung der Gewindekombination."
     },
     "M16x1.5": {
       "vorbelegung": {
@@ -540,7 +584,9 @@
         ]
       },
       "geometryStatus": "dimensioned",
-      "missingGeometryFields": []
+      "missingGeometryFields": [],
+      "dataEdition": "supplier-additional",
+      "note": "Feingewinde-Lieferzeile aus Lederer; die hier abgeglichene zweite Tabelle enthält nur Regelgewinde. Keine unabhängige Bestätigung der Gewindekombination."
     },
     "M18x1.5": {
       "vorbelegung": {
@@ -563,7 +609,9 @@
         ]
       },
       "geometryStatus": "dimensioned",
-      "missingGeometryFields": []
+      "missingGeometryFields": [],
+      "dataEdition": "supplier-additional",
+      "note": "Feingewinde-Lieferzeile aus Lederer; die hier abgeglichene zweite Tabelle enthält nur Regelgewinde. Keine unabhängige Bestätigung der Gewindekombination."
     },
     "M20x1.5": {
       "vorbelegung": {
@@ -586,7 +634,9 @@
         ]
       },
       "geometryStatus": "dimensioned",
-      "missingGeometryFields": []
+      "missingGeometryFields": [],
+      "dataEdition": "supplier-additional",
+      "note": "Feingewinde-Lieferzeile aus Lederer; die hier abgeglichene zweite Tabelle enthält nur Regelgewinde. Keine unabhängige Bestätigung der Gewindekombination."
     },
     "M20x2": {
       "vorbelegung": {
@@ -609,7 +659,9 @@
         ]
       },
       "geometryStatus": "dimensioned",
-      "missingGeometryFields": []
+      "missingGeometryFields": [],
+      "dataEdition": "supplier-additional",
+      "note": "Feingewinde-Lieferzeile aus Lederer; die hier abgeglichene zweite Tabelle enthält nur Regelgewinde. Keine unabhängige Bestätigung der Gewindekombination."
     },
     "M22x1.5": {
       "vorbelegung": {
@@ -632,7 +684,9 @@
         ]
       },
       "geometryStatus": "dimensioned",
-      "missingGeometryFields": []
+      "missingGeometryFields": [],
+      "dataEdition": "supplier-additional",
+      "note": "Feingewinde-Lieferzeile aus Lederer; die hier abgeglichene zweite Tabelle enthält nur Regelgewinde. Keine unabhängige Bestätigung der Gewindekombination."
     },
     "M24x1.5": {
       "vorbelegung": {
@@ -655,7 +709,9 @@
         ]
       },
       "geometryStatus": "dimensioned",
-      "missingGeometryFields": []
+      "missingGeometryFields": [],
+      "dataEdition": "supplier-additional",
+      "note": "Feingewinde-Lieferzeile aus Lederer; die hier abgeglichene zweite Tabelle enthält nur Regelgewinde. Keine unabhängige Bestätigung der Gewindekombination."
     },
     "M24x2": {
       "vorbelegung": {
@@ -678,7 +734,9 @@
         ]
       },
       "geometryStatus": "dimensioned",
-      "missingGeometryFields": []
+      "missingGeometryFields": [],
+      "dataEdition": "supplier-additional",
+      "note": "Feingewinde-Lieferzeile aus Lederer; die hier abgeglichene zweite Tabelle enthält nur Regelgewinde. Keine unabhängige Bestätigung der Gewindekombination."
     },
     "M27x1.5": {
       "vorbelegung": {
@@ -701,7 +759,9 @@
         ]
       },
       "geometryStatus": "dimensioned",
-      "missingGeometryFields": []
+      "missingGeometryFields": [],
+      "dataEdition": "supplier-additional",
+      "note": "Feingewinde-Lieferzeile aus Lederer; die hier abgeglichene zweite Tabelle enthält nur Regelgewinde. Keine unabhängige Bestätigung der Gewindekombination."
     },
     "M27x2": {
       "vorbelegung": {
@@ -724,7 +784,9 @@
         ]
       },
       "geometryStatus": "dimensioned",
-      "missingGeometryFields": []
+      "missingGeometryFields": [],
+      "dataEdition": "supplier-additional",
+      "note": "Feingewinde-Lieferzeile aus Lederer; die hier abgeglichene zweite Tabelle enthält nur Regelgewinde. Keine unabhängige Bestätigung der Gewindekombination."
     },
     "M30x1.5": {
       "vorbelegung": {
@@ -747,7 +809,9 @@
         ]
       },
       "geometryStatus": "dimensioned",
-      "missingGeometryFields": []
+      "missingGeometryFields": [],
+      "dataEdition": "supplier-additional",
+      "note": "Feingewinde-Lieferzeile aus Lederer; die hier abgeglichene zweite Tabelle enthält nur Regelgewinde. Keine unabhängige Bestätigung der Gewindekombination."
     },
     "M30x2": {
       "vorbelegung": {
@@ -770,40 +834,143 @@
         ]
       },
       "geometryStatus": "dimensioned",
-      "missingGeometryFields": []
+      "missingGeometryFields": [],
+      "dataEdition": "supplier-additional",
+      "note": "Feingewinde-Lieferzeile aus Lederer; die hier abgeglichene zweite Tabelle enthält nur Regelgewinde. Keine unabhängige Bestätigung der Gewindekombination."
+    },
+    "M3": {
+      "vorbelegung": {
+        "mSW": 5.5,
+        "mH": 1.8
+      },
+      "roh": {
+        "d_nom": 3,
+        "P": 0.5,
+        "s_nom": 5.5,
+        "m_max": 1.8,
+        "m_catalog": 1.8,
+        "e_min": 6.01
+      },
+      "geometryStatus": "dimensioned",
+      "missingGeometryFields": [],
+      "thread": {
+        "id": "M3x0.5",
+        "diameter": 3,
+        "pitch": 0.5,
+        "sourceRefs": [
+          "taurus439_1987"
+        ]
+      }
+    },
+    "M4": {
+      "vorbelegung": {
+        "mSW": 7,
+        "mH": 2.2
+      },
+      "roh": {
+        "d_nom": 4,
+        "P": 0.7,
+        "s_nom": 7,
+        "m_max": 2.2,
+        "m_catalog": 2.2,
+        "e_min": 7.66
+      },
+      "geometryStatus": "dimensioned",
+      "missingGeometryFields": [],
+      "thread": {
+        "id": "M4x0.7",
+        "diameter": 4,
+        "pitch": 0.7,
+        "sourceRefs": [
+          "taurus439_1987"
+        ]
+      }
+    },
+    "M33": {
+      "vorbelegung": {
+        "mSW": 50,
+        "mH": 16.5
+      },
+      "roh": {
+        "d_nom": 33,
+        "P": 3.5,
+        "s_nom": 50,
+        "m_max": 16.5,
+        "m_catalog": 16.5,
+        "e_min": 55.37
+      },
+      "geometryStatus": "dimensioned",
+      "missingGeometryFields": [],
+      "thread": {
+        "id": "M33x3.5",
+        "diameter": 33,
+        "pitch": 3.5,
+        "sourceRefs": [
+          "taurus439_1987"
+        ]
+      }
+    },
+    "M36": {
+      "vorbelegung": {
+        "mSW": 55,
+        "mH": 18
+      },
+      "roh": {
+        "d_nom": 36,
+        "P": 4,
+        "s_nom": 55,
+        "m_max": 18,
+        "m_catalog": 18,
+        "e_min": 60.79
+      },
+      "geometryStatus": "dimensioned",
+      "missingGeometryFields": [],
+      "thread": {
+        "id": "M36x4",
+        "diameter": 36,
+        "pitch": 4,
+        "sourceRefs": [
+          "taurus439_1987"
+        ]
+      }
     }
   },
   "fields": {
     "M5": {
       "P": {
         "nominal": 0.8,
+        "unit": "mm",
         "sourceRefs": [
-          "iso4032_2023"
+          "taurus439_1987"
         ],
         "status": "single-source",
-        "verification": "one-primary-record",
-        "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "verification": false,
+        "verificationMethod": "dimension-table",
+        "note": "Nur eine ausgewertete Maßquelle."
       },
       "s_nom": {
         "nominal": 8,
+        "unit": "mm",
         "sourceRefs": [
+          "taurus439_1987",
           "lederer439"
         ],
-        "status": "single-source",
-        "verification": "one-primary-record",
-        "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "dimension-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "m_catalog": {
-        "value": 2.7,
+        "nominal": 2.7,
+        "unit": "mm",
         "sourceRefs": [
+          "taurus439_1987",
           "lederer439"
         ],
-        "status": "single-source",
-        "verification": "one-primary-record",
-        "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "dimension-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "e_catalog": {
         "value": 8.79,
@@ -817,45 +984,76 @@
       },
       "d_nom": {
         "nominal": 5,
+        "unit": "mm",
         "sourceRefs": [
+          "taurus439_1987",
           "lederer439"
         ],
-        "status": "single-source",
-        "verification": "one-primary-record",
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "dimension-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
+      },
+      "m_max": {
+        "max": 2.7,
         "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "sourceRefs": [
+          "taurus439_1987",
+          "lederer439"
+        ],
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "dimension-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
+      },
+      "e_min": {
+        "min": 8.79,
+        "unit": "mm",
+        "sourceRefs": [
+          "taurus439_1987",
+          "lederer439"
+        ],
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "dimension-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       }
     },
     "M6": {
       "P": {
         "nominal": 1,
+        "unit": "mm",
         "sourceRefs": [
-          "iso4032_2023"
+          "taurus439_1987"
         ],
         "status": "single-source",
-        "verification": "one-primary-record",
-        "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "verification": false,
+        "verificationMethod": "dimension-table",
+        "note": "Nur eine ausgewertete Maßquelle."
       },
       "s_nom": {
         "nominal": 10,
+        "unit": "mm",
         "sourceRefs": [
+          "taurus439_1987",
           "lederer439"
         ],
-        "status": "single-source",
-        "verification": "one-primary-record",
-        "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "dimension-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "m_catalog": {
-        "value": 3.2,
+        "nominal": 3.2,
+        "unit": "mm",
         "sourceRefs": [
+          "taurus439_1987",
           "lederer439"
         ],
-        "status": "single-source",
-        "verification": "one-primary-record",
-        "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "dimension-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "e_catalog": {
         "value": 11.05,
@@ -869,45 +1067,76 @@
       },
       "d_nom": {
         "nominal": 6,
+        "unit": "mm",
         "sourceRefs": [
+          "taurus439_1987",
           "lederer439"
         ],
-        "status": "single-source",
-        "verification": "one-primary-record",
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "dimension-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
+      },
+      "m_max": {
+        "max": 3.2,
         "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "sourceRefs": [
+          "taurus439_1987",
+          "lederer439"
+        ],
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "dimension-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
+      },
+      "e_min": {
+        "min": 11.05,
+        "unit": "mm",
+        "sourceRefs": [
+          "taurus439_1987",
+          "lederer439"
+        ],
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "dimension-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       }
     },
     "M8": {
       "P": {
         "nominal": 1.25,
+        "unit": "mm",
         "sourceRefs": [
-          "iso4032_2023"
+          "taurus439_1987"
         ],
         "status": "single-source",
-        "verification": "one-primary-record",
-        "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "verification": false,
+        "verificationMethod": "dimension-table",
+        "note": "Nur eine ausgewertete Maßquelle."
       },
       "s_nom": {
         "nominal": 13,
+        "unit": "mm",
         "sourceRefs": [
+          "taurus439_1987",
           "lederer439"
         ],
-        "status": "single-source",
-        "verification": "one-primary-record",
-        "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "dimension-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "m_catalog": {
-        "value": 4,
+        "nominal": 4,
+        "unit": "mm",
         "sourceRefs": [
+          "taurus439_1987",
           "lederer439"
         ],
-        "status": "single-source",
-        "verification": "one-primary-record",
-        "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "dimension-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "e_catalog": {
         "value": 14.38,
@@ -921,45 +1150,76 @@
       },
       "d_nom": {
         "nominal": 8,
+        "unit": "mm",
         "sourceRefs": [
+          "taurus439_1987",
           "lederer439"
         ],
-        "status": "single-source",
-        "verification": "one-primary-record",
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "dimension-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
+      },
+      "m_max": {
+        "max": 4,
         "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "sourceRefs": [
+          "taurus439_1987",
+          "lederer439"
+        ],
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "dimension-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
+      },
+      "e_min": {
+        "min": 14.38,
+        "unit": "mm",
+        "sourceRefs": [
+          "taurus439_1987",
+          "lederer439"
+        ],
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "dimension-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       }
     },
     "M10": {
       "P": {
         "nominal": 1.5,
+        "unit": "mm",
         "sourceRefs": [
-          "iso4032_2023"
+          "taurus439_1987"
         ],
         "status": "single-source",
-        "verification": "one-primary-record",
-        "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "verification": false,
+        "verificationMethod": "dimension-table",
+        "note": "Nur eine ausgewertete Maßquelle."
       },
       "s_nom": {
         "nominal": 17,
+        "unit": "mm",
         "sourceRefs": [
+          "taurus439_1987",
           "lederer439"
         ],
-        "status": "single-source",
-        "verification": "one-primary-record",
-        "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "dimension-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "m_catalog": {
-        "value": 5,
+        "nominal": 5,
+        "unit": "mm",
         "sourceRefs": [
+          "taurus439_1987",
           "lederer439"
         ],
-        "status": "single-source",
-        "verification": "one-primary-record",
-        "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "dimension-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "e_catalog": {
         "value": 18.9,
@@ -973,45 +1233,76 @@
       },
       "d_nom": {
         "nominal": 10,
+        "unit": "mm",
         "sourceRefs": [
+          "taurus439_1987",
           "lederer439"
         ],
-        "status": "single-source",
-        "verification": "one-primary-record",
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "dimension-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
+      },
+      "m_max": {
+        "max": 5,
         "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "sourceRefs": [
+          "taurus439_1987",
+          "lederer439"
+        ],
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "dimension-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
+      },
+      "e_min": {
+        "min": 18.9,
+        "unit": "mm",
+        "sourceRefs": [
+          "taurus439_1987",
+          "lederer439"
+        ],
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "dimension-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       }
     },
     "M12": {
       "P": {
         "nominal": 1.75,
+        "unit": "mm",
         "sourceRefs": [
-          "iso4032_2023"
+          "taurus439_1987"
         ],
         "status": "single-source",
-        "verification": "one-primary-record",
-        "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "verification": false,
+        "verificationMethod": "dimension-table",
+        "note": "Nur eine ausgewertete Maßquelle."
       },
       "s_nom": {
         "nominal": 19,
+        "unit": "mm",
         "sourceRefs": [
+          "taurus439_1987",
           "lederer439"
         ],
-        "status": "single-source",
-        "verification": "one-primary-record",
-        "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "dimension-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "m_catalog": {
-        "value": 6,
+        "nominal": 6,
+        "unit": "mm",
         "sourceRefs": [
+          "taurus439_1987",
           "lederer439"
         ],
-        "status": "single-source",
-        "verification": "one-primary-record",
-        "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "dimension-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "e_catalog": {
         "value": 21.1,
@@ -1025,45 +1316,76 @@
       },
       "d_nom": {
         "nominal": 12,
+        "unit": "mm",
         "sourceRefs": [
+          "taurus439_1987",
           "lederer439"
         ],
-        "status": "single-source",
-        "verification": "one-primary-record",
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "dimension-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
+      },
+      "m_max": {
+        "max": 6,
         "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "sourceRefs": [
+          "taurus439_1987",
+          "lederer439"
+        ],
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "dimension-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
+      },
+      "e_min": {
+        "min": 21.1,
+        "unit": "mm",
+        "sourceRefs": [
+          "taurus439_1987",
+          "lederer439"
+        ],
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "dimension-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       }
     },
     "M14": {
       "P": {
         "nominal": 2,
+        "unit": "mm",
         "sourceRefs": [
-          "iso4032_2023"
+          "taurus439_1987"
         ],
         "status": "single-source",
-        "verification": "one-primary-record",
-        "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "verification": false,
+        "verificationMethod": "dimension-table",
+        "note": "Nur eine ausgewertete Maßquelle."
       },
       "s_nom": {
         "nominal": 22,
+        "unit": "mm",
         "sourceRefs": [
+          "taurus439_1987",
           "lederer439"
         ],
-        "status": "single-source",
-        "verification": "one-primary-record",
-        "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "dimension-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "m_catalog": {
-        "value": 7,
+        "nominal": 7,
+        "unit": "mm",
         "sourceRefs": [
+          "taurus439_1987",
           "lederer439"
         ],
-        "status": "single-source",
-        "verification": "one-primary-record",
-        "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "dimension-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "e_catalog": {
         "value": 24.49,
@@ -1077,45 +1399,76 @@
       },
       "d_nom": {
         "nominal": 14,
+        "unit": "mm",
         "sourceRefs": [
+          "taurus439_1987",
           "lederer439"
         ],
-        "status": "single-source",
-        "verification": "one-primary-record",
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "dimension-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
+      },
+      "m_max": {
+        "max": 7,
         "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "sourceRefs": [
+          "taurus439_1987",
+          "lederer439"
+        ],
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "dimension-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
+      },
+      "e_min": {
+        "min": 24.49,
+        "unit": "mm",
+        "sourceRefs": [
+          "taurus439_1987",
+          "lederer439"
+        ],
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "dimension-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       }
     },
     "M16": {
       "P": {
         "nominal": 2,
+        "unit": "mm",
         "sourceRefs": [
-          "iso4032_2023"
+          "taurus439_1987"
         ],
         "status": "single-source",
-        "verification": "one-primary-record",
-        "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "verification": false,
+        "verificationMethod": "dimension-table",
+        "note": "Nur eine ausgewertete Maßquelle."
       },
       "s_nom": {
         "nominal": 24,
+        "unit": "mm",
         "sourceRefs": [
+          "taurus439_1987",
           "lederer439"
         ],
-        "status": "single-source",
-        "verification": "one-primary-record",
-        "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "dimension-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "m_catalog": {
-        "value": 8,
+        "nominal": 8,
+        "unit": "mm",
         "sourceRefs": [
+          "taurus439_1987",
           "lederer439"
         ],
-        "status": "single-source",
-        "verification": "one-primary-record",
-        "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "dimension-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "e_catalog": {
         "value": 26.75,
@@ -1129,45 +1482,76 @@
       },
       "d_nom": {
         "nominal": 16,
+        "unit": "mm",
         "sourceRefs": [
+          "taurus439_1987",
           "lederer439"
         ],
-        "status": "single-source",
-        "verification": "one-primary-record",
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "dimension-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
+      },
+      "m_max": {
+        "max": 8,
         "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "sourceRefs": [
+          "taurus439_1987",
+          "lederer439"
+        ],
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "dimension-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
+      },
+      "e_min": {
+        "min": 26.75,
+        "unit": "mm",
+        "sourceRefs": [
+          "taurus439_1987",
+          "lederer439"
+        ],
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "dimension-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       }
     },
     "M18": {
       "P": {
         "nominal": 2.5,
+        "unit": "mm",
         "sourceRefs": [
-          "iso4032_2023"
+          "taurus439_1987"
         ],
         "status": "single-source",
-        "verification": "one-primary-record",
-        "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "verification": false,
+        "verificationMethod": "dimension-table",
+        "note": "Nur eine ausgewertete Maßquelle."
       },
       "s_nom": {
         "nominal": 27,
+        "unit": "mm",
         "sourceRefs": [
+          "taurus439_1987",
           "lederer439"
         ],
-        "status": "single-source",
-        "verification": "one-primary-record",
-        "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "dimension-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "m_catalog": {
-        "value": 9,
+        "nominal": 9,
+        "unit": "mm",
         "sourceRefs": [
+          "taurus439_1987",
           "lederer439"
         ],
-        "status": "single-source",
-        "verification": "one-primary-record",
-        "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "dimension-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "e_catalog": {
         "value": 29.56,
@@ -1181,45 +1565,76 @@
       },
       "d_nom": {
         "nominal": 18,
+        "unit": "mm",
         "sourceRefs": [
+          "taurus439_1987",
           "lederer439"
         ],
-        "status": "single-source",
-        "verification": "one-primary-record",
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "dimension-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
+      },
+      "m_max": {
+        "max": 9,
         "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "sourceRefs": [
+          "taurus439_1987",
+          "lederer439"
+        ],
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "dimension-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
+      },
+      "e_min": {
+        "min": 29.56,
+        "unit": "mm",
+        "sourceRefs": [
+          "taurus439_1987",
+          "lederer439"
+        ],
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "dimension-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       }
     },
     "M20": {
       "P": {
         "nominal": 2.5,
+        "unit": "mm",
         "sourceRefs": [
-          "iso4032_2023"
+          "taurus439_1987"
         ],
         "status": "single-source",
-        "verification": "one-primary-record",
-        "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "verification": false,
+        "verificationMethod": "dimension-table",
+        "note": "Nur eine ausgewertete Maßquelle."
       },
       "s_nom": {
         "nominal": 30,
+        "unit": "mm",
         "sourceRefs": [
+          "taurus439_1987",
           "lederer439"
         ],
-        "status": "single-source",
-        "verification": "one-primary-record",
-        "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "dimension-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "m_catalog": {
-        "value": 10,
+        "nominal": 10,
+        "unit": "mm",
         "sourceRefs": [
+          "taurus439_1987",
           "lederer439"
         ],
-        "status": "single-source",
-        "verification": "one-primary-record",
-        "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "dimension-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "e_catalog": {
         "value": 32.95,
@@ -1233,45 +1648,76 @@
       },
       "d_nom": {
         "nominal": 20,
+        "unit": "mm",
         "sourceRefs": [
+          "taurus439_1987",
           "lederer439"
         ],
-        "status": "single-source",
-        "verification": "one-primary-record",
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "dimension-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
+      },
+      "m_max": {
+        "max": 10,
         "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "sourceRefs": [
+          "taurus439_1987",
+          "lederer439"
+        ],
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "dimension-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
+      },
+      "e_min": {
+        "min": 32.95,
+        "unit": "mm",
+        "sourceRefs": [
+          "taurus439_1987",
+          "lederer439"
+        ],
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "dimension-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       }
     },
     "M22": {
       "P": {
         "nominal": 2.5,
+        "unit": "mm",
         "sourceRefs": [
-          "iso4032_2023"
+          "taurus439_1987"
         ],
         "status": "single-source",
-        "verification": "one-primary-record",
-        "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "verification": false,
+        "verificationMethod": "dimension-table",
+        "note": "Nur eine ausgewertete Maßquelle."
       },
       "s_nom": {
         "nominal": 32,
+        "unit": "mm",
         "sourceRefs": [
+          "taurus439_1987",
           "lederer439"
         ],
-        "status": "single-source",
-        "verification": "one-primary-record",
-        "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "dimension-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "m_catalog": {
-        "value": 11,
+        "nominal": 11,
+        "unit": "mm",
         "sourceRefs": [
+          "taurus439_1987",
           "lederer439"
         ],
-        "status": "single-source",
-        "verification": "one-primary-record",
-        "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "dimension-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "e_catalog": {
         "value": 35.03,
@@ -1285,45 +1731,76 @@
       },
       "d_nom": {
         "nominal": 22,
+        "unit": "mm",
         "sourceRefs": [
+          "taurus439_1987",
           "lederer439"
         ],
-        "status": "single-source",
-        "verification": "one-primary-record",
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "dimension-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
+      },
+      "m_max": {
+        "max": 11,
         "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "sourceRefs": [
+          "taurus439_1987",
+          "lederer439"
+        ],
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "dimension-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
+      },
+      "e_min": {
+        "min": 35.03,
+        "unit": "mm",
+        "sourceRefs": [
+          "taurus439_1987",
+          "lederer439"
+        ],
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "dimension-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       }
     },
     "M24": {
       "P": {
         "nominal": 3,
+        "unit": "mm",
         "sourceRefs": [
-          "iso4032_2023"
+          "taurus439_1987"
         ],
         "status": "single-source",
-        "verification": "one-primary-record",
-        "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "verification": false,
+        "verificationMethod": "dimension-table",
+        "note": "Nur eine ausgewertete Maßquelle."
       },
       "s_nom": {
         "nominal": 36,
+        "unit": "mm",
         "sourceRefs": [
+          "taurus439_1987",
           "lederer439"
         ],
-        "status": "single-source",
-        "verification": "one-primary-record",
-        "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "dimension-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "m_catalog": {
-        "value": 12,
+        "nominal": 12,
+        "unit": "mm",
         "sourceRefs": [
+          "taurus439_1987",
           "lederer439"
         ],
-        "status": "single-source",
-        "verification": "one-primary-record",
-        "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "dimension-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "e_catalog": {
         "value": 39.55,
@@ -1337,45 +1814,76 @@
       },
       "d_nom": {
         "nominal": 24,
+        "unit": "mm",
         "sourceRefs": [
+          "taurus439_1987",
           "lederer439"
         ],
-        "status": "single-source",
-        "verification": "one-primary-record",
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "dimension-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
+      },
+      "m_max": {
+        "max": 12,
         "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "sourceRefs": [
+          "taurus439_1987",
+          "lederer439"
+        ],
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "dimension-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
+      },
+      "e_min": {
+        "min": 39.55,
+        "unit": "mm",
+        "sourceRefs": [
+          "taurus439_1987",
+          "lederer439"
+        ],
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "dimension-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       }
     },
     "M27": {
       "P": {
         "nominal": 3,
+        "unit": "mm",
         "sourceRefs": [
-          "iso4032_2023"
+          "taurus439_1987"
         ],
         "status": "single-source",
-        "verification": "one-primary-record",
-        "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "verification": false,
+        "verificationMethod": "dimension-table",
+        "note": "Nur eine ausgewertete Maßquelle."
       },
       "s_nom": {
         "nominal": 41,
+        "unit": "mm",
         "sourceRefs": [
+          "taurus439_1987",
           "lederer439"
         ],
-        "status": "single-source",
-        "verification": "one-primary-record",
-        "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "dimension-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "m_catalog": {
-        "value": 13.5,
+        "nominal": 13.5,
+        "unit": "mm",
         "sourceRefs": [
+          "taurus439_1987",
           "lederer439"
         ],
-        "status": "single-source",
-        "verification": "one-primary-record",
-        "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "dimension-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "e_catalog": {
         "value": 45.2,
@@ -1389,45 +1897,76 @@
       },
       "d_nom": {
         "nominal": 27,
+        "unit": "mm",
         "sourceRefs": [
+          "taurus439_1987",
           "lederer439"
         ],
-        "status": "single-source",
-        "verification": "one-primary-record",
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "dimension-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
+      },
+      "m_max": {
+        "max": 13.5,
         "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "sourceRefs": [
+          "taurus439_1987",
+          "lederer439"
+        ],
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "dimension-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
+      },
+      "e_min": {
+        "min": 45.2,
+        "unit": "mm",
+        "sourceRefs": [
+          "taurus439_1987",
+          "lederer439"
+        ],
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "dimension-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       }
     },
     "M30": {
       "P": {
         "nominal": 3.5,
+        "unit": "mm",
         "sourceRefs": [
-          "iso4032_2023"
+          "taurus439_1987"
         ],
         "status": "single-source",
-        "verification": "one-primary-record",
-        "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "verification": false,
+        "verificationMethod": "dimension-table",
+        "note": "Nur eine ausgewertete Maßquelle."
       },
       "s_nom": {
         "nominal": 46,
+        "unit": "mm",
         "sourceRefs": [
+          "taurus439_1987",
           "lederer439"
         ],
-        "status": "single-source",
-        "verification": "one-primary-record",
-        "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "dimension-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "m_catalog": {
-        "value": 15,
+        "nominal": 15,
+        "unit": "mm",
         "sourceRefs": [
+          "taurus439_1987",
           "lederer439"
         ],
-        "status": "single-source",
-        "verification": "one-primary-record",
-        "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "dimension-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "e_catalog": {
         "value": 50.85,
@@ -1441,13 +1980,39 @@
       },
       "d_nom": {
         "nominal": 30,
+        "unit": "mm",
         "sourceRefs": [
+          "taurus439_1987",
           "lederer439"
         ],
-        "status": "single-source",
-        "verification": "one-primary-record",
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "dimension-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
+      },
+      "m_max": {
+        "max": 15,
         "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "sourceRefs": [
+          "taurus439_1987",
+          "lederer439"
+        ],
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "dimension-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
+      },
+      "e_min": {
+        "min": 50.85,
+        "unit": "mm",
+        "sourceRefs": [
+          "taurus439_1987",
+          "lederer439"
+        ],
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "dimension-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       }
     },
     "M8x0.75": {
@@ -2489,6 +3054,294 @@
         "unit": "mm",
         "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
       }
+    },
+    "M3": {
+      "d_nom": {
+        "nominal": 3,
+        "unit": "mm",
+        "sourceRefs": [
+          "taurus439_1987"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "dimension-table",
+        "note": "Nur eine ausgewertete Maßquelle."
+      },
+      "P": {
+        "nominal": 0.5,
+        "unit": "mm",
+        "sourceRefs": [
+          "taurus439_1987"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "dimension-table",
+        "note": "Nur eine ausgewertete Maßquelle."
+      },
+      "s_nom": {
+        "nominal": 5.5,
+        "unit": "mm",
+        "sourceRefs": [
+          "taurus439_1987",
+          "lederer439"
+        ],
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "dimension-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
+      },
+      "m_max": {
+        "max": 1.8,
+        "unit": "mm",
+        "sourceRefs": [
+          "taurus439_1987",
+          "lederer439"
+        ],
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "dimension-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
+      },
+      "m_catalog": {
+        "nominal": 1.8,
+        "unit": "mm",
+        "sourceRefs": [
+          "taurus439_1987",
+          "lederer439"
+        ],
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "dimension-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
+      },
+      "e_min": {
+        "min": 6.01,
+        "unit": "mm",
+        "sourceRefs": [
+          "taurus439_1987",
+          "lederer439"
+        ],
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "dimension-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
+      }
+    },
+    "M4": {
+      "d_nom": {
+        "nominal": 4,
+        "unit": "mm",
+        "sourceRefs": [
+          "taurus439_1987"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "dimension-table",
+        "note": "Nur eine ausgewertete Maßquelle."
+      },
+      "P": {
+        "nominal": 0.7,
+        "unit": "mm",
+        "sourceRefs": [
+          "taurus439_1987"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "dimension-table",
+        "note": "Nur eine ausgewertete Maßquelle."
+      },
+      "s_nom": {
+        "nominal": 7,
+        "unit": "mm",
+        "sourceRefs": [
+          "taurus439_1987",
+          "lederer439"
+        ],
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "dimension-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
+      },
+      "m_max": {
+        "max": 2.2,
+        "unit": "mm",
+        "sourceRefs": [
+          "taurus439_1987",
+          "lederer439"
+        ],
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "dimension-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
+      },
+      "m_catalog": {
+        "nominal": 2.2,
+        "unit": "mm",
+        "sourceRefs": [
+          "taurus439_1987",
+          "lederer439"
+        ],
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "dimension-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
+      },
+      "e_min": {
+        "min": 7.66,
+        "unit": "mm",
+        "sourceRefs": [
+          "taurus439_1987",
+          "lederer439"
+        ],
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "dimension-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
+      }
+    },
+    "M33": {
+      "d_nom": {
+        "nominal": 33,
+        "unit": "mm",
+        "sourceRefs": [
+          "taurus439_1987"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "dimension-table",
+        "note": "Nur eine ausgewertete Maßquelle."
+      },
+      "P": {
+        "nominal": 3.5,
+        "unit": "mm",
+        "sourceRefs": [
+          "taurus439_1987"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "dimension-table",
+        "note": "Nur eine ausgewertete Maßquelle."
+      },
+      "s_nom": {
+        "nominal": 50,
+        "unit": "mm",
+        "sourceRefs": [
+          "taurus439_1987",
+          "lederer439"
+        ],
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "dimension-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
+      },
+      "m_max": {
+        "max": 16.5,
+        "unit": "mm",
+        "sourceRefs": [
+          "taurus439_1987",
+          "lederer439"
+        ],
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "dimension-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
+      },
+      "m_catalog": {
+        "nominal": 16.5,
+        "unit": "mm",
+        "sourceRefs": [
+          "taurus439_1987",
+          "lederer439"
+        ],
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "dimension-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
+      },
+      "e_min": {
+        "min": 55.37,
+        "unit": "mm",
+        "sourceRefs": [
+          "taurus439_1987",
+          "lederer439"
+        ],
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "dimension-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
+      }
+    },
+    "M36": {
+      "d_nom": {
+        "nominal": 36,
+        "unit": "mm",
+        "sourceRefs": [
+          "taurus439_1987"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "dimension-table",
+        "note": "Nur eine ausgewertete Maßquelle."
+      },
+      "P": {
+        "nominal": 4,
+        "unit": "mm",
+        "sourceRefs": [
+          "taurus439_1987"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "dimension-table",
+        "note": "Nur eine ausgewertete Maßquelle."
+      },
+      "s_nom": {
+        "nominal": 55,
+        "unit": "mm",
+        "sourceRefs": [
+          "taurus439_1987",
+          "lederer439"
+        ],
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "dimension-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
+      },
+      "m_max": {
+        "max": 18,
+        "unit": "mm",
+        "sourceRefs": [
+          "taurus439_1987",
+          "lederer439"
+        ],
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "dimension-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
+      },
+      "m_catalog": {
+        "nominal": 18,
+        "unit": "mm",
+        "sourceRefs": [
+          "taurus439_1987",
+          "lederer439"
+        ],
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "dimension-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
+      },
+      "e_min": {
+        "min": 60.79,
+        "unit": "mm",
+        "sourceRefs": [
+          "taurus439_1987",
+          "lederer439"
+        ],
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "dimension-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
+      }
     }
   },
   "sourceMeta": {
@@ -2507,24 +3360,169 @@
       "kind": "standard",
       "edition": "2023",
       "accessed": "2026-11-26"
+    },
+    "taurus439_1987": {
+      "url": "https://taurusfix.com/standards/din-439",
+      "title": "TaurusFix DIN439 Form B, ausdrücklich DIN439-2:1987-10",
+      "edition": "1987-10",
+      "locator": "Maßtabelle M3–M36",
+      "kind": "supplier-declared-standard-table",
+      "accessed": "2026-11-27"
     }
   },
   "sourceStatus": "per-value",
   "coverage": {
-    "diameterMin": 5,
-    "diameterMax": 30,
+    "diameterMin": 3,
+    "diameterMax": 36,
     "unit": "mm",
     "status": "partial",
-    "missingSizes": [
-      "M7"
-    ],
-    "missingReason": "Keine ausgewerteten Maßnachweise für diese Größen; keine Aussage über Herstellbarkeit oder Lieferbarkeit."
+    "note": "17 Regelgewindezeilen mit zwei äußeren Maßnachweisen; kleine Größen M1,6–M2,5 und große Größen über M36 sowie zusätzliche Feingewinde noch nicht vollständig zweifach abgeglichen."
   },
-  "editionStatus": "edition-unverified",
+  "editionStatus": "source-edition-matched",
   "threadSeries": "coarse-and-documented-fine",
   "form": "B",
-  "coverageNotes": [
-    "Form B; Form A ist keine ungeprüfte Gleichsetzung. Grenzmaße und Normausgabe im Katalog nicht ausgewiesen."
-  ],
-  "defaultPolicy": "Dokumentierte Kataloghöhe oder ausgewiesenes Höchstmaß als vorläufige Außenhülle; kein vollständiges Fertigteilmodell."
+  "coverageNotes": [],
+  "defaultPolicy": "Dokumentierte Kataloghöhe oder ausgewiesenes Höchstmaß als vorläufige Außenhülle; kein vollständiges Fertigteilmodell.",
+  "editionEvidence": {
+    "sourceRefs": [
+      "taurus439_1987"
+    ],
+    "method": "supplier-declared-edition-and-dimension-comparison",
+    "note": "Datenausgabe der ausgewerteten Maßtabelle; aktueller Normstatus wird getrennt geführt."
+  },
+  "standardPart": "DIN439-2",
+  "sizeCoverage": {
+    "M3": {
+      "status": "documented",
+      "sourceRefs": [
+        "taurus439_1987"
+      ]
+    },
+    "M4": {
+      "status": "documented",
+      "sourceRefs": [
+        "taurus439_1987"
+      ]
+    },
+    "M5": {
+      "status": "documented",
+      "sourceRefs": [
+        "taurus439_1987"
+      ]
+    },
+    "M6": {
+      "status": "documented",
+      "sourceRefs": [
+        "taurus439_1987"
+      ]
+    },
+    "M8": {
+      "status": "documented",
+      "sourceRefs": [
+        "taurus439_1987"
+      ]
+    },
+    "M10": {
+      "status": "documented",
+      "sourceRefs": [
+        "taurus439_1987"
+      ]
+    },
+    "M12": {
+      "status": "documented",
+      "sourceRefs": [
+        "taurus439_1987"
+      ]
+    },
+    "M14": {
+      "status": "documented",
+      "sourceRefs": [
+        "taurus439_1987"
+      ]
+    },
+    "M16": {
+      "status": "documented",
+      "sourceRefs": [
+        "taurus439_1987"
+      ]
+    },
+    "M18": {
+      "status": "documented",
+      "sourceRefs": [
+        "taurus439_1987"
+      ]
+    },
+    "M20": {
+      "status": "documented",
+      "sourceRefs": [
+        "taurus439_1987"
+      ]
+    },
+    "M22": {
+      "status": "documented",
+      "sourceRefs": [
+        "taurus439_1987"
+      ]
+    },
+    "M24": {
+      "status": "documented",
+      "sourceRefs": [
+        "taurus439_1987"
+      ]
+    },
+    "M27": {
+      "status": "documented",
+      "sourceRefs": [
+        "taurus439_1987"
+      ]
+    },
+    "M30": {
+      "status": "documented",
+      "sourceRefs": [
+        "taurus439_1987"
+      ]
+    },
+    "M33": {
+      "status": "documented",
+      "sourceRefs": [
+        "taurus439_1987"
+      ]
+    },
+    "M36": {
+      "status": "documented",
+      "sourceRefs": [
+        "taurus439_1987"
+      ]
+    }
+  },
+  "pruefdatum": "2026-11-27",
+  "quellen": [
+    {
+      "id": "lederer439",
+      "url": "https://www.lederer-online.com/fileadmin/users/redakteur/redakteur_upload/DIN439.pdf",
+      "title": "Lederer DIN439 product dimensions",
+      "locator": "Printed pages 58 (coarse), 59 (fine pitch, form B)",
+      "kind": "supplier-product-catalog",
+      "edition": null,
+      "accessed": "2026-11-26"
+    },
+    {
+      "id": "iso4032_2023",
+      "url": "https://cdn.standards.iteh.ai/samples/75016/5b1f83bd2dc44fc199973e9957a75086/ISO-4032-2023.pdf",
+      "title": "ISO 4032:2023",
+      "locator": "Tables 1–2, printed page 3",
+      "kind": "standard",
+      "edition": "2023",
+      "accessed": "2026-11-26"
+    },
+    {
+      "id": "taurus439_1987",
+      "url": "https://taurusfix.com/standards/din-439",
+      "title": "TaurusFix DIN439 Form B, ausdrücklich DIN439-2:1987-10",
+      "edition": "1987-10",
+      "locator": "Maßtabelle M3–M36",
+      "kind": "supplier-declared-standard-table",
+      "accessed": "2026-11-27"
+    }
+  ]
 }

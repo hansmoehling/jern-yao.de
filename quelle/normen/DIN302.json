@@ -1,14 +1,14 @@
 {
   "schemaVersion": 1,
   "id": "DIN302",
-  "version": "2026-11-26",
+  "version": "2026-11-27",
   "edition": "2011-03",
   "label": "Senkniete, Nenndurchmesser 10 mm bis 36 mm",
   "alias": [],
   "datasetKind": "part-standard",
   "funktion": "niet",
   "klasse": "bolzen",
-  "kopfTyp": "kegelstumpf",
+  "kopfTyp": "linsensenk",
   "antrieb": null,
   "threadFamily": "none",
   "schaftende": "voll",
@@ -17,7 +17,8 @@
     "sL": "l_nominal",
     "kD": "dk_nom",
     "kH": "k_ca",
-    "alpha": "alpha"
+    "alpha": "alpha",
+    "capHeight": "w_ca"
   },
   "groessen": {
     "10": {
@@ -25,7 +26,8 @@
         "sD": 10,
         "kD": 14.5,
         "kH": 3,
-        "alpha": 75
+        "alpha": 75,
+        "capHeight": 1
       },
       "roh": {
         "d_nominal": 10,
@@ -34,22 +36,30 @@
         "e_max": 5,
         "k_ca": 3,
         "r2": 32,
-        "alpha": 75
+        "alpha": 75,
+        "w_ca": 1
       },
       "coverage": "documented",
-      "geometryStatus": "partial",
-      "missingGeometryFields": [
-        "secondSourceHeadAngle",
-        "headTransition"
-      ],
-      "nachLaenge": {}
+      "geometryStatus": "complete",
+      "missingGeometryFields": [],
+      "nachLaenge": {},
+      "headGeometry": {
+        "model": "cone-and-spherical-cap",
+        "exactNormContour": false,
+        "sourceRefs": [
+          "p7-handbook",
+          "fasenco"
+        ],
+        "note": "Kegel mit tabelliertem k, darüber Kappe mit w und d2. Der nur angenäherte r2 wird nicht als zusätzliche exakte Randbedingung erzwungen."
+      }
     },
     "12": {
       "vorbelegung": {
         "sD": 12,
         "kD": 18,
         "kH": 4,
-        "alpha": 75
+        "alpha": 75,
+        "capHeight": 1
       },
       "roh": {
         "d_nominal": 12,
@@ -58,22 +68,30 @@
         "e_max": 6,
         "k_ca": 4,
         "r2": 45,
-        "alpha": 75
+        "alpha": 75,
+        "w_ca": 1
       },
       "coverage": "documented",
-      "geometryStatus": "partial",
-      "missingGeometryFields": [
-        "secondSourceHeadAngle",
-        "headTransition"
-      ],
-      "nachLaenge": {}
+      "geometryStatus": "complete",
+      "missingGeometryFields": [],
+      "nachLaenge": {},
+      "headGeometry": {
+        "model": "cone-and-spherical-cap",
+        "exactNormContour": false,
+        "sourceRefs": [
+          "p7-handbook",
+          "fasenco"
+        ],
+        "note": "Kegel mit tabelliertem k, darüber Kappe mit w und d2. Der nur angenäherte r2 wird nicht als zusätzliche exakte Randbedingung erzwungen."
+      }
     },
     "14": {
       "vorbelegung": {
         "sD": 14,
         "kD": 21.5,
         "kH": 5,
-        "alpha": 75
+        "alpha": 75,
+        "capHeight": 1
       },
       "roh": {
         "d_nominal": 14,
@@ -82,22 +100,30 @@
         "e_max": 7,
         "k_ca": 5,
         "r2": 60,
-        "alpha": 75
+        "alpha": 75,
+        "w_ca": 1
       },
       "coverage": "documented",
-      "geometryStatus": "partial",
-      "missingGeometryFields": [
-        "secondSourceHeadAngle",
-        "headTransition"
-      ],
-      "nachLaenge": {}
+      "geometryStatus": "complete",
+      "missingGeometryFields": [],
+      "nachLaenge": {},
+      "headGeometry": {
+        "model": "cone-and-spherical-cap",
+        "exactNormContour": false,
+        "sourceRefs": [
+          "p7-handbook",
+          "fasenco"
+        ],
+        "note": "Kegel mit tabelliertem k, darüber Kappe mit w und d2. Der nur angenäherte r2 wird nicht als zusätzliche exakte Randbedingung erzwungen."
+      }
     },
     "16": {
       "vorbelegung": {
         "sD": 16,
         "kD": 26,
         "kH": 6.5,
-        "alpha": 75
+        "alpha": 75,
+        "capHeight": 1
       },
       "roh": {
         "d_nominal": 16,
@@ -106,22 +132,30 @@
         "e_max": 8,
         "k_ca": 6.5,
         "r2": 85,
-        "alpha": 75
+        "alpha": 75,
+        "w_ca": 1
       },
       "coverage": "documented",
-      "geometryStatus": "partial",
-      "missingGeometryFields": [
-        "secondSourceHeadAngle",
-        "headTransition"
-      ],
-      "nachLaenge": {}
+      "geometryStatus": "complete",
+      "missingGeometryFields": [],
+      "nachLaenge": {},
+      "headGeometry": {
+        "model": "cone-and-spherical-cap",
+        "exactNormContour": false,
+        "sourceRefs": [
+          "p7-handbook",
+          "fasenco"
+        ],
+        "note": "Kegel mit tabelliertem k, darüber Kappe mit w und d2. Der nur angenäherte r2 wird nicht als zusätzliche exakte Randbedingung erzwungen."
+      }
     },
     "18": {
       "vorbelegung": {
         "sD": 18,
         "kD": 30,
         "kH": 8,
-        "alpha": 75
+        "alpha": 75,
+        "capHeight": 1
       },
       "roh": {
         "d_nominal": 18,
@@ -130,22 +164,30 @@
         "e_max": 9,
         "k_ca": 8,
         "r2": 105,
-        "alpha": 75
+        "alpha": 75,
+        "w_ca": 1
       },
       "coverage": "documented",
-      "geometryStatus": "partial",
-      "missingGeometryFields": [
-        "secondSourceHeadAngle",
-        "headTransition"
-      ],
-      "nachLaenge": {}
+      "geometryStatus": "complete",
+      "missingGeometryFields": [],
+      "nachLaenge": {},
+      "headGeometry": {
+        "model": "cone-and-spherical-cap",
+        "exactNormContour": false,
+        "sourceRefs": [
+          "p7-handbook",
+          "fasenco"
+        ],
+        "note": "Kegel mit tabelliertem k, darüber Kappe mit w und d2. Der nur angenäherte r2 wird nicht als zusätzliche exakte Randbedingung erzwungen."
+      }
     },
     "20": {
       "vorbelegung": {
         "sD": 20,
         "kD": 31.5,
         "kH": 10,
-        "alpha": 60
+        "alpha": 60,
+        "capHeight": 1
       },
       "roh": {
         "d_nominal": 20,
@@ -154,22 +196,30 @@
         "e_max": 10,
         "k_ca": 10,
         "r2": 120,
-        "alpha": 60
+        "alpha": 60,
+        "w_ca": 1
       },
       "coverage": "documented",
-      "geometryStatus": "partial",
-      "missingGeometryFields": [
-        "secondSourceHeadAngle",
-        "headTransition"
-      ],
-      "nachLaenge": {}
+      "geometryStatus": "complete",
+      "missingGeometryFields": [],
+      "nachLaenge": {},
+      "headGeometry": {
+        "model": "cone-and-spherical-cap",
+        "exactNormContour": false,
+        "sourceRefs": [
+          "p7-handbook",
+          "fasenco"
+        ],
+        "note": "Kegel mit tabelliertem k, darüber Kappe mit w und d2. Der nur angenäherte r2 wird nicht als zusätzliche exakte Randbedingung erzwungen."
+      }
     },
     "22": {
       "vorbelegung": {
         "sD": 22,
         "kD": 34.5,
         "kH": 11,
-        "alpha": 60
+        "alpha": 60,
+        "capHeight": 2
       },
       "roh": {
         "d_nominal": 22,
@@ -178,22 +228,30 @@
         "e_max": 11,
         "k_ca": 11,
         "r2": 75,
-        "alpha": 60
+        "alpha": 60,
+        "w_ca": 2
       },
       "coverage": "documented",
-      "geometryStatus": "partial",
-      "missingGeometryFields": [
-        "secondSourceHeadAngle",
-        "headTransition"
-      ],
-      "nachLaenge": {}
+      "geometryStatus": "complete",
+      "missingGeometryFields": [],
+      "nachLaenge": {},
+      "headGeometry": {
+        "model": "cone-and-spherical-cap",
+        "exactNormContour": false,
+        "sourceRefs": [
+          "p7-handbook",
+          "fasenco"
+        ],
+        "note": "Kegel mit tabelliertem k, darüber Kappe mit w und d2. Der nur angenäherte r2 wird nicht als zusätzliche exakte Randbedingung erzwungen."
+      }
     },
     "24": {
       "vorbelegung": {
         "sD": 24,
         "kD": 38,
         "kH": 12,
-        "alpha": 60
+        "alpha": 60,
+        "capHeight": 2
       },
       "roh": {
         "d_nominal": 24,
@@ -202,22 +260,30 @@
         "e_max": 12,
         "k_ca": 12,
         "r2": 85,
-        "alpha": 60
+        "alpha": 60,
+        "w_ca": 2
       },
       "coverage": "documented",
-      "geometryStatus": "partial",
-      "missingGeometryFields": [
-        "secondSourceHeadAngle",
-        "headTransition"
-      ],
-      "nachLaenge": {}
+      "geometryStatus": "complete",
+      "missingGeometryFields": [],
+      "nachLaenge": {},
+      "headGeometry": {
+        "model": "cone-and-spherical-cap",
+        "exactNormContour": false,
+        "sourceRefs": [
+          "p7-handbook",
+          "fasenco"
+        ],
+        "note": "Kegel mit tabelliertem k, darüber Kappe mit w und d2. Der nur angenäherte r2 wird nicht als zusätzliche exakte Randbedingung erzwungen."
+      }
     },
     "27": {
       "vorbelegung": {
         "sD": 27,
         "kD": 42,
         "kH": 13.5,
-        "alpha": 60
+        "alpha": 60,
+        "capHeight": 2
       },
       "roh": {
         "d_nominal": 27,
@@ -226,22 +292,30 @@
         "e_max": 13.5,
         "k_ca": 13.5,
         "r2": 110,
-        "alpha": 60
+        "alpha": 60,
+        "w_ca": 2
       },
       "coverage": "documented",
-      "geometryStatus": "partial",
-      "missingGeometryFields": [
-        "secondSourceHeadAngle",
-        "headTransition"
-      ],
-      "nachLaenge": {}
+      "geometryStatus": "complete",
+      "missingGeometryFields": [],
+      "nachLaenge": {},
+      "headGeometry": {
+        "model": "cone-and-spherical-cap",
+        "exactNormContour": false,
+        "sourceRefs": [
+          "p7-handbook",
+          "fasenco"
+        ],
+        "note": "Kegel mit tabelliertem k, darüber Kappe mit w und d2. Der nur angenäherte r2 wird nicht als zusätzliche exakte Randbedingung erzwungen."
+      }
     },
     "30": {
       "vorbelegung": {
         "sD": 30,
         "kD": 42.5,
         "kH": 15,
-        "alpha": 45
+        "alpha": 45,
+        "capHeight": 2
       },
       "roh": {
         "d_nominal": 30,
@@ -250,22 +324,30 @@
         "e_max": 15,
         "k_ca": 15,
         "r2": 120,
-        "alpha": 45
+        "alpha": 45,
+        "w_ca": 2
       },
       "coverage": "documented",
-      "geometryStatus": "partial",
-      "missingGeometryFields": [
-        "secondSourceHeadAngle",
-        "headTransition"
-      ],
-      "nachLaenge": {}
+      "geometryStatus": "complete",
+      "missingGeometryFields": [],
+      "nachLaenge": {},
+      "headGeometry": {
+        "model": "cone-and-spherical-cap",
+        "exactNormContour": false,
+        "sourceRefs": [
+          "p7-handbook",
+          "fasenco"
+        ],
+        "note": "Kegel mit tabelliertem k, darüber Kappe mit w und d2. Der nur angenäherte r2 wird nicht als zusätzliche exakte Randbedingung erzwungen."
+      }
     },
     "33": {
       "vorbelegung": {
         "sD": 33,
         "kD": 46.5,
         "kH": 16.5,
-        "alpha": 45
+        "alpha": 45,
+        "capHeight": 2
       },
       "roh": {
         "d_nominal": 33,
@@ -274,22 +356,30 @@
         "e_max": 16.5,
         "k_ca": 16.5,
         "r2": 145,
-        "alpha": 45
+        "alpha": 45,
+        "w_ca": 2
       },
       "coverage": "documented",
-      "geometryStatus": "partial",
-      "missingGeometryFields": [
-        "secondSourceHeadAngle",
-        "headTransition"
-      ],
-      "nachLaenge": {}
+      "geometryStatus": "complete",
+      "missingGeometryFields": [],
+      "nachLaenge": {},
+      "headGeometry": {
+        "model": "cone-and-spherical-cap",
+        "exactNormContour": false,
+        "sourceRefs": [
+          "p7-handbook",
+          "fasenco"
+        ],
+        "note": "Kegel mit tabelliertem k, darüber Kappe mit w und d2. Der nur angenäherte r2 wird nicht als zusätzliche exakte Randbedingung erzwungen."
+      }
     },
     "36": {
       "vorbelegung": {
         "sD": 36,
         "kD": 51,
         "kH": 18,
-        "alpha": 45
+        "alpha": 45,
+        "capHeight": 2
       },
       "roh": {
         "d_nominal": 36,
@@ -298,15 +388,22 @@
         "e_max": 18,
         "k_ca": 18,
         "r2": 170,
-        "alpha": 45
+        "alpha": 45,
+        "w_ca": 2
       },
       "coverage": "documented",
-      "geometryStatus": "partial",
-      "missingGeometryFields": [
-        "secondSourceHeadAngle",
-        "headTransition"
-      ],
-      "nachLaenge": {}
+      "geometryStatus": "complete",
+      "missingGeometryFields": [],
+      "nachLaenge": {},
+      "headGeometry": {
+        "model": "cone-and-spherical-cap",
+        "exactNormContour": false,
+        "sourceRefs": [
+          "p7-handbook",
+          "fasenco"
+        ],
+        "note": "Kegel mit tabelliertem k, darüber Kappe mit w und d2. Der nur angenäherte r2 wird nicht als zusätzliche exakte Randbedingung erzwungen."
+      }
     }
   },
   "fields": {
@@ -367,23 +464,35 @@
       },
       "r2": {
         "nominal": 32,
+        "unit": "mm",
         "sourceRefs": [
-          "DIN302-s1"
+          "p7-handbook"
         ],
         "status": "single-source",
-        "verification": "norm-table-not-independently-verified",
-        "note": "Radius (Spalte 'r 2' der Quelle, Bedeutung nicht definiert)",
-        "unit": "mm"
+        "verification": "primary-source-only",
+        "note": "Kopfwölbungsradius r2 nach Originaltabelle; zweite Primärquelle für den Radius fehlt."
       },
       "alpha": {
         "nominal": 75,
         "unit": "deg",
         "sourceRefs": [
+          "p7-handbook",
           "fasenco"
         ],
-        "status": "single-source",
-        "verification": "manufacturer-table",
-        "note": "Größenabhängiger Winkel aus Herstellerquelle; zweite unabhängige Bestätigung fehlt."
+        "status": "verified",
+        "verification": "primary-sources-crosschecked",
+        "note": "Senkwinkel nach Größengruppe; keine angenommene 90°-Senkung."
+      },
+      "w_ca": {
+        "nominal": 1,
+        "unit": "mm",
+        "sourceRefs": [
+          "p7-handbook",
+          "fasenco"
+        ],
+        "status": "verified",
+        "verification": "primary-sources-crosschecked",
+        "note": "Kuppenhöhe w, Näherungswert zusätzlich zur Kegel-Kopfhöhe k."
       }
     },
     "12": {
@@ -443,23 +552,35 @@
       },
       "r2": {
         "nominal": 45,
+        "unit": "mm",
         "sourceRefs": [
-          "DIN302-s1"
+          "p7-handbook"
         ],
         "status": "single-source",
-        "verification": "norm-table-not-independently-verified",
-        "note": "Radius (Spalte 'r 2' der Quelle, Bedeutung nicht definiert)",
-        "unit": "mm"
+        "verification": "primary-source-only",
+        "note": "Kopfwölbungsradius r2 nach Originaltabelle; zweite Primärquelle für den Radius fehlt."
       },
       "alpha": {
         "nominal": 75,
         "unit": "deg",
         "sourceRefs": [
+          "p7-handbook",
           "fasenco"
         ],
-        "status": "single-source",
-        "verification": "manufacturer-table",
-        "note": "Größenabhängiger Winkel aus Herstellerquelle; zweite unabhängige Bestätigung fehlt."
+        "status": "verified",
+        "verification": "primary-sources-crosschecked",
+        "note": "Senkwinkel nach Größengruppe; keine angenommene 90°-Senkung."
+      },
+      "w_ca": {
+        "nominal": 1,
+        "unit": "mm",
+        "sourceRefs": [
+          "p7-handbook",
+          "fasenco"
+        ],
+        "status": "verified",
+        "verification": "primary-sources-crosschecked",
+        "note": "Kuppenhöhe w, Näherungswert zusätzlich zur Kegel-Kopfhöhe k."
       }
     },
     "14": {
@@ -519,23 +640,35 @@
       },
       "r2": {
         "nominal": 60,
+        "unit": "mm",
         "sourceRefs": [
-          "DIN302-s1"
+          "p7-handbook"
         ],
         "status": "single-source",
-        "verification": "norm-table-not-independently-verified",
-        "note": "Radius (Spalte 'r 2' der Quelle, Bedeutung nicht definiert)",
-        "unit": "mm"
+        "verification": "primary-source-only",
+        "note": "Kopfwölbungsradius r2 nach Originaltabelle; zweite Primärquelle für den Radius fehlt."
       },
       "alpha": {
         "nominal": 75,
         "unit": "deg",
         "sourceRefs": [
+          "p7-handbook",
           "fasenco"
         ],
-        "status": "single-source",
-        "verification": "manufacturer-table",
-        "note": "Größenabhängiger Winkel aus Herstellerquelle; zweite unabhängige Bestätigung fehlt."
+        "status": "verified",
+        "verification": "primary-sources-crosschecked",
+        "note": "Senkwinkel nach Größengruppe; keine angenommene 90°-Senkung."
+      },
+      "w_ca": {
+        "nominal": 1,
+        "unit": "mm",
+        "sourceRefs": [
+          "p7-handbook",
+          "fasenco"
+        ],
+        "status": "verified",
+        "verification": "primary-sources-crosschecked",
+        "note": "Kuppenhöhe w, Näherungswert zusätzlich zur Kegel-Kopfhöhe k."
       }
     },
     "16": {
@@ -595,23 +728,35 @@
       },
       "r2": {
         "nominal": 85,
+        "unit": "mm",
         "sourceRefs": [
-          "DIN302-s1"
+          "p7-handbook"
         ],
         "status": "single-source",
-        "verification": "norm-table-not-independently-verified",
-        "note": "Radius (Spalte 'r 2' der Quelle, Bedeutung nicht definiert)",
-        "unit": "mm"
+        "verification": "primary-source-only",
+        "note": "Kopfwölbungsradius r2 nach Originaltabelle; zweite Primärquelle für den Radius fehlt."
       },
       "alpha": {
         "nominal": 75,
         "unit": "deg",
         "sourceRefs": [
+          "p7-handbook",
           "fasenco"
         ],
-        "status": "single-source",
-        "verification": "manufacturer-table",
-        "note": "Größenabhängiger Winkel aus Herstellerquelle; zweite unabhängige Bestätigung fehlt."
+        "status": "verified",
+        "verification": "primary-sources-crosschecked",
+        "note": "Senkwinkel nach Größengruppe; keine angenommene 90°-Senkung."
+      },
+      "w_ca": {
+        "nominal": 1,
+        "unit": "mm",
+        "sourceRefs": [
+          "p7-handbook",
+          "fasenco"
+        ],
+        "status": "verified",
+        "verification": "primary-sources-crosschecked",
+        "note": "Kuppenhöhe w, Näherungswert zusätzlich zur Kegel-Kopfhöhe k."
       }
     },
     "18": {
@@ -671,23 +816,35 @@
       },
       "r2": {
         "nominal": 105,
+        "unit": "mm",
         "sourceRefs": [
-          "DIN302-s1"
+          "p7-handbook"
         ],
         "status": "single-source",
-        "verification": "norm-table-not-independently-verified",
-        "note": "Radius (Spalte 'r 2' der Quelle, Bedeutung nicht definiert)",
-        "unit": "mm"
+        "verification": "primary-source-only",
+        "note": "Kopfwölbungsradius r2 nach Originaltabelle; zweite Primärquelle für den Radius fehlt."
       },
       "alpha": {
         "nominal": 75,
         "unit": "deg",
         "sourceRefs": [
+          "p7-handbook",
           "fasenco"
         ],
-        "status": "single-source",
-        "verification": "manufacturer-table",
-        "note": "Größenabhängiger Winkel aus Herstellerquelle; zweite unabhängige Bestätigung fehlt."
+        "status": "verified",
+        "verification": "primary-sources-crosschecked",
+        "note": "Senkwinkel nach Größengruppe; keine angenommene 90°-Senkung."
+      },
+      "w_ca": {
+        "nominal": 1,
+        "unit": "mm",
+        "sourceRefs": [
+          "p7-handbook",
+          "fasenco"
+        ],
+        "status": "verified",
+        "verification": "primary-sources-crosschecked",
+        "note": "Kuppenhöhe w, Näherungswert zusätzlich zur Kegel-Kopfhöhe k."
       }
     },
     "20": {
@@ -747,23 +904,35 @@
       },
       "r2": {
         "nominal": 120,
+        "unit": "mm",
         "sourceRefs": [
-          "DIN302-s1"
+          "p7-handbook"
         ],
         "status": "single-source",
-        "verification": "norm-table-not-independently-verified",
-        "note": "Radius (Spalte 'r 2' der Quelle, Bedeutung nicht definiert)",
-        "unit": "mm"
+        "verification": "primary-source-only",
+        "note": "Kopfwölbungsradius r2 nach Originaltabelle; zweite Primärquelle für den Radius fehlt."
       },
       "alpha": {
         "nominal": 60,
         "unit": "deg",
         "sourceRefs": [
+          "p7-handbook",
           "fasenco"
         ],
-        "status": "single-source",
-        "verification": "manufacturer-table",
-        "note": "Größenabhängiger Winkel aus Herstellerquelle; zweite unabhängige Bestätigung fehlt."
+        "status": "verified",
+        "verification": "primary-sources-crosschecked",
+        "note": "Senkwinkel nach Größengruppe; keine angenommene 90°-Senkung."
+      },
+      "w_ca": {
+        "nominal": 1,
+        "unit": "mm",
+        "sourceRefs": [
+          "p7-handbook",
+          "fasenco"
+        ],
+        "status": "verified",
+        "verification": "primary-sources-crosschecked",
+        "note": "Kuppenhöhe w, Näherungswert zusätzlich zur Kegel-Kopfhöhe k."
       }
     },
     "22": {
@@ -823,23 +992,35 @@
       },
       "r2": {
         "nominal": 75,
+        "unit": "mm",
         "sourceRefs": [
-          "DIN302-s1"
+          "p7-handbook"
         ],
         "status": "single-source",
-        "verification": "norm-table-not-independently-verified",
-        "note": "Radius (Spalte 'r 2' der Quelle, Bedeutung nicht definiert)",
-        "unit": "mm"
+        "verification": "primary-source-only",
+        "note": "Kopfwölbungsradius r2 nach Originaltabelle; zweite Primärquelle für den Radius fehlt."
       },
       "alpha": {
         "nominal": 60,
         "unit": "deg",
         "sourceRefs": [
+          "p7-handbook",
           "fasenco"
         ],
-        "status": "single-source",
-        "verification": "manufacturer-table",
-        "note": "Größenabhängiger Winkel aus Herstellerquelle; zweite unabhängige Bestätigung fehlt."
+        "status": "verified",
+        "verification": "primary-sources-crosschecked",
+        "note": "Senkwinkel nach Größengruppe; keine angenommene 90°-Senkung."
+      },
+      "w_ca": {
+        "nominal": 2,
+        "unit": "mm",
+        "sourceRefs": [
+          "p7-handbook",
+          "fasenco"
+        ],
+        "status": "verified",
+        "verification": "primary-sources-crosschecked",
+        "note": "Kuppenhöhe w, Näherungswert zusätzlich zur Kegel-Kopfhöhe k."
       }
     },
     "24": {
@@ -899,23 +1080,35 @@
       },
       "r2": {
         "nominal": 85,
+        "unit": "mm",
         "sourceRefs": [
-          "DIN302-s1"
+          "p7-handbook"
         ],
         "status": "single-source",
-        "verification": "norm-table-not-independently-verified",
-        "note": "Radius (Spalte 'r 2' der Quelle, Bedeutung nicht definiert)",
-        "unit": "mm"
+        "verification": "primary-source-only",
+        "note": "Kopfwölbungsradius r2 nach Originaltabelle; zweite Primärquelle für den Radius fehlt."
       },
       "alpha": {
         "nominal": 60,
         "unit": "deg",
         "sourceRefs": [
+          "p7-handbook",
           "fasenco"
         ],
-        "status": "single-source",
-        "verification": "manufacturer-table",
-        "note": "Größenabhängiger Winkel aus Herstellerquelle; zweite unabhängige Bestätigung fehlt."
+        "status": "verified",
+        "verification": "primary-sources-crosschecked",
+        "note": "Senkwinkel nach Größengruppe; keine angenommene 90°-Senkung."
+      },
+      "w_ca": {
+        "nominal": 2,
+        "unit": "mm",
+        "sourceRefs": [
+          "p7-handbook",
+          "fasenco"
+        ],
+        "status": "verified",
+        "verification": "primary-sources-crosschecked",
+        "note": "Kuppenhöhe w, Näherungswert zusätzlich zur Kegel-Kopfhöhe k."
       }
     },
     "27": {
@@ -975,23 +1168,35 @@
       },
       "r2": {
         "nominal": 110,
+        "unit": "mm",
         "sourceRefs": [
-          "DIN302-s1"
+          "p7-handbook"
         ],
         "status": "single-source",
-        "verification": "norm-table-not-independently-verified",
-        "note": "Radius (Spalte 'r 2' der Quelle, Bedeutung nicht definiert)",
-        "unit": "mm"
+        "verification": "primary-source-only",
+        "note": "Kopfwölbungsradius r2 nach Originaltabelle; zweite Primärquelle für den Radius fehlt."
       },
       "alpha": {
         "nominal": 60,
         "unit": "deg",
         "sourceRefs": [
+          "p7-handbook",
           "fasenco"
         ],
-        "status": "single-source",
-        "verification": "manufacturer-table",
-        "note": "Größenabhängiger Winkel aus Herstellerquelle; zweite unabhängige Bestätigung fehlt."
+        "status": "verified",
+        "verification": "primary-sources-crosschecked",
+        "note": "Senkwinkel nach Größengruppe; keine angenommene 90°-Senkung."
+      },
+      "w_ca": {
+        "nominal": 2,
+        "unit": "mm",
+        "sourceRefs": [
+          "p7-handbook",
+          "fasenco"
+        ],
+        "status": "verified",
+        "verification": "primary-sources-crosschecked",
+        "note": "Kuppenhöhe w, Näherungswert zusätzlich zur Kegel-Kopfhöhe k."
       }
     },
     "30": {
@@ -1051,23 +1256,35 @@
       },
       "r2": {
         "nominal": 120,
+        "unit": "mm",
         "sourceRefs": [
-          "DIN302-s1"
+          "p7-handbook"
         ],
         "status": "single-source",
-        "verification": "norm-table-not-independently-verified",
-        "note": "Radius (Spalte 'r 2' der Quelle, Bedeutung nicht definiert)",
-        "unit": "mm"
+        "verification": "primary-source-only",
+        "note": "Kopfwölbungsradius r2 nach Originaltabelle; zweite Primärquelle für den Radius fehlt."
       },
       "alpha": {
         "nominal": 45,
         "unit": "deg",
         "sourceRefs": [
+          "p7-handbook",
           "fasenco"
         ],
-        "status": "single-source",
-        "verification": "manufacturer-table",
-        "note": "Größenabhängiger Winkel aus Herstellerquelle; zweite unabhängige Bestätigung fehlt."
+        "status": "verified",
+        "verification": "primary-sources-crosschecked",
+        "note": "Senkwinkel nach Größengruppe; keine angenommene 90°-Senkung."
+      },
+      "w_ca": {
+        "nominal": 2,
+        "unit": "mm",
+        "sourceRefs": [
+          "p7-handbook",
+          "fasenco"
+        ],
+        "status": "verified",
+        "verification": "primary-sources-crosschecked",
+        "note": "Kuppenhöhe w, Näherungswert zusätzlich zur Kegel-Kopfhöhe k."
       }
     },
     "33": {
@@ -1127,23 +1344,35 @@
       },
       "r2": {
         "nominal": 145,
+        "unit": "mm",
         "sourceRefs": [
-          "DIN302-s1"
+          "p7-handbook"
         ],
         "status": "single-source",
-        "verification": "norm-table-not-independently-verified",
-        "note": "Radius (Spalte 'r 2' der Quelle, Bedeutung nicht definiert)",
-        "unit": "mm"
+        "verification": "primary-source-only",
+        "note": "Kopfwölbungsradius r2 nach Originaltabelle; zweite Primärquelle für den Radius fehlt."
       },
       "alpha": {
         "nominal": 45,
         "unit": "deg",
         "sourceRefs": [
+          "p7-handbook",
           "fasenco"
         ],
-        "status": "single-source",
-        "verification": "manufacturer-table",
-        "note": "Größenabhängiger Winkel aus Herstellerquelle; zweite unabhängige Bestätigung fehlt."
+        "status": "verified",
+        "verification": "primary-sources-crosschecked",
+        "note": "Senkwinkel nach Größengruppe; keine angenommene 90°-Senkung."
+      },
+      "w_ca": {
+        "nominal": 2,
+        "unit": "mm",
+        "sourceRefs": [
+          "p7-handbook",
+          "fasenco"
+        ],
+        "status": "verified",
+        "verification": "primary-sources-crosschecked",
+        "note": "Kuppenhöhe w, Näherungswert zusätzlich zur Kegel-Kopfhöhe k."
       }
     },
     "36": {
@@ -1203,23 +1432,35 @@
       },
       "r2": {
         "nominal": 170,
+        "unit": "mm",
         "sourceRefs": [
-          "DIN302-s1"
+          "p7-handbook"
         ],
         "status": "single-source",
-        "verification": "norm-table-not-independently-verified",
-        "note": "Radius (Spalte 'r 2' der Quelle, Bedeutung nicht definiert)",
-        "unit": "mm"
+        "verification": "primary-source-only",
+        "note": "Kopfwölbungsradius r2 nach Originaltabelle; zweite Primärquelle für den Radius fehlt."
       },
       "alpha": {
         "nominal": 45,
         "unit": "deg",
         "sourceRefs": [
+          "p7-handbook",
           "fasenco"
         ],
-        "status": "single-source",
-        "verification": "manufacturer-table",
-        "note": "Größenabhängiger Winkel aus Herstellerquelle; zweite unabhängige Bestätigung fehlt."
+        "status": "verified",
+        "verification": "primary-sources-crosschecked",
+        "note": "Senkwinkel nach Größengruppe; keine angenommene 90°-Senkung."
+      },
+      "w_ca": {
+        "nominal": 2,
+        "unit": "mm",
+        "sourceRefs": [
+          "p7-handbook",
+          "fasenco"
+        ],
+        "status": "verified",
+        "verification": "primary-sources-crosschecked",
+        "note": "Kuppenhöhe w, Näherungswert zusätzlich zur Kegel-Kopfhöhe k."
       }
     }
   },
@@ -1244,22 +1485,43 @@
       "titel": "Fasenco Maßtabelle DIN302",
       "abgerufen": "2026-11-26",
       "scope": "dimensions"
+    },
+    {
+      "id": "p7-handbook",
+      "url": "https://api.pageplace.de/preview/DT0400.9783410226949_A35867930/preview-9783410226949_A35867930.pdf",
+      "titel": "DIN-Taschenbuch 43 · offizielle Verlagsvorschau",
+      "abgerufen": "2026-11-27",
+      "scope": "dimensions",
+      "locator": "DIN 302:2011-03, Bild 1 / Tabelle 1, PDF S.62–64",
+      "edition": "2011-03"
+    },
+    {
+      "id": "p7-dinmedia",
+      "url": "https://www.dinmedia.de/en/standard/din-302/135438402",
+      "titel": "DIN Media · offizieller Normstatus DIN302",
+      "abgerufen": "2026-11-27",
+      "scope": "edition-status"
     }
   ],
   "status": "partial",
   "coverage": "documented",
-  "pruefdatum": "2026-11-26",
+  "pruefdatum": "2026-11-27",
   "normstatus": {
     "edition": "2011-03",
-    "status": "status-from-supplied-source",
-    "sourceRefs": []
+    "status": "current",
+    "sourceRefs": [
+      "p7-dinmedia"
+    ],
+    "checkedAt": "2026-11-27",
+    "note": "Ausgabe und Status auf DIN Media geprüft. Statusseite bestätigt keine Maßzahl."
   },
   "hinweise": [
     "Fehlende Größe oder Länge bedeutet fehlende Datenabdeckung, kein Normverbot.",
     "Maßdaten sind einzeln belegt; Editionsstatus allein bestätigt keine Maßtabelle."
   ],
   "gaps": [
-    "Vollständige Normlängenmatrix je Größe und aktuelle Originalmaßtabelle nicht unabhängig bestätigt."
+    "Vollständige Normlängenmatrix je Größe nicht doppelt belegt.",
+    "Der Wölbungsradius r2 ist nur durch die Originaltabelle als Primärquelle belegt; das Rechenmodell benutzt die bestätigten Hüllmaße k, w, d2."
   ],
   "lengthDependentFields": [
     "sL"
@@ -1273,5 +1535,15 @@
     "sourceRefs": [],
     "verification": "norm-length-matrix-not-verified",
     "note": "Exakte Normlängen je Durchmesser noch nicht belegt; aus min/max werden keine Zwischenlängen erzeugt."
+  },
+  "geometryAdapter": "rivet-raised-countersunk",
+  "headHeightReference": "cone",
+  "lengthReference": {
+    "kind": "includes-cone-excludes-crown",
+    "sourceRefs": [
+      "p7-handbook",
+      "fasenco"
+    ],
+    "note": "l beginnt an der Ebene des größten Kopf-Ø; Kappe w liegt vor dieser Ebene. Schaftlänge l−k."
   }
 }

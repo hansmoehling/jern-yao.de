@@ -58,7 +58,10 @@ test('ISO 8765 length-specific runout and grade-A coverage remain bounded',()=>{
  assert.deepEqual([f.groessen.M10.nachLaenge[45].roh.ls_min,f.groessen.M10.nachLaenge[45].roh.lg_max],[11.5,19]);
  assert.deepEqual([f.groessen.M24.nachLaenge[90].roh.ls_min,f.groessen.M24.nachLaenge[90].roh.lg_max],[21,36]);
  assert.equal(f.groessen.M8.nachLaenge[30],undefined);assert.equal(f.groessen.M14.nachLaenge[130].roh.b_actual,40);
- assert.equal(f.sizeCoverage.M30.status,'unresearched');assert.equal(f.catalogueSupplement.rows.M30.s_nom,46);
+ assert.equal(f.sizeCoverage.M30.status,'documented');assert.equal(f.catalogueSupplement.rows.M30.s_nom,46);
+ assert.deepEqual(Object.keys(f.groessen.M30.nachLaenge),['120','300']);
+ assert.equal(f.groessen.M30.nachLaenge[300].lengthEvidence.kind,'catalogue-range-endpoint');
+ assert.equal(f.groessen.M30.nachLaenge[300].lengthEvidence.edition,null,'a manufacturer endpoint is not a viewed grade-B 2022 matrix');
 });
 
 test('ISO 7379 preserves normative shoulders and never calls shoulder length total shaft length',()=>{
@@ -76,7 +79,8 @@ test('slotted profiles keep their separate end dimensions and expose unresolved 
  assert.equal(flat.groessen.M3.roh.dp_max,2);assert.equal(cone.groessen.M3.roh.dt_max,.3);
  assert.equal(dog.groessen.M3.roh.dp_max,2);assert.equal(cup.groessen.M3.roh.dz_max,1.4);
  assert.equal(dog.groessen.M3.roh.z_long_max,null);assert.equal(cup.groessen.M3.roh.cupDepth,null);
- assert.equal(cone.edition,'catalog-undated');assert.equal(cone.currentEdition,'2024');assert.equal(cone.groessen.M3.roh.tipAngle,null);
- for(const f of [flat,cone,dog,cup]){assert.equal(f.groessen.M3.geometryStatus,'partial');assert.equal(f.groessen.M3.nachLaenge[4],undefined);assert.equal(f.sizeCoverage.M16.status,'not-in-standard');}
- assert.equal(cone.sizeCoverage['M3.5'].status,'unresearched');
+ assert.equal(cone.edition,'1983');assert.equal(cone.currentEdition,'2024');assert.equal(cone.groessen.M3.roh.tipAngle,null);
+ for(const f of [flat,cone,dog,cup]){assert.equal(f.groessen.M3.geometryStatus,'partial');assert.equal(f.groessen.M3.nachLaenge[8].lengthEvidence.edition,'1983');assert.equal(f.sizeCoverage.M16.status,'not-in-standard');}
+ assert.equal(dog.groessen.M3.nachLaenge[4],undefined,'dog-point minimum commercial length is 5 mm');
+ assert.equal(cone.sizeCoverage['M3.5'].status,'documented');
 });

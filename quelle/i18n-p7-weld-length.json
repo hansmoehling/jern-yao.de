@@ -1,0 +1,7 @@
+{
+  "Länge nach dem Schweißen in mm": ["Lunghezza dopo la saldatura in mm", "Dolžina po varjenju v mm", "Length after welding in mm", "焊后长度，单位 mm"],
+  "Normbereich {reference}: {min}–{max} mm.": ["Intervallo normativo {reference}: {min}–{max} mm.", "Standardni razpon {reference}: {min}–{max} mm.", "Standard range {reference}: {min}–{max} mm.", "标准范围 {reference}：{min}–{max} mm。"],
+  "Normmindestlänge {reference}: {min} mm.": ["Lunghezza minima normativa {reference}: {min} mm.", "Standardna najmanjša dolžina {reference}: {min} mm.", "Standard minimum length {reference}: {min} mm.", "标准最小长度 {reference}：{min} mm。"],
+  "Normrichtwert {reference}: mindestens etwa {min} mm.": ["Valore indicativo normativo {reference}: almeno circa {min} mm.", "Standardna orientacijska vrednost {reference}: najmanj približno {min} mm.", "Standard guide value {reference}: at least approximately {min} mm.", "标准参考值 {reference}：至少约 {min} mm。"],
+  "Andere Längen sind nach Vereinbarung möglich.": ["Altre lunghezze sono possibili previo accordo.", "Druge dolžine so možne po dogovoru.", "Other lengths may be agreed.", "其他长度可通过协商确定。"]
+}

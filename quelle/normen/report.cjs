@@ -54,18 +54,19 @@ function familyRows(family){
   ];
 }
 function spectrumSummary(family,rows,data,machines){
-  const result={within:0,excluded:0,unknown:0,notApplicable:0};
+  const result={within:0,excluded:0,unknown:0,notApplicable:0},details=[];
+  const record=(item,status)=>{result[status]++;details.push({size:item.size,variant:item.variant,status});};
   for(const item of rows){
-    if(['invalid-reference','rivet-size-series'].includes(family.datasetKind)){result.notApplicable++;continue;}
+    if(['invalid-reference','rivet-size-series'].includes(family.datasetKind)){record(item,'notApplicable');continue;}
     const selection={id:family.id,groesse:item.size,...(item.variant?{form:item.variant}:{})};
     let part;
-    try{part=N.adapt(data,R.resolveStandard(N.selectionLibrary(data,selection),selection,{},{shaftPolicy:'shaft-v2'}));}catch{result.unknown++;continue;}
+    try{part=N.adapt(data,R.resolveStandard(N.selectionLibrary(data,selection),selection,{},{shaftPolicy:'shaft-v2'}));}catch{record(item,'unknown');continue;}
     const check=A.sizeAvailability({part,catalogue:machines});
-    if(check.disabled)result.excluded++;
-    else if(check.diameter>0&&check.candidateCount>check.unknownCount)result.within++;
-    else result.unknown++;
+    if(check.disabled)record(item,'excluded');
+    else if(check.diameter>0&&check.candidateCount>check.unknownCount)record(item,'within');
+    else record(item,'unknown');
   }
-  return result;
+  return {counts:result,details};
 }
 function declaredSizeCoverage(family){
   const result={documented:0,notInStandard:0,unresearched:0,other:0};
@@ -80,12 +81,13 @@ function summarize({families,threads={},machines=[]}){
   const sorted=[...families].sort((a,b)=>order(a.id,b.id)),data={schemaVersion:1,version:'report',families:sorted,threads};
   const details=sorted.map(f=>{
     const rows=familyRows(f),lengths=rows.map(item=>entries(item.row.nachLaenge).length),variantCount=(f.variants||[]).length;
+    const scope=spectrumSummary(f,rows,data,machines);
     const editionKind=f.edition==null?'missing':/^catalog/.test(String(f.edition))?'catalogue':'stated';
     return {id:f.id,edition:f.edition??null,editionKind,editionStatus:f.editionStatus??null,datasetKind:f.datasetKind||'part-standard',
       directSizes:entries(f.groessen).length,variantCount,variantSizes:rows.filter(row=>row.variant!==null).length,
       lengthCells:lengths.reduce((a,b)=>a+b,0),sizesWithLengths:lengths.filter(n=>n>0).length,
       lengthRelevant:f.funktion!=='mutter'&&!['invalid-reference','rivet-size-series'].includes(f.datasetKind),
-      sourceStatus:evidenceSummary(f),sizeCoverage:declaredSizeCoverage(f),spectrum:spectrumSummary(f,rows,data,machines)};
+      sourceStatus:evidenceSummary(f),sizeCoverage:declaredSizeCoverage(f),spectrum:scope.counts,machineScopeRows:scope.details};
   });
   const total={families:details.length,directFamilies:details.filter(f=>f.directSizes>0).length,directSizes:sum(details,'directSizes'),variantSizes:sum(details,'variantSizes'),variantCount:sum(details,'variantCount'),lengthCells:sum(details,'lengthCells'),sizesWithLengths:sum(details,'sizesWithLengths'),withLengths:details.filter(f=>f.lengthCells>0).length,lengthRelevant:details.filter(f=>f.lengthRelevant).length,withoutLengths:details.filter(f=>f.lengthRelevant&&!f.lengthCells).length,
     editions:{stated:details.filter(f=>f.editionKind==='stated').length,catalogue:details.filter(f=>f.editionKind==='catalogue').length,missing:details.filter(f=>f.editionKind==='missing').length},
@@ -121,7 +123,14 @@ function renderReport(input){
     '| Familie | Im Aufnahmerahmen | Außerhalb aller Aufnahmen | Offen | Keine Teilekonturprüfung |','|---|---:|---:|---:|---:|');
   for(const f of report.families){const s=f.spectrum;lines.push(`| ${safe(f.id)} | ${s.within} | ${s.excluded} | ${s.unknown} | ${s.notApplicable} |`);}
   lines.push(`| **Summe** | **${t.spectrum.within}** | **${t.spectrum.excluded}** | **${t.spectrum.unknown}** | **${t.spectrum.notApplicable}** |`,'',
-    '## Gesonderte Referenzen','');
+    '### Größen je Familie','',
+    'Die folgenden Listen benennen jede gespeicherte Größe einschließlich ihrer Variante. Sie gelten für die dokumentierte Aufnahmekontur; „im Rahmen“ ist keine Zusage einer fertigen Maschinenauslegung.','',
+    '| Familie | Im Aufnahmerahmen | Außerhalb | Offen | Keine Konturprüfung |','|---|---|---|---|---|');
+  for(const f of report.families){
+    const list=status=>f.machineScopeRows.filter(row=>row.status===status).map(row=>safe((row.variant?row.variant+' / ':'')+row.size)).join(', ')||'–';
+    lines.push(`| ${safe(f.id)} | ${list('within')} | ${list('excluded')} | ${list('unknown')} | ${list('notApplicable')} |`);
+  }
+  lines.push('','## Gesonderte Referenzen','');
   const special=report.families.filter(f=>['invalid-reference','rivet-size-series'].includes(f.datasetKind));
   if(!special.length)lines.push('Keine gesonderten Referenztypen im Datensatz.');
   for(const f of special)lines.push(`- ${safe(f.id)}: ${f.datasetKind==='invalid-reference'?'ungültiger Produktverweis; keine vollständige Teilefamilie':'Durchmesserreihe; keine eigenständige vollständige Teilekontur'}.`);

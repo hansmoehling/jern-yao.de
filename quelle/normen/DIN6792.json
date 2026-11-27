@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "id": "DIN6792",
-  "version": "2026-11-26",
+  "version": "2026-11-27",
   "edition": "2012-05",
   "label": "DIN 6792 · Halbhohlniet mit Senkkopf (zurückgezogen)",
   "alias": [],
@@ -18,7 +18,8 @@
     "kH": "k_js14",
     "d_b": "d4_H13_bohrung",
     "t_b": "t_min_bohrungstiefe_lesart",
-    "sL": "l_nominal"
+    "sL": "l_nominal",
+    "alpha": "senkwinkel_grad"
   },
   "groessen": {
     "2": {
@@ -26,24 +27,24 @@
         "sD": 2,
         "kD": 4,
         "d_b": 1.2,
-        "t_b": 2.5
+        "t_b": 2.5,
+        "kH": 0.6,
+        "alpha": 120
       },
       "roh": {
         "d_nominal": 2,
         "dk_nom": 4,
-        "k_js14": 0.9,
+        "k_js14": 0.6,
         "t_min_bohrungstiefe_lesart": 2.5,
         "d4_H13_bohrung": 1.2,
         "d3_min": 1.87,
         "l_min_aus_masstabelle": 4,
         "l_max_aus_masstabelle": 50,
-        "senkwinkel_grad": null
+        "senkwinkel_grad": 120
       },
       "coverage": "documented",
       "geometryStatus": "partial",
       "missingGeometryFields": [
-        "verifiedHeadHeight",
-        "headAngle",
         "boreBottomShape"
       ],
       "nachLaenge": {}
@@ -53,24 +54,24 @@
         "sD": 3,
         "kD": 6,
         "d_b": 1.9,
-        "t_b": 3
+        "t_b": 3,
+        "kH": 0.9,
+        "alpha": 120
       },
       "roh": {
         "d_nominal": 3,
         "dk_nom": 6,
-        "k_js14": 1.3,
+        "k_js14": 0.9,
         "t_min_bohrungstiefe_lesart": 3,
         "d4_H13_bohrung": 1.9,
         "d3_min": 2.87,
         "l_min_aus_masstabelle": 5,
         "l_max_aus_masstabelle": 50,
-        "senkwinkel_grad": null
+        "senkwinkel_grad": 120
       },
       "coverage": "documented",
       "geometryStatus": "partial",
       "missingGeometryFields": [
-        "verifiedHeadHeight",
-        "headAngle",
         "boreBottomShape"
       ],
       "nachLaenge": {}
@@ -80,24 +81,24 @@
         "sD": 4,
         "kD": 8,
         "d_b": 2.7,
-        "t_b": 4
+        "t_b": 4,
+        "kH": 1.2,
+        "alpha": 120
       },
       "roh": {
         "d_nominal": 4,
         "dk_nom": 8,
-        "k_js14": 1.8,
+        "k_js14": 1.2,
         "t_min_bohrungstiefe_lesart": 4,
         "d4_H13_bohrung": 2.7,
         "d3_min": 3.87,
         "l_min_aus_masstabelle": 6,
         "l_max_aus_masstabelle": 50,
-        "senkwinkel_grad": null
+        "senkwinkel_grad": 120
       },
       "coverage": "documented",
       "geometryStatus": "partial",
       "missingGeometryFields": [
-        "verifiedHeadHeight",
-        "headAngle",
         "boreBottomShape"
       ],
       "nachLaenge": {}
@@ -107,24 +108,24 @@
         "sD": 5,
         "kD": 10,
         "d_b": 3.5,
-        "t_b": 5
+        "t_b": 5,
+        "kH": 1.4,
+        "alpha": 120
       },
       "roh": {
         "d_nominal": 5,
         "dk_nom": 10,
-        "k_js14": 2.2,
+        "k_js14": 1.4,
         "t_min_bohrungstiefe_lesart": 5,
         "d4_H13_bohrung": 3.5,
         "d3_min": 4.82,
         "l_min_aus_masstabelle": 8,
         "l_max_aus_masstabelle": 50,
-        "senkwinkel_grad": null
+        "senkwinkel_grad": 120
       },
       "coverage": "documented",
       "geometryStatus": "partial",
       "missingGeometryFields": [
-        "verifiedHeadHeight",
-        "headAngle",
         "boreBottomShape"
       ],
       "nachLaenge": {}
@@ -134,24 +135,24 @@
         "sD": 6,
         "kD": 12,
         "d_b": 4.2,
-        "t_b": 6.5
+        "t_b": 6.5,
+        "kH": 1.7,
+        "alpha": 120
       },
       "roh": {
         "d_nominal": 6,
         "dk_nom": 12,
-        "k_js14": 2.6,
+        "k_js14": 1.7,
         "t_min_bohrungstiefe_lesart": 6.5,
         "d4_H13_bohrung": 4.2,
         "d3_min": 5.82,
         "l_min_aus_masstabelle": 10,
         "l_max_aus_masstabelle": 50,
-        "senkwinkel_grad": null
+        "senkwinkel_grad": 120
       },
       "coverage": "documented",
       "geometryStatus": "partial",
       "missingGeometryFields": [
-        "verifiedHeadHeight",
-        "headAngle",
         "boreBottomShape"
       ],
       "nachLaenge": {}
@@ -161,24 +162,24 @@
         "sD": 8,
         "kD": 16,
         "d_b": 6,
-        "t_b": 8
+        "t_b": 8,
+        "kH": 2.3,
+        "alpha": 120
       },
       "roh": {
         "d_nominal": 8,
         "dk_nom": 16,
-        "k_js14": 3.5,
+        "k_js14": 2.3,
         "t_min_bohrungstiefe_lesart": 8,
         "d4_H13_bohrung": 6,
         "d3_min": 6.82,
         "l_min_aus_masstabelle": 12,
         "l_max_aus_masstabelle": 50,
-        "senkwinkel_grad": null
+        "senkwinkel_grad": 120
       },
       "coverage": "documented",
       "geometryStatus": "partial",
       "missingGeometryFields": [
-        "verifiedHeadHeight",
-        "headAngle",
         "boreBottomShape"
       ],
       "nachLaenge": {}
@@ -188,24 +189,24 @@
         "sD": 10,
         "kD": 20,
         "d_b": 7.6,
-        "t_b": 10
+        "t_b": 10,
+        "kH": 3,
+        "alpha": 120
       },
       "roh": {
         "d_nominal": 10,
         "dk_nom": 20,
-        "k_js14": 4.4,
+        "k_js14": 3,
         "t_min_bohrungstiefe_lesart": 10,
         "d4_H13_bohrung": 7.6,
         "d3_min": 9.4,
         "l_min_aus_masstabelle": 16,
         "l_max_aus_masstabelle": 50,
-        "senkwinkel_grad": null
+        "senkwinkel_grad": 120
       },
       "coverage": "documented",
       "geometryStatus": "partial",
       "missingGeometryFields": [
-        "verifiedHeadHeight",
-        "headAngle",
         "boreBottomShape"
       ],
       "nachLaenge": {}
@@ -215,24 +216,24 @@
         "sD": 1.6,
         "kD": 3.2,
         "d_b": 0.9,
-        "t_b": 1.5
+        "t_b": 1.5,
+        "kH": 0.45,
+        "alpha": 120
       },
       "roh": {
         "d_nominal": 1.6,
         "dk_nom": 3.2,
-        "k_js14": 0.7,
+        "k_js14": 0.45,
         "t_min_bohrungstiefe_lesart": 1.5,
         "d4_H13_bohrung": 0.9,
         "d3_min": 1.52,
         "l_min_aus_masstabelle": 3,
         "l_max_aus_masstabelle": 50,
-        "senkwinkel_grad": null
+        "senkwinkel_grad": 120
       },
       "coverage": "documented",
       "geometryStatus": "partial",
       "missingGeometryFields": [
-        "verifiedHeadHeight",
-        "headAngle",
         "boreBottomShape"
       ],
       "nachLaenge": {}
@@ -242,24 +243,24 @@
         "sD": 2.5,
         "kD": 5,
         "d_b": 1.7,
-        "t_b": 2.5
+        "t_b": 2.5,
+        "kH": 0.7,
+        "alpha": 120
       },
       "roh": {
         "d_nominal": 2.5,
         "dk_nom": 5,
-        "k_js14": 1.1,
+        "k_js14": 0.7,
         "t_min_bohrungstiefe_lesart": 2.5,
         "d4_H13_bohrung": 1.7,
         "d3_min": 2.37,
         "l_min_aus_masstabelle": 4,
         "l_max_aus_masstabelle": 50,
-        "senkwinkel_grad": null
+        "senkwinkel_grad": 120
       },
       "coverage": "documented",
       "geometryStatus": "partial",
       "missingGeometryFields": [
-        "verifiedHeadHeight",
-        "headAngle",
         "boreBottomShape"
       ],
       "nachLaenge": {}
@@ -269,24 +270,24 @@
         "sD": 3.5,
         "kD": 7,
         "d_b": 2.2,
-        "t_b": 4
+        "t_b": 4,
+        "kH": 1,
+        "alpha": 120
       },
       "roh": {
         "d_nominal": 3.5,
         "dk_nom": 7,
-        "k_js14": 1.5,
+        "k_js14": 1,
         "t_min_bohrungstiefe_lesart": 4,
         "d4_H13_bohrung": 2.2,
         "d3_min": 3.37,
         "l_min_aus_masstabelle": 6,
         "l_max_aus_masstabelle": 50,
-        "senkwinkel_grad": null
+        "senkwinkel_grad": 120
       },
       "coverage": "documented",
       "geometryStatus": "partial",
       "missingGeometryFields": [
-        "verifiedHeadHeight",
-        "headAngle",
         "boreBottomShape"
       ],
       "nachLaenge": {}
@@ -317,31 +318,25 @@
         "unit": "mm"
       },
       "k_js14": {
-        "nominal": 0.9,
+        "nominal": 0.6,
+        "unit": "mm",
         "sourceRefs": [
-          "DIN6792-s1",
+          "p7-original6792",
           "fasenco"
         ],
-        "status": "conflict",
-        "verification": "edition-or-transcription-conflict",
-        "note": "2012-Katalog nennt denselben Kopf wie DIN6791; ältere Tabelle nennt niedrigere Kopfhöhe. Keine automatische Normvorbelegung.",
-        "unit": "mm",
-        "alternatives": [
-          {
-            "nominal": 0.6,
-            "sourceRefs": [
-              "DIN6792-s1"
-            ],
-            "edition": "1993"
-          },
-          {
-            "nominal": 0.6,
-            "sourceRefs": [
-              "fasenco"
-            ],
-            "edition": null
-          }
-        ]
+        "status": "verified",
+        "verification": "primary-sources-crosschecked",
+        "note": "Kopfmaß k≈ aus Original1993 und Lieferantenmaßblatt. Der alte Feldname k_js14 bleibt aus Schema-Kompatibilität; eine js14-Toleranz ist für dieses Näherungsmaß nicht behauptet.",
+        "dimensionEdition": "1993-05",
+        "currentEditionTableVerified": false,
+        "superseded": {
+          "value": 0.9,
+          "sourceRefs": [
+            "DIN6792-s1",
+            "fasenco"
+          ],
+          "reason": "wrong-pan-head-value-for-countersunk-head"
+        }
       },
       "t_min_bohrungstiefe_lesart": {
         "nominal": 2.5,
@@ -396,11 +391,17 @@
         "max": 50
       },
       "senkwinkel_grad": {
-        "sourceRefs": [],
-        "status": "missing",
-        "verification": "not-evidenced",
-        "note": "Kein Zahlenwert in den verfügbaren Quellen.",
-        "unit": "mm"
+        "nominal": 120,
+        "unit": "deg",
+        "sourceRefs": [
+          "p7-original6792",
+          "fasenco"
+        ],
+        "status": "verified",
+        "verification": "primary-sources-crosschecked",
+        "note": "120° am Senkkopf, nicht am Bohrungsgrund.",
+        "dimensionEdition": "1993-05",
+        "currentEditionTableVerified": false
       }
     },
     "3": {
@@ -427,31 +428,25 @@
         "unit": "mm"
       },
       "k_js14": {
-        "nominal": 1.3,
+        "nominal": 0.9,
+        "unit": "mm",
         "sourceRefs": [
-          "DIN6792-s1",
+          "p7-original6792",
           "fasenco"
         ],
-        "status": "conflict",
-        "verification": "edition-or-transcription-conflict",
-        "note": "2012-Katalog nennt denselben Kopf wie DIN6791; ältere Tabelle nennt niedrigere Kopfhöhe. Keine automatische Normvorbelegung.",
-        "unit": "mm",
-        "alternatives": [
-          {
-            "nominal": 0.9,
-            "sourceRefs": [
-              "DIN6792-s1"
-            ],
-            "edition": "1993"
-          },
-          {
-            "nominal": 0.9,
-            "sourceRefs": [
-              "fasenco"
-            ],
-            "edition": null
-          }
-        ]
+        "status": "verified",
+        "verification": "primary-sources-crosschecked",
+        "note": "Kopfmaß k≈ aus Original1993 und Lieferantenmaßblatt. Der alte Feldname k_js14 bleibt aus Schema-Kompatibilität; eine js14-Toleranz ist für dieses Näherungsmaß nicht behauptet.",
+        "dimensionEdition": "1993-05",
+        "currentEditionTableVerified": false,
+        "superseded": {
+          "value": 1.3,
+          "sourceRefs": [
+            "DIN6792-s1",
+            "fasenco"
+          ],
+          "reason": "wrong-pan-head-value-for-countersunk-head"
+        }
       },
       "t_min_bohrungstiefe_lesart": {
         "nominal": 3,
@@ -506,11 +501,17 @@
         "max": 50
       },
       "senkwinkel_grad": {
-        "sourceRefs": [],
-        "status": "missing",
-        "verification": "not-evidenced",
-        "note": "Kein Zahlenwert in den verfügbaren Quellen.",
-        "unit": "mm"
+        "nominal": 120,
+        "unit": "deg",
+        "sourceRefs": [
+          "p7-original6792",
+          "fasenco"
+        ],
+        "status": "verified",
+        "verification": "primary-sources-crosschecked",
+        "note": "120° am Senkkopf, nicht am Bohrungsgrund.",
+        "dimensionEdition": "1993-05",
+        "currentEditionTableVerified": false
       }
     },
     "4": {
@@ -537,31 +538,25 @@
         "unit": "mm"
       },
       "k_js14": {
-        "nominal": 1.8,
+        "nominal": 1.2,
+        "unit": "mm",
         "sourceRefs": [
-          "DIN6792-s1",
+          "p7-original6792",
           "fasenco"
         ],
-        "status": "conflict",
-        "verification": "edition-or-transcription-conflict",
-        "note": "2012-Katalog nennt denselben Kopf wie DIN6791; ältere Tabelle nennt niedrigere Kopfhöhe. Keine automatische Normvorbelegung.",
-        "unit": "mm",
-        "alternatives": [
-          {
-            "nominal": 1.2,
-            "sourceRefs": [
-              "DIN6792-s1"
-            ],
-            "edition": "1993"
-          },
-          {
-            "nominal": 1.2,
-            "sourceRefs": [
-              "fasenco"
-            ],
-            "edition": null
-          }
-        ]
+        "status": "verified",
+        "verification": "primary-sources-crosschecked",
+        "note": "Kopfmaß k≈ aus Original1993 und Lieferantenmaßblatt. Der alte Feldname k_js14 bleibt aus Schema-Kompatibilität; eine js14-Toleranz ist für dieses Näherungsmaß nicht behauptet.",
+        "dimensionEdition": "1993-05",
+        "currentEditionTableVerified": false,
+        "superseded": {
+          "value": 1.8,
+          "sourceRefs": [
+            "DIN6792-s1",
+            "fasenco"
+          ],
+          "reason": "wrong-pan-head-value-for-countersunk-head"
+        }
       },
       "t_min_bohrungstiefe_lesart": {
         "nominal": 4,
@@ -616,11 +611,17 @@
         "max": 50
       },
       "senkwinkel_grad": {
-        "sourceRefs": [],
-        "status": "missing",
-        "verification": "not-evidenced",
-        "note": "Kein Zahlenwert in den verfügbaren Quellen.",
-        "unit": "mm"
+        "nominal": 120,
+        "unit": "deg",
+        "sourceRefs": [
+          "p7-original6792",
+          "fasenco"
+        ],
+        "status": "verified",
+        "verification": "primary-sources-crosschecked",
+        "note": "120° am Senkkopf, nicht am Bohrungsgrund.",
+        "dimensionEdition": "1993-05",
+        "currentEditionTableVerified": false
       }
     },
     "5": {
@@ -647,31 +648,25 @@
         "unit": "mm"
       },
       "k_js14": {
-        "nominal": 2.2,
+        "nominal": 1.4,
+        "unit": "mm",
         "sourceRefs": [
-          "DIN6792-s1",
+          "p7-original6792",
           "fasenco"
         ],
-        "status": "conflict",
-        "verification": "edition-or-transcription-conflict",
-        "note": "2012-Katalog nennt denselben Kopf wie DIN6791; ältere Tabelle nennt niedrigere Kopfhöhe. Keine automatische Normvorbelegung.",
-        "unit": "mm",
-        "alternatives": [
-          {
-            "nominal": 1.4,
-            "sourceRefs": [
-              "DIN6792-s1"
-            ],
-            "edition": "1993"
-          },
-          {
-            "nominal": 1.4,
-            "sourceRefs": [
-              "fasenco"
-            ],
-            "edition": null
-          }
-        ]
+        "status": "verified",
+        "verification": "primary-sources-crosschecked",
+        "note": "Kopfmaß k≈ aus Original1993 und Lieferantenmaßblatt. Der alte Feldname k_js14 bleibt aus Schema-Kompatibilität; eine js14-Toleranz ist für dieses Näherungsmaß nicht behauptet.",
+        "dimensionEdition": "1993-05",
+        "currentEditionTableVerified": false,
+        "superseded": {
+          "value": 2.2,
+          "sourceRefs": [
+            "DIN6792-s1",
+            "fasenco"
+          ],
+          "reason": "wrong-pan-head-value-for-countersunk-head"
+        }
       },
       "t_min_bohrungstiefe_lesart": {
         "nominal": 5,
@@ -726,11 +721,17 @@
         "max": 50
       },
       "senkwinkel_grad": {
-        "sourceRefs": [],
-        "status": "missing",
-        "verification": "not-evidenced",
-        "note": "Kein Zahlenwert in den verfügbaren Quellen.",
-        "unit": "mm"
+        "nominal": 120,
+        "unit": "deg",
+        "sourceRefs": [
+          "p7-original6792",
+          "fasenco"
+        ],
+        "status": "verified",
+        "verification": "primary-sources-crosschecked",
+        "note": "120° am Senkkopf, nicht am Bohrungsgrund.",
+        "dimensionEdition": "1993-05",
+        "currentEditionTableVerified": false
       }
     },
     "6": {
@@ -757,31 +758,25 @@
         "unit": "mm"
       },
       "k_js14": {
-        "nominal": 2.6,
+        "nominal": 1.7,
+        "unit": "mm",
         "sourceRefs": [
-          "DIN6792-s1",
+          "p7-original6792",
           "fasenco"
         ],
-        "status": "conflict",
-        "verification": "edition-or-transcription-conflict",
-        "note": "2012-Katalog nennt denselben Kopf wie DIN6791; ältere Tabelle nennt niedrigere Kopfhöhe. Keine automatische Normvorbelegung.",
-        "unit": "mm",
-        "alternatives": [
-          {
-            "nominal": 1.7,
-            "sourceRefs": [
-              "DIN6792-s1"
-            ],
-            "edition": "1993"
-          },
-          {
-            "nominal": 1.7,
-            "sourceRefs": [
-              "fasenco"
-            ],
-            "edition": null
-          }
-        ]
+        "status": "verified",
+        "verification": "primary-sources-crosschecked",
+        "note": "Kopfmaß k≈ aus Original1993 und Lieferantenmaßblatt. Der alte Feldname k_js14 bleibt aus Schema-Kompatibilität; eine js14-Toleranz ist für dieses Näherungsmaß nicht behauptet.",
+        "dimensionEdition": "1993-05",
+        "currentEditionTableVerified": false,
+        "superseded": {
+          "value": 2.6,
+          "sourceRefs": [
+            "DIN6792-s1",
+            "fasenco"
+          ],
+          "reason": "wrong-pan-head-value-for-countersunk-head"
+        }
       },
       "t_min_bohrungstiefe_lesart": {
         "nominal": 6.5,
@@ -836,11 +831,17 @@
         "max": 50
       },
       "senkwinkel_grad": {
-        "sourceRefs": [],
-        "status": "missing",
-        "verification": "not-evidenced",
-        "note": "Kein Zahlenwert in den verfügbaren Quellen.",
-        "unit": "mm"
+        "nominal": 120,
+        "unit": "deg",
+        "sourceRefs": [
+          "p7-original6792",
+          "fasenco"
+        ],
+        "status": "verified",
+        "verification": "primary-sources-crosschecked",
+        "note": "120° am Senkkopf, nicht am Bohrungsgrund.",
+        "dimensionEdition": "1993-05",
+        "currentEditionTableVerified": false
       }
     },
     "8": {
@@ -867,31 +868,25 @@
         "unit": "mm"
       },
       "k_js14": {
-        "nominal": 3.5,
+        "nominal": 2.3,
+        "unit": "mm",
         "sourceRefs": [
-          "DIN6792-s1",
+          "p7-original6792",
           "fasenco"
         ],
-        "status": "conflict",
-        "verification": "edition-or-transcription-conflict",
-        "note": "2012-Katalog nennt denselben Kopf wie DIN6791; ältere Tabelle nennt niedrigere Kopfhöhe. Keine automatische Normvorbelegung.",
-        "unit": "mm",
-        "alternatives": [
-          {
-            "nominal": 2.3,
-            "sourceRefs": [
-              "DIN6792-s1"
-            ],
-            "edition": "1993"
-          },
-          {
-            "nominal": 2.3,
-            "sourceRefs": [
-              "fasenco"
-            ],
-            "edition": null
-          }
-        ]
+        "status": "verified",
+        "verification": "primary-sources-crosschecked",
+        "note": "Kopfmaß k≈ aus Original1993 und Lieferantenmaßblatt. Der alte Feldname k_js14 bleibt aus Schema-Kompatibilität; eine js14-Toleranz ist für dieses Näherungsmaß nicht behauptet.",
+        "dimensionEdition": "1993-05",
+        "currentEditionTableVerified": false,
+        "superseded": {
+          "value": 3.5,
+          "sourceRefs": [
+            "DIN6792-s1",
+            "fasenco"
+          ],
+          "reason": "wrong-pan-head-value-for-countersunk-head"
+        }
       },
       "t_min_bohrungstiefe_lesart": {
         "nominal": 8,
@@ -946,11 +941,17 @@
         "max": 50
       },
       "senkwinkel_grad": {
-        "sourceRefs": [],
-        "status": "missing",
-        "verification": "not-evidenced",
-        "note": "Kein Zahlenwert in den verfügbaren Quellen.",
-        "unit": "mm"
+        "nominal": 120,
+        "unit": "deg",
+        "sourceRefs": [
+          "p7-original6792",
+          "fasenco"
+        ],
+        "status": "verified",
+        "verification": "primary-sources-crosschecked",
+        "note": "120° am Senkkopf, nicht am Bohrungsgrund.",
+        "dimensionEdition": "1993-05",
+        "currentEditionTableVerified": false
       }
     },
     "10": {
@@ -977,31 +978,25 @@
         "unit": "mm"
       },
       "k_js14": {
-        "nominal": 4.4,
+        "nominal": 3,
+        "unit": "mm",
         "sourceRefs": [
-          "DIN6792-s1",
+          "p7-original6792",
           "fasenco"
         ],
-        "status": "conflict",
-        "verification": "edition-or-transcription-conflict",
-        "note": "2012-Katalog nennt denselben Kopf wie DIN6791; ältere Tabelle nennt niedrigere Kopfhöhe. Keine automatische Normvorbelegung.",
-        "unit": "mm",
-        "alternatives": [
-          {
-            "nominal": 3,
-            "sourceRefs": [
-              "DIN6792-s1"
-            ],
-            "edition": "1993"
-          },
-          {
-            "nominal": 3,
-            "sourceRefs": [
-              "fasenco"
-            ],
-            "edition": null
-          }
-        ]
+        "status": "verified",
+        "verification": "primary-sources-crosschecked",
+        "note": "Kopfmaß k≈ aus Original1993 und Lieferantenmaßblatt. Der alte Feldname k_js14 bleibt aus Schema-Kompatibilität; eine js14-Toleranz ist für dieses Näherungsmaß nicht behauptet.",
+        "dimensionEdition": "1993-05",
+        "currentEditionTableVerified": false,
+        "superseded": {
+          "value": 4.4,
+          "sourceRefs": [
+            "DIN6792-s1",
+            "fasenco"
+          ],
+          "reason": "wrong-pan-head-value-for-countersunk-head"
+        }
       },
       "t_min_bohrungstiefe_lesart": {
         "nominal": 10,
@@ -1056,11 +1051,17 @@
         "max": 50
       },
       "senkwinkel_grad": {
-        "sourceRefs": [],
-        "status": "missing",
-        "verification": "not-evidenced",
-        "note": "Kein Zahlenwert in den verfügbaren Quellen.",
-        "unit": "mm"
+        "nominal": 120,
+        "unit": "deg",
+        "sourceRefs": [
+          "p7-original6792",
+          "fasenco"
+        ],
+        "status": "verified",
+        "verification": "primary-sources-crosschecked",
+        "note": "120° am Senkkopf, nicht am Bohrungsgrund.",
+        "dimensionEdition": "1993-05",
+        "currentEditionTableVerified": false
       }
     },
     "1.6": {
@@ -1087,31 +1088,25 @@
         "unit": "mm"
       },
       "k_js14": {
-        "nominal": 0.7,
+        "nominal": 0.45,
+        "unit": "mm",
         "sourceRefs": [
-          "DIN6792-s1",
+          "p7-original6792",
           "fasenco"
         ],
-        "status": "conflict",
-        "verification": "edition-or-transcription-conflict",
-        "note": "2012-Katalog nennt denselben Kopf wie DIN6791; ältere Tabelle nennt niedrigere Kopfhöhe. Keine automatische Normvorbelegung.",
-        "unit": "mm",
-        "alternatives": [
-          {
-            "nominal": 0.45,
-            "sourceRefs": [
-              "DIN6792-s1"
-            ],
-            "edition": "1993"
-          },
-          {
-            "nominal": 0.45,
-            "sourceRefs": [
-              "fasenco"
-            ],
-            "edition": null
-          }
-        ]
+        "status": "verified",
+        "verification": "primary-sources-crosschecked",
+        "note": "Kopfmaß k≈ aus Original1993 und Lieferantenmaßblatt. Der alte Feldname k_js14 bleibt aus Schema-Kompatibilität; eine js14-Toleranz ist für dieses Näherungsmaß nicht behauptet.",
+        "dimensionEdition": "1993-05",
+        "currentEditionTableVerified": false,
+        "superseded": {
+          "value": 0.7,
+          "sourceRefs": [
+            "DIN6792-s1",
+            "fasenco"
+          ],
+          "reason": "wrong-pan-head-value-for-countersunk-head"
+        }
       },
       "t_min_bohrungstiefe_lesart": {
         "nominal": 1.5,
@@ -1166,11 +1161,17 @@
         "max": 50
       },
       "senkwinkel_grad": {
-        "sourceRefs": [],
-        "status": "missing",
-        "verification": "not-evidenced",
-        "note": "Kein Zahlenwert in den verfügbaren Quellen.",
-        "unit": "mm"
+        "nominal": 120,
+        "unit": "deg",
+        "sourceRefs": [
+          "p7-original6792",
+          "fasenco"
+        ],
+        "status": "verified",
+        "verification": "primary-sources-crosschecked",
+        "note": "120° am Senkkopf, nicht am Bohrungsgrund.",
+        "dimensionEdition": "1993-05",
+        "currentEditionTableVerified": false
       }
     },
     "2.5": {
@@ -1197,31 +1198,25 @@
         "unit": "mm"
       },
       "k_js14": {
-        "nominal": 1.1,
+        "nominal": 0.7,
+        "unit": "mm",
         "sourceRefs": [
-          "DIN6792-s1",
+          "p7-original6792",
           "fasenco"
         ],
-        "status": "conflict",
-        "verification": "edition-or-transcription-conflict",
-        "note": "2012-Katalog nennt denselben Kopf wie DIN6791; ältere Tabelle nennt niedrigere Kopfhöhe. Keine automatische Normvorbelegung.",
-        "unit": "mm",
-        "alternatives": [
-          {
-            "nominal": 0.7,
-            "sourceRefs": [
-              "DIN6792-s1"
-            ],
-            "edition": "1993"
-          },
-          {
-            "nominal": 0.7,
-            "sourceRefs": [
-              "fasenco"
-            ],
-            "edition": null
-          }
-        ]
+        "status": "verified",
+        "verification": "primary-sources-crosschecked",
+        "note": "Kopfmaß k≈ aus Original1993 und Lieferantenmaßblatt. Der alte Feldname k_js14 bleibt aus Schema-Kompatibilität; eine js14-Toleranz ist für dieses Näherungsmaß nicht behauptet.",
+        "dimensionEdition": "1993-05",
+        "currentEditionTableVerified": false,
+        "superseded": {
+          "value": 1.1,
+          "sourceRefs": [
+            "DIN6792-s1",
+            "fasenco"
+          ],
+          "reason": "wrong-pan-head-value-for-countersunk-head"
+        }
       },
       "t_min_bohrungstiefe_lesart": {
         "nominal": 2.5,
@@ -1276,11 +1271,17 @@
         "max": 50
       },
       "senkwinkel_grad": {
-        "sourceRefs": [],
-        "status": "missing",
-        "verification": "not-evidenced",
-        "note": "Kein Zahlenwert in den verfügbaren Quellen.",
-        "unit": "mm"
+        "nominal": 120,
+        "unit": "deg",
+        "sourceRefs": [
+          "p7-original6792",
+          "fasenco"
+        ],
+        "status": "verified",
+        "verification": "primary-sources-crosschecked",
+        "note": "120° am Senkkopf, nicht am Bohrungsgrund.",
+        "dimensionEdition": "1993-05",
+        "currentEditionTableVerified": false
       }
     },
     "3.5": {
@@ -1307,31 +1308,25 @@
         "unit": "mm"
       },
       "k_js14": {
-        "nominal": 1.5,
+        "nominal": 1,
+        "unit": "mm",
         "sourceRefs": [
-          "DIN6792-s1",
+          "p7-original6792",
           "fasenco"
         ],
-        "status": "conflict",
-        "verification": "edition-or-transcription-conflict",
-        "note": "2012-Katalog nennt denselben Kopf wie DIN6791; ältere Tabelle nennt niedrigere Kopfhöhe. Keine automatische Normvorbelegung.",
-        "unit": "mm",
-        "alternatives": [
-          {
-            "nominal": 1,
-            "sourceRefs": [
-              "DIN6792-s1"
-            ],
-            "edition": "1993"
-          },
-          {
-            "nominal": 1,
-            "sourceRefs": [
-              "fasenco"
-            ],
-            "edition": null
-          }
-        ]
+        "status": "verified",
+        "verification": "primary-sources-crosschecked",
+        "note": "Kopfmaß k≈ aus Original1993 und Lieferantenmaßblatt. Der alte Feldname k_js14 bleibt aus Schema-Kompatibilität; eine js14-Toleranz ist für dieses Näherungsmaß nicht behauptet.",
+        "dimensionEdition": "1993-05",
+        "currentEditionTableVerified": false,
+        "superseded": {
+          "value": 1.5,
+          "sourceRefs": [
+            "DIN6792-s1",
+            "fasenco"
+          ],
+          "reason": "wrong-pan-head-value-for-countersunk-head"
+        }
       },
       "t_min_bohrungstiefe_lesart": {
         "nominal": 4,
@@ -1386,11 +1381,17 @@
         "max": 50
       },
       "senkwinkel_grad": {
-        "sourceRefs": [],
-        "status": "missing",
-        "verification": "not-evidenced",
-        "note": "Kein Zahlenwert in den verfügbaren Quellen.",
-        "unit": "mm"
+        "nominal": 120,
+        "unit": "deg",
+        "sourceRefs": [
+          "p7-original6792",
+          "fasenco"
+        ],
+        "status": "verified",
+        "verification": "primary-sources-crosschecked",
+        "note": "120° am Senkkopf, nicht am Bohrungsgrund.",
+        "dimensionEdition": "1993-05",
+        "currentEditionTableVerified": false
       }
     }
   },
@@ -1422,26 +1423,45 @@
       "titel": "Fasenco Maßtabelle DIN6792",
       "abgerufen": "2026-11-26",
       "scope": "dimensions"
+    },
+    {
+      "id": "p7-original6792",
+      "url": "https://pichgostaran.com/wp-content/uploads/2024/04/DIN-6792.pdf",
+      "titel": "DIN 6792:1993-05 · Originalnorm, öffentlicher Lieferantenabdruck",
+      "abgerufen": "2026-11-27",
+      "scope": "dimensions",
+      "locator": "Zeichnung / Tabelle1, S.1",
+      "edition": "1993-05"
+    },
+    {
+      "id": "p7-dinmedia-changes",
+      "url": "https://www.dinmedia.de/de/norm/din-6792/135461327",
+      "titel": "DIN Media · Änderungsvermerk1993 zu2011",
+      "abgerufen": "2026-11-27",
+      "scope": "dimensions",
+      "locator": "Änderungsvermerk"
     }
   ],
   "status": "partial",
   "coverage": "documented",
-  "pruefdatum": "2026-11-26",
+  "pruefdatum": "2026-11-27",
   "normstatus": {
     "edition": "2012-05",
     "status": "withdrawn",
     "sourceRefs": [
       "DIN6792-s3"
     ],
-    "note": "DIN Media aktuell geprüft; abweichender Katalogstatus wird nicht übernommen."
+    "checkedAt": "2026-11-27",
+    "note": "Ausgabe und Status auf DIN Media geprüft. Statusseite bestätigt keine Maßzahl."
   },
   "hinweise": [
     "Fehlende Größe oder Länge bedeutet fehlende Datenabdeckung, kein Normverbot.",
     "Maßdaten sind einzeln belegt; Editionsstatus allein bestätigt keine Maßtabelle."
   ],
   "gaps": [
-    "Vollständige Normlängenmatrix je Größe und aktuelle Originalmaßtabelle nicht unabhängig bestätigt.",
-    "Kopfhöhenkonflikt zwischen als 2012 und 1993 bezeichneten Tabellen bleibt gesperrt."
+    "2012-05 ist zurückgezogen; direkte Maßtabellenprüfung bezieht sich auf1993-05 plus Lieferantenblatt.",
+    "Vollständige Normlängenmatrix nicht doppelt belegt.",
+    "120°-Bohrungsgrund bleibt unbemaßte Rechenannahme."
   ],
   "lengthDependentFields": [
     "sL"
@@ -1474,5 +1494,25 @@
     ],
     "verification": "norm-length-matrix-not-verified",
     "note": "Vollständige im Ausgangsbeleg erfasste Katalogreihe wiederhergestellt. Nicht als vollständige Normlängenmatrix je Durchmesser interpretiert."
+  },
+  "geometryAdapter": "rivet-countersunk-length",
+  "lengthReference": {
+    "kind": "includes-head",
+    "sourceRefs": [
+      "p7-original6792",
+      "fasenco"
+    ],
+    "note": "l enthält den Senkkopf k; sL=l−k. Original1993 und Lieferantenzeichnung stimmen überein."
+  },
+  "dimensionEditionEvidence": {
+    "direct": "1993-05",
+    "supplier": "edition-undated",
+    "listedEdition": "2012-05",
+    "currentTableVerified": false,
+    "changeLogSourceRefs": [
+      "p7-dinmedia-changes",
+      "DIN6792-s3"
+    ],
+    "note": "DINMedia nennt2011 Änderungen an Verweisen/Bezeichnung/Tabelle4/Formeln/Bildern,2012 nur Massenabzug Tabelle3. Keine direkte Verifikation der vollständigen2012-Maßtabelle behauptet."
   }
 }

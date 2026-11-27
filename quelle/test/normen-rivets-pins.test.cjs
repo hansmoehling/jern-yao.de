@@ -25,7 +25,8 @@ test('every published raw value has explicit evidence, unit and an honest verifi
         const m=fields[key];assert.ok(m,prefix+'/'+key);
         assert.ok(['verified','single-source','missing','conflict'].includes(m.status),prefix+'/'+key);
         assert.ok(['mm','deg'].includes(m.unit),prefix+'/'+key);
-        assert.ok(m.verification&&m.note,prefix+'/'+key);
+        assert.ok((typeof m.verification==='boolean'||typeof m.verification==='string'&&m.verification.length>0)&&m.note,prefix+'/'+key);
+        if(m.status==='verified')assert.notEqual(m.verification,false,prefix+'/'+key+' cannot mark an unverified value as verified');
         for(const ref of m.sourceRefs)assert.ok(sources.has(ref),prefix+'/'+key+'/'+ref);
         if(typeof value==='number'){
           assert.ok(Number.isFinite(value));
@@ -74,15 +75,16 @@ test('DIN6791 4x12 keeps bore diameter and depth but does not invent a bore bott
   assert.equal(f.groessen['4'].vorbelegung.boreBottomAngle,undefined);
 });
 
-test('known conflicting heights and bore depths cannot silently become defaults',()=>{
+test('original-source corrections replace wrong heights while unresolved bounds stay explicit',()=>{
   for(const id of ['DIN674','DIN6792'])for(const[size,row]of Object.entries(family(id).groessen)){
-    assert.equal(family(id).fields[size].k_js14.status,'conflict');
-    assert.equal(row.vorbelegung.kH,undefined);
-    assert.equal(row.geometryStatus,'partial');
+    assert.equal(family(id).fields[size].k_js14.status,'verified');
+    assert.equal(row.vorbelegung.kH,family(id).fields[size].k_js14.nominal);
+    assert.ok(family(id).fields[size].k_js14.superseded,'correction keeps its audit trail');
   }
   const b=family('DIN7338').variants.find(v=>v.id==='B');
-  assert.equal(b.fields['4'].t_min.status,'conflict');
-  assert.equal(b.sizeData['4'].vorbelegung.t_b,undefined);
+  assert.equal(b.fields['4'].t_min.status,'verified');
+  assert.equal(b.sizeData['4'].vorbelegung.t_b,4);
+  assert.equal(b.fields['4'].t_max.status,'conflict');
   assert.equal(family('ISO2341').groessen['24'].vorbelegung.kH,6);
   assert.equal(family('ISO2341').fields['24'].k.status,'conflict');
 });

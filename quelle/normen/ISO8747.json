@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "id": "ISO8747",
-  "version": "2026-11-26",
+  "version": "2026-11-27",
   "edition": "1997",
   "label": "ISO8747 · Senkkerbnagel (Maßbasis1997)",
   "datasetKind": "part-standard",
@@ -27,7 +27,9 @@
         "dk_max": 3.7,
         "dk_min": 3.3,
         "c": 0.6,
-        "d2": 2.15
+        "d2": 2.15,
+        "d_min": 1.95,
+        "d_max": 2
       },
       "coverage": "documented",
       "geometryStatus": "partial",
@@ -39,7 +41,239 @@
         "headHeight",
         "selectedEndForm"
       ],
-      "nachLaenge": {}
+      "nachLaenge": {
+        "4": {
+          "coverage": "documented",
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "grooveProfile",
+            "expandedDiameterAtSelectedLength",
+            "headAngle",
+            "headHeight",
+            "selectedEndForm"
+          ],
+          "vorbelegung": {
+            "sL": 4
+          },
+          "roh": {
+            "l_nominal": 4
+          },
+          "fields": {
+            "l_nominal": {
+              "nominal": 4,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "p7-iso8747_iso-table"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "original-standard-table",
+              "note": "Nennlänge innerhalb der in der Originaltabelle begrenzten handelsüblichen Größen-Längen-Matrix. Keine Fertigungs- oder Maschinengrenze; keine Angabe einer heutigen Lagerverfügbarkeit.",
+              "edition": "1997"
+            }
+          },
+          "lengthEvidence": {
+            "kind": "standard-commercial-matrix",
+            "edition": "1997",
+            "sourceRefs": [
+              "p7-iso8747_iso-table"
+            ],
+            "verification": false,
+            "nominalOnly": true,
+            "locator": "Tabelle 1, Normseite 3 / PDF-Seite 5",
+            "note": "Handelsübliche Längenkombination gemäß Originalausgabe; Sonderlängen bleiben möglich."
+          }
+        },
+        "5": {
+          "coverage": "documented",
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "grooveProfile",
+            "expandedDiameterAtSelectedLength",
+            "headAngle",
+            "headHeight",
+            "selectedEndForm"
+          ],
+          "vorbelegung": {
+            "sL": 5
+          },
+          "roh": {
+            "l_nominal": 5
+          },
+          "fields": {
+            "l_nominal": {
+              "nominal": 5,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "p7-iso8747_iso-table"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "original-standard-table",
+              "note": "Nennlänge innerhalb der in der Originaltabelle begrenzten handelsüblichen Größen-Längen-Matrix. Keine Fertigungs- oder Maschinengrenze; keine Angabe einer heutigen Lagerverfügbarkeit.",
+              "edition": "1997"
+            }
+          },
+          "lengthEvidence": {
+            "kind": "standard-commercial-matrix",
+            "edition": "1997",
+            "sourceRefs": [
+              "p7-iso8747_iso-table"
+            ],
+            "verification": false,
+            "nominalOnly": true,
+            "locator": "Tabelle 1, Normseite 3 / PDF-Seite 5",
+            "note": "Handelsübliche Längenkombination gemäß Originalausgabe; Sonderlängen bleiben möglich."
+          }
+        },
+        "6": {
+          "coverage": "documented",
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "grooveProfile",
+            "expandedDiameterAtSelectedLength",
+            "headAngle",
+            "headHeight",
+            "selectedEndForm"
+          ],
+          "vorbelegung": {
+            "sL": 6
+          },
+          "roh": {
+            "l_nominal": 6
+          },
+          "fields": {
+            "l_nominal": {
+              "nominal": 6,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "p7-iso8747_iso-table"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "original-standard-table",
+              "note": "Nennlänge innerhalb der in der Originaltabelle begrenzten handelsüblichen Größen-Längen-Matrix. Keine Fertigungs- oder Maschinengrenze; keine Angabe einer heutigen Lagerverfügbarkeit.",
+              "edition": "1997"
+            }
+          },
+          "lengthEvidence": {
+            "kind": "standard-commercial-matrix",
+            "edition": "1997",
+            "sourceRefs": [
+              "p7-iso8747_iso-table"
+            ],
+            "verification": false,
+            "nominalOnly": true,
+            "locator": "Tabelle 1, Normseite 3 / PDF-Seite 5",
+            "note": "Handelsübliche Längenkombination gemäß Originalausgabe; Sonderlängen bleiben möglich."
+          }
+        },
+        "8": {
+          "coverage": "documented",
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "grooveProfile",
+            "expandedDiameterAtSelectedLength",
+            "headAngle",
+            "headHeight",
+            "selectedEndForm"
+          ],
+          "vorbelegung": {
+            "sL": 8
+          },
+          "roh": {
+            "l_nominal": 8
+          },
+          "fields": {
+            "l_nominal": {
+              "nominal": 8,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "p7-iso8747_iso-table"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "original-standard-table",
+              "note": "Nennlänge innerhalb der in der Originaltabelle begrenzten handelsüblichen Größen-Längen-Matrix. Keine Fertigungs- oder Maschinengrenze; keine Angabe einer heutigen Lagerverfügbarkeit.",
+              "edition": "1997"
+            }
+          },
+          "lengthEvidence": {
+            "kind": "standard-commercial-matrix",
+            "edition": "1997",
+            "sourceRefs": [
+              "p7-iso8747_iso-table"
+            ],
+            "verification": false,
+            "nominalOnly": true,
+            "locator": "Tabelle 1, Normseite 3 / PDF-Seite 5",
+            "note": "Handelsübliche Längenkombination gemäß Originalausgabe; Sonderlängen bleiben möglich."
+          }
+        },
+        "10": {
+          "coverage": "documented",
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "grooveProfile",
+            "expandedDiameterAtSelectedLength",
+            "headAngle",
+            "headHeight",
+            "selectedEndForm"
+          ],
+          "vorbelegung": {
+            "sL": 10
+          },
+          "roh": {
+            "l_nominal": 10
+          },
+          "fields": {
+            "l_nominal": {
+              "nominal": 10,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "p7-iso8747_iso-table"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "original-standard-table",
+              "note": "Nennlänge innerhalb der in der Originaltabelle begrenzten handelsüblichen Größen-Längen-Matrix. Keine Fertigungs- oder Maschinengrenze; keine Angabe einer heutigen Lagerverfügbarkeit.",
+              "edition": "1997"
+            }
+          },
+          "lengthEvidence": {
+            "kind": "standard-commercial-matrix",
+            "edition": "1997",
+            "sourceRefs": [
+              "p7-iso8747_iso-table"
+            ],
+            "verification": false,
+            "nominalOnly": true,
+            "locator": "Tabelle 1, Normseite 3 / PDF-Seite 5",
+            "note": "Handelsübliche Längenkombination gemäß Originalausgabe; Sonderlängen bleiben möglich."
+          }
+        }
+      },
+      "lengthCoverage": "documented",
+      "lengthMatrix": {
+        "edition": "1997",
+        "sourceRefs": [
+          "p7-iso8747_iso-table"
+        ],
+        "nominalOnly": true,
+        "coverage": "printed-matrix",
+        "machineLimit": false,
+        "expandedDiameterScope": "Stahl nach Werkstoffabschnitt der jeweiligen Originalausgabe; andere Werkstoffe benötigen vereinbarte Korrektur. d2 ist kein Rohdrahtdurchmesser."
+      }
     },
     "3": {
       "vorbelegung": {
@@ -51,7 +285,9 @@
         "dk_max": 5.45,
         "dk_min": 4.95,
         "c": 0.9,
-        "d2": 3.2
+        "d2": 3.2,
+        "d_min": 2.925,
+        "d_max": 3
       },
       "coverage": "documented",
       "geometryStatus": "partial",
@@ -63,7 +299,283 @@
         "headHeight",
         "selectedEndForm"
       ],
-      "nachLaenge": {}
+      "nachLaenge": {
+        "5": {
+          "coverage": "documented",
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "grooveProfile",
+            "expandedDiameterAtSelectedLength",
+            "headAngle",
+            "headHeight",
+            "selectedEndForm"
+          ],
+          "vorbelegung": {
+            "sL": 5
+          },
+          "roh": {
+            "l_nominal": 5
+          },
+          "fields": {
+            "l_nominal": {
+              "nominal": 5,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "p7-iso8747_iso-table"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "original-standard-table",
+              "note": "Nennlänge innerhalb der in der Originaltabelle begrenzten handelsüblichen Größen-Längen-Matrix. Keine Fertigungs- oder Maschinengrenze; keine Angabe einer heutigen Lagerverfügbarkeit.",
+              "edition": "1997"
+            }
+          },
+          "lengthEvidence": {
+            "kind": "standard-commercial-matrix",
+            "edition": "1997",
+            "sourceRefs": [
+              "p7-iso8747_iso-table"
+            ],
+            "verification": false,
+            "nominalOnly": true,
+            "locator": "Tabelle 1, Normseite 3 / PDF-Seite 5",
+            "note": "Handelsübliche Längenkombination gemäß Originalausgabe; Sonderlängen bleiben möglich."
+          }
+        },
+        "6": {
+          "coverage": "documented",
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "grooveProfile",
+            "expandedDiameterAtSelectedLength",
+            "headAngle",
+            "headHeight",
+            "selectedEndForm"
+          ],
+          "vorbelegung": {
+            "sL": 6
+          },
+          "roh": {
+            "l_nominal": 6
+          },
+          "fields": {
+            "l_nominal": {
+              "nominal": 6,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "p7-iso8747_iso-table"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "original-standard-table",
+              "note": "Nennlänge innerhalb der in der Originaltabelle begrenzten handelsüblichen Größen-Längen-Matrix. Keine Fertigungs- oder Maschinengrenze; keine Angabe einer heutigen Lagerverfügbarkeit.",
+              "edition": "1997"
+            }
+          },
+          "lengthEvidence": {
+            "kind": "standard-commercial-matrix",
+            "edition": "1997",
+            "sourceRefs": [
+              "p7-iso8747_iso-table"
+            ],
+            "verification": false,
+            "nominalOnly": true,
+            "locator": "Tabelle 1, Normseite 3 / PDF-Seite 5",
+            "note": "Handelsübliche Längenkombination gemäß Originalausgabe; Sonderlängen bleiben möglich."
+          }
+        },
+        "8": {
+          "coverage": "documented",
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "grooveProfile",
+            "expandedDiameterAtSelectedLength",
+            "headAngle",
+            "headHeight",
+            "selectedEndForm"
+          ],
+          "vorbelegung": {
+            "sL": 8
+          },
+          "roh": {
+            "l_nominal": 8
+          },
+          "fields": {
+            "l_nominal": {
+              "nominal": 8,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "p7-iso8747_iso-table"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "original-standard-table",
+              "note": "Nennlänge innerhalb der in der Originaltabelle begrenzten handelsüblichen Größen-Längen-Matrix. Keine Fertigungs- oder Maschinengrenze; keine Angabe einer heutigen Lagerverfügbarkeit.",
+              "edition": "1997"
+            }
+          },
+          "lengthEvidence": {
+            "kind": "standard-commercial-matrix",
+            "edition": "1997",
+            "sourceRefs": [
+              "p7-iso8747_iso-table"
+            ],
+            "verification": false,
+            "nominalOnly": true,
+            "locator": "Tabelle 1, Normseite 3 / PDF-Seite 5",
+            "note": "Handelsübliche Längenkombination gemäß Originalausgabe; Sonderlängen bleiben möglich."
+          }
+        },
+        "10": {
+          "coverage": "documented",
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "grooveProfile",
+            "expandedDiameterAtSelectedLength",
+            "headAngle",
+            "headHeight",
+            "selectedEndForm"
+          ],
+          "vorbelegung": {
+            "sL": 10
+          },
+          "roh": {
+            "l_nominal": 10
+          },
+          "fields": {
+            "l_nominal": {
+              "nominal": 10,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "p7-iso8747_iso-table"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "original-standard-table",
+              "note": "Nennlänge innerhalb der in der Originaltabelle begrenzten handelsüblichen Größen-Längen-Matrix. Keine Fertigungs- oder Maschinengrenze; keine Angabe einer heutigen Lagerverfügbarkeit.",
+              "edition": "1997"
+            }
+          },
+          "lengthEvidence": {
+            "kind": "standard-commercial-matrix",
+            "edition": "1997",
+            "sourceRefs": [
+              "p7-iso8747_iso-table"
+            ],
+            "verification": false,
+            "nominalOnly": true,
+            "locator": "Tabelle 1, Normseite 3 / PDF-Seite 5",
+            "note": "Handelsübliche Längenkombination gemäß Originalausgabe; Sonderlängen bleiben möglich."
+          }
+        },
+        "12": {
+          "coverage": "documented",
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "grooveProfile",
+            "expandedDiameterAtSelectedLength",
+            "headAngle",
+            "headHeight",
+            "selectedEndForm"
+          ],
+          "vorbelegung": {
+            "sL": 12
+          },
+          "roh": {
+            "l_nominal": 12
+          },
+          "fields": {
+            "l_nominal": {
+              "nominal": 12,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "p7-iso8747_iso-table"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "original-standard-table",
+              "note": "Nennlänge innerhalb der in der Originaltabelle begrenzten handelsüblichen Größen-Längen-Matrix. Keine Fertigungs- oder Maschinengrenze; keine Angabe einer heutigen Lagerverfügbarkeit.",
+              "edition": "1997"
+            }
+          },
+          "lengthEvidence": {
+            "kind": "standard-commercial-matrix",
+            "edition": "1997",
+            "sourceRefs": [
+              "p7-iso8747_iso-table"
+            ],
+            "verification": false,
+            "nominalOnly": true,
+            "locator": "Tabelle 1, Normseite 3 / PDF-Seite 5",
+            "note": "Handelsübliche Längenkombination gemäß Originalausgabe; Sonderlängen bleiben möglich."
+          }
+        },
+        "16": {
+          "coverage": "documented",
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "grooveProfile",
+            "expandedDiameterAtSelectedLength",
+            "headAngle",
+            "headHeight",
+            "selectedEndForm"
+          ],
+          "vorbelegung": {
+            "sL": 16
+          },
+          "roh": {
+            "l_nominal": 16
+          },
+          "fields": {
+            "l_nominal": {
+              "nominal": 16,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "p7-iso8747_iso-table"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "original-standard-table",
+              "note": "Nennlänge innerhalb der in der Originaltabelle begrenzten handelsüblichen Größen-Längen-Matrix. Keine Fertigungs- oder Maschinengrenze; keine Angabe einer heutigen Lagerverfügbarkeit.",
+              "edition": "1997"
+            }
+          },
+          "lengthEvidence": {
+            "kind": "standard-commercial-matrix",
+            "edition": "1997",
+            "sourceRefs": [
+              "p7-iso8747_iso-table"
+            ],
+            "verification": false,
+            "nominalOnly": true,
+            "locator": "Tabelle 1, Normseite 3 / PDF-Seite 5",
+            "note": "Handelsübliche Längenkombination gemäß Originalausgabe; Sonderlängen bleiben möglich."
+          }
+        }
+      },
+      "lengthCoverage": "documented",
+      "lengthMatrix": {
+        "edition": "1997",
+        "sourceRefs": [
+          "p7-iso8747_iso-table"
+        ],
+        "nominalOnly": true,
+        "coverage": "printed-matrix",
+        "machineLimit": false,
+        "expandedDiameterScope": "Stahl nach Werkstoffabschnitt der jeweiligen Originalausgabe; andere Werkstoffe benötigen vereinbarte Korrektur. d2 ist kein Rohdrahtdurchmesser."
+      }
     },
     "4": {
       "vorbelegung": {
@@ -75,7 +587,9 @@
         "dk_max": 7.25,
         "dk_min": 6.75,
         "c": 1.2,
-        "d2": 4.25
+        "d2": 4.25,
+        "d_min": 3.9,
+        "d_max": 4
       },
       "coverage": "documented",
       "geometryStatus": "partial",
@@ -87,19 +601,297 @@
         "headHeight",
         "selectedEndForm"
       ],
-      "nachLaenge": {}
+      "nachLaenge": {
+        "6": {
+          "coverage": "documented",
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "grooveProfile",
+            "expandedDiameterAtSelectedLength",
+            "headAngle",
+            "headHeight",
+            "selectedEndForm"
+          ],
+          "vorbelegung": {
+            "sL": 6
+          },
+          "roh": {
+            "l_nominal": 6
+          },
+          "fields": {
+            "l_nominal": {
+              "nominal": 6,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "p7-iso8747_iso-table"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "original-standard-table",
+              "note": "Nennlänge innerhalb der in der Originaltabelle begrenzten handelsüblichen Größen-Längen-Matrix. Keine Fertigungs- oder Maschinengrenze; keine Angabe einer heutigen Lagerverfügbarkeit.",
+              "edition": "1997"
+            }
+          },
+          "lengthEvidence": {
+            "kind": "standard-commercial-matrix",
+            "edition": "1997",
+            "sourceRefs": [
+              "p7-iso8747_iso-table"
+            ],
+            "verification": false,
+            "nominalOnly": true,
+            "locator": "Tabelle 1, Normseite 3 / PDF-Seite 5",
+            "note": "Handelsübliche Längenkombination gemäß Originalausgabe; Sonderlängen bleiben möglich."
+          }
+        },
+        "8": {
+          "coverage": "documented",
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "grooveProfile",
+            "expandedDiameterAtSelectedLength",
+            "headAngle",
+            "headHeight",
+            "selectedEndForm"
+          ],
+          "vorbelegung": {
+            "sL": 8
+          },
+          "roh": {
+            "l_nominal": 8
+          },
+          "fields": {
+            "l_nominal": {
+              "nominal": 8,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "p7-iso8747_iso-table"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "original-standard-table",
+              "note": "Nennlänge innerhalb der in der Originaltabelle begrenzten handelsüblichen Größen-Längen-Matrix. Keine Fertigungs- oder Maschinengrenze; keine Angabe einer heutigen Lagerverfügbarkeit.",
+              "edition": "1997"
+            }
+          },
+          "lengthEvidence": {
+            "kind": "standard-commercial-matrix",
+            "edition": "1997",
+            "sourceRefs": [
+              "p7-iso8747_iso-table"
+            ],
+            "verification": false,
+            "nominalOnly": true,
+            "locator": "Tabelle 1, Normseite 3 / PDF-Seite 5",
+            "note": "Handelsübliche Längenkombination gemäß Originalausgabe; Sonderlängen bleiben möglich."
+          }
+        },
+        "10": {
+          "coverage": "documented",
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "grooveProfile",
+            "expandedDiameterAtSelectedLength",
+            "headAngle",
+            "headHeight",
+            "selectedEndForm"
+          ],
+          "vorbelegung": {
+            "sL": 10
+          },
+          "roh": {
+            "l_nominal": 10
+          },
+          "fields": {
+            "l_nominal": {
+              "nominal": 10,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "p7-iso8747_iso-table"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "original-standard-table",
+              "note": "Nennlänge innerhalb der in der Originaltabelle begrenzten handelsüblichen Größen-Längen-Matrix. Keine Fertigungs- oder Maschinengrenze; keine Angabe einer heutigen Lagerverfügbarkeit.",
+              "edition": "1997"
+            }
+          },
+          "lengthEvidence": {
+            "kind": "standard-commercial-matrix",
+            "edition": "1997",
+            "sourceRefs": [
+              "p7-iso8747_iso-table"
+            ],
+            "verification": false,
+            "nominalOnly": true,
+            "locator": "Tabelle 1, Normseite 3 / PDF-Seite 5",
+            "note": "Handelsübliche Längenkombination gemäß Originalausgabe; Sonderlängen bleiben möglich."
+          }
+        },
+        "12": {
+          "coverage": "documented",
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "grooveProfile",
+            "expandedDiameterAtSelectedLength",
+            "headAngle",
+            "headHeight",
+            "selectedEndForm"
+          ],
+          "vorbelegung": {
+            "sL": 12
+          },
+          "roh": {
+            "l_nominal": 12
+          },
+          "fields": {
+            "l_nominal": {
+              "nominal": 12,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "p7-iso8747_iso-table"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "original-standard-table",
+              "note": "Nennlänge innerhalb der in der Originaltabelle begrenzten handelsüblichen Größen-Längen-Matrix. Keine Fertigungs- oder Maschinengrenze; keine Angabe einer heutigen Lagerverfügbarkeit.",
+              "edition": "1997"
+            }
+          },
+          "lengthEvidence": {
+            "kind": "standard-commercial-matrix",
+            "edition": "1997",
+            "sourceRefs": [
+              "p7-iso8747_iso-table"
+            ],
+            "verification": false,
+            "nominalOnly": true,
+            "locator": "Tabelle 1, Normseite 3 / PDF-Seite 5",
+            "note": "Handelsübliche Längenkombination gemäß Originalausgabe; Sonderlängen bleiben möglich."
+          }
+        },
+        "16": {
+          "coverage": "documented",
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "grooveProfile",
+            "expandedDiameterAtSelectedLength",
+            "headAngle",
+            "headHeight",
+            "selectedEndForm"
+          ],
+          "vorbelegung": {
+            "sL": 16
+          },
+          "roh": {
+            "l_nominal": 16
+          },
+          "fields": {
+            "l_nominal": {
+              "nominal": 16,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "p7-iso8747_iso-table"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "original-standard-table",
+              "note": "Nennlänge innerhalb der in der Originaltabelle begrenzten handelsüblichen Größen-Längen-Matrix. Keine Fertigungs- oder Maschinengrenze; keine Angabe einer heutigen Lagerverfügbarkeit.",
+              "edition": "1997"
+            }
+          },
+          "lengthEvidence": {
+            "kind": "standard-commercial-matrix",
+            "edition": "1997",
+            "sourceRefs": [
+              "p7-iso8747_iso-table"
+            ],
+            "verification": false,
+            "nominalOnly": true,
+            "locator": "Tabelle 1, Normseite 3 / PDF-Seite 5",
+            "note": "Handelsübliche Längenkombination gemäß Originalausgabe; Sonderlängen bleiben möglich."
+          }
+        },
+        "20": {
+          "coverage": "documented",
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "grooveProfile",
+            "expandedDiameterAtSelectedLength",
+            "headAngle",
+            "headHeight",
+            "selectedEndForm"
+          ],
+          "vorbelegung": {
+            "sL": 20
+          },
+          "roh": {
+            "l_nominal": 20
+          },
+          "fields": {
+            "l_nominal": {
+              "nominal": 20,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "p7-iso8747_iso-table"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "original-standard-table",
+              "note": "Nennlänge innerhalb der in der Originaltabelle begrenzten handelsüblichen Größen-Längen-Matrix. Keine Fertigungs- oder Maschinengrenze; keine Angabe einer heutigen Lagerverfügbarkeit.",
+              "edition": "1997"
+            }
+          },
+          "lengthEvidence": {
+            "kind": "standard-commercial-matrix",
+            "edition": "1997",
+            "sourceRefs": [
+              "p7-iso8747_iso-table"
+            ],
+            "verification": false,
+            "nominalOnly": true,
+            "locator": "Tabelle 1, Normseite 3 / PDF-Seite 5",
+            "note": "Handelsübliche Längenkombination gemäß Originalausgabe; Sonderlängen bleiben möglich."
+          }
+        }
+      },
+      "lengthCoverage": "documented",
+      "lengthMatrix": {
+        "edition": "1997",
+        "sourceRefs": [
+          "p7-iso8747_iso-table"
+        ],
+        "nominalOnly": true,
+        "coverage": "printed-matrix",
+        "machineLimit": false,
+        "expandedDiameterScope": "Stahl nach Werkstoffabschnitt der jeweiligen Originalausgabe; andere Werkstoffe benötigen vereinbarte Korrektur. d2 ist kein Rohdrahtdurchmesser."
+      }
     },
     "5": {
       "vorbelegung": {
         "sD": 5,
-        "kD": 9.1
+        "kD": 9
       },
       "roh": {
         "d_nominal": 5,
-        "dk_max": 9.1,
-        "dk_min": 8.5,
+        "dk_max": 9,
+        "dk_min": 8,
         "c": 1.5,
-        "d2": 5.25
+        "d2": 5.25,
+        "d_min": 4.9,
+        "d_max": 5
       },
       "coverage": "documented",
       "geometryStatus": "partial",
@@ -111,7 +903,283 @@
         "headHeight",
         "selectedEndForm"
       ],
-      "nachLaenge": {}
+      "nachLaenge": {
+        "8": {
+          "coverage": "documented",
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "grooveProfile",
+            "expandedDiameterAtSelectedLength",
+            "headAngle",
+            "headHeight",
+            "selectedEndForm"
+          ],
+          "vorbelegung": {
+            "sL": 8
+          },
+          "roh": {
+            "l_nominal": 8
+          },
+          "fields": {
+            "l_nominal": {
+              "nominal": 8,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "p7-iso8747_iso-table"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "original-standard-table",
+              "note": "Nennlänge innerhalb der in der Originaltabelle begrenzten handelsüblichen Größen-Längen-Matrix. Keine Fertigungs- oder Maschinengrenze; keine Angabe einer heutigen Lagerverfügbarkeit.",
+              "edition": "1997"
+            }
+          },
+          "lengthEvidence": {
+            "kind": "standard-commercial-matrix",
+            "edition": "1997",
+            "sourceRefs": [
+              "p7-iso8747_iso-table"
+            ],
+            "verification": false,
+            "nominalOnly": true,
+            "locator": "Tabelle 1, Normseite 3 / PDF-Seite 5",
+            "note": "Handelsübliche Längenkombination gemäß Originalausgabe; Sonderlängen bleiben möglich."
+          }
+        },
+        "10": {
+          "coverage": "documented",
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "grooveProfile",
+            "expandedDiameterAtSelectedLength",
+            "headAngle",
+            "headHeight",
+            "selectedEndForm"
+          ],
+          "vorbelegung": {
+            "sL": 10
+          },
+          "roh": {
+            "l_nominal": 10
+          },
+          "fields": {
+            "l_nominal": {
+              "nominal": 10,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "p7-iso8747_iso-table"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "original-standard-table",
+              "note": "Nennlänge innerhalb der in der Originaltabelle begrenzten handelsüblichen Größen-Längen-Matrix. Keine Fertigungs- oder Maschinengrenze; keine Angabe einer heutigen Lagerverfügbarkeit.",
+              "edition": "1997"
+            }
+          },
+          "lengthEvidence": {
+            "kind": "standard-commercial-matrix",
+            "edition": "1997",
+            "sourceRefs": [
+              "p7-iso8747_iso-table"
+            ],
+            "verification": false,
+            "nominalOnly": true,
+            "locator": "Tabelle 1, Normseite 3 / PDF-Seite 5",
+            "note": "Handelsübliche Längenkombination gemäß Originalausgabe; Sonderlängen bleiben möglich."
+          }
+        },
+        "12": {
+          "coverage": "documented",
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "grooveProfile",
+            "expandedDiameterAtSelectedLength",
+            "headAngle",
+            "headHeight",
+            "selectedEndForm"
+          ],
+          "vorbelegung": {
+            "sL": 12
+          },
+          "roh": {
+            "l_nominal": 12
+          },
+          "fields": {
+            "l_nominal": {
+              "nominal": 12,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "p7-iso8747_iso-table"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "original-standard-table",
+              "note": "Nennlänge innerhalb der in der Originaltabelle begrenzten handelsüblichen Größen-Längen-Matrix. Keine Fertigungs- oder Maschinengrenze; keine Angabe einer heutigen Lagerverfügbarkeit.",
+              "edition": "1997"
+            }
+          },
+          "lengthEvidence": {
+            "kind": "standard-commercial-matrix",
+            "edition": "1997",
+            "sourceRefs": [
+              "p7-iso8747_iso-table"
+            ],
+            "verification": false,
+            "nominalOnly": true,
+            "locator": "Tabelle 1, Normseite 3 / PDF-Seite 5",
+            "note": "Handelsübliche Längenkombination gemäß Originalausgabe; Sonderlängen bleiben möglich."
+          }
+        },
+        "16": {
+          "coverage": "documented",
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "grooveProfile",
+            "expandedDiameterAtSelectedLength",
+            "headAngle",
+            "headHeight",
+            "selectedEndForm"
+          ],
+          "vorbelegung": {
+            "sL": 16
+          },
+          "roh": {
+            "l_nominal": 16
+          },
+          "fields": {
+            "l_nominal": {
+              "nominal": 16,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "p7-iso8747_iso-table"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "original-standard-table",
+              "note": "Nennlänge innerhalb der in der Originaltabelle begrenzten handelsüblichen Größen-Längen-Matrix. Keine Fertigungs- oder Maschinengrenze; keine Angabe einer heutigen Lagerverfügbarkeit.",
+              "edition": "1997"
+            }
+          },
+          "lengthEvidence": {
+            "kind": "standard-commercial-matrix",
+            "edition": "1997",
+            "sourceRefs": [
+              "p7-iso8747_iso-table"
+            ],
+            "verification": false,
+            "nominalOnly": true,
+            "locator": "Tabelle 1, Normseite 3 / PDF-Seite 5",
+            "note": "Handelsübliche Längenkombination gemäß Originalausgabe; Sonderlängen bleiben möglich."
+          }
+        },
+        "20": {
+          "coverage": "documented",
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "grooveProfile",
+            "expandedDiameterAtSelectedLength",
+            "headAngle",
+            "headHeight",
+            "selectedEndForm"
+          ],
+          "vorbelegung": {
+            "sL": 20
+          },
+          "roh": {
+            "l_nominal": 20
+          },
+          "fields": {
+            "l_nominal": {
+              "nominal": 20,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "p7-iso8747_iso-table"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "original-standard-table",
+              "note": "Nennlänge innerhalb der in der Originaltabelle begrenzten handelsüblichen Größen-Längen-Matrix. Keine Fertigungs- oder Maschinengrenze; keine Angabe einer heutigen Lagerverfügbarkeit.",
+              "edition": "1997"
+            }
+          },
+          "lengthEvidence": {
+            "kind": "standard-commercial-matrix",
+            "edition": "1997",
+            "sourceRefs": [
+              "p7-iso8747_iso-table"
+            ],
+            "verification": false,
+            "nominalOnly": true,
+            "locator": "Tabelle 1, Normseite 3 / PDF-Seite 5",
+            "note": "Handelsübliche Längenkombination gemäß Originalausgabe; Sonderlängen bleiben möglich."
+          }
+        },
+        "25": {
+          "coverage": "documented",
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "grooveProfile",
+            "expandedDiameterAtSelectedLength",
+            "headAngle",
+            "headHeight",
+            "selectedEndForm"
+          ],
+          "vorbelegung": {
+            "sL": 25
+          },
+          "roh": {
+            "l_nominal": 25
+          },
+          "fields": {
+            "l_nominal": {
+              "nominal": 25,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "p7-iso8747_iso-table"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "original-standard-table",
+              "note": "Nennlänge innerhalb der in der Originaltabelle begrenzten handelsüblichen Größen-Längen-Matrix. Keine Fertigungs- oder Maschinengrenze; keine Angabe einer heutigen Lagerverfügbarkeit.",
+              "edition": "1997"
+            }
+          },
+          "lengthEvidence": {
+            "kind": "standard-commercial-matrix",
+            "edition": "1997",
+            "sourceRefs": [
+              "p7-iso8747_iso-table"
+            ],
+            "verification": false,
+            "nominalOnly": true,
+            "locator": "Tabelle 1, Normseite 3 / PDF-Seite 5",
+            "note": "Handelsübliche Längenkombination gemäß Originalausgabe; Sonderlängen bleiben möglich."
+          }
+        }
+      },
+      "lengthCoverage": "documented",
+      "lengthMatrix": {
+        "edition": "1997",
+        "sourceRefs": [
+          "p7-iso8747_iso-table"
+        ],
+        "nominalOnly": true,
+        "coverage": "printed-matrix",
+        "machineLimit": false,
+        "expandedDiameterScope": "Stahl nach Werkstoffabschnitt der jeweiligen Originalausgabe; andere Werkstoffe benötigen vereinbarte Korrektur. d2 ist kein Rohdrahtdurchmesser."
+      }
     },
     "6": {
       "vorbelegung": {
@@ -123,7 +1191,9 @@
         "dk_max": 10.8,
         "dk_min": 10.2,
         "c": 1.8,
-        "d2": 6.3
+        "d2": 6.3,
+        "d_min": 5.9,
+        "d_max": 6
       },
       "coverage": "documented",
       "geometryStatus": "partial",
@@ -135,7 +1205,327 @@
         "headHeight",
         "selectedEndForm"
       ],
-      "nachLaenge": {}
+      "nachLaenge": {
+        "8": {
+          "coverage": "documented",
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "grooveProfile",
+            "expandedDiameterAtSelectedLength",
+            "headAngle",
+            "headHeight",
+            "selectedEndForm"
+          ],
+          "vorbelegung": {
+            "sL": 8
+          },
+          "roh": {
+            "l_nominal": 8
+          },
+          "fields": {
+            "l_nominal": {
+              "nominal": 8,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "p7-iso8747_iso-table"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "original-standard-table",
+              "note": "Nennlänge innerhalb der in der Originaltabelle begrenzten handelsüblichen Größen-Längen-Matrix. Keine Fertigungs- oder Maschinengrenze; keine Angabe einer heutigen Lagerverfügbarkeit.",
+              "edition": "1997"
+            }
+          },
+          "lengthEvidence": {
+            "kind": "standard-commercial-matrix",
+            "edition": "1997",
+            "sourceRefs": [
+              "p7-iso8747_iso-table"
+            ],
+            "verification": false,
+            "nominalOnly": true,
+            "locator": "Tabelle 1, Normseite 3 / PDF-Seite 5",
+            "note": "Handelsübliche Längenkombination gemäß Originalausgabe; Sonderlängen bleiben möglich."
+          }
+        },
+        "10": {
+          "coverage": "documented",
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "grooveProfile",
+            "expandedDiameterAtSelectedLength",
+            "headAngle",
+            "headHeight",
+            "selectedEndForm"
+          ],
+          "vorbelegung": {
+            "sL": 10
+          },
+          "roh": {
+            "l_nominal": 10
+          },
+          "fields": {
+            "l_nominal": {
+              "nominal": 10,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "p7-iso8747_iso-table"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "original-standard-table",
+              "note": "Nennlänge innerhalb der in der Originaltabelle begrenzten handelsüblichen Größen-Längen-Matrix. Keine Fertigungs- oder Maschinengrenze; keine Angabe einer heutigen Lagerverfügbarkeit.",
+              "edition": "1997"
+            }
+          },
+          "lengthEvidence": {
+            "kind": "standard-commercial-matrix",
+            "edition": "1997",
+            "sourceRefs": [
+              "p7-iso8747_iso-table"
+            ],
+            "verification": false,
+            "nominalOnly": true,
+            "locator": "Tabelle 1, Normseite 3 / PDF-Seite 5",
+            "note": "Handelsübliche Längenkombination gemäß Originalausgabe; Sonderlängen bleiben möglich."
+          }
+        },
+        "12": {
+          "coverage": "documented",
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "grooveProfile",
+            "expandedDiameterAtSelectedLength",
+            "headAngle",
+            "headHeight",
+            "selectedEndForm"
+          ],
+          "vorbelegung": {
+            "sL": 12
+          },
+          "roh": {
+            "l_nominal": 12
+          },
+          "fields": {
+            "l_nominal": {
+              "nominal": 12,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "p7-iso8747_iso-table"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "original-standard-table",
+              "note": "Nennlänge innerhalb der in der Originaltabelle begrenzten handelsüblichen Größen-Längen-Matrix. Keine Fertigungs- oder Maschinengrenze; keine Angabe einer heutigen Lagerverfügbarkeit.",
+              "edition": "1997"
+            }
+          },
+          "lengthEvidence": {
+            "kind": "standard-commercial-matrix",
+            "edition": "1997",
+            "sourceRefs": [
+              "p7-iso8747_iso-table"
+            ],
+            "verification": false,
+            "nominalOnly": true,
+            "locator": "Tabelle 1, Normseite 3 / PDF-Seite 5",
+            "note": "Handelsübliche Längenkombination gemäß Originalausgabe; Sonderlängen bleiben möglich."
+          }
+        },
+        "16": {
+          "coverage": "documented",
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "grooveProfile",
+            "expandedDiameterAtSelectedLength",
+            "headAngle",
+            "headHeight",
+            "selectedEndForm"
+          ],
+          "vorbelegung": {
+            "sL": 16
+          },
+          "roh": {
+            "l_nominal": 16
+          },
+          "fields": {
+            "l_nominal": {
+              "nominal": 16,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "p7-iso8747_iso-table"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "original-standard-table",
+              "note": "Nennlänge innerhalb der in der Originaltabelle begrenzten handelsüblichen Größen-Längen-Matrix. Keine Fertigungs- oder Maschinengrenze; keine Angabe einer heutigen Lagerverfügbarkeit.",
+              "edition": "1997"
+            }
+          },
+          "lengthEvidence": {
+            "kind": "standard-commercial-matrix",
+            "edition": "1997",
+            "sourceRefs": [
+              "p7-iso8747_iso-table"
+            ],
+            "verification": false,
+            "nominalOnly": true,
+            "locator": "Tabelle 1, Normseite 3 / PDF-Seite 5",
+            "note": "Handelsübliche Längenkombination gemäß Originalausgabe; Sonderlängen bleiben möglich."
+          }
+        },
+        "20": {
+          "coverage": "documented",
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "grooveProfile",
+            "expandedDiameterAtSelectedLength",
+            "headAngle",
+            "headHeight",
+            "selectedEndForm"
+          ],
+          "vorbelegung": {
+            "sL": 20
+          },
+          "roh": {
+            "l_nominal": 20
+          },
+          "fields": {
+            "l_nominal": {
+              "nominal": 20,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "p7-iso8747_iso-table"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "original-standard-table",
+              "note": "Nennlänge innerhalb der in der Originaltabelle begrenzten handelsüblichen Größen-Längen-Matrix. Keine Fertigungs- oder Maschinengrenze; keine Angabe einer heutigen Lagerverfügbarkeit.",
+              "edition": "1997"
+            }
+          },
+          "lengthEvidence": {
+            "kind": "standard-commercial-matrix",
+            "edition": "1997",
+            "sourceRefs": [
+              "p7-iso8747_iso-table"
+            ],
+            "verification": false,
+            "nominalOnly": true,
+            "locator": "Tabelle 1, Normseite 3 / PDF-Seite 5",
+            "note": "Handelsübliche Längenkombination gemäß Originalausgabe; Sonderlängen bleiben möglich."
+          }
+        },
+        "25": {
+          "coverage": "documented",
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "grooveProfile",
+            "expandedDiameterAtSelectedLength",
+            "headAngle",
+            "headHeight",
+            "selectedEndForm"
+          ],
+          "vorbelegung": {
+            "sL": 25
+          },
+          "roh": {
+            "l_nominal": 25
+          },
+          "fields": {
+            "l_nominal": {
+              "nominal": 25,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "p7-iso8747_iso-table"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "original-standard-table",
+              "note": "Nennlänge innerhalb der in der Originaltabelle begrenzten handelsüblichen Größen-Längen-Matrix. Keine Fertigungs- oder Maschinengrenze; keine Angabe einer heutigen Lagerverfügbarkeit.",
+              "edition": "1997"
+            }
+          },
+          "lengthEvidence": {
+            "kind": "standard-commercial-matrix",
+            "edition": "1997",
+            "sourceRefs": [
+              "p7-iso8747_iso-table"
+            ],
+            "verification": false,
+            "nominalOnly": true,
+            "locator": "Tabelle 1, Normseite 3 / PDF-Seite 5",
+            "note": "Handelsübliche Längenkombination gemäß Originalausgabe; Sonderlängen bleiben möglich."
+          }
+        },
+        "30": {
+          "coverage": "documented",
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "grooveProfile",
+            "expandedDiameterAtSelectedLength",
+            "headAngle",
+            "headHeight",
+            "selectedEndForm"
+          ],
+          "vorbelegung": {
+            "sL": 30
+          },
+          "roh": {
+            "l_nominal": 30
+          },
+          "fields": {
+            "l_nominal": {
+              "nominal": 30,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "p7-iso8747_iso-table"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "original-standard-table",
+              "note": "Nennlänge innerhalb der in der Originaltabelle begrenzten handelsüblichen Größen-Längen-Matrix. Keine Fertigungs- oder Maschinengrenze; keine Angabe einer heutigen Lagerverfügbarkeit.",
+              "edition": "1997"
+            }
+          },
+          "lengthEvidence": {
+            "kind": "standard-commercial-matrix",
+            "edition": "1997",
+            "sourceRefs": [
+              "p7-iso8747_iso-table"
+            ],
+            "verification": false,
+            "nominalOnly": true,
+            "locator": "Tabelle 1, Normseite 3 / PDF-Seite 5",
+            "note": "Handelsübliche Längenkombination gemäß Originalausgabe; Sonderlängen bleiben möglich."
+          }
+        }
+      },
+      "lengthCoverage": "documented",
+      "lengthMatrix": {
+        "edition": "1997",
+        "sourceRefs": [
+          "p7-iso8747_iso-table"
+        ],
+        "nominalOnly": true,
+        "coverage": "printed-matrix",
+        "machineLimit": false,
+        "expandedDiameterScope": "Stahl nach Werkstoffabschnitt der jeweiligen Originalausgabe; andere Werkstoffe benötigen vereinbarte Korrektur. d2 ist kein Rohdrahtdurchmesser."
+      }
     },
     "8": {
       "vorbelegung": {
@@ -147,7 +1537,9 @@
         "dk_max": 14.4,
         "dk_min": 13.6,
         "c": 2.4,
-        "d2": 8.3
+        "d2": 8.3,
+        "d_min": 7.85,
+        "d_max": 8
       },
       "coverage": "documented",
       "geometryStatus": "partial",
@@ -159,7 +1551,371 @@
         "headHeight",
         "selectedEndForm"
       ],
-      "nachLaenge": {}
+      "nachLaenge": {
+        "10": {
+          "coverage": "documented",
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "grooveProfile",
+            "expandedDiameterAtSelectedLength",
+            "headAngle",
+            "headHeight",
+            "selectedEndForm"
+          ],
+          "vorbelegung": {
+            "sL": 10
+          },
+          "roh": {
+            "l_nominal": 10
+          },
+          "fields": {
+            "l_nominal": {
+              "nominal": 10,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "p7-iso8747_iso-table"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "original-standard-table",
+              "note": "Nennlänge innerhalb der in der Originaltabelle begrenzten handelsüblichen Größen-Längen-Matrix. Keine Fertigungs- oder Maschinengrenze; keine Angabe einer heutigen Lagerverfügbarkeit.",
+              "edition": "1997"
+            }
+          },
+          "lengthEvidence": {
+            "kind": "standard-commercial-matrix",
+            "edition": "1997",
+            "sourceRefs": [
+              "p7-iso8747_iso-table"
+            ],
+            "verification": false,
+            "nominalOnly": true,
+            "locator": "Tabelle 1, Normseite 3 / PDF-Seite 5",
+            "note": "Handelsübliche Längenkombination gemäß Originalausgabe; Sonderlängen bleiben möglich."
+          }
+        },
+        "12": {
+          "coverage": "documented",
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "grooveProfile",
+            "expandedDiameterAtSelectedLength",
+            "headAngle",
+            "headHeight",
+            "selectedEndForm"
+          ],
+          "vorbelegung": {
+            "sL": 12
+          },
+          "roh": {
+            "l_nominal": 12
+          },
+          "fields": {
+            "l_nominal": {
+              "nominal": 12,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "p7-iso8747_iso-table"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "original-standard-table",
+              "note": "Nennlänge innerhalb der in der Originaltabelle begrenzten handelsüblichen Größen-Längen-Matrix. Keine Fertigungs- oder Maschinengrenze; keine Angabe einer heutigen Lagerverfügbarkeit.",
+              "edition": "1997"
+            }
+          },
+          "lengthEvidence": {
+            "kind": "standard-commercial-matrix",
+            "edition": "1997",
+            "sourceRefs": [
+              "p7-iso8747_iso-table"
+            ],
+            "verification": false,
+            "nominalOnly": true,
+            "locator": "Tabelle 1, Normseite 3 / PDF-Seite 5",
+            "note": "Handelsübliche Längenkombination gemäß Originalausgabe; Sonderlängen bleiben möglich."
+          }
+        },
+        "16": {
+          "coverage": "documented",
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "grooveProfile",
+            "expandedDiameterAtSelectedLength",
+            "headAngle",
+            "headHeight",
+            "selectedEndForm"
+          ],
+          "vorbelegung": {
+            "sL": 16
+          },
+          "roh": {
+            "l_nominal": 16
+          },
+          "fields": {
+            "l_nominal": {
+              "nominal": 16,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "p7-iso8747_iso-table"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "original-standard-table",
+              "note": "Nennlänge innerhalb der in der Originaltabelle begrenzten handelsüblichen Größen-Längen-Matrix. Keine Fertigungs- oder Maschinengrenze; keine Angabe einer heutigen Lagerverfügbarkeit.",
+              "edition": "1997"
+            }
+          },
+          "lengthEvidence": {
+            "kind": "standard-commercial-matrix",
+            "edition": "1997",
+            "sourceRefs": [
+              "p7-iso8747_iso-table"
+            ],
+            "verification": false,
+            "nominalOnly": true,
+            "locator": "Tabelle 1, Normseite 3 / PDF-Seite 5",
+            "note": "Handelsübliche Längenkombination gemäß Originalausgabe; Sonderlängen bleiben möglich."
+          }
+        },
+        "20": {
+          "coverage": "documented",
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "grooveProfile",
+            "expandedDiameterAtSelectedLength",
+            "headAngle",
+            "headHeight",
+            "selectedEndForm"
+          ],
+          "vorbelegung": {
+            "sL": 20
+          },
+          "roh": {
+            "l_nominal": 20
+          },
+          "fields": {
+            "l_nominal": {
+              "nominal": 20,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "p7-iso8747_iso-table"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "original-standard-table",
+              "note": "Nennlänge innerhalb der in der Originaltabelle begrenzten handelsüblichen Größen-Längen-Matrix. Keine Fertigungs- oder Maschinengrenze; keine Angabe einer heutigen Lagerverfügbarkeit.",
+              "edition": "1997"
+            }
+          },
+          "lengthEvidence": {
+            "kind": "standard-commercial-matrix",
+            "edition": "1997",
+            "sourceRefs": [
+              "p7-iso8747_iso-table"
+            ],
+            "verification": false,
+            "nominalOnly": true,
+            "locator": "Tabelle 1, Normseite 3 / PDF-Seite 5",
+            "note": "Handelsübliche Längenkombination gemäß Originalausgabe; Sonderlängen bleiben möglich."
+          }
+        },
+        "25": {
+          "coverage": "documented",
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "grooveProfile",
+            "expandedDiameterAtSelectedLength",
+            "headAngle",
+            "headHeight",
+            "selectedEndForm"
+          ],
+          "vorbelegung": {
+            "sL": 25
+          },
+          "roh": {
+            "l_nominal": 25
+          },
+          "fields": {
+            "l_nominal": {
+              "nominal": 25,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "p7-iso8747_iso-table"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "original-standard-table",
+              "note": "Nennlänge innerhalb der in der Originaltabelle begrenzten handelsüblichen Größen-Längen-Matrix. Keine Fertigungs- oder Maschinengrenze; keine Angabe einer heutigen Lagerverfügbarkeit.",
+              "edition": "1997"
+            }
+          },
+          "lengthEvidence": {
+            "kind": "standard-commercial-matrix",
+            "edition": "1997",
+            "sourceRefs": [
+              "p7-iso8747_iso-table"
+            ],
+            "verification": false,
+            "nominalOnly": true,
+            "locator": "Tabelle 1, Normseite 3 / PDF-Seite 5",
+            "note": "Handelsübliche Längenkombination gemäß Originalausgabe; Sonderlängen bleiben möglich."
+          }
+        },
+        "30": {
+          "coverage": "documented",
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "grooveProfile",
+            "expandedDiameterAtSelectedLength",
+            "headAngle",
+            "headHeight",
+            "selectedEndForm"
+          ],
+          "vorbelegung": {
+            "sL": 30
+          },
+          "roh": {
+            "l_nominal": 30
+          },
+          "fields": {
+            "l_nominal": {
+              "nominal": 30,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "p7-iso8747_iso-table"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "original-standard-table",
+              "note": "Nennlänge innerhalb der in der Originaltabelle begrenzten handelsüblichen Größen-Längen-Matrix. Keine Fertigungs- oder Maschinengrenze; keine Angabe einer heutigen Lagerverfügbarkeit.",
+              "edition": "1997"
+            }
+          },
+          "lengthEvidence": {
+            "kind": "standard-commercial-matrix",
+            "edition": "1997",
+            "sourceRefs": [
+              "p7-iso8747_iso-table"
+            ],
+            "verification": false,
+            "nominalOnly": true,
+            "locator": "Tabelle 1, Normseite 3 / PDF-Seite 5",
+            "note": "Handelsübliche Längenkombination gemäß Originalausgabe; Sonderlängen bleiben möglich."
+          }
+        },
+        "35": {
+          "coverage": "documented",
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "grooveProfile",
+            "expandedDiameterAtSelectedLength",
+            "headAngle",
+            "headHeight",
+            "selectedEndForm"
+          ],
+          "vorbelegung": {
+            "sL": 35
+          },
+          "roh": {
+            "l_nominal": 35
+          },
+          "fields": {
+            "l_nominal": {
+              "nominal": 35,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "p7-iso8747_iso-table"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "original-standard-table",
+              "note": "Nennlänge innerhalb der in der Originaltabelle begrenzten handelsüblichen Größen-Längen-Matrix. Keine Fertigungs- oder Maschinengrenze; keine Angabe einer heutigen Lagerverfügbarkeit.",
+              "edition": "1997"
+            }
+          },
+          "lengthEvidence": {
+            "kind": "standard-commercial-matrix",
+            "edition": "1997",
+            "sourceRefs": [
+              "p7-iso8747_iso-table"
+            ],
+            "verification": false,
+            "nominalOnly": true,
+            "locator": "Tabelle 1, Normseite 3 / PDF-Seite 5",
+            "note": "Handelsübliche Längenkombination gemäß Originalausgabe; Sonderlängen bleiben möglich."
+          }
+        },
+        "40": {
+          "coverage": "documented",
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "grooveProfile",
+            "expandedDiameterAtSelectedLength",
+            "headAngle",
+            "headHeight",
+            "selectedEndForm"
+          ],
+          "vorbelegung": {
+            "sL": 40
+          },
+          "roh": {
+            "l_nominal": 40
+          },
+          "fields": {
+            "l_nominal": {
+              "nominal": 40,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "p7-iso8747_iso-table"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "original-standard-table",
+              "note": "Nennlänge innerhalb der in der Originaltabelle begrenzten handelsüblichen Größen-Längen-Matrix. Keine Fertigungs- oder Maschinengrenze; keine Angabe einer heutigen Lagerverfügbarkeit.",
+              "edition": "1997"
+            }
+          },
+          "lengthEvidence": {
+            "kind": "standard-commercial-matrix",
+            "edition": "1997",
+            "sourceRefs": [
+              "p7-iso8747_iso-table"
+            ],
+            "verification": false,
+            "nominalOnly": true,
+            "locator": "Tabelle 1, Normseite 3 / PDF-Seite 5",
+            "note": "Handelsübliche Längenkombination gemäß Originalausgabe; Sonderlängen bleiben möglich."
+          }
+        }
+      },
+      "lengthCoverage": "documented",
+      "lengthMatrix": {
+        "edition": "1997",
+        "sourceRefs": [
+          "p7-iso8747_iso-table"
+        ],
+        "nominalOnly": true,
+        "coverage": "printed-matrix",
+        "machineLimit": false,
+        "expandedDiameterScope": "Stahl nach Werkstoffabschnitt der jeweiligen Originalausgabe; andere Werkstoffe benötigen vereinbarte Korrektur. d2 ist kein Rohdrahtdurchmesser."
+      }
     },
     "10": {
       "vorbelegung": {
@@ -171,7 +1927,9 @@
         "dk_max": 16,
         "dk_min": 14.9,
         "c": 3,
-        "d2": 10.35
+        "d2": 10.35,
+        "d_min": 9.85,
+        "d_max": 10
       },
       "coverage": "documented",
       "geometryStatus": "partial",
@@ -183,7 +1941,327 @@
         "headHeight",
         "selectedEndForm"
       ],
-      "nachLaenge": {}
+      "nachLaenge": {
+        "12": {
+          "coverage": "documented",
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "grooveProfile",
+            "expandedDiameterAtSelectedLength",
+            "headAngle",
+            "headHeight",
+            "selectedEndForm"
+          ],
+          "vorbelegung": {
+            "sL": 12
+          },
+          "roh": {
+            "l_nominal": 12
+          },
+          "fields": {
+            "l_nominal": {
+              "nominal": 12,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "p7-iso8747_iso-table"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "original-standard-table",
+              "note": "Nennlänge innerhalb der in der Originaltabelle begrenzten handelsüblichen Größen-Längen-Matrix. Keine Fertigungs- oder Maschinengrenze; keine Angabe einer heutigen Lagerverfügbarkeit.",
+              "edition": "1997"
+            }
+          },
+          "lengthEvidence": {
+            "kind": "standard-commercial-matrix",
+            "edition": "1997",
+            "sourceRefs": [
+              "p7-iso8747_iso-table"
+            ],
+            "verification": false,
+            "nominalOnly": true,
+            "locator": "Tabelle 1, Normseite 3 / PDF-Seite 5",
+            "note": "Handelsübliche Längenkombination gemäß Originalausgabe; Sonderlängen bleiben möglich."
+          }
+        },
+        "16": {
+          "coverage": "documented",
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "grooveProfile",
+            "expandedDiameterAtSelectedLength",
+            "headAngle",
+            "headHeight",
+            "selectedEndForm"
+          ],
+          "vorbelegung": {
+            "sL": 16
+          },
+          "roh": {
+            "l_nominal": 16
+          },
+          "fields": {
+            "l_nominal": {
+              "nominal": 16,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "p7-iso8747_iso-table"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "original-standard-table",
+              "note": "Nennlänge innerhalb der in der Originaltabelle begrenzten handelsüblichen Größen-Längen-Matrix. Keine Fertigungs- oder Maschinengrenze; keine Angabe einer heutigen Lagerverfügbarkeit.",
+              "edition": "1997"
+            }
+          },
+          "lengthEvidence": {
+            "kind": "standard-commercial-matrix",
+            "edition": "1997",
+            "sourceRefs": [
+              "p7-iso8747_iso-table"
+            ],
+            "verification": false,
+            "nominalOnly": true,
+            "locator": "Tabelle 1, Normseite 3 / PDF-Seite 5",
+            "note": "Handelsübliche Längenkombination gemäß Originalausgabe; Sonderlängen bleiben möglich."
+          }
+        },
+        "20": {
+          "coverage": "documented",
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "grooveProfile",
+            "expandedDiameterAtSelectedLength",
+            "headAngle",
+            "headHeight",
+            "selectedEndForm"
+          ],
+          "vorbelegung": {
+            "sL": 20
+          },
+          "roh": {
+            "l_nominal": 20
+          },
+          "fields": {
+            "l_nominal": {
+              "nominal": 20,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "p7-iso8747_iso-table"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "original-standard-table",
+              "note": "Nennlänge innerhalb der in der Originaltabelle begrenzten handelsüblichen Größen-Längen-Matrix. Keine Fertigungs- oder Maschinengrenze; keine Angabe einer heutigen Lagerverfügbarkeit.",
+              "edition": "1997"
+            }
+          },
+          "lengthEvidence": {
+            "kind": "standard-commercial-matrix",
+            "edition": "1997",
+            "sourceRefs": [
+              "p7-iso8747_iso-table"
+            ],
+            "verification": false,
+            "nominalOnly": true,
+            "locator": "Tabelle 1, Normseite 3 / PDF-Seite 5",
+            "note": "Handelsübliche Längenkombination gemäß Originalausgabe; Sonderlängen bleiben möglich."
+          }
+        },
+        "25": {
+          "coverage": "documented",
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "grooveProfile",
+            "expandedDiameterAtSelectedLength",
+            "headAngle",
+            "headHeight",
+            "selectedEndForm"
+          ],
+          "vorbelegung": {
+            "sL": 25
+          },
+          "roh": {
+            "l_nominal": 25
+          },
+          "fields": {
+            "l_nominal": {
+              "nominal": 25,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "p7-iso8747_iso-table"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "original-standard-table",
+              "note": "Nennlänge innerhalb der in der Originaltabelle begrenzten handelsüblichen Größen-Längen-Matrix. Keine Fertigungs- oder Maschinengrenze; keine Angabe einer heutigen Lagerverfügbarkeit.",
+              "edition": "1997"
+            }
+          },
+          "lengthEvidence": {
+            "kind": "standard-commercial-matrix",
+            "edition": "1997",
+            "sourceRefs": [
+              "p7-iso8747_iso-table"
+            ],
+            "verification": false,
+            "nominalOnly": true,
+            "locator": "Tabelle 1, Normseite 3 / PDF-Seite 5",
+            "note": "Handelsübliche Längenkombination gemäß Originalausgabe; Sonderlängen bleiben möglich."
+          }
+        },
+        "30": {
+          "coverage": "documented",
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "grooveProfile",
+            "expandedDiameterAtSelectedLength",
+            "headAngle",
+            "headHeight",
+            "selectedEndForm"
+          ],
+          "vorbelegung": {
+            "sL": 30
+          },
+          "roh": {
+            "l_nominal": 30
+          },
+          "fields": {
+            "l_nominal": {
+              "nominal": 30,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "p7-iso8747_iso-table"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "original-standard-table",
+              "note": "Nennlänge innerhalb der in der Originaltabelle begrenzten handelsüblichen Größen-Längen-Matrix. Keine Fertigungs- oder Maschinengrenze; keine Angabe einer heutigen Lagerverfügbarkeit.",
+              "edition": "1997"
+            }
+          },
+          "lengthEvidence": {
+            "kind": "standard-commercial-matrix",
+            "edition": "1997",
+            "sourceRefs": [
+              "p7-iso8747_iso-table"
+            ],
+            "verification": false,
+            "nominalOnly": true,
+            "locator": "Tabelle 1, Normseite 3 / PDF-Seite 5",
+            "note": "Handelsübliche Längenkombination gemäß Originalausgabe; Sonderlängen bleiben möglich."
+          }
+        },
+        "35": {
+          "coverage": "documented",
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "grooveProfile",
+            "expandedDiameterAtSelectedLength",
+            "headAngle",
+            "headHeight",
+            "selectedEndForm"
+          ],
+          "vorbelegung": {
+            "sL": 35
+          },
+          "roh": {
+            "l_nominal": 35
+          },
+          "fields": {
+            "l_nominal": {
+              "nominal": 35,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "p7-iso8747_iso-table"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "original-standard-table",
+              "note": "Nennlänge innerhalb der in der Originaltabelle begrenzten handelsüblichen Größen-Längen-Matrix. Keine Fertigungs- oder Maschinengrenze; keine Angabe einer heutigen Lagerverfügbarkeit.",
+              "edition": "1997"
+            }
+          },
+          "lengthEvidence": {
+            "kind": "standard-commercial-matrix",
+            "edition": "1997",
+            "sourceRefs": [
+              "p7-iso8747_iso-table"
+            ],
+            "verification": false,
+            "nominalOnly": true,
+            "locator": "Tabelle 1, Normseite 3 / PDF-Seite 5",
+            "note": "Handelsübliche Längenkombination gemäß Originalausgabe; Sonderlängen bleiben möglich."
+          }
+        },
+        "40": {
+          "coverage": "documented",
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "grooveProfile",
+            "expandedDiameterAtSelectedLength",
+            "headAngle",
+            "headHeight",
+            "selectedEndForm"
+          ],
+          "vorbelegung": {
+            "sL": 40
+          },
+          "roh": {
+            "l_nominal": 40
+          },
+          "fields": {
+            "l_nominal": {
+              "nominal": 40,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "p7-iso8747_iso-table"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "original-standard-table",
+              "note": "Nennlänge innerhalb der in der Originaltabelle begrenzten handelsüblichen Größen-Längen-Matrix. Keine Fertigungs- oder Maschinengrenze; keine Angabe einer heutigen Lagerverfügbarkeit.",
+              "edition": "1997"
+            }
+          },
+          "lengthEvidence": {
+            "kind": "standard-commercial-matrix",
+            "edition": "1997",
+            "sourceRefs": [
+              "p7-iso8747_iso-table"
+            ],
+            "verification": false,
+            "nominalOnly": true,
+            "locator": "Tabelle 1, Normseite 3 / PDF-Seite 5",
+            "note": "Handelsübliche Längenkombination gemäß Originalausgabe; Sonderlängen bleiben möglich."
+          }
+        }
+      },
+      "lengthCoverage": "documented",
+      "lengthMatrix": {
+        "edition": "1997",
+        "sourceRefs": [
+          "p7-iso8747_iso-table"
+        ],
+        "nominalOnly": true,
+        "coverage": "printed-matrix",
+        "machineLimit": false,
+        "expandedDiameterScope": "Stahl nach Werkstoffabschnitt der jeweiligen Originalausgabe; andere Werkstoffe benötigen vereinbarte Korrektur. d2 ist kein Rohdrahtdurchmesser."
+      }
     },
     "12": {
       "vorbelegung": {
@@ -195,7 +2273,9 @@
         "dk_max": 19,
         "dk_min": 17.7,
         "c": 3.6,
-        "d2": 12.35
+        "d2": 12.35,
+        "d_min": 11.8,
+        "d_max": 12
       },
       "coverage": "documented",
       "geometryStatus": "partial",
@@ -207,7 +2287,283 @@
         "headHeight",
         "selectedEndForm"
       ],
-      "nachLaenge": {}
+      "nachLaenge": {
+        "16": {
+          "coverage": "documented",
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "grooveProfile",
+            "expandedDiameterAtSelectedLength",
+            "headAngle",
+            "headHeight",
+            "selectedEndForm"
+          ],
+          "vorbelegung": {
+            "sL": 16
+          },
+          "roh": {
+            "l_nominal": 16
+          },
+          "fields": {
+            "l_nominal": {
+              "nominal": 16,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "p7-iso8747_iso-table"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "original-standard-table",
+              "note": "Nennlänge innerhalb der in der Originaltabelle begrenzten handelsüblichen Größen-Längen-Matrix. Keine Fertigungs- oder Maschinengrenze; keine Angabe einer heutigen Lagerverfügbarkeit.",
+              "edition": "1997"
+            }
+          },
+          "lengthEvidence": {
+            "kind": "standard-commercial-matrix",
+            "edition": "1997",
+            "sourceRefs": [
+              "p7-iso8747_iso-table"
+            ],
+            "verification": false,
+            "nominalOnly": true,
+            "locator": "Tabelle 1, Normseite 3 / PDF-Seite 5",
+            "note": "Handelsübliche Längenkombination gemäß Originalausgabe; Sonderlängen bleiben möglich."
+          }
+        },
+        "20": {
+          "coverage": "documented",
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "grooveProfile",
+            "expandedDiameterAtSelectedLength",
+            "headAngle",
+            "headHeight",
+            "selectedEndForm"
+          ],
+          "vorbelegung": {
+            "sL": 20
+          },
+          "roh": {
+            "l_nominal": 20
+          },
+          "fields": {
+            "l_nominal": {
+              "nominal": 20,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "p7-iso8747_iso-table"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "original-standard-table",
+              "note": "Nennlänge innerhalb der in der Originaltabelle begrenzten handelsüblichen Größen-Längen-Matrix. Keine Fertigungs- oder Maschinengrenze; keine Angabe einer heutigen Lagerverfügbarkeit.",
+              "edition": "1997"
+            }
+          },
+          "lengthEvidence": {
+            "kind": "standard-commercial-matrix",
+            "edition": "1997",
+            "sourceRefs": [
+              "p7-iso8747_iso-table"
+            ],
+            "verification": false,
+            "nominalOnly": true,
+            "locator": "Tabelle 1, Normseite 3 / PDF-Seite 5",
+            "note": "Handelsübliche Längenkombination gemäß Originalausgabe; Sonderlängen bleiben möglich."
+          }
+        },
+        "25": {
+          "coverage": "documented",
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "grooveProfile",
+            "expandedDiameterAtSelectedLength",
+            "headAngle",
+            "headHeight",
+            "selectedEndForm"
+          ],
+          "vorbelegung": {
+            "sL": 25
+          },
+          "roh": {
+            "l_nominal": 25
+          },
+          "fields": {
+            "l_nominal": {
+              "nominal": 25,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "p7-iso8747_iso-table"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "original-standard-table",
+              "note": "Nennlänge innerhalb der in der Originaltabelle begrenzten handelsüblichen Größen-Längen-Matrix. Keine Fertigungs- oder Maschinengrenze; keine Angabe einer heutigen Lagerverfügbarkeit.",
+              "edition": "1997"
+            }
+          },
+          "lengthEvidence": {
+            "kind": "standard-commercial-matrix",
+            "edition": "1997",
+            "sourceRefs": [
+              "p7-iso8747_iso-table"
+            ],
+            "verification": false,
+            "nominalOnly": true,
+            "locator": "Tabelle 1, Normseite 3 / PDF-Seite 5",
+            "note": "Handelsübliche Längenkombination gemäß Originalausgabe; Sonderlängen bleiben möglich."
+          }
+        },
+        "30": {
+          "coverage": "documented",
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "grooveProfile",
+            "expandedDiameterAtSelectedLength",
+            "headAngle",
+            "headHeight",
+            "selectedEndForm"
+          ],
+          "vorbelegung": {
+            "sL": 30
+          },
+          "roh": {
+            "l_nominal": 30
+          },
+          "fields": {
+            "l_nominal": {
+              "nominal": 30,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "p7-iso8747_iso-table"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "original-standard-table",
+              "note": "Nennlänge innerhalb der in der Originaltabelle begrenzten handelsüblichen Größen-Längen-Matrix. Keine Fertigungs- oder Maschinengrenze; keine Angabe einer heutigen Lagerverfügbarkeit.",
+              "edition": "1997"
+            }
+          },
+          "lengthEvidence": {
+            "kind": "standard-commercial-matrix",
+            "edition": "1997",
+            "sourceRefs": [
+              "p7-iso8747_iso-table"
+            ],
+            "verification": false,
+            "nominalOnly": true,
+            "locator": "Tabelle 1, Normseite 3 / PDF-Seite 5",
+            "note": "Handelsübliche Längenkombination gemäß Originalausgabe; Sonderlängen bleiben möglich."
+          }
+        },
+        "35": {
+          "coverage": "documented",
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "grooveProfile",
+            "expandedDiameterAtSelectedLength",
+            "headAngle",
+            "headHeight",
+            "selectedEndForm"
+          ],
+          "vorbelegung": {
+            "sL": 35
+          },
+          "roh": {
+            "l_nominal": 35
+          },
+          "fields": {
+            "l_nominal": {
+              "nominal": 35,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "p7-iso8747_iso-table"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "original-standard-table",
+              "note": "Nennlänge innerhalb der in der Originaltabelle begrenzten handelsüblichen Größen-Längen-Matrix. Keine Fertigungs- oder Maschinengrenze; keine Angabe einer heutigen Lagerverfügbarkeit.",
+              "edition": "1997"
+            }
+          },
+          "lengthEvidence": {
+            "kind": "standard-commercial-matrix",
+            "edition": "1997",
+            "sourceRefs": [
+              "p7-iso8747_iso-table"
+            ],
+            "verification": false,
+            "nominalOnly": true,
+            "locator": "Tabelle 1, Normseite 3 / PDF-Seite 5",
+            "note": "Handelsübliche Längenkombination gemäß Originalausgabe; Sonderlängen bleiben möglich."
+          }
+        },
+        "40": {
+          "coverage": "documented",
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "grooveProfile",
+            "expandedDiameterAtSelectedLength",
+            "headAngle",
+            "headHeight",
+            "selectedEndForm"
+          ],
+          "vorbelegung": {
+            "sL": 40
+          },
+          "roh": {
+            "l_nominal": 40
+          },
+          "fields": {
+            "l_nominal": {
+              "nominal": 40,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "p7-iso8747_iso-table"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "original-standard-table",
+              "note": "Nennlänge innerhalb der in der Originaltabelle begrenzten handelsüblichen Größen-Längen-Matrix. Keine Fertigungs- oder Maschinengrenze; keine Angabe einer heutigen Lagerverfügbarkeit.",
+              "edition": "1997"
+            }
+          },
+          "lengthEvidence": {
+            "kind": "standard-commercial-matrix",
+            "edition": "1997",
+            "sourceRefs": [
+              "p7-iso8747_iso-table"
+            ],
+            "verification": false,
+            "nominalOnly": true,
+            "locator": "Tabelle 1, Normseite 3 / PDF-Seite 5",
+            "note": "Handelsübliche Längenkombination gemäß Originalausgabe; Sonderlängen bleiben möglich."
+          }
+        }
+      },
+      "lengthCoverage": "documented",
+      "lengthMatrix": {
+        "edition": "1997",
+        "sourceRefs": [
+          "p7-iso8747_iso-table"
+        ],
+        "nominalOnly": true,
+        "coverage": "printed-matrix",
+        "machineLimit": false,
+        "expandedDiameterScope": "Stahl nach Werkstoffabschnitt der jeweiligen Originalausgabe; andere Werkstoffe benötigen vereinbarte Korrektur. d2 ist kein Rohdrahtdurchmesser."
+      }
     },
     "16": {
       "vorbelegung": {
@@ -219,7 +2575,9 @@
         "dk_max": 26,
         "dk_min": 23.7,
         "c": 4.8,
-        "d2": 16.4
+        "d2": 16.4,
+        "d_min": 15.8,
+        "d_max": 16
       },
       "coverage": "documented",
       "geometryStatus": "partial",
@@ -231,7 +2589,239 @@
         "headHeight",
         "selectedEndForm"
       ],
-      "nachLaenge": {}
+      "nachLaenge": {
+        "20": {
+          "coverage": "documented",
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "grooveProfile",
+            "expandedDiameterAtSelectedLength",
+            "headAngle",
+            "headHeight",
+            "selectedEndForm"
+          ],
+          "vorbelegung": {
+            "sL": 20
+          },
+          "roh": {
+            "l_nominal": 20
+          },
+          "fields": {
+            "l_nominal": {
+              "nominal": 20,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "p7-iso8747_iso-table"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "original-standard-table",
+              "note": "Nennlänge innerhalb der in der Originaltabelle begrenzten handelsüblichen Größen-Längen-Matrix. Keine Fertigungs- oder Maschinengrenze; keine Angabe einer heutigen Lagerverfügbarkeit.",
+              "edition": "1997"
+            }
+          },
+          "lengthEvidence": {
+            "kind": "standard-commercial-matrix",
+            "edition": "1997",
+            "sourceRefs": [
+              "p7-iso8747_iso-table"
+            ],
+            "verification": false,
+            "nominalOnly": true,
+            "locator": "Tabelle 1, Normseite 3 / PDF-Seite 5",
+            "note": "Handelsübliche Längenkombination gemäß Originalausgabe; Sonderlängen bleiben möglich."
+          }
+        },
+        "25": {
+          "coverage": "documented",
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "grooveProfile",
+            "expandedDiameterAtSelectedLength",
+            "headAngle",
+            "headHeight",
+            "selectedEndForm"
+          ],
+          "vorbelegung": {
+            "sL": 25
+          },
+          "roh": {
+            "l_nominal": 25
+          },
+          "fields": {
+            "l_nominal": {
+              "nominal": 25,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "p7-iso8747_iso-table"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "original-standard-table",
+              "note": "Nennlänge innerhalb der in der Originaltabelle begrenzten handelsüblichen Größen-Längen-Matrix. Keine Fertigungs- oder Maschinengrenze; keine Angabe einer heutigen Lagerverfügbarkeit.",
+              "edition": "1997"
+            }
+          },
+          "lengthEvidence": {
+            "kind": "standard-commercial-matrix",
+            "edition": "1997",
+            "sourceRefs": [
+              "p7-iso8747_iso-table"
+            ],
+            "verification": false,
+            "nominalOnly": true,
+            "locator": "Tabelle 1, Normseite 3 / PDF-Seite 5",
+            "note": "Handelsübliche Längenkombination gemäß Originalausgabe; Sonderlängen bleiben möglich."
+          }
+        },
+        "30": {
+          "coverage": "documented",
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "grooveProfile",
+            "expandedDiameterAtSelectedLength",
+            "headAngle",
+            "headHeight",
+            "selectedEndForm"
+          ],
+          "vorbelegung": {
+            "sL": 30
+          },
+          "roh": {
+            "l_nominal": 30
+          },
+          "fields": {
+            "l_nominal": {
+              "nominal": 30,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "p7-iso8747_iso-table"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "original-standard-table",
+              "note": "Nennlänge innerhalb der in der Originaltabelle begrenzten handelsüblichen Größen-Längen-Matrix. Keine Fertigungs- oder Maschinengrenze; keine Angabe einer heutigen Lagerverfügbarkeit.",
+              "edition": "1997"
+            }
+          },
+          "lengthEvidence": {
+            "kind": "standard-commercial-matrix",
+            "edition": "1997",
+            "sourceRefs": [
+              "p7-iso8747_iso-table"
+            ],
+            "verification": false,
+            "nominalOnly": true,
+            "locator": "Tabelle 1, Normseite 3 / PDF-Seite 5",
+            "note": "Handelsübliche Längenkombination gemäß Originalausgabe; Sonderlängen bleiben möglich."
+          }
+        },
+        "35": {
+          "coverage": "documented",
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "grooveProfile",
+            "expandedDiameterAtSelectedLength",
+            "headAngle",
+            "headHeight",
+            "selectedEndForm"
+          ],
+          "vorbelegung": {
+            "sL": 35
+          },
+          "roh": {
+            "l_nominal": 35
+          },
+          "fields": {
+            "l_nominal": {
+              "nominal": 35,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "p7-iso8747_iso-table"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "original-standard-table",
+              "note": "Nennlänge innerhalb der in der Originaltabelle begrenzten handelsüblichen Größen-Längen-Matrix. Keine Fertigungs- oder Maschinengrenze; keine Angabe einer heutigen Lagerverfügbarkeit.",
+              "edition": "1997"
+            }
+          },
+          "lengthEvidence": {
+            "kind": "standard-commercial-matrix",
+            "edition": "1997",
+            "sourceRefs": [
+              "p7-iso8747_iso-table"
+            ],
+            "verification": false,
+            "nominalOnly": true,
+            "locator": "Tabelle 1, Normseite 3 / PDF-Seite 5",
+            "note": "Handelsübliche Längenkombination gemäß Originalausgabe; Sonderlängen bleiben möglich."
+          }
+        },
+        "40": {
+          "coverage": "documented",
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "grooveProfile",
+            "expandedDiameterAtSelectedLength",
+            "headAngle",
+            "headHeight",
+            "selectedEndForm"
+          ],
+          "vorbelegung": {
+            "sL": 40
+          },
+          "roh": {
+            "l_nominal": 40
+          },
+          "fields": {
+            "l_nominal": {
+              "nominal": 40,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "p7-iso8747_iso-table"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "original-standard-table",
+              "note": "Nennlänge innerhalb der in der Originaltabelle begrenzten handelsüblichen Größen-Längen-Matrix. Keine Fertigungs- oder Maschinengrenze; keine Angabe einer heutigen Lagerverfügbarkeit.",
+              "edition": "1997"
+            }
+          },
+          "lengthEvidence": {
+            "kind": "standard-commercial-matrix",
+            "edition": "1997",
+            "sourceRefs": [
+              "p7-iso8747_iso-table"
+            ],
+            "verification": false,
+            "nominalOnly": true,
+            "locator": "Tabelle 1, Normseite 3 / PDF-Seite 5",
+            "note": "Handelsübliche Längenkombination gemäß Originalausgabe; Sonderlängen bleiben möglich."
+          }
+        }
+      },
+      "lengthCoverage": "documented",
+      "lengthMatrix": {
+        "edition": "1997",
+        "sourceRefs": [
+          "p7-iso8747_iso-table"
+        ],
+        "nominalOnly": true,
+        "coverage": "printed-matrix",
+        "machineLimit": false,
+        "expandedDiameterScope": "Stahl nach Werkstoffabschnitt der jeweiligen Originalausgabe; andere Werkstoffe benötigen vereinbarte Korrektur. d2 ist kein Rohdrahtdurchmesser."
+      }
     },
     "20": {
       "vorbelegung": {
@@ -243,7 +2833,9 @@
         "dk_max": 31.5,
         "dk_min": 30.7,
         "c": 6,
-        "d2": 20.5
+        "d2": 20.5,
+        "d_min": 19.8,
+        "d_max": 20
       },
       "coverage": "documented",
       "geometryStatus": "partial",
@@ -255,7 +2847,195 @@
         "headHeight",
         "selectedEndForm"
       ],
-      "nachLaenge": {}
+      "nachLaenge": {
+        "25": {
+          "coverage": "documented",
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "grooveProfile",
+            "expandedDiameterAtSelectedLength",
+            "headAngle",
+            "headHeight",
+            "selectedEndForm"
+          ],
+          "vorbelegung": {
+            "sL": 25
+          },
+          "roh": {
+            "l_nominal": 25
+          },
+          "fields": {
+            "l_nominal": {
+              "nominal": 25,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "p7-iso8747_iso-table"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "original-standard-table",
+              "note": "Nennlänge innerhalb der in der Originaltabelle begrenzten handelsüblichen Größen-Längen-Matrix. Keine Fertigungs- oder Maschinengrenze; keine Angabe einer heutigen Lagerverfügbarkeit.",
+              "edition": "1997"
+            }
+          },
+          "lengthEvidence": {
+            "kind": "standard-commercial-matrix",
+            "edition": "1997",
+            "sourceRefs": [
+              "p7-iso8747_iso-table"
+            ],
+            "verification": false,
+            "nominalOnly": true,
+            "locator": "Tabelle 1, Normseite 3 / PDF-Seite 5",
+            "note": "Handelsübliche Längenkombination gemäß Originalausgabe; Sonderlängen bleiben möglich."
+          }
+        },
+        "30": {
+          "coverage": "documented",
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "grooveProfile",
+            "expandedDiameterAtSelectedLength",
+            "headAngle",
+            "headHeight",
+            "selectedEndForm"
+          ],
+          "vorbelegung": {
+            "sL": 30
+          },
+          "roh": {
+            "l_nominal": 30
+          },
+          "fields": {
+            "l_nominal": {
+              "nominal": 30,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "p7-iso8747_iso-table"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "original-standard-table",
+              "note": "Nennlänge innerhalb der in der Originaltabelle begrenzten handelsüblichen Größen-Längen-Matrix. Keine Fertigungs- oder Maschinengrenze; keine Angabe einer heutigen Lagerverfügbarkeit.",
+              "edition": "1997"
+            }
+          },
+          "lengthEvidence": {
+            "kind": "standard-commercial-matrix",
+            "edition": "1997",
+            "sourceRefs": [
+              "p7-iso8747_iso-table"
+            ],
+            "verification": false,
+            "nominalOnly": true,
+            "locator": "Tabelle 1, Normseite 3 / PDF-Seite 5",
+            "note": "Handelsübliche Längenkombination gemäß Originalausgabe; Sonderlängen bleiben möglich."
+          }
+        },
+        "35": {
+          "coverage": "documented",
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "grooveProfile",
+            "expandedDiameterAtSelectedLength",
+            "headAngle",
+            "headHeight",
+            "selectedEndForm"
+          ],
+          "vorbelegung": {
+            "sL": 35
+          },
+          "roh": {
+            "l_nominal": 35
+          },
+          "fields": {
+            "l_nominal": {
+              "nominal": 35,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "p7-iso8747_iso-table"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "original-standard-table",
+              "note": "Nennlänge innerhalb der in der Originaltabelle begrenzten handelsüblichen Größen-Längen-Matrix. Keine Fertigungs- oder Maschinengrenze; keine Angabe einer heutigen Lagerverfügbarkeit.",
+              "edition": "1997"
+            }
+          },
+          "lengthEvidence": {
+            "kind": "standard-commercial-matrix",
+            "edition": "1997",
+            "sourceRefs": [
+              "p7-iso8747_iso-table"
+            ],
+            "verification": false,
+            "nominalOnly": true,
+            "locator": "Tabelle 1, Normseite 3 / PDF-Seite 5",
+            "note": "Handelsübliche Längenkombination gemäß Originalausgabe; Sonderlängen bleiben möglich."
+          }
+        },
+        "40": {
+          "coverage": "documented",
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "grooveProfile",
+            "expandedDiameterAtSelectedLength",
+            "headAngle",
+            "headHeight",
+            "selectedEndForm"
+          ],
+          "vorbelegung": {
+            "sL": 40
+          },
+          "roh": {
+            "l_nominal": 40
+          },
+          "fields": {
+            "l_nominal": {
+              "nominal": 40,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "p7-iso8747_iso-table"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "original-standard-table",
+              "note": "Nennlänge innerhalb der in der Originaltabelle begrenzten handelsüblichen Größen-Längen-Matrix. Keine Fertigungs- oder Maschinengrenze; keine Angabe einer heutigen Lagerverfügbarkeit.",
+              "edition": "1997"
+            }
+          },
+          "lengthEvidence": {
+            "kind": "standard-commercial-matrix",
+            "edition": "1997",
+            "sourceRefs": [
+              "p7-iso8747_iso-table"
+            ],
+            "verification": false,
+            "nominalOnly": true,
+            "locator": "Tabelle 1, Normseite 3 / PDF-Seite 5",
+            "note": "Handelsübliche Längenkombination gemäß Originalausgabe; Sonderlängen bleiben möglich."
+          }
+        }
+      },
+      "lengthCoverage": "documented",
+      "lengthMatrix": {
+        "edition": "1997",
+        "sourceRefs": [
+          "p7-iso8747_iso-table"
+        ],
+        "nominalOnly": true,
+        "coverage": "printed-matrix",
+        "machineLimit": false,
+        "expandedDiameterScope": "Stahl nach Werkstoffabschnitt der jeweiligen Originalausgabe; andere Werkstoffe benötigen vereinbarte Korrektur. d2 ist kein Rohdrahtdurchmesser."
+      }
     },
     "1.4": {
       "vorbelegung": {
@@ -267,7 +3047,9 @@
         "dk_max": 2.7,
         "dk_min": 2.3,
         "c": 0.42,
-        "d2": 1.5
+        "d2": 1.5,
+        "d_min": 1.35,
+        "d_max": 1.4
       },
       "coverage": "documented",
       "geometryStatus": "partial",
@@ -279,7 +3061,195 @@
         "headHeight",
         "selectedEndForm"
       ],
-      "nachLaenge": {}
+      "nachLaenge": {
+        "3": {
+          "coverage": "documented",
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "grooveProfile",
+            "expandedDiameterAtSelectedLength",
+            "headAngle",
+            "headHeight",
+            "selectedEndForm"
+          ],
+          "vorbelegung": {
+            "sL": 3
+          },
+          "roh": {
+            "l_nominal": 3
+          },
+          "fields": {
+            "l_nominal": {
+              "nominal": 3,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "p7-iso8747_iso-table"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "original-standard-table",
+              "note": "Nennlänge innerhalb der in der Originaltabelle begrenzten handelsüblichen Größen-Längen-Matrix. Keine Fertigungs- oder Maschinengrenze; keine Angabe einer heutigen Lagerverfügbarkeit.",
+              "edition": "1997"
+            }
+          },
+          "lengthEvidence": {
+            "kind": "standard-commercial-matrix",
+            "edition": "1997",
+            "sourceRefs": [
+              "p7-iso8747_iso-table"
+            ],
+            "verification": false,
+            "nominalOnly": true,
+            "locator": "Tabelle 1, Normseite 3 / PDF-Seite 5",
+            "note": "Handelsübliche Längenkombination gemäß Originalausgabe; Sonderlängen bleiben möglich."
+          }
+        },
+        "4": {
+          "coverage": "documented",
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "grooveProfile",
+            "expandedDiameterAtSelectedLength",
+            "headAngle",
+            "headHeight",
+            "selectedEndForm"
+          ],
+          "vorbelegung": {
+            "sL": 4
+          },
+          "roh": {
+            "l_nominal": 4
+          },
+          "fields": {
+            "l_nominal": {
+              "nominal": 4,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "p7-iso8747_iso-table"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "original-standard-table",
+              "note": "Nennlänge innerhalb der in der Originaltabelle begrenzten handelsüblichen Größen-Längen-Matrix. Keine Fertigungs- oder Maschinengrenze; keine Angabe einer heutigen Lagerverfügbarkeit.",
+              "edition": "1997"
+            }
+          },
+          "lengthEvidence": {
+            "kind": "standard-commercial-matrix",
+            "edition": "1997",
+            "sourceRefs": [
+              "p7-iso8747_iso-table"
+            ],
+            "verification": false,
+            "nominalOnly": true,
+            "locator": "Tabelle 1, Normseite 3 / PDF-Seite 5",
+            "note": "Handelsübliche Längenkombination gemäß Originalausgabe; Sonderlängen bleiben möglich."
+          }
+        },
+        "5": {
+          "coverage": "documented",
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "grooveProfile",
+            "expandedDiameterAtSelectedLength",
+            "headAngle",
+            "headHeight",
+            "selectedEndForm"
+          ],
+          "vorbelegung": {
+            "sL": 5
+          },
+          "roh": {
+            "l_nominal": 5
+          },
+          "fields": {
+            "l_nominal": {
+              "nominal": 5,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "p7-iso8747_iso-table"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "original-standard-table",
+              "note": "Nennlänge innerhalb der in der Originaltabelle begrenzten handelsüblichen Größen-Längen-Matrix. Keine Fertigungs- oder Maschinengrenze; keine Angabe einer heutigen Lagerverfügbarkeit.",
+              "edition": "1997"
+            }
+          },
+          "lengthEvidence": {
+            "kind": "standard-commercial-matrix",
+            "edition": "1997",
+            "sourceRefs": [
+              "p7-iso8747_iso-table"
+            ],
+            "verification": false,
+            "nominalOnly": true,
+            "locator": "Tabelle 1, Normseite 3 / PDF-Seite 5",
+            "note": "Handelsübliche Längenkombination gemäß Originalausgabe; Sonderlängen bleiben möglich."
+          }
+        },
+        "6": {
+          "coverage": "documented",
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "grooveProfile",
+            "expandedDiameterAtSelectedLength",
+            "headAngle",
+            "headHeight",
+            "selectedEndForm"
+          ],
+          "vorbelegung": {
+            "sL": 6
+          },
+          "roh": {
+            "l_nominal": 6
+          },
+          "fields": {
+            "l_nominal": {
+              "nominal": 6,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "p7-iso8747_iso-table"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "original-standard-table",
+              "note": "Nennlänge innerhalb der in der Originaltabelle begrenzten handelsüblichen Größen-Längen-Matrix. Keine Fertigungs- oder Maschinengrenze; keine Angabe einer heutigen Lagerverfügbarkeit.",
+              "edition": "1997"
+            }
+          },
+          "lengthEvidence": {
+            "kind": "standard-commercial-matrix",
+            "edition": "1997",
+            "sourceRefs": [
+              "p7-iso8747_iso-table"
+            ],
+            "verification": false,
+            "nominalOnly": true,
+            "locator": "Tabelle 1, Normseite 3 / PDF-Seite 5",
+            "note": "Handelsübliche Längenkombination gemäß Originalausgabe; Sonderlängen bleiben möglich."
+          }
+        }
+      },
+      "lengthCoverage": "documented",
+      "lengthMatrix": {
+        "edition": "1997",
+        "sourceRefs": [
+          "p7-iso8747_iso-table"
+        ],
+        "nominalOnly": true,
+        "coverage": "printed-matrix",
+        "machineLimit": false,
+        "expandedDiameterScope": "Stahl nach Werkstoffabschnitt der jeweiligen Originalausgabe; andere Werkstoffe benötigen vereinbarte Korrektur. d2 ist kein Rohdrahtdurchmesser."
+      }
     },
     "1.6": {
       "vorbelegung": {
@@ -291,7 +3261,9 @@
         "dk_max": 3,
         "dk_min": 2.6,
         "c": 0.48,
-        "d2": 1.7
+        "d2": 1.7,
+        "d_min": 1.55,
+        "d_max": 1.6
       },
       "coverage": "documented",
       "geometryStatus": "partial",
@@ -303,7 +3275,239 @@
         "headHeight",
         "selectedEndForm"
       ],
-      "nachLaenge": {}
+      "nachLaenge": {
+        "3": {
+          "coverage": "documented",
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "grooveProfile",
+            "expandedDiameterAtSelectedLength",
+            "headAngle",
+            "headHeight",
+            "selectedEndForm"
+          ],
+          "vorbelegung": {
+            "sL": 3
+          },
+          "roh": {
+            "l_nominal": 3
+          },
+          "fields": {
+            "l_nominal": {
+              "nominal": 3,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "p7-iso8747_iso-table"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "original-standard-table",
+              "note": "Nennlänge innerhalb der in der Originaltabelle begrenzten handelsüblichen Größen-Längen-Matrix. Keine Fertigungs- oder Maschinengrenze; keine Angabe einer heutigen Lagerverfügbarkeit.",
+              "edition": "1997"
+            }
+          },
+          "lengthEvidence": {
+            "kind": "standard-commercial-matrix",
+            "edition": "1997",
+            "sourceRefs": [
+              "p7-iso8747_iso-table"
+            ],
+            "verification": false,
+            "nominalOnly": true,
+            "locator": "Tabelle 1, Normseite 3 / PDF-Seite 5",
+            "note": "Handelsübliche Längenkombination gemäß Originalausgabe; Sonderlängen bleiben möglich."
+          }
+        },
+        "4": {
+          "coverage": "documented",
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "grooveProfile",
+            "expandedDiameterAtSelectedLength",
+            "headAngle",
+            "headHeight",
+            "selectedEndForm"
+          ],
+          "vorbelegung": {
+            "sL": 4
+          },
+          "roh": {
+            "l_nominal": 4
+          },
+          "fields": {
+            "l_nominal": {
+              "nominal": 4,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "p7-iso8747_iso-table"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "original-standard-table",
+              "note": "Nennlänge innerhalb der in der Originaltabelle begrenzten handelsüblichen Größen-Längen-Matrix. Keine Fertigungs- oder Maschinengrenze; keine Angabe einer heutigen Lagerverfügbarkeit.",
+              "edition": "1997"
+            }
+          },
+          "lengthEvidence": {
+            "kind": "standard-commercial-matrix",
+            "edition": "1997",
+            "sourceRefs": [
+              "p7-iso8747_iso-table"
+            ],
+            "verification": false,
+            "nominalOnly": true,
+            "locator": "Tabelle 1, Normseite 3 / PDF-Seite 5",
+            "note": "Handelsübliche Längenkombination gemäß Originalausgabe; Sonderlängen bleiben möglich."
+          }
+        },
+        "5": {
+          "coverage": "documented",
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "grooveProfile",
+            "expandedDiameterAtSelectedLength",
+            "headAngle",
+            "headHeight",
+            "selectedEndForm"
+          ],
+          "vorbelegung": {
+            "sL": 5
+          },
+          "roh": {
+            "l_nominal": 5
+          },
+          "fields": {
+            "l_nominal": {
+              "nominal": 5,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "p7-iso8747_iso-table"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "original-standard-table",
+              "note": "Nennlänge innerhalb der in der Originaltabelle begrenzten handelsüblichen Größen-Längen-Matrix. Keine Fertigungs- oder Maschinengrenze; keine Angabe einer heutigen Lagerverfügbarkeit.",
+              "edition": "1997"
+            }
+          },
+          "lengthEvidence": {
+            "kind": "standard-commercial-matrix",
+            "edition": "1997",
+            "sourceRefs": [
+              "p7-iso8747_iso-table"
+            ],
+            "verification": false,
+            "nominalOnly": true,
+            "locator": "Tabelle 1, Normseite 3 / PDF-Seite 5",
+            "note": "Handelsübliche Längenkombination gemäß Originalausgabe; Sonderlängen bleiben möglich."
+          }
+        },
+        "6": {
+          "coverage": "documented",
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "grooveProfile",
+            "expandedDiameterAtSelectedLength",
+            "headAngle",
+            "headHeight",
+            "selectedEndForm"
+          ],
+          "vorbelegung": {
+            "sL": 6
+          },
+          "roh": {
+            "l_nominal": 6
+          },
+          "fields": {
+            "l_nominal": {
+              "nominal": 6,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "p7-iso8747_iso-table"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "original-standard-table",
+              "note": "Nennlänge innerhalb der in der Originaltabelle begrenzten handelsüblichen Größen-Längen-Matrix. Keine Fertigungs- oder Maschinengrenze; keine Angabe einer heutigen Lagerverfügbarkeit.",
+              "edition": "1997"
+            }
+          },
+          "lengthEvidence": {
+            "kind": "standard-commercial-matrix",
+            "edition": "1997",
+            "sourceRefs": [
+              "p7-iso8747_iso-table"
+            ],
+            "verification": false,
+            "nominalOnly": true,
+            "locator": "Tabelle 1, Normseite 3 / PDF-Seite 5",
+            "note": "Handelsübliche Längenkombination gemäß Originalausgabe; Sonderlängen bleiben möglich."
+          }
+        },
+        "8": {
+          "coverage": "documented",
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "grooveProfile",
+            "expandedDiameterAtSelectedLength",
+            "headAngle",
+            "headHeight",
+            "selectedEndForm"
+          ],
+          "vorbelegung": {
+            "sL": 8
+          },
+          "roh": {
+            "l_nominal": 8
+          },
+          "fields": {
+            "l_nominal": {
+              "nominal": 8,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "p7-iso8747_iso-table"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "original-standard-table",
+              "note": "Nennlänge innerhalb der in der Originaltabelle begrenzten handelsüblichen Größen-Längen-Matrix. Keine Fertigungs- oder Maschinengrenze; keine Angabe einer heutigen Lagerverfügbarkeit.",
+              "edition": "1997"
+            }
+          },
+          "lengthEvidence": {
+            "kind": "standard-commercial-matrix",
+            "edition": "1997",
+            "sourceRefs": [
+              "p7-iso8747_iso-table"
+            ],
+            "verification": false,
+            "nominalOnly": true,
+            "locator": "Tabelle 1, Normseite 3 / PDF-Seite 5",
+            "note": "Handelsübliche Längenkombination gemäß Originalausgabe; Sonderlängen bleiben möglich."
+          }
+        }
+      },
+      "lengthCoverage": "documented",
+      "lengthMatrix": {
+        "edition": "1997",
+        "sourceRefs": [
+          "p7-iso8747_iso-table"
+        ],
+        "nominalOnly": true,
+        "coverage": "printed-matrix",
+        "machineLimit": false,
+        "expandedDiameterScope": "Stahl nach Werkstoffabschnitt der jeweiligen Originalausgabe; andere Werkstoffe benötigen vereinbarte Korrektur. d2 ist kein Rohdrahtdurchmesser."
+      }
     },
     "2.5": {
       "vorbelegung": {
@@ -315,7 +3519,9 @@
         "dk_max": 4.6,
         "dk_min": 4.2,
         "c": 0.75,
-        "d2": 2.7
+        "d2": 2.7,
+        "d_min": 2.425,
+        "d_max": 2.5
       },
       "coverage": "documented",
       "geometryStatus": "partial",
@@ -327,54 +3533,342 @@
         "headHeight",
         "selectedEndForm"
       ],
-      "nachLaenge": {}
+      "nachLaenge": {
+        "4": {
+          "coverage": "documented",
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "grooveProfile",
+            "expandedDiameterAtSelectedLength",
+            "headAngle",
+            "headHeight",
+            "selectedEndForm"
+          ],
+          "vorbelegung": {
+            "sL": 4
+          },
+          "roh": {
+            "l_nominal": 4
+          },
+          "fields": {
+            "l_nominal": {
+              "nominal": 4,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "p7-iso8747_iso-table"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "original-standard-table",
+              "note": "Nennlänge innerhalb der in der Originaltabelle begrenzten handelsüblichen Größen-Längen-Matrix. Keine Fertigungs- oder Maschinengrenze; keine Angabe einer heutigen Lagerverfügbarkeit.",
+              "edition": "1997"
+            }
+          },
+          "lengthEvidence": {
+            "kind": "standard-commercial-matrix",
+            "edition": "1997",
+            "sourceRefs": [
+              "p7-iso8747_iso-table"
+            ],
+            "verification": false,
+            "nominalOnly": true,
+            "locator": "Tabelle 1, Normseite 3 / PDF-Seite 5",
+            "note": "Handelsübliche Längenkombination gemäß Originalausgabe; Sonderlängen bleiben möglich."
+          }
+        },
+        "5": {
+          "coverage": "documented",
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "grooveProfile",
+            "expandedDiameterAtSelectedLength",
+            "headAngle",
+            "headHeight",
+            "selectedEndForm"
+          ],
+          "vorbelegung": {
+            "sL": 5
+          },
+          "roh": {
+            "l_nominal": 5
+          },
+          "fields": {
+            "l_nominal": {
+              "nominal": 5,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "p7-iso8747_iso-table"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "original-standard-table",
+              "note": "Nennlänge innerhalb der in der Originaltabelle begrenzten handelsüblichen Größen-Längen-Matrix. Keine Fertigungs- oder Maschinengrenze; keine Angabe einer heutigen Lagerverfügbarkeit.",
+              "edition": "1997"
+            }
+          },
+          "lengthEvidence": {
+            "kind": "standard-commercial-matrix",
+            "edition": "1997",
+            "sourceRefs": [
+              "p7-iso8747_iso-table"
+            ],
+            "verification": false,
+            "nominalOnly": true,
+            "locator": "Tabelle 1, Normseite 3 / PDF-Seite 5",
+            "note": "Handelsübliche Längenkombination gemäß Originalausgabe; Sonderlängen bleiben möglich."
+          }
+        },
+        "6": {
+          "coverage": "documented",
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "grooveProfile",
+            "expandedDiameterAtSelectedLength",
+            "headAngle",
+            "headHeight",
+            "selectedEndForm"
+          ],
+          "vorbelegung": {
+            "sL": 6
+          },
+          "roh": {
+            "l_nominal": 6
+          },
+          "fields": {
+            "l_nominal": {
+              "nominal": 6,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "p7-iso8747_iso-table"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "original-standard-table",
+              "note": "Nennlänge innerhalb der in der Originaltabelle begrenzten handelsüblichen Größen-Längen-Matrix. Keine Fertigungs- oder Maschinengrenze; keine Angabe einer heutigen Lagerverfügbarkeit.",
+              "edition": "1997"
+            }
+          },
+          "lengthEvidence": {
+            "kind": "standard-commercial-matrix",
+            "edition": "1997",
+            "sourceRefs": [
+              "p7-iso8747_iso-table"
+            ],
+            "verification": false,
+            "nominalOnly": true,
+            "locator": "Tabelle 1, Normseite 3 / PDF-Seite 5",
+            "note": "Handelsübliche Längenkombination gemäß Originalausgabe; Sonderlängen bleiben möglich."
+          }
+        },
+        "8": {
+          "coverage": "documented",
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "grooveProfile",
+            "expandedDiameterAtSelectedLength",
+            "headAngle",
+            "headHeight",
+            "selectedEndForm"
+          ],
+          "vorbelegung": {
+            "sL": 8
+          },
+          "roh": {
+            "l_nominal": 8
+          },
+          "fields": {
+            "l_nominal": {
+              "nominal": 8,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "p7-iso8747_iso-table"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "original-standard-table",
+              "note": "Nennlänge innerhalb der in der Originaltabelle begrenzten handelsüblichen Größen-Längen-Matrix. Keine Fertigungs- oder Maschinengrenze; keine Angabe einer heutigen Lagerverfügbarkeit.",
+              "edition": "1997"
+            }
+          },
+          "lengthEvidence": {
+            "kind": "standard-commercial-matrix",
+            "edition": "1997",
+            "sourceRefs": [
+              "p7-iso8747_iso-table"
+            ],
+            "verification": false,
+            "nominalOnly": true,
+            "locator": "Tabelle 1, Normseite 3 / PDF-Seite 5",
+            "note": "Handelsübliche Längenkombination gemäß Originalausgabe; Sonderlängen bleiben möglich."
+          }
+        },
+        "10": {
+          "coverage": "documented",
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "grooveProfile",
+            "expandedDiameterAtSelectedLength",
+            "headAngle",
+            "headHeight",
+            "selectedEndForm"
+          ],
+          "vorbelegung": {
+            "sL": 10
+          },
+          "roh": {
+            "l_nominal": 10
+          },
+          "fields": {
+            "l_nominal": {
+              "nominal": 10,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "p7-iso8747_iso-table"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "original-standard-table",
+              "note": "Nennlänge innerhalb der in der Originaltabelle begrenzten handelsüblichen Größen-Längen-Matrix. Keine Fertigungs- oder Maschinengrenze; keine Angabe einer heutigen Lagerverfügbarkeit.",
+              "edition": "1997"
+            }
+          },
+          "lengthEvidence": {
+            "kind": "standard-commercial-matrix",
+            "edition": "1997",
+            "sourceRefs": [
+              "p7-iso8747_iso-table"
+            ],
+            "verification": false,
+            "nominalOnly": true,
+            "locator": "Tabelle 1, Normseite 3 / PDF-Seite 5",
+            "note": "Handelsübliche Längenkombination gemäß Originalausgabe; Sonderlängen bleiben möglich."
+          }
+        },
+        "12": {
+          "coverage": "documented",
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "grooveProfile",
+            "expandedDiameterAtSelectedLength",
+            "headAngle",
+            "headHeight",
+            "selectedEndForm"
+          ],
+          "vorbelegung": {
+            "sL": 12
+          },
+          "roh": {
+            "l_nominal": 12
+          },
+          "fields": {
+            "l_nominal": {
+              "nominal": 12,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "p7-iso8747_iso-table"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "original-standard-table",
+              "note": "Nennlänge innerhalb der in der Originaltabelle begrenzten handelsüblichen Größen-Längen-Matrix. Keine Fertigungs- oder Maschinengrenze; keine Angabe einer heutigen Lagerverfügbarkeit.",
+              "edition": "1997"
+            }
+          },
+          "lengthEvidence": {
+            "kind": "standard-commercial-matrix",
+            "edition": "1997",
+            "sourceRefs": [
+              "p7-iso8747_iso-table"
+            ],
+            "verification": false,
+            "nominalOnly": true,
+            "locator": "Tabelle 1, Normseite 3 / PDF-Seite 5",
+            "note": "Handelsübliche Längenkombination gemäß Originalausgabe; Sonderlängen bleiben möglich."
+          }
+        }
+      },
+      "lengthCoverage": "documented",
+      "lengthMatrix": {
+        "edition": "1997",
+        "sourceRefs": [
+          "p7-iso8747_iso-table"
+        ],
+        "nominalOnly": true,
+        "coverage": "printed-matrix",
+        "machineLimit": false,
+        "expandedDiameterScope": "Stahl nach Werkstoffabschnitt der jeweiligen Originalausgabe; andere Werkstoffe benötigen vereinbarte Korrektur. d2 ist kein Rohdrahtdurchmesser."
+      }
     }
   },
   "fields": {
     "2": {
       "d_nominal": {
         "nominal": 2,
+        "min": null,
+        "max": null,
         "unit": "mm",
         "sourceRefs": [
-          "iso-table"
+          "p7-iso8747_iso-table"
         ],
         "status": "single-source",
-        "verification": "historical-dimension-table",
-        "edition": "1997",
-        "note": "Historischer Tabellenwert; zweite unabhängige Bestätigung und aktuelle Edition fehlen."
+        "verification": false,
+        "verificationMethod": "original-standard-table",
+        "note": "Originaltabelle visuell geprüft; ein unabhängiger zweiter Einzelwertbeleg fehlt.",
+        "edition": "1997"
       },
       "dk_max": {
+        "nominal": 3.7,
+        "min": null,
+        "max": null,
         "unit": "mm",
         "sourceRefs": [
-          "iso-table"
+          "p7-iso8747_iso-table"
         ],
         "status": "single-source",
-        "verification": "historical-dimension-table",
-        "edition": "1997",
-        "note": "Historischer Tabellenwert; zweite unabhängige Bestätigung und aktuelle Edition fehlen.",
-        "max": 3.7
+        "verification": false,
+        "verificationMethod": "original-standard-table",
+        "note": "Originaltabelle visuell geprüft; ein unabhängiger zweiter Einzelwertbeleg fehlt.",
+        "edition": "1997"
       },
       "dk_min": {
+        "nominal": 3.3,
+        "min": null,
+        "max": null,
         "unit": "mm",
         "sourceRefs": [
-          "iso-table"
+          "p7-iso8747_iso-table"
         ],
         "status": "single-source",
-        "verification": "historical-dimension-table",
-        "edition": "1997",
-        "note": "Historischer Tabellenwert; zweite unabhängige Bestätigung und aktuelle Edition fehlen.",
-        "min": 3.3
+        "verification": false,
+        "verificationMethod": "original-standard-table",
+        "note": "Originaltabelle visuell geprüft; ein unabhängiger zweiter Einzelwertbeleg fehlt.",
+        "edition": "1997"
       },
       "c": {
         "nominal": 0.6,
+        "min": null,
+        "max": null,
         "unit": "mm",
         "sourceRefs": [
-          "iso-table"
+          "p7-iso8747_iso-table"
         ],
         "status": "single-source",
-        "verification": "historical-dimension-table",
-        "edition": "1997",
-        "note": "Historischer Tabellenwert; zweite unabhängige Bestätigung und aktuelle Edition fehlen."
+        "verification": false,
+        "verificationMethod": "original-standard-table",
+        "note": "Originaltabelle visuell geprüft; ein unabhängiger zweiter Einzelwertbeleg fehlt.",
+        "edition": "1997"
       },
       "d2": {
         "nominal": 2.15,
@@ -390,52 +3884,92 @@
           "laenge",
           "werkstoff"
         ]
+      },
+      "d_min": {
+        "nominal": 1.95,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "p7-iso8747_iso-table"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "original-standard-table",
+        "note": "Originaltabelle visuell geprüft; ein unabhängiger zweiter Einzelwertbeleg fehlt.",
+        "edition": "1997"
+      },
+      "d_max": {
+        "nominal": 2,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "p7-iso8747_iso-table"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "original-standard-table",
+        "note": "Originaltabelle visuell geprüft; ein unabhängiger zweiter Einzelwertbeleg fehlt.",
+        "edition": "1997"
       }
     },
     "3": {
       "d_nominal": {
         "nominal": 3,
+        "min": null,
+        "max": null,
         "unit": "mm",
         "sourceRefs": [
-          "iso-table"
+          "p7-iso8747_iso-table"
         ],
         "status": "single-source",
-        "verification": "historical-dimension-table",
-        "edition": "1997",
-        "note": "Historischer Tabellenwert; zweite unabhängige Bestätigung und aktuelle Edition fehlen."
+        "verification": false,
+        "verificationMethod": "original-standard-table",
+        "note": "Originaltabelle visuell geprüft; ein unabhängiger zweiter Einzelwertbeleg fehlt.",
+        "edition": "1997"
       },
       "dk_max": {
+        "nominal": 5.45,
+        "min": null,
+        "max": null,
         "unit": "mm",
         "sourceRefs": [
-          "iso-table"
+          "p7-iso8747_iso-table"
         ],
         "status": "single-source",
-        "verification": "historical-dimension-table",
-        "edition": "1997",
-        "note": "Historischer Tabellenwert; zweite unabhängige Bestätigung und aktuelle Edition fehlen.",
-        "max": 5.45
+        "verification": false,
+        "verificationMethod": "original-standard-table",
+        "note": "Originaltabelle visuell geprüft; ein unabhängiger zweiter Einzelwertbeleg fehlt.",
+        "edition": "1997"
       },
       "dk_min": {
+        "nominal": 4.95,
+        "min": null,
+        "max": null,
         "unit": "mm",
         "sourceRefs": [
-          "iso-table"
+          "p7-iso8747_iso-table"
         ],
         "status": "single-source",
-        "verification": "historical-dimension-table",
-        "edition": "1997",
-        "note": "Historischer Tabellenwert; zweite unabhängige Bestätigung und aktuelle Edition fehlen.",
-        "min": 4.95
+        "verification": false,
+        "verificationMethod": "original-standard-table",
+        "note": "Originaltabelle visuell geprüft; ein unabhängiger zweiter Einzelwertbeleg fehlt.",
+        "edition": "1997"
       },
       "c": {
         "nominal": 0.9,
+        "min": null,
+        "max": null,
         "unit": "mm",
         "sourceRefs": [
-          "iso-table"
+          "p7-iso8747_iso-table"
         ],
         "status": "single-source",
-        "verification": "historical-dimension-table",
-        "edition": "1997",
-        "note": "Historischer Tabellenwert; zweite unabhängige Bestätigung und aktuelle Edition fehlen."
+        "verification": false,
+        "verificationMethod": "original-standard-table",
+        "note": "Originaltabelle visuell geprüft; ein unabhängiger zweiter Einzelwertbeleg fehlt.",
+        "edition": "1997"
       },
       "d2": {
         "nominal": 3.2,
@@ -451,52 +3985,92 @@
           "laenge",
           "werkstoff"
         ]
+      },
+      "d_min": {
+        "nominal": 2.925,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "p7-iso8747_iso-table"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "original-standard-table",
+        "note": "Originaltabelle visuell geprüft; ein unabhängiger zweiter Einzelwertbeleg fehlt.",
+        "edition": "1997"
+      },
+      "d_max": {
+        "nominal": 3,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "p7-iso8747_iso-table"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "original-standard-table",
+        "note": "Originaltabelle visuell geprüft; ein unabhängiger zweiter Einzelwertbeleg fehlt.",
+        "edition": "1997"
       }
     },
     "4": {
       "d_nominal": {
         "nominal": 4,
+        "min": null,
+        "max": null,
         "unit": "mm",
         "sourceRefs": [
-          "iso-table"
+          "p7-iso8747_iso-table"
         ],
         "status": "single-source",
-        "verification": "historical-dimension-table",
-        "edition": "1997",
-        "note": "Historischer Tabellenwert; zweite unabhängige Bestätigung und aktuelle Edition fehlen."
+        "verification": false,
+        "verificationMethod": "original-standard-table",
+        "note": "Originaltabelle visuell geprüft; ein unabhängiger zweiter Einzelwertbeleg fehlt.",
+        "edition": "1997"
       },
       "dk_max": {
+        "nominal": 7.25,
+        "min": null,
+        "max": null,
         "unit": "mm",
         "sourceRefs": [
-          "iso-table"
+          "p7-iso8747_iso-table"
         ],
         "status": "single-source",
-        "verification": "historical-dimension-table",
-        "edition": "1997",
-        "note": "Historischer Tabellenwert; zweite unabhängige Bestätigung und aktuelle Edition fehlen.",
-        "max": 7.25
+        "verification": false,
+        "verificationMethod": "original-standard-table",
+        "note": "Originaltabelle visuell geprüft; ein unabhängiger zweiter Einzelwertbeleg fehlt.",
+        "edition": "1997"
       },
       "dk_min": {
+        "nominal": 6.75,
+        "min": null,
+        "max": null,
         "unit": "mm",
         "sourceRefs": [
-          "iso-table"
+          "p7-iso8747_iso-table"
         ],
         "status": "single-source",
-        "verification": "historical-dimension-table",
-        "edition": "1997",
-        "note": "Historischer Tabellenwert; zweite unabhängige Bestätigung und aktuelle Edition fehlen.",
-        "min": 6.75
+        "verification": false,
+        "verificationMethod": "original-standard-table",
+        "note": "Originaltabelle visuell geprüft; ein unabhängiger zweiter Einzelwertbeleg fehlt.",
+        "edition": "1997"
       },
       "c": {
         "nominal": 1.2,
+        "min": null,
+        "max": null,
         "unit": "mm",
         "sourceRefs": [
-          "iso-table"
+          "p7-iso8747_iso-table"
         ],
         "status": "single-source",
-        "verification": "historical-dimension-table",
-        "edition": "1997",
-        "note": "Historischer Tabellenwert; zweite unabhängige Bestätigung und aktuelle Edition fehlen."
+        "verification": false,
+        "verificationMethod": "original-standard-table",
+        "note": "Originaltabelle visuell geprüft; ein unabhängiger zweiter Einzelwertbeleg fehlt.",
+        "edition": "1997"
       },
       "d2": {
         "nominal": 4.25,
@@ -512,52 +4086,92 @@
           "laenge",
           "werkstoff"
         ]
+      },
+      "d_min": {
+        "nominal": 3.9,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "p7-iso8747_iso-table"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "original-standard-table",
+        "note": "Originaltabelle visuell geprüft; ein unabhängiger zweiter Einzelwertbeleg fehlt.",
+        "edition": "1997"
+      },
+      "d_max": {
+        "nominal": 4,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "p7-iso8747_iso-table"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "original-standard-table",
+        "note": "Originaltabelle visuell geprüft; ein unabhängiger zweiter Einzelwertbeleg fehlt.",
+        "edition": "1997"
       }
     },
     "5": {
       "d_nominal": {
         "nominal": 5,
+        "min": null,
+        "max": null,
         "unit": "mm",
         "sourceRefs": [
-          "iso-table"
+          "p7-iso8747_iso-table"
         ],
         "status": "single-source",
-        "verification": "historical-dimension-table",
-        "edition": "1997",
-        "note": "Historischer Tabellenwert; zweite unabhängige Bestätigung und aktuelle Edition fehlen."
+        "verification": false,
+        "verificationMethod": "original-standard-table",
+        "note": "Originaltabelle visuell geprüft; ein unabhängiger zweiter Einzelwertbeleg fehlt.",
+        "edition": "1997"
       },
       "dk_max": {
+        "nominal": 9,
+        "min": null,
+        "max": null,
         "unit": "mm",
         "sourceRefs": [
-          "iso-table"
+          "p7-iso8747_iso-table"
         ],
         "status": "single-source",
-        "verification": "historical-dimension-table",
-        "edition": "1997",
-        "note": "Historischer Tabellenwert; zweite unabhängige Bestätigung und aktuelle Edition fehlen.",
-        "max": 9.1
+        "verification": false,
+        "verificationMethod": "original-standard-table",
+        "note": "Originaltabelle visuell geprüft; ein unabhängiger zweiter Einzelwertbeleg fehlt.",
+        "edition": "1997"
       },
       "dk_min": {
+        "nominal": 8,
+        "min": null,
+        "max": null,
         "unit": "mm",
         "sourceRefs": [
-          "iso-table"
+          "p7-iso8747_iso-table"
         ],
         "status": "single-source",
-        "verification": "historical-dimension-table",
-        "edition": "1997",
-        "note": "Historischer Tabellenwert; zweite unabhängige Bestätigung und aktuelle Edition fehlen.",
-        "min": 8.5
+        "verification": false,
+        "verificationMethod": "original-standard-table",
+        "note": "Originaltabelle visuell geprüft; ein unabhängiger zweiter Einzelwertbeleg fehlt.",
+        "edition": "1997"
       },
       "c": {
         "nominal": 1.5,
+        "min": null,
+        "max": null,
         "unit": "mm",
         "sourceRefs": [
-          "iso-table"
+          "p7-iso8747_iso-table"
         ],
         "status": "single-source",
-        "verification": "historical-dimension-table",
-        "edition": "1997",
-        "note": "Historischer Tabellenwert; zweite unabhängige Bestätigung und aktuelle Edition fehlen."
+        "verification": false,
+        "verificationMethod": "original-standard-table",
+        "note": "Originaltabelle visuell geprüft; ein unabhängiger zweiter Einzelwertbeleg fehlt.",
+        "edition": "1997"
       },
       "d2": {
         "nominal": 5.25,
@@ -573,52 +4187,92 @@
           "laenge",
           "werkstoff"
         ]
+      },
+      "d_min": {
+        "nominal": 4.9,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "p7-iso8747_iso-table"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "original-standard-table",
+        "note": "Originaltabelle visuell geprüft; ein unabhängiger zweiter Einzelwertbeleg fehlt.",
+        "edition": "1997"
+      },
+      "d_max": {
+        "nominal": 5,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "p7-iso8747_iso-table"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "original-standard-table",
+        "note": "Originaltabelle visuell geprüft; ein unabhängiger zweiter Einzelwertbeleg fehlt.",
+        "edition": "1997"
       }
     },
     "6": {
       "d_nominal": {
         "nominal": 6,
+        "min": null,
+        "max": null,
         "unit": "mm",
         "sourceRefs": [
-          "iso-table"
+          "p7-iso8747_iso-table"
         ],
         "status": "single-source",
-        "verification": "historical-dimension-table",
-        "edition": "1997",
-        "note": "Historischer Tabellenwert; zweite unabhängige Bestätigung und aktuelle Edition fehlen."
+        "verification": false,
+        "verificationMethod": "original-standard-table",
+        "note": "Originaltabelle visuell geprüft; ein unabhängiger zweiter Einzelwertbeleg fehlt.",
+        "edition": "1997"
       },
       "dk_max": {
+        "nominal": 10.8,
+        "min": null,
+        "max": null,
         "unit": "mm",
         "sourceRefs": [
-          "iso-table"
+          "p7-iso8747_iso-table"
         ],
         "status": "single-source",
-        "verification": "historical-dimension-table",
-        "edition": "1997",
-        "note": "Historischer Tabellenwert; zweite unabhängige Bestätigung und aktuelle Edition fehlen.",
-        "max": 10.8
+        "verification": false,
+        "verificationMethod": "original-standard-table",
+        "note": "Originaltabelle visuell geprüft; ein unabhängiger zweiter Einzelwertbeleg fehlt.",
+        "edition": "1997"
       },
       "dk_min": {
+        "nominal": 10.2,
+        "min": null,
+        "max": null,
         "unit": "mm",
         "sourceRefs": [
-          "iso-table"
+          "p7-iso8747_iso-table"
         ],
         "status": "single-source",
-        "verification": "historical-dimension-table",
-        "edition": "1997",
-        "note": "Historischer Tabellenwert; zweite unabhängige Bestätigung und aktuelle Edition fehlen.",
-        "min": 10.2
+        "verification": false,
+        "verificationMethod": "original-standard-table",
+        "note": "Originaltabelle visuell geprüft; ein unabhängiger zweiter Einzelwertbeleg fehlt.",
+        "edition": "1997"
       },
       "c": {
         "nominal": 1.8,
+        "min": null,
+        "max": null,
         "unit": "mm",
         "sourceRefs": [
-          "iso-table"
+          "p7-iso8747_iso-table"
         ],
         "status": "single-source",
-        "verification": "historical-dimension-table",
-        "edition": "1997",
-        "note": "Historischer Tabellenwert; zweite unabhängige Bestätigung und aktuelle Edition fehlen."
+        "verification": false,
+        "verificationMethod": "original-standard-table",
+        "note": "Originaltabelle visuell geprüft; ein unabhängiger zweiter Einzelwertbeleg fehlt.",
+        "edition": "1997"
       },
       "d2": {
         "nominal": 6.3,
@@ -634,52 +4288,92 @@
           "laenge",
           "werkstoff"
         ]
+      },
+      "d_min": {
+        "nominal": 5.9,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "p7-iso8747_iso-table"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "original-standard-table",
+        "note": "Originaltabelle visuell geprüft; ein unabhängiger zweiter Einzelwertbeleg fehlt.",
+        "edition": "1997"
+      },
+      "d_max": {
+        "nominal": 6,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "p7-iso8747_iso-table"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "original-standard-table",
+        "note": "Originaltabelle visuell geprüft; ein unabhängiger zweiter Einzelwertbeleg fehlt.",
+        "edition": "1997"
       }
     },
     "8": {
       "d_nominal": {
         "nominal": 8,
+        "min": null,
+        "max": null,
         "unit": "mm",
         "sourceRefs": [
-          "iso-table"
+          "p7-iso8747_iso-table"
         ],
         "status": "single-source",
-        "verification": "historical-dimension-table",
-        "edition": "1997",
-        "note": "Historischer Tabellenwert; zweite unabhängige Bestätigung und aktuelle Edition fehlen."
+        "verification": false,
+        "verificationMethod": "original-standard-table",
+        "note": "Originaltabelle visuell geprüft; ein unabhängiger zweiter Einzelwertbeleg fehlt.",
+        "edition": "1997"
       },
       "dk_max": {
+        "nominal": 14.4,
+        "min": null,
+        "max": null,
         "unit": "mm",
         "sourceRefs": [
-          "iso-table"
+          "p7-iso8747_iso-table"
         ],
         "status": "single-source",
-        "verification": "historical-dimension-table",
-        "edition": "1997",
-        "note": "Historischer Tabellenwert; zweite unabhängige Bestätigung und aktuelle Edition fehlen.",
-        "max": 14.4
+        "verification": false,
+        "verificationMethod": "original-standard-table",
+        "note": "Originaltabelle visuell geprüft; ein unabhängiger zweiter Einzelwertbeleg fehlt.",
+        "edition": "1997"
       },
       "dk_min": {
+        "nominal": 13.6,
+        "min": null,
+        "max": null,
         "unit": "mm",
         "sourceRefs": [
-          "iso-table"
+          "p7-iso8747_iso-table"
         ],
         "status": "single-source",
-        "verification": "historical-dimension-table",
-        "edition": "1997",
-        "note": "Historischer Tabellenwert; zweite unabhängige Bestätigung und aktuelle Edition fehlen.",
-        "min": 13.6
+        "verification": false,
+        "verificationMethod": "original-standard-table",
+        "note": "Originaltabelle visuell geprüft; ein unabhängiger zweiter Einzelwertbeleg fehlt.",
+        "edition": "1997"
       },
       "c": {
         "nominal": 2.4,
+        "min": null,
+        "max": null,
         "unit": "mm",
         "sourceRefs": [
-          "iso-table"
+          "p7-iso8747_iso-table"
         ],
         "status": "single-source",
-        "verification": "historical-dimension-table",
-        "edition": "1997",
-        "note": "Historischer Tabellenwert; zweite unabhängige Bestätigung und aktuelle Edition fehlen."
+        "verification": false,
+        "verificationMethod": "original-standard-table",
+        "note": "Originaltabelle visuell geprüft; ein unabhängiger zweiter Einzelwertbeleg fehlt.",
+        "edition": "1997"
       },
       "d2": {
         "nominal": 8.3,
@@ -695,52 +4389,92 @@
           "laenge",
           "werkstoff"
         ]
+      },
+      "d_min": {
+        "nominal": 7.85,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "p7-iso8747_iso-table"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "original-standard-table",
+        "note": "Originaltabelle visuell geprüft; ein unabhängiger zweiter Einzelwertbeleg fehlt.",
+        "edition": "1997"
+      },
+      "d_max": {
+        "nominal": 8,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "p7-iso8747_iso-table"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "original-standard-table",
+        "note": "Originaltabelle visuell geprüft; ein unabhängiger zweiter Einzelwertbeleg fehlt.",
+        "edition": "1997"
       }
     },
     "10": {
       "d_nominal": {
         "nominal": 10,
+        "min": null,
+        "max": null,
         "unit": "mm",
         "sourceRefs": [
-          "iso-table"
+          "p7-iso8747_iso-table"
         ],
         "status": "single-source",
-        "verification": "historical-dimension-table",
-        "edition": "1997",
-        "note": "Historischer Tabellenwert; zweite unabhängige Bestätigung und aktuelle Edition fehlen."
+        "verification": false,
+        "verificationMethod": "original-standard-table",
+        "note": "Originaltabelle visuell geprüft; ein unabhängiger zweiter Einzelwertbeleg fehlt.",
+        "edition": "1997"
       },
       "dk_max": {
+        "nominal": 16,
+        "min": null,
+        "max": null,
         "unit": "mm",
         "sourceRefs": [
-          "iso-table"
+          "p7-iso8747_iso-table"
         ],
         "status": "single-source",
-        "verification": "historical-dimension-table",
-        "edition": "1997",
-        "note": "Historischer Tabellenwert; zweite unabhängige Bestätigung und aktuelle Edition fehlen.",
-        "max": 16
+        "verification": false,
+        "verificationMethod": "original-standard-table",
+        "note": "Originaltabelle visuell geprüft; ein unabhängiger zweiter Einzelwertbeleg fehlt.",
+        "edition": "1997"
       },
       "dk_min": {
+        "nominal": 14.9,
+        "min": null,
+        "max": null,
         "unit": "mm",
         "sourceRefs": [
-          "iso-table"
+          "p7-iso8747_iso-table"
         ],
         "status": "single-source",
-        "verification": "historical-dimension-table",
-        "edition": "1997",
-        "note": "Historischer Tabellenwert; zweite unabhängige Bestätigung und aktuelle Edition fehlen.",
-        "min": 14.9
+        "verification": false,
+        "verificationMethod": "original-standard-table",
+        "note": "Originaltabelle visuell geprüft; ein unabhängiger zweiter Einzelwertbeleg fehlt.",
+        "edition": "1997"
       },
       "c": {
         "nominal": 3,
+        "min": null,
+        "max": null,
         "unit": "mm",
         "sourceRefs": [
-          "iso-table"
+          "p7-iso8747_iso-table"
         ],
         "status": "single-source",
-        "verification": "historical-dimension-table",
-        "edition": "1997",
-        "note": "Historischer Tabellenwert; zweite unabhängige Bestätigung und aktuelle Edition fehlen."
+        "verification": false,
+        "verificationMethod": "original-standard-table",
+        "note": "Originaltabelle visuell geprüft; ein unabhängiger zweiter Einzelwertbeleg fehlt.",
+        "edition": "1997"
       },
       "d2": {
         "nominal": 10.35,
@@ -756,52 +4490,92 @@
           "laenge",
           "werkstoff"
         ]
+      },
+      "d_min": {
+        "nominal": 9.85,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "p7-iso8747_iso-table"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "original-standard-table",
+        "note": "Originaltabelle visuell geprüft; ein unabhängiger zweiter Einzelwertbeleg fehlt.",
+        "edition": "1997"
+      },
+      "d_max": {
+        "nominal": 10,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "p7-iso8747_iso-table"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "original-standard-table",
+        "note": "Originaltabelle visuell geprüft; ein unabhängiger zweiter Einzelwertbeleg fehlt.",
+        "edition": "1997"
       }
     },
     "12": {
       "d_nominal": {
         "nominal": 12,
+        "min": null,
+        "max": null,
         "unit": "mm",
         "sourceRefs": [
-          "iso-table"
+          "p7-iso8747_iso-table"
         ],
         "status": "single-source",
-        "verification": "historical-dimension-table",
-        "edition": "1997",
-        "note": "Historischer Tabellenwert; zweite unabhängige Bestätigung und aktuelle Edition fehlen."
+        "verification": false,
+        "verificationMethod": "original-standard-table",
+        "note": "Originaltabelle visuell geprüft; ein unabhängiger zweiter Einzelwertbeleg fehlt.",
+        "edition": "1997"
       },
       "dk_max": {
+        "nominal": 19,
+        "min": null,
+        "max": null,
         "unit": "mm",
         "sourceRefs": [
-          "iso-table"
+          "p7-iso8747_iso-table"
         ],
         "status": "single-source",
-        "verification": "historical-dimension-table",
-        "edition": "1997",
-        "note": "Historischer Tabellenwert; zweite unabhängige Bestätigung und aktuelle Edition fehlen.",
-        "max": 19
+        "verification": false,
+        "verificationMethod": "original-standard-table",
+        "note": "Originaltabelle visuell geprüft; ein unabhängiger zweiter Einzelwertbeleg fehlt.",
+        "edition": "1997"
       },
       "dk_min": {
+        "nominal": 17.7,
+        "min": null,
+        "max": null,
         "unit": "mm",
         "sourceRefs": [
-          "iso-table"
+          "p7-iso8747_iso-table"
         ],
         "status": "single-source",
-        "verification": "historical-dimension-table",
-        "edition": "1997",
-        "note": "Historischer Tabellenwert; zweite unabhängige Bestätigung und aktuelle Edition fehlen.",
-        "min": 17.7
+        "verification": false,
+        "verificationMethod": "original-standard-table",
+        "note": "Originaltabelle visuell geprüft; ein unabhängiger zweiter Einzelwertbeleg fehlt.",
+        "edition": "1997"
       },
       "c": {
         "nominal": 3.6,
+        "min": null,
+        "max": null,
         "unit": "mm",
         "sourceRefs": [
-          "iso-table"
+          "p7-iso8747_iso-table"
         ],
         "status": "single-source",
-        "verification": "historical-dimension-table",
-        "edition": "1997",
-        "note": "Historischer Tabellenwert; zweite unabhängige Bestätigung und aktuelle Edition fehlen."
+        "verification": false,
+        "verificationMethod": "original-standard-table",
+        "note": "Originaltabelle visuell geprüft; ein unabhängiger zweiter Einzelwertbeleg fehlt.",
+        "edition": "1997"
       },
       "d2": {
         "nominal": 12.35,
@@ -817,52 +4591,92 @@
           "laenge",
           "werkstoff"
         ]
+      },
+      "d_min": {
+        "nominal": 11.8,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "p7-iso8747_iso-table"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "original-standard-table",
+        "note": "Originaltabelle visuell geprüft; ein unabhängiger zweiter Einzelwertbeleg fehlt.",
+        "edition": "1997"
+      },
+      "d_max": {
+        "nominal": 12,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "p7-iso8747_iso-table"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "original-standard-table",
+        "note": "Originaltabelle visuell geprüft; ein unabhängiger zweiter Einzelwertbeleg fehlt.",
+        "edition": "1997"
       }
     },
     "16": {
       "d_nominal": {
         "nominal": 16,
+        "min": null,
+        "max": null,
         "unit": "mm",
         "sourceRefs": [
-          "iso-table"
+          "p7-iso8747_iso-table"
         ],
         "status": "single-source",
-        "verification": "historical-dimension-table",
-        "edition": "1997",
-        "note": "Historischer Tabellenwert; zweite unabhängige Bestätigung und aktuelle Edition fehlen."
+        "verification": false,
+        "verificationMethod": "original-standard-table",
+        "note": "Originaltabelle visuell geprüft; ein unabhängiger zweiter Einzelwertbeleg fehlt.",
+        "edition": "1997"
       },
       "dk_max": {
+        "nominal": 26,
+        "min": null,
+        "max": null,
         "unit": "mm",
         "sourceRefs": [
-          "iso-table"
+          "p7-iso8747_iso-table"
         ],
         "status": "single-source",
-        "verification": "historical-dimension-table",
-        "edition": "1997",
-        "note": "Historischer Tabellenwert; zweite unabhängige Bestätigung und aktuelle Edition fehlen.",
-        "max": 26
+        "verification": false,
+        "verificationMethod": "original-standard-table",
+        "note": "Originaltabelle visuell geprüft; ein unabhängiger zweiter Einzelwertbeleg fehlt.",
+        "edition": "1997"
       },
       "dk_min": {
+        "nominal": 23.7,
+        "min": null,
+        "max": null,
         "unit": "mm",
         "sourceRefs": [
-          "iso-table"
+          "p7-iso8747_iso-table"
         ],
         "status": "single-source",
-        "verification": "historical-dimension-table",
-        "edition": "1997",
-        "note": "Historischer Tabellenwert; zweite unabhängige Bestätigung und aktuelle Edition fehlen.",
-        "min": 23.7
+        "verification": false,
+        "verificationMethod": "original-standard-table",
+        "note": "Originaltabelle visuell geprüft; ein unabhängiger zweiter Einzelwertbeleg fehlt.",
+        "edition": "1997"
       },
       "c": {
         "nominal": 4.8,
+        "min": null,
+        "max": null,
         "unit": "mm",
         "sourceRefs": [
-          "iso-table"
+          "p7-iso8747_iso-table"
         ],
         "status": "single-source",
-        "verification": "historical-dimension-table",
-        "edition": "1997",
-        "note": "Historischer Tabellenwert; zweite unabhängige Bestätigung und aktuelle Edition fehlen."
+        "verification": false,
+        "verificationMethod": "original-standard-table",
+        "note": "Originaltabelle visuell geprüft; ein unabhängiger zweiter Einzelwertbeleg fehlt.",
+        "edition": "1997"
       },
       "d2": {
         "nominal": 16.4,
@@ -878,52 +4692,92 @@
           "laenge",
           "werkstoff"
         ]
+      },
+      "d_min": {
+        "nominal": 15.8,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "p7-iso8747_iso-table"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "original-standard-table",
+        "note": "Originaltabelle visuell geprüft; ein unabhängiger zweiter Einzelwertbeleg fehlt.",
+        "edition": "1997"
+      },
+      "d_max": {
+        "nominal": 16,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "p7-iso8747_iso-table"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "original-standard-table",
+        "note": "Originaltabelle visuell geprüft; ein unabhängiger zweiter Einzelwertbeleg fehlt.",
+        "edition": "1997"
       }
     },
     "20": {
       "d_nominal": {
         "nominal": 20,
+        "min": null,
+        "max": null,
         "unit": "mm",
         "sourceRefs": [
-          "iso-table"
+          "p7-iso8747_iso-table"
         ],
         "status": "single-source",
-        "verification": "historical-dimension-table",
-        "edition": "1997",
-        "note": "Historischer Tabellenwert; zweite unabhängige Bestätigung und aktuelle Edition fehlen."
+        "verification": false,
+        "verificationMethod": "original-standard-table",
+        "note": "Originaltabelle visuell geprüft; ein unabhängiger zweiter Einzelwertbeleg fehlt.",
+        "edition": "1997"
       },
       "dk_max": {
+        "nominal": 31.5,
+        "min": null,
+        "max": null,
         "unit": "mm",
         "sourceRefs": [
-          "iso-table"
+          "p7-iso8747_iso-table"
         ],
         "status": "single-source",
-        "verification": "historical-dimension-table",
-        "edition": "1997",
-        "note": "Historischer Tabellenwert; zweite unabhängige Bestätigung und aktuelle Edition fehlen.",
-        "max": 31.5
+        "verification": false,
+        "verificationMethod": "original-standard-table",
+        "note": "Originaltabelle visuell geprüft; ein unabhängiger zweiter Einzelwertbeleg fehlt.",
+        "edition": "1997"
       },
       "dk_min": {
+        "nominal": 30.7,
+        "min": null,
+        "max": null,
         "unit": "mm",
         "sourceRefs": [
-          "iso-table"
+          "p7-iso8747_iso-table"
         ],
         "status": "single-source",
-        "verification": "historical-dimension-table",
-        "edition": "1997",
-        "note": "Historischer Tabellenwert; zweite unabhängige Bestätigung und aktuelle Edition fehlen.",
-        "min": 30.7
+        "verification": false,
+        "verificationMethod": "original-standard-table",
+        "note": "Originaltabelle visuell geprüft; ein unabhängiger zweiter Einzelwertbeleg fehlt.",
+        "edition": "1997"
       },
       "c": {
         "nominal": 6,
+        "min": null,
+        "max": null,
         "unit": "mm",
         "sourceRefs": [
-          "iso-table"
+          "p7-iso8747_iso-table"
         ],
         "status": "single-source",
-        "verification": "historical-dimension-table",
-        "edition": "1997",
-        "note": "Historischer Tabellenwert; zweite unabhängige Bestätigung und aktuelle Edition fehlen."
+        "verification": false,
+        "verificationMethod": "original-standard-table",
+        "note": "Originaltabelle visuell geprüft; ein unabhängiger zweiter Einzelwertbeleg fehlt.",
+        "edition": "1997"
       },
       "d2": {
         "nominal": 20.5,
@@ -939,52 +4793,92 @@
           "laenge",
           "werkstoff"
         ]
+      },
+      "d_min": {
+        "nominal": 19.8,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "p7-iso8747_iso-table"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "original-standard-table",
+        "note": "Originaltabelle visuell geprüft; ein unabhängiger zweiter Einzelwertbeleg fehlt.",
+        "edition": "1997"
+      },
+      "d_max": {
+        "nominal": 20,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "p7-iso8747_iso-table"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "original-standard-table",
+        "note": "Originaltabelle visuell geprüft; ein unabhängiger zweiter Einzelwertbeleg fehlt.",
+        "edition": "1997"
       }
     },
     "1.4": {
       "d_nominal": {
         "nominal": 1.4,
+        "min": null,
+        "max": null,
         "unit": "mm",
         "sourceRefs": [
-          "iso-table"
+          "p7-iso8747_iso-table"
         ],
         "status": "single-source",
-        "verification": "historical-dimension-table",
-        "edition": "1997",
-        "note": "Historischer Tabellenwert; zweite unabhängige Bestätigung und aktuelle Edition fehlen."
+        "verification": false,
+        "verificationMethod": "original-standard-table",
+        "note": "Originaltabelle visuell geprüft; ein unabhängiger zweiter Einzelwertbeleg fehlt.",
+        "edition": "1997"
       },
       "dk_max": {
+        "nominal": 2.7,
+        "min": null,
+        "max": null,
         "unit": "mm",
         "sourceRefs": [
-          "iso-table"
+          "p7-iso8747_iso-table"
         ],
         "status": "single-source",
-        "verification": "historical-dimension-table",
-        "edition": "1997",
-        "note": "Historischer Tabellenwert; zweite unabhängige Bestätigung und aktuelle Edition fehlen.",
-        "max": 2.7
+        "verification": false,
+        "verificationMethod": "original-standard-table",
+        "note": "Originaltabelle visuell geprüft; ein unabhängiger zweiter Einzelwertbeleg fehlt.",
+        "edition": "1997"
       },
       "dk_min": {
+        "nominal": 2.3,
+        "min": null,
+        "max": null,
         "unit": "mm",
         "sourceRefs": [
-          "iso-table"
+          "p7-iso8747_iso-table"
         ],
         "status": "single-source",
-        "verification": "historical-dimension-table",
-        "edition": "1997",
-        "note": "Historischer Tabellenwert; zweite unabhängige Bestätigung und aktuelle Edition fehlen.",
-        "min": 2.3
+        "verification": false,
+        "verificationMethod": "original-standard-table",
+        "note": "Originaltabelle visuell geprüft; ein unabhängiger zweiter Einzelwertbeleg fehlt.",
+        "edition": "1997"
       },
       "c": {
         "nominal": 0.42,
+        "min": null,
+        "max": null,
         "unit": "mm",
         "sourceRefs": [
-          "iso-table"
+          "p7-iso8747_iso-table"
         ],
         "status": "single-source",
-        "verification": "historical-dimension-table",
-        "edition": "1997",
-        "note": "Historischer Tabellenwert; zweite unabhängige Bestätigung und aktuelle Edition fehlen."
+        "verification": false,
+        "verificationMethod": "original-standard-table",
+        "note": "Originaltabelle visuell geprüft; ein unabhängiger zweiter Einzelwertbeleg fehlt.",
+        "edition": "1997"
       },
       "d2": {
         "nominal": 1.5,
@@ -1000,52 +4894,92 @@
           "laenge",
           "werkstoff"
         ]
+      },
+      "d_min": {
+        "nominal": 1.35,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "p7-iso8747_iso-table"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "original-standard-table",
+        "note": "Originaltabelle visuell geprüft; ein unabhängiger zweiter Einzelwertbeleg fehlt.",
+        "edition": "1997"
+      },
+      "d_max": {
+        "nominal": 1.4,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "p7-iso8747_iso-table"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "original-standard-table",
+        "note": "Originaltabelle visuell geprüft; ein unabhängiger zweiter Einzelwertbeleg fehlt.",
+        "edition": "1997"
       }
     },
     "1.6": {
       "d_nominal": {
         "nominal": 1.6,
+        "min": null,
+        "max": null,
         "unit": "mm",
         "sourceRefs": [
-          "iso-table"
+          "p7-iso8747_iso-table"
         ],
         "status": "single-source",
-        "verification": "historical-dimension-table",
-        "edition": "1997",
-        "note": "Historischer Tabellenwert; zweite unabhängige Bestätigung und aktuelle Edition fehlen."
+        "verification": false,
+        "verificationMethod": "original-standard-table",
+        "note": "Originaltabelle visuell geprüft; ein unabhängiger zweiter Einzelwertbeleg fehlt.",
+        "edition": "1997"
       },
       "dk_max": {
+        "nominal": 3,
+        "min": null,
+        "max": null,
         "unit": "mm",
         "sourceRefs": [
-          "iso-table"
+          "p7-iso8747_iso-table"
         ],
         "status": "single-source",
-        "verification": "historical-dimension-table",
-        "edition": "1997",
-        "note": "Historischer Tabellenwert; zweite unabhängige Bestätigung und aktuelle Edition fehlen.",
-        "max": 3
+        "verification": false,
+        "verificationMethod": "original-standard-table",
+        "note": "Originaltabelle visuell geprüft; ein unabhängiger zweiter Einzelwertbeleg fehlt.",
+        "edition": "1997"
       },
       "dk_min": {
+        "nominal": 2.6,
+        "min": null,
+        "max": null,
         "unit": "mm",
         "sourceRefs": [
-          "iso-table"
+          "p7-iso8747_iso-table"
         ],
         "status": "single-source",
-        "verification": "historical-dimension-table",
-        "edition": "1997",
-        "note": "Historischer Tabellenwert; zweite unabhängige Bestätigung und aktuelle Edition fehlen.",
-        "min": 2.6
+        "verification": false,
+        "verificationMethod": "original-standard-table",
+        "note": "Originaltabelle visuell geprüft; ein unabhängiger zweiter Einzelwertbeleg fehlt.",
+        "edition": "1997"
       },
       "c": {
         "nominal": 0.48,
+        "min": null,
+        "max": null,
         "unit": "mm",
         "sourceRefs": [
-          "iso-table"
+          "p7-iso8747_iso-table"
         ],
         "status": "single-source",
-        "verification": "historical-dimension-table",
-        "edition": "1997",
-        "note": "Historischer Tabellenwert; zweite unabhängige Bestätigung und aktuelle Edition fehlen."
+        "verification": false,
+        "verificationMethod": "original-standard-table",
+        "note": "Originaltabelle visuell geprüft; ein unabhängiger zweiter Einzelwertbeleg fehlt.",
+        "edition": "1997"
       },
       "d2": {
         "nominal": 1.7,
@@ -1061,52 +4995,92 @@
           "laenge",
           "werkstoff"
         ]
+      },
+      "d_min": {
+        "nominal": 1.55,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "p7-iso8747_iso-table"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "original-standard-table",
+        "note": "Originaltabelle visuell geprüft; ein unabhängiger zweiter Einzelwertbeleg fehlt.",
+        "edition": "1997"
+      },
+      "d_max": {
+        "nominal": 1.6,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "p7-iso8747_iso-table"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "original-standard-table",
+        "note": "Originaltabelle visuell geprüft; ein unabhängiger zweiter Einzelwertbeleg fehlt.",
+        "edition": "1997"
       }
     },
     "2.5": {
       "d_nominal": {
         "nominal": 2.5,
+        "min": null,
+        "max": null,
         "unit": "mm",
         "sourceRefs": [
-          "iso-table"
+          "p7-iso8747_iso-table"
         ],
         "status": "single-source",
-        "verification": "historical-dimension-table",
-        "edition": "1997",
-        "note": "Historischer Tabellenwert; zweite unabhängige Bestätigung und aktuelle Edition fehlen."
+        "verification": false,
+        "verificationMethod": "original-standard-table",
+        "note": "Originaltabelle visuell geprüft; ein unabhängiger zweiter Einzelwertbeleg fehlt.",
+        "edition": "1997"
       },
       "dk_max": {
+        "nominal": 4.6,
+        "min": null,
+        "max": null,
         "unit": "mm",
         "sourceRefs": [
-          "iso-table"
+          "p7-iso8747_iso-table"
         ],
         "status": "single-source",
-        "verification": "historical-dimension-table",
-        "edition": "1997",
-        "note": "Historischer Tabellenwert; zweite unabhängige Bestätigung und aktuelle Edition fehlen.",
-        "max": 4.6
+        "verification": false,
+        "verificationMethod": "original-standard-table",
+        "note": "Originaltabelle visuell geprüft; ein unabhängiger zweiter Einzelwertbeleg fehlt.",
+        "edition": "1997"
       },
       "dk_min": {
+        "nominal": 4.2,
+        "min": null,
+        "max": null,
         "unit": "mm",
         "sourceRefs": [
-          "iso-table"
+          "p7-iso8747_iso-table"
         ],
         "status": "single-source",
-        "verification": "historical-dimension-table",
-        "edition": "1997",
-        "note": "Historischer Tabellenwert; zweite unabhängige Bestätigung und aktuelle Edition fehlen.",
-        "min": 4.2
+        "verification": false,
+        "verificationMethod": "original-standard-table",
+        "note": "Originaltabelle visuell geprüft; ein unabhängiger zweiter Einzelwertbeleg fehlt.",
+        "edition": "1997"
       },
       "c": {
         "nominal": 0.75,
+        "min": null,
+        "max": null,
         "unit": "mm",
         "sourceRefs": [
-          "iso-table"
+          "p7-iso8747_iso-table"
         ],
         "status": "single-source",
-        "verification": "historical-dimension-table",
-        "edition": "1997",
-        "note": "Historischer Tabellenwert; zweite unabhängige Bestätigung und aktuelle Edition fehlen."
+        "verification": false,
+        "verificationMethod": "original-standard-table",
+        "note": "Originaltabelle visuell geprüft; ein unabhängiger zweiter Einzelwertbeleg fehlt.",
+        "edition": "1997"
       },
       "d2": {
         "nominal": 2.7,
@@ -1122,6 +5096,34 @@
           "laenge",
           "werkstoff"
         ]
+      },
+      "d_min": {
+        "nominal": 2.425,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "p7-iso8747_iso-table"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "original-standard-table",
+        "note": "Originaltabelle visuell geprüft; ein unabhängiger zweiter Einzelwertbeleg fehlt.",
+        "edition": "1997"
+      },
+      "d_max": {
+        "nominal": 2.5,
+        "min": null,
+        "max": null,
+        "unit": "mm",
+        "sourceRefs": [
+          "p7-iso8747_iso-table"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "original-standard-table",
+        "note": "Originaltabelle visuell geprüft; ein unabhängiger zweiter Einzelwertbeleg fehlt.",
+        "edition": "1997"
       }
     }
   },
@@ -1185,6 +5187,16 @@
       "titel": "ISO8747:2025 Vorwort: gelöschte Größen und neue Kopfmaße",
       "scope": "edition-changes",
       "abgerufen": "2026-11-26"
+    },
+    {
+      "id": "p7-iso8747_iso-table",
+      "url": "https://cdn.standards.iteh.ai/samples/20015/d42dece2bc37448d813d4ee3ea7467f8/ISO-8747-1997.pdf",
+      "titel": "ISO8747 1997 – Maß-/Längentabelle",
+      "type": "standard-original",
+      "publisher": "ISO",
+      "edition": "1997",
+      "locator": "Tabelle 1, Normseite 3 / PDF-Seite 5",
+      "accessed": "2026-11-27"
     }
   ],
   "lengthDependentFields": [
@@ -1234,5 +5246,94 @@
       "label": "Einführende (1997)",
       "sizeData": {}
     }
-  ]
+  ],
+  "sourceMeta": {
+    "p7-iso8747_iso-table": {
+      "id": "p7-iso8747_iso-table",
+      "url": "https://cdn.standards.iteh.ai/samples/20015/d42dece2bc37448d813d4ee3ea7467f8/ISO-8747-1997.pdf",
+      "titel": "ISO8747 1997 – Maß-/Längentabelle",
+      "type": "standard-original",
+      "publisher": "ISO",
+      "edition": "1997",
+      "locator": "Tabelle 1, Normseite 3 / PDF-Seite 5",
+      "accessed": "2026-11-27"
+    }
+  },
+  "editionStatus": "original-table-checked",
+  "dimensionBasis": {
+    "edition": "1997",
+    "currentEditionEquivalenceVerified": false
+  },
+  "lengthMatrixCoverage": {
+    "scope": "Originalausgabe, gedruckter Bereich",
+    "currentEditionEquivalenceVerified": false,
+    "allIntermediateValuesInvented": false
+  },
+  "sizeCoverage": {
+    "2": {
+      "status": "documented",
+      "edition": "1997",
+      "note": "Größenzeile belegt; Quellenstand und Längennachweis sind separat angegeben."
+    },
+    "3": {
+      "status": "documented",
+      "edition": "1997",
+      "note": "Größenzeile belegt; Quellenstand und Längennachweis sind separat angegeben."
+    },
+    "4": {
+      "status": "documented",
+      "edition": "1997",
+      "note": "Größenzeile belegt; Quellenstand und Längennachweis sind separat angegeben."
+    },
+    "5": {
+      "status": "documented",
+      "edition": "1997",
+      "note": "Größenzeile belegt; Quellenstand und Längennachweis sind separat angegeben."
+    },
+    "6": {
+      "status": "documented",
+      "edition": "1997",
+      "note": "Größenzeile belegt; Quellenstand und Längennachweis sind separat angegeben."
+    },
+    "8": {
+      "status": "documented",
+      "edition": "1997",
+      "note": "Größenzeile belegt; Quellenstand und Längennachweis sind separat angegeben."
+    },
+    "10": {
+      "status": "documented",
+      "edition": "1997",
+      "note": "Größenzeile belegt; Quellenstand und Längennachweis sind separat angegeben."
+    },
+    "12": {
+      "status": "documented",
+      "edition": "1997",
+      "note": "Größenzeile belegt; Quellenstand und Längennachweis sind separat angegeben."
+    },
+    "16": {
+      "status": "documented",
+      "edition": "1997",
+      "note": "Größenzeile belegt; Quellenstand und Längennachweis sind separat angegeben."
+    },
+    "20": {
+      "status": "documented",
+      "edition": "1997",
+      "note": "Größenzeile belegt; Quellenstand und Längennachweis sind separat angegeben."
+    },
+    "1.4": {
+      "status": "documented",
+      "edition": "1997",
+      "note": "Größenzeile belegt; Quellenstand und Längennachweis sind separat angegeben."
+    },
+    "1.6": {
+      "status": "documented",
+      "edition": "1997",
+      "note": "Größenzeile belegt; Quellenstand und Längennachweis sind separat angegeben."
+    },
+    "2.5": {
+      "status": "documented",
+      "edition": "1997",
+      "note": "Größenzeile belegt; Quellenstand und Längennachweis sind separat angegeben."
+    }
+  }
 }

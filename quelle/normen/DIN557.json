@@ -1,8 +1,8 @@
 {
   "schemaVersion": 1,
-  "version": "2026-11-26.1",
+  "version": "2026-11-27.p7",
   "id": "DIN557",
-  "edition": "catalog-undated",
+  "edition": "1994-01",
   "label": "Vierkantmutter",
   "funktion": "mutter",
   "klasse": "mutter",
@@ -23,14 +23,19 @@
         "P": 0.8,
         "s_nom": 8,
         "e_catalog": 11.3,
-        "m_catalog": 4
+        "m_catalog": 4,
+        "s_min": 7.64,
+        "m_max": 4,
+        "m_min": 3.52,
+        "e_max": 11.3,
+        "e_min": 9.93
       },
       "thread": {
         "id": "M5x0.8",
         "diameter": 5,
         "pitch": 0.8,
         "sourceRefs": [
-          "iso4032_2023"
+          "din557_1994_original"
         ]
       },
       "geometryStatus": "dimensioned-envelope",
@@ -46,14 +51,19 @@
         "P": 1,
         "s_nom": 10,
         "e_catalog": 14.1,
-        "m_catalog": 5
+        "m_catalog": 5,
+        "s_min": 9.64,
+        "m_max": 5,
+        "m_min": 4.52,
+        "e_max": 14.1,
+        "e_min": 12.53
       },
       "thread": {
         "id": "M6x1",
         "diameter": 6,
         "pitch": 1,
         "sourceRefs": [
-          "iso4032_2023"
+          "din557_1994_original"
         ]
       },
       "geometryStatus": "dimensioned-envelope",
@@ -69,14 +79,19 @@
         "P": 1.25,
         "s_nom": 13,
         "e_catalog": 18.4,
-        "m_catalog": 6.5
+        "m_catalog": 6.5,
+        "s_min": 12.57,
+        "m_max": 6.5,
+        "m_min": 5.92,
+        "e_max": 18.4,
+        "e_min": 16.34
       },
       "thread": {
         "id": "M8x1.25",
         "diameter": 8,
         "pitch": 1.25,
         "sourceRefs": [
-          "iso4032_2023"
+          "din557_1994_original"
         ]
       },
       "geometryStatus": "dimensioned-envelope",
@@ -84,22 +99,27 @@
     },
     "M10": {
       "vorbelegung": {
-        "mSW": 16,
+        "mSW": 17,
         "mH": 8
       },
       "roh": {
         "d_nom": 10,
         "P": 1.5,
-        "s_nom": 16,
+        "s_nom": 17,
         "e_catalog": 22.6,
-        "m_catalog": 8
+        "m_catalog": 8,
+        "s_min": 16.57,
+        "m_max": 8,
+        "m_min": 7.42,
+        "e_max": 24,
+        "e_min": 21.54
       },
       "thread": {
         "id": "M10x1.5",
         "diameter": 10,
         "pitch": 1.5,
         "sourceRefs": [
-          "iso4032_2023"
+          "din557_1994_original"
         ]
       },
       "geometryStatus": "dimensioned-envelope",
@@ -107,22 +127,27 @@
     },
     "M12": {
       "vorbelegung": {
-        "mSW": 18,
+        "mSW": 19,
         "mH": 10
       },
       "roh": {
         "d_nom": 12,
         "P": 1.75,
-        "s_nom": 18,
+        "s_nom": 19,
         "e_catalog": 25.4,
-        "m_catalog": 10
+        "m_catalog": 10,
+        "s_min": 18.48,
+        "m_max": 10,
+        "m_min": 9.42,
+        "e_max": 26.9,
+        "e_min": 24.02
       },
       "thread": {
         "id": "M12x1.75",
         "diameter": 12,
         "pitch": 1.75,
         "sourceRefs": [
-          "iso4032_2023"
+          "din557_1994_original"
         ]
       },
       "geometryStatus": "dimensioned-envelope",
@@ -138,14 +163,19 @@
         "P": 2,
         "s_nom": 24,
         "e_catalog": 33.9,
-        "m_catalog": 13
+        "m_catalog": 13,
+        "s_min": 23.16,
+        "m_max": 13,
+        "m_min": 12.3,
+        "e_max": 33.9,
+        "e_min": 30.11
       },
       "thread": {
         "id": "M16x2",
         "diameter": 16,
         "pitch": 2,
         "sourceRefs": [
-          "iso4032_2023"
+          "din557_1994_original"
         ]
       },
       "geometryStatus": "dimensioned-envelope",
@@ -156,23 +186,26 @@
     "M5": {
       "P": {
         "nominal": 0.8,
+        "unit": "mm",
         "sourceRefs": [
-          "iso4032_2023"
+          "din557_1994_original"
         ],
         "status": "single-source",
-        "verification": "one-primary-record",
-        "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "verification": false,
+        "verificationMethod": "original-table",
+        "note": "Nur eine ausgewertete Maßquelle."
       },
       "s_nom": {
         "nominal": 8,
+        "unit": "mm",
         "sourceRefs": [
+          "din557_1994_original",
           "lederer557"
         ],
-        "status": "single-source",
-        "verification": "one-primary-record",
-        "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "original-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "e_catalog": {
         "value": 11.3,
@@ -185,46 +218,108 @@
         "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
       },
       "m_catalog": {
-        "value": 4,
+        "nominal": 4,
+        "unit": "mm",
         "sourceRefs": [
+          "din557_1994_original",
           "lederer557"
         ],
-        "status": "single-source",
-        "verification": "one-primary-record",
-        "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "original-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "d_nom": {
         "nominal": 5,
+        "unit": "mm",
         "sourceRefs": [
+          "din557_1994_original",
           "lederer557"
         ],
-        "status": "single-source",
-        "verification": "one-primary-record",
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "original-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
+      },
+      "s_min": {
+        "min": 7.64,
         "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "sourceRefs": [
+          "din557_1994_original"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "original-table",
+        "note": "Nur eine ausgewertete Maßquelle."
+      },
+      "m_max": {
+        "max": 4,
+        "unit": "mm",
+        "sourceRefs": [
+          "din557_1994_original"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "original-table",
+        "note": "Nur eine ausgewertete Maßquelle."
+      },
+      "m_min": {
+        "min": 3.52,
+        "unit": "mm",
+        "sourceRefs": [
+          "din557_1994_original"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "original-table",
+        "note": "Nur eine ausgewertete Maßquelle."
+      },
+      "e_max": {
+        "max": 11.3,
+        "unit": "mm",
+        "sourceRefs": [
+          "din557_1994_original"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "original-table",
+        "note": "Nur eine ausgewertete Maßquelle."
+      },
+      "e_min": {
+        "min": 9.93,
+        "unit": "mm",
+        "sourceRefs": [
+          "din557_1994_original"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "original-table",
+        "note": "Nur eine ausgewertete Maßquelle."
       }
     },
     "M6": {
       "P": {
         "nominal": 1,
+        "unit": "mm",
         "sourceRefs": [
-          "iso4032_2023"
+          "din557_1994_original"
         ],
         "status": "single-source",
-        "verification": "one-primary-record",
-        "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "verification": false,
+        "verificationMethod": "original-table",
+        "note": "Nur eine ausgewertete Maßquelle."
       },
       "s_nom": {
         "nominal": 10,
+        "unit": "mm",
         "sourceRefs": [
+          "din557_1994_original",
           "lederer557"
         ],
-        "status": "single-source",
-        "verification": "one-primary-record",
-        "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "original-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "e_catalog": {
         "value": 14.1,
@@ -237,46 +332,108 @@
         "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
       },
       "m_catalog": {
-        "value": 5,
+        "nominal": 5,
+        "unit": "mm",
         "sourceRefs": [
+          "din557_1994_original",
           "lederer557"
         ],
-        "status": "single-source",
-        "verification": "one-primary-record",
-        "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "original-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "d_nom": {
         "nominal": 6,
+        "unit": "mm",
         "sourceRefs": [
+          "din557_1994_original",
           "lederer557"
         ],
-        "status": "single-source",
-        "verification": "one-primary-record",
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "original-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
+      },
+      "s_min": {
+        "min": 9.64,
         "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "sourceRefs": [
+          "din557_1994_original"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "original-table",
+        "note": "Nur eine ausgewertete Maßquelle."
+      },
+      "m_max": {
+        "max": 5,
+        "unit": "mm",
+        "sourceRefs": [
+          "din557_1994_original"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "original-table",
+        "note": "Nur eine ausgewertete Maßquelle."
+      },
+      "m_min": {
+        "min": 4.52,
+        "unit": "mm",
+        "sourceRefs": [
+          "din557_1994_original"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "original-table",
+        "note": "Nur eine ausgewertete Maßquelle."
+      },
+      "e_max": {
+        "max": 14.1,
+        "unit": "mm",
+        "sourceRefs": [
+          "din557_1994_original"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "original-table",
+        "note": "Nur eine ausgewertete Maßquelle."
+      },
+      "e_min": {
+        "min": 12.53,
+        "unit": "mm",
+        "sourceRefs": [
+          "din557_1994_original"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "original-table",
+        "note": "Nur eine ausgewertete Maßquelle."
       }
     },
     "M8": {
       "P": {
         "nominal": 1.25,
+        "unit": "mm",
         "sourceRefs": [
-          "iso4032_2023"
+          "din557_1994_original"
         ],
         "status": "single-source",
-        "verification": "one-primary-record",
-        "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "verification": false,
+        "verificationMethod": "original-table",
+        "note": "Nur eine ausgewertete Maßquelle."
       },
       "s_nom": {
         "nominal": 13,
+        "unit": "mm",
         "sourceRefs": [
+          "din557_1994_original",
           "lederer557"
         ],
-        "status": "single-source",
-        "verification": "one-primary-record",
-        "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "original-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "e_catalog": {
         "value": 18.4,
@@ -289,46 +446,107 @@
         "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
       },
       "m_catalog": {
-        "value": 6.5,
+        "nominal": 6.5,
+        "unit": "mm",
         "sourceRefs": [
+          "din557_1994_original",
           "lederer557"
         ],
-        "status": "single-source",
-        "verification": "one-primary-record",
-        "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "original-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "d_nom": {
         "nominal": 8,
+        "unit": "mm",
         "sourceRefs": [
+          "din557_1994_original",
           "lederer557"
         ],
-        "status": "single-source",
-        "verification": "one-primary-record",
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "original-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
+      },
+      "s_min": {
+        "min": 12.57,
         "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "sourceRefs": [
+          "din557_1994_original"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "original-table",
+        "note": "Nur eine ausgewertete Maßquelle."
+      },
+      "m_max": {
+        "max": 6.5,
+        "unit": "mm",
+        "sourceRefs": [
+          "din557_1994_original"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "original-table",
+        "note": "Nur eine ausgewertete Maßquelle."
+      },
+      "m_min": {
+        "min": 5.92,
+        "unit": "mm",
+        "sourceRefs": [
+          "din557_1994_original"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "original-table",
+        "note": "Nur eine ausgewertete Maßquelle."
+      },
+      "e_max": {
+        "max": 18.4,
+        "unit": "mm",
+        "sourceRefs": [
+          "din557_1994_original"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "original-table",
+        "note": "Nur eine ausgewertete Maßquelle."
+      },
+      "e_min": {
+        "min": 16.34,
+        "unit": "mm",
+        "sourceRefs": [
+          "din557_1994_original"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "original-table",
+        "note": "Nur eine ausgewertete Maßquelle."
       }
     },
     "M10": {
       "P": {
         "nominal": 1.5,
+        "unit": "mm",
         "sourceRefs": [
-          "iso4032_2023"
+          "din557_1994_original"
         ],
         "status": "single-source",
-        "verification": "one-primary-record",
-        "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "verification": false,
+        "verificationMethod": "original-table",
+        "note": "Nur eine ausgewertete Maßquelle."
       },
       "s_nom": {
-        "nominal": 16,
+        "nominal": 17,
+        "unit": "mm",
         "sourceRefs": [
-          "lederer557"
+          "din557_1994_original"
         ],
         "status": "single-source",
-        "verification": "one-primary-record",
-        "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "verification": false,
+        "verificationMethod": "original-table",
+        "note": "Nur eine ausgewertete Maßquelle."
       },
       "e_catalog": {
         "value": 22.6,
@@ -341,46 +559,107 @@
         "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
       },
       "m_catalog": {
-        "value": 8,
+        "nominal": 8,
+        "unit": "mm",
         "sourceRefs": [
+          "din557_1994_original",
           "lederer557"
         ],
-        "status": "single-source",
-        "verification": "one-primary-record",
-        "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "original-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "d_nom": {
         "nominal": 10,
+        "unit": "mm",
         "sourceRefs": [
+          "din557_1994_original",
           "lederer557"
         ],
-        "status": "single-source",
-        "verification": "one-primary-record",
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "original-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
+      },
+      "s_min": {
+        "min": 16.57,
         "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "sourceRefs": [
+          "din557_1994_original"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "original-table",
+        "note": "Nur eine ausgewertete Maßquelle."
+      },
+      "m_max": {
+        "max": 8,
+        "unit": "mm",
+        "sourceRefs": [
+          "din557_1994_original"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "original-table",
+        "note": "Nur eine ausgewertete Maßquelle."
+      },
+      "m_min": {
+        "min": 7.42,
+        "unit": "mm",
+        "sourceRefs": [
+          "din557_1994_original"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "original-table",
+        "note": "Nur eine ausgewertete Maßquelle."
+      },
+      "e_max": {
+        "max": 24,
+        "unit": "mm",
+        "sourceRefs": [
+          "din557_1994_original"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "original-table",
+        "note": "Nur eine ausgewertete Maßquelle."
+      },
+      "e_min": {
+        "min": 21.54,
+        "unit": "mm",
+        "sourceRefs": [
+          "din557_1994_original"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "original-table",
+        "note": "Nur eine ausgewertete Maßquelle."
       }
     },
     "M12": {
       "P": {
         "nominal": 1.75,
+        "unit": "mm",
         "sourceRefs": [
-          "iso4032_2023"
+          "din557_1994_original"
         ],
         "status": "single-source",
-        "verification": "one-primary-record",
-        "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "verification": false,
+        "verificationMethod": "original-table",
+        "note": "Nur eine ausgewertete Maßquelle."
       },
       "s_nom": {
-        "nominal": 18,
+        "nominal": 19,
+        "unit": "mm",
         "sourceRefs": [
-          "lederer557"
+          "din557_1994_original"
         ],
         "status": "single-source",
-        "verification": "one-primary-record",
-        "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "verification": false,
+        "verificationMethod": "original-table",
+        "note": "Nur eine ausgewertete Maßquelle."
       },
       "e_catalog": {
         "value": 25.4,
@@ -393,46 +672,108 @@
         "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
       },
       "m_catalog": {
-        "value": 10,
+        "nominal": 10,
+        "unit": "mm",
         "sourceRefs": [
+          "din557_1994_original",
           "lederer557"
         ],
-        "status": "single-source",
-        "verification": "one-primary-record",
-        "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "original-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "d_nom": {
         "nominal": 12,
+        "unit": "mm",
         "sourceRefs": [
+          "din557_1994_original",
           "lederer557"
         ],
-        "status": "single-source",
-        "verification": "one-primary-record",
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "original-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
+      },
+      "s_min": {
+        "min": 18.48,
         "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "sourceRefs": [
+          "din557_1994_original"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "original-table",
+        "note": "Nur eine ausgewertete Maßquelle."
+      },
+      "m_max": {
+        "max": 10,
+        "unit": "mm",
+        "sourceRefs": [
+          "din557_1994_original"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "original-table",
+        "note": "Nur eine ausgewertete Maßquelle."
+      },
+      "m_min": {
+        "min": 9.42,
+        "unit": "mm",
+        "sourceRefs": [
+          "din557_1994_original"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "original-table",
+        "note": "Nur eine ausgewertete Maßquelle."
+      },
+      "e_max": {
+        "max": 26.9,
+        "unit": "mm",
+        "sourceRefs": [
+          "din557_1994_original"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "original-table",
+        "note": "Nur eine ausgewertete Maßquelle."
+      },
+      "e_min": {
+        "min": 24.02,
+        "unit": "mm",
+        "sourceRefs": [
+          "din557_1994_original"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "original-table",
+        "note": "Nur eine ausgewertete Maßquelle."
       }
     },
     "M16": {
       "P": {
         "nominal": 2,
+        "unit": "mm",
         "sourceRefs": [
-          "iso4032_2023"
+          "din557_1994_original"
         ],
         "status": "single-source",
-        "verification": "one-primary-record",
-        "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "verification": false,
+        "verificationMethod": "original-table",
+        "note": "Nur eine ausgewertete Maßquelle."
       },
       "s_nom": {
         "nominal": 24,
+        "unit": "mm",
         "sourceRefs": [
+          "din557_1994_original",
           "lederer557"
         ],
-        "status": "single-source",
-        "verification": "one-primary-record",
-        "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "original-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "e_catalog": {
         "value": 33.9,
@@ -445,24 +786,83 @@
         "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
       },
       "m_catalog": {
-        "value": 13,
+        "nominal": 13,
+        "unit": "mm",
         "sourceRefs": [
+          "din557_1994_original",
           "lederer557"
         ],
-        "status": "single-source",
-        "verification": "one-primary-record",
-        "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "original-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "d_nom": {
         "nominal": 16,
+        "unit": "mm",
         "sourceRefs": [
+          "din557_1994_original",
           "lederer557"
         ],
-        "status": "single-source",
-        "verification": "one-primary-record",
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "original-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
+      },
+      "s_min": {
+        "min": 23.16,
         "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "sourceRefs": [
+          "din557_1994_original"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "original-table",
+        "note": "Nur eine ausgewertete Maßquelle."
+      },
+      "m_max": {
+        "max": 13,
+        "unit": "mm",
+        "sourceRefs": [
+          "din557_1994_original"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "original-table",
+        "note": "Nur eine ausgewertete Maßquelle."
+      },
+      "m_min": {
+        "min": 12.3,
+        "unit": "mm",
+        "sourceRefs": [
+          "din557_1994_original"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "original-table",
+        "note": "Nur eine ausgewertete Maßquelle."
+      },
+      "e_max": {
+        "max": 33.9,
+        "unit": "mm",
+        "sourceRefs": [
+          "din557_1994_original"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "original-table",
+        "note": "Nur eine ausgewertete Maßquelle."
+      },
+      "e_min": {
+        "min": 30.11,
+        "unit": "mm",
+        "sourceRefs": [
+          "din557_1994_original"
+        ],
+        "status": "single-source",
+        "verification": false,
+        "verificationMethod": "original-table",
+        "note": "Nur eine ausgewertete Maßquelle."
       }
     }
   },
@@ -490,27 +890,25 @@
       "kind": "standard",
       "edition": "2023",
       "accessed": "2026-11-26"
+    },
+    "din557_1994_original": {
+      "url": "https://api.pageplace.de/preview/DT0400.9783410252399_A35868060/preview-9783410252399_A35868060.pdf",
+      "title": "DIN 557:1994-01 im DIN-Taschenbuch 140",
+      "edition": "1994-01",
+      "locator": "PDF-Seiten 65–66, Tabelle 1 und Bezeichnung",
+      "kind": "standard-original",
+      "accessed": "2026-11-27"
     }
   },
   "sourceStatus": "per-value",
   "coverage": {
     "diameterMin": 5,
-    "diameterMax": 30,
+    "diameterMax": 16,
     "unit": "mm",
-    "status": "partial",
-    "missingSizes": [
-      "M7",
-      "M14",
-      "M18",
-      "M20",
-      "M22",
-      "M24",
-      "M27",
-      "M30"
-    ],
-    "missingReason": "Keine ausgewerteten Maßnachweise für diese Größen; keine Aussage über Herstellbarkeit oder Lieferbarkeit."
+    "status": "standard-table-dimensions",
+    "note": "Sechs Größen der Originaltabelle 1994-01. Die aktuelle Ausgabe 2026-02 ist als Nachfolger erfasst, ihre Maßtabelle ist nicht übernommen."
   },
-  "editionStatus": "edition-unverified",
+  "editionStatus": "source-edition-matched",
   "shape": "vierkant",
   "height": "m_catalog",
   "threadSeries": "coarse",
@@ -518,5 +916,116 @@
   "editionSourceRefs": [
     "din_nuts_register"
   ],
-  "defaultPolicy": "Dokumentierte Kataloghöhe oder ausgewiesenes Höchstmaß als vorläufige Außenhülle; kein vollständiges Fertigteilmodell."
+  "defaultPolicy": "Dokumentierte Kataloghöhe oder ausgewiesenes Höchstmaß als vorläufige Außenhülle; kein vollständiges Fertigteilmodell.",
+  "editionEvidence": {
+    "sourceRefs": [
+      "din557_1994_original"
+    ],
+    "method": "dimension-table-comparison",
+    "note": "1994-Original: M10 SW17 und M12 SW19 ohne Zusatzbezeichnung; SW16/18 waren ausdrücklich bestellbare Alternativen. Aktuell 2026-02 separat geführt; keine ungesichtete 2026-Maßtabelle behauptet."
+  },
+  "coverageNotes": [],
+  "sizeCoverage": {
+    "M5": {
+      "status": "documented",
+      "sourceRefs": [
+        "din557_1994_original"
+      ]
+    },
+    "M6": {
+      "status": "documented",
+      "sourceRefs": [
+        "din557_1994_original"
+      ]
+    },
+    "M8": {
+      "status": "documented",
+      "sourceRefs": [
+        "din557_1994_original"
+      ]
+    },
+    "M10": {
+      "status": "documented",
+      "sourceRefs": [
+        "din557_1994_original"
+      ]
+    },
+    "M12": {
+      "status": "documented",
+      "sourceRefs": [
+        "din557_1994_original"
+      ]
+    },
+    "M16": {
+      "status": "documented",
+      "sourceRefs": [
+        "din557_1994_original"
+      ]
+    }
+  },
+  "abweichungen": [
+    {
+      "size": "M10",
+      "field": "s_nom",
+      "previousValue": 16,
+      "value": 17,
+      "sourceRefs": [
+        "din557_1994_original",
+        "lederer557"
+      ],
+      "status": "source-edition-resolved",
+      "note": "Maßtabelle der bezeichneten Datenausgabe verwendet; abweichender Herstellerwert bleibt dokumentiert."
+    },
+    {
+      "size": "M12",
+      "field": "s_nom",
+      "previousValue": 18,
+      "value": 19,
+      "sourceRefs": [
+        "din557_1994_original",
+        "lederer557"
+      ],
+      "status": "source-edition-resolved",
+      "note": "Maßtabelle der bezeichneten Datenausgabe verwendet; abweichender Herstellerwert bleibt dokumentiert."
+    }
+  ],
+  "pruefdatum": "2026-11-27",
+  "quellen": [
+    {
+      "id": "lederer557",
+      "url": "https://www.lederer-online.com/fileadmin/users/redakteur/redakteur_upload/DIN557.pdf",
+      "title": "Lederer DIN557 product dimensions",
+      "locator": "Printed page 76",
+      "kind": "supplier-product-catalog",
+      "edition": null,
+      "accessed": "2026-11-26"
+    },
+    {
+      "id": "din_nuts_register",
+      "url": "https://www.din.de/en/getting-involved/standards-committees/fmv/national-committees/68242/wdc-grem%3Adin21%3A126850981%21search-grem-details?masking=true",
+      "title": "DIN FMV nuts standards register",
+      "locator": "DIN 557:2026-02, DIN 562:2013-05, DIN 928/929:2013-12",
+      "kind": "standard-register",
+      "edition": null,
+      "accessed": "2026-11-26"
+    },
+    {
+      "id": "iso4032_2023",
+      "url": "https://cdn.standards.iteh.ai/samples/75016/5b1f83bd2dc44fc199973e9957a75086/ISO-4032-2023.pdf",
+      "title": "ISO 4032:2023",
+      "locator": "Tables 1–2, printed page 3",
+      "kind": "standard",
+      "edition": "2023",
+      "accessed": "2026-11-26"
+    },
+    {
+      "id": "din557_1994_original",
+      "url": "https://api.pageplace.de/preview/DT0400.9783410252399_A35868060/preview-9783410252399_A35868060.pdf",
+      "title": "DIN 557:1994-01 im DIN-Taschenbuch 140",
+      "edition": "1994-01",
+      "locator": "PDF-Seiten 65–66, Tabelle 1 und Bezeichnung",
+      "kind": "standard-original",
+      "accessed": "2026-11-27"
+    }
+  ]
 }

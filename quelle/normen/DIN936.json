@@ -1,8 +1,8 @@
 {
   "schemaVersion": 1,
-  "version": "2026-11-26.1",
+  "version": "2026-11-27.p7",
   "id": "DIN936",
-  "edition": "catalog-undated",
+  "edition": "1985-02",
   "label": "Flache Sechskantmutter, DIN-Geometrie",
   "funktion": "mutter",
   "klasse": "mutter",
@@ -292,43 +292,53 @@
       },
       "s_nom": {
         "nominal": 13,
+        "unit": "mm",
         "sourceRefs": [
+          "opm936_1985",
           "fastenal936",
           "wuerth936"
         ],
         "status": "verified",
-        "verification": "independent-source-agreement",
-        "unit": "mm"
+        "verification": true,
+        "verificationMethod": "dimension-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "s_min": {
         "min": 12.73,
+        "unit": "mm",
         "sourceRefs": [
+          "opm936_1985",
           "fastenal936"
         ],
-        "status": "single-source",
-        "verification": "one-primary-record",
-        "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "dimension-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "m_max": {
         "max": 5,
+        "unit": "mm",
         "sourceRefs": [
+          "opm936_1985",
           "fastenal936",
           "wuerth936"
         ],
         "status": "verified",
-        "verification": "independent-source-agreement",
-        "unit": "mm"
+        "verification": true,
+        "verificationMethod": "dimension-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "m_min": {
         "min": 4.7,
+        "unit": "mm",
         "sourceRefs": [
+          "opm936_1985",
           "fastenal936"
         ],
-        "status": "single-source",
-        "verification": "one-primary-record",
-        "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "dimension-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "d_nom": {
         "nominal": 8,
@@ -354,43 +364,53 @@
       },
       "s_nom": {
         "nominal": 17,
+        "unit": "mm",
         "sourceRefs": [
+          "opm936_1985",
           "fastenal936",
           "wuerth936"
         ],
         "status": "verified",
-        "verification": "independent-source-agreement",
-        "unit": "mm"
+        "verification": true,
+        "verificationMethod": "dimension-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "s_min": {
         "min": 16.73,
+        "unit": "mm",
         "sourceRefs": [
+          "opm936_1985",
           "fastenal936"
         ],
-        "status": "single-source",
-        "verification": "one-primary-record",
-        "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "dimension-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "m_max": {
         "max": 6,
+        "unit": "mm",
         "sourceRefs": [
+          "opm936_1985",
           "fastenal936",
           "wuerth936"
         ],
         "status": "verified",
-        "verification": "independent-source-agreement",
-        "unit": "mm"
+        "verification": true,
+        "verificationMethod": "dimension-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "m_min": {
         "min": 5.7,
+        "unit": "mm",
         "sourceRefs": [
+          "opm936_1985",
           "fastenal936"
         ],
-        "status": "single-source",
-        "verification": "one-primary-record",
-        "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "dimension-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "d_nom": {
         "nominal": 10,
@@ -416,43 +436,53 @@
       },
       "s_nom": {
         "nominal": 19,
+        "unit": "mm",
         "sourceRefs": [
+          "opm936_1985",
           "fastenal936",
           "wuerth936"
         ],
         "status": "verified",
-        "verification": "independent-source-agreement",
-        "unit": "mm"
+        "verification": true,
+        "verificationMethod": "dimension-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "s_min": {
         "min": 18.67,
+        "unit": "mm",
         "sourceRefs": [
+          "opm936_1985",
           "fastenal936"
         ],
-        "status": "single-source",
-        "verification": "one-primary-record",
-        "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "dimension-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "m_max": {
         "max": 7,
+        "unit": "mm",
         "sourceRefs": [
+          "opm936_1985",
           "fastenal936",
           "wuerth936"
         ],
         "status": "verified",
-        "verification": "independent-source-agreement",
-        "unit": "mm"
+        "verification": true,
+        "verificationMethod": "dimension-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "m_min": {
         "min": 6.64,
+        "unit": "mm",
         "sourceRefs": [
+          "opm936_1985",
           "fastenal936"
         ],
-        "status": "single-source",
-        "verification": "one-primary-record",
-        "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "dimension-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "d_nom": {
         "nominal": 12,
@@ -478,43 +508,51 @@
       },
       "s_nom": {
         "nominal": 22,
+        "unit": "mm",
         "sourceRefs": [
+          "opm936_1985",
           "fastenal936"
         ],
-        "status": "single-source",
-        "verification": "one-primary-record",
-        "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "dimension-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "s_min": {
         "min": 21.67,
+        "unit": "mm",
         "sourceRefs": [
+          "opm936_1985",
           "fastenal936"
         ],
-        "status": "single-source",
-        "verification": "one-primary-record",
-        "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "dimension-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "m_max": {
         "max": 8,
+        "unit": "mm",
         "sourceRefs": [
+          "opm936_1985",
           "fastenal936"
         ],
-        "status": "single-source",
-        "verification": "one-primary-record",
-        "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "dimension-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "m_min": {
         "min": 7.42,
+        "unit": "mm",
         "sourceRefs": [
+          "opm936_1985",
           "fastenal936"
         ],
-        "status": "single-source",
-        "verification": "one-primary-record",
-        "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "dimension-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "d_nom": {
         "nominal": 14,
@@ -540,43 +578,53 @@
       },
       "s_nom": {
         "nominal": 24,
+        "unit": "mm",
         "sourceRefs": [
+          "opm936_1985",
           "fastenal936",
           "wuerth936"
         ],
         "status": "verified",
-        "verification": "independent-source-agreement",
-        "unit": "mm"
+        "verification": true,
+        "verificationMethod": "dimension-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "s_min": {
         "min": 23.67,
+        "unit": "mm",
         "sourceRefs": [
+          "opm936_1985",
           "fastenal936"
         ],
-        "status": "single-source",
-        "verification": "one-primary-record",
-        "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "dimension-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "m_max": {
         "max": 8,
+        "unit": "mm",
         "sourceRefs": [
+          "opm936_1985",
           "fastenal936",
           "wuerth936"
         ],
         "status": "verified",
-        "verification": "independent-source-agreement",
-        "unit": "mm"
+        "verification": true,
+        "verificationMethod": "dimension-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "m_min": {
         "min": 7.42,
+        "unit": "mm",
         "sourceRefs": [
+          "opm936_1985",
           "fastenal936"
         ],
-        "status": "single-source",
-        "verification": "one-primary-record",
-        "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "dimension-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "d_nom": {
         "nominal": 16,
@@ -602,43 +650,51 @@
       },
       "s_nom": {
         "nominal": 27,
+        "unit": "mm",
         "sourceRefs": [
+          "opm936_1985",
           "fastenal936"
         ],
-        "status": "single-source",
-        "verification": "one-primary-record",
-        "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "dimension-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "s_min": {
         "min": 26.16,
+        "unit": "mm",
         "sourceRefs": [
+          "opm936_1985",
           "fastenal936"
         ],
-        "status": "single-source",
-        "verification": "one-primary-record",
-        "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "dimension-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "m_max": {
         "max": 9,
+        "unit": "mm",
         "sourceRefs": [
+          "opm936_1985",
           "fastenal936"
         ],
-        "status": "single-source",
-        "verification": "one-primary-record",
-        "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "dimension-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "m_min": {
         "min": 8.42,
+        "unit": "mm",
         "sourceRefs": [
+          "opm936_1985",
           "fastenal936"
         ],
-        "status": "single-source",
-        "verification": "one-primary-record",
-        "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "dimension-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "d_nom": {
         "nominal": 18,
@@ -664,43 +720,53 @@
       },
       "s_nom": {
         "nominal": 30,
+        "unit": "mm",
         "sourceRefs": [
+          "opm936_1985",
           "fastenal936",
           "wuerth936"
         ],
         "status": "verified",
-        "verification": "independent-source-agreement",
-        "unit": "mm"
+        "verification": true,
+        "verificationMethod": "dimension-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "s_min": {
         "min": 29.16,
+        "unit": "mm",
         "sourceRefs": [
+          "opm936_1985",
           "fastenal936"
         ],
-        "status": "single-source",
-        "verification": "one-primary-record",
-        "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "dimension-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "m_max": {
         "max": 9,
+        "unit": "mm",
         "sourceRefs": [
+          "opm936_1985",
           "fastenal936",
           "wuerth936"
         ],
         "status": "verified",
-        "verification": "independent-source-agreement",
-        "unit": "mm"
+        "verification": true,
+        "verificationMethod": "dimension-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "m_min": {
         "min": 8.1,
+        "unit": "mm",
         "sourceRefs": [
+          "opm936_1985",
           "fastenal936"
         ],
-        "status": "single-source",
-        "verification": "one-primary-record",
-        "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "dimension-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "d_nom": {
         "nominal": 20,
@@ -726,43 +792,53 @@
       },
       "s_nom": {
         "nominal": 32,
+        "unit": "mm",
         "sourceRefs": [
+          "opm936_1985",
           "fastenal936",
           "wuerth936"
         ],
         "status": "verified",
-        "verification": "independent-source-agreement",
-        "unit": "mm"
+        "verification": true,
+        "verificationMethod": "dimension-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "s_min": {
         "min": 31,
+        "unit": "mm",
         "sourceRefs": [
+          "opm936_1985",
           "fastenal936"
         ],
-        "status": "single-source",
-        "verification": "one-primary-record",
-        "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "dimension-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "m_max": {
         "max": 10,
+        "unit": "mm",
         "sourceRefs": [
+          "opm936_1985",
           "fastenal936",
           "wuerth936"
         ],
         "status": "verified",
-        "verification": "independent-source-agreement",
-        "unit": "mm"
+        "verification": true,
+        "verificationMethod": "dimension-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "m_min": {
         "min": 9.1,
+        "unit": "mm",
         "sourceRefs": [
+          "opm936_1985",
           "fastenal936"
         ],
-        "status": "single-source",
-        "verification": "one-primary-record",
-        "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "dimension-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "d_nom": {
         "nominal": 22,
@@ -788,43 +864,53 @@
       },
       "s_nom": {
         "nominal": 36,
+        "unit": "mm",
         "sourceRefs": [
+          "opm936_1985",
           "fastenal936",
           "wuerth936"
         ],
         "status": "verified",
-        "verification": "independent-source-agreement",
-        "unit": "mm"
+        "verification": true,
+        "verificationMethod": "dimension-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "s_min": {
         "min": 35,
+        "unit": "mm",
         "sourceRefs": [
+          "opm936_1985",
           "fastenal936"
         ],
-        "status": "single-source",
-        "verification": "one-primary-record",
-        "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "dimension-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "m_max": {
         "max": 10,
+        "unit": "mm",
         "sourceRefs": [
+          "opm936_1985",
           "fastenal936",
           "wuerth936"
         ],
         "status": "verified",
-        "verification": "independent-source-agreement",
-        "unit": "mm"
+        "verification": true,
+        "verificationMethod": "dimension-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "m_min": {
         "min": 9.1,
+        "unit": "mm",
         "sourceRefs": [
+          "opm936_1985",
           "fastenal936"
         ],
-        "status": "single-source",
-        "verification": "one-primary-record",
-        "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "dimension-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "d_nom": {
         "nominal": 24,
@@ -850,43 +936,53 @@
       },
       "s_nom": {
         "nominal": 41,
+        "unit": "mm",
         "sourceRefs": [
+          "opm936_1985",
           "fastenal936",
           "wuerth936"
         ],
         "status": "verified",
-        "verification": "independent-source-agreement",
-        "unit": "mm"
+        "verification": true,
+        "verificationMethod": "dimension-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "s_min": {
         "min": 40,
+        "unit": "mm",
         "sourceRefs": [
+          "opm936_1985",
           "fastenal936"
         ],
-        "status": "single-source",
-        "verification": "one-primary-record",
-        "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "dimension-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "m_max": {
         "max": 12,
+        "unit": "mm",
         "sourceRefs": [
+          "opm936_1985",
           "fastenal936",
           "wuerth936"
         ],
         "status": "verified",
-        "verification": "independent-source-agreement",
-        "unit": "mm"
+        "verification": true,
+        "verificationMethod": "dimension-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "m_min": {
         "min": 10.9,
+        "unit": "mm",
         "sourceRefs": [
+          "opm936_1985",
           "fastenal936"
         ],
-        "status": "single-source",
-        "verification": "one-primary-record",
-        "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "dimension-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "d_nom": {
         "nominal": 27,
@@ -912,43 +1008,53 @@
       },
       "s_nom": {
         "nominal": 46,
+        "unit": "mm",
         "sourceRefs": [
+          "opm936_1985",
           "fastenal936",
           "wuerth936"
         ],
         "status": "verified",
-        "verification": "independent-source-agreement",
-        "unit": "mm"
+        "verification": true,
+        "verificationMethod": "dimension-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "s_min": {
         "min": 45,
+        "unit": "mm",
         "sourceRefs": [
+          "opm936_1985",
           "fastenal936"
         ],
-        "status": "single-source",
-        "verification": "one-primary-record",
-        "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "dimension-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "m_max": {
         "max": 12,
+        "unit": "mm",
         "sourceRefs": [
+          "opm936_1985",
           "fastenal936",
           "wuerth936"
         ],
         "status": "verified",
-        "verification": "independent-source-agreement",
-        "unit": "mm"
+        "verification": true,
+        "verificationMethod": "dimension-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "m_min": {
         "min": 10.9,
+        "unit": "mm",
         "sourceRefs": [
+          "opm936_1985",
           "fastenal936"
         ],
-        "status": "single-source",
-        "verification": "one-primary-record",
-        "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "dimension-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "d_nom": {
         "nominal": 30,
@@ -986,25 +1092,92 @@
       "kind": "manufacturer-catalog",
       "edition": null,
       "accessed": "2026-11-26"
+    },
+    "opm936_1985": {
+      "url": "https://opm.ru/din-pdf/DIN-936-ru.pdf",
+      "title": "OPM Herstellerübersetzung DIN936:1985-02",
+      "edition": "1985-02",
+      "locator": "Seite 2, nur abgeglichene m/s-Werte; fehlerhafte Beschriftungen/e-Werte nicht übernommen",
+      "kind": "supplier-standard-translation",
+      "accessed": "2026-11-27"
+    },
+    "din936_register": {
+      "url": "https://www.dinmedia.de/en/standard/din-936/2865627",
+      "title": "DIN Media DIN936:1985-02, zurückgezogen",
+      "edition": "1985-02",
+      "locator": "Ausgabedatum und Status",
+      "kind": "standard-register",
+      "accessed": "2026-11-27"
     }
   },
   "sourceStatus": "per-value",
   "coverage": {
-    "diameterMin": 5,
+    "diameterMin": 8,
     "diameterMax": 30,
     "unit": "mm",
     "status": "partial",
-    "missingSizes": [
-      "M5",
-      "M6",
-      "M7"
-    ],
-    "missingReason": "Keine ausgewerteten Maßnachweise für diese Größen; keine Aussage über Herstellbarkeit oder Lieferbarkeit."
+    "note": "Elf Regelgewindezeilen M8–M30; außerhalb dieses Bereichs und für Feingewinde ist der Maßabgleich noch offen."
   },
-  "editionStatus": "edition-unverified",
+  "editionStatus": "source-edition-matched",
   "threadSeries": "coarse",
   "coverageNotes": [
-    "Zurückgezogene DIN-Geometrie; keine Maßgleichsetzung mit ISO 4035."
+    "Zurückgezogene DIN-Geometrie; keine Maßgleichsetzung mit ISO 4035.",
+    "OPM enthält erkennbare Übertragungsfehler (M16-Spaltenkopf als M18; e-Werte und einzelne Gewinde). Nur mit Bestand übereinstimmende s/m-Maße als Zweitbeleg verwendet. Keine neuen Randgrößen aus diesem fehlerhaften Auszug erzeugt."
   ],
-  "defaultPolicy": "Dokumentierte Kataloghöhe oder ausgewiesenes Höchstmaß als vorläufige Außenhülle; kein vollständiges Fertigteilmodell."
+  "defaultPolicy": "Dokumentierte Kataloghöhe oder ausgewiesenes Höchstmaß als vorläufige Außenhülle; kein vollständiges Fertigteilmodell.",
+  "editionEvidence": {
+    "sourceRefs": [
+      "opm936_1985"
+    ],
+    "method": "supplier-declared-edition-and-matching-subset",
+    "note": "Datenausgabe der ausgewerteten Maßtabelle; aktueller Normstatus wird getrennt geführt."
+  },
+  "pruefdatum": "2026-11-27",
+  "quellen": [
+    {
+      "id": "fastenal936",
+      "url": "https://www.fastenal.com/content/product_specifications/M.936.P.04.pdf",
+      "title": "Fastenal DIN 936 product standard",
+      "locator": "REV-04, 2021-08-27, page 1",
+      "kind": "supplier-product-specification",
+      "edition": null,
+      "accessed": "2026-11-26"
+    },
+    {
+      "id": "iso4032_2023",
+      "url": "https://cdn.standards.iteh.ai/samples/75016/5b1f83bd2dc44fc199973e9957a75086/ISO-4032-2023.pdf",
+      "title": "ISO 4032:2023",
+      "locator": "Tables 1–2, printed page 3",
+      "kind": "standard",
+      "edition": "2023",
+      "accessed": "2026-11-26"
+    },
+    {
+      "id": "wuerth936",
+      "url": "https://marketplacemedia.witglobal.net/source/marketplace/stmedia/wuerth/documents/documents/std.lang.all/29218893.pdf",
+      "title": "Würth DIN 936, left-hand thread",
+      "locator": "CL01_3512122602, Rev. 0.281, 2025-08-12",
+      "kind": "manufacturer-catalog",
+      "edition": null,
+      "accessed": "2026-11-26"
+    },
+    {
+      "id": "opm936_1985",
+      "url": "https://opm.ru/din-pdf/DIN-936-ru.pdf",
+      "title": "OPM Herstellerübersetzung DIN936:1985-02",
+      "edition": "1985-02",
+      "locator": "Seite 2, nur abgeglichene m/s-Werte; fehlerhafte Beschriftungen/e-Werte nicht übernommen",
+      "kind": "supplier-standard-translation",
+      "accessed": "2026-11-27"
+    },
+    {
+      "id": "din936_register",
+      "url": "https://www.dinmedia.de/en/standard/din-936/2865627",
+      "title": "DIN Media DIN936:1985-02, zurückgezogen",
+      "edition": "1985-02",
+      "locator": "Ausgabedatum und Status",
+      "kind": "standard-register",
+      "accessed": "2026-11-27"
+    }
+  ]
 }

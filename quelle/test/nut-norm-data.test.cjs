@@ -14,7 +14,7 @@ test('all requested nut families have bounded, source-linked dimensional records
     assert.equal(f.klasse,'mutter');assert.ok(f.edition);assert.ok(f.editionStatus);
     assert.equal(f.sourceStatus,'per-value');
     for(const [size,row]of Object.entries(f.groessen)){
-      count++;assert.ok(row.roh.d_nom>=5&&row.roh.d_nom<=30,`${f.id} ${size}`);
+      count++;assert.ok(row.roh.d_nom>=f.coverage.diameterMin&&row.roh.d_nom<=f.coverage.diameterMax,`${f.id} ${size}: outside documented coverage`);
       assert.equal(row.thread.diameter,row.roh.d_nom);assert.equal(row.thread.pitch,row.roh.P);
       assert.ok(row.thread.sourceRefs.length);
       for(const [raw,value]of Object.entries(row.roh)){
@@ -31,7 +31,7 @@ test('all requested nut families have bounded, source-linked dimensional records
       }
     }
   }
-  assert.equal(count,366);
+  assert.ok(count>=444,'documented edge sizes must not disappear from the library');
 });
 
 test('DIN and ISO dimensions remain distinct, including thin nuts',()=>{
@@ -79,7 +79,49 @@ test('historical locking editions do not claim the revised 2025 dimensions',()=>
     assert.ok(f.editionSourceRefs.every(ref=>f.sourceMeta[ref]));
   }
   assert.equal(byId.ISO7040.groessen.M5.vorbelegung.mH,6.8);
-  assert.equal(byId.DIN557.edition,'catalog-undated');assert.equal(byId.DIN557.currentEdition,'2026-02');
+  assert.equal(byId.DIN557.edition,'1994-01');assert.equal(byId.DIN557.currentEdition,'2026-02');
+});
+
+test('dated nut tables correct dimensions without relabelling supplier extras as standard rows',()=>{
+  assert.equal(byId.DIN562.edition,'2013-05');
+  assert.equal(byId.DIN562.groessen.M10.vorbelegung.mSW,16);
+  assert.equal(byId.DIN557.groessen.M10.vorbelegung.mSW,17,'the historical DIN557 table is retained separately');
+  assert.equal(byId.DIN934.groessen.M1.roh.P,0.25);
+  assert.equal(byId.DIN934.groessen['M100x6'].vorbelegung.mSW,145);
+  assert.equal(byId.DIN985.groessen.M48.vorbelegung.mH,48);
+  assert.equal(byId.DIN934.groessen['M8x0.5'].standardMatrixMembership,false);
+  assert.equal(byId.DIN1587.groessen.M27.standardMatrixMembership,false);
+  assert.equal(byId.DIN928.groessen.M16.roh.e_min,32);
+  assert.equal(byId.DIN928.groessen['M14x1.5'].vorbelegung.mH,11,'2013 correction wins over the older 11.4 manufacturer value');
+  assert.equal(byId.DIN929.groessen.M14.vorbelegung.mSW,22);
+  assert.equal(byId.DIN929.groessen['M12x1.25'].roh.e_min,20.91);
+  assert.equal(byId.DIN929.groessen['M12x1.25'].dataEdition,'manufacturer-table-undated');
+});
+
+test('thread engagement depth is not an invented cap cavity or a second height source',()=>{
+  const cap=byId.DIN1587.groessen.M10;
+  assert.ok(cap.roh.threadDepth_min>0);
+  assert.equal(cap.vorbelegung.mLoch,undefined);
+  assert.ok(cap.missingGeometryFields.includes('blindHoleDepth'));
+  assert.deepEqual(byId.DIN6927.fields.M8.h_max.sourceRefs,['ugatu6927']);
+  assert.equal(byId.DIN6927.fields.M8.h_max.status,'single-source');
+});
+
+test('undated locking-nut dimensions do not inherit the dated comparison-table edition',()=>{
+  const f=byId.DIN6927;
+  const undatedRows=Object.entries(f.groessen).filter(([size])=>size==='M5'||size.includes('x'));
+  assert.equal(undatedRows.length,8);
+  for(const [,row]of undatedRows){
+    assert.equal(row.dataEdition,'manufacturer-table-undated');
+    assert.match(row.note,/UGATU/);
+  }
+  for(const size of Object.keys(f.groessen)){
+    assert.equal(f.fields[size].h_max.dataEdition,'manufacturer-table-undated');
+    assert.deepEqual(f.fields[size].h_max.sourceRefs,['ugatu6927']);
+    assert.equal(f.fields[size].h_max.status,'single-source');
+  }
+  assert.equal(f.edition,'1983-11');
+  assert.equal(f.fields.M8.s_nom.status,'verified','the dated matched subset retains its evidence');
 });
 
 test('unresolved special geometry is exposed without invented holes, inserts or cap depths',()=>{

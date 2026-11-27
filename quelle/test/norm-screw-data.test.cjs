@@ -38,6 +38,6 @@ test('a missing size never means a norm prohibition; invalid reference is not a 
 });
 test('historical dimensions and fine thread scopes are never silently modernized',()=>{
  assert.equal(read('ISO10642').edition,'1997');assert.equal(read('ISO10642').currentEdition,'2026');
- assert.equal(read('ISO14579').edition,'2001');assert.deepEqual(read('ISO8676').groessen.M10.steigungen,[1.25,1]);
+ assert.equal(read('ISO14579').edition,'2011');assert.ok(read('ISO14579').fields.M6.k_max.sourceRefs.includes('iteh14579_2011'));assert.deepEqual(read('ISO8676').groessen.M10.steigungen,[1.25,1]);
  assert.equal(read('ISO7046').part,'ISO7046-1');assert.ok(read('ISO7046').groessen.M6.missingGeometryFields.includes('recessVolumeModel'));
 });

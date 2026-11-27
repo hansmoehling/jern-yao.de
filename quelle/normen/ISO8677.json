@@ -44,14 +44,395 @@
         "b_gt200": null
       },
       "coverage": "documented",
-      "lengthCoverage": "unresearched",
+      "lengthCoverage": "partial",
       "geometryStatus": "partial",
       "missingGeometryFields": [
         "length",
         "squareNeckTransition",
         "headProfileDefinition"
       ],
-      "nachLaenge": {}
+      "nachLaenge": {
+        "20": {
+          "coverage": "documented",
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "squareNeckTransition",
+            "headProfileDefinition"
+          ],
+          "vorbelegung": {
+            "sL": 20
+          },
+          "roh": {
+            "nominalLength": 20
+          },
+          "fields": {
+            "sL": {
+              "nominal": 20,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso1986"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            },
+            "nominalLength": {
+              "nominal": 20,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso1986"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            }
+          },
+          "shaftPolicy": "shaft-v2",
+          "lengthEvidence": {
+            "kind": "standard-matrix",
+            "edition": "1986",
+            "sourceRefs": [
+              "iso1986"
+            ],
+            "verification": false,
+            "nominalOnly": true,
+            "note": "Original Tabelle S.3. Keine Schaftaufteilung aus widersprüchlichen b-Gruppen/Tabellenzeilen abgeleitet; Vierkantansatz und Kopfkontur bleiben separat offen."
+          }
+        },
+        "25": {
+          "coverage": "documented",
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "squareNeckTransition",
+            "headProfileDefinition"
+          ],
+          "vorbelegung": {
+            "sL": 25
+          },
+          "roh": {
+            "nominalLength": 25
+          },
+          "fields": {
+            "sL": {
+              "nominal": 25,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso1986"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            },
+            "nominalLength": {
+              "nominal": 25,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso1986"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            }
+          },
+          "shaftPolicy": "shaft-v2",
+          "lengthEvidence": {
+            "kind": "standard-matrix",
+            "edition": "1986",
+            "sourceRefs": [
+              "iso1986"
+            ],
+            "verification": false,
+            "nominalOnly": true,
+            "note": "Original Tabelle S.3. Keine Schaftaufteilung aus widersprüchlichen b-Gruppen/Tabellenzeilen abgeleitet; Vierkantansatz und Kopfkontur bleiben separat offen."
+          }
+        },
+        "30": {
+          "coverage": "documented",
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "squareNeckTransition",
+            "headProfileDefinition"
+          ],
+          "vorbelegung": {
+            "sL": 30
+          },
+          "roh": {
+            "nominalLength": 30
+          },
+          "fields": {
+            "sL": {
+              "nominal": 30,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso1986"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            },
+            "nominalLength": {
+              "nominal": 30,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso1986"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            }
+          },
+          "shaftPolicy": "shaft-v2",
+          "lengthEvidence": {
+            "kind": "standard-matrix",
+            "edition": "1986",
+            "sourceRefs": [
+              "iso1986"
+            ],
+            "verification": false,
+            "nominalOnly": true,
+            "note": "Original Tabelle S.3. Keine Schaftaufteilung aus widersprüchlichen b-Gruppen/Tabellenzeilen abgeleitet; Vierkantansatz und Kopfkontur bleiben separat offen."
+          }
+        },
+        "35": {
+          "coverage": "documented",
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "squareNeckTransition",
+            "headProfileDefinition"
+          ],
+          "vorbelegung": {
+            "sL": 35
+          },
+          "roh": {
+            "nominalLength": 35
+          },
+          "fields": {
+            "sL": {
+              "nominal": 35,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso1986"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            },
+            "nominalLength": {
+              "nominal": 35,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso1986"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            }
+          },
+          "shaftPolicy": "shaft-v2",
+          "lengthEvidence": {
+            "kind": "standard-matrix",
+            "edition": "1986",
+            "sourceRefs": [
+              "iso1986"
+            ],
+            "verification": false,
+            "nominalOnly": true,
+            "note": "Original Tabelle S.3. Keine Schaftaufteilung aus widersprüchlichen b-Gruppen/Tabellenzeilen abgeleitet; Vierkantansatz und Kopfkontur bleiben separat offen."
+          }
+        },
+        "40": {
+          "coverage": "documented",
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "squareNeckTransition",
+            "headProfileDefinition"
+          ],
+          "vorbelegung": {
+            "sL": 40
+          },
+          "roh": {
+            "nominalLength": 40
+          },
+          "fields": {
+            "sL": {
+              "nominal": 40,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso1986"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            },
+            "nominalLength": {
+              "nominal": 40,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso1986"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            }
+          },
+          "shaftPolicy": "shaft-v2",
+          "lengthEvidence": {
+            "kind": "standard-matrix",
+            "edition": "1986",
+            "sourceRefs": [
+              "iso1986"
+            ],
+            "verification": false,
+            "nominalOnly": true,
+            "note": "Original Tabelle S.3. Keine Schaftaufteilung aus widersprüchlichen b-Gruppen/Tabellenzeilen abgeleitet; Vierkantansatz und Kopfkontur bleiben separat offen."
+          }
+        },
+        "45": {
+          "coverage": "documented",
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "squareNeckTransition",
+            "headProfileDefinition"
+          ],
+          "vorbelegung": {
+            "sL": 45
+          },
+          "roh": {
+            "nominalLength": 45
+          },
+          "fields": {
+            "sL": {
+              "nominal": 45,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso1986"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            },
+            "nominalLength": {
+              "nominal": 45,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso1986"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            }
+          },
+          "shaftPolicy": "shaft-v2",
+          "lengthEvidence": {
+            "kind": "standard-matrix",
+            "edition": "1986",
+            "sourceRefs": [
+              "iso1986"
+            ],
+            "verification": false,
+            "nominalOnly": true,
+            "note": "Original Tabelle S.3. Keine Schaftaufteilung aus widersprüchlichen b-Gruppen/Tabellenzeilen abgeleitet; Vierkantansatz und Kopfkontur bleiben separat offen."
+          }
+        },
+        "50": {
+          "coverage": "documented",
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "squareNeckTransition",
+            "headProfileDefinition"
+          ],
+          "vorbelegung": {
+            "sL": 50
+          },
+          "roh": {
+            "nominalLength": 50
+          },
+          "fields": {
+            "sL": {
+              "nominal": 50,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso1986"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            },
+            "nominalLength": {
+              "nominal": 50,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso1986"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            }
+          },
+          "shaftPolicy": "shaft-v2",
+          "lengthEvidence": {
+            "kind": "standard-matrix",
+            "edition": "1986",
+            "sourceRefs": [
+              "iso1986"
+            ],
+            "verification": false,
+            "nominalOnly": true,
+            "note": "Original Tabelle S.3. Keine Schaftaufteilung aus widersprüchlichen b-Gruppen/Tabellenzeilen abgeleitet; Vierkantansatz und Kopfkontur bleiben separat offen."
+          }
+        }
+      },
+      "laengen": [
+        20,
+        25,
+        30,
+        35,
+        40,
+        45,
+        50
+      ]
     },
     "M6": {
       "vorbelegung": {
@@ -78,14 +459,395 @@
         "b_gt200": null
       },
       "coverage": "documented",
-      "lengthCoverage": "unresearched",
+      "lengthCoverage": "partial",
       "geometryStatus": "partial",
       "missingGeometryFields": [
         "length",
         "squareNeckTransition",
         "headProfileDefinition"
       ],
-      "nachLaenge": {}
+      "nachLaenge": {
+        "30": {
+          "coverage": "documented",
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "squareNeckTransition",
+            "headProfileDefinition"
+          ],
+          "vorbelegung": {
+            "sL": 30
+          },
+          "roh": {
+            "nominalLength": 30
+          },
+          "fields": {
+            "sL": {
+              "nominal": 30,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso1986"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            },
+            "nominalLength": {
+              "nominal": 30,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso1986"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            }
+          },
+          "shaftPolicy": "shaft-v2",
+          "lengthEvidence": {
+            "kind": "standard-matrix",
+            "edition": "1986",
+            "sourceRefs": [
+              "iso1986"
+            ],
+            "verification": false,
+            "nominalOnly": true,
+            "note": "Original Tabelle S.3. Keine Schaftaufteilung aus widersprüchlichen b-Gruppen/Tabellenzeilen abgeleitet; Vierkantansatz und Kopfkontur bleiben separat offen."
+          }
+        },
+        "35": {
+          "coverage": "documented",
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "squareNeckTransition",
+            "headProfileDefinition"
+          ],
+          "vorbelegung": {
+            "sL": 35
+          },
+          "roh": {
+            "nominalLength": 35
+          },
+          "fields": {
+            "sL": {
+              "nominal": 35,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso1986"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            },
+            "nominalLength": {
+              "nominal": 35,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso1986"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            }
+          },
+          "shaftPolicy": "shaft-v2",
+          "lengthEvidence": {
+            "kind": "standard-matrix",
+            "edition": "1986",
+            "sourceRefs": [
+              "iso1986"
+            ],
+            "verification": false,
+            "nominalOnly": true,
+            "note": "Original Tabelle S.3. Keine Schaftaufteilung aus widersprüchlichen b-Gruppen/Tabellenzeilen abgeleitet; Vierkantansatz und Kopfkontur bleiben separat offen."
+          }
+        },
+        "40": {
+          "coverage": "documented",
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "squareNeckTransition",
+            "headProfileDefinition"
+          ],
+          "vorbelegung": {
+            "sL": 40
+          },
+          "roh": {
+            "nominalLength": 40
+          },
+          "fields": {
+            "sL": {
+              "nominal": 40,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso1986"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            },
+            "nominalLength": {
+              "nominal": 40,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso1986"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            }
+          },
+          "shaftPolicy": "shaft-v2",
+          "lengthEvidence": {
+            "kind": "standard-matrix",
+            "edition": "1986",
+            "sourceRefs": [
+              "iso1986"
+            ],
+            "verification": false,
+            "nominalOnly": true,
+            "note": "Original Tabelle S.3. Keine Schaftaufteilung aus widersprüchlichen b-Gruppen/Tabellenzeilen abgeleitet; Vierkantansatz und Kopfkontur bleiben separat offen."
+          }
+        },
+        "45": {
+          "coverage": "documented",
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "squareNeckTransition",
+            "headProfileDefinition"
+          ],
+          "vorbelegung": {
+            "sL": 45
+          },
+          "roh": {
+            "nominalLength": 45
+          },
+          "fields": {
+            "sL": {
+              "nominal": 45,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso1986"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            },
+            "nominalLength": {
+              "nominal": 45,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso1986"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            }
+          },
+          "shaftPolicy": "shaft-v2",
+          "lengthEvidence": {
+            "kind": "standard-matrix",
+            "edition": "1986",
+            "sourceRefs": [
+              "iso1986"
+            ],
+            "verification": false,
+            "nominalOnly": true,
+            "note": "Original Tabelle S.3. Keine Schaftaufteilung aus widersprüchlichen b-Gruppen/Tabellenzeilen abgeleitet; Vierkantansatz und Kopfkontur bleiben separat offen."
+          }
+        },
+        "50": {
+          "coverage": "documented",
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "squareNeckTransition",
+            "headProfileDefinition"
+          ],
+          "vorbelegung": {
+            "sL": 50
+          },
+          "roh": {
+            "nominalLength": 50
+          },
+          "fields": {
+            "sL": {
+              "nominal": 50,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso1986"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            },
+            "nominalLength": {
+              "nominal": 50,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso1986"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            }
+          },
+          "shaftPolicy": "shaft-v2",
+          "lengthEvidence": {
+            "kind": "standard-matrix",
+            "edition": "1986",
+            "sourceRefs": [
+              "iso1986"
+            ],
+            "verification": false,
+            "nominalOnly": true,
+            "note": "Original Tabelle S.3. Keine Schaftaufteilung aus widersprüchlichen b-Gruppen/Tabellenzeilen abgeleitet; Vierkantansatz und Kopfkontur bleiben separat offen."
+          }
+        },
+        "55": {
+          "coverage": "documented",
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "squareNeckTransition",
+            "headProfileDefinition"
+          ],
+          "vorbelegung": {
+            "sL": 55
+          },
+          "roh": {
+            "nominalLength": 55
+          },
+          "fields": {
+            "sL": {
+              "nominal": 55,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso1986"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            },
+            "nominalLength": {
+              "nominal": 55,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso1986"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            }
+          },
+          "shaftPolicy": "shaft-v2",
+          "lengthEvidence": {
+            "kind": "standard-matrix",
+            "edition": "1986",
+            "sourceRefs": [
+              "iso1986"
+            ],
+            "verification": false,
+            "nominalOnly": true,
+            "note": "Original Tabelle S.3. Keine Schaftaufteilung aus widersprüchlichen b-Gruppen/Tabellenzeilen abgeleitet; Vierkantansatz und Kopfkontur bleiben separat offen."
+          }
+        },
+        "60": {
+          "coverage": "documented",
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "squareNeckTransition",
+            "headProfileDefinition"
+          ],
+          "vorbelegung": {
+            "sL": 60
+          },
+          "roh": {
+            "nominalLength": 60
+          },
+          "fields": {
+            "sL": {
+              "nominal": 60,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso1986"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            },
+            "nominalLength": {
+              "nominal": 60,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso1986"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            }
+          },
+          "shaftPolicy": "shaft-v2",
+          "lengthEvidence": {
+            "kind": "standard-matrix",
+            "edition": "1986",
+            "sourceRefs": [
+              "iso1986"
+            ],
+            "verification": false,
+            "nominalOnly": true,
+            "note": "Original Tabelle S.3. Keine Schaftaufteilung aus widersprüchlichen b-Gruppen/Tabellenzeilen abgeleitet; Vierkantansatz und Kopfkontur bleiben separat offen."
+          }
+        }
+      },
+      "laengen": [
+        30,
+        35,
+        40,
+        45,
+        50,
+        55,
+        60
+      ]
     },
     "M8": {
       "vorbelegung": {
@@ -112,14 +874,503 @@
         "b_gt200": null
       },
       "coverage": "documented",
-      "lengthCoverage": "unresearched",
+      "lengthCoverage": "partial",
       "geometryStatus": "partial",
       "missingGeometryFields": [
         "length",
         "squareNeckTransition",
         "headProfileDefinition"
       ],
-      "nachLaenge": {}
+      "nachLaenge": {
+        "40": {
+          "coverage": "documented",
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "squareNeckTransition",
+            "headProfileDefinition"
+          ],
+          "vorbelegung": {
+            "sL": 40
+          },
+          "roh": {
+            "nominalLength": 40
+          },
+          "fields": {
+            "sL": {
+              "nominal": 40,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso1986"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            },
+            "nominalLength": {
+              "nominal": 40,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso1986"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            }
+          },
+          "shaftPolicy": "shaft-v2",
+          "lengthEvidence": {
+            "kind": "standard-matrix",
+            "edition": "1986",
+            "sourceRefs": [
+              "iso1986"
+            ],
+            "verification": false,
+            "nominalOnly": true,
+            "note": "Original Tabelle S.3. Keine Schaftaufteilung aus widersprüchlichen b-Gruppen/Tabellenzeilen abgeleitet; Vierkantansatz und Kopfkontur bleiben separat offen."
+          }
+        },
+        "45": {
+          "coverage": "documented",
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "squareNeckTransition",
+            "headProfileDefinition"
+          ],
+          "vorbelegung": {
+            "sL": 45
+          },
+          "roh": {
+            "nominalLength": 45
+          },
+          "fields": {
+            "sL": {
+              "nominal": 45,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso1986"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            },
+            "nominalLength": {
+              "nominal": 45,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso1986"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            }
+          },
+          "shaftPolicy": "shaft-v2",
+          "lengthEvidence": {
+            "kind": "standard-matrix",
+            "edition": "1986",
+            "sourceRefs": [
+              "iso1986"
+            ],
+            "verification": false,
+            "nominalOnly": true,
+            "note": "Original Tabelle S.3. Keine Schaftaufteilung aus widersprüchlichen b-Gruppen/Tabellenzeilen abgeleitet; Vierkantansatz und Kopfkontur bleiben separat offen."
+          }
+        },
+        "50": {
+          "coverage": "documented",
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "squareNeckTransition",
+            "headProfileDefinition"
+          ],
+          "vorbelegung": {
+            "sL": 50
+          },
+          "roh": {
+            "nominalLength": 50
+          },
+          "fields": {
+            "sL": {
+              "nominal": 50,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso1986"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            },
+            "nominalLength": {
+              "nominal": 50,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso1986"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            }
+          },
+          "shaftPolicy": "shaft-v2",
+          "lengthEvidence": {
+            "kind": "standard-matrix",
+            "edition": "1986",
+            "sourceRefs": [
+              "iso1986"
+            ],
+            "verification": false,
+            "nominalOnly": true,
+            "note": "Original Tabelle S.3. Keine Schaftaufteilung aus widersprüchlichen b-Gruppen/Tabellenzeilen abgeleitet; Vierkantansatz und Kopfkontur bleiben separat offen."
+          }
+        },
+        "55": {
+          "coverage": "documented",
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "squareNeckTransition",
+            "headProfileDefinition"
+          ],
+          "vorbelegung": {
+            "sL": 55
+          },
+          "roh": {
+            "nominalLength": 55
+          },
+          "fields": {
+            "sL": {
+              "nominal": 55,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso1986"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            },
+            "nominalLength": {
+              "nominal": 55,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso1986"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            }
+          },
+          "shaftPolicy": "shaft-v2",
+          "lengthEvidence": {
+            "kind": "standard-matrix",
+            "edition": "1986",
+            "sourceRefs": [
+              "iso1986"
+            ],
+            "verification": false,
+            "nominalOnly": true,
+            "note": "Original Tabelle S.3. Keine Schaftaufteilung aus widersprüchlichen b-Gruppen/Tabellenzeilen abgeleitet; Vierkantansatz und Kopfkontur bleiben separat offen."
+          }
+        },
+        "60": {
+          "coverage": "documented",
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "squareNeckTransition",
+            "headProfileDefinition"
+          ],
+          "vorbelegung": {
+            "sL": 60
+          },
+          "roh": {
+            "nominalLength": 60
+          },
+          "fields": {
+            "sL": {
+              "nominal": 60,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso1986"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            },
+            "nominalLength": {
+              "nominal": 60,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso1986"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            }
+          },
+          "shaftPolicy": "shaft-v2",
+          "lengthEvidence": {
+            "kind": "standard-matrix",
+            "edition": "1986",
+            "sourceRefs": [
+              "iso1986"
+            ],
+            "verification": false,
+            "nominalOnly": true,
+            "note": "Original Tabelle S.3. Keine Schaftaufteilung aus widersprüchlichen b-Gruppen/Tabellenzeilen abgeleitet; Vierkantansatz und Kopfkontur bleiben separat offen."
+          }
+        },
+        "65": {
+          "coverage": "documented",
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "squareNeckTransition",
+            "headProfileDefinition"
+          ],
+          "vorbelegung": {
+            "sL": 65
+          },
+          "roh": {
+            "nominalLength": 65
+          },
+          "fields": {
+            "sL": {
+              "nominal": 65,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso1986"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            },
+            "nominalLength": {
+              "nominal": 65,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso1986"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            }
+          },
+          "shaftPolicy": "shaft-v2",
+          "lengthEvidence": {
+            "kind": "standard-matrix",
+            "edition": "1986",
+            "sourceRefs": [
+              "iso1986"
+            ],
+            "verification": false,
+            "nominalOnly": true,
+            "note": "Original Tabelle S.3. Keine Schaftaufteilung aus widersprüchlichen b-Gruppen/Tabellenzeilen abgeleitet; Vierkantansatz und Kopfkontur bleiben separat offen."
+          }
+        },
+        "70": {
+          "coverage": "documented",
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "squareNeckTransition",
+            "headProfileDefinition"
+          ],
+          "vorbelegung": {
+            "sL": 70
+          },
+          "roh": {
+            "nominalLength": 70
+          },
+          "fields": {
+            "sL": {
+              "nominal": 70,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso1986"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            },
+            "nominalLength": {
+              "nominal": 70,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso1986"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            }
+          },
+          "shaftPolicy": "shaft-v2",
+          "lengthEvidence": {
+            "kind": "standard-matrix",
+            "edition": "1986",
+            "sourceRefs": [
+              "iso1986"
+            ],
+            "verification": false,
+            "nominalOnly": true,
+            "note": "Original Tabelle S.3. Keine Schaftaufteilung aus widersprüchlichen b-Gruppen/Tabellenzeilen abgeleitet; Vierkantansatz und Kopfkontur bleiben separat offen."
+          }
+        },
+        "75": {
+          "coverage": "documented",
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "squareNeckTransition",
+            "headProfileDefinition"
+          ],
+          "vorbelegung": {
+            "sL": 75
+          },
+          "roh": {
+            "nominalLength": 75
+          },
+          "fields": {
+            "sL": {
+              "nominal": 75,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso1986"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            },
+            "nominalLength": {
+              "nominal": 75,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso1986"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            }
+          },
+          "shaftPolicy": "shaft-v2",
+          "lengthEvidence": {
+            "kind": "standard-matrix",
+            "edition": "1986",
+            "sourceRefs": [
+              "iso1986"
+            ],
+            "verification": false,
+            "nominalOnly": true,
+            "note": "Original Tabelle S.3. Keine Schaftaufteilung aus widersprüchlichen b-Gruppen/Tabellenzeilen abgeleitet; Vierkantansatz und Kopfkontur bleiben separat offen."
+          }
+        },
+        "80": {
+          "coverage": "documented",
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "squareNeckTransition",
+            "headProfileDefinition"
+          ],
+          "vorbelegung": {
+            "sL": 80
+          },
+          "roh": {
+            "nominalLength": 80
+          },
+          "fields": {
+            "sL": {
+              "nominal": 80,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso1986"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            },
+            "nominalLength": {
+              "nominal": 80,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso1986"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            }
+          },
+          "shaftPolicy": "shaft-v2",
+          "lengthEvidence": {
+            "kind": "standard-matrix",
+            "edition": "1986",
+            "sourceRefs": [
+              "iso1986"
+            ],
+            "verification": false,
+            "nominalOnly": true,
+            "note": "Original Tabelle S.3. Keine Schaftaufteilung aus widersprüchlichen b-Gruppen/Tabellenzeilen abgeleitet; Vierkantansatz und Kopfkontur bleiben separat offen."
+          }
+        }
+      },
+      "laengen": [
+        40,
+        45,
+        50,
+        55,
+        60,
+        65,
+        70,
+        75,
+        80
+      ]
     },
     "M10": {
       "vorbelegung": {
@@ -146,14 +1397,557 @@
         "b_gt200": null
       },
       "coverage": "documented",
-      "lengthCoverage": "unresearched",
+      "lengthCoverage": "partial",
       "geometryStatus": "partial",
       "missingGeometryFields": [
         "length",
         "squareNeckTransition",
         "headProfileDefinition"
       ],
-      "nachLaenge": {}
+      "nachLaenge": {
+        "45": {
+          "coverage": "documented",
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "squareNeckTransition",
+            "headProfileDefinition"
+          ],
+          "vorbelegung": {
+            "sL": 45
+          },
+          "roh": {
+            "nominalLength": 45
+          },
+          "fields": {
+            "sL": {
+              "nominal": 45,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso1986"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            },
+            "nominalLength": {
+              "nominal": 45,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso1986"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            }
+          },
+          "shaftPolicy": "shaft-v2",
+          "lengthEvidence": {
+            "kind": "standard-matrix",
+            "edition": "1986",
+            "sourceRefs": [
+              "iso1986"
+            ],
+            "verification": false,
+            "nominalOnly": true,
+            "note": "Original Tabelle S.3. Keine Schaftaufteilung aus widersprüchlichen b-Gruppen/Tabellenzeilen abgeleitet; Vierkantansatz und Kopfkontur bleiben separat offen."
+          }
+        },
+        "50": {
+          "coverage": "documented",
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "squareNeckTransition",
+            "headProfileDefinition"
+          ],
+          "vorbelegung": {
+            "sL": 50
+          },
+          "roh": {
+            "nominalLength": 50
+          },
+          "fields": {
+            "sL": {
+              "nominal": 50,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso1986"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            },
+            "nominalLength": {
+              "nominal": 50,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso1986"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            }
+          },
+          "shaftPolicy": "shaft-v2",
+          "lengthEvidence": {
+            "kind": "standard-matrix",
+            "edition": "1986",
+            "sourceRefs": [
+              "iso1986"
+            ],
+            "verification": false,
+            "nominalOnly": true,
+            "note": "Original Tabelle S.3. Keine Schaftaufteilung aus widersprüchlichen b-Gruppen/Tabellenzeilen abgeleitet; Vierkantansatz und Kopfkontur bleiben separat offen."
+          }
+        },
+        "55": {
+          "coverage": "documented",
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "squareNeckTransition",
+            "headProfileDefinition"
+          ],
+          "vorbelegung": {
+            "sL": 55
+          },
+          "roh": {
+            "nominalLength": 55
+          },
+          "fields": {
+            "sL": {
+              "nominal": 55,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso1986"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            },
+            "nominalLength": {
+              "nominal": 55,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso1986"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            }
+          },
+          "shaftPolicy": "shaft-v2",
+          "lengthEvidence": {
+            "kind": "standard-matrix",
+            "edition": "1986",
+            "sourceRefs": [
+              "iso1986"
+            ],
+            "verification": false,
+            "nominalOnly": true,
+            "note": "Original Tabelle S.3. Keine Schaftaufteilung aus widersprüchlichen b-Gruppen/Tabellenzeilen abgeleitet; Vierkantansatz und Kopfkontur bleiben separat offen."
+          }
+        },
+        "60": {
+          "coverage": "documented",
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "squareNeckTransition",
+            "headProfileDefinition"
+          ],
+          "vorbelegung": {
+            "sL": 60
+          },
+          "roh": {
+            "nominalLength": 60
+          },
+          "fields": {
+            "sL": {
+              "nominal": 60,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso1986"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            },
+            "nominalLength": {
+              "nominal": 60,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso1986"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            }
+          },
+          "shaftPolicy": "shaft-v2",
+          "lengthEvidence": {
+            "kind": "standard-matrix",
+            "edition": "1986",
+            "sourceRefs": [
+              "iso1986"
+            ],
+            "verification": false,
+            "nominalOnly": true,
+            "note": "Original Tabelle S.3. Keine Schaftaufteilung aus widersprüchlichen b-Gruppen/Tabellenzeilen abgeleitet; Vierkantansatz und Kopfkontur bleiben separat offen."
+          }
+        },
+        "65": {
+          "coverage": "documented",
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "squareNeckTransition",
+            "headProfileDefinition"
+          ],
+          "vorbelegung": {
+            "sL": 65
+          },
+          "roh": {
+            "nominalLength": 65
+          },
+          "fields": {
+            "sL": {
+              "nominal": 65,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso1986"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            },
+            "nominalLength": {
+              "nominal": 65,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso1986"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            }
+          },
+          "shaftPolicy": "shaft-v2",
+          "lengthEvidence": {
+            "kind": "standard-matrix",
+            "edition": "1986",
+            "sourceRefs": [
+              "iso1986"
+            ],
+            "verification": false,
+            "nominalOnly": true,
+            "note": "Original Tabelle S.3. Keine Schaftaufteilung aus widersprüchlichen b-Gruppen/Tabellenzeilen abgeleitet; Vierkantansatz und Kopfkontur bleiben separat offen."
+          }
+        },
+        "70": {
+          "coverage": "documented",
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "squareNeckTransition",
+            "headProfileDefinition"
+          ],
+          "vorbelegung": {
+            "sL": 70
+          },
+          "roh": {
+            "nominalLength": 70
+          },
+          "fields": {
+            "sL": {
+              "nominal": 70,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso1986"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            },
+            "nominalLength": {
+              "nominal": 70,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso1986"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            }
+          },
+          "shaftPolicy": "shaft-v2",
+          "lengthEvidence": {
+            "kind": "standard-matrix",
+            "edition": "1986",
+            "sourceRefs": [
+              "iso1986"
+            ],
+            "verification": false,
+            "nominalOnly": true,
+            "note": "Original Tabelle S.3. Keine Schaftaufteilung aus widersprüchlichen b-Gruppen/Tabellenzeilen abgeleitet; Vierkantansatz und Kopfkontur bleiben separat offen."
+          }
+        },
+        "75": {
+          "coverage": "documented",
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "squareNeckTransition",
+            "headProfileDefinition"
+          ],
+          "vorbelegung": {
+            "sL": 75
+          },
+          "roh": {
+            "nominalLength": 75
+          },
+          "fields": {
+            "sL": {
+              "nominal": 75,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso1986"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            },
+            "nominalLength": {
+              "nominal": 75,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso1986"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            }
+          },
+          "shaftPolicy": "shaft-v2",
+          "lengthEvidence": {
+            "kind": "standard-matrix",
+            "edition": "1986",
+            "sourceRefs": [
+              "iso1986"
+            ],
+            "verification": false,
+            "nominalOnly": true,
+            "note": "Original Tabelle S.3. Keine Schaftaufteilung aus widersprüchlichen b-Gruppen/Tabellenzeilen abgeleitet; Vierkantansatz und Kopfkontur bleiben separat offen."
+          }
+        },
+        "80": {
+          "coverage": "documented",
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "squareNeckTransition",
+            "headProfileDefinition"
+          ],
+          "vorbelegung": {
+            "sL": 80
+          },
+          "roh": {
+            "nominalLength": 80
+          },
+          "fields": {
+            "sL": {
+              "nominal": 80,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso1986"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            },
+            "nominalLength": {
+              "nominal": 80,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso1986"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            }
+          },
+          "shaftPolicy": "shaft-v2",
+          "lengthEvidence": {
+            "kind": "standard-matrix",
+            "edition": "1986",
+            "sourceRefs": [
+              "iso1986"
+            ],
+            "verification": false,
+            "nominalOnly": true,
+            "note": "Original Tabelle S.3. Keine Schaftaufteilung aus widersprüchlichen b-Gruppen/Tabellenzeilen abgeleitet; Vierkantansatz und Kopfkontur bleiben separat offen."
+          }
+        },
+        "90": {
+          "coverage": "documented",
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "squareNeckTransition",
+            "headProfileDefinition"
+          ],
+          "vorbelegung": {
+            "sL": 90
+          },
+          "roh": {
+            "nominalLength": 90
+          },
+          "fields": {
+            "sL": {
+              "nominal": 90,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso1986"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            },
+            "nominalLength": {
+              "nominal": 90,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso1986"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            }
+          },
+          "shaftPolicy": "shaft-v2",
+          "lengthEvidence": {
+            "kind": "standard-matrix",
+            "edition": "1986",
+            "sourceRefs": [
+              "iso1986"
+            ],
+            "verification": false,
+            "nominalOnly": true,
+            "note": "Original Tabelle S.3. Keine Schaftaufteilung aus widersprüchlichen b-Gruppen/Tabellenzeilen abgeleitet; Vierkantansatz und Kopfkontur bleiben separat offen."
+          }
+        },
+        "100": {
+          "coverage": "documented",
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "squareNeckTransition",
+            "headProfileDefinition"
+          ],
+          "vorbelegung": {
+            "sL": 100
+          },
+          "roh": {
+            "nominalLength": 100
+          },
+          "fields": {
+            "sL": {
+              "nominal": 100,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso1986"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            },
+            "nominalLength": {
+              "nominal": 100,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso1986"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            }
+          },
+          "shaftPolicy": "shaft-v2",
+          "lengthEvidence": {
+            "kind": "standard-matrix",
+            "edition": "1986",
+            "sourceRefs": [
+              "iso1986"
+            ],
+            "verification": false,
+            "nominalOnly": true,
+            "note": "Original Tabelle S.3. Keine Schaftaufteilung aus widersprüchlichen b-Gruppen/Tabellenzeilen abgeleitet; Vierkantansatz und Kopfkontur bleiben separat offen."
+          }
+        }
+      },
+      "laengen": [
+        45,
+        50,
+        55,
+        60,
+        65,
+        70,
+        75,
+        80,
+        90,
+        100
+      ]
     },
     "M12": {
       "vorbelegung": {
@@ -180,14 +1974,557 @@
         "b_gt200": null
       },
       "coverage": "documented",
-      "lengthCoverage": "unresearched",
+      "lengthCoverage": "partial",
       "geometryStatus": "partial",
       "missingGeometryFields": [
         "length",
         "squareNeckTransition",
         "headProfileDefinition"
       ],
-      "nachLaenge": {}
+      "nachLaenge": {
+        "55": {
+          "coverage": "documented",
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "squareNeckTransition",
+            "headProfileDefinition"
+          ],
+          "vorbelegung": {
+            "sL": 55
+          },
+          "roh": {
+            "nominalLength": 55
+          },
+          "fields": {
+            "sL": {
+              "nominal": 55,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso1986"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            },
+            "nominalLength": {
+              "nominal": 55,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso1986"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            }
+          },
+          "shaftPolicy": "shaft-v2",
+          "lengthEvidence": {
+            "kind": "standard-matrix",
+            "edition": "1986",
+            "sourceRefs": [
+              "iso1986"
+            ],
+            "verification": false,
+            "nominalOnly": true,
+            "note": "Original Tabelle S.3. Keine Schaftaufteilung aus widersprüchlichen b-Gruppen/Tabellenzeilen abgeleitet; Vierkantansatz und Kopfkontur bleiben separat offen."
+          }
+        },
+        "60": {
+          "coverage": "documented",
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "squareNeckTransition",
+            "headProfileDefinition"
+          ],
+          "vorbelegung": {
+            "sL": 60
+          },
+          "roh": {
+            "nominalLength": 60
+          },
+          "fields": {
+            "sL": {
+              "nominal": 60,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso1986"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            },
+            "nominalLength": {
+              "nominal": 60,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso1986"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            }
+          },
+          "shaftPolicy": "shaft-v2",
+          "lengthEvidence": {
+            "kind": "standard-matrix",
+            "edition": "1986",
+            "sourceRefs": [
+              "iso1986"
+            ],
+            "verification": false,
+            "nominalOnly": true,
+            "note": "Original Tabelle S.3. Keine Schaftaufteilung aus widersprüchlichen b-Gruppen/Tabellenzeilen abgeleitet; Vierkantansatz und Kopfkontur bleiben separat offen."
+          }
+        },
+        "65": {
+          "coverage": "documented",
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "squareNeckTransition",
+            "headProfileDefinition"
+          ],
+          "vorbelegung": {
+            "sL": 65
+          },
+          "roh": {
+            "nominalLength": 65
+          },
+          "fields": {
+            "sL": {
+              "nominal": 65,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso1986"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            },
+            "nominalLength": {
+              "nominal": 65,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso1986"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            }
+          },
+          "shaftPolicy": "shaft-v2",
+          "lengthEvidence": {
+            "kind": "standard-matrix",
+            "edition": "1986",
+            "sourceRefs": [
+              "iso1986"
+            ],
+            "verification": false,
+            "nominalOnly": true,
+            "note": "Original Tabelle S.3. Keine Schaftaufteilung aus widersprüchlichen b-Gruppen/Tabellenzeilen abgeleitet; Vierkantansatz und Kopfkontur bleiben separat offen."
+          }
+        },
+        "70": {
+          "coverage": "documented",
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "squareNeckTransition",
+            "headProfileDefinition"
+          ],
+          "vorbelegung": {
+            "sL": 70
+          },
+          "roh": {
+            "nominalLength": 70
+          },
+          "fields": {
+            "sL": {
+              "nominal": 70,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso1986"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            },
+            "nominalLength": {
+              "nominal": 70,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso1986"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            }
+          },
+          "shaftPolicy": "shaft-v2",
+          "lengthEvidence": {
+            "kind": "standard-matrix",
+            "edition": "1986",
+            "sourceRefs": [
+              "iso1986"
+            ],
+            "verification": false,
+            "nominalOnly": true,
+            "note": "Original Tabelle S.3. Keine Schaftaufteilung aus widersprüchlichen b-Gruppen/Tabellenzeilen abgeleitet; Vierkantansatz und Kopfkontur bleiben separat offen."
+          }
+        },
+        "75": {
+          "coverage": "documented",
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "squareNeckTransition",
+            "headProfileDefinition"
+          ],
+          "vorbelegung": {
+            "sL": 75
+          },
+          "roh": {
+            "nominalLength": 75
+          },
+          "fields": {
+            "sL": {
+              "nominal": 75,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso1986"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            },
+            "nominalLength": {
+              "nominal": 75,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso1986"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            }
+          },
+          "shaftPolicy": "shaft-v2",
+          "lengthEvidence": {
+            "kind": "standard-matrix",
+            "edition": "1986",
+            "sourceRefs": [
+              "iso1986"
+            ],
+            "verification": false,
+            "nominalOnly": true,
+            "note": "Original Tabelle S.3. Keine Schaftaufteilung aus widersprüchlichen b-Gruppen/Tabellenzeilen abgeleitet; Vierkantansatz und Kopfkontur bleiben separat offen."
+          }
+        },
+        "80": {
+          "coverage": "documented",
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "squareNeckTransition",
+            "headProfileDefinition"
+          ],
+          "vorbelegung": {
+            "sL": 80
+          },
+          "roh": {
+            "nominalLength": 80
+          },
+          "fields": {
+            "sL": {
+              "nominal": 80,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso1986"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            },
+            "nominalLength": {
+              "nominal": 80,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso1986"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            }
+          },
+          "shaftPolicy": "shaft-v2",
+          "lengthEvidence": {
+            "kind": "standard-matrix",
+            "edition": "1986",
+            "sourceRefs": [
+              "iso1986"
+            ],
+            "verification": false,
+            "nominalOnly": true,
+            "note": "Original Tabelle S.3. Keine Schaftaufteilung aus widersprüchlichen b-Gruppen/Tabellenzeilen abgeleitet; Vierkantansatz und Kopfkontur bleiben separat offen."
+          }
+        },
+        "90": {
+          "coverage": "documented",
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "squareNeckTransition",
+            "headProfileDefinition"
+          ],
+          "vorbelegung": {
+            "sL": 90
+          },
+          "roh": {
+            "nominalLength": 90
+          },
+          "fields": {
+            "sL": {
+              "nominal": 90,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso1986"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            },
+            "nominalLength": {
+              "nominal": 90,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso1986"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            }
+          },
+          "shaftPolicy": "shaft-v2",
+          "lengthEvidence": {
+            "kind": "standard-matrix",
+            "edition": "1986",
+            "sourceRefs": [
+              "iso1986"
+            ],
+            "verification": false,
+            "nominalOnly": true,
+            "note": "Original Tabelle S.3. Keine Schaftaufteilung aus widersprüchlichen b-Gruppen/Tabellenzeilen abgeleitet; Vierkantansatz und Kopfkontur bleiben separat offen."
+          }
+        },
+        "100": {
+          "coverage": "documented",
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "squareNeckTransition",
+            "headProfileDefinition"
+          ],
+          "vorbelegung": {
+            "sL": 100
+          },
+          "roh": {
+            "nominalLength": 100
+          },
+          "fields": {
+            "sL": {
+              "nominal": 100,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso1986"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            },
+            "nominalLength": {
+              "nominal": 100,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso1986"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            }
+          },
+          "shaftPolicy": "shaft-v2",
+          "lengthEvidence": {
+            "kind": "standard-matrix",
+            "edition": "1986",
+            "sourceRefs": [
+              "iso1986"
+            ],
+            "verification": false,
+            "nominalOnly": true,
+            "note": "Original Tabelle S.3. Keine Schaftaufteilung aus widersprüchlichen b-Gruppen/Tabellenzeilen abgeleitet; Vierkantansatz und Kopfkontur bleiben separat offen."
+          }
+        },
+        "110": {
+          "coverage": "documented",
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "squareNeckTransition",
+            "headProfileDefinition"
+          ],
+          "vorbelegung": {
+            "sL": 110
+          },
+          "roh": {
+            "nominalLength": 110
+          },
+          "fields": {
+            "sL": {
+              "nominal": 110,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso1986"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            },
+            "nominalLength": {
+              "nominal": 110,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso1986"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            }
+          },
+          "shaftPolicy": "shaft-v2",
+          "lengthEvidence": {
+            "kind": "standard-matrix",
+            "edition": "1986",
+            "sourceRefs": [
+              "iso1986"
+            ],
+            "verification": false,
+            "nominalOnly": true,
+            "note": "Original Tabelle S.3. Keine Schaftaufteilung aus widersprüchlichen b-Gruppen/Tabellenzeilen abgeleitet; Vierkantansatz und Kopfkontur bleiben separat offen."
+          }
+        },
+        "120": {
+          "coverage": "documented",
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "squareNeckTransition",
+            "headProfileDefinition"
+          ],
+          "vorbelegung": {
+            "sL": 120
+          },
+          "roh": {
+            "nominalLength": 120
+          },
+          "fields": {
+            "sL": {
+              "nominal": 120,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso1986"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            },
+            "nominalLength": {
+              "nominal": 120,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso1986"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            }
+          },
+          "shaftPolicy": "shaft-v2",
+          "lengthEvidence": {
+            "kind": "standard-matrix",
+            "edition": "1986",
+            "sourceRefs": [
+              "iso1986"
+            ],
+            "verification": false,
+            "nominalOnly": true,
+            "note": "Original Tabelle S.3. Keine Schaftaufteilung aus widersprüchlichen b-Gruppen/Tabellenzeilen abgeleitet; Vierkantansatz und Kopfkontur bleiben separat offen."
+          }
+        }
+      },
+      "laengen": [
+        55,
+        60,
+        65,
+        70,
+        75,
+        80,
+        90,
+        100,
+        110,
+        120
+      ]
     },
     "M16": {
       "vorbelegung": {
@@ -214,14 +2551,773 @@
         "b_gt200": 57
       },
       "coverage": "documented",
-      "lengthCoverage": "unresearched",
+      "lengthCoverage": "partial",
       "geometryStatus": "partial",
       "missingGeometryFields": [
         "length",
         "squareNeckTransition",
         "headProfileDefinition"
       ],
-      "nachLaenge": {}
+      "nachLaenge": {
+        "65": {
+          "coverage": "documented",
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "squareNeckTransition",
+            "headProfileDefinition"
+          ],
+          "vorbelegung": {
+            "sL": 65
+          },
+          "roh": {
+            "nominalLength": 65
+          },
+          "fields": {
+            "sL": {
+              "nominal": 65,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso1986"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            },
+            "nominalLength": {
+              "nominal": 65,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso1986"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            }
+          },
+          "shaftPolicy": "shaft-v2",
+          "lengthEvidence": {
+            "kind": "standard-matrix",
+            "edition": "1986",
+            "sourceRefs": [
+              "iso1986"
+            ],
+            "verification": false,
+            "nominalOnly": true,
+            "note": "Original Tabelle S.3. Keine Schaftaufteilung aus widersprüchlichen b-Gruppen/Tabellenzeilen abgeleitet; Vierkantansatz und Kopfkontur bleiben separat offen."
+          }
+        },
+        "70": {
+          "coverage": "documented",
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "squareNeckTransition",
+            "headProfileDefinition"
+          ],
+          "vorbelegung": {
+            "sL": 70
+          },
+          "roh": {
+            "nominalLength": 70
+          },
+          "fields": {
+            "sL": {
+              "nominal": 70,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso1986"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            },
+            "nominalLength": {
+              "nominal": 70,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso1986"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            }
+          },
+          "shaftPolicy": "shaft-v2",
+          "lengthEvidence": {
+            "kind": "standard-matrix",
+            "edition": "1986",
+            "sourceRefs": [
+              "iso1986"
+            ],
+            "verification": false,
+            "nominalOnly": true,
+            "note": "Original Tabelle S.3. Keine Schaftaufteilung aus widersprüchlichen b-Gruppen/Tabellenzeilen abgeleitet; Vierkantansatz und Kopfkontur bleiben separat offen."
+          }
+        },
+        "75": {
+          "coverage": "documented",
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "squareNeckTransition",
+            "headProfileDefinition"
+          ],
+          "vorbelegung": {
+            "sL": 75
+          },
+          "roh": {
+            "nominalLength": 75
+          },
+          "fields": {
+            "sL": {
+              "nominal": 75,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso1986"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            },
+            "nominalLength": {
+              "nominal": 75,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso1986"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            }
+          },
+          "shaftPolicy": "shaft-v2",
+          "lengthEvidence": {
+            "kind": "standard-matrix",
+            "edition": "1986",
+            "sourceRefs": [
+              "iso1986"
+            ],
+            "verification": false,
+            "nominalOnly": true,
+            "note": "Original Tabelle S.3. Keine Schaftaufteilung aus widersprüchlichen b-Gruppen/Tabellenzeilen abgeleitet; Vierkantansatz und Kopfkontur bleiben separat offen."
+          }
+        },
+        "80": {
+          "coverage": "documented",
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "squareNeckTransition",
+            "headProfileDefinition"
+          ],
+          "vorbelegung": {
+            "sL": 80
+          },
+          "roh": {
+            "nominalLength": 80
+          },
+          "fields": {
+            "sL": {
+              "nominal": 80,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso1986"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            },
+            "nominalLength": {
+              "nominal": 80,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso1986"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            }
+          },
+          "shaftPolicy": "shaft-v2",
+          "lengthEvidence": {
+            "kind": "standard-matrix",
+            "edition": "1986",
+            "sourceRefs": [
+              "iso1986"
+            ],
+            "verification": false,
+            "nominalOnly": true,
+            "note": "Original Tabelle S.3. Keine Schaftaufteilung aus widersprüchlichen b-Gruppen/Tabellenzeilen abgeleitet; Vierkantansatz und Kopfkontur bleiben separat offen."
+          }
+        },
+        "90": {
+          "coverage": "documented",
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "squareNeckTransition",
+            "headProfileDefinition"
+          ],
+          "vorbelegung": {
+            "sL": 90
+          },
+          "roh": {
+            "nominalLength": 90
+          },
+          "fields": {
+            "sL": {
+              "nominal": 90,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso1986"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            },
+            "nominalLength": {
+              "nominal": 90,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso1986"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            }
+          },
+          "shaftPolicy": "shaft-v2",
+          "lengthEvidence": {
+            "kind": "standard-matrix",
+            "edition": "1986",
+            "sourceRefs": [
+              "iso1986"
+            ],
+            "verification": false,
+            "nominalOnly": true,
+            "note": "Original Tabelle S.3. Keine Schaftaufteilung aus widersprüchlichen b-Gruppen/Tabellenzeilen abgeleitet; Vierkantansatz und Kopfkontur bleiben separat offen."
+          }
+        },
+        "100": {
+          "coverage": "documented",
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "squareNeckTransition",
+            "headProfileDefinition"
+          ],
+          "vorbelegung": {
+            "sL": 100
+          },
+          "roh": {
+            "nominalLength": 100
+          },
+          "fields": {
+            "sL": {
+              "nominal": 100,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso1986"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            },
+            "nominalLength": {
+              "nominal": 100,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso1986"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            }
+          },
+          "shaftPolicy": "shaft-v2",
+          "lengthEvidence": {
+            "kind": "standard-matrix",
+            "edition": "1986",
+            "sourceRefs": [
+              "iso1986"
+            ],
+            "verification": false,
+            "nominalOnly": true,
+            "note": "Original Tabelle S.3. Keine Schaftaufteilung aus widersprüchlichen b-Gruppen/Tabellenzeilen abgeleitet; Vierkantansatz und Kopfkontur bleiben separat offen."
+          }
+        },
+        "110": {
+          "coverage": "documented",
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "squareNeckTransition",
+            "headProfileDefinition"
+          ],
+          "vorbelegung": {
+            "sL": 110
+          },
+          "roh": {
+            "nominalLength": 110
+          },
+          "fields": {
+            "sL": {
+              "nominal": 110,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso1986"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            },
+            "nominalLength": {
+              "nominal": 110,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso1986"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            }
+          },
+          "shaftPolicy": "shaft-v2",
+          "lengthEvidence": {
+            "kind": "standard-matrix",
+            "edition": "1986",
+            "sourceRefs": [
+              "iso1986"
+            ],
+            "verification": false,
+            "nominalOnly": true,
+            "note": "Original Tabelle S.3. Keine Schaftaufteilung aus widersprüchlichen b-Gruppen/Tabellenzeilen abgeleitet; Vierkantansatz und Kopfkontur bleiben separat offen."
+          }
+        },
+        "120": {
+          "coverage": "documented",
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "squareNeckTransition",
+            "headProfileDefinition"
+          ],
+          "vorbelegung": {
+            "sL": 120
+          },
+          "roh": {
+            "nominalLength": 120
+          },
+          "fields": {
+            "sL": {
+              "nominal": 120,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso1986"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            },
+            "nominalLength": {
+              "nominal": 120,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso1986"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            }
+          },
+          "shaftPolicy": "shaft-v2",
+          "lengthEvidence": {
+            "kind": "standard-matrix",
+            "edition": "1986",
+            "sourceRefs": [
+              "iso1986"
+            ],
+            "verification": false,
+            "nominalOnly": true,
+            "note": "Original Tabelle S.3. Keine Schaftaufteilung aus widersprüchlichen b-Gruppen/Tabellenzeilen abgeleitet; Vierkantansatz und Kopfkontur bleiben separat offen."
+          }
+        },
+        "130": {
+          "coverage": "documented",
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "squareNeckTransition",
+            "headProfileDefinition"
+          ],
+          "vorbelegung": {
+            "sL": 130
+          },
+          "roh": {
+            "nominalLength": 130
+          },
+          "fields": {
+            "sL": {
+              "nominal": 130,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso1986"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            },
+            "nominalLength": {
+              "nominal": 130,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso1986"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            }
+          },
+          "shaftPolicy": "shaft-v2",
+          "lengthEvidence": {
+            "kind": "standard-matrix",
+            "edition": "1986",
+            "sourceRefs": [
+              "iso1986"
+            ],
+            "verification": false,
+            "nominalOnly": true,
+            "note": "Original Tabelle S.3. Keine Schaftaufteilung aus widersprüchlichen b-Gruppen/Tabellenzeilen abgeleitet; Vierkantansatz und Kopfkontur bleiben separat offen."
+          }
+        },
+        "140": {
+          "coverage": "documented",
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "squareNeckTransition",
+            "headProfileDefinition"
+          ],
+          "vorbelegung": {
+            "sL": 140
+          },
+          "roh": {
+            "nominalLength": 140
+          },
+          "fields": {
+            "sL": {
+              "nominal": 140,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso1986"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            },
+            "nominalLength": {
+              "nominal": 140,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso1986"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            }
+          },
+          "shaftPolicy": "shaft-v2",
+          "lengthEvidence": {
+            "kind": "standard-matrix",
+            "edition": "1986",
+            "sourceRefs": [
+              "iso1986"
+            ],
+            "verification": false,
+            "nominalOnly": true,
+            "note": "Original Tabelle S.3. Keine Schaftaufteilung aus widersprüchlichen b-Gruppen/Tabellenzeilen abgeleitet; Vierkantansatz und Kopfkontur bleiben separat offen."
+          }
+        },
+        "150": {
+          "coverage": "documented",
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "squareNeckTransition",
+            "headProfileDefinition"
+          ],
+          "vorbelegung": {
+            "sL": 150
+          },
+          "roh": {
+            "nominalLength": 150
+          },
+          "fields": {
+            "sL": {
+              "nominal": 150,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso1986"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            },
+            "nominalLength": {
+              "nominal": 150,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso1986"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            }
+          },
+          "shaftPolicy": "shaft-v2",
+          "lengthEvidence": {
+            "kind": "standard-matrix",
+            "edition": "1986",
+            "sourceRefs": [
+              "iso1986"
+            ],
+            "verification": false,
+            "nominalOnly": true,
+            "note": "Original Tabelle S.3. Keine Schaftaufteilung aus widersprüchlichen b-Gruppen/Tabellenzeilen abgeleitet; Vierkantansatz und Kopfkontur bleiben separat offen."
+          }
+        },
+        "160": {
+          "coverage": "documented",
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "squareNeckTransition",
+            "headProfileDefinition"
+          ],
+          "vorbelegung": {
+            "sL": 160
+          },
+          "roh": {
+            "nominalLength": 160
+          },
+          "fields": {
+            "sL": {
+              "nominal": 160,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso1986"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            },
+            "nominalLength": {
+              "nominal": 160,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso1986"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            }
+          },
+          "shaftPolicy": "shaft-v2",
+          "lengthEvidence": {
+            "kind": "standard-matrix",
+            "edition": "1986",
+            "sourceRefs": [
+              "iso1986"
+            ],
+            "verification": false,
+            "nominalOnly": true,
+            "note": "Original Tabelle S.3. Keine Schaftaufteilung aus widersprüchlichen b-Gruppen/Tabellenzeilen abgeleitet; Vierkantansatz und Kopfkontur bleiben separat offen."
+          }
+        },
+        "180": {
+          "coverage": "documented",
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "squareNeckTransition",
+            "headProfileDefinition"
+          ],
+          "vorbelegung": {
+            "sL": 180
+          },
+          "roh": {
+            "nominalLength": 180
+          },
+          "fields": {
+            "sL": {
+              "nominal": 180,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso1986"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            },
+            "nominalLength": {
+              "nominal": 180,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso1986"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            }
+          },
+          "shaftPolicy": "shaft-v2",
+          "lengthEvidence": {
+            "kind": "standard-matrix",
+            "edition": "1986",
+            "sourceRefs": [
+              "iso1986"
+            ],
+            "verification": false,
+            "nominalOnly": true,
+            "note": "Original Tabelle S.3. Keine Schaftaufteilung aus widersprüchlichen b-Gruppen/Tabellenzeilen abgeleitet; Vierkantansatz und Kopfkontur bleiben separat offen."
+          }
+        },
+        "200": {
+          "coverage": "documented",
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "squareNeckTransition",
+            "headProfileDefinition"
+          ],
+          "vorbelegung": {
+            "sL": 200
+          },
+          "roh": {
+            "nominalLength": 200
+          },
+          "fields": {
+            "sL": {
+              "nominal": 200,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso1986"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            },
+            "nominalLength": {
+              "nominal": 200,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso1986"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            }
+          },
+          "shaftPolicy": "shaft-v2",
+          "lengthEvidence": {
+            "kind": "standard-matrix",
+            "edition": "1986",
+            "sourceRefs": [
+              "iso1986"
+            ],
+            "verification": false,
+            "nominalOnly": true,
+            "note": "Original Tabelle S.3. Keine Schaftaufteilung aus widersprüchlichen b-Gruppen/Tabellenzeilen abgeleitet; Vierkantansatz und Kopfkontur bleiben separat offen."
+          }
+        }
+      },
+      "laengen": [
+        65,
+        70,
+        75,
+        80,
+        90,
+        100,
+        110,
+        120,
+        130,
+        140,
+        150,
+        160,
+        180,
+        200
+      ]
     },
     "M20": {
       "vorbelegung": {
@@ -248,14 +3344,665 @@
         "b_gt200": 65
       },
       "coverage": "documented",
-      "lengthCoverage": "unresearched",
+      "lengthCoverage": "partial",
       "geometryStatus": "partial",
       "missingGeometryFields": [
         "length",
         "squareNeckTransition",
         "headProfileDefinition"
       ],
-      "nachLaenge": {}
+      "nachLaenge": {
+        "75": {
+          "coverage": "documented",
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "squareNeckTransition",
+            "headProfileDefinition"
+          ],
+          "vorbelegung": {
+            "sL": 75
+          },
+          "roh": {
+            "nominalLength": 75
+          },
+          "fields": {
+            "sL": {
+              "nominal": 75,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso1986"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            },
+            "nominalLength": {
+              "nominal": 75,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso1986"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            }
+          },
+          "shaftPolicy": "shaft-v2",
+          "lengthEvidence": {
+            "kind": "standard-matrix",
+            "edition": "1986",
+            "sourceRefs": [
+              "iso1986"
+            ],
+            "verification": false,
+            "nominalOnly": true,
+            "note": "Original Tabelle S.3. Keine Schaftaufteilung aus widersprüchlichen b-Gruppen/Tabellenzeilen abgeleitet; Vierkantansatz und Kopfkontur bleiben separat offen."
+          }
+        },
+        "80": {
+          "coverage": "documented",
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "squareNeckTransition",
+            "headProfileDefinition"
+          ],
+          "vorbelegung": {
+            "sL": 80
+          },
+          "roh": {
+            "nominalLength": 80
+          },
+          "fields": {
+            "sL": {
+              "nominal": 80,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso1986"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            },
+            "nominalLength": {
+              "nominal": 80,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso1986"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            }
+          },
+          "shaftPolicy": "shaft-v2",
+          "lengthEvidence": {
+            "kind": "standard-matrix",
+            "edition": "1986",
+            "sourceRefs": [
+              "iso1986"
+            ],
+            "verification": false,
+            "nominalOnly": true,
+            "note": "Original Tabelle S.3. Keine Schaftaufteilung aus widersprüchlichen b-Gruppen/Tabellenzeilen abgeleitet; Vierkantansatz und Kopfkontur bleiben separat offen."
+          }
+        },
+        "90": {
+          "coverage": "documented",
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "squareNeckTransition",
+            "headProfileDefinition"
+          ],
+          "vorbelegung": {
+            "sL": 90
+          },
+          "roh": {
+            "nominalLength": 90
+          },
+          "fields": {
+            "sL": {
+              "nominal": 90,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso1986"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            },
+            "nominalLength": {
+              "nominal": 90,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso1986"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            }
+          },
+          "shaftPolicy": "shaft-v2",
+          "lengthEvidence": {
+            "kind": "standard-matrix",
+            "edition": "1986",
+            "sourceRefs": [
+              "iso1986"
+            ],
+            "verification": false,
+            "nominalOnly": true,
+            "note": "Original Tabelle S.3. Keine Schaftaufteilung aus widersprüchlichen b-Gruppen/Tabellenzeilen abgeleitet; Vierkantansatz und Kopfkontur bleiben separat offen."
+          }
+        },
+        "100": {
+          "coverage": "documented",
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "squareNeckTransition",
+            "headProfileDefinition"
+          ],
+          "vorbelegung": {
+            "sL": 100
+          },
+          "roh": {
+            "nominalLength": 100
+          },
+          "fields": {
+            "sL": {
+              "nominal": 100,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso1986"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            },
+            "nominalLength": {
+              "nominal": 100,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso1986"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            }
+          },
+          "shaftPolicy": "shaft-v2",
+          "lengthEvidence": {
+            "kind": "standard-matrix",
+            "edition": "1986",
+            "sourceRefs": [
+              "iso1986"
+            ],
+            "verification": false,
+            "nominalOnly": true,
+            "note": "Original Tabelle S.3. Keine Schaftaufteilung aus widersprüchlichen b-Gruppen/Tabellenzeilen abgeleitet; Vierkantansatz und Kopfkontur bleiben separat offen."
+          }
+        },
+        "110": {
+          "coverage": "documented",
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "squareNeckTransition",
+            "headProfileDefinition"
+          ],
+          "vorbelegung": {
+            "sL": 110
+          },
+          "roh": {
+            "nominalLength": 110
+          },
+          "fields": {
+            "sL": {
+              "nominal": 110,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso1986"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            },
+            "nominalLength": {
+              "nominal": 110,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso1986"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            }
+          },
+          "shaftPolicy": "shaft-v2",
+          "lengthEvidence": {
+            "kind": "standard-matrix",
+            "edition": "1986",
+            "sourceRefs": [
+              "iso1986"
+            ],
+            "verification": false,
+            "nominalOnly": true,
+            "note": "Original Tabelle S.3. Keine Schaftaufteilung aus widersprüchlichen b-Gruppen/Tabellenzeilen abgeleitet; Vierkantansatz und Kopfkontur bleiben separat offen."
+          }
+        },
+        "120": {
+          "coverage": "documented",
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "squareNeckTransition",
+            "headProfileDefinition"
+          ],
+          "vorbelegung": {
+            "sL": 120
+          },
+          "roh": {
+            "nominalLength": 120
+          },
+          "fields": {
+            "sL": {
+              "nominal": 120,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso1986"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            },
+            "nominalLength": {
+              "nominal": 120,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso1986"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            }
+          },
+          "shaftPolicy": "shaft-v2",
+          "lengthEvidence": {
+            "kind": "standard-matrix",
+            "edition": "1986",
+            "sourceRefs": [
+              "iso1986"
+            ],
+            "verification": false,
+            "nominalOnly": true,
+            "note": "Original Tabelle S.3. Keine Schaftaufteilung aus widersprüchlichen b-Gruppen/Tabellenzeilen abgeleitet; Vierkantansatz und Kopfkontur bleiben separat offen."
+          }
+        },
+        "130": {
+          "coverage": "documented",
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "squareNeckTransition",
+            "headProfileDefinition"
+          ],
+          "vorbelegung": {
+            "sL": 130
+          },
+          "roh": {
+            "nominalLength": 130
+          },
+          "fields": {
+            "sL": {
+              "nominal": 130,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso1986"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            },
+            "nominalLength": {
+              "nominal": 130,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso1986"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            }
+          },
+          "shaftPolicy": "shaft-v2",
+          "lengthEvidence": {
+            "kind": "standard-matrix",
+            "edition": "1986",
+            "sourceRefs": [
+              "iso1986"
+            ],
+            "verification": false,
+            "nominalOnly": true,
+            "note": "Original Tabelle S.3. Keine Schaftaufteilung aus widersprüchlichen b-Gruppen/Tabellenzeilen abgeleitet; Vierkantansatz und Kopfkontur bleiben separat offen."
+          }
+        },
+        "140": {
+          "coverage": "documented",
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "squareNeckTransition",
+            "headProfileDefinition"
+          ],
+          "vorbelegung": {
+            "sL": 140
+          },
+          "roh": {
+            "nominalLength": 140
+          },
+          "fields": {
+            "sL": {
+              "nominal": 140,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso1986"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            },
+            "nominalLength": {
+              "nominal": 140,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso1986"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            }
+          },
+          "shaftPolicy": "shaft-v2",
+          "lengthEvidence": {
+            "kind": "standard-matrix",
+            "edition": "1986",
+            "sourceRefs": [
+              "iso1986"
+            ],
+            "verification": false,
+            "nominalOnly": true,
+            "note": "Original Tabelle S.3. Keine Schaftaufteilung aus widersprüchlichen b-Gruppen/Tabellenzeilen abgeleitet; Vierkantansatz und Kopfkontur bleiben separat offen."
+          }
+        },
+        "150": {
+          "coverage": "documented",
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "squareNeckTransition",
+            "headProfileDefinition"
+          ],
+          "vorbelegung": {
+            "sL": 150
+          },
+          "roh": {
+            "nominalLength": 150
+          },
+          "fields": {
+            "sL": {
+              "nominal": 150,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso1986"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            },
+            "nominalLength": {
+              "nominal": 150,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso1986"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            }
+          },
+          "shaftPolicy": "shaft-v2",
+          "lengthEvidence": {
+            "kind": "standard-matrix",
+            "edition": "1986",
+            "sourceRefs": [
+              "iso1986"
+            ],
+            "verification": false,
+            "nominalOnly": true,
+            "note": "Original Tabelle S.3. Keine Schaftaufteilung aus widersprüchlichen b-Gruppen/Tabellenzeilen abgeleitet; Vierkantansatz und Kopfkontur bleiben separat offen."
+          }
+        },
+        "160": {
+          "coverage": "documented",
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "squareNeckTransition",
+            "headProfileDefinition"
+          ],
+          "vorbelegung": {
+            "sL": 160
+          },
+          "roh": {
+            "nominalLength": 160
+          },
+          "fields": {
+            "sL": {
+              "nominal": 160,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso1986"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            },
+            "nominalLength": {
+              "nominal": 160,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso1986"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            }
+          },
+          "shaftPolicy": "shaft-v2",
+          "lengthEvidence": {
+            "kind": "standard-matrix",
+            "edition": "1986",
+            "sourceRefs": [
+              "iso1986"
+            ],
+            "verification": false,
+            "nominalOnly": true,
+            "note": "Original Tabelle S.3. Keine Schaftaufteilung aus widersprüchlichen b-Gruppen/Tabellenzeilen abgeleitet; Vierkantansatz und Kopfkontur bleiben separat offen."
+          }
+        },
+        "180": {
+          "coverage": "documented",
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "squareNeckTransition",
+            "headProfileDefinition"
+          ],
+          "vorbelegung": {
+            "sL": 180
+          },
+          "roh": {
+            "nominalLength": 180
+          },
+          "fields": {
+            "sL": {
+              "nominal": 180,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso1986"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            },
+            "nominalLength": {
+              "nominal": 180,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso1986"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            }
+          },
+          "shaftPolicy": "shaft-v2",
+          "lengthEvidence": {
+            "kind": "standard-matrix",
+            "edition": "1986",
+            "sourceRefs": [
+              "iso1986"
+            ],
+            "verification": false,
+            "nominalOnly": true,
+            "note": "Original Tabelle S.3. Keine Schaftaufteilung aus widersprüchlichen b-Gruppen/Tabellenzeilen abgeleitet; Vierkantansatz und Kopfkontur bleiben separat offen."
+          }
+        },
+        "200": {
+          "coverage": "documented",
+          "geometryStatus": "partial",
+          "missingGeometryFields": [
+            "squareNeckTransition",
+            "headProfileDefinition"
+          ],
+          "vorbelegung": {
+            "sL": 200
+          },
+          "roh": {
+            "nominalLength": 200
+          },
+          "fields": {
+            "sL": {
+              "nominal": 200,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso1986"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            },
+            "nominalLength": {
+              "nominal": 200,
+              "min": null,
+              "max": null,
+              "unit": "mm",
+              "sourceRefs": [
+                "iso1986"
+              ],
+              "status": "single-source",
+              "verification": false,
+              "verificationMethod": "observed-original-cell",
+              "note": "Nominalwert aus der bezeichneten Tabellenzelle; keine Aussage über ungesichtete Toleranzen."
+            }
+          },
+          "shaftPolicy": "shaft-v2",
+          "lengthEvidence": {
+            "kind": "standard-matrix",
+            "edition": "1986",
+            "sourceRefs": [
+              "iso1986"
+            ],
+            "verification": false,
+            "nominalOnly": true,
+            "note": "Original Tabelle S.3. Keine Schaftaufteilung aus widersprüchlichen b-Gruppen/Tabellenzeilen abgeleitet; Vierkantansatz und Kopfkontur bleiben separat offen."
+          }
+        }
+      },
+      "laengen": [
+        75,
+        80,
+        90,
+        100,
+        110,
+        120,
+        130,
+        140,
+        150,
+        160,
+        180,
+        200
+      ]
     }
   },
   "fields": {
@@ -1555,7 +5302,7 @@
   "abweichungen": [],
   "status": "partial",
   "coverage": "documented",
-  "lengthCoverage": "unresearched",
+  "lengthCoverage": "partial",
   "hinweise": [
     "Zurückgezogene historische Norm; eigener Maßsatz, keine Gleichsetzung mit DIN603.",
     "Großer Kopf ist die Bedeutung von large head; der Vierkantansatz wird mit seinen eigenen Maßen geführt.",
@@ -1648,7 +5395,7 @@
       "note": "Keine Größenzeile vorhanden; daraus folgt kein Normverbot."
     }
   },
-  "pruefdatum": "2026-11-26",
+  "pruefdatum": "2026-11-27",
   "klassen": {
     "status": "unresearched",
     "values": [],
@@ -1698,5 +5445,12 @@
   "gaps": [
     "Vollständige Größen-Längenmatrix noch nicht erschlossen.",
     "Kopfkontur und Vierkantübergänge erlauben Varianten; keine eindeutige vollständige Volumengeometrie aus den Grenzmaßen allein."
-  ]
+  ],
+  "lengthMatrixPolicy": {
+    "version": "length-matrix-v1",
+    "complete": false,
+    "note": "Einzeln belegte Norm- oder Katalogzellen. Einquellenwerte sind ausdrücklich nicht zweifach bestätigt; aktuelle Ausgaben werden nicht auf ältere Tabellen rückdatiert.",
+    "sizeGaps": [],
+    "singleSourceCells": 69
+  }
 }

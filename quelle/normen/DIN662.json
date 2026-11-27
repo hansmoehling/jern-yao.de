@@ -1,14 +1,14 @@
 {
   "schemaVersion": 1,
   "id": "DIN662",
-  "version": "2026-11-26",
+  "version": "2026-11-27",
   "edition": "2011-03",
   "label": "DIN 662 · Linsenniet",
   "alias": [],
   "datasetKind": "part-standard",
   "funktion": "niet",
   "klasse": "bolzen",
-  "kopfTyp": "linse",
+  "kopfTyp": "linsensenk",
   "antrieb": null,
   "threadFamily": "none",
   "schaftende": "voll",
@@ -16,14 +16,18 @@
     "sD": "d_nominal",
     "kD": "dk_nom",
     "kH": "k_ca",
-    "sL": "l_nominal"
+    "sL": "l_nominal",
+    "capHeight": "w_ca",
+    "alpha": "senkwinkel_grad"
   },
   "groessen": {
     "2": {
       "vorbelegung": {
         "sD": 2,
         "kD": 4,
-        "kH": 1
+        "kH": 1,
+        "capHeight": 0.7,
+        "alpha": 140
       },
       "roh": {
         "d_nominal": 2,
@@ -36,20 +40,30 @@
         "r1_ca": 3.3,
         "d_min": 1.87,
         "l_min_aus_masstabelle": 3,
-        "l_max_aus_masstabelle": 20
+        "l_max_aus_masstabelle": 20,
+        "senkwinkel_grad": 140
       },
       "coverage": "documented",
-      "geometryStatus": "partial",
-      "missingGeometryFields": [
-        "headProfileDefinition"
-      ],
-      "nachLaenge": {}
+      "geometryStatus": "complete",
+      "missingGeometryFields": [],
+      "nachLaenge": {},
+      "headGeometry": {
+        "model": "cone-and-spherical-cap",
+        "exactNormContour": false,
+        "sourceRefs": [
+          "p7-huzur",
+          "p7-gross"
+        ],
+        "note": "Tabellenmaß k bezeichnet die gesamte Kopfhöhe. Programm-Kegelanteil k−w, Kappe w. Rundungsbedingte Abweichung vom tabellierten Näherungsradius wird nicht versteckt als exakt dargestellt."
+      }
     },
     "3": {
       "vorbelegung": {
         "sD": 3,
         "kD": 6,
-        "kH": 1.5
+        "kH": 1.5,
+        "capHeight": 1,
+        "alpha": 140
       },
       "roh": {
         "d_nominal": 3,
@@ -62,20 +76,30 @@
         "r1_ca": 5,
         "d_min": 2.87,
         "l_min_aus_masstabelle": 3,
-        "l_max_aus_masstabelle": 20
+        "l_max_aus_masstabelle": 20,
+        "senkwinkel_grad": 140
       },
       "coverage": "documented",
-      "geometryStatus": "partial",
-      "missingGeometryFields": [
-        "headProfileDefinition"
-      ],
-      "nachLaenge": {}
+      "geometryStatus": "complete",
+      "missingGeometryFields": [],
+      "nachLaenge": {},
+      "headGeometry": {
+        "model": "cone-and-spherical-cap",
+        "exactNormContour": false,
+        "sourceRefs": [
+          "p7-huzur",
+          "p7-gross"
+        ],
+        "note": "Tabellenmaß k bezeichnet die gesamte Kopfhöhe. Programm-Kegelanteil k−w, Kappe w. Rundungsbedingte Abweichung vom tabellierten Näherungsradius wird nicht versteckt als exakt dargestellt."
+      }
     },
     "4": {
       "vorbelegung": {
         "sD": 4,
         "kD": 8,
-        "kH": 2.1
+        "kH": 2.1,
+        "capHeight": 1.4,
+        "alpha": 140
       },
       "roh": {
         "d_nominal": 4,
@@ -88,20 +112,30 @@
         "r1_ca": 6.5,
         "d_min": 3.87,
         "l_min_aus_masstabelle": 5,
-        "l_max_aus_masstabelle": 20
+        "l_max_aus_masstabelle": 20,
+        "senkwinkel_grad": 140
       },
       "coverage": "documented",
-      "geometryStatus": "partial",
-      "missingGeometryFields": [
-        "headProfileDefinition"
-      ],
-      "nachLaenge": {}
+      "geometryStatus": "complete",
+      "missingGeometryFields": [],
+      "nachLaenge": {},
+      "headGeometry": {
+        "model": "cone-and-spherical-cap",
+        "exactNormContour": false,
+        "sourceRefs": [
+          "p7-huzur",
+          "p7-gross"
+        ],
+        "note": "Tabellenmaß k bezeichnet die gesamte Kopfhöhe. Programm-Kegelanteil k−w, Kappe w. Rundungsbedingte Abweichung vom tabellierten Näherungsradius wird nicht versteckt als exakt dargestellt."
+      }
     },
     "5": {
       "vorbelegung": {
         "sD": 5,
         "kD": 10,
-        "kH": 2.5
+        "kH": 2.5,
+        "capHeight": 1.7,
+        "alpha": 140
       },
       "roh": {
         "d_nominal": 5,
@@ -114,20 +148,56 @@
         "r1_ca": 8.2,
         "d_min": 4.82,
         "l_min_aus_masstabelle": 5,
-        "l_max_aus_masstabelle": 20
+        "l_max_aus_masstabelle": 20,
+        "senkwinkel_grad": 140
       },
       "coverage": "documented",
-      "geometryStatus": "partial",
-      "missingGeometryFields": [
-        "headProfileDefinition"
-      ],
-      "nachLaenge": {}
+      "geometryStatus": "complete",
+      "missingGeometryFields": [],
+      "nachLaenge": {
+        "16": {
+          "vorbelegung": {
+            "sL": 16
+          },
+          "roh": {
+            "l_nominal": 16
+          },
+          "fields": {
+            "l_nominal": {
+              "nominal": 16,
+              "unit": "mm",
+              "sourceRefs": [
+                "p7-gross",
+                "p7-reca"
+              ],
+              "status": "verified",
+              "verification": "primary-sources-crosschecked",
+              "kind": "documented-commercial-combination",
+              "note": "Diese konkrete Durchmesser-Längen-Kombination ist belegt. Lieferprogramm und Normreihe sind nicht gleichgesetzt; keine vollständige Normmatrix behauptet."
+            }
+          },
+          "coverage": "documented",
+          "geometryStatus": "complete",
+          "missingGeometryFields": []
+        }
+      },
+      "headGeometry": {
+        "model": "cone-and-spherical-cap",
+        "exactNormContour": false,
+        "sourceRefs": [
+          "p7-huzur",
+          "p7-gross"
+        ],
+        "note": "Tabellenmaß k bezeichnet die gesamte Kopfhöhe. Programm-Kegelanteil k−w, Kappe w. Rundungsbedingte Abweichung vom tabellierten Näherungsradius wird nicht versteckt als exakt dargestellt."
+      }
     },
     "6": {
       "vorbelegung": {
         "sD": 6,
         "kD": 12,
-        "kH": 3
+        "kH": 3,
+        "capHeight": 2,
+        "alpha": 140
       },
       "roh": {
         "d_nominal": 6,
@@ -140,20 +210,56 @@
         "r1_ca": 10,
         "d_min": 5.82,
         "l_min_aus_masstabelle": 6,
-        "l_max_aus_masstabelle": 20
+        "l_max_aus_masstabelle": 20,
+        "senkwinkel_grad": 140
       },
       "coverage": "documented",
-      "geometryStatus": "partial",
-      "missingGeometryFields": [
-        "headProfileDefinition"
-      ],
-      "nachLaenge": {}
+      "geometryStatus": "complete",
+      "missingGeometryFields": [],
+      "nachLaenge": {
+        "20": {
+          "vorbelegung": {
+            "sL": 20
+          },
+          "roh": {
+            "l_nominal": 20
+          },
+          "fields": {
+            "l_nominal": {
+              "nominal": 20,
+              "unit": "mm",
+              "sourceRefs": [
+                "p7-gross",
+                "p7-reca"
+              ],
+              "status": "verified",
+              "verification": "primary-sources-crosschecked",
+              "kind": "documented-commercial-combination",
+              "note": "Diese konkrete Durchmesser-Längen-Kombination ist belegt. Lieferprogramm und Normreihe sind nicht gleichgesetzt; keine vollständige Normmatrix behauptet."
+            }
+          },
+          "coverage": "documented",
+          "geometryStatus": "complete",
+          "missingGeometryFields": []
+        }
+      },
+      "headGeometry": {
+        "model": "cone-and-spherical-cap",
+        "exactNormContour": false,
+        "sourceRefs": [
+          "p7-huzur",
+          "p7-gross"
+        ],
+        "note": "Tabellenmaß k bezeichnet die gesamte Kopfhöhe. Programm-Kegelanteil k−w, Kappe w. Rundungsbedingte Abweichung vom tabellierten Näherungsradius wird nicht versteckt als exakt dargestellt."
+      }
     },
     "1.6": {
       "vorbelegung": {
         "sD": 1.6,
         "kD": 3.2,
-        "kH": 0.9
+        "kH": 0.9,
+        "capHeight": 0.6,
+        "alpha": 140
       },
       "roh": {
         "d_nominal": 1.6,
@@ -166,20 +272,31 @@
         "r1_ca": 2.8,
         "d_min": 1.52,
         "l_min_aus_masstabelle": 3,
-        "l_max_aus_masstabelle": 20
+        "l_max_aus_masstabelle": 20,
+        "senkwinkel_grad": 140
       },
       "coverage": "documented",
       "geometryStatus": "partial",
       "missingGeometryFields": [
         "headProfileDefinition"
       ],
-      "nachLaenge": {}
+      "nachLaenge": {},
+      "headGeometry": {
+        "model": "cone-and-spherical-cap",
+        "exactNormContour": false,
+        "sourceRefs": [
+          "p7-huzur"
+        ],
+        "note": "Tabellenmaß k bezeichnet die gesamte Kopfhöhe. Programm-Kegelanteil k−w, Kappe w. Rundungsbedingte Abweichung vom tabellierten Näherungsradius wird nicht versteckt als exakt dargestellt."
+      }
     },
     "2.5": {
       "vorbelegung": {
         "sD": 2.5,
         "kD": 5,
-        "kH": 1.2
+        "kH": 1.2,
+        "capHeight": 0.8,
+        "alpha": 140
       },
       "roh": {
         "d_nominal": 2.5,
@@ -192,20 +309,30 @@
         "r1_ca": 4.2,
         "d_min": 2.37,
         "l_min_aus_masstabelle": 3,
-        "l_max_aus_masstabelle": 20
+        "l_max_aus_masstabelle": 20,
+        "senkwinkel_grad": 140
       },
       "coverage": "documented",
-      "geometryStatus": "partial",
-      "missingGeometryFields": [
-        "headProfileDefinition"
-      ],
-      "nachLaenge": {}
+      "geometryStatus": "complete",
+      "missingGeometryFields": [],
+      "nachLaenge": {},
+      "headGeometry": {
+        "model": "cone-and-spherical-cap",
+        "exactNormContour": false,
+        "sourceRefs": [
+          "p7-huzur",
+          "p7-gross"
+        ],
+        "note": "Tabellenmaß k bezeichnet die gesamte Kopfhöhe. Programm-Kegelanteil k−w, Kappe w. Rundungsbedingte Abweichung vom tabellierten Näherungsradius wird nicht versteckt als exakt dargestellt."
+      }
     },
     "3.5": {
       "vorbelegung": {
         "sD": 3.5,
         "kD": 7,
-        "kH": 1.8
+        "kH": 1.8,
+        "capHeight": 1.2,
+        "alpha": 140
       },
       "roh": {
         "d_nominal": 3.5,
@@ -218,14 +345,48 @@
         "r1_ca": 6,
         "d_min": 3.37,
         "l_min_aus_masstabelle": 4,
-        "l_max_aus_masstabelle": 20
+        "l_max_aus_masstabelle": 20,
+        "senkwinkel_grad": 140
       },
       "coverage": "documented",
-      "geometryStatus": "partial",
-      "missingGeometryFields": [
-        "headProfileDefinition"
-      ],
-      "nachLaenge": {}
+      "geometryStatus": "complete",
+      "missingGeometryFields": [],
+      "nachLaenge": {
+        "10": {
+          "vorbelegung": {
+            "sL": 10
+          },
+          "roh": {
+            "l_nominal": 10
+          },
+          "fields": {
+            "l_nominal": {
+              "nominal": 10,
+              "unit": "mm",
+              "sourceRefs": [
+                "p7-gross",
+                "p7-reca"
+              ],
+              "status": "verified",
+              "verification": "primary-sources-crosschecked",
+              "kind": "documented-commercial-combination",
+              "note": "Diese konkrete Durchmesser-Längen-Kombination ist belegt. Lieferprogramm und Normreihe sind nicht gleichgesetzt; keine vollständige Normmatrix behauptet."
+            }
+          },
+          "coverage": "documented",
+          "geometryStatus": "complete",
+          "missingGeometryFields": []
+        }
+      },
+      "headGeometry": {
+        "model": "cone-and-spherical-cap",
+        "exactNormContour": false,
+        "sourceRefs": [
+          "p7-huzur",
+          "p7-reca"
+        ],
+        "note": "Tabellenmaß k bezeichnet die gesamte Kopfhöhe. Programm-Kegelanteil k−w, Kappe w. Rundungsbedingte Abweichung vom tabellierten Näherungsradius wird nicht versteckt als exakt dargestellt."
+      }
     }
   },
   "fields": {
@@ -262,33 +423,36 @@
       },
       "dk_nom": {
         "nominal": 4,
+        "unit": "mm",
         "sourceRefs": [
-          "DIN662-s1"
+          "p7-huzur",
+          "p7-gross"
         ],
-        "status": "single-source",
-        "verification": "norm-table-not-independently-verified",
-        "note": "Kopf-Ø",
-        "unit": "mm"
+        "status": "verified",
+        "verification": "primary-sources-crosschecked",
+        "note": "Kopf-Ø; k, w und r1 sind Näherungsmaße, keine drei gleichzeitig exakten Kugelparameter."
       },
       "k_ca": {
         "nominal": 1,
+        "unit": "mm",
         "sourceRefs": [
-          "DIN662-s1"
+          "p7-huzur",
+          "p7-gross"
         ],
-        "status": "single-source",
-        "verification": "norm-table-not-independently-verified",
-        "note": "Kopfhöhe ca.",
-        "unit": "mm"
+        "status": "verified",
+        "verification": "primary-sources-crosschecked",
+        "note": "Gesamtkopfhöhe k; k, w und r1 sind Näherungsmaße, keine drei gleichzeitig exakten Kugelparameter."
       },
       "w_ca": {
         "nominal": 0.7,
+        "unit": "mm",
         "sourceRefs": [
-          "DIN662-s1"
+          "p7-huzur",
+          "p7-gross"
         ],
-        "status": "single-source",
-        "verification": "norm-table-not-independently-verified",
-        "note": "Maß w ca. (Quelle definiert w nicht)",
-        "unit": "mm"
+        "status": "verified",
+        "verification": "primary-sources-crosschecked",
+        "note": "Kuppenhöhe w; k, w und r1 sind Näherungsmaße, keine drei gleichzeitig exakten Kugelparameter."
       },
       "e_max": {
         "sourceRefs": [
@@ -302,13 +466,14 @@
       },
       "r1_ca": {
         "nominal": 3.3,
+        "unit": "mm",
         "sourceRefs": [
-          "DIN662-s1"
+          "p7-huzur",
+          "p7-gross"
         ],
-        "status": "single-source",
-        "verification": "norm-table-not-independently-verified",
-        "note": "Kopfradius ca.",
-        "unit": "mm"
+        "status": "verified",
+        "verification": "primary-sources-crosschecked",
+        "note": "Kopfradius r1; k, w und r1 sind Näherungsmaße, keine drei gleichzeitig exakten Kugelparameter."
       },
       "d_min": {
         "sourceRefs": [
@@ -339,6 +504,17 @@
         "note": "Grenze einer Katalog-/Gewichtstabelle, kein nachgewiesener Normgrenzwert.",
         "unit": "mm",
         "max": 20
+      },
+      "senkwinkel_grad": {
+        "nominal": 140,
+        "unit": "deg",
+        "sourceRefs": [
+          "p7-huzur",
+          "fasenco"
+        ],
+        "status": "verified",
+        "verification": "primary-sources-crosschecked",
+        "note": "Unterseitiger Senkwinkel aus zwei Herstellerzeichnungen."
       }
     },
     "3": {
@@ -375,36 +551,36 @@
       },
       "dk_nom": {
         "nominal": 6,
+        "unit": "mm",
         "sourceRefs": [
-          "DIN662-s1",
-          "fasenco"
+          "p7-huzur",
+          "p7-gross"
         ],
         "status": "verified",
-        "verification": "independent-publishers-agree",
-        "note": "Zahlenwert in zwei voneinander getrennten Veröffentlichungen bestätigt; Normedition des Herstellerblatts nicht ausdrücklich genannt.",
-        "unit": "mm"
+        "verification": "primary-sources-crosschecked",
+        "note": "Kopf-Ø; k, w und r1 sind Näherungsmaße, keine drei gleichzeitig exakten Kugelparameter."
       },
       "k_ca": {
         "nominal": 1.5,
+        "unit": "mm",
         "sourceRefs": [
-          "DIN662-s1",
-          "fasenco"
+          "p7-huzur",
+          "p7-gross"
         ],
         "status": "verified",
-        "verification": "independent-publishers-agree",
-        "note": "Zahlenwert in zwei voneinander getrennten Veröffentlichungen bestätigt; Normedition des Herstellerblatts nicht ausdrücklich genannt.",
-        "unit": "mm"
+        "verification": "primary-sources-crosschecked",
+        "note": "Gesamtkopfhöhe k; k, w und r1 sind Näherungsmaße, keine drei gleichzeitig exakten Kugelparameter."
       },
       "w_ca": {
         "nominal": 1,
+        "unit": "mm",
         "sourceRefs": [
-          "DIN662-s1",
-          "fasenco"
+          "p7-huzur",
+          "p7-gross"
         ],
         "status": "verified",
-        "verification": "independent-publishers-agree",
-        "note": "Zahlenwert in zwei voneinander getrennten Veröffentlichungen bestätigt; Normedition des Herstellerblatts nicht ausdrücklich genannt.",
-        "unit": "mm"
+        "verification": "primary-sources-crosschecked",
+        "note": "Kuppenhöhe w; k, w und r1 sind Näherungsmaße, keine drei gleichzeitig exakten Kugelparameter."
       },
       "e_max": {
         "sourceRefs": [
@@ -418,13 +594,14 @@
       },
       "r1_ca": {
         "nominal": 5,
+        "unit": "mm",
         "sourceRefs": [
-          "DIN662-s1"
+          "p7-huzur",
+          "p7-gross"
         ],
-        "status": "single-source",
-        "verification": "norm-table-not-independently-verified",
-        "note": "Kopfradius ca.",
-        "unit": "mm"
+        "status": "verified",
+        "verification": "primary-sources-crosschecked",
+        "note": "Kopfradius r1; k, w und r1 sind Näherungsmaße, keine drei gleichzeitig exakten Kugelparameter."
       },
       "d_min": {
         "sourceRefs": [
@@ -456,6 +633,17 @@
         "note": "Grenze einer Katalog-/Gewichtstabelle, kein nachgewiesener Normgrenzwert.",
         "unit": "mm",
         "max": 20
+      },
+      "senkwinkel_grad": {
+        "nominal": 140,
+        "unit": "deg",
+        "sourceRefs": [
+          "p7-huzur",
+          "fasenco"
+        ],
+        "status": "verified",
+        "verification": "primary-sources-crosschecked",
+        "note": "Unterseitiger Senkwinkel aus zwei Herstellerzeichnungen."
       }
     },
     "4": {
@@ -492,36 +680,36 @@
       },
       "dk_nom": {
         "nominal": 8,
+        "unit": "mm",
         "sourceRefs": [
-          "DIN662-s1",
-          "fasenco"
+          "p7-huzur",
+          "p7-gross"
         ],
         "status": "verified",
-        "verification": "independent-publishers-agree",
-        "note": "Zahlenwert in zwei voneinander getrennten Veröffentlichungen bestätigt; Normedition des Herstellerblatts nicht ausdrücklich genannt.",
-        "unit": "mm"
+        "verification": "primary-sources-crosschecked",
+        "note": "Kopf-Ø; k, w und r1 sind Näherungsmaße, keine drei gleichzeitig exakten Kugelparameter."
       },
       "k_ca": {
         "nominal": 2.1,
+        "unit": "mm",
         "sourceRefs": [
-          "DIN662-s1",
-          "fasenco"
+          "p7-huzur",
+          "p7-gross"
         ],
         "status": "verified",
-        "verification": "independent-publishers-agree",
-        "note": "Zahlenwert in zwei voneinander getrennten Veröffentlichungen bestätigt; Normedition des Herstellerblatts nicht ausdrücklich genannt.",
-        "unit": "mm"
+        "verification": "primary-sources-crosschecked",
+        "note": "Gesamtkopfhöhe k; k, w und r1 sind Näherungsmaße, keine drei gleichzeitig exakten Kugelparameter."
       },
       "w_ca": {
         "nominal": 1.4,
+        "unit": "mm",
         "sourceRefs": [
-          "DIN662-s1",
-          "fasenco"
+          "p7-huzur",
+          "p7-gross"
         ],
         "status": "verified",
-        "verification": "independent-publishers-agree",
-        "note": "Zahlenwert in zwei voneinander getrennten Veröffentlichungen bestätigt; Normedition des Herstellerblatts nicht ausdrücklich genannt.",
-        "unit": "mm"
+        "verification": "primary-sources-crosschecked",
+        "note": "Kuppenhöhe w; k, w und r1 sind Näherungsmaße, keine drei gleichzeitig exakten Kugelparameter."
       },
       "e_max": {
         "sourceRefs": [
@@ -535,13 +723,14 @@
       },
       "r1_ca": {
         "nominal": 6.5,
+        "unit": "mm",
         "sourceRefs": [
-          "DIN662-s1"
+          "p7-huzur",
+          "p7-gross"
         ],
-        "status": "single-source",
-        "verification": "norm-table-not-independently-verified",
-        "note": "Kopfradius ca.",
-        "unit": "mm"
+        "status": "verified",
+        "verification": "primary-sources-crosschecked",
+        "note": "Kopfradius r1; k, w und r1 sind Näherungsmaße, keine drei gleichzeitig exakten Kugelparameter."
       },
       "d_min": {
         "sourceRefs": [
@@ -573,6 +762,17 @@
         "note": "Grenze einer Katalog-/Gewichtstabelle, kein nachgewiesener Normgrenzwert.",
         "unit": "mm",
         "max": 20
+      },
+      "senkwinkel_grad": {
+        "nominal": 140,
+        "unit": "deg",
+        "sourceRefs": [
+          "p7-huzur",
+          "fasenco"
+        ],
+        "status": "verified",
+        "verification": "primary-sources-crosschecked",
+        "note": "Unterseitiger Senkwinkel aus zwei Herstellerzeichnungen."
       }
     },
     "5": {
@@ -609,36 +809,36 @@
       },
       "dk_nom": {
         "nominal": 10,
+        "unit": "mm",
         "sourceRefs": [
-          "DIN662-s1",
-          "fasenco"
+          "p7-huzur",
+          "p7-gross"
         ],
         "status": "verified",
-        "verification": "independent-publishers-agree",
-        "note": "Zahlenwert in zwei voneinander getrennten Veröffentlichungen bestätigt; Normedition des Herstellerblatts nicht ausdrücklich genannt.",
-        "unit": "mm"
+        "verification": "primary-sources-crosschecked",
+        "note": "Kopf-Ø; k, w und r1 sind Näherungsmaße, keine drei gleichzeitig exakten Kugelparameter."
       },
       "k_ca": {
         "nominal": 2.5,
+        "unit": "mm",
         "sourceRefs": [
-          "DIN662-s1",
-          "fasenco"
+          "p7-huzur",
+          "p7-gross"
         ],
         "status": "verified",
-        "verification": "independent-publishers-agree",
-        "note": "Zahlenwert in zwei voneinander getrennten Veröffentlichungen bestätigt; Normedition des Herstellerblatts nicht ausdrücklich genannt.",
-        "unit": "mm"
+        "verification": "primary-sources-crosschecked",
+        "note": "Gesamtkopfhöhe k; k, w und r1 sind Näherungsmaße, keine drei gleichzeitig exakten Kugelparameter."
       },
       "w_ca": {
         "nominal": 1.7,
+        "unit": "mm",
         "sourceRefs": [
-          "DIN662-s1",
-          "fasenco"
+          "p7-huzur",
+          "p7-gross"
         ],
         "status": "verified",
-        "verification": "independent-publishers-agree",
-        "note": "Zahlenwert in zwei voneinander getrennten Veröffentlichungen bestätigt; Normedition des Herstellerblatts nicht ausdrücklich genannt.",
-        "unit": "mm"
+        "verification": "primary-sources-crosschecked",
+        "note": "Kuppenhöhe w; k, w und r1 sind Näherungsmaße, keine drei gleichzeitig exakten Kugelparameter."
       },
       "e_max": {
         "sourceRefs": [
@@ -652,13 +852,14 @@
       },
       "r1_ca": {
         "nominal": 8.2,
+        "unit": "mm",
         "sourceRefs": [
-          "DIN662-s1"
+          "p7-huzur",
+          "p7-gross"
         ],
-        "status": "single-source",
-        "verification": "norm-table-not-independently-verified",
-        "note": "Kopfradius ca.",
-        "unit": "mm"
+        "status": "verified",
+        "verification": "primary-sources-crosschecked",
+        "note": "Kopfradius r1; k, w und r1 sind Näherungsmaße, keine drei gleichzeitig exakten Kugelparameter."
       },
       "d_min": {
         "sourceRefs": [
@@ -690,6 +891,17 @@
         "note": "Grenze einer Katalog-/Gewichtstabelle, kein nachgewiesener Normgrenzwert.",
         "unit": "mm",
         "max": 20
+      },
+      "senkwinkel_grad": {
+        "nominal": 140,
+        "unit": "deg",
+        "sourceRefs": [
+          "p7-huzur",
+          "fasenco"
+        ],
+        "status": "verified",
+        "verification": "primary-sources-crosschecked",
+        "note": "Unterseitiger Senkwinkel aus zwei Herstellerzeichnungen."
       }
     },
     "6": {
@@ -726,36 +938,36 @@
       },
       "dk_nom": {
         "nominal": 12,
+        "unit": "mm",
         "sourceRefs": [
-          "DIN662-s1",
-          "fasenco"
+          "p7-huzur",
+          "p7-gross"
         ],
         "status": "verified",
-        "verification": "independent-publishers-agree",
-        "note": "Zahlenwert in zwei voneinander getrennten Veröffentlichungen bestätigt; Normedition des Herstellerblatts nicht ausdrücklich genannt.",
-        "unit": "mm"
+        "verification": "primary-sources-crosschecked",
+        "note": "Kopf-Ø; k, w und r1 sind Näherungsmaße, keine drei gleichzeitig exakten Kugelparameter."
       },
       "k_ca": {
         "nominal": 3,
+        "unit": "mm",
         "sourceRefs": [
-          "DIN662-s1",
-          "fasenco"
+          "p7-huzur",
+          "p7-gross"
         ],
         "status": "verified",
-        "verification": "independent-publishers-agree",
-        "note": "Zahlenwert in zwei voneinander getrennten Veröffentlichungen bestätigt; Normedition des Herstellerblatts nicht ausdrücklich genannt.",
-        "unit": "mm"
+        "verification": "primary-sources-crosschecked",
+        "note": "Gesamtkopfhöhe k; k, w und r1 sind Näherungsmaße, keine drei gleichzeitig exakten Kugelparameter."
       },
       "w_ca": {
         "nominal": 2,
+        "unit": "mm",
         "sourceRefs": [
-          "DIN662-s1",
-          "fasenco"
+          "p7-huzur",
+          "p7-gross"
         ],
         "status": "verified",
-        "verification": "independent-publishers-agree",
-        "note": "Zahlenwert in zwei voneinander getrennten Veröffentlichungen bestätigt; Normedition des Herstellerblatts nicht ausdrücklich genannt.",
-        "unit": "mm"
+        "verification": "primary-sources-crosschecked",
+        "note": "Kuppenhöhe w; k, w und r1 sind Näherungsmaße, keine drei gleichzeitig exakten Kugelparameter."
       },
       "e_max": {
         "sourceRefs": [
@@ -769,13 +981,14 @@
       },
       "r1_ca": {
         "nominal": 10,
+        "unit": "mm",
         "sourceRefs": [
-          "DIN662-s1"
+          "p7-huzur",
+          "p7-gross"
         ],
-        "status": "single-source",
-        "verification": "norm-table-not-independently-verified",
-        "note": "Kopfradius ca.",
-        "unit": "mm"
+        "status": "verified",
+        "verification": "primary-sources-crosschecked",
+        "note": "Kopfradius r1; k, w und r1 sind Näherungsmaße, keine drei gleichzeitig exakten Kugelparameter."
       },
       "d_min": {
         "sourceRefs": [
@@ -807,6 +1020,17 @@
         "note": "Grenze einer Katalog-/Gewichtstabelle, kein nachgewiesener Normgrenzwert.",
         "unit": "mm",
         "max": 20
+      },
+      "senkwinkel_grad": {
+        "nominal": 140,
+        "unit": "deg",
+        "sourceRefs": [
+          "p7-huzur",
+          "fasenco"
+        ],
+        "status": "verified",
+        "verification": "primary-sources-crosschecked",
+        "note": "Unterseitiger Senkwinkel aus zwei Herstellerzeichnungen."
       }
     },
     "1.6": {
@@ -842,33 +1066,33 @@
       },
       "dk_nom": {
         "nominal": 3.2,
+        "unit": "mm",
         "sourceRefs": [
-          "DIN662-s1"
+          "p7-huzur"
         ],
         "status": "single-source",
-        "verification": "norm-table-not-independently-verified",
-        "note": "Kopf-Ø",
-        "unit": "mm"
+        "verification": "primary-source-only",
+        "note": "Kopf-Ø; k, w und r1 sind Näherungsmaße, keine drei gleichzeitig exakten Kugelparameter."
       },
       "k_ca": {
         "nominal": 0.9,
+        "unit": "mm",
         "sourceRefs": [
-          "DIN662-s1"
+          "p7-huzur"
         ],
         "status": "single-source",
-        "verification": "norm-table-not-independently-verified",
-        "note": "Kopfhöhe ca.",
-        "unit": "mm"
+        "verification": "primary-source-only",
+        "note": "Gesamtkopfhöhe k; k, w und r1 sind Näherungsmaße, keine drei gleichzeitig exakten Kugelparameter."
       },
       "w_ca": {
         "nominal": 0.6,
+        "unit": "mm",
         "sourceRefs": [
-          "DIN662-s1"
+          "p7-huzur"
         ],
         "status": "single-source",
-        "verification": "norm-table-not-independently-verified",
-        "note": "Maß w ca. (Quelle definiert w nicht)",
-        "unit": "mm"
+        "verification": "primary-source-only",
+        "note": "Kuppenhöhe w; k, w und r1 sind Näherungsmaße, keine drei gleichzeitig exakten Kugelparameter."
       },
       "e_max": {
         "sourceRefs": [
@@ -882,13 +1106,13 @@
       },
       "r1_ca": {
         "nominal": 2.8,
+        "unit": "mm",
         "sourceRefs": [
-          "DIN662-s1"
+          "p7-huzur"
         ],
         "status": "single-source",
-        "verification": "norm-table-not-independently-verified",
-        "note": "Kopfradius ca.",
-        "unit": "mm"
+        "verification": "primary-source-only",
+        "note": "Kopfradius r1; k, w und r1 sind Näherungsmaße, keine drei gleichzeitig exakten Kugelparameter."
       },
       "d_min": {
         "sourceRefs": [
@@ -919,6 +1143,17 @@
         "note": "Grenze einer Katalog-/Gewichtstabelle, kein nachgewiesener Normgrenzwert.",
         "unit": "mm",
         "max": 20
+      },
+      "senkwinkel_grad": {
+        "nominal": 140,
+        "unit": "deg",
+        "sourceRefs": [
+          "p7-huzur",
+          "fasenco"
+        ],
+        "status": "verified",
+        "verification": "primary-sources-crosschecked",
+        "note": "Unterseitiger Senkwinkel aus zwei Herstellerzeichnungen."
       }
     },
     "2.5": {
@@ -955,36 +1190,36 @@
       },
       "dk_nom": {
         "nominal": 5,
+        "unit": "mm",
         "sourceRefs": [
-          "DIN662-s1",
-          "fasenco"
+          "p7-huzur",
+          "p7-gross"
         ],
         "status": "verified",
-        "verification": "independent-publishers-agree",
-        "note": "Zahlenwert in zwei voneinander getrennten Veröffentlichungen bestätigt; Normedition des Herstellerblatts nicht ausdrücklich genannt.",
-        "unit": "mm"
+        "verification": "primary-sources-crosschecked",
+        "note": "Kopf-Ø; k, w und r1 sind Näherungsmaße, keine drei gleichzeitig exakten Kugelparameter."
       },
       "k_ca": {
         "nominal": 1.2,
+        "unit": "mm",
         "sourceRefs": [
-          "DIN662-s1",
-          "fasenco"
+          "p7-huzur",
+          "p7-gross"
         ],
         "status": "verified",
-        "verification": "independent-publishers-agree",
-        "note": "Zahlenwert in zwei voneinander getrennten Veröffentlichungen bestätigt; Normedition des Herstellerblatts nicht ausdrücklich genannt.",
-        "unit": "mm"
+        "verification": "primary-sources-crosschecked",
+        "note": "Gesamtkopfhöhe k; k, w und r1 sind Näherungsmaße, keine drei gleichzeitig exakten Kugelparameter."
       },
       "w_ca": {
         "nominal": 0.8,
+        "unit": "mm",
         "sourceRefs": [
-          "DIN662-s1",
-          "fasenco"
+          "p7-huzur",
+          "p7-gross"
         ],
         "status": "verified",
-        "verification": "independent-publishers-agree",
-        "note": "Zahlenwert in zwei voneinander getrennten Veröffentlichungen bestätigt; Normedition des Herstellerblatts nicht ausdrücklich genannt.",
-        "unit": "mm"
+        "verification": "primary-sources-crosschecked",
+        "note": "Kuppenhöhe w; k, w und r1 sind Näherungsmaße, keine drei gleichzeitig exakten Kugelparameter."
       },
       "e_max": {
         "sourceRefs": [
@@ -998,13 +1233,14 @@
       },
       "r1_ca": {
         "nominal": 4.2,
+        "unit": "mm",
         "sourceRefs": [
-          "DIN662-s1"
+          "p7-huzur",
+          "p7-gross"
         ],
-        "status": "single-source",
-        "verification": "norm-table-not-independently-verified",
-        "note": "Kopfradius ca.",
-        "unit": "mm"
+        "status": "verified",
+        "verification": "primary-sources-crosschecked",
+        "note": "Kopfradius r1; k, w und r1 sind Näherungsmaße, keine drei gleichzeitig exakten Kugelparameter."
       },
       "d_min": {
         "sourceRefs": [
@@ -1036,6 +1272,17 @@
         "note": "Grenze einer Katalog-/Gewichtstabelle, kein nachgewiesener Normgrenzwert.",
         "unit": "mm",
         "max": 20
+      },
+      "senkwinkel_grad": {
+        "nominal": 140,
+        "unit": "deg",
+        "sourceRefs": [
+          "p7-huzur",
+          "fasenco"
+        ],
+        "status": "verified",
+        "verification": "primary-sources-crosschecked",
+        "note": "Unterseitiger Senkwinkel aus zwei Herstellerzeichnungen."
       }
     },
     "3.5": {
@@ -1071,33 +1318,36 @@
       },
       "dk_nom": {
         "nominal": 7,
+        "unit": "mm",
         "sourceRefs": [
-          "DIN662-s1"
+          "p7-huzur",
+          "p7-reca"
         ],
-        "status": "single-source",
-        "verification": "norm-table-not-independently-verified",
-        "note": "Kopf-Ø",
-        "unit": "mm"
+        "status": "verified",
+        "verification": "primary-sources-crosschecked",
+        "note": "Kopf-Ø; k, w und r1 sind Näherungsmaße, keine drei gleichzeitig exakten Kugelparameter."
       },
       "k_ca": {
         "nominal": 1.8,
+        "unit": "mm",
         "sourceRefs": [
-          "DIN662-s1"
+          "p7-huzur",
+          "p7-reca"
         ],
-        "status": "single-source",
-        "verification": "norm-table-not-independently-verified",
-        "note": "Kopfhöhe ca.",
-        "unit": "mm"
+        "status": "verified",
+        "verification": "primary-sources-crosschecked",
+        "note": "Gesamtkopfhöhe k; k, w und r1 sind Näherungsmaße, keine drei gleichzeitig exakten Kugelparameter."
       },
       "w_ca": {
         "nominal": 1.2,
+        "unit": "mm",
         "sourceRefs": [
-          "DIN662-s1"
+          "p7-huzur",
+          "p7-reca"
         ],
-        "status": "single-source",
-        "verification": "norm-table-not-independently-verified",
-        "note": "Maß w ca. (Quelle definiert w nicht)",
-        "unit": "mm"
+        "status": "verified",
+        "verification": "primary-sources-crosschecked",
+        "note": "Kuppenhöhe w; k, w und r1 sind Näherungsmaße, keine drei gleichzeitig exakten Kugelparameter."
       },
       "e_max": {
         "sourceRefs": [
@@ -1111,13 +1361,14 @@
       },
       "r1_ca": {
         "nominal": 6,
+        "unit": "mm",
         "sourceRefs": [
-          "DIN662-s1"
+          "p7-huzur",
+          "p7-reca"
         ],
-        "status": "single-source",
-        "verification": "norm-table-not-independently-verified",
-        "note": "Kopfradius ca.",
-        "unit": "mm"
+        "status": "verified",
+        "verification": "primary-sources-crosschecked",
+        "note": "Kopfradius r1; k, w und r1 sind Näherungsmaße, keine drei gleichzeitig exakten Kugelparameter."
       },
       "d_min": {
         "sourceRefs": [
@@ -1148,6 +1399,17 @@
         "note": "Grenze einer Katalog-/Gewichtstabelle, kein nachgewiesener Normgrenzwert.",
         "unit": "mm",
         "max": 20
+      },
+      "senkwinkel_grad": {
+        "nominal": 140,
+        "unit": "deg",
+        "sourceRefs": [
+          "p7-huzur",
+          "fasenco"
+        ],
+        "status": "verified",
+        "verification": "primary-sources-crosschecked",
+        "note": "Unterseitiger Senkwinkel aus zwei Herstellerzeichnungen."
       }
     }
   },
@@ -1179,25 +1441,51 @@
       "titel": "Fasenco Maßtabelle DIN662",
       "abgerufen": "2026-11-26",
       "scope": "dimensions"
+    },
+    {
+      "id": "p7-huzur",
+      "url": "https://huzurcivata.com.tr/huzurcivata.pdf",
+      "titel": "Huzur Cıvata · eigener Produktkatalog",
+      "abgerufen": "2026-11-27",
+      "scope": "dimensions",
+      "locator": "PDF S.47 / Druckseite45, DIN662"
+    },
+    {
+      "id": "p7-gross",
+      "url": "https://www.schrauben-gross.com/Downloads_PL/Kataloge_PL/Katalog_PL_online.pdf",
+      "titel": "Schrauben Groß · eigener Produktkatalog",
+      "abgerufen": "2026-11-27",
+      "scope": "dimensions",
+      "locator": "PDF S.207 / Druckseite1/144, DIN662 Stahl"
+    },
+    {
+      "id": "p7-reca",
+      "url": "https://www.reca.co.at/de/wp-content/uploads/sites/6/2021/09/Befestigungstechnik_Kap.-11.pdf",
+      "titel": "RECA · Befestigungstechnik Kapitel 11",
+      "abgerufen": "2026-11-27",
+      "scope": "dimensions",
+      "locator": "PDF S.13–14 / Druckseiten11.7–11.8, DIN662"
     }
   ],
   "status": "partial",
   "coverage": "documented",
-  "pruefdatum": "2026-11-26",
+  "pruefdatum": "2026-11-27",
   "normstatus": {
     "edition": "2011-03",
-    "status": "status-from-supplied-source",
+    "status": "current",
     "sourceRefs": [
-      "DIN662-s2",
-      "DIN662-s3"
-    ]
+      "DIN662-s2"
+    ],
+    "checkedAt": "2026-11-27",
+    "note": "Ausgabe und Status auf DIN Media geprüft. Statusseite bestätigt keine Maßzahl."
   },
   "hinweise": [
     "Fehlende Größe oder Länge bedeutet fehlende Datenabdeckung, kein Normverbot.",
     "Maßdaten sind einzeln belegt; Editionsstatus allein bestätigt keine Maßtabelle."
   ],
   "gaps": [
-    "Vollständige Normlängenmatrix je Größe und aktuelle Originalmaßtabelle nicht unabhängig bestätigt."
+    "Für d1,6 fehlen zweite Primärbelege der vollständigen Kopfmaße; Kopfkontur bleibt dort offen.",
+    "Vollständige Normlängenmatrix nicht doppelt belegt; ergänzte Kombinationen sind konkrete Lieferartikel."
   ],
   "lengthDependentFields": [
     "sL"
@@ -1225,5 +1513,15 @@
     ],
     "verification": "norm-length-matrix-not-verified",
     "note": "Vollständige im Ausgangsbeleg erfasste Katalogreihe wiederhergestellt. Nicht als vollständige Normlängenmatrix je Durchmesser interpretiert."
+  },
+  "geometryAdapter": "rivet-raised-countersunk",
+  "headHeightReference": "total",
+  "lengthReference": {
+    "kind": "under-head",
+    "sourceRefs": [
+      "p7-huzur",
+      "p7-gross"
+    ],
+    "note": "Nennlänge l beginnt an der Unterkante des Kopfes; der gesamte Kopf k liegt davor."
   }
 }

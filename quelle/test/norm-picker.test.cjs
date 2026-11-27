@@ -1,5 +1,5 @@
 const test=require('node:test'),assert=require('node:assert/strict'),fs=require('node:fs'),path=require('node:path'),vm=require('node:vm');
-const N=require('../normen/library.js'),R=require('../normen/resolver.js'),threads=require('../normen/gewinde.json'),baseI=require('../i18n.js'),extra={...require('../i18n-p4.json'),...require('../i18n-p5-ui.json')};
+const N=require('../normen/library.js'),R=require('../normen/resolver.js'),threads=require('../normen/gewinde.json'),baseI=require('../i18n.js'),extra={...require('../i18n-p4.json'),...require('../i18n-p5-ui.json'),...require('../i18n-p7-weld-length.json')};
 const I={...baseI,t:(key,language)=>language!=='de'&&extra[key]?extra[key][baseI.supported.indexOf(language)-1]:baseI.t(key,language)};
 class El{constructor(tag='div'){this.tagName=tag.toUpperCase();this.value='';this.name='';this.type='';this.checked=false;this.children=[];this.events={};this.parent=null;this.hidden=false;}append(...nodes){nodes.forEach(n=>{n.parent=this;this.children.push(n);});}replaceChildren(...nodes){this.children=[];this.append(...nodes);}setAttribute(k,v){this[k]=v;}addEventListener(k,fn){this.events[k]=fn;}focus(){this.focused=true;}contains(node){return node===this||this.children.some(child=>child.contains(node));}closest(tag){return this.tagName.toLowerCase()===tag?this:this.parent?.closest(tag);}get options(){return this.children;}get textContent(){return this._text||this.children.map(x=>x.textContent).join('');}set textContent(x){this._text=x;}}
 function setup(language='de',enhanced=false,catalogue=[{die:[50,100],pun:[25,100],ml:120,cl:[10,200]}],functional=false){
@@ -15,13 +15,28 @@ function setup(language='de',enhanced=false,catalogue=[{die:[50,100],pun:[25,100
 }
 function edit(p,name,value,tagName='SELECT',type='',checked=false){p.form.events.change({target:{name,value,tagName,type,checked}});}
 
+test('P7 weld lengths use their own reference, keep free input and never reuse l1 as l2 across variants',()=>{
+ for(const language of I.supported){
+  const p=setup(language,true,undefined,true),choose=(key,value)=>{p.get('norm-'+key).value=value;p.get('norm-'+key).events.change();};
+  p.picker.select({id:'ISO13918',form:'PD',groesse:'M6',laenge:35});
+  assert.equal(p.get('norm-laenge')['aria-label'],I.t('Länge nach dem Schweißen in mm',language));assert.equal(p.applied.l2,35);assert.equal(p.applied.l1,37.1);
+  assert.ok(!p.get('norm-laenge').options.some(o=>o.value==='65'));assert.ok(p.get('norm-laenge').options.some(o=>o.value==='custom'));
+  choose('laenge','custom');p.get('norm-laenge-custom').value='65';p.get('norm-laenge-custom').events.input();assert.equal(p.applied.l2,65);assert.equal(p.applied.weldingLength.selectionStatus,'by-agreement');
+  choose('form','PS');assert.equal(p.get('norm-laenge-custom').value,'');assert.equal(p.get('norm-laenge')['aria-label'],I.t('Länge vor dem Schweißen in mm',language));assert.equal(p.applied.l2,undefined);assert.notEqual(p.applied.l1,65);
+  choose('form','FD');assert.equal(p.get('norm-laenge-custom').hidden,false);assert.equal(p.get('norm-laenge-custom').disabled,false);assert.equal(p.get('norm-laenge-custom').value,'');assert.equal(p.applied.l1,undefined);
+  const notice=p.get('norm-length-range').textContent;assert.match(notice,/15.*100/);if(language!=='de')assert.doesNotMatch(notice,/Normbereich|Andere Längen|Vereinbarung/);
+  p.get('norm-laenge-custom').value='101';p.get('norm-laenge-custom').events.input();assert.equal(p.applied.weldingLength.selectionStatus,'by-agreement');assert.equal(p.applied.l1,103.1);
+  choose('form','SD');choose('groesse','10');assert.match(p.get('norm-length-range').textContent,/30/);assert.equal(p.applied.weldingLength.definition.approximate,true);
+ }
+});
+
 test('norm picker stores drive-size and checkbox overrides and keeps the full customer snapshot',()=>{
  const p=setup();assert(p.picker.select({id:'ISO4762',groesse:'M6',laenge:30}));edit(p,'iSize','custom');edit(p,'iSW','4,7','INPUT');let a=p.picker.adapted();assert.equal(a.iSize,'custom');assert.equal(a.iSW,4.7);assert.equal(a.standardDocument.partSnapshot.nachricht,'unchanged customer text');
  assert(p.picker.select({id:'DIN934',groesse:'M8'}));edit(p,'nutShape','square');edit(p,'nutFlange','on','INPUT','checkbox',false);a=p.picker.adapted();assert.equal(a.nutShape,'square');assert.equal(a.nutFlange,false);assert.equal(p.picker.document().overrides.nutFlange.value,false);
 });
 
 test('norm picker exposes documented variant sizes without fabricating welding geometry',()=>{
- const p=setup();p.picker.select({id:'DIN7338',form:'B',groesse:'3'});assert.equal(p.get('norm-form').value,'B');assert(p.get('norm-form').options.some(x=>x.value==='A'));assert.equal(p.picker.document().standardReference.form,'B');assert.equal(p.applied.d_b,1.7);assert(p.applied.normRequiresGeometryReview);
+ const p=setup();p.picker.select({id:'DIN7338',form:'B',groesse:'3'});assert.equal(p.get('norm-form').value,'B');assert(p.get('norm-form').options.some(x=>x.value==='A'));assert.equal(p.picker.document().standardReference.form,'B');assert.equal(p.applied.d_b,1.7);assert.equal(p.applied.kopfForm,'rund');assert(p.applied.normMissingFields.includes('length'));assert(!p.applied.normMissingFields.includes('headProfileDefinition'));
  p.picker.select({id:'ISO13918',form:'PT',groesse:'M3',laenge:12});assert.equal(p.get('norm-kind').value,'pin');assert.equal(p.get('norm-form').value,'PT');assert.equal(p.get('norm-form').options.length,14);assert.equal(p.applied.l1,12);assert.equal(p.applied.normRequiresGeometryReview,true);assert.equal(p.picker.document().standardReference.form,'PT');
  assert(!p.host.textContent.includes('catalog-undated'));assert(!p.host.textContent.includes('catalogue-unassigned'));
 });

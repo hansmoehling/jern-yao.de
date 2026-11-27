@@ -1,8 +1,8 @@
 {
   "schemaVersion": 1,
-  "version": "2026-11-26.1",
+  "version": "2026-11-27.p7",
   "id": "DIN6927",
-  "edition": "catalog-undated",
+  "edition": "1983-11",
   "label": "Ganzmetall-Klemmmutter mit Bund",
   "funktion": "mutter",
   "klasse": "mutter",
@@ -44,7 +44,9 @@
       "geometryStatus": "partial",
       "missingGeometryFields": [
         "prevailingTorqueProfile"
-      ]
+      ],
+      "dataEdition": "manufacturer-table-undated",
+      "note": "Undatierte UGATU-Herstellerzeile; nicht durch die hier ausgewertete, auf DIN6927:1983 bezogene NUFAST-Regelgewindetabelle bestaetigt."
     },
     "M6": {
       "vorbelegung": {
@@ -292,7 +294,9 @@
       "geometryStatus": "partial",
       "missingGeometryFields": [
         "prevailingTorqueProfile"
-      ]
+      ],
+      "dataEdition": "manufacturer-table-undated",
+      "note": "Undatierte UGATU-Herstellerzeile; nicht durch die hier ausgewertete, auf DIN6927:1983 bezogene NUFAST-Regelgewindetabelle bestaetigt."
     },
     "M10x1.25": {
       "vorbelegung": {
@@ -323,7 +327,9 @@
       "geometryStatus": "partial",
       "missingGeometryFields": [
         "prevailingTorqueProfile"
-      ]
+      ],
+      "dataEdition": "manufacturer-table-undated",
+      "note": "Undatierte UGATU-Herstellerzeile; nicht durch die hier ausgewertete, auf DIN6927:1983 bezogene NUFAST-Regelgewindetabelle bestaetigt."
     },
     "M10x1": {
       "vorbelegung": {
@@ -354,7 +360,9 @@
       "geometryStatus": "partial",
       "missingGeometryFields": [
         "prevailingTorqueProfile"
-      ]
+      ],
+      "dataEdition": "manufacturer-table-undated",
+      "note": "Undatierte UGATU-Herstellerzeile; nicht durch die hier ausgewertete, auf DIN6927:1983 bezogene NUFAST-Regelgewindetabelle bestaetigt."
     },
     "M12x1.5": {
       "vorbelegung": {
@@ -385,7 +393,9 @@
       "geometryStatus": "partial",
       "missingGeometryFields": [
         "prevailingTorqueProfile"
-      ]
+      ],
+      "dataEdition": "manufacturer-table-undated",
+      "note": "Undatierte UGATU-Herstellerzeile; nicht durch die hier ausgewertete, auf DIN6927:1983 bezogene NUFAST-Regelgewindetabelle bestaetigt."
     },
     "M14x1.5": {
       "vorbelegung": {
@@ -416,7 +426,9 @@
       "geometryStatus": "partial",
       "missingGeometryFields": [
         "prevailingTorqueProfile"
-      ]
+      ],
+      "dataEdition": "manufacturer-table-undated",
+      "note": "Undatierte UGATU-Herstellerzeile; nicht durch die hier ausgewertete, auf DIN6927:1983 bezogene NUFAST-Regelgewindetabelle bestaetigt."
     },
     "M16x1.5": {
       "vorbelegung": {
@@ -447,7 +459,9 @@
       "geometryStatus": "partial",
       "missingGeometryFields": [
         "prevailingTorqueProfile"
-      ]
+      ],
+      "dataEdition": "manufacturer-table-undated",
+      "note": "Undatierte UGATU-Herstellerzeile; nicht durch die hier ausgewertete, auf DIN6927:1983 bezogene NUFAST-Regelgewindetabelle bestaetigt."
     },
     "M20x1.5": {
       "vorbelegung": {
@@ -478,7 +492,9 @@
       "geometryStatus": "partial",
       "missingGeometryFields": [
         "prevailingTorqueProfile"
-      ]
+      ],
+      "dataEdition": "manufacturer-table-undated",
+      "note": "Undatierte UGATU-Herstellerzeile; nicht durch die hier ausgewertete, auf DIN6927:1983 bezogene NUFAST-Regelgewindetabelle bestaetigt."
     }
   },
   "fields": {
@@ -531,7 +547,8 @@
         "status": "single-source",
         "verification": "one-primary-record",
         "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "note": "Maximale Gesamthoehe aus der undatierten UGATU-Herstellertabelle. NUFAST bestaetigt diesen Wert nicht; keine Zuordnung dieses Hoehenwerts zur Normausgabe1983 behauptet.",
+        "dataEdition": "manufacturer-table-undated"
       },
       "m_min": {
         "min": 4.7,
@@ -584,43 +601,51 @@
     "M6": {
       "P": {
         "nominal": 1,
+        "unit": "mm",
         "sourceRefs": [
+          "nufast6927_1983",
           "ugatu6927"
         ],
-        "status": "single-source",
-        "verification": "one-primary-record",
-        "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "dimension-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "s_nom": {
         "nominal": 10,
+        "unit": "mm",
         "sourceRefs": [
+          "nufast6927_1983",
           "ugatu6927"
         ],
-        "status": "single-source",
-        "verification": "one-primary-record",
-        "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "dimension-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "s_min": {
         "min": 9.78,
+        "unit": "mm",
         "sourceRefs": [
+          "nufast6927_1983",
           "ugatu6927"
         ],
-        "status": "single-source",
-        "verification": "one-primary-record",
-        "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "dimension-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "e_min": {
         "min": 11.05,
+        "unit": "mm",
         "sourceRefs": [
+          "nufast6927_1983",
           "ugatu6927"
         ],
-        "status": "single-source",
-        "verification": "one-primary-record",
-        "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "dimension-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "h_max": {
         "max": 7.3,
@@ -630,37 +655,44 @@
         "status": "single-source",
         "verification": "one-primary-record",
         "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "note": "Maximale Gesamthoehe aus der undatierten UGATU-Herstellertabelle. NUFAST bestaetigt diesen Wert nicht; keine Zuordnung dieses Hoehenwerts zur Normausgabe1983 behauptet.",
+        "dataEdition": "manufacturer-table-undated"
       },
       "m_min": {
         "min": 5.7,
+        "unit": "mm",
         "sourceRefs": [
+          "nufast6927_1983",
           "ugatu6927"
         ],
-        "status": "single-source",
-        "verification": "one-primary-record",
-        "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "dimension-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "dc_max": {
         "max": 14.2,
+        "unit": "mm",
         "sourceRefs": [
+          "nufast6927_1983",
           "ugatu6927"
         ],
-        "status": "single-source",
-        "verification": "one-primary-record",
-        "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "dimension-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "c_min": {
         "min": 1.1,
+        "unit": "mm",
         "sourceRefs": [
+          "nufast6927_1983",
           "ugatu6927"
         ],
-        "status": "single-source",
-        "verification": "one-primary-record",
-        "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "dimension-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "d_nom": {
         "nominal": 6,
@@ -683,43 +715,51 @@
     "M8": {
       "P": {
         "nominal": 1.25,
+        "unit": "mm",
         "sourceRefs": [
+          "nufast6927_1983",
           "ugatu6927"
         ],
-        "status": "single-source",
-        "verification": "one-primary-record",
-        "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "dimension-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "s_nom": {
         "nominal": 13,
+        "unit": "mm",
         "sourceRefs": [
+          "nufast6927_1983",
           "ugatu6927"
         ],
-        "status": "single-source",
-        "verification": "one-primary-record",
-        "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "dimension-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "s_min": {
         "min": 12.73,
+        "unit": "mm",
         "sourceRefs": [
+          "nufast6927_1983",
           "ugatu6927"
         ],
-        "status": "single-source",
-        "verification": "one-primary-record",
-        "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "dimension-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "e_min": {
         "min": 14.38,
+        "unit": "mm",
         "sourceRefs": [
+          "nufast6927_1983",
           "ugatu6927"
         ],
-        "status": "single-source",
-        "verification": "one-primary-record",
-        "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "dimension-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "h_max": {
         "max": 9.4,
@@ -729,37 +769,44 @@
         "status": "single-source",
         "verification": "one-primary-record",
         "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "note": "Maximale Gesamthoehe aus der undatierten UGATU-Herstellertabelle. NUFAST bestaetigt diesen Wert nicht; keine Zuordnung dieses Hoehenwerts zur Normausgabe1983 behauptet.",
+        "dataEdition": "manufacturer-table-undated"
       },
       "m_min": {
         "min": 7.6,
+        "unit": "mm",
         "sourceRefs": [
+          "nufast6927_1983",
           "ugatu6927"
         ],
-        "status": "single-source",
-        "verification": "one-primary-record",
-        "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "dimension-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "dc_max": {
         "max": 17.9,
+        "unit": "mm",
         "sourceRefs": [
+          "nufast6927_1983",
           "ugatu6927"
         ],
-        "status": "single-source",
-        "verification": "one-primary-record",
-        "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "dimension-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "c_min": {
         "min": 1.2,
+        "unit": "mm",
         "sourceRefs": [
+          "nufast6927_1983",
           "ugatu6927"
         ],
-        "status": "single-source",
-        "verification": "one-primary-record",
-        "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "dimension-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "d_nom": {
         "nominal": 8,
@@ -782,43 +829,51 @@
     "M10": {
       "P": {
         "nominal": 1.5,
+        "unit": "mm",
         "sourceRefs": [
+          "nufast6927_1983",
           "ugatu6927"
         ],
-        "status": "single-source",
-        "verification": "one-primary-record",
-        "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "dimension-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "s_nom": {
         "nominal": 15,
+        "unit": "mm",
         "sourceRefs": [
+          "nufast6927_1983",
           "ugatu6927"
         ],
-        "status": "single-source",
-        "verification": "one-primary-record",
-        "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "dimension-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "s_min": {
         "min": 14.73,
+        "unit": "mm",
         "sourceRefs": [
+          "nufast6927_1983",
           "ugatu6927"
         ],
-        "status": "single-source",
-        "verification": "one-primary-record",
-        "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "dimension-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "e_min": {
         "min": 16.64,
+        "unit": "mm",
         "sourceRefs": [
+          "nufast6927_1983",
           "ugatu6927"
         ],
-        "status": "single-source",
-        "verification": "one-primary-record",
-        "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "dimension-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "h_max": {
         "max": 11.4,
@@ -828,37 +883,44 @@
         "status": "single-source",
         "verification": "one-primary-record",
         "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "note": "Maximale Gesamthoehe aus der undatierten UGATU-Herstellertabelle. NUFAST bestaetigt diesen Wert nicht; keine Zuordnung dieses Hoehenwerts zur Normausgabe1983 behauptet.",
+        "dataEdition": "manufacturer-table-undated"
       },
       "m_min": {
         "min": 9.6,
+        "unit": "mm",
         "sourceRefs": [
+          "nufast6927_1983",
           "ugatu6927"
         ],
-        "status": "single-source",
-        "verification": "one-primary-record",
-        "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "dimension-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "dc_max": {
         "max": 21.8,
+        "unit": "mm",
         "sourceRefs": [
+          "nufast6927_1983",
           "ugatu6927"
         ],
-        "status": "single-source",
-        "verification": "one-primary-record",
-        "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "dimension-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "c_min": {
         "min": 1.5,
+        "unit": "mm",
         "sourceRefs": [
+          "nufast6927_1983",
           "ugatu6927"
         ],
-        "status": "single-source",
-        "verification": "one-primary-record",
-        "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "dimension-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "d_nom": {
         "nominal": 10,
@@ -881,43 +943,51 @@
     "M12": {
       "P": {
         "nominal": 1.75,
+        "unit": "mm",
         "sourceRefs": [
+          "nufast6927_1983",
           "ugatu6927"
         ],
-        "status": "single-source",
-        "verification": "one-primary-record",
-        "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "dimension-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "s_nom": {
         "nominal": 18,
+        "unit": "mm",
         "sourceRefs": [
+          "nufast6927_1983",
           "ugatu6927"
         ],
-        "status": "single-source",
-        "verification": "one-primary-record",
-        "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "dimension-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "s_min": {
         "min": 17.73,
+        "unit": "mm",
         "sourceRefs": [
+          "nufast6927_1983",
           "ugatu6927"
         ],
-        "status": "single-source",
-        "verification": "one-primary-record",
-        "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "dimension-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "e_min": {
         "min": 20.03,
+        "unit": "mm",
         "sourceRefs": [
+          "nufast6927_1983",
           "ugatu6927"
         ],
-        "status": "single-source",
-        "verification": "one-primary-record",
-        "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "dimension-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "h_max": {
         "max": 13.8,
@@ -927,37 +997,44 @@
         "status": "single-source",
         "verification": "one-primary-record",
         "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "note": "Maximale Gesamthoehe aus der undatierten UGATU-Herstellertabelle. NUFAST bestaetigt diesen Wert nicht; keine Zuordnung dieses Hoehenwerts zur Normausgabe1983 behauptet.",
+        "dataEdition": "manufacturer-table-undated"
       },
       "m_min": {
         "min": 11.6,
+        "unit": "mm",
         "sourceRefs": [
+          "nufast6927_1983",
           "ugatu6927"
         ],
-        "status": "single-source",
-        "verification": "one-primary-record",
-        "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "dimension-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "dc_max": {
         "max": 26,
+        "unit": "mm",
         "sourceRefs": [
+          "nufast6927_1983",
           "ugatu6927"
         ],
-        "status": "single-source",
-        "verification": "one-primary-record",
-        "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "dimension-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "c_min": {
         "min": 1.8,
+        "unit": "mm",
         "sourceRefs": [
+          "nufast6927_1983",
           "ugatu6927"
         ],
-        "status": "single-source",
-        "verification": "one-primary-record",
-        "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "dimension-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "d_nom": {
         "nominal": 12,
@@ -980,43 +1057,51 @@
     "M14": {
       "P": {
         "nominal": 2,
+        "unit": "mm",
         "sourceRefs": [
+          "nufast6927_1983",
           "ugatu6927"
         ],
-        "status": "single-source",
-        "verification": "one-primary-record",
-        "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "dimension-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "s_nom": {
         "nominal": 21,
+        "unit": "mm",
         "sourceRefs": [
+          "nufast6927_1983",
           "ugatu6927"
         ],
-        "status": "single-source",
-        "verification": "one-primary-record",
-        "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "dimension-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "s_min": {
         "min": 20.67,
+        "unit": "mm",
         "sourceRefs": [
+          "nufast6927_1983",
           "ugatu6927"
         ],
-        "status": "single-source",
-        "verification": "one-primary-record",
-        "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "dimension-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "e_min": {
         "min": 23.36,
+        "unit": "mm",
         "sourceRefs": [
+          "nufast6927_1983",
           "ugatu6927"
         ],
-        "status": "single-source",
-        "verification": "one-primary-record",
-        "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "dimension-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "h_max": {
         "max": 15.9,
@@ -1026,37 +1111,44 @@
         "status": "single-source",
         "verification": "one-primary-record",
         "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "note": "Maximale Gesamthoehe aus der undatierten UGATU-Herstellertabelle. NUFAST bestaetigt diesen Wert nicht; keine Zuordnung dieses Hoehenwerts zur Normausgabe1983 behauptet.",
+        "dataEdition": "manufacturer-table-undated"
       },
       "m_min": {
         "min": 13.3,
+        "unit": "mm",
         "sourceRefs": [
+          "nufast6927_1983",
           "ugatu6927"
         ],
-        "status": "single-source",
-        "verification": "one-primary-record",
-        "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "dimension-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "dc_max": {
         "max": 29.9,
+        "unit": "mm",
         "sourceRefs": [
+          "nufast6927_1983",
           "ugatu6927"
         ],
-        "status": "single-source",
-        "verification": "one-primary-record",
-        "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "dimension-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "c_min": {
         "min": 2.1,
+        "unit": "mm",
         "sourceRefs": [
+          "nufast6927_1983",
           "ugatu6927"
         ],
-        "status": "single-source",
-        "verification": "one-primary-record",
-        "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "dimension-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "d_nom": {
         "nominal": 14,
@@ -1079,43 +1171,51 @@
     "M16": {
       "P": {
         "nominal": 2,
+        "unit": "mm",
         "sourceRefs": [
+          "nufast6927_1983",
           "ugatu6927"
         ],
-        "status": "single-source",
-        "verification": "one-primary-record",
-        "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "dimension-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "s_nom": {
         "nominal": 24,
+        "unit": "mm",
         "sourceRefs": [
+          "nufast6927_1983",
           "ugatu6927"
         ],
-        "status": "single-source",
-        "verification": "one-primary-record",
-        "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "dimension-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "s_min": {
         "min": 23.67,
+        "unit": "mm",
         "sourceRefs": [
+          "nufast6927_1983",
           "ugatu6927"
         ],
-        "status": "single-source",
-        "verification": "one-primary-record",
-        "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "dimension-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "e_min": {
         "min": 26.75,
+        "unit": "mm",
         "sourceRefs": [
+          "nufast6927_1983",
           "ugatu6927"
         ],
-        "status": "single-source",
-        "verification": "one-primary-record",
-        "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "dimension-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "h_max": {
         "max": 18.3,
@@ -1125,37 +1225,44 @@
         "status": "single-source",
         "verification": "one-primary-record",
         "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "note": "Maximale Gesamthoehe aus der undatierten UGATU-Herstellertabelle. NUFAST bestaetigt diesen Wert nicht; keine Zuordnung dieses Hoehenwerts zur Normausgabe1983 behauptet.",
+        "dataEdition": "manufacturer-table-undated"
       },
       "m_min": {
         "min": 15.3,
+        "unit": "mm",
         "sourceRefs": [
+          "nufast6927_1983",
           "ugatu6927"
         ],
-        "status": "single-source",
-        "verification": "one-primary-record",
-        "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "dimension-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "dc_max": {
         "max": 34.5,
+        "unit": "mm",
         "sourceRefs": [
+          "nufast6927_1983",
           "ugatu6927"
         ],
-        "status": "single-source",
-        "verification": "one-primary-record",
-        "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "dimension-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "c_min": {
         "min": 2.4,
+        "unit": "mm",
         "sourceRefs": [
+          "nufast6927_1983",
           "ugatu6927"
         ],
-        "status": "single-source",
-        "verification": "one-primary-record",
-        "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "dimension-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "d_nom": {
         "nominal": 16,
@@ -1178,43 +1285,51 @@
     "M20": {
       "P": {
         "nominal": 2.5,
+        "unit": "mm",
         "sourceRefs": [
+          "nufast6927_1983",
           "ugatu6927"
         ],
-        "status": "single-source",
-        "verification": "one-primary-record",
-        "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "dimension-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "s_nom": {
         "nominal": 30,
+        "unit": "mm",
         "sourceRefs": [
+          "nufast6927_1983",
           "ugatu6927"
         ],
-        "status": "single-source",
-        "verification": "one-primary-record",
-        "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "dimension-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "s_min": {
         "min": 29.16,
+        "unit": "mm",
         "sourceRefs": [
+          "nufast6927_1983",
           "ugatu6927"
         ],
-        "status": "single-source",
-        "verification": "one-primary-record",
-        "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "dimension-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "e_min": {
         "min": 32.95,
+        "unit": "mm",
         "sourceRefs": [
+          "nufast6927_1983",
           "ugatu6927"
         ],
-        "status": "single-source",
-        "verification": "one-primary-record",
-        "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "dimension-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "h_max": {
         "max": 22.4,
@@ -1224,37 +1339,44 @@
         "status": "single-source",
         "verification": "one-primary-record",
         "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "note": "Maximale Gesamthoehe aus der undatierten UGATU-Herstellertabelle. NUFAST bestaetigt diesen Wert nicht; keine Zuordnung dieses Hoehenwerts zur Normausgabe1983 behauptet.",
+        "dataEdition": "manufacturer-table-undated"
       },
       "m_min": {
         "min": 18.9,
+        "unit": "mm",
         "sourceRefs": [
+          "nufast6927_1983",
           "ugatu6927"
         ],
-        "status": "single-source",
-        "verification": "one-primary-record",
-        "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "dimension-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "dc_max": {
         "max": 42.8,
+        "unit": "mm",
         "sourceRefs": [
+          "nufast6927_1983",
           "ugatu6927"
         ],
-        "status": "single-source",
-        "verification": "one-primary-record",
-        "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "dimension-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "c_min": {
         "min": 3,
+        "unit": "mm",
         "sourceRefs": [
+          "nufast6927_1983",
           "ugatu6927"
         ],
-        "status": "single-source",
-        "verification": "one-primary-record",
-        "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "status": "verified",
+        "verification": true,
+        "verificationMethod": "dimension-table-compared",
+        "note": "Übereinstimmende Maßwerte; Prüfdatum 2026-11-27."
       },
       "d_nom": {
         "nominal": 20,
@@ -1323,7 +1445,8 @@
         "status": "single-source",
         "verification": "one-primary-record",
         "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "note": "Maximale Gesamthoehe aus der undatierten UGATU-Herstellertabelle. NUFAST bestaetigt diesen Wert nicht; keine Zuordnung dieses Hoehenwerts zur Normausgabe1983 behauptet.",
+        "dataEdition": "manufacturer-table-undated"
       },
       "m_min": {
         "min": 7.6,
@@ -1422,7 +1545,8 @@
         "status": "single-source",
         "verification": "one-primary-record",
         "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "note": "Maximale Gesamthoehe aus der undatierten UGATU-Herstellertabelle. NUFAST bestaetigt diesen Wert nicht; keine Zuordnung dieses Hoehenwerts zur Normausgabe1983 behauptet.",
+        "dataEdition": "manufacturer-table-undated"
       },
       "m_min": {
         "min": 9.6,
@@ -1521,7 +1645,8 @@
         "status": "single-source",
         "verification": "one-primary-record",
         "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "note": "Maximale Gesamthoehe aus der undatierten UGATU-Herstellertabelle. NUFAST bestaetigt diesen Wert nicht; keine Zuordnung dieses Hoehenwerts zur Normausgabe1983 behauptet.",
+        "dataEdition": "manufacturer-table-undated"
       },
       "m_min": {
         "min": 9.6,
@@ -1620,7 +1745,8 @@
         "status": "single-source",
         "verification": "one-primary-record",
         "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "note": "Maximale Gesamthoehe aus der undatierten UGATU-Herstellertabelle. NUFAST bestaetigt diesen Wert nicht; keine Zuordnung dieses Hoehenwerts zur Normausgabe1983 behauptet.",
+        "dataEdition": "manufacturer-table-undated"
       },
       "m_min": {
         "min": 11.6,
@@ -1719,7 +1845,8 @@
         "status": "single-source",
         "verification": "one-primary-record",
         "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "note": "Maximale Gesamthoehe aus der undatierten UGATU-Herstellertabelle. NUFAST bestaetigt diesen Wert nicht; keine Zuordnung dieses Hoehenwerts zur Normausgabe1983 behauptet.",
+        "dataEdition": "manufacturer-table-undated"
       },
       "m_min": {
         "min": 13.3,
@@ -1818,7 +1945,8 @@
         "status": "single-source",
         "verification": "one-primary-record",
         "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "note": "Maximale Gesamthoehe aus der undatierten UGATU-Herstellertabelle. NUFAST bestaetigt diesen Wert nicht; keine Zuordnung dieses Hoehenwerts zur Normausgabe1983 behauptet.",
+        "dataEdition": "manufacturer-table-undated"
       },
       "m_min": {
         "min": 15.3,
@@ -1917,7 +2045,8 @@
         "status": "single-source",
         "verification": "one-primary-record",
         "unit": "mm",
-        "note": "Nur ein unabhängig geprüfter Maßnachweis; Zweitquelle offen."
+        "note": "Maximale Gesamthoehe aus der undatierten UGATU-Herstellertabelle. NUFAST bestaetigt diesen Wert nicht; keine Zuordnung dieses Hoehenwerts zur Normausgabe1983 behauptet.",
+        "dataEdition": "manufacturer-table-undated"
       },
       "m_min": {
         "min": 18.9,
@@ -1976,27 +2105,75 @@
       "kind": "manufacturer-datasheet",
       "edition": null,
       "accessed": "2026-11-26"
+    },
+    "nufast6927_1983": {
+      "url": "https://www.nufast.co.uk/uploads/DIN_6927.pdf",
+      "title": "NUFAST Produktionszeichnung, Auszug DIN6927:1983",
+      "edition": "1983-11",
+      "locator": "Tabelle M6–M20, Zeichnungsstand 25.06.2014",
+      "kind": "manufacturer-production-drawing",
+      "accessed": "2026-11-27"
+    },
+    "din6927_register": {
+      "url": "https://www.dinmedia.de/en/standard/din-6927/1069797",
+      "title": "DIN Media DIN6927:1983-11",
+      "edition": "1983-11",
+      "locator": "Normstatus, Ausgabe und Ersatz EN1664/1667",
+      "kind": "standard-register",
+      "accessed": "2026-11-27"
     }
   },
   "sourceStatus": "per-value",
   "coverage": {
     "diameterMin": 5,
-    "diameterMax": 30,
+    "diameterMax": 20,
     "unit": "mm",
     "status": "partial",
-    "missingSizes": [
-      "M7",
-      "M18",
-      "M22",
-      "M24",
-      "M27",
-      "M30"
-    ],
-    "missingReason": "Keine ausgewerteten Maßnachweise für diese Größen; keine Aussage über Herstellbarkeit oder Lieferbarkeit."
+    "note": "Acht Regelgewinde- und sieben Feingewindezeilen aus UGATU. NUFAST bestätigt sieben Regelgewinde-Außenmaßzeilen, nicht die maximale Gesamthöhe."
   },
-  "editionStatus": "edition-unverified",
+  "editionStatus": "source-edition-matched",
   "shape": "sechskant_bund",
   "height": "h_max",
   "threadSeries": "coarse-and-documented-fine",
-  "defaultPolicy": "Dokumentierte Kataloghöhe oder ausgewiesenes Höchstmaß als vorläufige Außenhülle; kein vollständiges Fertigteilmodell."
+  "defaultPolicy": "Dokumentierte Kataloghöhe oder ausgewiesenes Höchstmaß als vorläufige Außenhülle; kein vollständiges Fertigteilmodell.",
+  "editionEvidence": {
+    "sourceRefs": [
+      "nufast6927_1983"
+    ],
+    "method": "supplier-declared-edition-and-dimension-comparison",
+    "note": "Datenausgabe der ausgewerteten Maßtabelle; aktueller Normstatus wird getrennt geführt."
+  },
+  "coverageNotes": [
+    "NUFAST bestätigt sieben Regelgewinde-Außenmaßzeilen, enthält aber kein h-Höchstmaß. M5 und Feingewinde bleiben im UGATU-Nachweis; Höhe/Klemmkontur dadurch nicht zweifach bestätigt."
+  ],
+  "pruefdatum": "2026-11-27",
+  "quellen": [
+    {
+      "id": "ugatu6927",
+      "url": "https://www.ugatu.com/media/uploads/pdf/fichas-tecnicas/DIN_6927.pdf",
+      "title": "Industrias UGATU DIN 6927 technical data",
+      "locator": "Page 2, dimensional table",
+      "kind": "manufacturer-datasheet",
+      "edition": null,
+      "accessed": "2026-11-26"
+    },
+    {
+      "id": "nufast6927_1983",
+      "url": "https://www.nufast.co.uk/uploads/DIN_6927.pdf",
+      "title": "NUFAST Produktionszeichnung, Auszug DIN6927:1983",
+      "edition": "1983-11",
+      "locator": "Tabelle M6–M20, Zeichnungsstand 25.06.2014",
+      "kind": "manufacturer-production-drawing",
+      "accessed": "2026-11-27"
+    },
+    {
+      "id": "din6927_register",
+      "url": "https://www.dinmedia.de/en/standard/din-6927/1069797",
+      "title": "DIN Media DIN6927:1983-11",
+      "edition": "1983-11",
+      "locator": "Normstatus, Ausgabe und Ersatz EN1664/1667",
+      "kind": "standard-register",
+      "accessed": "2026-11-27"
+    }
+  ]
 }

@@ -36,7 +36,7 @@
       recesses.push({id:'I'+(recesses.length+1),from:'B',shape:'cylinder',diameter:c.diameter,length:c.depth,offsetX:0,offsetY:0,...(c.bottom==='cone'?{bottomShape:'cone',bottomAngle:c.angle}:{})});
     }
     const modelAssumptions={};
-    for(const [key,value]of [['shaft',e.shaftModelAssumption],['flange',e.flangeModelAssumption],['bore',e.boreBottomAssumption]])if(value)modelAssumptions[key]=JSON.parse(JSON.stringify(value));
+    for(const [key,value]of [['shaft',e.shaftModelAssumption],['flange',e.flangeModelAssumption],['bore',e.boreBottomAssumption],['head',e.headModelAssumption],['rivetReference',e.rivetGeometryReference]])if(value)modelAssumptions[key]=JSON.parse(JSON.stringify(value));
     return {version:1,segments,recesses,trimming,parting:g.headHeight,flipped:false,modelNotes:notes,...(Object.keys(modelAssumptions).length?{modelAssumptions}:{}),standardReference:e.standardReference||null,standardDocument:e.standardDocument?JSON.parse(JSON.stringify(e.standardDocument)):null};
   }
   return Object.freeze({fromBolt});

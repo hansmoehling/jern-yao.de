@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "id": "DIN7338",
-  "version": "2026-11-26",
+  "version": "2026-11-27",
   "edition": "2011-03",
   "label": "DIN7338 · Niete für Brems- und Kupplungsbeläge",
   "datasetKind": "part-standard",
@@ -63,11 +63,27 @@
       "titel": "Fasenco DIN7338 Maßtabelle",
       "scope": "dimensions",
       "abgerufen": "2026-11-26"
+    },
+    {
+      "id": "p7-huzur",
+      "url": "https://huzurcivata.com.tr/huzurcivata.pdf",
+      "titel": "Huzur Cıvata · eigener Produktkatalog",
+      "abgerufen": "2026-11-27",
+      "scope": "dimensions",
+      "locator": "PDF S.48–49 / Druckseiten46–47, FormenA/B"
+    },
+    {
+      "id": "p7-ryme",
+      "url": "https://rymeautomotive.com/download/01-REMACHES-RYMEAUTOMOTIVE-2015.pdf",
+      "titel": "RYME Automotive · eigener Nietkatalog 2015",
+      "abgerufen": "2026-11-27",
+      "scope": "dimensions",
+      "locator": "PDF S.2, Lieferkombinationen FormB"
     }
   ],
   "status": "partial",
   "coverage": "documented",
-  "pruefdatum": "2026-11-26",
+  "pruefdatum": "2026-11-27",
   "lengthDependentFields": [
     "sL"
   ],
@@ -80,9 +96,10 @@
     "note": "Normlängenmatrix je Durchmesser nicht verifiziert."
   },
   "gaps": [
-    "B d4: Bohrungstiefe widersprüchlich (4 oder4,5..5).",
-    "C1/C2 sind Hohlformen; keine ungeprüfte Gleichsetzung mit Drahtvollmaterial.",
-    "Längen der Norm je Form/Größe nicht vollständig belegt."
+    "B d4: Grundtiefe4 bestätigt; oberes Bohrtiefenmaß weiterhin widersprüchlich.",
+    "C1/C2 bleiben Hohlformen ohne bestätigten Rohrkonturadapter.",
+    "Längen je Form/Größe nicht vollständig doppelt belegt.",
+    "120°-Bohrungsgrund ist Programmannahme, kein aus einer unbemaßten Zeichnung abgelesenes Normmaß."
   ],
   "hinweise": [
     "Fehlende Größe/Länge kennzeichnet eine Datenlücke, keinen Normausschluss."
@@ -92,13 +109,15 @@
     "status": "current",
     "sourceRefs": [
       "DIN7338-s2"
-    ]
+    ],
+    "checkedAt": "2026-11-27",
+    "note": "Ausgabe und Status auf DIN Media geprüft. Statusseite bestätigt keine Maßzahl."
   },
   "variants": [
     {
       "id": "A",
       "label": "Vollniet",
-      "kopfTyp": "flachrund",
+      "kopfTyp": "zylinder",
       "schaftende": "voll",
       "sizeData": {
         "3": {
@@ -117,10 +136,18 @@
           "coverage": "documented",
           "geometryStatus": "partial",
           "missingGeometryFields": [
-            "length",
-            "headProfileDefinition"
+            "length"
           ],
-          "nachLaenge": {}
+          "nachLaenge": {},
+          "headGeometry": {
+            "model": "cylinder-envelope",
+            "exactNormContour": false,
+            "sourceRefs": [
+              "p7-huzur",
+              "fasenco"
+            ],
+            "note": "Flacher Scheibenkopf nach beiden Zeichnungen; kleine Kantenradien im Hüllvolumen vernachlässigt."
+          }
         },
         "4": {
           "vorbelegung": {
@@ -138,10 +165,18 @@
           "coverage": "documented",
           "geometryStatus": "partial",
           "missingGeometryFields": [
-            "length",
-            "headProfileDefinition"
+            "length"
           ],
-          "nachLaenge": {}
+          "nachLaenge": {},
+          "headGeometry": {
+            "model": "cylinder-envelope",
+            "exactNormContour": false,
+            "sourceRefs": [
+              "p7-huzur",
+              "fasenco"
+            ],
+            "note": "Flacher Scheibenkopf nach beiden Zeichnungen; kleine Kantenradien im Hüllvolumen vernachlässigt."
+          }
         },
         "5": {
           "vorbelegung": {
@@ -159,10 +194,18 @@
           "coverage": "documented",
           "geometryStatus": "partial",
           "missingGeometryFields": [
-            "length",
-            "headProfileDefinition"
+            "length"
           ],
-          "nachLaenge": {}
+          "nachLaenge": {},
+          "headGeometry": {
+            "model": "cylinder-envelope",
+            "exactNormContour": false,
+            "sourceRefs": [
+              "p7-huzur",
+              "fasenco"
+            ],
+            "note": "Flacher Scheibenkopf nach beiden Zeichnungen; kleine Kantenradien im Hüllvolumen vernachlässigt."
+          }
         },
         "6": {
           "vorbelegung": {
@@ -180,10 +223,18 @@
           "coverage": "documented",
           "geometryStatus": "partial",
           "missingGeometryFields": [
-            "length",
-            "headProfileDefinition"
+            "length"
           ],
-          "nachLaenge": {}
+          "nachLaenge": {},
+          "headGeometry": {
+            "model": "cylinder-envelope",
+            "exactNormContour": false,
+            "sourceRefs": [
+              "p7-huzur",
+              "fasenco"
+            ],
+            "note": "Flacher Scheibenkopf nach beiden Zeichnungen; kleine Kantenradien im Hüllvolumen vernachlässigt."
+          }
         },
         "8": {
           "vorbelegung": {
@@ -201,10 +252,18 @@
           "coverage": "documented",
           "geometryStatus": "partial",
           "missingGeometryFields": [
-            "length",
-            "headProfileDefinition"
+            "length"
           ],
-          "nachLaenge": {}
+          "nachLaenge": {},
+          "headGeometry": {
+            "model": "cylinder-envelope",
+            "exactNormContour": false,
+            "sourceRefs": [
+              "p7-huzur",
+              "fasenco"
+            ],
+            "note": "Flacher Scheibenkopf nach beiden Zeichnungen; kleine Kantenradien im Hüllvolumen vernachlässigt."
+          }
         },
         "10": {
           "vorbelegung": {
@@ -222,10 +281,18 @@
           "coverage": "documented",
           "geometryStatus": "partial",
           "missingGeometryFields": [
-            "length",
-            "headProfileDefinition"
+            "length"
           ],
-          "nachLaenge": {}
+          "nachLaenge": {},
+          "headGeometry": {
+            "model": "cylinder-envelope",
+            "exactNormContour": false,
+            "sourceRefs": [
+              "p7-huzur",
+              "fasenco"
+            ],
+            "note": "Flacher Scheibenkopf nach beiden Zeichnungen; kleine Kantenradien im Hüllvolumen vernachlässigt."
+          }
         }
       },
       "fields": {
@@ -571,7 +638,7 @@
     {
       "id": "B",
       "label": "Halbhohlniet",
-      "kopfTyp": "flachrund",
+      "kopfTyp": "zylinder",
       "schaftende": "halbhohl",
       "sizeData": {
         "3": {
@@ -596,17 +663,26 @@
           "geometryStatus": "partial",
           "missingGeometryFields": [
             "length",
-            "headProfileDefinition",
             "boreBottomShape"
           ],
-          "nachLaenge": {}
+          "nachLaenge": {},
+          "headGeometry": {
+            "model": "cylinder-envelope",
+            "exactNormContour": false,
+            "sourceRefs": [
+              "p7-huzur",
+              "fasenco"
+            ],
+            "note": "Flacher Scheibenkopf nach beiden Zeichnungen; kleine Kantenradien im Hüllvolumen vernachlässigt."
+          }
         },
         "4": {
           "vorbelegung": {
             "sD": 4,
             "kD": 7.5,
             "kH": 1,
-            "d_b": 2.7
+            "d_b": 2.7,
+            "t_b": 4
           },
           "roh": {
             "d_nominal": 4,
@@ -615,16 +691,14 @@
             "d4_h13": 2.7,
             "k_min": 0.8,
             "k_max": 1,
-            "t_min": 4.5,
+            "t_min": 4,
             "t_max": 5
           },
           "coverage": "documented",
           "geometryStatus": "partial",
           "missingGeometryFields": [
             "length",
-            "headProfileDefinition",
-            "boreBottomShape",
-            "verifiedBoreDepth"
+            "boreBottomShape"
           ],
           "nachLaenge": {
             "6": {
@@ -637,22 +711,21 @@
               "fields": {
                 "l_nominal": {
                   "nominal": 6,
+                  "unit": "mm",
                   "sourceRefs": [
-                    "DIN7338-s4"
+                    "DIN7338-s4",
+                    "p7-ryme"
                   ],
-                  "status": "single-source",
-                  "verification": "single-publication",
-                  "note": "Einzelartikel, keine vollständige Normlängenmatrix.",
-                  "unit": "mm"
+                  "status": "verified",
+                  "verification": "primary-sources-crosschecked",
+                  "kind": "documented-commercial-combination",
+                  "note": "Diese konkrete Durchmesser-Längen-Kombination ist belegt. Lieferprogramm und Normreihe sind nicht gleichgesetzt; keine vollständige Normmatrix behauptet."
                 }
               },
               "coverage": "documented",
               "geometryStatus": "partial",
               "missingGeometryFields": [
-                "length",
-                "headProfileDefinition",
-                "boreBottomShape",
-                "verifiedBoreDepth"
+                "boreBottomShape"
               ]
             },
             "8": {
@@ -665,24 +738,32 @@
               "fields": {
                 "l_nominal": {
                   "nominal": 8,
+                  "unit": "mm",
                   "sourceRefs": [
-                    "DIN7338-s3"
+                    "DIN7338-s3",
+                    "p7-ryme"
                   ],
-                  "status": "single-source",
-                  "verification": "single-publication",
-                  "note": "Einzelartikel, keine vollständige Normlängenmatrix.",
-                  "unit": "mm"
+                  "status": "verified",
+                  "verification": "primary-sources-crosschecked",
+                  "kind": "documented-commercial-combination",
+                  "note": "Diese konkrete Durchmesser-Längen-Kombination ist belegt. Lieferprogramm und Normreihe sind nicht gleichgesetzt; keine vollständige Normmatrix behauptet."
                 }
               },
               "coverage": "documented",
               "geometryStatus": "partial",
               "missingGeometryFields": [
-                "length",
-                "headProfileDefinition",
-                "boreBottomShape",
-                "verifiedBoreDepth"
+                "boreBottomShape"
               ]
             }
+          },
+          "headGeometry": {
+            "model": "cylinder-envelope",
+            "exactNormContour": false,
+            "sourceRefs": [
+              "p7-huzur",
+              "fasenco"
+            ],
+            "note": "Flacher Scheibenkopf nach beiden Zeichnungen; kleine Kantenradien im Hüllvolumen vernachlässigt."
           }
         },
         "5": {
@@ -707,10 +788,18 @@
           "geometryStatus": "partial",
           "missingGeometryFields": [
             "length",
-            "headProfileDefinition",
             "boreBottomShape"
           ],
-          "nachLaenge": {}
+          "nachLaenge": {},
+          "headGeometry": {
+            "model": "cylinder-envelope",
+            "exactNormContour": false,
+            "sourceRefs": [
+              "p7-huzur",
+              "fasenco"
+            ],
+            "note": "Flacher Scheibenkopf nach beiden Zeichnungen; kleine Kantenradien im Hüllvolumen vernachlässigt."
+          }
         },
         "6": {
           "vorbelegung": {
@@ -734,10 +823,18 @@
           "geometryStatus": "partial",
           "missingGeometryFields": [
             "length",
-            "headProfileDefinition",
             "boreBottomShape"
           ],
-          "nachLaenge": {}
+          "nachLaenge": {},
+          "headGeometry": {
+            "model": "cylinder-envelope",
+            "exactNormContour": false,
+            "sourceRefs": [
+              "p7-huzur",
+              "fasenco"
+            ],
+            "note": "Flacher Scheibenkopf nach beiden Zeichnungen; kleine Kantenradien im Hüllvolumen vernachlässigt."
+          }
         },
         "8": {
           "vorbelegung": {
@@ -761,10 +858,18 @@
           "geometryStatus": "partial",
           "missingGeometryFields": [
             "length",
-            "headProfileDefinition",
             "boreBottomShape"
           ],
-          "nachLaenge": {}
+          "nachLaenge": {},
+          "headGeometry": {
+            "model": "cylinder-envelope",
+            "exactNormContour": false,
+            "sourceRefs": [
+              "p7-huzur",
+              "fasenco"
+            ],
+            "note": "Flacher Scheibenkopf nach beiden Zeichnungen; kleine Kantenradien im Hüllvolumen vernachlässigt."
+          }
         },
         "10": {
           "vorbelegung": {
@@ -788,10 +893,18 @@
           "geometryStatus": "partial",
           "missingGeometryFields": [
             "length",
-            "headProfileDefinition",
             "boreBottomShape"
           ],
-          "nachLaenge": {}
+          "nachLaenge": {},
+          "headGeometry": {
+            "model": "cylinder-envelope",
+            "exactNormContour": false,
+            "sourceRefs": [
+              "p7-huzur",
+              "fasenco"
+            ],
+            "note": "Flacher Scheibenkopf nach beiden Zeichnungen; kleine Kantenradien im Hüllvolumen vernachlässigt."
+          }
         }
       },
       "fields": {
@@ -949,35 +1062,43 @@
             "max": 1
           },
           "t_min": {
+            "min": 4,
+            "unit": "mm",
             "sourceRefs": [
-              "DIN7338-s1",
+              "p7-huzur",
+              "fasenco",
               "DIN7338-s3",
               "DIN7338-s4"
             ],
-            "status": "conflict",
-            "verification": "different-bore-depths",
-            "note": "Tabelle: 4,5..5; Würth/Keller-Kalmbach Einzelartikel: 4. Kein automatischer Tiefenwert.",
-            "unit": "mm",
-            "min": 4.5,
-            "alternatives": [
-              {
-                "min": 4,
-                "sourceRefs": [
-                  "DIN7338-s3",
-                  "DIN7338-s4"
-                ]
-              }
-            ]
+            "status": "verified",
+            "verification": "primary-sources-crosschecked",
+            "note": "Minimal-/Grundtiefe4 in zwei Herstellermaßtabellen sowie zwei konkreten Lieferartikeln. Keine Übernahme des widersprüchlichen alten Maximalwerts.",
+            "superseded": {
+              "value": 4.5,
+              "sourceRefs": [
+                "DIN7338-s1",
+                "DIN7338-s3",
+                "DIN7338-s4"
+              ]
+            }
           },
           "t_max": {
             "sourceRefs": [
               "DIN7338-s1"
             ],
-            "status": "single-source",
-            "verification": "single-publication",
-            "note": "Maßtabelle; zweite unabhängig bestätigte Zuordnung zur Form fehlt.",
+            "status": "conflict",
+            "verification": "upper-depth-limit-unresolved",
+            "note": "Alter Katalogwert5 widerspricht Huzur5,5. Nur t_min4 ist gesichert; kein bestätigtes Normtoleranzband.",
             "unit": "mm",
-            "max": 5
+            "max": 5,
+            "alternatives": [
+              {
+                "max": 5.5,
+                "sourceRefs": [
+                  "p7-huzur"
+                ]
+              }
+            ]
           }
         },
         "5": {

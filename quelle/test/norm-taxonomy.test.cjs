@@ -19,7 +19,7 @@ test('P5 each actual norm function has a direct selector family without changing
 
 test('P5 every missing norm field is understandable and translated in all five languages',()=>{
  const missing=new Set(),walk=value=>{if(value&&typeof value==='object'){for(const key of value.missingGeometryFields||[])missing.add(key);for(const child of Object.values(value))if(child&&typeof child==='object')walk(child);}};
- families.forEach(walk);assert(missing.has('headProfileRadius'));assert(missing.has('verifiedBoreDepth'));
+ families.forEach(walk);assert(missing.has('headProfileRadius'));missing.add('verifiedBoreDepth'); // Older saved references still use this translated gap label.
  for(const key of missing){const label=N.missingLabel(key);assert.notEqual(label,key);assert.notEqual(label,'Weiteres Geometriemaß',key+' must have a specific label');for(const lang of I.supported.slice(1)){const translated=N.missingLabel(key,text=>I.t(text,lang));assert.notEqual(translated,label,key+' '+lang);}}
  for(const key of ['pin','set-screw','stud','weld-stud','free'])for(const lang of I.supported.slice(1))assert.notEqual(N.functionLabel(key,text=>I.t(text,lang)),N.functionLabel(key));
  assert.equal(N.missingLabel('unknownFutureField'),'Weiteres Geometriemaß');
@@ -32,7 +32,7 @@ test('P5 an explicitly sourced forming assumption resolves the semi-tubular rive
  const flat=N.adapt(data,R.setOverride(doc,'bottomShape','flat'));assert.equal(flat.geometryOrigins.bottomShape.origin,'customer');assert(!flat.normMissingFields.includes('boreBottomShape'));assert.equal(flat.boreBottomAssumption,undefined);
  const angle=N.adapt(data,R.setOverride(doc,'bottomAngle',100));assert.equal(angle.boreBottomAssumption.angleOrigin,'customer');assert.equal(angle.geometryOrigins.bottomAngle.value,100);
  const invalid=N.adapt(data,R.setOverride(doc,'bottomShape','unresolved'));assert(invalid.normMissingFields.includes('boreBottomShape'));assert.equal(invalid.boreBottomAssumption,undefined);
- const conflicting=N.adapt(data,resolve({id:'DIN7338',form:'B',groesse:'4',laenge:12}));assert(conflicting.normMissingFields.includes('verifiedBoreDepth'),'a bottom assumption cannot resolve competing bore-depth sources');
+ const corrected=N.adapt(data,resolve({id:'DIN7338',form:'B',groesse:'4',laenge:12}));assert.equal(corrected.t_b,4,'new primary sources resolve the basic bore depth');assert(!corrected.normMissingFields.includes('verifiedBoreDepth'));assert.equal(families.find(f=>f.id==='DIN7338').variants.find(v=>v.id==='B').fields['4'].t_max.status,'conflict','a bottom assumption does not resolve competing upper-depth limits');
  const inherited=N.adapt(data,R.setOverride(doc,'iTyp','hex'));assert.equal(inherited.iTyp,'none');assert.equal(inherited.standardDocument.overrides.iTyp.value,'hex','inactive customer edits remain stored, never an active rivet drive');
 });
 

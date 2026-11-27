@@ -75,12 +75,12 @@ test('flange defaults identify the published lower bound as an explicit simplifi
  }
 });
 
-test('versioned ds, b and flange facts cite two observed sources; minimum bounds are never nominal values',()=>{
+test('verified ds, b and flange facts cite two observed sources; single-source observations stay explicitly unverified',()=>{
  for(const f of data.families.filter(f=>ids.includes(f.id)))for(const row of Object.values(f.groessen)){
   const model=row.shaftModelV2;
   for(const v of [model.ds,...model.threadLengths,...(model.flange?[model.flange.height,model.flange.diameter]:[])]){
-   assert.ok(v.sourceRefs.length>=2);assert.ok(v.sourceRefs.every(id=>f.quellen.some(s=>s.id===id&&s.url)));
-   if(v.verification)assert.ok(v.value>0);else assert.equal(v.value,null);
+   assert.ok(v.sourceRefs.length>=1);assert.ok(v.sourceRefs.every(id=>f.quellen.some(s=>s.id===id&&s.url)));
+   if(v.verification){assert.ok(v.sourceRefs.length>=2);assert.ok(v.value>0);}else if(v.status==='single-source'){assert.equal(v.sourceRefs.length,1);assert.ok(v.value>0);}else assert.equal(v.value,null);
   }
   if(model.flange){assert.equal(model.flange.height.bound,'minimum');assert.equal(model.flange.height.nominal,null);}
  }
