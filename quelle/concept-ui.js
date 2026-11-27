@@ -9,6 +9,18 @@ function stageText(stage,language='de'){
  const parts=Array.isArray(stage?.operationParts)&&stage.operationParts.length?stage.operationParts:legacy?legacy.slice(1):[operation];
  return parts.map(part=>root.JYI18N.t(part,language)).join(' · ');
 }
+function forceText(stage,language='de'){
+ const I=root.JYI18N,finite=value=>typeof value==='number'&&Number.isFinite(value),num=(value,digits=1)=>value.toLocaleString(I.numberLocale(language),{maximumFractionDigits:digits,minimumFractionDigits:digits});
+ const message=(key,values)=>I.t(key,language).replace(/\{(\w+)\}/g,(match,key)=>Object.hasOwn(values,key)?values[key]:match);
+ const validBand=band=>band&&finite(band.min)&&finite(band.max)&&band.min>0&&band.max>=band.min;
+ const result={status:'',band:'',pressure:'',pressureBand:''};
+ if(!['extrapoliert','calculated','missing'].includes(stage?.forceStatus))return result;
+ if(stage.forceStatus==='extrapoliert'&&finite(stage.forceExtrapolation?.phiMax))result.status=message('extrapoliert über φ {value}',{value:num(stage.forceExtrapolation.phiMax)});
+ if(validBand(stage.forceBand?.t)&&stage.forceBand.t.max>stage.forceBand.t.min)result.band=message('Kraftband {min}–{max} t',{min:num(stage.forceBand.t.min),max:num(stage.forceBand.t.max)});
+ if(finite(stage.pStempel)&&stage.pStempel>0)result.pressure=message('Stempelpressung {value} N/mm²',{value:num(stage.pStempel,0)});
+ if(validBand(stage.pStempelBand)&&stage.pStempelBand.max>stage.pStempelBand.min)result.pressureBand=message('Stempelpressung im Band {min}–{max} N/mm²',{min:num(stage.pStempelBand.min,0),max:num(stage.pStempelBand.max,0)});
+ return result;
+}
 function rationaleText(concept,language='de'){
  if(Array.isArray(concept?.failedCriteria)&&concept.failedCriteria.length)return root.JYI18N.t('Kein Stadienkonzept zugeordnet. Nicht erfüllt: {criteria}.',language).replace('{criteria}',concept.failedCriteria.map(key=>root.JYI18N.t(key,language)).join(', '));
  const text=concept?.rationale||'';
@@ -37,6 +49,10 @@ function html(concept,language='de'){
  if(preparation){out+='<p>'+esc(preparation)+'</p>';if(typeof concept.preparation.assumption==='string')out+='<p class="small">'+esc(tr(concept.preparation.assumption))+'</p>';}
  if(Array.isArray(concept.stages)&&concept.stages.length){out+='<ol>';for(const stage of concept.stages){
   out+='<li><strong>'+esc(tr(concept.status==='incomplete'||stage.kind==='unassigned'?'Arbeitsschritt':'Stadium'))+' '+esc(stage.number)+': '+esc(stageText(stage,language))+'</strong>';
+  const force=forceText(stage,language);
+  if(force.status)out+='<div class="stage-force-status">'+esc(force.status)+'</div>';
+  const forceDetails=[force.band,force.pressure,force.pressureBand].filter(Boolean);
+  if(forceDetails.length)out+='<div class="small">'+forceDetails.map(esc).join(' · ')+'</div>';
   const location=locationText(stage,language);
   if(location)out+='<div>'+esc(location)+'</div>';
   if(Array.isArray(stage.operations)&&stage.operations.length>1)out+='<ul>'+stage.operations.map(op=>'<li>'+esc(tr(op.name||''))+(op.location?' · '+esc(tr(op.location)):'')+'</li>').join('')+'</ul>';
@@ -45,6 +61,6 @@ function html(concept,language='de'){
  if(concept.rationale||concept.rationaleParts)out+='<p>'+esc(rationaleText(concept,language))+'</p>';
  return out+'</section>';
 }
-root.JYConcept={html,preparationText,stageText,rationaleText,locationText};
-if(typeof module==='object'&&module.exports)module.exports={html,preparationText,stageText,rationaleText,locationText};
+root.JYConcept={html,preparationText,stageText,forceText,rationaleText,locationText};
+if(typeof module==='object'&&module.exports)module.exports={html,preparationText,stageText,forceText,rationaleText,locationText};
 })(typeof window==='object'?window:globalThis);

@@ -1,5 +1,9 @@
 const test=require('node:test'),assert=require('node:assert/strict'),fs=require('node:fs'),path=require('node:path'),vm=require('node:vm');
-const I=require('../i18n.js'),E=require('../engine.js');
+const E=require('../engine.js');
+// Read source catalogs in memory so UI checks do not require writing build artifacts.
+const i18nModule={exports:{}},catalog=Object.assign({},...fs.readdirSync(path.join(__dirname,'..')).filter(file=>/^i18n-.*\.json$/.test(file)).sort().map(file=>JSON.parse(fs.readFileSync(path.join(__dirname,'..',file),'utf8'))));
+new Function('module',fs.readFileSync(path.join(__dirname,'../i18n-runtime.js'),'utf8').replace('/*CATALOG*/',JSON.stringify(catalog)))(i18nModule);
+const I=i18nModule.exports;
 const crypto=require('node:crypto').webcrypto;
 const source=fs.readFileSync(path.join(__dirname,'..','archiv-ui.js'),'utf8');
 const machines=JSON.parse(fs.readFileSync(path.join(__dirname,'..','maschinen.json'),'utf8'));
@@ -88,6 +92,68 @@ async function pollStatus(p){const timer=[...p.timers].find(([,item])=>item.ms==
 test('expert template contains no manual status refresh buttons',()=>{
  const html=fs.readFileSync(path.join(__dirname,'..','archiv-vorlage.html'),'utf8');
  assert.doesNotMatch(html,/parts-drawing-refresh|geometry-refresh|archive-mail-refresh|Stand aktualisieren/);
+});
+test('force-chain translations cover all languages and preserve every numeric placeholder',()=>{
+ const placeholders=text=>[...text.matchAll(/\{(\w+)\}/g)].map(match=>match[1]).sort();
+ for(const [key,values]of Object.entries(require('../i18n-p2-force.json'))){
+  assert.equal(values.length,4);
+  values.forEach((text,index)=>{assert(text.trim());assert.notEqual(text,key);assert.deepEqual(placeholders(text),placeholders(key));assert.equal(I.t(key,I.supported[index+1]),text);
+   if(key.startsWith('Station {station}: Napfstempel'))assert.equal(I.t(key.replace('{station}','4').replace('{pressure}','2600'),I.supported[index+1]),text.replace('{station}','4').replace('{pressure}','2600'));
+  });
+ }
+});
+test('force-v2 stage status, band and punch pressure reach screen, concept, print and mail in five languages',async()=>{
+ const extra=require('../i18n-p2-force.json');
+ const text=(key,language,values={})=>(language==='de'?key:extra[key][I.supported.indexOf(language)-1]).replace(/\{(\w+)\}/g,(all,key)=>values[key]??all);
+ for(const language of I.supported){
+  let input;const engine={...E,auslegen(e){input=e;const result=E.auslegen({...e,forcePolicy:undefined});if(result.stufen[0])Object.assign(result.stufen[0],{forceStatus:'extrapoliert',forceExtrapolation:{phiMax:1,phiEnd:1.4},forceBand:{min:19613.3,max:29419.95,unit:'N',t:{min:2,max:3}},p:1750,pStempel:2450,pStempelBand:{min:2300,max:2450,unit:'N/mm²'}});return result;}};
+  const p=setup(language,engine,true,undefined,true);p.examples.find(button=>button.dataset.bsp==='m6').events.click();
+  assert.equal(input.forcePolicy,'force-v2');
+  const fmt=(n,d=1)=>n.toLocaleString(I.numberLocale(language),{minimumFractionDigits:d,maximumFractionDigits:d});
+  const status=text('extrapoliert über φ {value}',language,{value:fmt(1)}),band=text('Kraftband {min}–{max} t',language,{min:fmt(2),max:fmt(3)}),pressure=text('Stempelpressung {value} N/mm²',language,{value:fmt(2450,0)}),pressureBand=text('Stempelpressung im Band {min}–{max} N/mm²',language,{min:fmt(2300,0),max:fmt(2450,0)});
+  const stages=p.get('stufen').tBodies[0].innerHTML;
+  assert(stages.includes('class="stage-force-status">'+status));
+  assert(stages.includes(band));assert(stages.includes(pressureBand));assert(stages.includes(text('Stempel {value}',language,{value:fmt(2450,0)})));
+  assert(stages.includes('title="'+text('Formdruck {value} N/mm²',language,{value:fmt(1750,0)})+'">'+fmt(1750,0)),'forming pressure is distinct from the punch pressure');
+  const concept=p.context.window.JYConcept.html({status:'candidate',stages:[{number:1,operation:'Napf',forceStatus:'extrapoliert',forceExtrapolation:{phiMax:1},forceBand:{t:{min:2,max:3}},pStempel:2450,pStempelBand:{min:2300,max:2450}}]},language);
+  for(const value of [status,band,pressure,pressureBand])assert(concept.includes(value));
+  p.get('drucken').events.click();await sendMail(p);
+  for(const output of [p.get('blatt').innerHTML,new URL(p.context.location.href).searchParams.get('body')])for(const value of [status,band,pressure,pressureBand])assert(output.includes(value),language+' / '+value);
+  for(const output of [stages,concept,p.get('blatt').innerHTML])assert(!output.includes('undefined')&&!output.includes('NaN'));
+  if(language!=='de')assert(!stages.includes('extrapoliert über φ'));
+ }
+});
+test('legacy stages have no force-v2 annotations or policy and malformed bands never display',()=>{
+ let input;const p=setup('de',{...E,auslegen(e){input=e;return E.auslegen(e);}},true);p.examples[0].events.click();
+ assert.equal(input.forcePolicy,undefined);assert.doesNotMatch(p.get('stufen').tBodies[0].innerHTML,/stage-force-status|stage-force-details|Stempelpressung/);
+ const C=p.context.window.JYConcept;
+ for(const stage of [{pStempel:2450},{forceStatus:'calculated',forceBand:{t:{min:3,max:2}},pStempel:Infinity},{forceStatus:'extrapoliert',forceExtrapolation:{phiMax:NaN},forceBand:{t:{min:null,max:3}}}])assert(Object.values(C.forceText(stage,'de')).every(value=>value===''));
+ assert(!C.html({status:'candidate',stages:[{number:1,operation:'Napf',pStempel:2450}]},'de').includes('Stempelpressung'));
+});
+test('manual enquiry carries the staged force policy for server verification while legacy has no decision context',async()=>{
+ for(const staged of [false,true]){
+  const p=setup('de',E,true,{},staged);p.examples.find(button=>button.dataset.bsp==='m6').events.click();
+  p.answers.push({data:{id:'ENQUIRY',token:'private-test-token',kind:'enquiry',status:'received',notificationStatus:'sent'}});await sendMail(p);
+  const body=p.networkRequests[0].options.body;
+  if(staged){const decision=JSON.parse(body.get('decisionContext'));assert.equal(decision.kind,'manual');assert.equal(decision.input.forcePolicy,'force-v2');assert.equal(decision.input.machinePolicy,'ranking-v2');}
+  else assert.equal(body.get('decisionContext'),null);
+ }
+});
+test('the staged M10 nut renders real extrapolation and endpoint checks in five languages',async()=>{
+ for(const language of I.supported){
+  let analysis,selection;const engine={...E,auslegen(e){return analysis=E.auslegen(e);},waehle(...args){return selection=E.waehle(...args);}};
+  const p=setup(language,engine,true,undefined,true,true);p.examples.find(button=>button.dataset.bsp==='mu').events.click();
+  assert.equal(analysis.forcePolicy,'force-v2');assert(analysis.stufen.every(stage=>Number.isFinite(stage.t)&&stage.t>0));
+  const stage=analysis.stufen.find(stage=>stage.forceStatus==='extrapoliert');assert(stage);assert(stage.pStempel>0);
+  const status=p.context.window.JYConcept.forceText(stage,language).status,table=p.get('stufen').tBodies[0].innerHTML,cards=p.get('karten').innerHTML;
+  assert(table.includes(status));assert(cards.includes(status),'machine-specific concept retains the extrapolation metadata');
+  assert(['ok','knapp'].includes(selection.ranking.recommendation.gesamt));
+  assert(cards.includes(I.t('Beide Kraftbandgrenzen ergeben denselben Prüfstatus.',language)));
+  assert(!table.includes(I.t('Kraft noch offen',language)));
+  if(language!=='de')for(const output of [table,cards,p.get('regeln').innerHTML])assert(!/extrapoliert über|Beide Kraftbandgrenzen|Kraftbandgrenzen ändern|Scherkraft-Näherung|Gekennzeichnete Extrapolation/.test(output),language);
+  p.get('drucken').events.click();await sendMail(p);
+  for(const output of [p.get('blatt').innerHTML,new URL(p.context.location.href).searchParams.get('body')])assert(output.includes(status));
+ }
 });
 test('price-free preset sends a v2 class-aware shortlist and displays the returned primary model without prices',async()=>{
  const p=setup('de',E,false,{ranking:true},true,true);p.examples.find(button=>button.dataset.bsp==='m6').events.click();

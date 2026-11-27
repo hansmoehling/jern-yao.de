@@ -1,7 +1,7 @@
 // Prüfstand für den Konfigurator ohne Browser.
 // Aufruf: node pruefstand.cjs <Pfad zum jern-yao.de-Checkout>
 // Baut je Fall dieselbe Eingabe, die archiv-ui.js nach Normwahl erzeugt
-// (kvp-v1, ranking-v2, rm-v1), rechnet E.auslegen und E.waehle
+// (kvp-v1, ranking-v2, force-v2, rm-v1), rechnet E.auslegen und E.waehle
 // und druckt Empfehlung, Alternativen, Klassen und offene Prüfungen.
 'use strict';
 const fs = require('fs'), path = require('path');
@@ -33,7 +33,7 @@ function build(selection, opts = {}) {
     || variants.find(v => v.material.id === 'C4C' && v.curve.state === 'soft-annealed');
   const isNut = kind === 'nut';
   const e = { typ: isNut ? 'mutter' : 'bolzen', wst: v.index, curveId: v.curve.id, materialState: v.curve.state, rm: opts.rm,
-    machinePolicy: 'ranking-v2', rmPolicy: E.RM_POLICY_VERSION, inputOrigins: { d0: { origin: 'assumption', provisional: true } },
+    machinePolicy: 'ranking-v2', forcePolicy: 'force-v2', rmPolicy: E.RM_POLICY_VERSION, inputOrigins: { d0: { origin: 'assumption', provisional: true } },
     standardKind: isNut ? undefined : p.standardKind || 'screw',
     threadFamily: isNut ? undefined : (['rivet', 'pin'].includes(p.standardKind) ? 'none' : 'metric'),
     wirePreparation: 'as-supplied',
@@ -64,7 +64,7 @@ function run(label, selection, opts = {}) {
   console.log('fehlt:', aus.fehlt, '| Stufen:', aus.stufen.length, '| d0:', e.d0, '| L0:', aus.werte.L0 && aus.werte.L0.toFixed(2),
     '| Fmax_t:', aus.werte.Fmax_t && aus.werte.Fmax_t.toFixed(1), '| Rm:', aus.werkstoff?.Rm, '| Rm-Vorbelegung:', aus.werkstoff?.rmVorbelegung?.status,
     '| materialStatus:', JSON.stringify(aus.materialStatus));
-  console.log('Stadien:', aus.stufen.map(s => s.v + (s.F == null ? ' [Kraft offen]' : '')).join(' | '));
+  console.log('Stadien:', aus.stufen.map(s => s.v + (s.F == null ? ' [Kraft offen]' : ' [' + s.t.toFixed(2) + ' t; ' + (s.forceStatus || 'calculated') + (s.forceBand?.t ? '; Band ' + s.forceBand.t.min.toFixed(2) + '–' + s.forceBand.t.max.toFixed(2) + ' t' : '') + ']')).join(' | '));
   if (aus.fehlt.length || !aus.stufen.length) return;
   const wahl = E.waehle(MASCHINEN, aus, e, PRAXIS), rk = wahl.ranking;
   console.log('geprüft:', rk.checkedCount, '| fähig:', rk.candidates.length, '| ok:', wahl.passend.length, '| bedingt:', wahl.bedingt.length, '| Basis:', rk.rankingBasis);

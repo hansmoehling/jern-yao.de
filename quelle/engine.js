@@ -51,6 +51,8 @@
     'R-F2':  { t: 'Fließpresskraft F = [A₀ · k_fm · (⅔α + (1 + 2μ/sin 2α) · φ) + π · d₀ · l · μ · k_f0] / 0,6; 2α = 30° beim Reduzieren, 90° beim Fließpressen, μ = 0,1', art: 'Näherungsmodell' },
     'R-F3':  { t: 'Napf- und Innenantriebsstempel: p = k_f · (1 + φ + 2μ·h/d), μ = 0,1, k_f bei aufsummiertem Umformgrad', art: 'Näherungsmodell' },
     'R-F4':  { t: 'Abgraten und Lochen: F = Schnittlänge · Dicke · 0,8 · k_f', art: 'Näherungsmodell' },
+    'R-LOCH-RM': { t: 'Lochen: F = π · Loch-Ø · Butzendicke · 0,8 · Rm. Rm aus Kundenangabe, Richtwert oder belegter Bandobergrenze; Kraft in N bei mm und N/mm².', art: 'Scherkraft-Näherung' },
+    'R-KF-EX': { t: 'Fließkurve oberhalb ihres belegten Bereichs: kf = C · φ^n, logarithmischer Fit über das obere Drittel der belegten Kurve, höchstens bis Gesamtdehnung φ = 1,6. Kraftband zwischen Fit und konstantem kf am Quellenende; Maschinenprüfung an beiden Bandenden.', art: 'Gekennzeichnete Extrapolation' },
     'R-PK':  { t: 'Presskraft: höchste Stationskraft bis 65 % der Nennkraft gut, bis 80 % Auslegungsgrenze, darüber bis zur Nennkraft Hinweis; Summe aller Stationen als Nebenwert', art: 'Auslegungsvorgabe' },
     'R-STN': { t: 'Stationen: benötigte Stufen (muss), eine weitere als Vorformreserve (wünschenswert)', art: 'Auslegungsvorgabe' },
     'R-KA':  { t: 'Kalibrier- und Zusatzstufen (Kalibrieren, Kerben, Prägen, Beschneiden): eine Stufe je Vorgang, Hohlteile mit Napf ohne Angabe eine; Kraft F = A · k_f am Ende', art: 'Erfahrungsregel aus Stadienplänen; Kraft als Näherung' },
@@ -95,12 +97,63 @@
   }
   const hasFlow = m => validCurve(m.flowCurve);
   const flowFailure = (m, reason, phi) => { if (m._flowIssues) m._flowIssues.push({ reason, phi }); return NaN; };
+  const FORCE_POLICY_VERSION='force-v2',EXTRAPOLATION_LIMIT=1.6;
+  const fitCache=new WeakMap();
+  function flowExtrapolationFit(curve){
+    if(!validCurve(curve)||curve.phiMax>=EXTRAPOLATION_LIMIT)return null;
+    if(fitCache.has(curve))return fitCache.get(curve);
+    const lo=curve.phiMax-(curve.phiMax-curve.phiMin)/3,hi=curve.phiMax,points=[];
+    // Sample the documented curve representation, not invented observations.
+    // Uniform sampling makes tabulated and analytical source curves comparable.
+    for(let i=0;i<=12;i++){const phi=lo+(hi-lo)*i/12,value=kf({flowCurve:curve},phi);if(!(phi>0&&value>0))return null;points.push([Math.log(phi),Math.log(value)]);}
+    const mx=points.reduce((s,p)=>s+p[0],0)/points.length,my=points.reduce((s,p)=>s+p[1],0)/points.length;
+    const denominator=points.reduce((s,p)=>s+(p[0]-mx)**2,0),rawN=points.reduce((s,p)=>s+(p[0]-mx)*(p[1]-my),0)/denominator,n=Math.max(0,rawN);
+    // Anchor the fitted log-slope at the documented endpoint. This avoids a
+    // discontinuity between the source curve and its explicitly assumed tail.
+    const C=kf({flowCurve:curve},hi)/hi**n;
+    const fit=Number.isFinite(C)&&C>0&&Number.isFinite(rawN)&&rawN>=-1e-10?{C,n,phiMin:lo,phiMax:hi,sampling:'documented-curve-upper-third',endpointAnchored:true,sampleCount:points.length}:null;
+    fitCache.set(curve,fit);return fit;
+  }
+  function extrapolatedFlow(m,phi){
+    if(m.forcePolicy!==FORCE_POLICY_VERSION||phi>EXTRAPOLATION_LIMIT+1e-12)return null;
+    const fit=flowExtrapolationFit(m.flowCurve);if(!fit)return null;
+    m._flowExtrapolations?.push({phiMax:m.flowCurve.phiMax,phiEnd:phi,fit,limit:EXTRAPOLATION_LIMIT});
+    return m._forceBandMode==='constant'?kf({flowCurve:m.flowCurve},m.flowCurve.phiMax):fit.C*phi**fit.n;
+  }
+  function forceEstimate(m,calculate){
+    const object=value=>value&&typeof value==='object'?value:{F:value};
+    if(m.forcePolicy!==FORCE_POLICY_VERSION)return object(calculate(m));
+    const upperMaterial={...m,_flowExtrapolations:[]},fitValue=object(calculate(upperMaterial));
+    const lowerMaterial={...m,_forceBandMode:'constant',_flowIssues:[],_flowExtrapolations:[]},constantValue=object(calculate(lowerMaterial));
+    const traces=upperMaterial._flowExtrapolations;
+    const valid=pos(fitValue.F)&&pos(constantValue.F),result={...fitValue,forceStatus:valid?(traces.length?'extrapoliert':'calculated'):'missing'};
+    if(valid){const min=Math.min(fitValue.F,constantValue.F),max=Math.max(fitValue.F,constantValue.F);result.forceBand={min,max,unit:'N',t:{min:min/1000/G,max:max/1000/G}};}
+    if(valid&&traces.length)result.forceExtrapolation={...traces.reduce((a,b)=>a.phiEnd>b.phiEnd?a:b)};
+    if(pos(fitValue.pStempel)&&pos(constantValue.pStempel))result.pStempelBand={min:Math.min(fitValue.pStempel,constantValue.pStempel),max:Math.max(fitValue.pStempel,constantValue.pStempel),unit:'N/mm²'};
+    return result;
+  }
+  function combineForces(a,b){
+    const result={...a,F:pos(a.F)&&pos(b.F)?a.F+b.F:null};
+    if(a.forceStatus||b.forceStatus){
+      result.forceStatus=result.F===null?'missing':a.forceStatus==='extrapoliert'||b.forceStatus==='extrapoliert'?'extrapoliert':'calculated';
+      if(a.forceBand&&b.forceBand){const min=a.forceBand.min+b.forceBand.min,max=a.forceBand.max+b.forceBand.max;result.forceBand={min,max,unit:'N',t:{min:min/1000/G,max:max/1000/G}};}else delete result.forceBand;
+      const traces=[a.forceExtrapolation,b.forceExtrapolation].filter(Boolean);if(traces.length)result.forceExtrapolation=traces.reduce((x,y)=>x.phiEnd>y.phiEnd?x:y);
+    }
+    if(b.pStempel!==undefined)result.pStempel=b.pStempel;
+    if(b.pStempelBand)result.pStempelBand=b.pStempelBand;
+    return result;
+  }
+  function punchingForce(m,diameter,thickness,legacyPhi){
+    if(m.forcePolicy!==FORCE_POLICY_VERSION)return {F:Math.PI*diameter*thickness*.8*kf(m,legacyPhi),r:'R-F4'};
+    const value=m.shearRm?.value,F=pos(value)?Math.PI*diameter*thickness*.8*value:null;
+    return {...forceEstimate(m,()=>F),r:'R-LOCH-RM',forceBasis:{type:'shear-rm',rule:'R-LOCH-RM',shearFactor:.8,diameter,thickness,rm:m.shearRm}};
+  }
   function kf(m, phi) {
     const c = m.flowCurve;
     if (!hasFlow(m) || !Number.isFinite(phi) || phi < 0) return flowFailure(m, 'curve-unavailable', phi);
     if (m.flowPrestrain > 0) return kf({ ...m, flowPrestrain: 0 }, phi + m.flowPrestrain);
     if (c.model !== 'swift' && phi === 0 && Number.isFinite(c.kf0) && c.kf0 > 0) return c.kf0;
-    if (phi > c.phiMax + 1e-12) return flowFailure(m, 'strain-outside-range', phi);
+    if (phi > c.phiMax + 1e-12) {const value=extrapolatedFlow(m,phi);return value===null?flowFailure(m,'strain-outside-range',phi):value;}
     if (phi < c.phiMin) {
       if (c.model === 'hollomon' && c.startMode === 'linear-to-phiMin' && c.kf0 > 0 && c.phiMin > 0) return c.kf0 + (c.C * c.phiMin ** c.n - c.kf0) * phi / c.phiMin;
       return flowFailure(m, 'strain-outside-range', phi);
@@ -131,7 +184,14 @@
     if (m.flowPrestrain > 0) return kfm({ ...m, flowPrestrain: 0 }, a + m.flowPrestrain, b + m.flowPrestrain);
     if (a === b) return kf(m, a);
     const c = m.flowCurve;
-    if (b > c.phiMax + 1e-12 || a < c.phiMin && !(c.model === 'hollomon' && c.startMode === 'linear-to-phiMin' && c.kf0 > 0)) return flowFailure(m, 'strain-outside-range', b);
+    if (a < c.phiMin && !(c.model === 'hollomon' && c.startMode === 'linear-to-phiMin' && c.kf0 > 0)) return flowFailure(m, 'strain-outside-range', b);
+    if(b>c.phiMax+1e-12){
+      if(extrapolatedFlow(m,b)===null)return flowFailure(m,'strain-outside-range',b);
+      const fit=flowExtrapolationFit(c),lo=Math.max(a,c.phiMax);
+      const known=a<c.phiMax?kfm({...m,flowPrestrain:0},a,c.phiMax)*(c.phiMax-a):0;
+      const tail=m._forceBandMode==='constant'?kf({flowCurve:c},c.phiMax)*(b-lo):fit.C*(b**(fit.n+1)-lo**(fit.n+1))/(fit.n+1);
+      return (known+tail)/(b-a);
+    }
     if (c.model === 'swift') {
       // Exact antiderivative C*(epsilon0+phi)^(n+1)/(n+1).
       // log1p/expm1 also preserve precision for very short strain intervals.
@@ -187,6 +247,13 @@
       { side: 'upper', rm: band.max, evaluationRm: band.max, status: statusAt(band.max) }];
     const sensitive = endpoints[0].status !== endpoints[1].status;
     return { status: sensitive ? 'offen' : endpoints[0].status, sensitive, endpoints };
+  }
+  function forceSensitivitaet(band,capacity,sum=false){
+    if(!band||!pos(band.min)||!pos(band.max)||band.min>band.max||!pos(capacity))return {status:'offen',sensitive:null,endpoints:[]};
+    const statusAt=force=>sum?(force<=capacity?'ok':'knapp'):(force<=.65*capacity?'ok':force<=capacity?'knapp':'nein');
+    const endpoints=[{side:'lower',force_t:band.min,status:statusAt(band.min)},{side:'upper',force_t:band.max,status:statusAt(band.max)}];
+    const sensitive=endpoints[0].status!==endpoints[1].status;
+    return {status:sensitive?'offen':endpoints[0].status,sensitive,endpoints};
   }
   // Qualitative Metadaten zur tatsächlich berechneten Operation; keine zusätzliche Stufe.
   const op = (name, location) => ({ name, location });
@@ -496,7 +563,7 @@
     out.antrieb = drive;
     const volumeKnown = !drive || pos(drive.volume);
     const material = WERKSTOFFE[e.wst], flow = selectFlow(material, e);
-    const m = { ...material, flowCurve: flow.status === 'ready' ? flow.curve : null, _flowIssues: [] };
+    const m = { ...material, flowCurve: flow.status === 'ready' ? flow.curve : null, _flowIssues: [], ...(e.forcePolicy===FORCE_POLICY_VERSION?{forcePolicy:FORCE_POLICY_VERSION}: {}) };
     const forceKnown = flow.status === 'ready';
     if (drive) {
       if (!volumeKnown) out.hinweise.push(drive.label + (pos(e.masse) ? ': Vertiefungsvolumen bleibt offen; Abschnitt wird aus der Teilemasse bestimmt.' : ': Vertiefungsvolumen aus Zeichnung oder CAD ergänzen; Teilvolumen und Abschnittlänge bleiben offen.'));
@@ -504,6 +571,7 @@
     }
     const rmPreset = e.rmPolicy === RM_POLICY_VERSION ? rmVorbelegung(e) : null;
     const Rm = rmPreset ? rmPreset.value : pos(e.rm) ? e.rm : m.Rm;
+    if(m.forcePolicy===FORCE_POLICY_VERSION)m.shearRm={value:pos(Rm)?Rm:pos(rmPreset?.band?.max)?rmPreset.band.max:null,origin:pos(e.rm)?'customer':rmPreset?.origin||'legacy-guideline',status:pos(Rm)?rmPreset?.status||'guideline':pos(rmPreset?.band?.max)?'band-upper-bound':'missing',...(rmPreset?.band?{band:{...rmPreset.band}}:{}),source:rmPreset?.source||null};
     const gr = GRENZEN[m.grp] || GRENZEN.unbekannt;
     out.werkstoff = { ...material, Rm, selectedFlowCurve: flow.curve, selectedMaterialState: e.materialState || 'unknown', ...(rmPreset ? { rmStatus: rmPreset.status, rmVorbelegung: rmPreset } : {}) };
     out.materialStatus = { flow: flow.status, curveId: flow.curve?.id || null, tensile: rmPreset ? rmPreset.status : pos(e.rm) ? 'user-value' : (m.rmStatus || 'legacy-estimate'), density: m.densityStatus || 'legacy-estimate' };
@@ -562,16 +630,15 @@
       const A2 = kreis(0.95 * eck), phi2 = Math.log(A2 / A0);
       const phiHex = Math.log(Ahex / A0) + 0.3;
       const eps = Math.min(0.9, kreis(dl) / Ahex);
-      const p4 = napfDruck(m, phiHex, Math.min(eps, 0.75), 0.35 * e.mH, dl);
       const phiEnd = phiHex + 0.5; phiEnde = phiEnd;
-      out.stufen.push({ v: 'Planstauchen', F: A1 * kf(m, phi1) / ETA_VOR, A: A1, bohr: d0, r: 'R-F1', operations: [op('Planstauchen', 'Abschnitt / Stirnflächen')] });
-      out.stufen.push({ v: 'Vorstauchen rund', F: A2 * kf(m, phi2) / ETA_VOR, A: A2, bohr: 0.95 * eck, r: 'R-F1', operations: [op('Vorstauchen rund', 'Mutternkörper / Außenkontur')] });
-      out.stufen.push({ v: 'Sechskant formen, beidseitig vorlochen', F: Ahex * kf(m, phiHex) / ETA_FERTIG, A: Ahex, bohr: eck, r: 'R-F1', operations: [op('Sechskant formen', 'Mutternkörper / Außenkontur'), op('Beidseitig vorlochen', 'Zentrale Bohrung / beide Stirnseiten')] });
+      out.stufen.push({ v: 'Planstauchen', ...forceEstimate(m,x=>A1*kf(x,phi1)/ETA_VOR), A: A1, bohr: d0, r: 'R-F1', operations: [op('Planstauchen', 'Abschnitt / Stirnflächen')] });
+      out.stufen.push({ v: 'Vorstauchen rund', ...forceEstimate(m,x=>A2*kf(x,phi2)/ETA_VOR), A: A2, bohr: 0.95 * eck, r: 'R-F1', operations: [op('Vorstauchen rund', 'Mutternkörper / Außenkontur')] });
+      out.stufen.push({ v: 'Sechskant formen, beidseitig vorlochen', ...forceEstimate(m,x=>Ahex*kf(x,phiHex)/ETA_FERTIG), A: Ahex, bohr: eck, r: 'R-F1', operations: [op('Sechskant formen', 'Mutternkörper / Außenkontur'), op('Beidseitig vorlochen', 'Zentrale Bohrung / beide Stirnseiten')] });
       if(e.nutShape==='square'){out.stufen.at(-1).v='Vierkant formen, beidseitig vorlochen';out.stufen.at(-1).operations[0]=op('Vierkant formen','Mutternkörper / Außenkontur');}
-      out.stufen.push({ v: 'Napf vertiefen bis Butzen', F: kreis(dl) * p4, A: kreis(dl), bohr: eck, r: 'R-F3', operations: [op('Napf vertiefen bis Butzen', 'Zentrale Bohrung / Napfboden')] });
-      if (flansch) out.stufen.push({ v: 'Flansch fertigformen', F: kreis(flansch) * kf(m, phiEnd) / ETA_FERTIG, A: kreis(flansch), bohr: flansch, r: 'R-F1', operations: [op('Flansch fertigformen', 'Flansch / Bund der Mutter')] });
-      out.stufen.push({ v: 'Lochen', F: Math.PI * dl * T * 0.8 * kf(m, phiEnd), A: kreis(dl), bohr: eck, r: 'R-F4', operations: [op('Lochen', 'Zentrale Bohrung / Butzen')] });
-      ['R-F1', 'R-F3', 'R-F4', 'R-KF'].forEach(R);
+      out.stufen.push({ v: 'Napf vertiefen bis Butzen', ...forceEstimate(m,x=>{const p=napfDruck(x,phiHex,Math.min(eps,.75),.35*e.mH,dl);return {F:kreis(dl)*p,...(m.forcePolicy===FORCE_POLICY_VERSION?{pStempel:p}:{})};}), A: kreis(dl), bohr: eck, r: 'R-F3', operations: [op('Napf vertiefen bis Butzen', 'Zentrale Bohrung / Napfboden')] });
+      if (flansch) out.stufen.push({ v: 'Flansch fertigformen', ...forceEstimate(m,x=>kreis(flansch)*(m.forcePolicy===FORCE_POLICY_VERSION?kfm(x,phiHex,phiEnd):kf(x,phiEnd))/ETA_FERTIG), A: kreis(flansch), bohr: flansch, r: 'R-F1', operations: [op('Flansch fertigformen', 'Flansch / Bund der Mutter')] });
+      out.stufen.push({ v: 'Lochen', ...punchingForce(m,dl,T,phiEnd), A: kreis(dl), bohr: eck, operations: [op('Lochen', 'Zentrale Bohrung / Butzen')] });
+      ['R-F1', 'R-F3', m.forcePolicy===FORCE_POLICY_VERSION?'R-LOCH-RM':'R-F4', 'R-KF'].forEach(R);
       out.werte.loch = dl;
     } else {
       // Bolzen und Formteile: Kopf/Bund + Schaft (+ Napf, Innenantrieb)
@@ -646,12 +713,12 @@
         const nFP = eps <= 0.30 ? 0 : Math.ceil(Math.log(1 / (1 - eps)) / Math.log(1 / (1 - gr.vor)) - 1e-9);
         if (!Number.isFinite(nFP) || nFP > 100) return invalid('Reduktion außerhalb des numerischen Rechenbereichs; Geometrie und Einheiten prüfen');
         if (eps <= 0.30) {
-          out.stufen.push({ v: 'Reduzieren ' + z(d0) + ' → ' + z(sD) + ' (' + Math.round(eps * 100) + ' %), mit Vorstauchen', F: fpKraft(m, A0, 0, phiSchaft, true, 0, d0), A: A0, bohr: d0, r: 'R-F2', mit: true, operations: [op('Reduzieren', 'Schaft / Körper')] });
+          out.stufen.push({ v: 'Reduzieren ' + z(d0) + ' → ' + z(sD) + ' (' + Math.round(eps * 100) + ' %), mit Vorstauchen', ...forceEstimate(m,x=>fpKraft(x,A0,0,phiSchaft,true,0,d0)), A: A0, bohr: d0, r: 'R-F2', mit: true, operations: [op('Reduzieren', 'Schaft / Körper')] });
         } else {
           for (let i = 1; i <= nFP; i++) {
             const a = phiSchaft * (i - 1) / nFP, b = phiSchaft * i / nFP;
             const dA = Math.sqrt(4 * A0 * Math.exp(-a) / Math.PI), dB = Math.sqrt(4 * A0 * Math.exp(-b) / Math.PI);
-            out.stufen.push({ v: 'Vorwärtsfließpressen Schaft ' + z(dA) + ' → ' + z(dB) + ' (' + Math.round((1 - Math.exp(a - b)) * 100) + ' %)', F: fpKraft(m, kreis(dA), a, b, false, feedVolume / A0, dA), A: kreis(dA), bohr: dA, r: 'R-F2', operations: [op('Vorwärtsfließpressen', 'Schaft / Körper')] });
+            out.stufen.push({ v: 'Vorwärtsfließpressen Schaft ' + z(dA) + ' → ' + z(dB) + ' (' + Math.round((1 - Math.exp(a - b)) * 100) + ' %)', ...forceEstimate(m,x=>fpKraft(x,kreis(dA),a,b,false,feedVolume/A0,dA)), A: kreis(dA), bohr: dA, r: 'R-F2', operations: [op('Vorwärtsfließpressen', 'Schaft / Körper')] });
           }
           R('R-L0');
           if (gr.l0d0 && ((V + Vab) / A0) / d0 > gr.l0d0) out.hinweise.push('Rohteil schlanker als l₀/d₀ = ' + gr.l0d0 + ' beim Vorwärtsfließpressen: hohe Wandreibung, Schaft in der Matrize abstützen oder Abschnitt kürzen');
@@ -665,7 +732,7 @@
         const phS = Math.log(kreis(sD) / A0);
         for (let i = 1; i <= nS; i++) {
           const ph = phS * i / nS, A = A0 * Math.exp(ph), dA = Math.sqrt(4 * A / Math.PI);
-          out.stufen.push({ v: 'Körper stauchen ' + z(d0) + ' → ' + z(dA) + (nS > 1 ? ' (' + i + '/' + nS + ')' : ''), F: A * kf(m, ph) / ETA_VOR, A, bohr: dA, r: 'R-F1', operations: [op('Körper stauchen', 'Schaft / Körper')] });
+          out.stufen.push({ v: 'Körper stauchen ' + z(d0) + ' → ' + z(dA) + (nS > 1 ? ' (' + i + '/' + nS + ')' : ''), ...forceEstimate(m,x=>A*kf(x,ph)/ETA_VOR), A, bohr: dA, r: 'R-F1', operations: [op('Körper stauchen', 'Schaft / Körper')] });
         }
         phiSchaft = phS;
         out.hinweise.push('Schaft-Ø ' + z(sD) + ' mm mehr als 5 % über Draht-Ø: Körper in eigener Stufe gestaucht, Matrizenbohrung = Schaft-Ø');
@@ -697,25 +764,25 @@
         for (let i = 1; i <= n; i++) {
           const ph = phiKopf * i / n, A = A0 * Math.exp(ph);
           const fertig = i === n;
-          let F = A * kf(m, ph) / (fertig ? ETA_FERTIG : ETA_VOR);
+          let force = forceEstimate(m,x=>A*kf(x,ph)/(fertig?ETA_FERTIG:ETA_VOR));
           let txt = fertig ? (e.kopfForm === 'sechskant' ? 'Sechskantkopf fertigstauchen' : 'Kopf fertigstauchen') : (i === 1 ? 'Vorstauchen' : 'Zwischenstauchen');
           const operations = [op(txt, 'Kopf / Bund')];
           let pStempel = null;
           if (fertig && drive) {
             if (drive.family === 'hex') {
               const epsI = drive.area / (drive.depth > kopfH ? Math.min(Akopf, kreis(sD)) : Akopf);
-              const p = napfDruck(m, drive.depth > kopfH ? Math.max(phiKopf, phiSchaft) : phiKopf, Math.min(Math.max(epsI, 0.05), 0.9), drive.depth, e.iSW);
-              F += drive.area * p; R('R-F3'); pStempel = p;
+              const driveForce=forceEstimate(m,x=>{const p=napfDruck(x,drive.depth>kopfH?Math.max(phiKopf,phiSchaft):phiKopf,Math.min(Math.max(epsI,.05),.9),drive.depth,e.iSW);return {F:drive.area*p,pStempel:p};});
+              force=combineForces(force,driveForce);R('R-F3');pStempel=driveForce.pStempel;
               if (drive.depth > 2 * e.iSW) out.hinweise.push('Innenantrieb tiefer als 2 × SW: Vorformen im vorigen Schlag nötig');
-            } else F = null;
+            } else force={F:null,...(m.forcePolicy===FORCE_POLICY_VERSION?{forceStatus:'missing'}:{})};
             txt += ' mit ' + drive.label + ', Tiefe ' + z(drive.depth) + ' mm';
             operations.push(op('Innenantrieb formen', drive.label + ', Tiefe ' + z(drive.depth) + ' mm; ' + (drive.depth > kopfH ? 'durch Kopf / Bund in den Schaft' : 'im Kopf / Bund')));
           }
-          out.stufen.push({ v: txt, F, A, bohr: matBohrung, kopf: Math.sqrt(4 * A / Math.PI), r: 'R-F1', pStempel, operations });
+          out.stufen.push({ v: txt, ...force, A, bohr: matBohrung, kopf: Math.sqrt(4 * A / Math.PI), r: 'R-F1', pStempel, operations });
         }
         if (kopfAbgr) {
           const U = 6 * e.kSW / Math.sqrt(3);
-          out.stufen.push({ v: 'Sechskant abgraten', F: U * kopfH * 0.8 * kf(m, phiKopf), bohr: matBohrung, r: 'R-F4', operations: [op('Sechskant abgraten', 'Kopf / Bund, Außenkontur')] }); R('R-F4');
+          out.stufen.push({ v: 'Sechskant abgraten', ...forceEstimate(m,x=>U*kopfH*.8*kf(x,phiKopf)), bohr: matBohrung, r: 'R-F4', operations: [op('Sechskant abgraten', 'Kopf / Bund, Außenkontur')] }); R('R-F4');
         }
       }
       // Napf
@@ -746,18 +813,17 @@
         const nN = Math.max(1, Math.ceil(tN / tiefeJeHub - 1e-9));
         if (!Number.isFinite(nN) || !Number.isFinite(nAb) || nN + nAb > 100) return invalid('Napfgeometrie außerhalb des numerischen Rechenbereichs; Maße und Einheiten prüfen');
         for (let i = 1; i <= nN; i++) {
-          const p = napfDruck(m, phiNapfVor, Math.min(Math.max(epsN, 0.05), 0.9), tN * i / nN, dN);
-          out.stufen.push({ v: 'Napf rückwärts fließpressen' + (nN > 1 ? ' (' + i + '/' + nN + ')' : '') + ' Ø' + z(dN) + ' × ' + z(tN * i / nN), F: kreis(dN) * p, A: kreis(dN), bohr: Dw, r: 'R-F3', operations: [op('Napf rückwärts fließpressen', napfLage)] });
+          out.stufen.push({ v: 'Napf rückwärts fließpressen' + (nN > 1 ? ' (' + i + '/' + nN + ')' : '') + ' Ø' + z(dN) + ' × ' + z(tN * i / nN), ...forceEstimate(m,x=>{const p=napfDruck(x,phiNapfVor,Math.min(Math.max(epsN,.05),.9),tN*i/nN,dN);return {F:kreis(dN)*p,...(m.forcePolicy===FORCE_POLICY_VERSION?{pStempel:p}:{})};}), A: kreis(dN), bohr: Dw, r: 'R-F3', operations: [op('Napf rückwärts fließpressen', napfLage)] });
         }
         const phiN = Math.log(1 / (1 - epsN)), phiZ = nAb ? Math.log(q) / nAb : 0;
         for (let j = 1; j <= nAb; j++) {
           const wVor = (1 - epsN) * kreis(Dw) * Math.exp(-phiZ * (j - 1));
           const dj = Math.sqrt(4 * (kreis(Dw) - (1 - epsN) * kreis(Dw) * Math.exp(-phiZ * j)) / Math.PI);
-          out.stufen.push({ v: 'Abstrecken' + (nAb > 1 ? ' (' + j + '/' + nAb + ')' : '') + ', Bohrung Ø' + z(dj) + ', Wand ' + Math.round((1 - Math.exp(-phiZ)) * 100) + ' % dünner', F: wVor * kf(m, phiNapfVor + phiN + phiZ * j), A: kreis(dj), bohr: Dw, r: 'R-FP2', operations: [op('Abstrecken der Napfwand', napfLage)] });
+          out.stufen.push({ v: 'Abstrecken' + (nAb > 1 ? ' (' + j + '/' + nAb + ')' : '') + ', Bohrung Ø' + z(dj) + ', Wand ' + Math.round((1 - Math.exp(-phiZ)) * 100) + ' % dünner', ...forceEstimate(m,x=>wVor*kf(x,phiNapfVor+phiN+phiZ*j)), A: kreis(dj), bohr: Dw, r: 'R-FP2', operations: [op('Abstrecken der Napfwand', napfLage)] });
         }
         phiEnde = Math.max(phiEnde, phiNapfVor + Math.log(1 / (1 - eps)));
         if (e.nDurch) {
-          out.stufen.push({ v: 'Lochen Ø' + z(e.nD), F: Math.PI * e.nD * butzen * 0.8 * kf(m, Math.max(phiKopf, phiSchaft) + 0.7), A: kreis(e.nD), bohr: Dw, r: 'R-F4', operations: [op('Lochen / Butzen abtrennen', 'Napfboden / Bohrungsdurchbruch')] }); R('R-F4');
+          out.stufen.push({ v: 'Lochen Ø' + z(e.nD), ...punchingForce(m,e.nD,butzen,Math.max(phiKopf,phiSchaft)+.7), A: kreis(e.nD), bohr: Dw, operations: [op('Lochen / Butzen abtrennen', 'Napfboden / Bohrungsdurchbruch')] }); R(m.forcePolicy===FORCE_POLICY_VERSION?'R-LOCH-RM':'R-F4');
         }
         matBohrung = Math.max(matBohrung, Dw);
       }
@@ -775,28 +841,26 @@
         if(endCavity.wall<.1*Dw)out.hinweise.push('Schaftendbohrung: Restwand unter 10 % des örtlichen Außen-Ø; dünne Wand im Werkzeug abstützen. Erfahrungsband, kein Ausschluss.');
         if(endCavity.depth/endCavity.diameter>gr.tiefe)out.hinweise.push('Schaftendbohrung: Tiefe/Ø über dem Werkstoff-Erfahrungsband; auf mehrere Napfschläge verteilen.');
         for(let i=1;i<=nN;i++){
-          const p=napfDruck(m,phiSchaft,Math.min(Math.max(epsN,.05),.9),tN*i/nN,dN);
-          out.stufen.push({v:'Bohrung am Schaftende rückwärts fließpressen'+(nN>1?' ('+i+'/'+nN+')':'')+' Ø'+z(dN)+' × '+z(tN*i/nN),F:kreis(dN)*p,A:kreis(dN),bohr:Dw,r:'R-F3',operations:[op('Bohrung am Schaftende fließpressen','Matrizenseitiges Schaftende / Auswerferstift bzw. Lochdorn')]});
+          out.stufen.push({v:'Bohrung am Schaftende rückwärts fließpressen'+(nN>1?' ('+i+'/'+nN+')':'')+' Ø'+z(dN)+' × '+z(tN*i/nN),...forceEstimate(m,x=>{const p=napfDruck(x,phiSchaft,Math.min(Math.max(epsN,.05),.9),tN*i/nN,dN);return {F:kreis(dN)*p,...(m.forcePolicy===FORCE_POLICY_VERSION?{pStempel:p}:{})};}),A:kreis(dN),bohr:Dw,r:'R-F3',operations:[op('Bohrung am Schaftende fließpressen','Matrizenseitiges Schaftende / Auswerferstift bzw. Lochdorn')]});
         }
         const phiN=Math.log(1/(1-epsN));
         for(let i=1;i<=nAb;i++){
           const phi=Math.log(q)/nAb,wallArea=(1-epsN)*kreis(Dw)*Math.exp(-phi*(i-1));
-          out.stufen.push({v:'Schaftend-Napfwand abstrecken'+(nAb>1?' ('+i+'/'+nAb+')':''),F:wallArea*kf(m,phiSchaft+phiN+phi*i),A:kreis(endCavity.diameter),bohr:Dw,r:'R-FP2',operations:[op('Napfwand abstrecken','Matrizenseitiges Schaftende')]});R('R-FP2');
+          out.stufen.push({v:'Schaftend-Napfwand abstrecken'+(nAb>1?' ('+i+'/'+nAb+')':''),...forceEstimate(m,x=>wallArea*kf(x,phiSchaft+phiN+phi*i)),A:kreis(endCavity.diameter),bohr:Dw,r:'R-FP2',operations:[op('Napfwand abstrecken','Matrizenseitiges Schaftende')]});R('R-FP2');
         }
-        if(endCavity.through){const butzen=.5*endCavity.diameter;Vab+=kreis(endCavity.diameter)*butzen;out.stufen.push({v:'Schaftendbohrung durchlochen',F:Math.PI*endCavity.diameter*butzen*.8*kf(m,phiSchaft+phiN),A:kreis(endCavity.diameter),bohr:Dw,r:'R-F4',operations:[op('Durchlochen / Butzen abtrennen','Matrizenseitiger Bohrungsgrund')]});R('R-LO1');R('R-F4');}
+        if(endCavity.through){const butzen=.5*endCavity.diameter;Vab+=kreis(endCavity.diameter)*butzen;out.stufen.push({v:'Schaftendbohrung durchlochen',...punchingForce(m,endCavity.diameter,butzen,phiSchaft+phiN),A:kreis(endCavity.diameter),bohr:Dw,operations:[op('Durchlochen / Butzen abtrennen','Matrizenseitiger Bohrungsgrund')]});R('R-LO1');R(m.forcePolicy===FORCE_POLICY_VERSION?'R-LOCH-RM':'R-F4');}
         phiEnde=Math.max(phiEnde,phiSchaft+Math.log(1/(1-eps)));
         out.hinweise.push('Schaftendbohrung liegt auf der Matrizenseite. Lochdorn, Gegenhalt und Auswerferbewegung mit dem Maschinen-/Werkzeugkonzept abstimmen; Wenden ist daraus nicht automatisch erforderlich.');
       }
       if(geometry&&!hatKopf&&drive){
-        const p=drive.family==='hex'?napfDruck(m,phiSchaft,Math.min(.9,drive.area/kreis(sD)),drive.depth,e.iSW):null;
-        out.stufen.push({v:'Innenantrieb formen: '+drive.label,F:p===null?null:drive.area*p,A:drive.area,bohr:sD,r:'R-F3',operations:[op('Innenantrieb formen','Stempelseitige kopflose Stirnseite')]});R('R-F3');
+        out.stufen.push({v:'Innenantrieb formen: '+drive.label,...forceEstimate(m,x=>{const p=drive.family==='hex'?napfDruck(x,phiSchaft,Math.min(.9,drive.area/kreis(sD)),drive.depth,e.iSW):null;return {F:p===null?null:drive.area*p,...(m.forcePolicy===FORCE_POLICY_VERSION?{pStempel:p}:{})};}),A:drive.area,bohr:sD,r:'R-F3',operations:[op('Innenantrieb formen','Stempelseitige kopflose Stirnseite')]});R('R-F3');
       }
       if(geometry?.tip){
         out.stufen.push({v:'Schaftendspitze formen',F:null,A:kreis(geometry.tip.baseDiameter),bohr:geometry.tip.baseDiameter,r:'R-F2',operations:[op('Spitze formen','Matrizenseitiges Schaftende')],qualitative:true});
         geometryForceReason='Kraftmodell der Schaftendspitze noch offen; Volumen aus Kegelstumpfgeometrie';
       }
       // Formteile: zuerst Planstauchen, außer der erste Schritt ist Vorwärtsfließpressen oder Reduzieren (Spindelfolge)
-      if (e.typ === 'formteil' && !(out.stufen.length && /^(Vorwärtsfließpressen|Reduzieren)/.test(out.stufen[0].v))) out.stufen.unshift({ v: 'Planstauchen, Abschnitt richten', F: A0 * Math.exp(0.1) * kf(m, 0.1) / ETA_VOR, A: A0 * Math.exp(0.1), bohr: d0, r: 'R-F1', operations: [op('Planstauchen / Abschnitt richten', 'Abschnitt / Stirnflächen')] });
+      if (e.typ === 'formteil' && !(out.stufen.length && /^(Vorwärtsfließpressen|Reduzieren)/.test(out.stufen[0].v))) out.stufen.unshift({ v: 'Planstauchen, Abschnitt richten', ...forceEstimate(m,x=>A0*Math.exp(.1)*kf(x,.1)/ETA_VOR), A: A0 * Math.exp(0.1), bohr: d0, r: 'R-F1', operations: [op('Planstauchen / Abschnitt richten', 'Abschnitt / Stirnflächen')] });
       phiEnde = Math.max(phiEnde, phiKopf, phiSchaft);
     }
 
@@ -810,8 +874,8 @@
     out.werte.Dmax = Dmax; out.werte.zusatz = nZ; out.werte.zusatzStandard = zStd;
     if (nZ > 0) {
       R('R-KA');
-      const Az = kreis(Dmax), kz = kf(m, Math.max(phiEnde, 0.3));
-      for (let i = 1; i <= nZ; i++) out.stufen.push({ v: zAngabe ? 'Zusatzstufe' + (nZ > 1 ? ' ' + i : '') + ' (Kalibrieren, Kerben, Prägen, Beschneiden)' : 'Kalibrieren, Fertigformen', F: Az * kz, A: Az, bohr: Dmax, r: 'R-KA', operations: [op(zAngabe ? 'Zusatzoperation noch festzulegen' : 'Kalibrieren / Fertigformen', zAngabe ? 'Lage am Teil noch festzulegen' : 'Fertigkontur des Teils')], unassigned: zAngabe });
+      const Az = kreis(Dmax), force=forceEstimate(m,x=>Az*kf(x,Math.max(phiEnde,.3)));
+      for (let i = 1; i <= nZ; i++) out.stufen.push({ v: zAngabe ? 'Zusatzstufe' + (nZ > 1 ? ' ' + i : '') + ' (Kalibrieren, Kerben, Prägen, Beschneiden)' : 'Kalibrieren, Fertigformen', ...force, A: Az, bohr: Dmax, r: 'R-KA', operations: [op(zAngabe ? 'Zusatzoperation noch festzulegen' : 'Kalibrieren / Fertigformen', zAngabe ? 'Lage am Teil noch festzulegen' : 'Fertigkontur des Teils')], unassigned: zAngabe });
     }
 
     // Abschnitt
@@ -842,10 +906,14 @@
     out.werte.stationen = pos(stationsVorgabe) ? Math.max(nStufen, Math.ceil(stationsVorgabe)) : nStufen;
     out.werte.stationenReserve = out.werte.stationen + 1;
     // Kräfte
-    out.stufen.forEach(s => { if (!forceKnown || !volumeKnown || !Number.isFinite(s.F) || s.F <= 0) s.F = null; s.t = s.F === null ? null : s.F / 1000 / G; });
+    out.stufen.forEach(s => {
+      if ((!forceKnown&&s.r!=='R-LOCH-RM') || !volumeKnown || !Number.isFinite(s.F) || s.F <= 0) s.F = null;
+      s.t = s.F === null ? null : s.F / 1000 / G;
+      if(m.forcePolicy===FORCE_POLICY_VERSION&&s.F===null){s.forceStatus='missing';delete s.forceBand;delete s.pStempelBand;}
+    });
     // Reduzieren-mit-Vorstauchen: Kraft zum ersten Stauchschlag addieren
     for (let i = 0; i < out.stufen.length; i++) {
-      if (out.stufen[i].mit && out.stufen[i + 1]) { out.stufen[i + 1].F = out.stufen[i + 1].F === null || out.stufen[i].F === null ? null : out.stufen[i + 1].F + out.stufen[i].F; out.stufen[i + 1].t = out.stufen[i + 1].F === null ? null : out.stufen[i + 1].F / 1000 / G; out.stufen[i + 1].operationParts = [out.stufen[i].v.replace(', mit Vorstauchen', ''), ...(out.stufen[i + 1].operationParts || [out.stufen[i + 1].v])]; out.stufen[i + 1].v = out.stufen[i + 1].operationParts.join(' und '); out.stufen[i + 1].operations = [...out.stufen[i].operations, ...out.stufen[i + 1].operations]; out.stufen.splice(i, 1); i--; }
+      if (out.stufen[i].mit && out.stufen[i + 1]) { Object.assign(out.stufen[i+1],combineForces(out.stufen[i+1],out.stufen[i])); out.stufen[i + 1].t = out.stufen[i + 1].F === null ? null : out.stufen[i + 1].F / 1000 / G; out.stufen[i + 1].operationParts = [out.stufen[i].v.replace(', mit Vorstauchen', ''), ...(out.stufen[i + 1].operationParts || [out.stufen[i + 1].v])]; out.stufen[i + 1].v = out.stufen[i + 1].operationParts.join(' und '); out.stufen[i + 1].operations = [...out.stufen[i].operations, ...out.stufen[i + 1].operations]; out.stufen.splice(i, 1); i--; }
     }
     const allForcesKnown = out.stufen.every(s => Number.isFinite(s.F) && s.F > 0);
     const Fmax = allForcesKnown ? Math.max(...out.stufen.map(s => s.F)) : null;
@@ -854,10 +922,19 @@
     R('R-PK');
     out.werte.Fmax_t = allForcesKnown ? Fmax / 1000 / G : null; out.werte.Fsum_t = allForcesKnown ? Fsum / 1000 / G : null;
     out.werte.FN_muss_t = allForcesKnown ? out.werte.Fmax_t / 0.80 : null; out.werte.FN_wunsch_t = allForcesKnown ? out.werte.Fmax_t / 0.65 : null;
+    if(m.forcePolicy===FORCE_POLICY_VERSION){
+      out.forcePolicy=FORCE_POLICY_VERSION;
+      if(allForcesKnown&&out.stufen.every(s=>s.forceBand))out.werte.forceBand={
+        Fmax_t:{min:Math.max(...out.stufen.map(s=>s.forceBand.t.min)),max:Math.max(...out.stufen.map(s=>s.forceBand.t.max))},
+        Fsum_t:{min:out.stufen.reduce((sum,s)=>sum+s.forceBand.t.min,0),max:out.stufen.reduce((sum,s)=>sum+s.forceBand.t.max,0)}
+      };
+      if(out.stufen.some(s=>s.forceStatus==='extrapoliert')){R('R-KF-EX');out.materialStatus.extrapolated=true;}
+      if(out.stufen.some(s=>s.r==='R-LOCH-RM'&&!pos(s.F)))out.hinweise.push('Für die Lochkraft fehlt Rm im Lieferzustand oder eine belegte Bandobergrenze.');
+    }
     const outsideCurve = m._flowIssues.some(x => x.reason === 'strain-outside-range');
     if (outsideCurve) {
       out.materialStatus.flow = 'strain-outside-range';
-      out.hinweise.push('Umformgrad außerhalb des belegten Fließkurvenbereichs. Betroffene Stationskräfte und die Pressenauslastung bleiben offen; keine Extrapolation.');
+      out.hinweise.push(m.forcePolicy===FORCE_POLICY_VERSION?'Umformgrad außerhalb des anwendbaren Fließkurvenbereichs einschließlich Extrapolation bis φ = 1,6. Betroffene Stationskräfte bleiben offen.':'Umformgrad außerhalb des belegten Fließkurvenbereichs. Betroffene Stationskräfte und die Pressenauslastung bleiben offen; keine Extrapolation.');
     }
     out.werte.forceReason = [!forceKnown ? flow.reason : '', outsideCurve ? 'Umformgrad außerhalb des belegten Fließkurvenbereichs' : '', !volumeKnown ? 'Innenantriebsvolumen fehlt' : '', drive && drive.forceStatus === 'missing' ? 'Profilabhängige Umformkraft des Innenantriebs fehlt' : '',geometryForceReason].filter(Boolean).join('; ') || null;
 
@@ -881,11 +958,12 @@
     // Werkzeugdruck und Armierung je Station
     R('R-PS'); R('R-AR');
     out.stufen.forEach((s, i) => {
-      if (!forceKnown || !Number.isFinite(s.F) || s.F <= 0) { s.F = s.t = s.p = s.pStempel = s.arm = null; return; }
+      if ((!forceKnown&&s.r!=='R-LOCH-RM') || !Number.isFinite(s.F) || s.F <= 0) { s.F = s.t = s.p = s.pStempel = s.arm = null; return; }
       if (s.A) {
         s.p = s.F / s.A;
+        if(s.forceBand)s.pBand={min:s.forceBand.min/s.A,max:s.forceBand.max/s.A,unit:'N/mm²'};
         s.arm = s.p <= 1000 ? 'ohne Ring' : s.p <= 1600 ? '1 Ring' : s.p <= 2160 ? '2 Ringe' : 'Sonderarmierung';
-        if (s.pStempel > 2200) out.hinweise.push('Station ' + (i + 1) + ': Innenantriebsstempel ' + Math.round(s.pStempel) + ' N/mm²' + (s.pStempel > 2500 ? ', über 2500 N/mm²: Antrieb im vorigen Schlag vorformen' : ', über 2200 N/mm²: Stempel aus Schnellarbeitsstahl, kurz geführt'));
+        if (s.pStempel > 2200) out.hinweise.push(m.forcePolicy===FORCE_POLICY_VERSION&&s.r==='R-F3'&&!/Innenantrieb/.test(s.v)?'Station '+(i+1)+': Napfstempel '+Math.round(s.pStempel)+' N/mm²'+(s.pStempel>2500?', über 2500 N/mm²: Napf vorformen oder Stufe teilen':', über 2200 N/mm²: Stempel aus Schnellarbeitsstahl, kurz geführt'):'Station ' + (i + 1) + ': Innenantriebsstempel ' + Math.round(s.pStempel) + ' N/mm²' + (s.pStempel > 2500 ? ', über 2500 N/mm²: Antrieb im vorigen Schlag vorformen' : ', über 2200 N/mm²: Stempel aus Schnellarbeitsstahl, kurz geführt'));
         if (s.p > 2500) out.hinweise.push('Station ' + (i + 1) + ': Werkzeugdruck ' + Math.round(s.p) + ' N/mm² über 2500 N/mm²; Stufe teilen oder Werkzeugkonzept im Fachgespräch');
         else if (s.p > 2200) out.hinweise.push('Station ' + (i + 1) + ': Werkzeugdruck ' + Math.round(s.p) + ' N/mm² über 2200 N/mm²; kurzer Stempel aus Schnellarbeitsstahl oder Hartmetall');
       }
@@ -937,6 +1015,7 @@
       else if (c === 'Wendelänge') add('machine-turning-length', c, 'Jern Yao', 'Zulässige Teillänge beim Wenden um 180° bestätigen.');
       else if (c === 'Mutterngröße') add('machine-nut-size', c, 'Jern Yao', 'Zulässigen Mutterngrößenbereich der Maschine bestätigen.');
       else if (c === 'Presskraft' || c === 'Summe der Stationskräfte') {
+        if(c==='Presskraft'&&check.forceSensitivity?.sensitive===true)add('forming-force-band',c,'Unsere Auslegung','Das Kraftband kann die Maschinenwahl ändern. Fließkurve und Umformweg für diese Baugröße gezielt bestätigen.');
         if (!pos(o.pw)) add('machine-force', 'Presskraft', 'Jern Yao', 'Nennpresskraft der Maschine bestätigen.');
         if (!pos(w.Fmax_t) || !pos(w.Fsum_t)) {
           const flow = a.materialStatus?.flow;
@@ -1003,9 +1082,13 @@
     } else add('Auswerfer Stempel (PKO)', 'ok', 'nicht nötig', pos(o.pko) ? zk(o.pko) + ' mm' : 'nicht im Katalog', 'R-PKO');
     // Presskraft
     const ausl = pos(w.Fmax_t) && pos(o.pw) ? w.Fmax_t / o.pw : null;
-    add('Presskraft', ausl === null ? 'offen' : ausl <= 0.65 ? 'ok' : ausl <= 1.0 ? 'knapp' : 'nein', ausl === null ? w.forceReason || 'Kraft noch offen' : z(w.Fmax_t) + ' t höchste Station', zk(o.pw) + ' t' + (ausl === null ? '; Kraftprüfung offen' : ', Auslastung ' + Math.round(ausl * 100) + ' %' + (ausl > 0.8 && ausl <= 1 ? ', über der Auslegungsgrenze 80 %' : '')), 'R-PK');
+    const forceSensitivity=e.forcePolicy===FORCE_POLICY_VERSION&&w.forceBand?.Fmax_t?forceSensitivitaet(w.forceBand.Fmax_t,o.pw):null;
+    add('Presskraft', forceSensitivity?.status||(ausl === null ? 'offen' : ausl <= 0.65 ? 'ok' : ausl <= 1.0 ? 'knapp' : 'nein'), ausl === null ? w.forceReason || 'Kraft noch offen' : z(w.Fmax_t) + ' t höchste Station', zk(o.pw) + ' t' + (ausl === null ? '; Kraftprüfung offen' : ', Auslastung ' + Math.round(ausl * 100) + ' %' + (ausl > 0.8 && ausl <= 1 ? ', über der Auslegungsgrenze 80 %' : '')), 'R-PK');
+    if(forceSensitivity){Object.assign(k.at(-1),{forceSensitivity,forceBand:w.forceBand.Fmax_t});if(forceSensitivity.sensitive!==null)k.at(-1).detail=forceSensitivity.sensitive?'Die Kraftbandgrenzen ändern den Prüfstatus dieser Maschine.':'Beide Kraftbandgrenzen ergeben denselben Prüfstatus.';}
     const auslSum = pos(w.Fsum_t) && pos(o.pw) ? w.Fsum_t / o.pw : null;
-    add('Summe der Stationskräfte', auslSum === null ? 'offen' : auslSum <= 1 ? 'ok' : 'knapp', auslSum === null ? 'Kraft noch offen' : z(w.Fsum_t) + ' t', auslSum === null ? w.forceReason || 'Kraft noch offen' : Math.round(auslSum * 100) + ' % der Nennkraft, je nach Zeitversatz der Stationen', 'R-PK');
+    const sumSensitivity=e.forcePolicy===FORCE_POLICY_VERSION&&w.forceBand?.Fsum_t?forceSensitivitaet(w.forceBand.Fsum_t,o.pw,true):null;
+    add('Summe der Stationskräfte', sumSensitivity?.status||(auslSum === null ? 'offen' : auslSum <= 1 ? 'ok' : 'knapp'), auslSum === null ? 'Kraft noch offen' : z(w.Fsum_t) + ' t', auslSum === null ? w.forceReason || 'Kraft noch offen' : Math.round(auslSum * 100) + ' % der Nennkraft, je nach Zeitversatz der Stationen', 'R-PK');
+    if(sumSensitivity){Object.assign(k.at(-1),{forceSensitivity:sumSensitivity,forceBand:w.forceBand.Fsum_t});if(sumSensitivity.sensitive!==null)k.at(-1).detail=sumSensitivity.sensitive?'Die Kraftbandgrenzen ändern den Prüfstatus dieser Maschine.':'Beide Kraftbandgrenzen ergeben denselben Prüfstatus.';}
     // Matrize
     if (o.die) {
       const vg = w.vorgaben || {};
@@ -1043,6 +1126,10 @@
       const mk = o.sz && /^M(\d+(?:\.\d+)?)$/.exec(o.sz);
       if (mk) add('Mutterngröße', w.mM <= +mk[1] ? 'ok' : 'knapp', 'M' + w.mM, 'bis ' + o.sz + (w.mM > +mk[1] ? ', Produktangabe des Katalogs, Rückfrage' : ''), 'Katalog');
       else add('Mutterngröße', 'offen', 'M' + w.mM, o.size || 'nicht im Katalog', 'Katalog');
+      if(mk&&o.szMeta?.status==='derived-unconfirmed'){
+        Object.assign(k.at(-1),{sourceStatus:'derived-unconfirmed',sourceOwner:'Jern Yao',confirmationRequired:true});
+        k.at(-1).detail=o.szMeta.heightCheck==='reference-product-only'?'Mutterngröße aus Abschnitt-Ø und Referenzproduktlänge abgeleitet; Größenbereich und nutzbare Produkthöhe durch Jern Yao bestätigen.':'Mutterngröße aus Abschnitt-Ø und Produktlänge abgeleitet; Größenbereich durch Jern Yao bestätigen.';
+      }
     }
     // Produktmaß ψ der Teile- und Mutternpressen (Katalog)
     if (o.ps && e.typ !== 'bolzen') add('Produktmaß (Katalog)', w.Dmax <= o.ps[0] && w.Lteil <= o.ps[1] ? 'ok' : 'knapp', 'Ø' + z(w.Dmax) + ' × ' + z(w.Lteil) + ' mm', 'ψ ' + zk(o.ps[0]) + ' × ' + zk(o.ps[1]) + ' mm', 'R-PR');
@@ -1142,6 +1229,7 @@
         number: index + 1,
         operation: stage.unassigned ? 'Zusatzoperation noch festzulegen' : stage.v,
         ...(stage.operationParts&&!stage.unassigned?{operationParts:[...stage.operationParts]}:{}),
+        ...(a.forcePolicy===FORCE_POLICY_VERSION?Object.fromEntries(['forceStatus','forceBand','forceExtrapolation','forceBasis','pStempel','pStempelBand','pBand'].filter(key=>stage[key]!==undefined).map(key=>[key,stage[key]])):{}),
         location: [...new Set(operations.map(detail => detail.location))].join('; '),
         operations,
         kind: stage.unassigned ? 'unassigned' : operations.length > 1 ? 'combined' : 'single'
@@ -1156,6 +1244,6 @@
     return result;
   }
 
-  const API = { WERKSTOFFE, GRENZEN, REGELN, FAMILIEN, PRAXIS_STANDARD, RM_POLICY_VERSION, rmVorbelegung, rmSensitivitaet, auslegen, boltGeometry, pruefe, waehle, maschinenKonzept, planung, kf, kfm, selectFlow, G, findMaterial };
+  const API = { WERKSTOFFE, GRENZEN, REGELN, FAMILIEN, PRAXIS_STANDARD, RM_POLICY_VERSION, FORCE_POLICY_VERSION, rmVorbelegung, rmSensitivitaet, forceSensitivitaet, flowExtrapolationFit, auslegen, boltGeometry, pruefe, waehle, maschinenKonzept, planung, kf, kfm, selectFlow, G, findMaterial };
   if (typeof module !== 'undefined' && module.exports) module.exports = API; else root.JYK = API;
 })(typeof globalThis !== 'undefined' ? globalThis : this);

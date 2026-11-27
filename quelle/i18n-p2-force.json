@@ -1,0 +1,128 @@
+{
+  "Belegte Fließkurve im Quellenbereich; darüber ausgewiesene Extrapolation bis φ = 1,6 mit Kraftband. Lochen aus 0,8 × Rm. Keine Änderung des Werkstoffs oder Lieferzustands.": [
+    "Curva di scorrimento documentata nel campo della fonte; oltre tale campo, estrapolazione esplicitamente indicata fino a φ = 1,6 con intervallo di forza. Tranciatura del foro calcolata con 0,8 × Rm. Nessuna modifica del materiale o dello stato di fornitura.",
+    "Dokumentirana krivulja tečenja v območju vira; nad njim izrecno označena ekstrapolacija do φ = 1,6 z območjem sile. Prebijanje izračunano z 0,8 × Rm. Material in dobavno stanje ostaneta nespremenjena.",
+    "Documented flow curve within the source range; beyond it, explicitly marked extrapolation up to φ = 1.6 with a force band. Piercing calculated from 0.8 × Rm. No change to the material or delivery condition.",
+    "在来源范围内采用有依据的流动曲线；超出该范围时，明确标注最高至φ = 1.6的外推及力的范围。冲孔按0.8 × Rm计算。不改变材料或交货状态。"
+  ],
+  "extrapoliert über φ {value}": [
+    "estrapolato oltre φ {value}",
+    "ekstrapolirano nad φ {value}",
+    "extrapolated beyond φ {value}",
+    "超出 φ {value} 后外推"
+  ],
+  "Kraftband {min}–{max} t": [
+    "Intervallo di forza {min}–{max} t",
+    "Območje sile {min}–{max} t",
+    "Force band {min}–{max} t",
+    "力的范围 {min}–{max} t"
+  ],
+  "Stempelpressung {value} N/mm²": [
+    "Pressione sul punzone {value} N/mm²",
+    "Tlak na pestiču {value} N/mm²",
+    "Punch pressure {value} N/mm²",
+    "冲头压力 {value} N/mm²"
+  ],
+  "Stempelpressung im Band {min}–{max} N/mm²": [
+    "Pressione sul punzone nell’intervallo {min}–{max} N/mm²",
+    "Tlak na pestiču v območju {min}–{max} N/mm²",
+    "Punch pressure band {min}–{max} N/mm²",
+    "冲头压力范围 {min}–{max} N/mm²"
+  ],
+  "Stempel {value}": [
+    "Punzone {value}",
+    "Pestič {value}",
+    "Punch {value}",
+    "冲头 {value}"
+  ],
+  "Formdruck {value} N/mm²": [
+    "Pressione di formatura {value} N/mm²",
+    "Tlak preoblikovanja {value} N/mm²",
+    "Forming pressure {value} N/mm²",
+    "成形压力 {value} N/mm²"
+  ],
+  "Kraftansatz": [
+    "Base di calcolo della forza",
+    "Osnova izračuna sile",
+    "Force calculation basis",
+    "力的计算依据"
+  ],
+  "Lochen: F = π · Loch-Ø · Butzendicke · 0,8 · Rm. Rm aus Kundenangabe, Richtwert oder belegter Bandobergrenze; Kraft in N bei mm und N/mm².": [
+    "Tranciatura del foro: F = π · Ø del foro · spessore del fondello · 0,8 · Rm. Rm da dato del cliente, valore indicativo o limite superiore documentato dell’intervallo; forza in N con mm e N/mm².",
+    "Prebijanje: F = π · Ø luknje · debelina dna · 0,8 · Rm. Rm iz podatka naročnika, orientacijske vrednosti ali dokumentirane zgornje meje območja; sila v N pri mm in N/mm².",
+    "Piercing: F = π · hole Ø · slug thickness · 0.8 · Rm. Rm from customer input, a guideline value or a documented upper band limit; force in N with mm and N/mm².",
+    "冲孔：F = π · 孔径 · 冲孔连皮厚度 · 0.8 · Rm。Rm采用客户提供值、参考值或有依据的范围上限；长度单位为mm、强度单位为N/mm²时，力的单位为N。"
+  ],
+  "Scherkraft-Näherung": [
+    "Stima della forza di taglio",
+    "Približek strižne sile",
+    "Shear-force estimate",
+    "剪切力估算"
+  ],
+  "Fließkurve oberhalb ihres belegten Bereichs: kf = C · φ^n, logarithmischer Fit über das obere Drittel der belegten Kurve, höchstens bis Gesamtdehnung φ = 1,6. Kraftband zwischen Fit und konstantem kf am Quellenende; Maschinenprüfung an beiden Bandenden.": [
+    "Curva di scorrimento oltre il campo documentato: kf = C · φ^n, regressione logaritmica sul terzo superiore della curva documentata, fino a una deformazione totale massima φ = 1,6. Intervallo di forza tra la regressione e kf costante al limite della fonte; verifica della macchina a entrambi gli estremi.",
+    "Krivulja tečenja nad dokumentiranim območjem: kf = C · φ^n, logaritemski približek po zgornji tretjini dokumentirane krivulje, največ do skupne deformacije φ = 1,6. Območje sile med približkom in konstantnim kf na koncu dokumentiranega območja; preverjanje stroja na obeh mejah.",
+    "Flow curve beyond its documented range: kf = C · φ^n, logarithmic fit over the upper third of the documented curve, up to a total strain of φ = 1.6. Force band between the fit and constant kf at the source endpoint; machine checked at both band limits.",
+    "超出有依据范围的流动曲线：kf = C · φ^n，对有依据曲线上三分之一区间进行对数拟合，累计应变最高为φ = 1.6。力的范围由拟合延伸和来源区间终点的恒定kf确定；在范围两端进行机器校核。"
+  ],
+  "Gekennzeichnete Extrapolation": [
+    "Estrapolazione esplicitamente indicata",
+    "Izrecno označena ekstrapolacija",
+    "Explicitly marked extrapolation",
+    "明确标注的外推"
+  ],
+  "Für die Lochkraft fehlt Rm im Lieferzustand oder eine belegte Bandobergrenze.": [
+    "Per la forza di tranciatura manca Rm nello stato di fornitura o un limite superiore documentato dell’intervallo.",
+    "Za silo prebijanja manjka Rm v dobavnem stanju ali dokumentirana zgornja meja območja.",
+    "The piercing force requires Rm in the delivery condition or a documented upper band limit.",
+    "计算冲孔力还缺少交货状态的Rm或有依据的范围上限。"
+  ],
+  "Die Kraftbandgrenzen ändern den Prüfstatus dieser Maschine.": [
+    "I limiti dell’intervallo di forza cambiano l’esito della verifica di questa macchina.",
+    "Meji območja sile spremenita rezultat preverjanja tega stroja.",
+    "The force band limits change this machine’s check status.",
+    "力范围的两个端点使该机器的校核状态不同。"
+  ],
+  "Beide Kraftbandgrenzen ergeben denselben Prüfstatus.": [
+    "Entrambi i limiti dell’intervallo di forza danno lo stesso esito di verifica.",
+    "Obe meji območja sile dajeta enak rezultat preverjanja.",
+    "Both force band limits give the same check status.",
+    "力范围的两个端点得出相同的校核状态。"
+  ],
+  "Das Kraftband kann die Maschinenwahl ändern. Fließkurve und Umformweg für diese Baugröße gezielt bestätigen.": [
+    "L’intervallo di forza può cambiare la scelta della macchina. Confermare la curva di scorrimento e il percorso di formatura per questa taglia.",
+    "Območje sile lahko spremeni izbiro stroja. Za to velikost stroja ciljno potrditi krivuljo tečenja in potek preoblikovanja.",
+    "The force band can change the machine choice. Confirm the flow curve and forming route specifically for this machine size.",
+    "力的范围可能改变机器选择。应针对该机型规格确认流动曲线和成形工艺路线。"
+  ],
+  "Umformgrad außerhalb des anwendbaren Fließkurvenbereichs einschließlich Extrapolation bis φ = 1,6. Betroffene Stationskräfte bleiben offen.": [
+    "Deformazione oltre il campo applicabile della curva di scorrimento, inclusa l’estrapolazione fino a φ = 1,6. Le forze delle stazioni interessate restano da definire.",
+    "Deformacija je zunaj uporabnega območja krivulje tečenja, vključno z ekstrapolacijo do φ = 1,6. Sile prizadetih postaj ostajajo nedoločene.",
+    "Strain is outside the applicable flow-curve range, including extrapolation up to φ = 1.6. The affected station forces remain unresolved.",
+    "应变超出流动曲线的适用范围，包含最高至φ = 1.6的外推。相关工位力仍待确定。"
+  ],
+  "Mutterngröße aus Abschnitt-Ø und Referenzproduktlänge abgeleitet; Größenbereich und nutzbare Produkthöhe durch Jern Yao bestätigen.": [
+    "Taglia del dado ricavata dal Ø di taglio e dalla lunghezza prodotto di riferimento; Jern Yao deve confermare la gamma dimensionale e l’altezza utile del prodotto.",
+    "Velikost matice izpeljana iz premera odreza in referenčne dolžine izdelka; Jern Yao naj potrdi območje velikosti in uporabno višino izdelka.",
+    "Nut size derived from cutoff Ø and reference product length; Jern Yao to confirm the size range and usable product height.",
+    "螺母规格根据切断直径和参考制品长度推导；由键财确认规格范围及可用制品高度。"
+  ],
+  "Mutterngröße aus Abschnitt-Ø und Produktlänge abgeleitet; Größenbereich durch Jern Yao bestätigen.": [
+    "Taglia del dado ricavata dal Ø di taglio e dalla lunghezza del prodotto; Jern Yao deve confermare la gamma dimensionale.",
+    "Velikost matice izpeljana iz premera odreza in dolžine izdelka; Jern Yao naj potrdi območje velikosti.",
+    "Nut size derived from cutoff Ø and product length; Jern Yao to confirm the size range.",
+    "螺母规格根据切断直径和制品长度推导；由键财确认规格范围。"
+  ],
+  "Station {station}: Napfstempel {pressure} N/mm², über 2500 N/mm²: Napf vorformen oder Stufe teilen": [
+    "Stazione {station}: punzone di estrusione inversa {pressure} N/mm², oltre 2500 N/mm²: preformare la cavità o suddividere la fase",
+    "Postaja {station}: pestič za vzvratno iztiskavanje {pressure} N/mm², nad 2500 N/mm²: predoblikovati votlino ali razdeliti stopnjo",
+    "Station {station}: backward-extrusion punch {pressure} N/mm², above 2500 N/mm²: preform the cup or split the stage",
+    "工位{station}：反挤压冲头{pressure} N/mm²，超过2500 N/mm²：先预成形杯形腔或拆分工位"
+  ],
+  "Station {station}: Napfstempel {pressure} N/mm², über 2200 N/mm²: Stempel aus Schnellarbeitsstahl, kurz geführt": [
+    "Stazione {station}: punzone di estrusione inversa {pressure} N/mm², oltre 2200 N/mm²: punzone in acciaio rapido, con tratto libero corto e ben guidato",
+    "Postaja {station}: pestič za vzvratno iztiskavanje {pressure} N/mm², nad 2200 N/mm²: pestič iz hitroreznega jekla, s kratkim nepodprtim delom in vodilom",
+    "Station {station}: backward-extrusion punch {pressure} N/mm², above 2200 N/mm²: high-speed steel punch with a short unsupported length and close guidance",
+    "工位{station}：反挤压冲头{pressure} N/mm²，超过2200 N/mm²：采用高速钢冲头，缩短无支承长度并提供紧密导向"
+  ]
+}

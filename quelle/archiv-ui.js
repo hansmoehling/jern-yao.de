@@ -198,7 +198,7 @@
     const variant=selectedVariant();
     const e = {
       typ: typ(), wst: variant?.index, curveId: variant?.curve.id, materialState:variant?.curve.state, rm: g('rm'), d0: g('d0'),
-      ...(staged?{machinePolicy:'ranking-v2',rmPolicy:E.RM_POLICY_VERSION,inputOrigins:{d0:wireMode==='custom'?{origin:'customer'}:wireOption?{origin:'assumption',provisional:true,reason:defaultText(wireOption)}:null}}:{}),
+      ...(staged?{machinePolicy:'ranking-v2',forcePolicy:'force-v2',rmPolicy:E.RM_POLICY_VERSION,inputOrigins:{d0:wireMode==='custom'?{origin:'customer'}:wireOption?{origin:'assumption',provisional:true,reason:defaultText(wireOption)}:null}}:{}),
       standardKind:typ()==='bolzen'?f.elements.standardKind?.value||'screw':undefined,standardReference:typ()==='mutter'?f.elements.nutNorm?.value:f.elements.standardNorm?.value,threadFamily:typ()==='bolzen'?gewindeFamilie():undefined,
       wirePreparation:f.elements.wirePreparation.value||'as-supplied',rodDiameter:f.elements.wirePreparation.value==='inline-drawing'?g('rodDiameter'):undefined,
       kopfForm: f.elements.kopfForm.value, kD: g('kD'), kSW: g('kSW'), kH: g('kH'), kVol:f.elements.kopfForm.value==='krallen'?g('kVol'):undefined,sD: g('sD'), sL: g('sL'),
@@ -367,7 +367,14 @@
     if (e.typ !== 'mutter') kenn.splice(3, 0, ['Stauchverhältnis Kopf', w.sKopf ? fmt(w.sKopf, 2) : '·']);
     rendered($('kenn'),kenn.map(([k, v]) => '<div><dt>' + h(k) + '</dt><dd>' + v + '</dd></div>').join(''));
     for(const [id,text]of [['stages-heading',aus.qualitative?'Qualitative Operationsfolge':'Stadienfolge'],['stage-column-heading',aus.qualitative?'Arbeitsschritt':'Station']]){$(id).dataset.originalText='';$(id).textContent=tr(text);}
-    rendered($('stufen').tBodies[0],aus.stufen.map((s, i) => '<tr><td>' + (i + 1) + '</td><td>' + esc(window.JYConcept.stageText(s,L.language)) + '</td><td class="z">' + (s.t==null?h('Kraft noch offen'):fmt(s.t)+' t') + '</td><td class="z">' + (s.p==null?h('nicht belegt'):fmt(s.p,0)) + '</td><td class="z">Ø' + (s.matD==null?h('nicht belegt'):rounded(s.matD)) + (s.arm ? '<br><small>' + h(s.arm) + '</small>' : '') + '</td></tr>').join(''));
+    rendered($('stufen').tBodies[0],aus.stufen.map((s, i) => {
+      const force=window.JYConcept.forceText(s,L.language),details=[force.band,force.pressureBand].filter(Boolean);
+      const status=force.status?'<br><small class="stage-force-status">'+esc(force.status)+'</small>':'';
+      const band=details.length?'<details class="stage-force-details"><summary>'+h('Kraftansatz')+'</summary>'+details.map(text=>'<div class="klein">'+esc(text)+'</div>').join('')+'</details>':'';
+      const pressure=force.pressure?'<br><small>'+esc(msg('Stempel {value}',{value:fmt(s.pStempel,0)}))+'</small>':'';
+      const formPressure=force.pressure&&Number.isFinite(s.p)?'<span title="'+esc(msg('Formdruck {value} N/mm²',{value:fmt(s.p,0)}))+'">'+fmt(s.p,0)+'</span>':s.p==null?h('nicht belegt'):fmt(s.p,0);
+      return '<tr><td>' + (i + 1) + '</td><td>' + esc(window.JYConcept.stageText(s,L.language)) + status + band + '</td><td class="z">' + (s.t==null?h('Kraft noch offen'):fmt(s.t)+' t') + '</td><td class="z">' + formPressure + pressure + '</td><td class="z">Ø' + (s.matD==null?h('nicht belegt'):rounded(s.matD)) + (s.arm ? '<br><small>' + h(s.arm) + '</small>' : '') + '</td></tr>';
+    }).join(''));
     // Karten
     const k = [];
     const rankingOptions={tr,fmt,eur,showPrices,practice:PRAXIS,requirements:{blankDiameter:w.d0,blankLength:w.L0,stations:w.stationen,partLength:w.Lteil,knockoutLength:w.ko,demandPerMinute:e.soll?.ausbringung}};
@@ -517,7 +524,12 @@
     field('Stationen',fmt(w.stationen,0)+(w.stationen==null?'':' (+1 '+tr('Reserve')+')'));
     field('Höchste Stationskraft',force(w.Fmax_t));field('Nennkraft nötig',force(w.FN_muss_t));
     if(aus.qualitative)lines.push(tr('Qualitative Operationsfolge'));
-    aus.stufen.forEach((stage,index)=>lines.push('  '+(aus.qualitative?tr('Arbeitsschritt')+' ':'')+(index+1)+'. '+window.JYConcept.stageText(stage,L.language)+': '+force(stage.t)));
+    aus.stufen.forEach((stage,index)=>{
+      lines.push('  '+(aus.qualitative?tr('Arbeitsschritt')+' ':'')+(index+1)+'. '+window.JYConcept.stageText(stage,L.language)+': '+force(stage.t));
+      const basis=window.JYConcept.forceText(stage,L.language);
+      const details=[basis.status,basis.band,basis.pressure,basis.pressureBand].filter(Boolean);
+      if(details.length)lines.push('    '+details.join('; '));
+    });
     lines.push('',tr('Vorauswahl:'));
     const top=selected?[selected]:wahl.ranking?[wahl.ranking.recommendation,...wahl.ranking.alternatives].filter(Boolean):[...wahl.passend.slice(0,3),...(wahl.passend.length?[]:wahl.bedingt.slice(0,3))];
     const status={ok:'passt',knapp:'knapp',offen:'Klärung nötig',nein:'passt nicht'};

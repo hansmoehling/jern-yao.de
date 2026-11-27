@@ -417,7 +417,7 @@ test('queue sends Hans independently, idempotently, fixed recipient, and does no
 });
 test('legacy queued analysis survives failed mail; exhaustion sets failed and retries toward DLQ',async t=>{
  const e=env(),a=await posted(e);let ai=0;
- const legacy=JSON.parse(await e.SPEICHER.get('anfrage:'+a.id));delete legacy.kind;await e.SPEICHER.put('anfrage:'+a.id,JSON.stringify(legacy));
+  const legacy=JSON.parse(await e.SPEICHER.get('anfrage:'+a.id));delete legacy.kind;delete legacy.forcePolicy;await e.SPEICHER.put('anfrage:'+a.id,JSON.stringify(legacy));
  fakeFetch(t,async(url)=>{
   if(url.includes('resend'))return Response.json({error:'failure'},{status:500});
   return ai++===0?reply(tool('projektwissen')):reply(final('Welche Werkstoffbezeichnung steht auf Ihrer Zeichnung?',['Welches Material?']));
