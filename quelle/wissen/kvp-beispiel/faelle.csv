@@ -1,0 +1,3 @@
+fall_id;synthetisch;klasse;topologie;werkstoffgruppe;draht_mm;abschnitt_mm;rm_MPa;kopfvolumenanteil;stauch_h0_d0_max;napf_t_d;reduktion_max;restwand_d;stempelpressung_MPa;maschine;ergebnis;plan_stadien;hubzahl_min;ausbringung_plan;ausbringung_ist;ausbringung_einheit;quelle_art
+SYN-0001;ja;schraube;kopf-schaft;borstahl;5,6;43;430;0,35;2,2;;0,1;;;JBF-10B3S;nur_konzept;3;;;;;synthetisch
+SYN-0002;ja;mutter;mutter-durchgang;unlegiert-weich;13;10,5;350;;;0,6;;0,2;;JNF-13B5SL;nur_konzept;5;;;;;synthetisch

@@ -24,7 +24,8 @@ const checked=(value,[min,max],code='invalid_learning_number')=>{
 };
 const enumValue=(value,values)=>{if(!values.includes(value))error('invalid_learning_enum');return value;};
 const date=value=>typeof value==='string'&&/^\d{4}-\d{2}-\d{2}$/.test(value)&&Number.isFinite(Date.parse(value))&&new Date(value).toISOString().slice(0,10)===value;
-const approved=raw=>raw?.freigegeben===true&&raw?.freigabe?.von==='Hans'&&date(raw.freigabe.am);
+const synthetic=raw=>raw?.synthetic===true||raw?.recordType==='synthetic-example'||/^SYN-/.test(raw?.id||'');
+const approved=raw=>!synthetic(raw)&&raw?.knowledgeEligible!==false&&raw?.freigegeben===true&&raw?.freigabe?.von==='Hans'&&date(raw.freigabe.am);
 const manifestReady=manifest=>manifest?.schemaVersion===1&&approved(manifest)&&typeof manifest.version==='string'&&/^[a-zA-Z0-9][a-zA-Z0-9._-]{0,63}$/.test(manifest.version);
 function rejectUnknown(raw,keys){if(!object(raw)||Object.keys(raw).some(key=>!keys.includes(key)))error('invalid_learning_fields');}
 function numbers(raw,limits){
@@ -174,6 +175,7 @@ export async function loadLearning(env){
     if(cases!==undefined||manifest.casesKey!=='kvp:cases:'+manifest.version)error('invalid_learning_snapshot');
     const saved=parseSnapshot(await env.SPEICHER.get(manifest.casesKey));
     if(saved?.schemaVersion!==1||saved.version!==manifest.version)error('invalid_learning_snapshot');
+    if(synthetic(saved)||saved.knowledgeEligible===false)return {status:'pending-approval',manifest:null,cases:[]};
     cases=saved.cases;
   }
   if(!Array.isArray(cases)||cases.length>2000)error('invalid_learning_snapshot');
@@ -296,6 +298,7 @@ export function monthlyReport(cases,decisions,feedbackRecords,{manifest,month}={
   for(const c of Array.isArray(cases)?cases:[])if(monthIds.has(c?.id)){const kind=SOURCE_KINDS.includes(c.quelle?.art)?c.quelle.art:'unspecified';sources[kind]=(sources[kind]||0)+1;}
   const feedback=[],feedbackCounts={};
   for(const f of Array.isArray(feedbackRecords)?feedbackRecords:[]){
+    if(synthetic(f))continue;
     if(!date(f?.recordedOn)||!f.recordedOn.startsWith(month))continue;
     try{
       const clean=prepareFeedback({optIn:f.optIn,source:f.source,features:f.features,feedback:f.feedback,...(f.predictedStages!==undefined?{predictedStages:f.predictedStages}:{}),...(f.actualStages!==undefined?{actualStages:f.actualStages}:{})});

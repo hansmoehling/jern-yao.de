@@ -1,0 +1,9 @@
+fall_id;station;operation;h0_d0;reduktion;napf_t_d;restwand_d;stempelpressung_MPa;kraft_gerechnet_kN;kraft_gemessen_kN
+SYN-0001;1;Abscheren, Planstauchen;1,1;;;;;;
+SYN-0001;2;Vorstauchen Kopf;2,2;;;;;;
+SYN-0001;3;Fertigstauchen, Antrieb prägen;;;;;;;
+SYN-0002;1;Planstauchen;;;;;;;
+SYN-0002;2;Vorstauchen rund;;;;;;;
+SYN-0002;3;Sechskant formen;;;;;;;
+SYN-0002;4;Napf vertiefen;;;0,6;0,2;;;
+SYN-0002;5;Butzen auslochen;;;;;;;

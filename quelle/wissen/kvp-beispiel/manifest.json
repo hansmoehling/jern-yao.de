@@ -1,0 +1,163 @@
+{
+  "schemaVersion": 1,
+  "version": "kvp-beispiel-v1",
+  "recordType": "import-review-manifest",
+  "synthetic": true,
+  "status": "ungeprueft",
+  "knowledgeEligible": false,
+  "freigegeben": false,
+  "freigabe": null,
+  "approvalRequired": "Hans",
+  "cases": [
+    {
+      "schemaVersion": 1,
+      "id": "SYN-0001",
+      "klasse": "schraube",
+      "topologie": "kopf-schaft",
+      "merkmale": {
+        "d0": 5.6,
+        "L0_d0": 7.678571428571429,
+        "kopfvolumenanteil": 0.35,
+        "stauch_h0_d0_max": 2.2,
+        "reduktion_max": 0.1,
+        "rm": 430,
+        "werkstoffgruppe": "borstahl"
+      },
+      "stadien": [
+        {
+          "nr": 1,
+          "operation": "Abscheren, Planstauchen",
+          "kennzahlen": {
+            "h0_d0": 1.1
+          }
+        },
+        {
+          "nr": 2,
+          "operation": "Vorstauchen Kopf",
+          "kennzahlen": {
+            "h0_d0": 2.2
+          }
+        },
+        {
+          "nr": 3,
+          "operation": "Fertigstauchen, Antrieb prägen",
+          "kennzahlen": {}
+        }
+      ],
+      "maschine": {
+        "modell": "JBF-10B3S",
+        "stationen": 3,
+        "familie": "JBF"
+      },
+      "ergebnis": {
+        "status": "nur_konzept"
+      },
+      "predictedStages": 3,
+      "synthetic": true,
+      "recordType": "synthetic-example",
+      "status": "ungeprueft",
+      "knowledgeEligible": false,
+      "freigegeben": false,
+      "freigabe": null,
+      "quelle": {
+        "art": "synthetisch",
+        "ref": "SYN-0001"
+      },
+      "importEvidence": {
+        "units": {
+          "draht_mm": "mm",
+          "abschnitt_mm": "mm",
+          "rm_MPa": "N/mm²",
+          "kraft": "kN",
+          "hubzahl_min": "min⁻¹"
+        },
+        "blank": {
+          "diameter_mm": 5.6,
+          "length_mm": 43
+        },
+        "featureDerivation": {
+          "L0_d0": "abschnitt_mm / draht_mm"
+        }
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "id": "SYN-0002",
+      "klasse": "mutter",
+      "topologie": "mutter-durchgang",
+      "merkmale": {
+        "d0": 13,
+        "L0_d0": 0.8076923076923077,
+        "napf_t_d": 0.6,
+        "rm": 350,
+        "restwand_d": 0.2,
+        "werkstoffgruppe": "unlegiert-weich"
+      },
+      "stadien": [
+        {
+          "nr": 1,
+          "operation": "Planstauchen",
+          "kennzahlen": {}
+        },
+        {
+          "nr": 2,
+          "operation": "Vorstauchen rund",
+          "kennzahlen": {}
+        },
+        {
+          "nr": 3,
+          "operation": "Sechskant formen",
+          "kennzahlen": {}
+        },
+        {
+          "nr": 4,
+          "operation": "Napf vertiefen",
+          "kennzahlen": {
+            "napf_t_d": 0.6,
+            "restwand_d": 0.2
+          }
+        },
+        {
+          "nr": 5,
+          "operation": "Butzen auslochen",
+          "kennzahlen": {}
+        }
+      ],
+      "maschine": {
+        "modell": "JNF-13B5SL",
+        "stationen": 5,
+        "familie": "JNF"
+      },
+      "ergebnis": {
+        "status": "nur_konzept"
+      },
+      "predictedStages": 5,
+      "synthetic": true,
+      "recordType": "synthetic-example",
+      "status": "ungeprueft",
+      "knowledgeEligible": false,
+      "freigegeben": false,
+      "freigabe": null,
+      "quelle": {
+        "art": "synthetisch",
+        "ref": "SYN-0002"
+      },
+      "importEvidence": {
+        "units": {
+          "draht_mm": "mm",
+          "abschnitt_mm": "mm",
+          "rm_MPa": "N/mm²",
+          "kraft": "kN",
+          "hubzahl_min": "min⁻¹"
+        },
+        "blank": {
+          "diameter_mm": 13,
+          "length_mm": 10.5
+        },
+        "featureDerivation": {
+          "L0_d0": "abschnitt_mm / draht_mm"
+        }
+      }
+    }
+  ]
+}

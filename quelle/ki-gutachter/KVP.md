@@ -38,6 +38,12 @@ Every retrieved case separately needs an F-number, explicit approval by Hans, en
 
 Approved manifest `bands` are returned only when each band also has Hans's approval, matching class/topology/material context, a supported metric and valid numerical bounds. New `experienceBand()` output is never active: below five successful cases it reports the literature limit, from five it proposes minimum/p90 bounds shrunk towards that limit with a disclosed prior weight. Marginal and failed outcomes remain separate zones.
 
+## Preparing the private start data
+
+`../wissen/import_kvp.mjs` accepts two UTF-8 semicolon-separated CSV files (cases and stations) and a version beginning with `kvp-`. It returns a typed, anonymous review manifest on stdout. It does not upload, write storage, approve cases or publish knowledge. Column names include their units; the blank ratio is calculated from diameter and length. Unknown columns, duplicate cases/stations, gaps, unknown models and incomplete throughput pairs fail the import. Optional empty cells remain unknown.
+
+`../wissen/kvp-beispiel/` contains two explicitly synthetic examples, a reproducible manifest, and a German column guide for Hans. All imports start unreviewed, `freigegeben:false` and `knowledgeEligible:false`. Real private cases require separate approval and eligibility after source review. Synthetic markers at case, decision, band or snapshot level block use as experience, even when an approval flag is accidentally set; synthetic feedback is excluded from the monthly response counts. No synthetic example is a manufacturing result or a measured calibration sample.
+
 ## Review calculations
 
 `calibrationProposal()` groups measured/recomputed force ratios by the same operation and material group. It reports median and p10/p90. Throughput records must state planned and measured units (`strokes-per-minute` or `pieces-per-minute`); mismatched units are excluded. Throughput groups keep catalog model and an explicit wire diameter class. No empirical factor changes the engine automatically.
